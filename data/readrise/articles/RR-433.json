@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How a football coach trains players every week",
+            "How a football coach trains players every week for a big match",
             "A boy who misses a goal but still helps his team win",
             "The long history of football around the world",
             "How the first football game was ever played"
@@ -296,7 +296,7 @@
             "Yousef loses focus after a missed shot, but his team's support helps him recover.",
             "Yousef's team wins the match without any practice beforehand, so he never needs to try again.",
             "The article mainly explains the official rules of football matches, such as fouls and kicks.",
-            "Khalid is the star of the team and never makes any mistakes, so he is the one who helps."
+            "Khalid is the star of the team and makes few mistakes, so he is the one who helps."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "He benches Yousef for the rest of the whole match",
             "He argues loudly with the referee about the score",
             "He talks to the team calmly about strategy and encourages them",
-            "He tells the whole team that the match is already lost"
+            "He tells the whole team that the match is already lost before halftime"
           ],
           "answer": "C",
           "skill": "detail",
@@ -381,7 +381,7 @@
             "Teammates can help each other recover from setbacks",
             "One single mistake can ruin an entire team's whole game",
             "Only the coach's words matter in a match",
-            "Teams succeed only when no one makes mistakes"
+            "Teams succeed when players avoid mistakes"
           ],
           "answer": "A",
           "skill": "inference",
@@ -525,7 +525,7 @@
           "options": [
             "He felt his composure crumble and lost focus",
             "He felt confident and unaffected",
-            "He immediately asked to leave the match",
+            "He immediately asked to leave the match and go home",
             "He blamed Khalid for the missed chance"
           ],
           "answer": "A",
@@ -576,7 +576,7 @@
           "options": [
             "Because the team's recovery depended on everyone's continued effort",
             "Because Yousef alone scored every goal in the match, with no help from the team",
-            "Because the coach alone made every decision for the team during the game",
+            "Because the coach made the decisions for the team during the game",
             "Because the crowd alone decided who would win the game with their noise"
           ],
           "answer": "A",

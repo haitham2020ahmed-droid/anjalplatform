@@ -117,7 +117,7 @@
             "Sharks are mean monsters that hunt people, and they should be kept away.",
             "Sharks are fish that hunt to live, and they need our help.",
             "All sharks are about the size of a big school bus and weigh tons.",
-            "Sharks live only in rivers and lakes, and never go into the sea."
+            "Sharks live in rivers and lakes, and they rarely swim into the sea."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -202,7 +202,7 @@
             "To show how people often feel scared of sharks",
             "To teach how fins are made",
             "To tell readers to stay out of the sea",
-            "To show that sharks are the fastest fish"
+            "To show that sharks are the fastest fish in the whole sea"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -218,7 +218,7 @@
           "options": [
             "People, because sharks hunt them on beaches every day",
             "Sharks, because people catch huge numbers of them",
-            "Both are in no danger at all",
+            "Both are in no danger",
             "Whale sharks, because they eat other sharks"
           ],
           "answer": "B",
@@ -295,7 +295,7 @@
           "options": [
             "Sharks are dangerous monsters that should be avoided.",
             "Sharks are often feared, but they are important hunters that need protection.",
-            "Whale sharks are the only sharks that are worth saving from fishing.",
+            "Whale sharks are the only sharks that are worth saving from fishing in many seas.",
             "Sharks have bones like other fish."
           ],
           "answer": "B",
@@ -380,7 +380,7 @@
           "options": [
             "It eats tiny plankton instead of hunting larger prey.",
             "It has bones instead of cartilage like other sharks.",
-            "It has no teeth at all.",
+            "It has no teeth.",
             "It only lives in rivers."
           ],
           "answer": "A",
@@ -398,7 +398,7 @@
             "By telling events in the order they happened",
             "By comparing sharks with dolphins",
             "By giving facts that correct common fears about sharks",
-            "By listing the steps people take to catch a shark"
+            "By listing the steps people take to catch a shark with nets"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -474,8 +474,8 @@
           "options": [
             "Sharks deserve their frightening reputation, because they attack swimmers and boats all over the ocean each year.",
             "Sharks are ancient, misunderstood predators that the ocean needs and that people now endanger.",
-            "Sharks have changed completely since the time of the dinosaurs, and they now look nothing like their old kin.",
-            "Sharks survive mainly by eating plankton from the sea water, and they never hunt any fish or seals at all."
+            "Sharks have changed since the time of the dinosaurs, and they now look quite unlike their kin.",
+            "Sharks survive mainly by eating plankton from the sea water, so they rarely hunt fish or seals."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -526,7 +526,7 @@
             "Most sharks grow slowly and have few young.",
             "Sharks lose thousands of teeth, which makes them weak.",
             "Sharks eat only plankton.",
-            "Sharks live only in the Red Sea."
+            "Sharks live in a small part of the ocean."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -592,7 +592,7 @@
           "stem": "How does the author compare the danger sharks pose to people with the danger people pose to sharks?",
           "options": [
             "Both dangers are equal.",
-            "Sharks are a greater danger to people.",
+            "Sharks are a greater danger to people in the sea.",
             "People are a far greater threat to sharks.",
             "The article does not compare them."
           ],

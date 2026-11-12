@@ -149,7 +149,7 @@
           "stem": "How many times may a team touch the ball before it must cross back over the net?",
           "options": [
             "Only once",
-            "Only twice",
+            "Twice",
             "Four times",
             "Three times"
           ],
@@ -199,7 +199,7 @@
         {
           "stem": "Why do players rotate positions during a game?",
           "options": [
-            "So the tallest player always serves",
+            "So the tallest player serves each time",
             "So everyone gets a turn in each position",
             "So the game lasts longer",
             "So the net moves higher"
@@ -296,7 +296,7 @@
             "Teamwork and science both help players succeed at volleyball",
             "Volleyball was invented in a gym in 1895",
             "Setters are far more important than every hitter on the team",
-            "Beach volleyball is only popular in Saudi Arabia"
+            "Beach volleyball is most popular in Saudi Arabia"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,9 +310,9 @@
         {
           "stem": "What happens when a server imparts spin to the ball during a serve?",
           "options": [
-            "The ball always goes slower",
+            "The ball goes slower",
             "The ball can curve or float unpredictably",
-            "The ball always bounces much higher than normal",
+            "The ball bounces much higher than normal",
             "The serve becomes illegal"
           ],
           "answer": "B",
@@ -412,7 +412,7 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a story about one specific match from start to finish",
+            "As a story about one specific match from start to finish in a big city",
             "As a comparison between volleyball and basketball",
             "As a list of famous volleyball players",
             "By explaining the science behind one part of the game at a time"
@@ -474,7 +474,7 @@
           "options": [
             "Volleyball skills depend on physics such as trajectory, spin, velocity, and coordination",
             "Volleyball was invented to give older gym members a gentler sport to play",
-            "Diving players should always wear knee pads on the hard floor and on the sand",
+            "Diving players should wear knee pads on the hard floor and on the sand",
             "Teams should rotate players only during practice sessions, and never during a game"
           ],
           "answer": "A",
@@ -506,10 +506,10 @@
         {
           "stem": "In the article, what does the word \"topspin\" mean?",
           "options": [
-            "A serve hit with no spin at all, so it floats in the air",
+            "A serve hit with no spin, so it floats in the air",
             "A slow, gentle hit near the net that barely clears it",
             "A forward spin that makes the ball dip or curve downward",
-            "A hit that always goes out of bounds over the back line"
+            "A hit that goes out of bounds over the back line"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -557,10 +557,10 @@
         {
           "stem": "How does a flat serve compare with a serve hit using topspin?",
           "options": [
-            "A flat serve always travels faster than a topspin serve, and it never bounces high",
+            "A flat serve travels faster than a topspin serve, and it never bounces high",
             "A flat serve follows a straight, predictable path, while a topspin serve dips sharply downward",
-            "Both serves follow the exact same trajectory through the air, so there is no difference at all",
-            "A topspin serve cannot be returned at all, because it moves too fast for a player to see"
+            "Both serves follow the exact same trajectory through the air, so there is no difference",
+            "A topspin serve is hard to return, because it moves too fast for a player to see"
           ],
           "answer": "B",
           "skill": "compare",

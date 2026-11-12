@@ -218,8 +218,8 @@
      "options": [
       "They can move and talk all by themselves",
       "They need a puppeteer to seem alive",
-      "They are only found in Indonesia",
-      "They can only be made from paper"
+      "They are found mostly in Indonesia",
+      "They are made from paper"
      ],
      "answer": "B",
      "skill": "inference",
@@ -296,7 +296,7 @@
       "Puppeteers use skill and tradition to make objects seem alive.",
       "Only children living in Indonesia are ever allowed to watch any puppet show.",
       "Puppets were first invented in Turkey sometime during modern times.",
-      "Puppet shows have completely stopped being performed anywhere today."
+      "Puppet shows have stopped being performed anywhere today."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -327,7 +327,7 @@
     {
      "stem": "What happens in a shadow puppet performance?",
      "options": [
-      "The puppeteer stands in front of the screen",
+      "The puppeteer stands in front of the screen with a light",
       "The puppets are moved with a control bar",
       "The puppets talk without any puppeteer",
       "The audience sees only moving shadows and colors"
@@ -378,10 +378,10 @@
     {
      "stem": "What can you infer about puppet traditions in different countries?",
      "options": [
-      "They are all exactly the same everywhere",
-      "Only Indonesia has a puppet tradition",
+      "They are all exactly the same",
+      "Indonesia has the oldest puppet tradition",
       "Each place has its own characters and styles",
-      "They have only existed since 2017"
+      "They have existed since 2017"
      ],
      "answer": "C",
      "skill": "inference",
@@ -414,8 +414,8 @@
      "options": [
       "A hand puppet show uses a bright light and a big screen for shadows",
       "A shadow show hides the puppeteer behind a screen",
-      "A hand puppet always needs strings to move its arms and legs",
-      "A shadow puppet can talk on its own without any puppeteer at all"
+      "A hand puppet needs strings to move its arms and legs",
+      "A shadow puppet can talk on its own without any puppeteer"
      ],
      "answer": "B",
      "skill": "compare",
@@ -524,7 +524,7 @@
      "stem": "Why do puppeteers carefully observe how living creatures move, breathe, and react?",
      "options": [
       "To make a small stage look much larger than it is",
-      "To avoid using any strings at all during a show",
+      "To avoid using any strings during a show",
       "To make a tired audience leave the show sooner",
       "To manipulate objects so they seem alive"
      ],
@@ -558,9 +558,9 @@
      "stem": "How is a marionette different from a hand puppet?",
      "options": [
       "A marionette is controlled from above with strings, unlike a hand puppet",
-      "A marionette is always made of paper, while a hand puppet is always made of wood",
-      "A marionette talks on its own, while a hand puppet cannot move at all",
-      "A marionette has no puppeteer, while a hand puppet always needs one"
+      "A marionette is made of paper, while a hand puppet is made of wood",
+      "A marionette talks on its own, while a hand puppet cannot move",
+      "A marionette has no puppeteer, while a hand puppet needs one"
      ],
      "answer": "A",
      "skill": "compare",
@@ -577,7 +577,7 @@
       "Storytelling with objects has appealed to many cultures",
       "Puppetry began at the exact same time in each country",
       "Only these three places ever developed any puppet shows",
-      "Puppetry was completely banned everywhere except these places"
+      "Puppetry was first invented in Cairo and then copied"
      ],
      "answer": "A",
      "skill": "inference",

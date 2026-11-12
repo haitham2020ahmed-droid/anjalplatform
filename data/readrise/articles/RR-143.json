@@ -363,8 +363,8 @@
           "options": [
             "Few of the many people who applied were chosen.",
             "NASA chose every single person who applied that year.",
-            "She was the only person who applied.",
-            "She had never studied science."
+            "She was the first person who applied.",
+            "She had studied little science."
           ],
           "answer": "A",
           "skill": "inference",
@@ -396,7 +396,7 @@
           "stem": "Some people doubted Mae. What was the effect on her?",
           "options": [
             "She gave up science.",
-            "She left the United States forever.",
+            "She left the United States.",
             "She became a dancer instead.",
             "She refused to give up."
           ],
@@ -506,7 +506,7 @@
         {
           "stem": "Why is Mae's appearance on Star Trek meaningful?",
           "options": [
-            "She had always wanted to be an actor instead of a scientist.",
+            "She had wanted to be an actor instead of a scientist.",
             "It was in the series that had inspired her as a child.",
             "It was her first job after college.",
             "It helped her get chosen by NASA."
@@ -577,7 +577,7 @@
             "She designed the shuttle's engines for the launch.",
             "She treated sick people on the surface of the Moon.",
             "She studied how weightlessness affects the human body.",
-            "It had no connection to her space work at all."
+            "It had no connection to her space work."
           ],
           "answer": "C",
           "skill": "compare",

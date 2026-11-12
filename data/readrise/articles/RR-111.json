@@ -134,7 +134,7 @@
             "In the day",
             "At night",
             "Only in winter",
-            "Never at all"
+            "In the evening"
           ],
           "answer": "A",
           "skill": "detail",
@@ -293,7 +293,7 @@
         {
           "stem": "What is the main idea of the article?",
           "options": [
-            "Owls are dangerous birds that farmers try to keep away.",
+            "Owls are dangerous birds that farmers try to keep away from their farms.",
             "Owls have special bodies that make them skilled night hunters.",
             "Owls live only in Saudi Arabia.",
             "Owls can see well in the day but not at night."
@@ -328,7 +328,7 @@
           "stem": "How does the round face of many owls help them?",
           "options": [
             "It works like a dish that collects sound.",
-            "It keeps the owl warm on cold nights.",
+            "It keeps the owl warm on cold nights in winter.",
             "It scares away other birds.",
             "It helps the owl swallow prey."
           ],
@@ -475,7 +475,7 @@
             "Owls are successful nocturnal predators because of several special adaptations.",
             "Owls are rare birds found only near farms, and almost no one has ever seen one.",
             "Owls hunt mainly by sight during daylight hours, like most other birds.",
-            "Owls are pests that farmers try to remove from their land every year."
+            "Owls are pests that farmers try to remove from their land each year."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -523,7 +523,7 @@
         {
           "stem": "Which sequence correctly describes what happens to small prey after an owl catches it?",
           "options": [
-            "The owl chews it, digests everything, and leaves nothing behind.",
+            "The owl chews it, digests everything, and leaves nothing behind on the ground.",
             "The owl swallows it whole, then regurgitates bones and fur as a pellet.",
             "The owl stores it in a tree and eats it the next week.",
             "The owl regurgitates it first and then swallows the pellet."

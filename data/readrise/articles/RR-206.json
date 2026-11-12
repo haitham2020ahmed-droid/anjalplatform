@@ -182,7 +182,7 @@
         {
           "stem": "What happens when you scratch a hard mineral with a coin?",
           "options": [
-            "The mineral quickly melts away completely",
+            "The mineral quickly melts away completely in the hand",
             "The coin shows little or no mark on the mineral",
             "The mineral slowly turns into fine sand",
             "The coin itself becomes a tiny crystal"
@@ -218,7 +218,7 @@
           "options": [
             "Chalk must be as hard as a diamond, said the article",
             "Chalk cannot be made from minerals found in the ground",
-            "Chalk is only found in Saudi Arabia, in the desert",
+            "Chalk is found mostly in Saudi Arabia, in the desert",
             "Chalk is probably made from a soft material"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Rocks are always made of a single mineral, never a mixture",
+            "Rocks are made of a single mineral, never a mixture",
             "Gold is the most valuable mineral in Saudi Arabia",
             "Scientists use hardness, luster, and streak to identify minerals",
-            "Minerals are a kind of living organism found underground"
+            "Minerals are a kind of living organism found underground in deep caves"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -346,7 +346,7 @@
           "options": [
             "A single pure substance with nothing else in it",
             "A combination of two or more different substances",
-            "A completely empty space found inside a rock",
+            "A empty space found inside a rock",
             "A special tool used to break rocks apart"
           ],
           "answer": "B",
@@ -473,8 +473,8 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Diamond is the only mineral worth studying scientifically",
-            "Quartz is more valuable than gold in every country",
-            "The Mohs scale replaced the need for any other mineral property",
+            "Quartz is more valuable than gold in most countries",
+            "The Mohs scale replaced the need for other mineral properties",
             "Geologists classify minerals using observable properties"
           ],
           "answer": "D",
@@ -540,9 +540,9 @@
         {
           "stem": "Why can a mineral's streak reveal its true identity even when its surface color has changed?",
           "options": [
-            "Because weathering always destroys a mineral's streak completely",
-            "Because every mineral has exactly the same streak color",
-            "Because streak can only be tested in a laboratory",
+            "Because weathering destroys a mineral's streak completely",
+            "Because most minerals have the same streak color",
+            "Because streak is tested in a laboratory",
             "Because streak comes from the mineral's own powder"
           ],
           "answer": "D",
@@ -558,9 +558,9 @@
           "stem": "Why might two minerals that look similar on the surface actually be different minerals?",
           "options": [
             "Because surface look alone isn't enough; hardness and streak can differ",
-            "Because all minerals that look alike are always the same mineral",
-            "Because color is the only property geologists ever use",
-            "Because similar-looking minerals always have the same hardness"
+            "Because minerals that look alike are usually the same mineral in the end",
+            "Because color is the main property geologists use",
+            "Because similar-looking minerals have the same hardness"
           ],
           "answer": "A",
           "skill": "inference",
@@ -577,7 +577,7 @@
             "Because laboratory equipment does not exist for studying minerals",
             "Because the Mohs scale has become outdated and unreliable",
             "Because simple tools like a coin and a plate are often enough",
-            "Because minerals cannot ever be studied indoors at all"
+            "Because minerals cannot ever be studied indoors"
           ],
           "answer": "C",
           "skill": "inference",

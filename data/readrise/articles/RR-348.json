@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a boat that can sail across the ocean",
+            "How to build a boat that can sail across the ocean in a storm",
             "Why some places get a lot of rain and some places stay dry",
             "Why mountains are taller than hills",
-            "How clouds get their white color indeed indeed indeed indeed."
+            "How clouds get their white color."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,8 +148,8 @@
         {
           "stem": "Why does rain fall on one side of a tall mountain?",
           "options": [
-            "The mountain pulls water up from the ground below it.",
-            "Clouds always sit on only one side of every mountain.",
+            "The mountain pulls water up from the ground below it each night.",
+            "Clouds sit on only one side of every mountain.",
             "Birds carry water up to that side of the mountain.",
             "The wind rises, the air cools, and the water falls as rain."
           ],
@@ -165,10 +165,10 @@
         {
           "stem": "What is a rain shadow?",
           "options": [
-            "The shape a cloud makes on the ground",
+            "The shape a cloud makes on the ground on a sunny day",
             "A dark cloud right before a storm",
             "The dry side of a mountain, where little rain falls",
-            "A puddle left after it rains indeed indeed indeed indeed."
+            "A puddle left after it rains."
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -200,8 +200,8 @@
           "stem": "Why do places far from the ocean often stay dry?",
           "options": [
             "The sun never shines in those places during the year.",
-            "Those places are always covered in snow and ice.",
-            "The ground there is made only of rock and hard stone.",
+            "Those places are covered in snow and ice.",
+            "The ground there is made of rock and hard stone.",
             "The wind loses its water before it reaches them."
           ],
           "answer": "D",
@@ -234,9 +234,9 @@
           "stem": "Why does most of the Arabian Peninsula stay dry, according to the article?",
           "options": [
             "It is covered by the ocean most of the year.",
-            "It never has any wind blowing across it indeed indeed indeed indeed indeed indeed.",
+            "It never has any wind blowing across it.",
             "The wind there does not carry much water, and the sun dries the land fast.",
-            "It is located at the very top of a tall mountain."
+            "It is located at the very top of a tall mountain where it is cold and covered in snow."
           ],
           "answer": "C",
           "skill": "detail",
@@ -293,7 +293,7 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "Rain falls the same amount everywhere on Earth indeed indeed indeed indeed indeed indeed indeed indeed.",
+            "Rain falls in about the same amount everywhere on Earth, whatever the wind, the oceans, or the mountains are like.",
             "Wind, oceans, and mountains together explain why some places get lots of rain and others stay dry.",
             "Only places near mountains ever receive any rain.",
             "The ocean has no effect on how much rain a place gets."
@@ -312,7 +312,7 @@
           "options": [
             "It turns ocean water into vapor that rises into the air.",
             "It freezes ocean water into solid ice at the coast.",
-            "It pushes mountains higher over time indeed indeed indeed indeed.",
+            "It pushes mountains higher over time.",
             "It makes wind blow faster across the land."
           ],
           "answer": "A",
@@ -328,8 +328,8 @@
           "stem": "Why does wet wind drop most of its water on the windward side of a mountain?",
           "options": [
             "The mountain melts the water vapor instantly.",
-            "The wind always stops moving at the mountain's base.",
-            "Trees on that side absorb the wind completely.",
+            "The wind stops moving at the mountain's base.",
+            "Trees on that side absorb the wind completely before it rains.",
             "The air rises, cools, and the vapor condenses into rain."
           ],
           "answer": "D",
@@ -345,7 +345,7 @@
           "stem": "According to the article, what usually happens to wind by the time it crosses to the far side of a mountain?",
           "options": [
             "It has gained much more water than before.",
-            "It completely stops blowing forever.",
+            "It stops blowing.",
             "It has already lost most of its water.",
             "It turns into ocean water again."
           ],
@@ -362,9 +362,9 @@
           "stem": "Why might a city deep inland, far from any coastline, usually get less rain than a coastal city?",
           "options": [
             "Wind traveling that far has already lost much of its water vapor.",
-            "Inland cities are always built on top of mountains.",
-            "Coastal cities never experience strong wind indeed indeed indeed indeed.",
-            "Inland cities always have colder weather than coastal ones."
+            "Inland cities are built on top of mountains.",
+            "Coastal cities never experience strong wind.",
+            "Inland cities have colder weather than coastal ones in the winter."
           ],
           "answer": "A",
           "skill": "inference",
@@ -378,9 +378,9 @@
         {
           "stem": "Why does the article say ocean currents matter for rainfall near a coastline?",
           "options": [
-            "Ocean currents always push mountains closer to the coast, which makes the rain fall.",
+            "Ocean currents push mountains closer to the coast, which makes the rain fall.",
             "Cold currents make wind blow backward across the land and bring dry sand.",
-            "Ocean currents replace the need for any wind at all, because they carry rain alone.",
+            "Ocean currents replace the need for any wind, because they carry rain alone.",
             "Warm ocean water lets wind absorb more moisture than cold water does."
           ],
           "answer": "D",
@@ -397,7 +397,7 @@
           "options": [
             "To prove that mountains are the only cause of dry land",
             "To show that dryness can have more than one cause",
-            "To argue that oceans never affect the weather",
+            "To argue that oceans have little effect on the weather",
             "To explain how sailors navigate using the wind"
           ],
           "answer": "B",
@@ -412,10 +412,10 @@
         {
           "stem": "Which detail from the article best explains why the Arabian Peninsula is so dry?",
           "options": [
-            "The Arabian Peninsula sits directly on the equator indeed indeed indeed indeed indeed indeed indeed.",
-            "No wind of any kind ever reaches the Arabian Peninsula.",
+            "The Arabian Peninsula sits directly on the equator.",
+            "No wind ever reaches the Arabian Peninsula.",
             "Winds arriving there have already lost much of their moisture, and mountains block more of it.",
-            "The Arabian Peninsula is completely surrounded by tall forests."
+            "The Arabian Peninsula is surrounded by tall forests, which keep the land wet and green through the year."
           ],
           "answer": "C",
           "skill": "detail",
@@ -472,10 +472,10 @@
         {
           "stem": "Which sentence best summarizes the central idea of the article?",
           "options": [
-            "Rainfall is distributed evenly across every continent on Earth.",
+            "Rainfall is distributed evenly across every continent on Earth, so that deserts and rainforests get about the same amount each year.",
             "Evaporation, wind patterns, and mountain ranges interact to create wide differences in rainfall between regions.",
-            "Mountains always receive more rain than coastlines do indeed indeed indeed indeed indeed indeed indeed indeed indeed.",
-            "The Arabian Peninsula is the only arid region on Earth."
+            "Mountains receive more rain than coastlines do.",
+            "The Arabian Peninsula is the driest region on Earth."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -491,8 +491,8 @@
           "options": [
             "A persistently arid zone on the leeward side of a mountain range",
             "The shaded area directly beneath a storm cloud",
-            "A measurement of how much snow falls on a mountain peak",
-            "A type of wind that only blows across oceans indeed indeed indeed indeed."
+            "A measurement of how much snow falls on a mountain peak during the winter",
+            "A type of wind that only blows across oceans."
           ],
           "answer": "A",
           "skill": "detail",
@@ -523,8 +523,8 @@
         {
           "stem": "According to the article, what role do ocean currents play in coastal rainfall?",
           "options": [
-            "Ocean currents determine the height of nearby mountains.",
-            "Cold currents always eliminate rainfall completely along a coast.",
+            "Ocean currents determine the height of nearby mountains and how tall they grow.",
+            "Cold currents eliminate rainfall along a coast.",
             "Warm currents let wind absorb more moisture, affecting nearby rainfall.",
             "Ocean currents have no measurable effect on rainfall."
           ],
@@ -558,8 +558,8 @@
           "stem": "What can readers infer about a coastal region located on the windward side of a mountain range, close to a warm ocean current?",
           "options": [
             "It is almost certainly located in a rain shadow.",
-            "It probably never experiences any wind at all.",
-            "It must be farther from the ocean than any other region.",
+            "It probably never experiences any wind.",
+            "It is probably farther from the ocean than other regions.",
             "It likely receives especially heavy rainfall."
           ],
           "answer": "D",
@@ -576,7 +576,7 @@
           "options": [
             "To argue that only one true cause of dryness actually exists, and it is the Sun",
             "To show that rainfall patterns result from several interacting factors",
-            "To prove that rainfall cannot be explained scientifically by anyone",
+            "To prove that rainfall is hard to explain scientifically",
             "To list the record rainfall totals of several famous cities in the world"
           ],
           "answer": "B",
@@ -591,10 +591,10 @@
         {
           "stem": "How does the article organize its explanation of rainfall patterns?",
           "options": [
-            "It ranks every country in the world from wettest to driest.",
+            "It ranks the countries of the world from wettest to driest, starting with the rainiest one and ending with the driest.",
             "It tells the personal story of one meteorologist's career.",
             "It traces water from ocean evaporation through wind, mountains, and distance, ending with a real example.",
-            "It compares rainfall only between two specific cities indeed indeed indeed indeed indeed indeed indeed indeed."
+            "It compares rainfall between two specific cities."
           ],
           "answer": "C",
           "skill": "text-structure",

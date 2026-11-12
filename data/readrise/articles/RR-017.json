@@ -236,7 +236,7 @@
             "By telling a story about one family who finds a rock, milk, and air",
             "By giving an example for each form, like a rock, milk, and air",
             "By listing the forms from oldest to newest in time",
-            "By asking the reader many questions with no answers at all"
+            "By asking the reader many questions with no answers"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -295,8 +295,8 @@
           "options": [
             "Water is the only kind of matter that can change, while all other matter stays fixed.",
             "Matter comes in three states that behave differently and can change with heating or cooling.",
-            "Gases are more useful than solids and liquids, because they fill every space around us.",
-            "Saudi Arabia has more water than any other country, in its seas, rivers and lakes."
+            "Gases are more useful than solids and liquids, because they can be stored in bottles.",
+            "Ice melts faster in Saudi Arabia than in other places, because the air is very hot."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -312,8 +312,8 @@
           "options": [
             "They stay close but slide past one another.",
             "They stay in one place and only vibrate.",
-            "They are far apart and move quickly in every direction.",
-            "They do not move at all."
+            "They are far apart and move quickly around.",
+            "They do not move."
           ],
           "answer": "A",
           "skill": "detail",
@@ -543,7 +543,7 @@
             "Juice flows and can be poured from a bottle into a cup, so it takes any shape.",
             "Steam rises from a pot of rice on the stove, and it spreads out in the room.",
             "A liquid poured into a new container keeps the same amount.",
-            "Most gases are invisible and have no color, so we cannot see them at all."
+            "Liquids take the shape of a container, but gases spread out to fill it."
           ],
           "answer": "C",
           "skill": "detail",

@@ -217,9 +217,9 @@
           "stem": "Why do we not see an eclipse every month?",
           "options": [
             "The Moon stops moving some months",
-            "The Sun is too far away from the Moon",
+            "The Sun is too far away from the Moon to block it",
             "Its path is tilted, so they rarely line up",
-            "Clouds always hide them from view"
+            "Clouds hide them from view"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -295,8 +295,8 @@
           "options": [
             "Eclipses are dangerous, so nobody should ever try to watch one, not even with eye protection.",
             "The Sun, Earth, and Moon sometimes line up, making eclipses we must watch safely.",
-            "The Moon is larger than the Sun, so it can easily hide it, and that causes every eclipse.",
-            "Eclipses happen every week, so they are not really special at all."
+            "The Moon is larger than the Sun, so it can easily hide it, and that causes eclipses.",
+            "Eclipses happen each week, so they are not really special."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -475,7 +475,7 @@
             "Eclipses are rare alignments of the Sun, Earth, and Moon that must be watched safely.",
             "Lunar eclipses are far more dangerous to watch than solar eclipses are, so no one goes outside.",
             "The Moon produces its own light, which disappears during an eclipse.",
-            "Eclipses were only important to people who lived a very long time ago."
+            "Eclipses were important mainly to people who lived a very long time ago."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,7 +506,7 @@
         {
           "stem": "Why do eclipses not occur every month?",
           "options": [
-            "The Moon sometimes moves away from Earth forever",
+            "The Moon sometimes moves away from Earth for a while",
             "The Sun stops shining briefly",
             "Earth's atmosphere hides most of them",
             "The Moon's orbit is tilted about five degrees"
@@ -559,8 +559,8 @@
           "options": [
             "It must be opposite the Sun, behind Earth, which is when it is full",
             "Lunar eclipses only happen when the Moon is new",
-            "A full moon makes Earth's shadow grow much larger than usual",
-            "The Sun is always closest to us during a full moon"
+            "A full moon makes Earth's shadow grow much larger than usual during the night",
+            "The Sun is closest to us during a full moon"
           ],
           "answer": "A",
           "skill": "inference",

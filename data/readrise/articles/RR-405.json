@@ -200,7 +200,7 @@
           "stem": "What happens after Omar fixes the code?",
           "options": [
             "The team gives up and goes home sad",
-            "Spark stops working completely for good, today",
+            "Spark stops working for good, today",
             "Spark starts spinning even faster now, and nonstop",
             "Spark turns once, then runs and kicks the ball in"
           ],
@@ -293,7 +293,7 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "A robotics team decides to build a completely new motor for the contest",
+            "A robotics team decides to build a new motor for the contest",
             "A robotics team discovers and corrects a coding error before a competition",
             "A robotics team loses all interest in competing this year at the fair",
             "A robotics team argues about who should lead the club for the year"
@@ -327,8 +327,8 @@
         {
           "stem": "What problem does the team discover during the final test?",
           "options": [
-            "Spark's distance sensor is completely broken",
-            "Spark's motor will not turn on at all",
+            "Spark's distance sensor is broken",
+            "Spark's motor will not turn on",
             "Spark kicks the ball in the wrong direction",
             "Spark will not stop spinning in one spot"
           ],
@@ -347,7 +347,7 @@
             "He is waiting for Sara to arrive at practice",
             "He must read each line carefully to find the mistake",
             "He is also trying to repair the broken motor",
-            "He is writing a brand-new program from scratch"
+            "He is writing a brand-new program from scratch for the robot"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -398,7 +398,7 @@
             "By replacing Spark with a brand-new robot",
             "By asking the judges for a little more time",
             "By carefully reading the code and adding a missing line",
-            "By changing the official rules of the competition"
+            "By changing the official rules of the competition for the robot"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -413,7 +413,7 @@
           "stem": "Why does the author describe the team testing Spark again after the fix?",
           "options": [
             "To describe a brand-new rule for the competition",
-            "To introduce a completely new character",
+            "To introduce a new character",
             "To explain in detail how sensors are built",
             "To show that the fix worked and the team is ready"
           ],
@@ -490,7 +490,7 @@
           "stem": "Based on the story, what is the most likely reason Spark spins endlessly instead of advancing toward the ball?",
           "options": [
             "The robot's motor generates too much power for its wheels",
-            "A sensor incorrectly detects the ball as being behind the robot",
+            "A sensor incorrectly detects the ball as being behind the robot when it turns",
             "The team never calibrated Spark's camera before the test",
             "The turning instruction lacks a condition specifying when it should stop"
           ],
@@ -592,8 +592,8 @@
           "stem": "What does the story suggest about why the team restarting Spark repeatedly did not solve the problem?",
           "options": [
             "The robot's battery simply needed more time to charge",
-            "The sensors needed to be recalibrated after each restart",
-            "The team was restarting the wrong robot entirely by mistake",
+            "The sensors needed to be recalibrated after each restart during the contest",
+            "The team was restarting the wrong robot by mistake",
             "Restarting the robot does not change the algorithm causing the loop"
           ],
           "answer": "D",

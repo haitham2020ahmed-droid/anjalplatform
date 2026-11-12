@@ -165,7 +165,7 @@
         {
           "stem": "Why can ice stay frozen on Mercury, even though its days are so hot?",
           "options": [
-            "The ice is very deep inside the Sun",
+            "The ice is very deep inside the Sun and is hot",
             "The Sun never shines into those craters",
             "Mercury's days are very short",
             "Ice cannot melt in space"
@@ -183,9 +183,9 @@
           "stem": "If Mercury had thick air, what would most likely happen at night?",
           "options": [
             "It would get even colder than it does now",
-            "The Sun would never go down at all",
+            "The Sun would never go down",
             "Its nights would not get as cold",
-            "Mercury would lose all of its big craters"
+            "Mercury would lose its big craters"
           ],
           "answer": "C",
           "skill": "inference",
@@ -217,7 +217,7 @@
           "stem": "How is Mercury different from Venus?",
           "options": [
             "Mercury is bigger than Venus and has thick air",
-            "Venus has no air at all, so it is cold",
+            "Venus has no air, so it is cold",
             "Mercury has many moons, but Venus has none",
             "Mercury is closer to the Sun, but Venus is hotter"
           ],
@@ -396,7 +396,7 @@
           "stem": "In the article, what does the word \"swings\" mean?",
           "options": [
             "Moves on a playground ride",
-            "Stays the same all the time",
+            "Stays the same all the time in the day",
             "Hits something very hard",
             "Changes back and forth by a lot"
           ],
@@ -543,7 +543,7 @@
             "Venus must be much closer to the Sun than Mercury is.",
             "Mercury has more craters, and craters cool a planet down.",
             "Distance alone does not decide a planet's heat.",
-            "Thick atmospheres always make planets much colder."
+            "Thick atmospheres make planets much colder."
           ],
           "answer": "C",
           "skill": "inference",
@@ -593,7 +593,7 @@
           "options": [
             "As a debate between two scientists who disagree",
             "From the newest discovery back to the very oldest",
-            "As a list of problems, each followed by a solution",
+            "As a list of problems, each followed by a solution in order",
             "From seeing Mercury, to what it is like, to exploring it"
           ],
           "answer": "D",

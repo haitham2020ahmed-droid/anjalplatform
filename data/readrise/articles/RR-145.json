@@ -216,7 +216,7 @@
         {
           "stem": "Why do we still need other kinds of power, too?",
           "options": [
-            "Wind power makes too much smoke.",
+            "Wind power makes too much smoke and noise.",
             "Turbines are too small to see.",
             "The wind does not blow all the time.",
             "Wind will run out one day."
@@ -380,8 +380,8 @@
           "options": [
             "Turbines work better when they are wet and cold",
             "Strong, steady wind keeps the blades turning.",
-            "Coasts have no need for electricity at all",
-            "Wind on the coast never stops at all, even for a minute"
+            "Coasts have no need for electricity",
+            "Wind on the coast never stops, even for a minute"
           ],
           "answer": "B",
           "skill": "inference",
@@ -398,7 +398,7 @@
             "The turbines will make little electricity.",
             "The turbines will make extra electricity.",
             "The blades will spin faster than usual.",
-            "The grid will stop working everywhere."
+            "The grid will stop working."
           ],
           "answer": "A",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Wind power is clean and renewable, but it needs backup because wind varies.",
-            "Wind farms will soon replace every other source of electricity everywhere.",
+            "Wind farms will soon replace every other source of electricity.",
             "Wind turbines are much too expensive to be useful to anyone.",
-            "The ancient Persians invented electricity to power their windmills."
+            "The ancient Persians invented electricity to power their windmills and their homes."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -509,7 +509,7 @@
             "It has energy because it is in motion.",
             "It has energy stored as heat.",
             "It is energy that can be seen.",
-            "It is energy made by burning fuel."
+            "It is energy made by burning fuel in a car."
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -541,7 +541,7 @@
           "stem": "How do power companies deal with the intermittent nature of wind?",
           "options": [
             "They build taller towers so the wind never stops.",
-            "They use wind only at night.",
+            "They use wind mostly at night.",
             "They pair wind farms with other sources or batteries.",
             "They turn off the grid on calm days."
           ],

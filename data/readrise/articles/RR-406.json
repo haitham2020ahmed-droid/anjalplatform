@@ -117,7 +117,7 @@
             "A girl who helps find a bug that made robots freeze",
             "A girl who builds a brand-new toy factory from scratch",
             "A girl who teaches all the robots how to talk",
-            "A girl who paints colorful boxes for toys all day"
+            "A girl who paints colorful boxes for toys"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -149,9 +149,9 @@
           "stem": "Why do the robots freeze instead of working?",
           "options": [
             "Two words in the code are stuck together with no space",
-            "The robots are too heavy for anyone to move at all",
+            "The robots are too heavy for anyone to move",
             "A worker quietly turned off every robot in the room",
-            "The robots are completely out of toys left to pack"
+            "The robots are out of toys left to pack"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -201,7 +201,7 @@
           "options": [
             "Because the robots look like they are refusing to work",
             "Because the robots are asking for more pay",
-            "Because the robots are tired from working all day",
+            "Because the robots are tired from working all day in the factory",
             "Because the robots do not like their new update"
           ],
           "answer": "A",
@@ -378,7 +378,7 @@
         {
           "stem": "What can you infer caused the two commands to become one unreadable word?",
           "options": [
-            "A worker accidentally unplugging a robot overnight",
+            "A worker accidentally unplugging a robot overnight in the factory",
             "A robot's motor overheating badly during the night",
             "The toys being packed in the wrong order entirely",
             "A missing space between two commands in the update's code"
@@ -397,7 +397,7 @@
           "options": [
             "By replacing every single robot in the factory with new ones",
             "By adding the missing space between the two commands",
-            "By turning off the brand-new update completely",
+            "By turning off the new update",
             "By asking the robots to repeat the broken command"
           ],
           "answer": "B",
@@ -474,8 +474,8 @@
           "options": [
             "A factory abandons every single one of its robots after they repeatedly malfunction without explanation, and sends the workers home for good",
             "A visiting child's careful observation helps engineers diagnose a confusing factory-wide malfunction down to one tiny coding error",
-            "A factory redesigns its entire robotic workforce completely overnight without any warning at all to the people who work there",
-            "An engineer and a technician publicly and quite loudly disagree about how best to run the factory, and nobody solves the problem"
+            "A factory redesigns its robotic workforce overnight without warning the people who work there",
+            "An engineer and a technician disagree loudly about how to run the factory, and the problem stays unsolved"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -557,7 +557,7 @@
         {
           "stem": "Why does the author most likely emphasize that the entire malfunction was caused by a single missing space?",
           "options": [
-            "To suggest that the update's engineers were careless and poorly trained overall",
+            "To suggest that the update's engineers were careless and poorly trained",
             "To show that Ms. Huda rewrote the whole update from scratch",
             "To explain how factories generally schedule software updates",
             "To highlight how an extremely small coding error can disrupt an entire system"
@@ -591,7 +591,7 @@
         {
           "stem": "What does the story suggest would happen if Ms. Huda tried to override the frozen robots' behavior without first finding the bug?",
           "options": [
-            "The robots would immediately and completely start working perfectly again on their own without help",
+            "The robots would immediately and start working perfectly again on their own without help",
             "The robots would gradually develop a permanent personality change over time, like new people",
             "The robots would likely keep malfunctioning, since the underlying syntax error would still be unresolved",
             "The robots would flatly and permanently refuse to ever receive another software update from anyone"

@@ -219,7 +219,7 @@
             "He does not know how to count",
             "He wants his work to be correct",
             "He does not care about his work",
-            "He is too scared to work at all"
+            "He is too scared to work"
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,7 +233,7 @@
         {
           "stem": "Why does the story end with the men fixing the star book?",
           "options": [
-            "To show that stars do not matter to anyone at all",
+            "To show that stars do not matter to anyone",
             "To show that the star book was never used again by the men",
             "To show that the king was angry at Tariq for his work",
             "To show that Tariq's careful work made a real difference"
@@ -293,7 +293,7 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "A ruler decides to stop building observatories in Samarkand.",
+            "A ruler decides to stop building observatories in Samarkand and other cities.",
             "A patient apprentice's careful work helps fix a star catalog error.",
             "Astronomers in Samarkand never make any mistakes.",
             "Tariq decides that studying stars is too difficult for him."
@@ -346,7 +346,7 @@
           "options": [
             "Because the head astronomer never checked numbers",
             "Because the two numbers did not match each other",
-            "Because Tariq lost the old record completely",
+            "Because Tariq lost the old record",
             "Because they were written in different books"
           ],
           "answer": "B",
@@ -491,7 +491,7 @@
           "options": [
             "To record only the names of past astronomers and their families in a big book",
             "To impress foreign rulers with decorative drawings of the stars and the planets",
-            "To replace the observatory's instruments entirely with brand new tools from abroad",
+            "To replace the observatory's instruments with brand new tools from abroad",
             "To allow scholars elsewhere to navigate and study the movements of the heavens"
           ],
           "answer": "D",
@@ -508,7 +508,7 @@
           "options": [
             "His instrument broke while he was measuring",
             "Another apprentice admitted making a mistake earlier",
-            "The head astronomer told him directly to search for a mistake",
+            "The head astronomer told him directly to search for a mistake in the old catalog",
             "A fresh measurement he took did not match an existing recorded figure"
           ],
           "answer": "D",
@@ -541,7 +541,7 @@
           "stem": "Based on the story, why did Tariq hesitate before approaching the head astronomer?",
           "options": [
             "He had not yet finished measuring any stars that night, so he thought his work was not ready",
-            "He disliked the head astronomer personally and did not want to speak with him at all",
+            "He disliked the head astronomer personally and did not want to speak with him",
             "He planned to keep the error secret from everyone in the observatory, even his friends",
             "He recognized the risk of a junior apprentice questioning a senior scholar's respected calculation"
           ],
@@ -575,7 +575,7 @@
           "stem": "What can readers infer about the observatory's culture from how the head astronomer responds to Tariq?",
           "options": [
             "The observatory cares only about speed, not accuracy",
-            "The observatory ignores apprentices completely",
+            "The observatory pays little attention to apprentices",
             "The observatory punishes anyone who questions a senior scholar",
             "The observatory values careful evidence over strict rank alone"
           ],

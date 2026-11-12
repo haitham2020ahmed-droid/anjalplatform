@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Dreams are the most important part of the night.",
-            "Phones should never be used by children at all.",
+            "Phones should never be used by children.",
             "During sleep, the brain and body do important work.",
-            "Children need more sleep than any animal on Earth."
+            "Children sleep more than adults because they play more."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -474,7 +474,7 @@
           "options": [
             "Sleep is wasted time that students should reduce.",
             "Electronic screens are the main cause of all illness.",
-            "REM sleep matters more than every other stage.",
+            "REM sleep matters more than deep sleep for growth.",
             "Sleep is active work that supports learning and growth."
           ],
           "answer": "D",
@@ -575,8 +575,8 @@
           "stem": "What can the reader infer from the finding that the sleeping brain clears away waste?",
           "options": [
             "The brain stops all activity during sleep.",
-            "Waste in the brain is caused only by screens.",
-            "Only adults need sleep to clear brain waste.",
+            "Waste in the brain builds up mostly from screens.",
+            "Adults need more sleep to clear brain waste.",
             "Sleep may help the mind feel clear and alert."
           ],
           "answer": "D",

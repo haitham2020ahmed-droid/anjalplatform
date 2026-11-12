@@ -199,7 +199,7 @@
         {
           "stem": "What happens to the desert after the rain?",
           "options": [
-            "It turns into a lake that stays forever.",
+            "It turns into a lake that stays for years.",
             "It gets even drier than before.",
             "All the sand washes away.",
             "Seeds grow and the land turns green."
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of the article?",
           "options": [
-            "Deserts in Saudi Arabia never get any rain at all, not even in winter.",
+            "Deserts in Saudi Arabia never get any rain, not even in winter.",
             "Rare, heavy rain can cause deadly floods but also helps the land.",
             "Dams are the most dangerous places to be in a desert, and floods start there.",
-            "Flash floods only happen in big, crowded cities, and never in the desert."
+            "Flash floods happen in big, crowded cities more than in the desert."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -378,9 +378,9 @@
         {
           "stem": "Why might a family having a picnic in a dry wadi on a sunny day still be in danger?",
           "options": [
-            "The hot sun can cause a flood all by itself.",
+            "The hot sun can cause a flood all by itself in the summer.",
             "Rain on faraway mountains can send water down it.",
-            "Wadis are always full of deep water.",
+            "Wadis are full of deep water.",
             "The sand in wadis is far too hot to sit on."
           ],
           "answer": "B",
@@ -395,10 +395,10 @@
         {
           "stem": "Why might a farmer be glad after a big desert storm, even if it caused a flood?",
           "options": [
-            "Floods wash away all the weeds in the field forever.",
+            "Floods wash away all the weeds in the field.",
             "The flood makes the soil hard and dry again.",
             "The rain refills underground water and helps plants grow.",
-            "Floods always bring new camels to the farm each year."
+            "Floods bring new camels and goats to the farm each year."
           ],
           "answer": "C",
           "skill": "inference",
@@ -475,7 +475,7 @@
             "Desert storms are harmless because the ground absorbs the rain.",
             "Rare, intense desert rain causes deadly floods but also renews water and life.",
             "Saudi Arabia receives more rain than most other countries in the world.",
-            "Engineers have now completely prevented all flash floods in Saudi Arabia."
+            "Engineers have now prevented all flash floods in Saudi Arabia."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -560,7 +560,7 @@
             "They receive more precipitation than other areas, since clouds stay there.",
             "Water flowing downhill gathers in low areas such as wadis.",
             "Aquifers rise to the surface in those places, and push up the houses.",
-            "Radar signals cannot reach low places at all, so no warnings are sent."
+            "Radar signals cannot reach low places, so no warnings are sent."
           ],
           "answer": "B",
           "skill": "inference",

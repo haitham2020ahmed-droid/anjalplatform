@@ -216,7 +216,7 @@
         {
           "stem": "Why do people want rockets that can land back on Earth?",
           "options": [
-            "So astronauts would never again need to carry any fuel at all",
+            "So astronauts would never again need to carry any fuel",
             "So the rocket can turn into a satellite.",
             "So they can use the same rocket again and save money.",
             "So the Moon landing can happen again."
@@ -234,7 +234,7 @@
           "stem": "Why does the author end the article by talking about rockets that land and fly again?",
           "options": [
             "To show how rockets kept changing and getting better",
-            "To explain why fire arrows stopped being used",
+            "To explain why fire arrows stopped being used in battle",
             "To describe how astronauts train for space",
             "To compare the Moon with other planets"
           ],
@@ -295,8 +295,8 @@
           "options": [
             "Rockets developed over centuries, from fire arrows to machines that reached space.",
             "Fire arrows were only ever used for fireworks in China.",
-            "A single scientist built every rocket that has ever flown.",
-            "Countries have never competed with each other in space."
+            "A single scientist built most of the rockets that have flown in space since rockets began.",
+            "Countries have rarely competed with each other in space."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -329,7 +329,7 @@
           "options": [
             "Fuel burns and creates hot, expanding gas.",
             "Astronauts prepare their meals.",
-            "The capsule separates from the rocket.",
+            "The capsule separates from the rocket in space.",
             "Satellites are assembled for launch."
           ],
           "answer": "A",
@@ -378,7 +378,7 @@
         {
           "stem": "Based on the article, why was launching the first satellite considered such a major event?",
           "options": [
-            "It proved that gunpowder rockets were completely useless for spaceflight",
+            "It proved that gunpowder rockets were useless for spaceflight",
             "It carried the first astronaut into orbit.",
             "It was the first human-made object ever sent to circle Earth.",
             "It landed safely on the Moon's surface."
@@ -395,10 +395,10 @@
         {
           "stem": "What can be inferred about why firms build reusable rockets today?",
           "options": [
-            "Reusable rockets cannot carry any satellites into orbit at all",
+            "Reusable rockets cannot carry any satellites into orbit in a year",
             "Reusing rockets lowers costs and allows more missions each year.",
-            "Astronauts prefer rockets that cannot be reused.",
-            "Reusable rockets no longer need any fuel."
+            "Astronauts prefer rockets that are used once.",
+            "Reusable rockets need less fuel."
           ],
           "answer": "B",
           "skill": "inference",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Space Race was caused entirely by the invention of fireworks.",
+            "The Space Race was caused by the invention of fireworks.",
             "Reusable rockets have made satellites unnecessary.",
             "Robert Goddard's rocket flew all the way to the Moon in 1926 on its very first test flight.",
             "Rocket propulsion evolved from fire arrows into technology enabling spaceflight."
@@ -526,7 +526,7 @@
             "It is outdated and rarely used anymore.",
             "It represents an innovative, groundbreaking approach.",
             "It was first attempted in ancient China.",
-            "It applies only to satellites, not to rockets."
+            "It applies only to satellites, not to rockets in space."
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -541,7 +541,7 @@
           "stem": "Why does reusing rockets dramatically reduce the cost of spaceflight?",
           "options": [
             "Because the same rocket can fly multiple missions instead of being rebuilt each time.",
-            "Because reusable rockets require absolutely no fuel at all for any flight",
+            "Because reusable rockets require much less fuel for each flight into orbit and back",
             "Because satellites become cheaper to manufacture.",
             "Because astronauts no longer need training."
           ],
@@ -559,7 +559,7 @@
           "options": [
             "Goddard personally designed and built the entire Apollo 11 lunar module",
             "Goddard's liquid-fuel breakthrough provided engineering principles that later missions built upon.",
-            "Goddard's work had no connection to later Soviet or American space programs.",
+            "Goddard's work had little connection to later Soviet or American space programs, which began without his ideas.",
             "Goddard's 1926 rocket carried the first satellite into orbit."
           ],
           "answer": "B",
@@ -591,7 +591,7 @@
         {
           "stem": "Which pair of events shows a clear cause-and-effect relationship described in the article?",
           "options": [
-            "Fire arrows were invented, which directly and immediately caused the 1969 Moon landing",
+            "Fire arrows were invented, which directly led to the 1969 Moon landing a few years later, after many tests and long delays in the desert",
             "Sputnik's launch caused gunpowder to be banned in rocketry.",
             "Goddard's liquid-fuel success contributed to engineering advances that eventually enabled orbital and lunar missions.",
             "Gagarin's flight caused reusable rockets to stop being developed."

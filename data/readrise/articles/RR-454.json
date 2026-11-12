@@ -117,7 +117,7 @@
             "How birds build their nests in tall trees",
             "Why bicycles are faster than walking",
             "How the Wright brothers built a machine that could fly",
-            "How large colorful balloons are made in factories"
+            "How large colorful balloons are made in factories in the city"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -131,7 +131,7 @@
         {
           "stem": "What did some people try before the Wright brothers, according to the article?",
           "options": [
-            "They tried riding fast horses across fields",
+            "They tried riding fast horses across fields on the farm",
             "They tried climbing very tall, sturdy trees",
             "They tried swimming across wide rivers",
             "They tried balloons and gliders to get into the sky"
@@ -167,7 +167,7 @@
           "options": [
             "Because they wanted it to look a different color",
             "Because they needed to fix small problems until it worked",
-            "Because they were bored and had nothing else to do",
+            "Because they were bored and had nothing else to do in the shop",
             "Because someone else told them it was required"
           ],
           "answer": "B",
@@ -182,8 +182,8 @@
         {
           "stem": "Why was the glider pilot's crash important to the story?",
           "options": [
-            "It shows that gliders were completely safe for everyone",
-            "It proves that the Wright brothers caused the crash",
+            "It shows that gliders were safe for everyone",
+            "It proves that the Wright brothers caused the crash on purpose",
             "It shows that flying was risky and still being figured out",
             "It shows that birds also crashed often"
           ],
@@ -199,7 +199,7 @@
         {
           "stem": "In the article, what does the word \"test\" mean?",
           "options": [
-            "To sell something at a nearby store",
+            "To sell something at a nearby store in town",
             "To throw something far, far away",
             "To paint something a new color",
             "To try something out to see if it works"
@@ -219,7 +219,7 @@
             "It flew for many long hours without ever stopping",
             "It flew for only a few seconds, and that was the first real flight",
             "It immediately crashed into the bicycle shop",
-            "It quickly turned into a floating balloon in the sky"
+            "It quickly turned into a floating balloon in the sky above the field"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -234,8 +234,8 @@
           "stem": "How was the Wright brothers' machine different from a balloon?",
           "options": [
             "The machine had wings and an engine, while a balloon simply floats with gas",
-            "The machine could only float, while a balloon could fly fast",
-            "The machine was invented first, long before any balloon",
+            "The machine could just float, while a balloon could fly fast with an engine",
+            "The machine was invented first, long before balloons",
             "The machine and the balloon worked in exactly the same way"
           ],
           "answer": "A",
@@ -294,9 +294,9 @@
           "stem": "What is the main idea of this article?",
           "options": [
             "Balloons were the fastest and easiest way to travel in 1903",
-            "Birds and airplanes always fly in exactly the same way",
+            "Birds and airplanes fly in exactly the same way",
             "The Wright brothers' patient testing led to powered flight",
-            "Bicycle shops always naturally lead to major inventions"
+            "Bicycle shops naturally lead to major inventions"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -310,7 +310,7 @@
         {
           "stem": "According to the article, what did the Wright brothers study closely to help their design?",
           "options": [
-            "How fish swim quickly through water",
+            "How fish swim quickly through water in a river",
             "How trains move along their tracks",
             "How thick clouds form in the sky",
             "How birds use their wings to glide and turn"
@@ -347,7 +347,7 @@
             "Because the idea of flight attracted many hopeful, curious minds",
             "Because flying offered no real benefit to anyone",
             "Because flying machines were simple to build quickly",
-            "Because governments forced absolutely everyone to try it"
+            "Because governments forced people across the country to try flying"
           ],
           "answer": "A",
           "skill": "inference",
@@ -361,7 +361,7 @@
         {
           "stem": "Why do you think the Wright brothers kept fixing small problems instead of giving up?",
           "options": [
-            "Because they were forced to by their bicycle customers",
+            "Because they were forced to by their bicycle customers in the town",
             "Because they wanted to waste their engine on purpose",
             "Because they truly believed their machine could eventually succeed",
             "Because they did not understand how machines worked"
@@ -378,9 +378,9 @@
         {
           "stem": "In the article, what does the word \"powered\" describe about the 1903 flight?",
           "options": [
-            "That the flight happened without any machine at all",
-            "That the flight lasted for many long hours overall",
-            "That the flight used only a balloon filled with gas",
+            "That the flight happened without any machine",
+            "That the flight lasted for many long hours",
+            "That the flight used a balloon filled with gas and hot air",
             "That the flight used an engine to move forward, not just wind"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the article organize the events leading up to the first flight?",
           "options": [
-            "It compares two unrelated topics with no real connection",
+            "It compares two unrelated topics with no real connection in the whole article",
             "It follows the order of events from early attempts to final success",
-            "It lists many random facts about European history overall",
-            "It argues that gliders were always better than airplanes"
+            "It lists many random facts about European history",
+            "It argues that gliders were better than airplanes"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -412,10 +412,10 @@
         {
           "stem": "What effect did the Wright brothers' successful 1903 flight have on air travel?",
           "options": [
-            "It proved that flying machines could never truly work",
-            "It caused every single bicycle shop nearby to close down",
+            "It proved that flying machines could never truly work or carry people",
+            "It caused the bicycle shops nearby to close down",
             "It proved powered flight was possible, leading to airplanes today",
-            "It stopped all further testing of any flying machines ever"
+            "It stopped further testing of flying machines"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Balloons were always a completely reliable way to achieve flight",
+            "Balloons were a reliable way to achieve flight",
             "No inventor besides the Wright brothers ever attempted human flight",
-            "Flight had no real impact on how people traveled afterward at all",
+            "Flight had no real impact on how people traveled afterward",
             "The Wright brothers' experiments led to the first controlled flight"
           ],
           "answer": "D",
@@ -492,7 +492,7 @@
             "They were considered too colorful for serious inventors to use",
             "They lacked a reliable way to achieve sustained, controlled flight",
             "They were banned by governments across every single country",
-            "They required no testing or experimentation whatsoever at all"
+            "They required no testing or experimentation"
           ],
           "answer": "B",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "What specific combination enabled the Wright brothers' flying machine to succeed?",
           "options": [
-            "Painted canvas alone, with no working engine of any kind",
+            "Painted canvas alone, with no working engine",
             "Borrowed bicycle wheels with absolutely no wings attached",
-            "A massive balloon filled entirely with heated air only",
+            "A massive balloon filled with heated air only",
             "Carefully shaped wings, a lightweight engine, and much testing"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "What can be inferred about innovation from the fact that multiple inventors in different places pursued powered flight independently?",
           "options": [
             "Only one inventor in all of history is ever capable of true innovation",
-            "Every important invention has always had just a single inventor",
+            "Most important inventions have had a single inventor",
             "A shared, difficult problem can inspire independent, similar solutions",
-            "Independent experimentation never actually leads anywhere useful"
+            "Independent experimentation rarely leads anywhere useful"
           ],
           "answer": "C",
           "skill": "inference",
@@ -540,10 +540,10 @@
         {
           "stem": "Why does the article emphasize the Wright brothers' many repeated, patient experiments before their eventual success?",
           "options": [
-            "To show that experimentation always results in total failure",
+            "To show that experimentation results in total failure",
             "To suggest that sustained persistence through failure often leads to breakthroughs",
-            "To argue that testing an idea repeatedly is generally pointless",
-            "To prove that the brothers worked entirely without any plan"
+            "To argue that testing an idea repeatedly is generally a waste of time for inventors",
+            "To prove that the brothers worked without any plan"
           ],
           "answer": "B",
           "skill": "inference",
@@ -557,10 +557,10 @@
         {
           "stem": "In the article, what does \"controlled\" most precisely describe about the 1903 flight?",
           "options": [
-            "That the flight happened completely by accident with no planning",
-            "That the flight was slower than any earlier glider attempt",
+            "That the flight happened by accident with no planning",
+            "That the flight was slower than any earlier glider attempt by the brothers",
             "That the flight was deliberately guided and managed, not left to chance",
-            "That the flight used no engine or mechanical power at all"
+            "That the flight used no engine or mechanical power"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -574,8 +574,8 @@
         {
           "stem": "How does the article's structure support its central idea about this remarkable achievement?",
           "options": [
-            "It randomly jumps between unrelated historical topics with no clear order",
-            "It focuses entirely on describing the brothers' personal childhood memories",
+            "It randomly jumps between unrelated historical topics with no clear order in a confusing way",
+            "It focuses on describing the brothers' personal childhood memories",
             "It only compares modern airplane ticket prices across different airlines",
             "It presents the early failures, the testing, and the lasting transformation in sequence"
           ],
@@ -592,9 +592,9 @@
           "stem": "What effect did the Wright brothers' pioneering, controlled flight have on human travel over time?",
           "options": [
             "It opened the door to the widespread air travel people rely on today",
-            "It made flight scarcer and far more dangerous than before",
+            "It made flight scarcer and far more dangerous than before for the passengers",
             "It limited flight permanently to only short glider trips",
-            "It had no measurable effect on how people travel at all"
+            "It had no measurable effect on how people travel"
           ],
           "answer": "A",
           "skill": "cause-effect",

@@ -200,7 +200,7 @@
           "stem": "Why do you think Maha felt sad about her messy letters at first?",
           "options": [
             "She did not like Master Nasser or his lessons very much",
-            "She wanted to quit calligraphy forever and go home",
+            "She wanted to quit calligraphy and go home",
             "She thought the ink was the wrong color for the page",
             "She wanted to make Master Nasser proud and do well"
           ],
@@ -217,7 +217,7 @@
           "stem": "What happened after Maha finally wrote the word sabr perfectly?",
           "options": [
             "Her page was chosen for a big art show",
-            "She stopped practicing calligraphy",
+            "She stopped practicing calligraphy for a year",
             "She moved to a new city",
             "Master Nasser closed his shop"
           ],
@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Maha disliked calligraphy and quit after a few tries.",
-            "Master Nasser retired and closed his small shop forever.",
+            "Master Nasser retired and closed his small shop.",
             "Maha mastered a difficult script through patient practice and feedback.",
             "Maha's classmates taught her calligraphy instead of Master Nasser."
           ],
@@ -379,7 +379,7 @@
           "stem": "Why did Maha's classmates tease her about practicing?",
           "options": [
             "They wanted to learn calligraphy too, just like her",
-            "They did not like Maha at all, and they wanted her to leave",
+            "They did not like Maha, and they wanted her to leave",
             "They thought her slow, careful practice looked unnecessary",
             "They thought Master Nasser was unkind to his students"
           ],
@@ -507,7 +507,7 @@
           "stem": "What did the curator specifically praise about Maha's finished piece?",
           "options": [
             "Its balanced composition, aesthetic sensitivity, and confident lines",
-            "Its unusual color scheme and strikingly modern artistic style",
+            "Its unusual color scheme and strikingly modern artistic style of painting",
             "Its large size and bright gold frame",
             "Its speed of completion"
           ],
@@ -543,7 +543,7 @@
             "Because Master Nasser refused to teach it to most of his many students, and gave lessons only to his own sons.",
             "Because it demanded exceptional discipline and years of meticulous, painstaking practice",
             "Because the ink needed for thuluth was too expensive for most students to buy, and so they had to stop early.",
-            "Because the script was no longer taught anywhere in the whole region, and the old masters had all moved away."
+            "Because the script was rarely taught in the region, since the old masters had moved away."
           ],
           "answer": "B",
           "skill": "inference",
@@ -559,7 +559,7 @@
           "options": [
             "He grew frustrated and considered dismissing her from the shop",
             "He believed talent mattered more than practice in the craft",
-            "He thought mistakes should be ignored completely by an apprentice",
+            "He thought mistakes should be ignored by an apprentice",
             "He valued patience and believed true mastery could not be rushed"
           ],
           "answer": "D",

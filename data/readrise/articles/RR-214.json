@@ -295,8 +295,8 @@
           "options": [
             "VR lets people enter a realistic made-up world and is used to learn and train safely.",
             "VR headsets have two small screens inside them, and that is all the article explains.",
-            "Doctors always use VR before every surgery, and they never practice in any other way.",
-            "Schools now use VR instead of books, because teachers do not like reading any more."
+            "Doctors use VR before each surgery, and they practice in no other way.",
+            "Schools now use VR instead of books, because teachers do not like reading anymore."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -346,7 +346,7 @@
           "options": [
             "a real surgery performed on a patient",
             "a made-up version of an experience that feels real",
-            "a tool used to measure a patient's heartbeat",
+            "a tool used to measure a patient's heartbeat in a clinic",
             "a kind of medicine given before surgery"
           ],
           "answer": "B",
@@ -361,10 +361,10 @@
         {
           "stem": "Why would a pilot benefit more from a realistic VR simulation than from reading a book about flying?",
           "options": [
-            "Books are always wrong about flying, so pilots should never read them or study.",
+            "Books are wrong about flying, so pilots should never read them or study.",
             "A realistic simulation lets the pilot practice real actions and reactions.",
-            "VR headsets are cheaper than books, so every school should buy them.",
-            "Books cannot be read on an airplane, so pilots must use a simulator."
+            "VR headsets are cheaper than books, so schools should buy them.",
+            "Books are hard to read on an airplane, so pilots use a simulator."
           ],
           "answer": "B",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "VR creates an immersive world with real benefits for training and therapy, though it has limits and needs rules.",
-            "VR headsets always weigh less than regular glasses, so people can wear them all day long and never feel tired at all.",
-            "Augmented reality has completely replaced virtual reality, so no one makes VR headsets for training or therapy anymore.",
-            "Pilots no longer need any real flight training, because VR can teach them everything, and it has no limits or rules at all."
+            "VR headsets weigh less than regular glasses, so people can wear them all day long and never feel tired.",
+            "Augmented reality has replaced virtual reality, so few companies make VR headsets for training or therapy.",
+            "Pilots no longer need real flight training, because VR can teach them, and it has few limits or rules."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -508,7 +508,7 @@
           "options": [
             "A built-in camera for taking photos",
             "A light that charges the headset's battery",
-            "A small speaker that plays background music",
+            "A small speaker that plays background music to the user",
             "Haptic feedback that presses against the fingers"
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "Why might VR therapy for a phobia be considered safer than facing the real fear directly?",
           "options": [
-            "VR scenes always feel less real than an actual fear.",
+            "VR scenes feel less real than an actual fear.",
             "VR scenes can be carefully controlled and adjusted gradually.",
-            "VR removes the fear permanently after one session.",
-            "VR therapy requires no supervision from anyone at all."
+            "VR removes the fear for good after one short session with a doctor.",
+            "VR therapy requires no supervision from anyone."
           ],
           "answer": "B",
           "skill": "inference",
@@ -560,7 +560,7 @@
             "So the picture can instantly match the wearer's motion and feel believable.",
             "So the headset can charge its battery faster when the head moves in the game",
             "So the controllers stop working during use of the headset by the player",
-            "So the wearer cannot turn their head at all in the game or the room"
+            "So the wearer cannot turn their head in the game or the room"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -591,8 +591,8 @@
         {
           "stem": "Why does the author mention age-based regulations near the end of the article?",
           "options": [
-            "To warn that VR headsets will soon be banned everywhere in the world",
-            "To explain in detail how VR headsets are manufactured",
+            "To warn that VR headsets will soon be banned",
+            "To explain in detail how VR headsets are manufactured and sold in stores",
             "To argue that only adults should ever use technology",
             "To show that VR has real limits that require careful rules for safety"
           ],

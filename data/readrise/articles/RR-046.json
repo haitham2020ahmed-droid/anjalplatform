@@ -133,8 +133,8 @@
           "options": [
             "Not even light",
             "Only big rocks",
-            "Only small stars",
-            "Only the gas"
+            "Small stars",
+            "Dust and gas"
           ],
           "answer": "A",
           "skill": "detail",
@@ -396,7 +396,7 @@
           "stem": "How is our Sun different from the stars that become black holes?",
           "options": [
             "It is much hotter than they are, and it has more matter.",
-            "It has no gravity at all, so planets float away from it.",
+            "It has no gravity, so planets float away from it.",
             "It is much smaller and has far less matter.",
             "It is in a different galaxy, far away from our own."
           ],
@@ -543,7 +543,7 @@
             "Black holes affect the stars and gas around them in ways that can be observed.",
             "Black holes reflect sunlight back toward Earth, so astronomers can see the glow.",
             "Black holes make a sound that radio telescopes hear from very far away.",
-            "Black holes are always found next to bright planets that light them up."
+            "Black holes are found next to bright planets that light them up."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,7 +574,7 @@
         {
           "stem": "What can the reader infer about the 2019 and 2022 images?",
           "options": [
-            "They show the inside of the black holes clearly, with no dark parts at all, as a photo does.",
+            "They show the inside of the black holes clearly, with no dark parts, as a photo does.",
             "They prove the Sun will become a black hole in a few years, so the images are a warning.",
             "They were taken by astronauts close to the black holes in space, with a small camera.",
             "They show dark shadows outlined by glowing gas, not light from the black holes themselves."

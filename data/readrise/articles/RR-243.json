@@ -150,7 +150,7 @@
           "options": [
             "It squeezes and mixes the food with juice.",
             "It chews the food into small bits.",
-            "It turns the food straight into waste.",
+            "It turns the food straight into waste right away.",
             "It sends the food back up your throat."
           ],
           "answer": "A",
@@ -168,7 +168,7 @@
             "The mush goes back into the mouth.",
             "The mush moves into the intestines.",
             "The mush turns into saliva.",
-            "The mush stays in the stomach forever."
+            "The mush stays in the stomach."
           ],
           "answer": "B",
           "skill": "sequence",
@@ -202,7 +202,7 @@
             "They will become waste and leave his body.",
             "They will turn into more teeth.",
             "They will go back out through his mouth.",
-            "They will stay stuck in his stomach forever."
+            "They will stay stuck in his stomach."
           ],
           "answer": "A",
           "skill": "inference",
@@ -218,7 +218,7 @@
           "options": [
             "By comparing different kinds of food",
             "By following food's trip through the body, step by step",
-            "By telling a made-up story about a hungry dragon",
+            "By telling a made-up story about a hungry dragon in a cave",
             "By listing facts about teeth only"
           ],
           "answer": "B",
@@ -295,7 +295,7 @@
           "options": [
             "Teeth are the only body part used in digestion.",
             "Digestion breaks food down into nutrients your body can use for energy.",
-            "The stomach is more important for digestion than any other single body part.",
+            "The stomach is more important for digestion than the other body parts.",
             "Waste is the most important part of eating food."
           ],
           "answer": "B",
@@ -346,7 +346,7 @@
           "options": [
             "To push something away forcefully",
             "To take something in through a surface",
-            "To chew something into tiny pieces",
+            "To chew something into tiny pieces with the teeth",
             "To squeeze something tightly"
           ],
           "answer": "B",
@@ -475,7 +475,7 @@
             "The stomach is the single most essential organ in the entire body.",
             "Digestion is a coordinated system that turns food into usable nutrients and energy.",
             "Villi exist only to make the small intestine look different from the large intestine.",
-            "Peristalsis only occurs inside the esophagus."
+            "Peristalsis occurs mostly inside the esophagus."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,7 +523,7 @@
         {
           "stem": "The article says glands in the mouth secrete saliva. What does secrete mean here?",
           "options": [
-            "To hide something carefully and completely out of sight",
+            "To hide something carefully and out of sight",
             "To chew food into very small bits with the teeth",
             "To absorb a nutrient directly into the blood",
             "To release a substance from a gland or cell"
@@ -574,7 +574,7 @@
         {
           "stem": "How is the role of the esophagus different from the role of the small intestine, according to the article?",
           "options": [
-            "The esophagus absorbs nutrients, while the small intestine only transports food.",
+            "The esophagus absorbs nutrients, while the small intestine only transports food to the blood.",
             "The esophagus secretes digestive acid, while the small intestine stores waste.",
             "The esophagus mainly transports food, while the small intestine mainly absorbs nutrients.",
             "Both organs perform exactly the same function at different times."
@@ -593,7 +593,7 @@
           "options": [
             "To entertain readers with a fictional adventure story",
             "To suggest that digestion is dangerous and should be avoided",
-            "To argue that one organ works completely alone, without the others",
+            "To argue that one organ works alone, without the others",
             "To help readers see digestion as one connected process"
           ],
           "answer": "D",

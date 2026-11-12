@@ -7,6 +7,7 @@ import { ValidationError } from "@/server/curriculum-admin";
 import { allowPlacementRetake, assertClassWrite, assignArticle, CLASS_SETTINGS, gradeWriting, scoreWriting, setClassSetting, setStudentLevel, TEACHER_BADGES, unassignArticle, WRITING_RUBRIC, type ClassSettingKey } from "@/server/readrise/teacher";
 import { assignDatesOf } from "@/lib/assign-dates";
 import { formatLevel } from "@/server/readrise/level";
+import { undoLevelDrop } from "@/server/readrise/engine";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[] };
 const msgOf = (e: unknown) => { if (e instanceof ValidationError || e instanceof ForbiddenError) return e.message; throw e; };
@@ -81,6 +82,19 @@ export async function setReadRiseLevelAction(f: FormData): Promise<void> {
     msg = `ReadRise Level changed: ${formatLevel(r.from)} → ${formatLevel(r.to)}.`;
   } catch (e) { msg = msgOf(e); }
   back(classId, msg);
+}
+
+/** ↩️ Round 11: undo the last automatic drop (within 7 days), back to the student's Level detail. */
+export async function undoReadRiseDropAction(f: FormData): Promise<void> {
+  const actor = await requireActor(STAFF);
+  const classId = id(f, "classId"), studentId = id(f, "studentId");
+  let msg: string;
+  try {
+    const r = await undoLevelDrop(repo, actor, studentId);
+    msg = `Drop undone: ${formatLevel(r.from)} → ${formatLevel(r.to)}. No automatic drop for the next 8 articles.`;
+  } catch (e) { msg = msgOf(e); }
+  revalidatePath("/teacher/readrise");
+  redirect(`/teacher/readrise?class=${encodeURIComponent(classId)}&student=${encodeURIComponent(studentId)}&view=detail&msg=${encodeURIComponent(msg)}`);
 }
 
 export async function allowReadRiseRetakeAction(f: FormData): Promise<void> {

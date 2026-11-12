@@ -183,9 +183,9 @@
           "stem": "Why might a tent that comes down fast be useful in the desert?",
           "options": [
             "It lets a family move quickly to find water",
-            "It makes the tent heavier to carry",
-            "It keeps the tent in one place forever",
-            "It stops the wind from blowing at all"
+            "It makes the tent heavier to carry on a camel",
+            "It keeps the tent in one place",
+            "It stops the wind from blowing"
           ],
           "answer": "A",
           "skill": "inference",
@@ -217,7 +217,7 @@
           "stem": "How is the article mostly organized?",
           "options": [
             "It tells a long and sad story about one lost camel",
-            "It carefully lists the steps for cooking desert food",
+            "It carefully lists the steps for cooking desert food and baking bread",
             "It compares two very different kinds of modern cars",
             "It explains what the tent is and why it helped people move"
           ],
@@ -361,8 +361,8 @@
         {
           "stem": "Why might the shade under the tent feel cooler than the open desert?",
           "options": [
-            "The tent has no roof covering it at all",
-            "The desert sun never reaches the ground",
+            "The tent has no roof covering it",
+            "The desert sun never reaches the ground in summer",
             "The tent uses a hidden water pool",
             "The dark panels block the sun's direct heat"
           ],
@@ -395,7 +395,7 @@
         {
           "stem": "Why does the author explain how the tent handles heat and sandstorms?",
           "options": [
-            "To argue that modern houses are always better",
+            "To argue that modern houses are better",
             "To compare tents with large city buildings",
             "To show how well the design suits desert life",
             "To list the steps for herding camels"
@@ -474,7 +474,7 @@
           "options": [
             "Bayt al-sha'ar is a portable tent well suited to nomadic desert life",
             "Sandstorms virtually never reach any part of the Arabian desert region",
-            "Modern buildings fully copy every detail of this old tent",
+            "Modern buildings copy each detail of this old tent",
             "Camels were invented specifically to carry heavy tents"
           ],
           "answer": "A",
@@ -525,7 +525,7 @@
           "options": [
             "Likely to break under light pressure from wind",
             "Able to hold up under difficult conditions",
-            "Covered completely in bright colors and patterns",
+            "Covered in bright colors and patterns",
             "Built only for a single season of the year"
           ],
           "answer": "B",
@@ -541,7 +541,7 @@
           "stem": "Why does the article mention that families needed no artificial means of controlling temperature?",
           "options": [
             "To show that the tent's natural design already solved this problem",
-            "To strongly argue that artificial cooling is always much better",
+            "To strongly argue that artificial cooling is much better",
             "To attempt to prove that the desert is never actually hot",
             "To carefully explain how electricity reached early desert camps"
           ],

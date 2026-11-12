@@ -182,7 +182,7 @@
     {
      "stem": "Why does Tariq show his journal to his teacher?",
      "options": [
-      "Because he lost his journal and needs a new one",
+      "Because he lost his journal and needs a new one for school",
       "Because his teacher asked to see his homework",
       "Because he sees something new and unusual in the sky",
       "Because he wants a prize for the best drawing"
@@ -217,7 +217,7 @@
      "stem": "Why does the astronomy club get involved?",
      "options": [
       "Because Tariq wins a drawing contest",
-      "Because Tariq buys a brand-new telescope",
+      "Because Tariq buys a brand-new telescope for the class",
       "Because Tariq's teacher is an astronomer",
       "Because the school tells them what Tariq found"
      ],
@@ -295,7 +295,7 @@
      "options": [
       "Only scientists with expensive telescopes can ever find comets in the night sky, so boys cannot.",
       "Tariq's journal is mostly filled with stories about his friends and what they did at school.",
-      "The night sky never changes, so there is nothing new to observe, and the club closes down.",
+      "The night sky changes little, so there is not much new to observe, and the club closes down.",
       "A boy's months of careful sky observations help an astronomy club identify a new comet."
      ],
      "answer": "D",
@@ -313,7 +313,7 @@
       "The date, time, and constellations he sees",
       "The names of his friends who visit",
       "The weather forecast for the next day",
-      "The price of a brand-new telescope kit"
+      "The price of a brand-new telescope kit for him"
      ],
      "answer": "A",
      "skill": "detail",
@@ -396,7 +396,7 @@
      "stem": "How does the author organize this story?",
      "options": [
       "By comparing two different cities in the desert",
-      "By listing all the steps to build a working telescope",
+      "By listing all the steps to build a working telescope in a small workshop",
       "By describing Tariq's habit, then the discovery it leads to",
       "By telling the ending first and then going backward"
      ],
@@ -475,7 +475,7 @@
       "Studying the night sky is a pointless hobby for children.",
       "A boy's consistent, meticulous sky observations ultimately enable the discovery of a comet.",
       "Comets can only be discovered by professional astronomers with expensive equipment.",
-      "Tariq's journal is valuable only because of its drawings, not its records."
+      "Tariq's journal is valuable mainly because of its drawings, not its records."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -540,10 +540,10 @@
     {
      "stem": "What does the story suggest about the relationship between patience and discovery?",
      "options": [
-      "Discoveries always happen suddenly, without any patient preparation.",
+      "Discoveries happen suddenly, with little patient preparation beforehand.",
       "Patient, careful habits can create the conditions for an unexpected discovery.",
-      "Only trained astronomers are capable of noticing a phenomenon.",
-      "Patience matters only in science, not in everyday life."
+      "Trained astronomers are the people who notice such things.",
+      "Patience matters more in science than in everyday life."
      ],
      "answer": "B",
      "skill": "inference",
@@ -576,7 +576,7 @@
      "options": [
       "To emphasize that steady, careful habits can lead to meaningful results",
       "To argue that journals are more important than telescopes",
-      "To suggest that anyone can discover a comet without any effort",
+      "To suggest that anyone can discover a comet without any effort or patience at night",
       "To explain the technical steps for identifying a comet"
      ],
      "answer": "A",

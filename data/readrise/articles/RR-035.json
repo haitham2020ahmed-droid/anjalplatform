@@ -184,7 +184,7 @@
           "options": [
             "It lives only in the Red Sea, far from the others.",
             "It has white spots on its back like a leopard.",
-            "It is bigger than every whale in the deep sea.",
+            "It is bigger than most whales in the sea.",
             "It takes air from the water with gills."
           ],
           "answer": "D",
@@ -543,7 +543,7 @@
             "Tags change the color of the shark's spots when it swims fast.",
             "Photos cannot show which shark is which, even when they are clear.",
             "Tags can follow where a shark travels after it leaves the reef.",
-            "Photos can only be taken at night, when the sharks swim near the reef."
+            "Photos are hard to take in deep water, where the sharks swim in spring."
           ],
           "answer": "C",
           "skill": "inference",
@@ -558,7 +558,7 @@
           "stem": "What can the reader infer from the fact that the reef near Al-Lith attracts the sharks every spring?",
           "options": [
             "The sharks are lost and cannot find the open sea.",
-            "The reef is the only place whale sharks can breathe.",
+            "The reef is the main place where whale sharks lay eggs.",
             "Saudi universities feed the sharks each spring.",
             "Protecting the reef could help the sharks."
           ],
@@ -577,7 +577,7 @@
             "It rewards communities that protect the sharks, if visitors follow rules.",
             "It teaches the sharks to trust the boats that bring tourists.",
             "It removes all plastic from the Red Sea.",
-            "It lets snorkelers touch and feed the sharks whenever they like."
+            "It lets snorkelers touch and feed the sharks whenever they like during their visit."
           ],
           "answer": "A",
           "skill": "cause-effect",

@@ -296,7 +296,7 @@
             "Mars is far too cold and dusty for any kind of machine to keep working there.",
             "Robot rovers explore Mars for us and have taught us that water once flowed there.",
             "The UAE was the very first country to land a spacecraft on the surface of Mars.",
-            "Rovers are controlled every second by people on Earth."
+            "Rovers are driven by people on Earth in real time."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -398,7 +398,7 @@
             "Engineers must plan for dust, distance, and long trips.",
             "A broken rover can easily be fixed by the people who live on Mars.",
             "Rovers never need power.",
-            "Any ordinary family car could drive on Mars without special tools."
+            "An ordinary family car could drive on Mars with bigger tires."
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Rovers are mainly useful for taking beautiful photographs of the Martian landscape to share with the public.",
+            "Rovers are mainly useful for taking beautiful photographs of the Martian landscape to share with the public and with scientists on Earth.",
             "Robotic rovers overcome Mars's harsh conditions and distance to reveal its watery past and prepare for human exploration.",
             "Mars was once covered by a huge ocean that still exists today in deep caves underground.",
             "Scientists have already proved that many kinds of tiny living things exist on Mars today."
@@ -541,7 +541,7 @@
           "stem": "In the article, the word habitable most nearly means —",
           "options": [
             "covered in a thick layer of fine red dust",
-            "completely full of liquid water",
+            "full of liquid water",
             "able to support living things",
             "located very far away from the Sun"
           ],
@@ -575,7 +575,7 @@
           "stem": "Which comparison between power sources is supported by the article?",
           "options": [
             "Solar panels never fail on Mars, but every other kind of power supply runs out within a few days.",
-            "Both kinds of power sources are completely blocked whenever dust blows.",
+            "Both kinds of power sources are blocked whenever dust blows.",
             "Solar panels can be weakened by dust, while some rovers carry their own lasting supply.",
             "Neither power source can work in the cold, thin air of Mars."
           ],
@@ -593,7 +593,7 @@
           "options": [
             "Its engineers built it to be much tougher than its basic plan required.",
             "Mars has no wind or dust storms, so it was easy to keep going for years",
-            "Rovers do not need any power at all, so they can run for ages.",
+            "Rovers do not need any power, so they can run for ages.",
             "The rover was repaired by astronauts who traveled to Mars."
           ],
           "answer": "A",

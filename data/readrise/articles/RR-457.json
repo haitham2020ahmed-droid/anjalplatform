@@ -115,7 +115,7 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How people read all their daily news long ago",
-            "How shiny glass tubes are made in big factories",
+            "How shiny glass tubes are made in big factories in the city",
             "How Philo found a way to send pictures through the air",
             "How people carefully built their small labs"
           ],
@@ -148,7 +148,7 @@
         {
           "stem": "What did Philo want to do, according to the article?",
           "options": [
-            "Build a much bigger lab for his work",
+            "Build a much bigger lab for his work in town",
             "Send pictures far away using electricity",
             "Print many more newspapers each day",
             "Sell many more glass tubes each year"
@@ -165,7 +165,7 @@
         {
           "stem": "Why do you think Philo kept trying new ways to send pictures?",
           "options": [
-            "Because he did not like watching TV at all",
+            "Because he did not like watching TV",
             "Because other people forced him to try",
             "Because he wanted his tube to finally break",
             "Because he wanted a way that finally worked"
@@ -202,7 +202,7 @@
             "A kind of heavy, old glass tube",
             "A flat surface where pictures can be shown",
             "A type of printed daily newspaper",
-            "A small, quiet research laboratory"
+            "A small, quiet research laboratory in the town"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -217,7 +217,7 @@
           "stem": "What happened after Philo's new way finally worked?",
           "options": [
             "A moving picture showed up on a screen",
-            "The screen completely disappeared",
+            "The screen disappeared",
             "Philo stopped trying to send pictures",
             "The lab burned down completely"
           ],
@@ -233,7 +233,7 @@
         {
           "stem": "How was Philo's new way different from reading news in print?",
           "options": [
-            "The new way used absolutely no electricity at all",
+            "The new way used absolutely no electricity",
             "The new way took much longer than reading print",
             "A moving picture appeared on a screen, not words on paper",
             "The new way and reading print worked exactly the same"
@@ -293,9 +293,9 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "Reading print news was always much faster than watching TV",
+            "Reading print news was much faster than watching TV",
             "Televisions were already common for hundreds of years before Philo",
-            "Labs located in every busy city always succeed quickly",
+            "Labs located in every busy city succeed quickly",
             "Philo's new method let people watch moving pictures using electricity"
           ],
           "answer": "D",
@@ -328,7 +328,7 @@
           "stem": "What did other inventors do, according to the article?",
           "options": [
             "They also tried to send pictures this way",
-            "They refused to try at all",
+            "They refused to try",
             "They copied Philo's exact method immediately",
             "They only read print news instead"
           ],
@@ -344,9 +344,9 @@
         {
           "stem": "Why do you think Philo's method using a tube and special material succeeded where others failed?",
           "options": [
-            "It used absolutely no electricity or material at all",
+            "It used absolutely no electricity or material",
             "It let light reliably form a moving picture on a screen",
-            "It required people to draw the picture themselves",
+            "It required people to draw the picture themselves by hand",
             "It made all pictures disappear almost instantly"
           ],
           "answer": "B",
@@ -361,7 +361,7 @@
         {
           "stem": "Why do you think this breakthrough mattered so much to people around the world?",
           "options": [
-            "Because it made reading print news completely illegal",
+            "Because it made reading print news illegal",
             "Because it made owning televisions far too expensive",
             "Because it let ordinary people watch pictures at home",
             "Because it stopped everyone from seeing any pictures"
@@ -381,7 +381,7 @@
             "That it happens right away, without delay",
             "That it takes many hours to complete",
             "That it requires special material every time",
-            "That it only works inside a small lab"
+            "That it works inside a small lab"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -396,7 +396,7 @@
           "stem": "How does the article mostly organize its information?",
           "options": [
             "It lists many random facts about world geography",
-            "It compares two completely unrelated topics with no connection",
+            "It compares two unrelated topics with no connection",
             "It argues that print news is better than television",
             "It follows events in order, from problem to result"
           ],
@@ -414,8 +414,8 @@
           "options": [
             "It let people watch moving pictures much more easily",
             "It caused print news to become the only method used",
-            "It stopped all picture-making completely forever",
-            "It made all televisions disappear from the world"
+            "It stopped picture-making",
+            "It made televisions disappear from the world"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Print news was always considered superior to television",
+            "Print news was considered superior to television",
             "No inventor besides Philo ever attempted to send a picture using electricity",
             "Television had no real impact on daily life after it was invented",
             "Philo's ambitious work led to a breakthrough in sending moving pictures"
@@ -506,10 +506,10 @@
         {
           "stem": "What specific combination enabled Philo's method to finally succeed?",
           "options": [
-            "Painted canvas alone, with no material of any kind",
+            "Painted canvas alone, with no material",
             "A glass tube, material, and controlled electricity",
             "Borrowed printing tools with no electricity involved",
-            "A sealed box filled entirely with water"
+            "A sealed box filled with water"
           ],
           "answer": "B",
           "skill": "detail",
@@ -524,9 +524,9 @@
           "stem": "What can be inferred about innovation from the fact that multiple inventors in different countries pursued this same frustrating goal?",
           "options": [
             "A shared, difficult problem can inspire independent efforts toward similar solutions",
-            "Only inventors in one particular country are capable of true innovation",
-            "Every important invention in history has always had just one true creator",
-            "Independent experimentation never actually leads to useful breakthroughs"
+            "Only inventors in one particular country are capable of true innovation in the world",
+            "Most important inventions in history have had one true creator",
+            "Independent experimentation rarely leads to useful breakthroughs"
           ],
           "answer": "A",
           "skill": "inference",
@@ -540,9 +540,9 @@
         {
           "stem": "Why does the article emphasize the many frustrating years Philo spent testing before succeeding?",
           "options": [
-            "To show that experimentation always results in total failure",
+            "To show that experimentation results in total failure",
             "To argue that testing an idea repeatedly is generally pointless",
-            "To prove that Philo worked entirely without any plan",
+            "To prove that Philo worked without any plan",
             "To suggest that persistence through difficulty leads to breakthroughs"
           ],
           "answer": "D",
@@ -559,7 +559,7 @@
           "options": [
             "That it aimed at something difficult and far-reaching",
             "That it was extremely easy to accomplish quickly",
-            "That it required no material or experimentation at all",
+            "That it required no material or experimentation",
             "That it was abandoned almost immediately after starting"
           ],
           "answer": "A",
@@ -575,7 +575,7 @@
           "stem": "How does the article's structure support its central idea about this remarkable achievement?",
           "options": [
             "It randomly jumps between unrelated inventions with no clear order",
-            "It focuses entirely on describing Philo's personal childhood memories",
+            "It focuses on describing Philo's personal childhood memories",
             "It presents the early failures, experimentation, and breakthrough in order",
             "It only compares the prices of modern televisions across different brands"
           ],

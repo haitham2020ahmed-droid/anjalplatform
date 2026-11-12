@@ -295,7 +295,7 @@
           "options": [
             "The Sun is the largest star in the whole universe, and it is the hottest star of all, too.",
             "The Sun is our nearest star, and the energy it makes in its core supports life on Earth.",
-            "Sunspots are the most important part of the Sun, and they give us all the light we get.",
+            "Sunspots are the most important part of the Sun, and they give us most of our light.",
             "Solar farms were invented in Saudi Arabia, and they are used for farming in the desert."
           ],
           "answer": "B",
@@ -414,7 +414,7 @@
           "options": [
             "It tells a story about an astronaut's long trip to the Sun and back to Earth again in a rocket.",
             "It compares the Sun with the Moon in every single paragraph of the whole article.",
-            "It lists the problems the Sun causes and how people can fix them one by one in turn, for every country.",
+            "It lists the problems the Sun causes and how people can fix them, one by one.",
             "It describes the Sun, explains how it makes energy, and then shows how that energy affects Earth."
           ],
           "answer": "D",
@@ -525,7 +525,7 @@
           "options": [
             "The surface is very active and changing.",
             "The surface is quiet and still, like a calm lake.",
-            "The surface is completely frozen, like a block of ice.",
+            "The surface is frozen, like a block of ice.",
             "The surface is hidden from view by thick clouds."
           ],
           "answer": "A",

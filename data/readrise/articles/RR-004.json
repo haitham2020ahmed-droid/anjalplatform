@@ -150,7 +150,7 @@
           "options": [
             "The water there is colder",
             "The reef keeps out all big animals",
-            "People feed them every day",
+            "The water there is warm and very deep",
             "They can hide there and find food"
           ],
           "answer": "D",
@@ -182,7 +182,7 @@
         {
           "stem": "What causes corals to push out the tiny living things inside them?",
           "options": [
-            "Fish eating too much of the reef",
+            "Fish eating too much of the reef each day",
             "Divers taking photos of them",
             "The sea staying too hot for too long",
             "Too much sunlight in the winter"
@@ -201,8 +201,8 @@
           "options": [
             "They are the only corals that are plants, not animals",
             "They may handle hot water better than many corals",
-            "They live far away from any fish in the open sea",
-            "They never need any sunlight to grow or to live"
+            "They grow faster than corals in cold seas",
+            "They can live in water with little light"
           ],
           "answer": "B",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Red Sea divers must follow strict rules in marine parks, which protect the sand and sea.",
             "Coral reefs are rich homes for sea life that face threats people can reduce.",
             "Algae are the most important living things in the ocean, and they feed every large fish.",
-            "Coral reefs grow faster in salty water than in fresh water, so they are found on every shore."
+            "Coral reefs grow best in fresh water, so they are found mostly near rivers and lakes."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,7 +327,7 @@
         {
           "stem": "How do the algae help the coral?",
           "options": [
-            "They build the coral's hard skeleton.",
+            "They build the coral's hard skeleton each night.",
             "They scare away fish that eat corals.",
             "They keep the water cool on hot days.",
             "They make food from sunlight and share it."
@@ -396,7 +396,7 @@
           "stem": "Based on the article, what would most likely happen if a large reef died?",
           "options": [
             "The sea would become less salty.",
-            "Divers would have more corals to see.",
+            "Divers would have more corals to see each year.",
             "The Red Sea would become cooler.",
             "Many sea creatures would lose their homes."
           ],
@@ -414,7 +414,7 @@
           "options": [
             "To show how important reefs are for their size",
             "To explain how polyps build skeletons",
-            "To prove that most sea creatures are fish",
+            "To prove that most sea creatures are fish or turtles",
             "To describe the color of the Red Sea"
           ],
           "answer": "A",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Red Sea corals will never be harmed by bleaching because they tolerate heat.",
+            "Red Sea corals will never be harmed by bleaching because they tolerate heat and light.",
             "Corals are mainly important because they produce beautiful colors.",
             "Coral reefs are valuable, threatened ecosystems that people are working to conserve.",
             "Scientists have discovered how to stop the ocean from becoming warmer."
@@ -558,7 +558,7 @@
           "stem": "Why can a bleached coral starve if the heat continues?",
           "options": [
             "It has lost the algae that supplied most of its food.",
-            "Its limestone skeleton dissolves in warm water.",
+            "Its limestone skeleton dissolves in warm water each summer.",
             "Fish eat all the food it had stored.",
             "Its tentacles stop growing in the dark."
           ],

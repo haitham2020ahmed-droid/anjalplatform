@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Bacteria are dangerous and should be removed from all soil.",
-            "Only farmers can make compost, using very large piles.",
+            "Farmers make compost using very large piles.",
             "Composting uses decomposers to turn food waste into useful soil.",
             "Coffee grounds are the most important part of compost."
           ],
@@ -378,7 +378,7 @@
         {
           "stem": "Why is food in a landfill worse for the planet than food in a compost pile?",
           "options": [
-            "Landfills are full of worms that eat too much.",
+            "Landfills are full of worms that eat too much and soil.",
             "Landfill food turns into compost much faster.",
             "Without air, it releases methane, which traps heat.",
             "Landfills are too cold for any food to rot."
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Bacteria and fungi are harmful organisms that gardeners must always remove.",
+            "Bacteria and fungi are harmful organisms that gardeners must remove from gardens.",
             "Saudi Arabia has the best soil in the world for composting.",
             "Composting is mainly a way to get rid of meat and dairy products.",
             "Composting recycles food waste into rich soil and keeps it out of landfills."
@@ -558,7 +558,7 @@
           "stem": "Why does chewing by worms and insects speed up composting?",
           "options": [
             "Smaller pieces give microorganisms more surface to consume.",
-            "Worms add salt that breaks the scraps into tiny bits.",
+            "Worms add salt that breaks the scraps into tiny bits in a few days.",
             "Insects keep the pile cool enough to work.",
             "Chewing removes oxygen that slows bacteria down."
           ],
@@ -574,7 +574,7 @@
         {
           "stem": "Why would composting be especially useful in Saudi Arabia?",
           "options": [
-            "Because heavy rain falls there all year",
+            "Because heavy rain falls there all year in summer",
             "Because there is no food waste there",
             "Because compost cools the desert air",
             "Because compost helps sandy soil hold water"

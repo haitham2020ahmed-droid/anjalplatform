@@ -132,8 +132,8 @@
           "stem": "Why does one side of Earth have daytime while the other has nighttime?",
           "options": [
             "Because thick clouds block all the Sun's light on one side",
-            "Because the Sun itself moves slowly around Earth every day",
-            "Because Earth completely stops spinning each night",
+            "Because the Sun moves slowly around Earth each day",
+            "Because Earth stops spinning each night",
             "Because one side faces the Sun, the other faces away"
           ],
           "answer": "D",
@@ -183,7 +183,7 @@
           "stem": "Your cousin calls from another country and says it's already tomorrow there. What does this likely mean?",
           "options": [
             "Your cousin lives in a different, more easterly time zone",
-            "Your cousin's clock must be completely broken or set to the wrong day",
+            "Your cousin's clock must be broken or set to the wrong day",
             "Your cousin simply does not own a calendar and forgot the date",
             "The Sun is somehow closer to your cousin's home than to yours"
           ],
@@ -234,7 +234,7 @@
           "stem": "What happens to your clock when you travel east across a time-zone line?",
           "options": [
             "You take away an hour",
-            "Nothing changes at all",
+            "Nothing changes",
             "You add an hour",
             "Your clock stops working"
           ],
@@ -296,7 +296,7 @@
             "Every country in the world has agreed to use exactly the same single clock time, day and night.",
             "Earth's rotation and longitude together explain why clocks differ around the world.",
             "The International Date Line sits exactly on top of the Greenwich line itself.",
-            "Time zones were invented only so that sailors could cross oceans more safely long ago."
+            "Time zones were invented so that sailors could cross oceans more safely long ago."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,9 +310,9 @@
         {
           "stem": "What happens when a traveler crosses the International Date Line?",
           "options": [
-            "Their clock stops working completely and permanently.",
-            "They lose exactly one hour only, nothing more.",
-            "Absolutely nothing at all changes for them whatsoever.",
+            "Their clock stops working and permanently.",
+            "They lose exactly one hour only, nothing more on the trip.",
+            "The hour changes, but the date stays the same.",
             "The calendar date itself changes, not just the hour."
           ],
           "answer": "D",
@@ -328,7 +328,7 @@
           "stem": "Why does India use a half-hour offset instead of a full hour?",
           "options": [
             "To keep one single time across a country that is wide.",
-            "Because India actually has no time zones of its own at all.",
+            "Because India actually has no time zones of its own.",
             "Because India happens to sit exactly on the Prime Meridian line.",
             "Because the clocks sold in India do not come with minute hands."
           ],
@@ -344,7 +344,7 @@
         {
           "stem": "What can you infer about a country that spans several time zones but chooses to use only one?",
           "options": [
-            "The country does not have any cities located within its borders.",
+            "The country does not have any cities located within its borders or towns.",
             "The country does not know its own exact longitude or position.",
             "The country values having one shared time over matching the Sun exactly.",
             "The country is located precisely on the equator line itself."
@@ -381,7 +381,7 @@
             "located close to or next to each other.",
             "using the exact same currency.",
             "members of the same ocean trade route.",
-            "always at war with one another."
+            "at war with one another."
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Longitude lines have become completely unnecessary now that satellites exist everywhere.",
+            "Longitude lines have become unnecessary now that satellites exist.",
             "Every single nation on Earth strictly follows longitude in setting its official time zone.",
             "Time zones rest on Earth's rotation and longitude, but nations also make political choices about them.",
             "The International Date Line was first proposed by engineers who built early mechanical clocks."
@@ -490,7 +490,7 @@
           "stem": "According to the article, why does China use only one time zone despite its size?",
           "options": [
             "To synchronize daily life and commerce across the entire country.",
-            "Because China sits entirely within a single band of longitude.",
+            "Because China sits within a single band of longitude.",
             "Because satellites cannot reach the western half of the country.",
             "Because the International Date Line passes directly through its center."
           ],
@@ -525,8 +525,8 @@
           "options": [
             "It experiences a much earlier sunrise than the rest of the country.",
             "Its official clock time may not match the Sun's position very well.",
-            "It officially uses a completely different time zone from the rest of China.",
-            "It receives no sunlight at all for part of the year."
+            "It officially uses a different time zone from the rest of China.",
+            "It receives no sunlight for part of the year."
           ],
           "answer": "B",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "Both change the calendar date for any traveler who crosses them.",
             "Both are reference lines used to help organize the world's time zones.",
             "Both of them are located out in the Pacific Ocean.",
-            "Both of them were created only after satellites were invented."
+            "Both of them were created after satellites were invented."
           ],
           "answer": "B",
           "skill": "compare",

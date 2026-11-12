@@ -295,7 +295,7 @@
           "options": [
             "Lina learns that comforting a nervous patient matters just as much as having strong medical skill",
             "Aunt Huda runs the busiest clinic in the city, and she has more patients than any doctor",
-            "Omar never wants to ride his bicycle again after he falls and hurts his ankle badly",
+            "Omar does not want to ride his bicycle again after he falls and hurts his ankle",
             "Lina decides medicine is too difficult for her and chooses a different job when she grows up"
           ],
           "answer": "A",
@@ -312,7 +312,7 @@
           "options": [
             "Cleaning and tidying the entire waiting room",
             "Shadowing her aunt and watching how she treats patients",
-            "Answering phone calls for the busy clinic all day",
+            "Answering phone calls for the busy clinic all day in the clinic",
             "Selling bandages and medicine to patients"
           ],
           "answer": "B",
@@ -362,7 +362,7 @@
           "stem": "Why does Lina tell Omar a funny story about her own bicycle fall?",
           "options": [
             "She is trying to distract him and make him feel more comfortable",
-            "She wants to change the subject completely right away",
+            "She wants to change the subject right away",
             "She wants to brag about her bike-riding skill to everyone in the room",
             "She is bored and has nothing else to say to Omar today"
           ],
@@ -379,8 +379,8 @@
           "stem": "What can you infer about Aunt Huda's job as a family physician?",
           "options": [
             "She only treats children with ankle injuries and nothing else at her clinic",
-            "She never sees the same patient twice in her clinic, not even for a check-up",
-            "She works only one day a week at the hospital downtown",
+            "She sees each patient once in her clinic, not for check-ups",
+            "She works one day a week at the hospital downtown",
             "She treats many different kinds of patients, from babies to grandparents"
           ],
           "answer": "D",
@@ -395,7 +395,7 @@
         {
           "stem": "In the story, the word shadow means to —",
           "options": [
-            "to completely block out the bright sunlight from a room",
+            "to block out the bright sunlight from a room",
             "to feel very frightened of someone nearby in the dark",
             "follow and closely watch someone to learn from them",
             "to draw a dark picture of someone's face with a pencil"
@@ -474,8 +474,8 @@
           "options": [
             "A young girl discovers that treating a frightened patient with compassion matters as much as possessing strong medical skill",
             "Shadowing a physician is mostly about memorizing medical procedures and long lists of facts from the books",
-            "Family physicians only treat minor injuries like sprained ankles, and they never see a serious case in a year",
-            "Omar's fall teaches him to never ride a bicycle again, because he learns that riding is far too dangerous for a boy"
+            "Family physicians only treat minor injuries like sprained ankles, and they never see a serious case in a year at the clinic",
+            "Omar's fall teaches him to stop riding a bicycle, because he learns that riding is too dangerous for a boy"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -490,9 +490,9 @@
           "stem": "What does Aunt Huda do first when Omar arrives, frightened and in pain?",
           "options": [
             "She immediately wraps a soft bandage around his swollen ankle and sends him home",
-            "She quickly sends him to a completely different clinic across town in her own car",
+            "She quickly sends him to a different clinic across town in her own car",
             "She calmly begins the examination procedure, checking gently beneath the swelling",
-            "She asks Lina to handle the entire visit completely by herself while she watches"
+            "She asks Lina to handle the entire visit by herself while she watches"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,7 +506,7 @@
         {
           "stem": "According to the story, how does Lina try to reassure Omar?",
           "options": [
-            "By promising him a reward if he manages to stay completely still during the whole visit",
+            "By promising him a reward if he manages to stay still during the whole visit",
             "By explaining the entire medical procedure to him in careful detail, step by step, with pictures",
             "By asking him politely to be quiet so Aunt Huda can work undisturbed in the small room",
             "By speaking in a warm, soft voice and telling a funny story about her own bicycle fall"
@@ -526,7 +526,7 @@
             "Aunt Huda focuses on the physical examination while Lina focuses on calming Omar's fear",
             "Lina performs the medical examination while Aunt Huda offers comfort and kind words",
             "Both of them only talk to Omar's mother during the whole visit",
-            "Neither of them interacts directly with Omar at all in the visit"
+            "Neither of them interacts directly with Omar in the visit"
           ],
           "answer": "A",
           "skill": "compare",
@@ -541,7 +541,7 @@
           "stem": "What can readers infer about why Aunt Huda lets Lina comfort Omar instead of doing it herself?",
           "options": [
             "Aunt Huda does not know how to comfort patients, because she was never taught to speak kindly to them",
-            "Aunt Huda is too busy to speak with Omar at all, since she has many other patients waiting outside",
+            "Aunt Huda is too busy to speak with Omar, since she has many other patients waiting outside",
             "Aunt Huda believes comforting patients is unnecessary, and she thinks children should simply be brave and quiet while she is tired of hearing them cry",
             "Aunt Huda recognizes that comforting a frightened child is as valuable as the examination itself, and trusts Lina to help"
           ],

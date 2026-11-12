@@ -219,7 +219,7 @@
             "The desert is closer to space than cities",
             "Meteors only fall on sand and not on grass",
             "The desert is dark, with no city lights.",
-            "It is always cold in the desert at night"
+            "It is cold in the desert at night"
           ],
           "answer": "C",
           "skill": "inference",
@@ -313,7 +313,7 @@
             "In 1986",
             "Every August",
             "In 2061",
-            "Every 10 years"
+            "In 2026"
           ],
           "answer": "C",
           "skill": "detail",
@@ -540,7 +540,7 @@
         {
           "stem": "Why does a comet's tail point away from the Sun no matter which way the comet travels?",
           "options": [
-            "The comet always moves toward the Sun, so its tail trails behind it as it goes.",
+            "The comet moves toward the Sun, so its tail trails behind it as it goes.",
             "Gravity pulls the tail toward Earth, because Earth is the biggest planet nearby.",
             "Sunlight and the solar wind push the gas and dust outward.",
             "The tail is frozen in one position, so it cannot turn when the comet moves."

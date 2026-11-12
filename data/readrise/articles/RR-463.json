@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people in Europe invented silk cloth, as the article explains",
+            "How people in Europe invented silk cloth",
             "How paper was invented in China and later spread to other parts of the world",
-            "How sailors learned to cross the ocean in the article in this case",
-            "How farmers grew bamboo for building houses overall, according to the text"
+            "How sailors learned to cross the ocean",
+            "How farmers grew bamboo for building houses and boats in their villages"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "What materials did Cai Lun use to help make paper?",
           "options": [
-            "Metal, glass, and stone, as the article explains",
-            "Fresh flowers and leaves",
-            "Sand and clay in the article",
+            "Metal, glass, and stone",
+            "Fresh flowers and leaves from the garden",
+            "Sand and clay",
             "Tree bark, old cloth, and old rope"
           ],
           "answer": "D",
@@ -167,7 +167,7 @@
           "options": [
             "Because silk cost a great deal of money",
             "Because silk was too thick to fold",
-            "Because silk could not hold ink at all",
+            "Because silk could not hold ink",
             "Because silk was found only underwater"
           ],
           "answer": "A",
@@ -182,10 +182,10 @@
         {
           "stem": "Why was paper better than bamboo for writing?",
           "options": [
-            "Paper could never be written on at all",
-            "Paper was more expensive than bamboo, as the article explains",
+            "Paper could never be written on",
+            "Paper was more expensive than bamboo and harder to find",
             "Paper was light and easy to carry, unlike heavy bamboo",
-            "Paper could only be used once in the article"
+            "Paper could be used one time"
           ],
           "answer": "C",
           "skill": "inference",
@@ -201,7 +201,7 @@
           "options": [
             "fold it into a small square",
             "paint it with bright colors",
-            "burn it until it turns black",
+            "burn it until it turns black and dry",
             "crush it until it becomes a wet paste"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the article mostly organize its information about paper?",
           "options": [
-            "By comparing silk cloth from many countries today overall in this case",
+            "By comparing silk cloth from many countries today and telling which one is the softest",
             "By telling the story in time order, from before paper to its invention to its spread",
-            "By describing how to fold paper into shapes, as the article explains",
-            "By listing the names of famous artists in the article, according to the text"
+            "By describing how to fold paper into shapes",
+            "By listing the names of famous artists"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -234,8 +234,8 @@
           "stem": "Why did more people start using paper once it was invented?",
           "options": [
             "Because paper was cheap and light, so more people could afford it",
-            "Because the government made everyone use it in the article",
-            "Because silk suddenly became illegal to use, as the article explains",
+            "Because the government made people use it in their homes and schools",
+            "Because silk suddenly became illegal to use",
             "Because bamboo disappeared from the forests"
           ],
           "answer": "A",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Paper was invented in Europe before it reached China, as the article explains at that time",
+            "Paper was invented in Europe before it reached China, where it stayed expensive for many centuries and in other lands",
             "Paper, invented in ancient China from cheap materials, gradually spread and made writing affordable for far more people",
-            "Silk remained cheaper than paper throughout history in the article, according to the text",
-            "Bamboo writing completely replaced paper soon after it spread overall in this case for this reason"
+            "Silk remained cheaper than paper throughout history",
+            "Bamboo writing replaced paper soon after it spread"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What specific problem did paper solve that bamboo and silk could not?",
           "options": [
-            "It let people write underwater for the first time",
-            "It allowed writing to last only a single day, as the article explains",
+            "It let people write underwater for the first time without the ink running",
+            "It allowed writing to last only a single day",
             "It gave people a material that was both cheap and light to carry",
-            "It made books completely unnecessary in the article"
+            "It made books unnecessary"
           ],
           "answer": "C",
           "skill": "detail",
@@ -327,9 +327,9 @@
         {
           "stem": "What raw materials does the article say Cai Lun experimented with?",
           "options": [
-            "Cotton plants and wool",
-            "Rice grains and clay in the article",
-            "Palm leaves and sand, as the article explains",
+            "Cotton plants, sheep's wool, and silk thread",
+            "Rice grains and clay",
+            "Palm leaves and sand",
             "Tree bark, old rags, and old fishing nets"
           ],
           "answer": "D",
@@ -345,9 +345,9 @@
           "stem": "What can you infer about why paper spread first to the Middle East before reaching Europe?",
           "options": [
             "Trade routes likely connected China to the Middle East earlier or more directly than to Europe",
-            "Europe refused to use any goods made outside its own borders overall",
-            "The Middle East invented its own separate kind of paper in the article",
-            "China specifically forbade paper from ever reaching Europe, as the article explains"
+            "Europe refused to use goods made outside its own borders, so traders sold paper in other lands",
+            "The Middle East invented its own separate kind of paper",
+            "China specifically forbade paper from ever reaching Europe"
           ],
           "answer": "A",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "What can you infer about daily life once paper became widely available?",
           "options": [
-            "People stopped keeping any written records at all, as the article explains",
-            "Books became rarer and more expensive than before overall, according to the text",
+            "People stopped keeping any written records",
+            "Books became rarer and more expensive than before, so fewer families could afford to own them",
             "More ordinary people likely began keeping written records and reading books than before",
-            "Bamboo strips became more popular than ever in the article in this case"
+            "Bamboo strips became more popular than ever"
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,8 +378,8 @@
         {
           "stem": "In the article, the word pulp refers to —",
           "options": [
-            "a type of tree that grows tall in forests",
-            "a finished, dry sheet ready for writing in the article",
+            "a type of tree that grows tall in forests in warm places",
+            "a finished, dry sheet ready for writing",
             "a trade route used by traveling merchants",
             "a wet, mushy mixture made by mashing materials together"
           ],
@@ -395,10 +395,10 @@
         {
           "stem": "How is the information in the article mostly organized?",
           "options": [
-            "By comparing papermaking methods used in different countries today",
+            "By comparing papermaking methods used in different countries today around the world",
             "By following paper's invention and spread in the order it happened over time",
-            "By explaining exactly how to fold paper into shapes in the article",
-            "By arguing that bamboo was better than paper overall, as the article explains"
+            "By explaining exactly how to fold paper into shapes",
+            "By arguing that bamboo was better than paper"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "Why could far more people afford to use paper than silk?",
           "options": [
             "Paper was made from cheap materials like bark and rags, unlike costly silk",
-            "Paper was given away for free by the government overall",
-            "Silk suddenly became impossible to produce, as the article explains",
-            "Paper could only be used by the wealthy in the article"
+            "Paper was given away for free by the government to farmers and their families",
+            "Silk suddenly became impossible to produce",
+            "Paper could only be used by the wealthy"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "A European invention eventually replaced an older Chinese writing method entirely overall",
+            "A European invention eventually replaced an older Chinese writing method",
             "An inexpensive Chinese invention gradually transformed how people worldwide could record and share written knowledge",
-            "Silk remained the most practical writing material throughout most of history, as the article explains",
-            "Bamboo strips were ultimately proven superior to paper for most purposes in the article"
+            "Silk remained the most practical writing material through most of history because it lasted longer than paper",
+            "Bamboo strips were ultimately proven superior to paper for most purposes"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,7 +489,7 @@
         {
           "stem": "What specific detail suggests papermaking relied on recycling discarded materials?",
           "options": [
-            "He imported fresh materials from distant foreign countries",
+            "He imported fresh materials from distant foreign countries by ship",
             "He purchased new silk cloth specifically for the project",
             "Cai Lun experimented with old rags and old fishing nets as raw materials",
             "He commissioned skilled artists to paint on stone tablets"
@@ -506,9 +506,9 @@
         {
           "stem": "What evidence does the article give for paper's effect on who could access knowledge?",
           "options": [
-            "It states that only royal families were ever permitted to own paper in the article",
-            "It states that paper was eventually banned once books became too common, as the article explains",
-            "It states that knowledge spread only through spoken conversation afterward overall",
+            "It states that only royal families were ever permitted to own paper",
+            "It states that paper was eventually banned once books became too common",
+            "It states that knowledge spread mostly through spoken conversation, since few people learned to read or write",
             "It states that scholars, officials, merchants, and ordinary families all gained real access to writing material"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "How does the article's description of pre-paper writing materials compare with its description of paper itself?",
           "options": [
             "Earlier materials were either heavy or costly, while paper combined being lightweight with being inexpensive",
-            "All three materials are described as equally cheap and light in the article, according to the text",
-            "Silk is described as lighter and cheaper than paper ever was, as the article explains",
-            "Bamboo is described as more valuable than silk throughout the article overall in this case"
+            "All three materials are described as equally cheap and light",
+            "Silk is described as lighter and cheaper than paper, while bamboo is described as the easiest material to carry",
+            "Bamboo is described as more valuable than silk throughout the article"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about why the spread of papermaking took centuries to reach Europe?",
           "options": [
-            "Europeans actively refused to adopt any new writing materials overall",
-            "Papermaking was kept as a closely guarded secret forever, as the article explains",
+            "Europeans actively refused to adopt new writing materials, preferring the animal skins they had used for centuries",
+            "Papermaking was kept as a closely guarded secret",
             "Knowledge and goods likely traveled slowly across such long distances in that historical period",
-            "No trade routes of any kind connected Europe to Asia in the article, according to the text"
+            "No trade routes connected Europe to Asia"
           ],
           "answer": "C",
           "skill": "inference",
@@ -558,7 +558,7 @@
           "stem": "In the article, the word regularly describes how often wealthy people could do what with silk?",
           "options": [
             "use it only a single time in their entire lives",
-            "destroy it completely without any particular reason",
+            "destroy it without a particular reason",
             "sell it secretly to people in other countries",
             "use it on a frequent, consistent basis"
           ],
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the article emphasize that paper was made from humble, everyday materials like old rags and nets?",
           "options": [
-            "To argue that old rags should never be reused for anything, as the article explains",
+            "To argue that old rags should not be reused, since they could carry dirt and sickness into a person's home",
             "To highlight the contrast between paper's cheap origins and its eventually enormous historical impact",
-            "To prove that Cai Lun had no access to better materials in the article in this case",
-            "To suggest that silk was secretly made from similar scraps overall, according to the text"
+            "To prove that Cai Lun had no access to better materials",
+            "To suggest that silk was secretly made from similar scraps"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -592,9 +592,9 @@
           "stem": "Based on the article, what most likely allowed written knowledge to 'spread much faster than ever before' once paper became common?",
           "options": [
             "Lower cost and lighter weight together removed two major barriers that had limited who could write and share information",
-            "Governments across the world began funding every single school, as the article explains",
-            "People completely stopped using spoken language to share ideas overall, according to the text",
-            "Every book ever written before paper was destroyed on purpose in the article in this case"
+            "Governments across the world began paying for schools, so more children learned to read and write books and letters to their families",
+            "People stopped using spoken language to share ideas",
+            "Most books written before paper were destroyed on purpose"
           ],
           "answer": "A",
           "skill": "cause-effect",

@@ -295,8 +295,8 @@
           "options": [
             "Robots and cameras sort trash at a recycling center faster and more accurately than people alone.",
             "A magnet can pull steel cans off a conveyor belt, and that is the only job a recycling center does.",
-            "Workers at a recycling center never need any machines because hand sorting is always the best way.",
-            "Plastic bottles are the only material recycling centers sort, and they send all other trash away."
+            "Workers at a recycling center need few machines because hand sorting is the best way.",
+            "Plastic bottles are the main material recycling centers sort, and they send other trash away."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,7 +327,7 @@
         {
           "stem": "According to the article, how are aluminum cans separated from the trash?",
           "options": [
-            "A worker removes them by hand one at a time.",
+            "A worker removes them by hand one at a time from the belt.",
             "They are left mixed in with other trash.",
             "They are burned before leaving the belt.",
             "A method using electric current pushes them away."
@@ -363,7 +363,7 @@
           "options": [
             "It becomes heavier than clean trash, so trucks cannot carry it far.",
             "Different materials are difficult to separate once they are mixed together.",
-            "It cannot be placed on a conveyor belt at all, because it is too wet.",
+            "It is too wet to be placed on a conveyor belt.",
             "It must be driven to a different city, which costs a great deal of money."
           ],
           "answer": "B",
@@ -396,9 +396,9 @@
           "stem": "What happens after a robot's camera identifies an item's material?",
           "options": [
             "The item is driven back to the original truck.",
-            "The whole conveyor belt stops moving completely.",
+            "The conveyor belt stops moving so a worker can check it in the factory.",
             "The robotic arm grabs the item and drops it in the correct bin.",
-            "The item is sent away to a completely different building."
+            "The item is sent away to a different building."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -474,8 +474,8 @@
           "options": [
             "Robots guided by cameras and artificial intelligence sort trash efficiently, though the system still has real limits.",
             "Magnets are the only tool used in a materials recovery facility, and they sort all kinds of trash by themselves.",
-            "Eddy current separators have completely replaced human workers, so no person works in a recycling plant any more.",
-            "Aluminum cans are more valuable than steel cans, so factories collect only aluminum and throw away the other things."
+            "Eddy current separators have replaced human workers, so few people work in a recycling plant now.",
+            "Aluminum cans are more valuable than steel cans, so factories collect aluminum and throw the steel away."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -575,9 +575,9 @@
           "stem": "How does sorting trash efficiently connect to building a more sustainable future, according to the article?",
           "options": [
             "Efficient sorting makes trucks deliver trash less often to the town and the farms.",
-            "Sustainable trash never needs to be sorted at all by people.",
+            "Sustainable trash never needs to be sorted by people.",
             "Correctly sorted items can be reused, which reduces landfill waste over time.",
-            "Sustainability depends only on how fast the trucks drive in town."
+            "Sustainability depends mostly on how fast the trucks drive in town."
           ],
           "answer": "C",
           "skill": "cause-effect",

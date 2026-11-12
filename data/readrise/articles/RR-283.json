@@ -117,7 +117,7 @@
             "How to win a street fight quickly",
             "How martial arts train the body and mind",
             "The full history of the Olympic Games",
-            "Why belts are always made of cloth"
+            "Why belts are made of cloth"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -166,7 +166,7 @@
           "stem": "In the article, what does the word \"calm\" mean?",
           "options": [
             "Moving around very fast and wildly",
-            "Wearing a belt that is dark in color",
+            "Wearing a belt that is dark in color or a white suit",
             "Quiet and peaceful, not worried or upset",
             "Winning every single match in a row"
           ],
@@ -217,8 +217,8 @@
           "stem": "Why do you think martial arts are called a sport for the body and the mind?",
           "options": [
             "Because students move only their bodies",
-            "Because students never practice their moves",
-            "Because this sport truly has no rules at all",
+            "Because students rarely practice their moves at home",
+            "Because this sport truly has no rules",
             "Because students stay calm and train their bodies"
           ],
           "answer": "D",
@@ -293,9 +293,9 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Martial arts have no rules at all about safety or contact, so injuries are common",
+            "Martial arts have no rules about safety or contact, so injuries are common",
             "Martial arts exist only for people who want to fight others in the street",
-            "Belts are really the only important part of any martial art, not the training",
+            "Belts are the most important part of a martial art, more than the training",
             "Martial arts build discipline and respect, and some are Olympic sports"
           ],
           "answer": "D",
@@ -312,7 +312,7 @@
           "options": [
             "Skip the warm-up before training begins",
             "Bow to show respect for everyone involved",
-            "Change into a totally different colored belt",
+            "Change into a different colored belt",
             "Leave the mat and sit down quietly"
           ],
           "answer": "B",
@@ -361,10 +361,10 @@
         {
           "stem": "What happens after a student earns a white belt, according to the article?",
           "options": [
-            "They stop all training completely and for good",
+            "They stop all training and for good",
             "They become a certified coach right away",
             "They can earn darker belts through years of practice",
-            "They skip straight ahead to Olympic competition"
+            "They skip straight ahead to Olympic competition after a few weeks"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -379,7 +379,7 @@
           "stem": "What can you infer about why martial arts have strict rules against dangerous contact?",
           "options": [
             "Because belts would otherwise lose their color fast",
-            "Because any contact at all is strictly forbidden",
+            "Because any contact is strictly forbidden",
             "Because judges simply want much shorter matches",
             "To keep competitors safe while they test their skill"
           ],
@@ -413,9 +413,9 @@
           "stem": "Why does the author describe the belt system right after introducing the idea of training the body and mind together?",
           "options": [
             "To show that real discipline builds slowly over time",
-            "To explain in detail exactly how belts are made",
+            "To explain in detail exactly how belts are made in a factory",
             "To compare the sport of martial arts with chess",
-            "To argue that belts are not really necessary at all"
+            "To argue that belts are not really necessary"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Martial arts combine discipline, respect, and sportsmanship as a modern sport",
-            "Martial arts are dangerous activities that follow no real rules or safety at all",
+            "Martial arts are dangerous activities that follow no real rules or safety",
             "Belts are simply awarded at random, without any testing or any skill from students",
-            "Only trained Olympic athletes are allowed to practice at all in the martial arts clubs"
+            "Trained Olympic athletes are the main people who practice in martial arts clubs"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -559,8 +559,8 @@
           "options": [
             "Both are Olympic sports with rules and referees",
             "Both styles were invented in the very same year",
-            "Neither style uses any protective gear at all",
-            "Both reward raw speed alone, never technique"
+            "Neither style uses any protective gear",
+            "Both reward raw speed more than technique"
           ],
           "answer": "A",
           "skill": "compare",
@@ -577,7 +577,7 @@
             "Martial arts aim to shape character, not just skill",
             "Philosophy matters far more than daily practice does",
             "Belts no longer matter much in modern training",
-            "Only certain cultures are allowed to practice at all"
+            "Only certain cultures are allowed to practice"
           ],
           "answer": "A",
           "skill": "inference",

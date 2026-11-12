@@ -168,7 +168,7 @@
             "a bright star in the sky",
             "a loud sound from the engine",
             "the steady movement of the water",
-            "a cold and windy desert night with no moon at all"
+            "a cold and windy desert night with no moon"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -235,7 +235,7 @@
           "options": [
             "To explain why Salem is able to find his way home safely",
             "To show that Salem's father is a bad teacher",
-            "To describe a different fishing trip from long ago",
+            "To describe a different fishing trip from long ago in the village",
             "To explain why the engine broke in the first place"
           ],
           "answer": "A",
@@ -413,7 +413,7 @@
           "stem": "How is this story organized?",
           "options": [
             "It follows events in order, from the engine breaking to Salem's safe return",
-            "It compares two completely different fishing villages side by side in great detail",
+            "It compares two different fishing villages side by side in great detail",
             "It explains how to build an anchor step by step",
             "It lists facts about different kinds of fishing boats"
           ],
@@ -474,7 +474,7 @@
           "options": [
             "A fisherman competes eagerly against several other local sailors to see who reaches the harbor first",
             "A fisherman survives an engine failure by relying on inherited knowledge of the sea and his own patience, rather than panic.",
-            "A fisherman spends months inventing an entirely new and complicated way to build small boat engines from scratch",
+            "A fisherman spends months inventing a new and complicated way to build small boat engines from scratch in his small workshop by the sea",
             "A village decides that unsupervised fishing alone is far too dangerous and officially bans it"
           ],
           "answer": "B",
@@ -489,7 +489,7 @@
         {
           "stem": "Why does the current near the headland prove especially useful to Salem?",
           "options": [
-            "It is the only place where fish can be caught at all",
+            "It is the only place where fish can be caught",
             "It is marked clearly with a floating sign that boats can see from very far away each day",
             "It is where two tidal currents converge and happen to flow toward his village",
             "It is the coldest water along the entire coastline"
@@ -593,8 +593,8 @@
           "options": [
             "To explain why the village later built a bigger harbor",
             "To emphasize the lasting value of knowledge and patience over panic",
-            "To suggest that Salem became famous outside the village",
-            "To hint that Salem's engine was never actually broken at all"
+            "To suggest that Salem became famous outside the village and in other towns along the coast",
+            "To hint that Salem's engine was never actually broken"
           ],
           "answer": "B",
           "skill": "author-purpose",

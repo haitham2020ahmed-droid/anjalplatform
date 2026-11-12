@@ -182,7 +182,7 @@
         {
           "stem": "Based on the article, why might a pick made of thin, light material work well for playing the oud?",
           "options": [
-            "Because a light pick would be far too heavy to lift",
+            "Because a light pick would be far too heavy to lift for most players",
             "Because it would break every string on purpose",
             "Because it would slowly turn the strings into wood",
             "Because it can move gently and quickly across the strings"
@@ -201,8 +201,8 @@
           "options": [
             "It has mattered to people across many generations",
             "It was invented only last year, very recently",
-            "No one anywhere plays it or enjoys it today",
-            "Only one single person has ever played it, ever"
+            "Few people play it or enjoy it today",
+            "One famous person has played it"
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the author organize most of the information about the oud?",
           "options": [
-            "By listing several reasons never to play music at all",
-            "By comparing two completely made-up instruments",
+            "By listing several reasons never to play music",
+            "By comparing two made-up instruments",
             "By describing its shape, its sound, and how people use it",
-            "By telling a made-up story about a faraway king"
+            "By telling a made-up story about a faraway king and his musicians"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -313,7 +313,7 @@
             "It has no frets, the small bars that mark finger positions",
             "It has exactly twice as many frets as a guitar's neck",
             "It cannot ever be touched by the player's own fingers",
-            "It is built from a totally different, rarer kind of wood"
+            "It is built from a different, rarer kind of wood"
           ],
           "answer": "A",
           "skill": "detail",
@@ -380,8 +380,8 @@
           "options": [
             "Because its expressive, gliding sound helps guide the other musicians",
             "Because it is the only instrument ever allowed to make any sound",
-            "Because every other instrument in the group cannot be heard at all",
-            "Because ensembles by definition always play without any instruments"
+            "Because the other instruments in the group are too quiet",
+            "Because ensembles play with few instruments"
           ],
           "answer": "A",
           "skill": "inference",
@@ -415,7 +415,7 @@
             "It first describes Europe, then explains that the oud appeared afterward",
             "It explains the oud's history first, then its spread toward Europe",
             "It explains the lute first, then says the oud came along centuries later",
-            "It only ever discusses modern bands, never any history at all"
+            "It only ever discusses modern bands, never any history"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -474,7 +474,7 @@
           "options": [
             "The oud's entire influence is really limited to just one single modern country",
             "Frets are absolutely essential for any stringed instrument to sound truly pleasant",
-            "The lute completely and permanently replaced the oud many long centuries ago",
+            "The lute and permanently replaced the oud many long centuries ago",
             "Its fretless design and playing technique shaped Arabic music and later instruments"
           ],
           "answer": "D",
@@ -491,7 +491,7 @@
           "options": [
             "It lets a player slide smoothly between pitches, producing gliding ornaments",
             "It makes the whole instrument nearly impossible to tune correctly for a player",
-            "It fully prevents the player from ever changing notes at all while playing",
+            "It fully prevents the player from ever changing notes while playing",
             "It allows the whole instrument to be played without any strings or fingers"
           ],
           "answer": "A",
@@ -508,8 +508,8 @@
           "options": [
             "Every single string is tuned to a different note with no real pattern",
             "Most strings are tuned in courses, or pairs, with one bass string apart",
-            "All of the strings are removed carefully before every performance",
-            "Only one single lonely string is ever used on this whole instrument"
+            "The strings are removed before each performance",
+            "A single string is used on this instrument"
           ],
           "answer": "B",
           "skill": "detail",
@@ -540,7 +540,7 @@
         {
           "stem": "What does the article suggest about why the lute is described as a descendant of the oud?",
           "options": [
-            "Because the two separate instruments share absolutely no features at all",
+            "Because the two separate instruments share absolutely no features",
             "Because European musicians apparently invented the oud after the lute already existed",
             "Because oud-related instruments traveled into Europe and shaped the lute's development",
             "Because the lute was supposedly played only within Arabic-speaking countries"
@@ -557,8 +557,8 @@
         {
           "stem": "Based on the article, why might the Andalusian connection be historically significant?",
           "options": [
-            "It proves that the oud was supposedly never played anywhere outside Europe",
-            "It shows that Andalusia apparently had no connection to the Arab world at all",
+            "It proves that the oud was supposedly never played anywhere outside Europe or in other lands",
+            "It shows that Andalusia apparently had no connection to the Arab world",
             "It means the oud was actually invented in Spain rather than anywhere else",
             "It explains how instruments related to the oud reached Europe and shaped later music"
           ],
@@ -574,7 +574,7 @@
         {
           "stem": "Why does the author compare the oud's playing technique with its long history across centuries?",
           "options": [
-            "To argue that modern instruments are always superior to much older ones in sound and style",
+            "To argue that modern instruments are superior to much older ones in sound and style",
             "To prove that techniques for playing music never really change over time or between countries",
             "To show how its technique and its spreading history both explain its lasting significance",
             "To explain in careful detail how to build a European lute from scratch, step by step at home"

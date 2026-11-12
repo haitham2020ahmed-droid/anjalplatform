@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How bread is baked in ovens",
+            "How bread is baked in hot ovens at home and in shops",
             "How Fred Wolf found a way to make cold air without ice",
             "How people built big cities",
             "How farmers grow food"
@@ -134,7 +134,7 @@
             "With big blocks of ice",
             "With hot ovens",
             "With paper boxes",
-            "With warm blankets"
+            "With warm blankets and quilts"
           ],
           "answer": "A",
           "skill": "detail",
@@ -166,9 +166,9 @@
           "stem": "Why do you think Fred kept trying new ways to make cold air?",
           "options": [
             "Because he wanted to find a way that finally worked",
-            "Because he did not like cold food at all",
+            "Because he did not like cold food",
             "Because other people forced him to try",
-            "Because he wanted the ice to melt faster"
+            "Because he wanted the ice to melt faster in his kitchen"
           ],
           "answer": "A",
           "skill": "inference",
@@ -200,7 +200,7 @@
           "stem": "In the article, what does the word \"machine\" mean?",
           "options": [
             "A tool with parts that does a job",
-            "A kind of big ice block",
+            "A kind of big block of ice for cooling",
             "A type of small shop",
             "A soft, warm blanket"
           ],
@@ -217,7 +217,7 @@
           "stem": "What happened after Fred's new way finally worked?",
           "options": [
             "Cold air filled a small box",
-            "The box completely disappeared",
+            "The box disappeared",
             "Fred stopped trying to make cold air",
             "The shop burned down completely"
           ],
@@ -234,9 +234,9 @@
           "stem": "How was Fred's new way different from using big blocks of ice?",
           "options": [
             "A machine made cold air, instead of ice that melted fast",
-            "The new way used no cold air at all",
+            "The new way used no cold air",
             "The new way took much longer than using ice",
-            "The new way and using ice worked exactly the same"
+            "The new way and using ice worked exactly the same in the kitchen"
           ],
           "answer": "A",
           "skill": "compare",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "Using ice was always considered much faster than using a fridge",
+            "Using ice was considered much faster than using a fridge",
             "Fred Wolf's new method let people keep food cold using a machine and gas",
             "Refrigerators were common for hundreds of years before Fred",
-            "Shops located in busy, bustling cities always succeed quickly and easily"
+            "Shops located in busy, bustling cities succeed quickly and easily in a year"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "The slow method made success difficult and uncertain",
             "Refrigerators were too expensive for anyone to buy",
             "Governments did not allow cold-air machines",
-            "Electricity was always completely impossible to find indoors anywhere"
+            "Electricity was impossible to find indoors"
           ],
           "answer": "A",
           "skill": "detail",
@@ -328,7 +328,7 @@
           "stem": "What did other inventors do, according to the article?",
           "options": [
             "They copied Fred's exact method immediately",
-            "They refused to try at all",
+            "They refused to try",
             "They also tried to make cold air this way",
             "They only used ice instead"
           ],
@@ -345,8 +345,8 @@
           "stem": "Why do you think Fred's method using a machine and gas succeeded where others failed?",
           "options": [
             "It found a reliable way to carry heat out of a sealed box",
-            "It used no gas or machine at all",
-            "It required people to cool the food by hand",
+            "It used no gas or machine",
+            "It required people to cool the food by hand each day",
             "It made the box warm instead of cold"
           ],
           "answer": "A",
@@ -362,8 +362,8 @@
           "stem": "Why do you think this breakthrough mattered so much to people around the world?",
           "options": [
             "Because it let ordinary people keep food fresh at home for much longer",
-            "Because it made using ice completely illegal",
-            "Because it made refrigerators too expensive to use",
+            "Because it made using ice illegal",
+            "Because it made refrigerators too expensive to use in ordinary homes",
             "Because it stopped people from eating fresh food"
           ],
           "answer": "A",
@@ -379,7 +379,7 @@
           "stem": "In the article, what does the word \"breakthrough\" describe about Fred's success?",
           "options": [
             "An important success after a lot of difficult effort",
-            "A machine that always fails",
+            "A machine that fails when it is used too often by people at home",
             "A type of ice block",
             "A small, quiet shop"
           ],
@@ -396,9 +396,9 @@
           "stem": "How does the article mostly organize its information?",
           "options": [
             "It follows events in order, from the difficult problem to the lasting result",
-            "It compares two completely unrelated topics with no connection",
+            "It compares two unrelated topics with no connection",
             "It lists random facts about world geography",
-            "It argues that using ice is better than refrigerators"
+            "It argues that using ice is better than using refrigerators at home, even in summer"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -414,8 +414,8 @@
           "options": [
             "It caused ice to become the only method used",
             "It allowed people to keep food fresh much more easily",
-            "It stopped all food storage completely",
-            "It made refrigerators disappear from the world"
+            "It stopped food storage",
+            "It made refrigerators disappear from the world and stores"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Using ice was always considered superior to refrigeration",
+            "Using ice was considered superior to refrigeration",
             "Fred Wolf's ambitious experimentation led to a breakthrough in making cold air mechanically",
-            "No other inventor besides Fred ever attempted to make cold air whatsoever",
+            "Few inventors besides Fred tried to make cold air, so he had little competition in his time",
             "Refrigerators had no real impact on daily life after they were invented"
           ],
           "answer": "B",
@@ -506,9 +506,9 @@
         {
           "stem": "What specific combination enabled Fred's method to finally succeed?",
           "options": [
-            "A sealed box filled entirely with water",
-            "Painted canvas alone, with no gas of any kind",
-            "Borrowed printing tools with no machine involved",
+            "A sealed box filled with water",
+            "Painted canvas alone, with no gas",
+            "Borrowed printing tools, blocks of ice, and a hand fan and a fan",
             "A sealed metal box, special gas, and a carefully built machine"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "What can be inferred about innovation from the fact that multiple inventors in different countries pursued this same frustrating goal?",
           "options": [
             "A shared, difficult problem can inspire independent efforts toward similar solutions",
-            "Only inventors in one particular country are capable of true innovation",
-            "Every important invention in history has always had just one true creator",
-            "Independent experimentation never actually leads to useful breakthroughs"
+            "Only inventors in one particular country are capable of true innovation in the world",
+            "Most important inventions in history have had one true creator",
+            "Independent experimentation rarely leads to useful breakthroughs"
           ],
           "answer": "A",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "Why does the article emphasize the many frustrating years Fred spent testing before succeeding?",
           "options": [
             "To suggest that persistence through repeated difficulty can lead to breakthroughs",
-            "To show that experimentation always results in total failure",
-            "To argue that testing an idea repeatedly is generally pointless",
-            "To prove that Fred worked entirely without any plan or strategy at all"
+            "To show that experimentation results in total failure",
+            "To argue that testing an idea repeatedly is generally a waste of time for inventors",
+            "To prove that Fred worked without any plan or strategy"
           ],
           "answer": "A",
           "skill": "inference",
@@ -559,8 +559,8 @@
           "options": [
             "That they caused difficulty and annoyance because success was so elusive",
             "That they were extremely easy to accomplish quickly",
-            "That they required no gas or experimentation at all",
-            "That they were abandoned almost immediately after starting"
+            "That they required no gas or experimentation",
+            "That they were abandoned soon after starting, before much progress was made"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -576,8 +576,8 @@
           "options": [
             "It presents the frustrating early failures, the experimentation, and the lasting breakthrough in sequence",
             "It randomly jumps between unrelated inventions with no clear order",
-            "It focuses entirely on describing Fred's personal childhood memories",
-            "It only compares the prices of modern refrigerators across different brands"
+            "It focuses on describing Fred's personal childhood memories",
+            "It compares the prices of modern refrigerators across different brands, from cheapest to most costly"
           ],
           "answer": "A",
           "skill": "text-structure",

@@ -311,9 +311,9 @@
           "stem": "What does the ant do with her food every single day during the summer season?",
           "options": [
             "She stores a little more food each day for the winter season",
-            "She quietly sells it to the other animals in the field",
-            "She eats all of it right away without waiting at all",
-            "She happily gives it all away to the grasshopper immediately"
+            "She quietly sells it to the other animals in the field for money",
+            "She eats all of it right away without waiting",
+            "She shares it with the grasshopper each evening"
           ],
           "answer": "A",
           "skill": "detail",
@@ -363,7 +363,7 @@
           "options": [
             "She forgets how much food she has stored",
             "She wants to be sure she has enough to last the winter",
-            "She plans to trade her food with the grasshopper",
+            "She plans to trade her food with the grasshopper in the spring",
             "She is bored and has nothing else to do"
           ],
           "answer": "B",
@@ -380,7 +380,7 @@
           "options": [
             "He does not take the harvest season seriously at all",
             "He works harder than the ant during harvest",
-            "He secretly stores food without telling anyone",
+            "He secretly stores food without telling anyone in his home",
             "He helps every animal in the field prepare"
           ],
           "answer": "A",
@@ -506,7 +506,7 @@
         {
           "stem": "What ultimately leads to the ant's decision to share her provision with the grasshopper?",
           "options": [
-            "A promise she made to the grasshopper earlier in summer",
+            "A promise she made to the grasshopper earlier in summer in the field",
             "Reflecting on her own hard work and feeling genuine generosity",
             "A rule that all insects in the field must follow",
             "Advice given by a wise old insect living nearby"
@@ -526,7 +526,7 @@
             "a stored supply of something, especially food",
             "a type of insect that lives underground",
             "a rule that every animal in the field follows",
-            "a type of plant that grows only in winter"
+            "a type of plant that grows in winter"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -543,7 +543,7 @@
             "He secretly planned for winter the whole time",
             "He understood the consequences before they arrived",
             "He did not consider what his choices would eventually cost him",
-            "He secretly wanted the ant to fail right along with him"
+            "He secretly wanted the ant to fail right along with him in the cold"
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "What does the ant's generosity ultimately suggest about offering someone a second chance?",
           "options": [
-            "Second chances should basically never be given to anyone",
+            "Second chances should basically never be given to anyone who has made a mistake",
             "Generosity can give someone a real chance to reflect and improve",
-            "Preparation matters more than any act of generosity",
-            "Consequences should always be avoided at any cost"
+            "Preparation matters more than generosity",
+            "Consequences should be avoided whatever happens"
           ],
           "answer": "B",
           "skill": "inference",

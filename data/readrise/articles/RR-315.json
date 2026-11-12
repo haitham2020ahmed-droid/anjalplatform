@@ -133,8 +133,8 @@
           "options": [
             "Only while sleeping",
             "At weddings and other happy days",
-            "Only while children are away at school",
-            "Only while cooking dinner"
+            "While children are away at school",
+            "While cooking dinner"
           ],
           "answer": "B",
           "skill": "detail",
@@ -199,9 +199,9 @@
         {
           "stem": "What can you tell about silver jewelry from different places in Saudi Arabia?",
           "options": [
-            "It all looks exactly the same everywhere",
-            "Only one city ever made jewelry",
-            "It was never worn at celebrations",
+            "It all looks exactly the same",
+            "One city made most of the jewelry",
+            "It was rarely worn at celebrations",
             "Each place had its own special style"
           ],
           "answer": "D",
@@ -236,7 +236,7 @@
             "Museum, wedding, craftsman, grandmother, told in reverse order, so the museum comes first and the craftsman last",
             "A craftsman makes it, a family wears it, a grandmother gives it to her daughter, a museum later shows old pieces",
             "A daughter wears it, a museum shows it, a wedding happens, and a craftsman makes it, told backward",
-            "Museum, craftsman, wedding, grandmother, all mixed up, with the family and the shop story in no order at all"
+            "Museum, craftsman, wedding, grandmother, all mixed up, with the family and the shop story in no order"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Gold jewelry has always been more popular than silver in Saudi Arabia, in every region",
+            "Gold jewelry has been more popular than silver in Saudi Arabia, in every region",
             "Silver jewelry making is a skilled tradition that differs by region in Saudi Arabia",
-            "Silversmiths only ever work in large modern cities today, with new tools",
-            "Filigree is the only decorating technique used in Saudi jewelry"
+            "Silversmiths work mostly in large modern cities today, with new tools",
+            "Filigree is the main decorating technique used in Saudi jewelry"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,7 +327,7 @@
         {
           "stem": "What is engraving?",
           "options": [
-            "Melting silver completely into a liquid form",
+            "Melting silver into a liquid form in a hot pot",
             "Carving lines and patterns into metal",
             "Selling jewelry in a market",
             "Weaving cloth for headpieces"
@@ -362,8 +362,8 @@
           "stem": "Why might a necklace from Najd look different from one made in Asir?",
           "options": [
             "Only Najd allowed silversmiths to work there",
-            "Asir never had any silversmiths at all",
-            "All regions copied the exact same pattern",
+            "Asir had few silversmiths",
+            "Each region copied the same pattern",
             "Each region developed its own style over time"
           ],
           "answer": "D",
@@ -380,8 +380,8 @@
           "options": [
             "Because silver has recently become costlier than gold",
             "Because the slow, careful craftsmanship keeps a tradition alive",
-            "Because modern machines cannot make any jewelry at all",
-            "Because museums only pay for brand-new jewelry and not old"
+            "Because modern machines cannot make any jewelry",
+            "Because museums pay more for brand-new jewelry than for old"
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the article organized?",
           "options": [
-            "As a comparison between two completely different countries and their ways of life",
+            "As a comparison between two different countries and their ways of life",
             "By describing jewelry's history, how it is made, and why its patterns differ by region",
             "As a list of silversmith complaints about customers and their prices",
-            "As a single silversmith's daily work schedule from early morning to night"
+            "As a single silversmith's daily work schedule from early morning to night in his shop in the old market"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -474,8 +474,8 @@
           "options": [
             "Gold jewelry is more valuable than silver in every market, so silver is rarely made now.",
             "Saudi silver jewelry reflects a regional heritage built through skilled, patient craftsmanship",
-            "Filigree was invented quite recently, in modern times, and old silver was always plain.",
-            "Only museums are legally allowed to display silver jewelry, and shops must keep it hidden."
+            "Filigree was invented quite recently, in modern times, and old silver was plain.",
+            "Museums are the main places allowed to display silver jewelry, so shops keep it hidden."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -525,7 +525,7 @@
           "options": [
             "They slowly gain the craftsmanship needed to shape silver well",
             "They immediately become wealthy from jewelry sales to rich visitors",
-            "They stop needing any tools at all after the first year",
+            "They stop needing any tools after the first year",
             "They forget the region's traditional patterns and designs"
           ],
           "answer": "A",
@@ -540,7 +540,7 @@
         {
           "stem": "What would most likely happen if silversmiths stopped passing their skills to apprentices?",
           "options": [
-            "Museums would stop collecting any old jewelry at all in the world",
+            "Museums would stop collecting any old jewelry in the world",
             "Silver would instantly become more valuable than gold in the market",
             "Regional patterns would become more detailed and harder to copy",
             "The traditional craftsmanship could slowly disappear over time"
@@ -560,7 +560,7 @@
             "Both are ways silversmiths decorate jewelry with intricate patterns",
             "Both use only gold instead of silver wire to make thin shapes",
             "Both were invented in the very same decade by one craftsman",
-            "Both require no training at all to learn, so anyone can do them"
+            "Both require no training to learn, so anyone can do them"
           ],
           "answer": "A",
           "skill": "compare",

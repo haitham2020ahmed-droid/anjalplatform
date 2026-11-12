@@ -117,7 +117,7 @@
       "A team that quits handball to play a different sport",
       "A team that loses many games, keeps practicing, and finally wins",
       "A coach who only lets his best players play in games",
-      "A team that wins every single game all season long without trying"
+      "A team that wins each game in the season without trying very hard"
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -167,8 +167,8 @@
      "options": [
       "The Falcons won every game of the season",
       "The Falcons lost many games, but kept practicing",
-      "Coach Faisal quit and a new coach arrived",
-      "The Falcons stopped going to practice completely"
+      "Coach Faisal quit and a new coach arrived at the school",
+      "The Falcons stopped going to practice"
      ],
      "answer": "B",
      "skill": "sequence",
@@ -185,7 +185,7 @@
       "He did not care whether the team won or lost",
       "He believed trying hard and staying together mattered most",
       "He planned to find a new team to coach",
-      "He thought the Falcons would never play another game"
+      "He thought the Falcons would never play another game in the league"
      ],
      "answer": "B",
      "skill": "inference",
@@ -294,7 +294,7 @@
      "stem": "Which sentence best states the central idea of the article?",
      "options": [
       "A struggling team improves through teamwork and persistence, and finally earns a surprising win",
-      "A talented team wins every game without ever needing to practice at all, so the coach has nothing to do",
+      "A talented team wins every game without ever needing to practice, so the coach has nothing to do",
       "A coach replaces his whole team partway through the season and tries to win a big cup alone",
       "A team decides handball is too difficult and switches to a new sport"
      ],
@@ -475,7 +475,7 @@
       "An underdog team's perseverance and camaraderie allow it to triumph despite a long losing streak",
       "A team gives up on handball after a long and disappointing losing streak, and the players go home sad.",
       "A single talented player wins every game for his team without any help from his friends or coach.",
-      "A coach decides winning does not matter at all to his players, so he stops the training for the season."
+      "A coach decides winning does not matter to his players, so he stops the training for the season."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -491,7 +491,7 @@
      "options": [
       "He consistently encouraged persistence rather than reacting with anger",
       "He gradually lost interest and stopped attending practice",
-      "He blamed individual players for each loss in front of the team",
+      "He blamed individual players for each loss in front of the team after a game",
       "He suggested the team quit handball for an easier sport"
      ],
      "answer": "A",
@@ -543,7 +543,7 @@
       "He believed that recovering from losses required steady, patient support, not pressure",
       "He had no real interest in whether the team ever improved, only in the final score",
       "He was required by school rules to stay positive in public, whatever happened",
-      "He secretly expected the team to lose every remaining game, but hid it from them"
+      "He secretly expected the team to lose the remaining games, but hid it from them"
      ],
      "answer": "A",
      "skill": "inference",
@@ -575,7 +575,7 @@
      "stem": "Why does the author end the article by emphasizing the value of resilience over the single victory itself?",
      "options": [
       "To suggest that the lesson of persisting mattered more than any one result",
-      "To argue that winning the game was ultimately unimportant to Omar",
+      "To argue that winning the game was ultimately unimportant to Omar and his team",
       "To explain the official scoring rules of handball in detail",
       "To compare the Falcons' win with a different sport entirely"
      ],
@@ -593,7 +593,7 @@
      "options": [
       "Teammates encouraged whoever made a mistake instead of blaming each other",
       "The Hawks had won every game earlier that season, so the Falcons felt sure they would lose",
-      "The match took place during an afternoon practice session, and nobody watched",
+      "The match took place during an afternoon practice session, and few people watched",
       "Omar was the player who scored the winning goal, and the others cheered him"
      ],
      "answer": "A",

@@ -134,7 +134,7 @@
             "Water makes the weather colder",
             "People need it to drink and to farm",
             "Water stops towns from growing",
-            "Water makes rock turn into soil"
+            "Water makes rock turn into soil in a year"
           ],
           "answer": "B",
           "skill": "detail",
@@ -151,7 +151,7 @@
             "Very hot weather",
             "Very cold weather",
             "Weather that is not too hot and not too cold",
-            "Weather that changes completely every single hour of the day"
+            "Weather that changes every single hour of the day"
           ],
           "answer": "C",
           "skill": "detail",
@@ -184,7 +184,7 @@
           "options": [
             "The town becomes empty",
             "More people move there and it gets crowded",
-            "The farmland near the town completely disappears forever",
+            "The farmland near the town disappears in a few years",
             "The weather gets colder"
           ],
           "answer": "B",
@@ -234,9 +234,9 @@
           "stem": "Why does the author talk about water, weather, farmland, and jobs together?",
           "options": [
             "To show four reasons why people choose where to live",
-            "To explain in full detail how to build a brand-new town from nothing at all",
+            "To explain in full detail how to build a brand-new town from nothing",
             "To describe one single ocean",
-            "To list rules for farmers only"
+            "To list rules for farmers"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "All regions of the world have exactly the same number of people, no matter the land or the weather.",
-            "Cities never grow larger than small towns, because families always prefer to live in the villages.",
+            "Cities rarely grow larger than small towns, because families prefer to live in villages.",
             "Water, climate, farmland, and jobs explain why people cluster in some places and not others.",
-            "Deserts always have more people than river valleys, since there is more room for houses there."
+            "Deserts have more people than river valleys, since there is more room for houses there."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -344,7 +344,7 @@
         {
           "stem": "The article calls land with rich soil \"fertile.\" Which words in the article help explain fertile?",
           "options": [
-            "far fewer people",
+            "far fewer people live",
             "can grow plenty of food",
             "near the coast",
             "steady movement"
@@ -362,9 +362,9 @@
           "stem": "What is the result when a region has a mild, comfortable climate?",
           "options": [
             "Fewer people choose to live there in the end",
-            "Farmland there stops producing any food at all",
+            "Farmland there stops producing any food",
             "It tends to attract large numbers of people",
-            "Rivers there dry up completely in the summer"
+            "Rivers there dry up in the summer"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -380,7 +380,7 @@
           "options": [
             "Because there is too much farmland there",
             "Because rivers never form near mountains",
-            "Because jobs are always found only in mountains",
+            "Because jobs are found mostly in mountains and near the snow",
             "Because there is little usable farmland to grow food"
           ],
           "answer": "D",
@@ -396,7 +396,7 @@
           "stem": "A factory opens in a small farming town, offering many new jobs. What will most likely happen?",
           "options": [
             "People from quieter areas will likely move there for work",
-            "The town's population will probably shrink quickly",
+            "The town's population will probably shrink quickly in the next years",
             "The town's climate will change immediately",
             "The farmland will instantly become unusable"
           ],
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Migration happens only inside large cities.",
-            "Every region of Earth has roughly the same number of people.",
+            "Most regions of Earth have roughly the same number of people.",
             "Population is spread unevenly, shaped by water, climate, fertile land, and jobs.",
-            "Infrastructure alone is always the single most important factor shaping population everywhere on Earth"
+            "Infrastructure alone is the single most important factor shaping population"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -491,7 +491,7 @@
           "options": [
             "A search for colder, harsher climates",
             "A desire to avoid all forms of trade",
-            "A desire to live farther from any water source",
+            "A desire to live farther from water sources",
             "A search for steady employment in cities"
           ],
           "answer": "D",
@@ -509,7 +509,7 @@
             "Both support far fewer inhabitants because conditions are harsh",
             "Both support dense, growing populations",
             "Both have the most fertile farmland on Earth",
-            "Both are the centers of global trade and infrastructure"
+            "Both are the centers of global trade and infrastructure in the world"
           ],
           "answer": "A",
           "skill": "detail",
@@ -540,7 +540,7 @@
         {
           "stem": "Why, according to the article, does fertile farmland allow a dense population to persist?",
           "options": [
-            "Because it is always located very close to the poles, where the weather is mild",
+            "Because it is located very close to the poles, where the weather is mild",
             "Because it produces surpluses of food that can feed many people over generations",
             "Because it removes the need for any infrastructure, such as roads or markets",
             "Because it attracts cold, arid weather patterns from the desert far away"
@@ -557,9 +557,9 @@
         {
           "stem": "A coastal region has reliable rainfall, flat fertile land, and growing cities. What can you infer about its likely population distribution?",
           "options": [
-            "It will likely remain almost entirely empty of people",
+            "It will likely remain almost empty of people",
             "It will likely resemble an extremely arid desert",
-            "It will likely support only scattered farming with no cities at all",
+            "It will likely support only scattered farming with no cities",
             "It will likely become a region of dense, concentrated population"
           ],
           "answer": "D",
@@ -576,8 +576,8 @@
           "options": [
             "It probably has a relatively low population compared to fertile lowlands",
             "It probably has a very dense, rapidly growing population in its cities",
-            "It probably has the strongest trade network in its country, with roads everywhere",
-            "It probably has no climate at all, so nobody can live there or visit"
+            "It probably has the strongest trade network in its country, with roads",
+            "It probably has no climate, so nobody can live there or visit"
           ],
           "answer": "A",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "To argue that infrastructure is irrelevant to where people settle, but climate matters",
             "To prove that climate alone decides where every person on Earth lives and works",
             "To argue that population distribution results from several combined factors, not one",
-            "To show that migration never actually changes a region's population in any country"
+            "To show that migration rarely changes a region's population"
           ],
           "answer": "C",
           "skill": "author-purpose",

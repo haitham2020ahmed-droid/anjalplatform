@@ -131,9 +131,9 @@
     {
      "stem": "What makes a place a desert?",
      "options": [
-      "It is always hot",
+      "It is hot",
       "It gets almost no rain",
-      "It has no animals at all",
+      "It has no animals",
       "It is covered in snow"
      ],
      "answer": "B",
@@ -184,8 +184,8 @@
      "options": [
       "It can go a long time without a drink",
       "It only eats sand and tiny pebbles",
-      "It sleeps inside an oasis all day",
-      "It never gets too hot or too cold"
+      "It sleeps inside an oasis most of the day",
+      "It rarely gets too hot or too cold"
      ],
      "answer": "A",
      "skill": "inference",
@@ -328,8 +328,8 @@
      "stem": "According to the article, what makes the Gobi cold in winter?",
      "options": [
       "It is located very close to the warm ocean",
-      "It is at a very low elevation near sea level",
-      "It is covered entirely in soft, fine sand dunes",
+      "It is at a very low elevation near sea level in the region",
+      "It is covered in soft, fine sand dunes",
       "It is far from the sea and in a different climate zone"
      ],
      "answer": "D",
@@ -346,7 +346,7 @@
      "options": [
       "Camels slowly digging in the ground",
       "Wind and occasional water wearing down stone",
-      "Traders slowly building brand-new roads",
+      "Traders slowly building brand-new roads in the desert",
       "Trees simply growing much too tall"
      ],
      "answer": "B",
@@ -380,8 +380,8 @@
      "options": [
       "It stores fat that its body can turn into water",
       "It only drinks water once every year, in the rainy season",
-      "It somehow gets all its water from the hot sand",
-      "It does not need any water at all, ever, in any weather"
+      "It gets most of its water from the hot sand",
+      "It drinks sea water when it is far from wells"
      ],
      "answer": "A",
      "skill": "inference",
@@ -414,8 +414,8 @@
      "options": [
       "By telling a long story about just one single trader from childhood all the way to old age",
       "By comparing different deserts, then explaining their land, life, and importance to people",
-      "By listing, one by one, all the steps needed to cross a desert safely",
-      "By describing in great detail only how sand dunes alone are formed over time"
+      "By listing, one by one, the steps needed to cross a desert safely",
+      "By describing in great detail how sand dunes are formed over time"
      ],
      "answer": "B",
      "skill": "text-structure",
@@ -472,10 +472,10 @@
     {
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
-      "No life of any kind can survive in a true desert.",
+      "No life can survive in a true desert.",
       "Deserts form only through strong winds blowing sand.",
       "Geographers define deserts by their aridity rather than temperature, and despite harsh conditions, these varied landscapes support notable biodiversity and human life.",
-      "Every desert on Earth, in every region and on every continent without a single exception anywhere, was at some point in its ancient geological history entirely and completely covered by a deep ocean."
+      "Most deserts on Earth were once covered by a deep ocean, which is why they are now so dry and sandy and support few animals or people in their wide, open lands."
      ],
      "answer": "C",
      "skill": "central-idea",
@@ -508,8 +508,8 @@
      "options": [
       "A cold ocean current blocks moist air that might otherwise bring rain",
       "It is located at a very high elevation far from any coast",
-      "It lies directly beneath the equator, where the sun's heat is strongest all year round",
-      "Strong winds constantly blow all the rain clouds inland"
+      "It lies directly beneath the equator, where the sun's heat is strongest",
+      "Strong winds blow the rain clouds inland"
      ],
      "answer": "A",
      "skill": "detail",

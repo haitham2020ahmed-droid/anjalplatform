@@ -115,7 +115,7 @@
           "stem": "What is the article mostly about?",
           "options": [
             "How bridges hold weight and the main kinds of bridges",
-            "Why people should always drive slowly when they cross bridges",
+            "Why people should drive slowly when they cross bridges",
             "How to paint a bridge so it lasts",
             "Which city has the most bridges in the world"
           ],
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Stone is the best material for every bridge ever built.",
+            "Stone is the best material for every bridge ever built and road.",
             "Engineers design bridges to handle pushing and pulling forces.",
-            "Wind is the only danger that bridges face today.",
-            "Beam bridges are always longer than suspension bridges."
+            "Wind is the main danger that bridges face today.",
+            "Beam bridges are longer than suspension bridges."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -397,8 +397,8 @@
           "options": [
             "The arch shape can hold weight for a very long time.",
             "Stone bridges were all built just last year.",
-            "People today no longer build with stone at all.",
-            "Arch bridges cannot hold any weight at all."
+            "People today no longer build with stone.",
+            "Arch bridges were built faster than other bridges."
           ],
           "answer": "A",
           "skill": "inference",
@@ -474,7 +474,7 @@
           "options": [
             "Roman engineers designed every modern bridge that we use today.",
             "Engineers match designs and materials to the forces bridges face.",
-            "Concrete is useless for building bridges of any size or shape.",
+            "Concrete is too weak for most long bridges, so steel is used instead.",
             "Wind tunnels are the most important invention in history."
           ],
           "answer": "B",
@@ -492,7 +492,7 @@
             "Because it is lighter than air",
             "Steel bars inside help it resist tension.",
             "Because it cannot expand in hot weather",
-            "Because it is the only material that resists compression"
+            "Because it is lighter than steel and wood"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -523,7 +523,7 @@
         {
           "stem": "According to the article, what do expansion joints allow a bridge to do?",
           "options": [
-            "Carry many more cars and trucks at the same time",
+            "Carry many more cars and trucks at the same time at the same time on it",
             "Change color slowly when the sun shines on it",
             "Lengthen and shorten with temperature without cracking",
             "Twist safely back and forth in strong winds"
@@ -542,7 +542,7 @@
           "options": [
             "Some suspension bridges span more than two kilometers.",
             "The King Fahd Causeway opened in the year 1986.",
-            "Concrete cracks easily when it is pulled under tension.",
+            "Concrete cracks easily when it is pulled under tension in hot weather.",
             "Some Roman stone arch bridges are still used after 2,000 years."
           ],
           "answer": "D",

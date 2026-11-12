@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Camels can never be trained to carry bags",
-            "A desert trip always ends badly for every family",
+            "A desert trip ends badly for the family",
             "Patient, careful searching revealed why Saqr stopped",
             "Saqr refused to walk because he disliked the family"
           ],
@@ -361,7 +361,7 @@
         {
           "stem": "Why did Saqr happily eat the dates but still refuse to walk?",
           "options": [
-            "He was not actually hungry at all, even for dates",
+            "He was not actually hungry, even for dates",
             "He preferred a different kind of food to eat",
             "Eating did not fix the thorn stuck in his foot",
             "He was waiting for more water to drink first"
@@ -475,7 +475,7 @@
             "Camels should never be used for desert travel, because they are too slow and often get sick",
             "Yousef's father is an expert in camel medicine and teaches the other villagers how to heal animals",
             "Lama's quiet perseverance and empathy let her solve a problem a less careful person might have missed",
-            "The desert trip was ruined because the camel was difficult and nobody in the group knew what to do"
+            "The desert trip was ruined because the camel was difficult and the group did not know what to do"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -523,9 +523,9 @@
         {
           "stem": "Why does it matter, according to the story, that camels rarely show obvious signs of pain?",
           "options": [
-            "It means camels never actually feel any pain in their bodies at all, even when they are hurt badly",
+            "It means camels never actually feel any pain in their bodies, even when they are hurt badly",
             "It means a hidden problem can be easy to miss unless someone is observant",
-            "It means veterinarians cannot treat camels at all in the desert",
+            "It means veterinarians rarely treat camels in the desert",
             "It means camels are not useful for long travel across the desert"
           ],
           "answer": "B",
@@ -574,7 +574,7 @@
         {
           "stem": "Why does the author most likely include the detail about how long camels have carried desert travelers?",
           "options": [
-            "To argue that modern vehicles are always better than camels in the desert",
+            "To argue that modern vehicles are better than camels in the desert",
             "To show why families like Lama's still trust and rely on camels today",
             "To explain how engines work in trucks and cars on the road",
             "To describe the history of the family's tent in the desert"

@@ -330,7 +330,7 @@
             "He trips and falls on the track",
             "He decides to stop running completely",
             "He feels exhausted and wants to slow down",
-            "He becomes completely lost somewhere on the course"
+            "He becomes lost somewhere on the course"
           ],
           "answer": "C",
           "skill": "detail",
@@ -592,7 +592,7 @@
           "stem": "Why does the author most likely include the detail that Yousef does not finish first, yet his coach is still proud?",
           "options": [
             "To suggest that coaches are never satisfied with their runners",
-            "To show that winning does not require any effort",
+            "To show that winning takes little effort",
             "To prove that cross-country races are not competitive",
             "To show that effort matters more than finishing first"
           ],

@@ -132,9 +132,9 @@
           "stem": "Where does space junk come from?",
           "options": [
             "Only from the Sun burning out, which throws bits into space",
-            "Only from clouds forming in the sky above the Earth",
+            "From clouds forming in the sky above the Earth",
             "Old satellites, rocket parts, and crashes or blasts",
-            "Only from the Moon breaking apart into small pieces"
+            "From the Moon breaking apart into small pieces"
           ],
           "answer": "C",
           "skill": "detail",
@@ -150,8 +150,8 @@
           "options": [
             "They paint it a bright color so planes can see it.",
             "They use nets or arms to grab it, then pull it down to burn up.",
-            "They leave it alone forever because nothing can be done.",
-            "They shoot it with lasers to make it vanish instantly."
+            "They leave it alone because nothing can be done.",
+            "They shoot it with lasers to make it vanish right away in space."
           ],
           "answer": "B",
           "skill": "sequence",
@@ -167,7 +167,7 @@
           "options": [
             "To build something new",
             "To watch and follow where it is",
-            "To paint something a completely new color",
+            "To paint something a new color",
             "To throw something away"
           ],
           "answer": "B",
@@ -184,7 +184,7 @@
           "options": [
             "Because it is painted a dark color",
             "Because it moves very fast, like a bullet",
-            "Because it is always very hot and burns",
+            "Because it is very hot and burns",
             "Because it is shaped like a ball that bounces"
           ],
           "answer": "B",
@@ -219,7 +219,7 @@
             "The junk disappears completely.",
             "The junk turns into a brand-new satellite.",
             "It can break into more pieces of junk.",
-            "It always falls straight down to Earth."
+            "It falls straight down to Earth."
           ],
           "answer": "C",
           "skill": "inference",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Space junk is harmless because it never moves very fast, so it cannot hurt any satellite or spacecraft.",
-            "Space agencies have already removed every piece of space junk from orbit, so the sky is now completely clean and safe.",
-            "Only astronauts need to know anything at all about space junk, because it never comes near anyone else on Earth or in the sky above.",
+            "Space junk is harmless because it moves slowly, so it rarely hurts satellites or spacecraft, and it is left where it is in space for many years.",
+            "Space agencies have removed most space junk from orbit, so the sky is now clean and safe.",
+            "Space junk matters mostly to astronauts, because it rarely comes near satellites or people on Earth.",
             "Space junk is made of old satellites, rocket parts, and fragments, and it is tracked and cleaned up because it is dangerous at high speed."
           ],
           "answer": "D",
@@ -310,10 +310,10 @@
         {
           "stem": "According to the article, what happens when two objects collide in orbit?",
           "options": [
-            "They always merge into one larger, working satellite.",
+            "They merge into one larger, working satellite.",
             "They can create new debris and fragments.",
             "They slow down and quietly fall into the ocean.",
-            "They stop moving completely and float in place forever."
+            "They stop moving and float in place."
           ],
           "answer": "B",
           "skill": "detail",
@@ -328,9 +328,9 @@
           "stem": "According to the article, what tools do agencies use to find big pieces of junk?",
           "options": [
             "Only their own eyes looking up at the sky",
-            "Only weather balloons sent into orbit",
+            "Weather balloons sent into orbit",
             "Radar and telescopes",
-            "Only reports sent in by astronauts"
+            "Reports sent in by astronauts"
           ],
           "answer": "C",
           "skill": "detail",
@@ -379,9 +379,9 @@
           "stem": "Why might millions of small fragments be harder to deal with than a few large pieces?",
           "options": [
             "Because small fragments are too tiny to track but can still hit hard.",
-            "Because small fragments always move more slowly than big ones.",
+            "Because small fragments move more slowly than big ones, so they stay in orbit.",
             "Because small fragments are easier for nets to catch.",
-            "Because small fragments never cause any damage at all."
+            "Because small fragments never cause any damage."
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,7 +395,7 @@
         {
           "stem": "How are the space station's avoidance maneuvers similar to the cleanup missions described?",
           "options": [
-            "Both completely remove space junk from Earth's orbit forever.",
+            "Both remove space junk from Earth's orbit.",
             "Both are ways of responding to the danger that space junk creates.",
             "Both only happen once every hundred years.",
             "Both require astronauts to leave the station and go outside."
@@ -474,8 +474,8 @@
           "options": [
             "Orbital debris poses a growing hazard, and agencies track it to mitigate the risk.",
             "The International Space Station has never needed to avoid any object in orbit.",
-            "Space agencies agree that orbital debris is not worth tracking at all.",
-            "Rocket stages are the only kind of object that ever becomes space junk."
+            "Space agencies agree that orbital debris is not worth tracking.",
+            "Rocket stages are the main kind of object that becomes space junk."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -508,7 +508,7 @@
           "options": [
             "Launching a second rocket to crash directly into it and break it apart",
             "Using a net, harpoon, or robotic arm to capture it, then dragging it to burn up",
-            "Waiting for sunlight to melt it away completely over many years in space",
+            "Waiting for sunlight to melt it away over many years in space",
             "Sending astronauts outside to push it manually toward Earth with their hands"
           ],
           "answer": "B",
@@ -524,9 +524,9 @@
           "stem": "The article explains that agencies try to mitigate the hazard of orbital debris. What does mitigate mean here?",
           "options": [
             "To make a problem more dangerous than before",
-            "To create an entirely new problem",
+            "To create a new problem",
             "To make a problem or its effects less severe",
-            "To completely ignore it and walk away"
+            "To ignore it and walk away"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -541,8 +541,8 @@
           "stem": "Why does the article say that size alone does not determine how hazardous debris is?",
           "options": [
             "Because tiny fragments move at the same extreme velocity and still carry great force.",
-            "Because tiny fragments are always much heavier than large ones, so they cause more damage.",
-            "Because large pieces of debris are completely harmless to spacecraft, even at high speed.",
+            "Because tiny fragments are much heavier than large ones, so they cause more damage.",
+            "Because large pieces of debris are harmless to spacecraft, even at high speed.",
             "Because tiny fragments cannot be detected by any instrument ever built, even from the ground."
           ],
           "answer": "A",
@@ -576,8 +576,8 @@
           "options": [
             "It describes a single satellite that will never stop working, fall, or break apart.",
             "It describes a chain reaction in which collisions create debris that causes further collisions.",
-            "It describes a method for safely removing all of the space debris at once from orbit around Earth.",
-            "It describes a rule that prevents any new satellites from being launched at all."
+            "It describes a method for safely removing the space debris at once from orbit around Earth.",
+            "It describes a rule that limits how many new satellites can be launched."
           ],
           "answer": "B",
           "skill": "inference",

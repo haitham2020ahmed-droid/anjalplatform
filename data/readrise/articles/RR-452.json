@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How letters are written and mailed to friends",
+            "How letters are written and mailed to friends far away by sea",
             "How Alexander Graham Bell invented a way to send voices over wires",
             "Why Thomas Watson liked working in a shop",
             "How Elisha Gray lived his whole life"
@@ -166,7 +166,7 @@
           "stem": "Why do you think Bell and Watson tried so many tests?",
           "options": [
             "They were trying to find a way to send voices that really worked",
-            "They wanted to waste their wire on purpose",
+            "They wanted to use up their wire on purpose before buying more",
             "They were told to by their parents",
             "They wanted to write more letters"
           ],
@@ -184,7 +184,7 @@
           "options": [
             "It showed that voices could travel through wires for the first time",
             "It meant Watson could finally go home",
-            "It proved that letters were faster than phones",
+            "It proved that letters were faster than phones for sending news",
             "It meant the shop was closing early that day"
           ],
           "answer": "A",
@@ -202,7 +202,7 @@
             "Something that is very loud",
             "Something that is a long distance away",
             "Something that is very small",
-            "Something that is brightly lit"
+            "Something that is brightly lit up by a lamp"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -216,10 +216,10 @@
         {
           "stem": "What happened right after Bell's phone became known to people?",
           "options": [
-            "Letters disappeared from the world forever",
+            "Letters disappeared from the world",
             "More and more people wanted a phone of their own",
-            "Watson stopped helping Bell completely",
-            "Gray built the very first telephone"
+            "Watson stopped helping Bell",
+            "Gray built the very first telephone in his workshop"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -296,7 +296,7 @@
             "Letters turned out to be a faster way to talk than phones",
             "Alexander Graham Bell worked to invent a device for sending voices far away",
             "Thomas Watson built the whole telephone by himself alone",
-            "Telephone companies were the very first to think of this idea"
+            "Telephone companies were the very first to think of this idea of sending voices across the land"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -396,7 +396,7 @@
           "stem": "How does the article mostly organize its information?",
           "options": [
             "It follows the events in the order that they actually happened",
-            "It compares two completely unrelated and very different inventions",
+            "It compares two unrelated and very different inventions",
             "It simply lists random facts about telephone companies and prices",
             "It argues at length that letters are better than telephones"
           ],
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Letters were always considered a perfectly safe and reliable way to communicate",
+            "Letters were considered a perfectly safe and reliable way to communicate",
             "Elisha Gray's personal laboratory happened to be located in the same exact city as Bell's own",
             "Bell and his assistant achieved a historic breakthrough that let human voices travel instantly through wires",
             "Telephone companies only ever became interested in this technology after several long decades had quietly passed"
@@ -492,7 +492,7 @@
             "They were considered too colorful and far too difficult to read clearly",
             "They often required many days to arrive and could become permanently lost",
             "They could only ever be written by specially trained professional scribes",
-            "They were formally banned by law in most towns and every city"
+            "They were banned by law in most towns and cities"
           ],
           "answer": "B",
           "skill": "detail",
@@ -524,9 +524,9 @@
           "stem": "What can be inferred about invention from the fact that Bell and Gray developed similar ideas independently?",
           "options": [
             "Breakthrough ideas sometimes emerge in multiple places around the same time",
-            "Only a single inventor can ever possibly succeed at anything at all",
-            "Independent inventors nearly always try to secretly steal from one another",
-            "Similar ideas can never possibly occur without some direct communication"
+            "Only a single inventor can ever possibly succeed at anything",
+            "Independent inventors nearly try to secretly steal from one another in their labs",
+            "Similar ideas rarely occur without direct communication"
           ],
           "answer": "A",
           "skill": "inference",
@@ -541,8 +541,8 @@
           "stem": "Why does the article emphasize that both inventors were racing toward the same achievement?",
           "options": [
             "To suggest that competitive pressure can accelerate scientific progress",
-            "To show that competition always ends in total failure for everyone",
-            "To prove that Gray's laboratory was better equipped than Bell's",
+            "To show that competition ends in total failure for everyone",
+            "To prove that Gray's laboratory was better equipped than Bell's at that time",
             "To argue that racing toward a goal is never worthwhile"
           ],
           "answer": "A",
@@ -575,9 +575,9 @@
           "stem": "How does the article's structure reinforce its central idea?",
           "options": [
             "It moves from the problem of slow letters, through experimentation, to lasting impact",
-            "It jumps randomly and repeatedly between several completely unrelated inventions",
-            "It focuses entirely and exclusively on Bell's personal life outside the laboratory",
-            "It only ever compares the retail prices of several different telephone models"
+            "It jumps randomly and repeatedly between several unrelated inventions",
+            "It focuses and exclusively on Bell's personal life outside the laboratory",
+            "It only ever compares the retail prices of several different telephone models in a store"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -591,10 +591,10 @@
         {
           "stem": "What effect did Bell's laboratory breakthrough have on how companies approached communication?",
           "options": [
-            "It strongly discouraged companies from ever building new communication networks",
+            "It strongly discouraged companies from ever building new communication networks in towns and in big cities",
             "It led companies to build wire networks so instant communication could reach towns and cities",
             "It somehow convinced companies to rely even more heavily on letters instead",
-            "It apparently had no noticeable effect on any companies at all"
+            "It apparently had no noticeable effect on any companies"
           ],
           "answer": "B",
           "skill": "cause-effect",

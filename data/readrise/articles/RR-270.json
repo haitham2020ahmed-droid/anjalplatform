@@ -117,7 +117,7 @@
       "How to build a tall building in a big city with cranes",
       "Why parks and green spaces are good for cities and the people who live there",
       "Why cars pollute the air very badly every day in the city and on the roads",
-      "How plants grow in the desert without any water at all"
+      "How plants grow in the desert with little water"
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -184,7 +184,7 @@
      "options": [
       "They know trees improve air, temperature, and wellbeing for residents.",
       "They want fewer cars on the road.",
-      "They want to completely replace every single park in the city with brand new office buildings.",
+      "They want to replace every single park in the city with brand new office buildings.",
       "They are required to by international law."
      ],
      "answer": "A",
@@ -294,9 +294,9 @@
      "stem": "Which sentence best states the central idea of this article?",
      "options": [
       "Parks are only useful for playing games, and they do nothing for the air, the heat, or the health of the city's people.",
-      "Trees have no effect on city temperatures, so cities plan parks only to look nice, and not for any other reason.",
+      "Trees have little effect on city temperatures, so cities plan parks mainly to look nice.",
       "Cities plan parks because green spaces improve air quality, lower temperatures, and support residents' wellbeing.",
-      "Pollution has nothing to do with city planning, so parks are added only where there is extra land that nobody wants."
+      "Pollution matters little in city planning, so parks are added where there is extra land left over."
      ],
      "answer": "C",
      "skill": "central-idea",
@@ -361,7 +361,7 @@
     {
      "stem": "What can you infer about why parks include benches and paths?",
      "options": [
-      "So people have absolutely no good reason to ever visit them at all",
+      "So people have absolutely no good reason to ever visit them",
       "So people can comfortably walk, sit, and spend time there.",
       "So cars have somewhere to park.",
       "So trees have a place to grow instead of in soil."
@@ -472,10 +472,10 @@
     {
      "stem": "Which sentence best summarizes the article?",
      "options": [
-      "Parks exist only for recreational sports, and cities build them to hold big matches and games for fans in the summer, not for any other reason or use at all, even in the heat.",
-      "Concrete always keeps cities cooler than trees do, so cities should replace parks with concrete squares and wide roads to stay cool in the heat, and green projects like Green Riyadh are a mistake.",
+      "Parks exist only for recreational sports, and cities build them to hold big matches and games for fans in the summer, not for any other reason or use, even in the heat.",
+      "Concrete keeps cities cooler than trees do, so cities should replace parks with concrete squares and wide roads to stay cool in the heat, and green projects like Green Riyadh are a mistake and roads, which would make the streets cooler and cleaner for the people who live in them.",
       "Cities deliberately plan parks as green infrastructure to fight pollution and heat while supporting community wellbeing, and Saudi cities are expanding this effort through sustainable projects like Green Riyadh.",
-      "Biodiversity has no connection to city parks, because wild animals and plants live only in forests and deserts far away from towns and their people, so parks cannot help them or the air."
+      "Biodiversity has little connection to city parks, because wild animals and plants live mostly in forests and deserts far from towns, so parks mainly help people."
      ],
      "answer": "C",
      "skill": "central-idea",
@@ -525,8 +525,8 @@
      "options": [
       "Ponds and green spaces give birds and small animals a place to live within the city.",
       "Animals avoid cities altogether.",
-      "Parks are built entirely underwater.",
-      "Parks have no plants or water features anywhere inside them at all, according to critics."
+      "Parks are built underwater.",
+      "Parks have no plants or water features anywhere inside them, according to critics."
      ],
      "answer": "A",
      "skill": "inference",
@@ -559,7 +559,7 @@
      "options": [
       "To make a problem considerably worse than it originally was before",
       "To lessen or reduce the severity of a problem",
-      "To completely ignore a problem",
+      "To ignore a problem",
       "To create a brand-new problem"
      ],
      "answer": "B",
@@ -575,9 +575,9 @@
      "stem": "How does the article structure its explanation of urban parks?",
      "options": [
       "It argues that parks should be removed from all cities, then explains why trees and grass cause traffic problems, noise and mess in busy streets.",
-      "It presents examples before ever explaining any benefits, then ends with a list of the rules for every park.",
+      "It presents examples before explaining the benefits, then ends with a list of the rules for parks.",
       "It explains why cities plan parks, then their environmental and wellbeing benefits, then real examples of green-space projects in Saudi cities.",
-      "It focuses only on one single park in one single city, describing its history, its size and its opening hours."
+      "It focuses on one park in one city, describing its history, its size and its opening hours."
      ],
      "answer": "C",
      "skill": "text-structure",
@@ -593,7 +593,7 @@
      "options": [
       "Shade and vegetation lower the temperature, while concrete absorbs and slowly releases heat.",
       "Parks are built below ground, away from the sun, so the air stays cool all day.",
-      "Concrete reflects all sunlight back into space, so no heat stays on the street.",
+      "Concrete reflects most sunlight back into space, so little heat stays on the street.",
       "Trees generate their own artificial cooling systems, like small air conditioners hidden inside the trunks."
      ],
      "answer": "A",

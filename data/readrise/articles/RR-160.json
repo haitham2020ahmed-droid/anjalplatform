@@ -167,7 +167,7 @@
           "options": [
             "In the hot middle of the day",
             "Only in the rain",
-            "Only in the morning",
+            "In the morning",
             "At night"
           ],
           "answer": "D",
@@ -236,7 +236,7 @@
             "To tell how to get to a park from the town or the city",
             "To show that people are now helping the wolves",
             "To say that wolves love to play with each other all day",
-            "To list all the animals in a park, from big to small"
+            "To list the animals in a park, from big to small"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -414,8 +414,8 @@
           "options": [
             "Wolves cannot hunt well without a strong fence",
             "The wolves are rare and some are killed by farmers",
-            "Parks give the wolves fresh food every single day",
-            "Wolves can only live in big, busy cities"
+            "Parks give the wolves fresh food each day",
+            "Wolves live best in big, busy cities"
           ],
           "answer": "B",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Gray wolves and Arabian wolves are completely different species.",
+            "Gray wolves and Arabian wolves are different species.",
             "Farmers are the main reason that wild wolves of every kind still survive today across all of Arabia.",
             "The Arabian wolf is well adapted to desert life, yet it needs protection to survive.",
-            "Carrion is the most important food for every predator."
+            "Carrion is the most important food for most predators."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -524,8 +524,8 @@
           "stem": "The article says the wolf eats carrion. What does carrion tell us about its diet?",
           "options": [
             "It eats only plants and fruit from the trees",
-            "It eats only live insects and worms in the ground",
-            "It hunts only large animals in a big group",
+            "It eats live insects and worms in the ground",
+            "It hunts large animals in a big group",
             "It also eats animals that are already dead"
           ],
           "answer": "D",

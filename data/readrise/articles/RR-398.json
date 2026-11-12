@@ -524,7 +524,7 @@
           "stem": "In the story, the word anticipate most closely relates to which idea?",
           "options": [
             "The students had been looking forward to and expecting an enjoyable trip",
-            "The students were completely surprised that a field trip existed at all",
+            "The students were surprised that a field trip existed",
             "The teacher failed to expect any problems with the bus arrangement",
             "The museum anticipated that students would misbehave"
           ],
@@ -593,8 +593,8 @@
           "options": [
             "To show that staying composed and finding a responsible adult is the right response",
             "To describe in detail how school buses are scheduled each morning",
-            "To suggest that only Yousef and Noura learned anything from the experience",
-            "To introduce an entirely new problem the class must now resolve"
+            "To suggest that only Yousef and Noura learned anything from the experience on that day at school",
+            "To introduce a new problem the class must now resolve"
           ],
           "answer": "A",
           "skill": "author-purpose",

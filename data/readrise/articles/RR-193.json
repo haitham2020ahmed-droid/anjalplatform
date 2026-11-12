@@ -165,7 +165,7 @@
         {
           "stem": "Why do baby sea turtles sometimes go the wrong way?",
           "options": [
-            "They cannot see anything at all",
+            "They cannot see anything",
             "Bright lights on land trick them",
             "The sand on the beach is too hot",
             "Big birds chase them into the road"
@@ -202,7 +202,7 @@
             "Turning off a light no one is using",
             "Adding more signs to a street",
             "Pointing lamps up at the sky",
-            "Leaving the lights on all night"
+            "Leaving the lights on all night in the house"
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Stars are slowly disappearing from space forever.",
+            "Stars are slowly disappearing from space.",
             "Only birds are ever harmed by bright city lights.",
-            "Cities should remove every single light they have.",
+            "Cities should remove most of their lights.",
             "Too much light at night harms, but it can be fixed."
           ],
           "answer": "D",
@@ -380,7 +380,7 @@
           "options": [
             "No turtles have ever nested there.",
             "Hatching turtles there may be in more danger.",
-            "The turtles there hatch only in the day.",
+            "The turtles there hatch only in the day in the sun.",
             "The water there is warmer for turtles."
           ],
           "answer": "B",
@@ -475,7 +475,7 @@
             "Stars are fading because they are slowly running out of energy.",
             "Excess light harms the sky, wildlife, and people, but it can be reduced.",
             "Sea turtles are the only animals that are harmed by artificial light.",
-            "Cities need much brighter lights everywhere to stay safe at night."
+            "Cities need much brighter lights to stay safe at night."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -509,7 +509,7 @@
             "More than a third of humanity",
             "Fewer than one in a hundred",
             "Exactly half of all children",
-            "Nearly every person on Earth"
+            "About one person in ten"
           ],
           "answer": "A",
           "skill": "detail",
@@ -542,7 +542,7 @@
           "options": [
             "More insects would circle the lamps at night.",
             "There would be less skyglow and more visible stars.",
-            "Turtles would stop nesting on its beaches at all.",
+            "Turtles would stop nesting on its beaches.",
             "People would need more melatonin to be able to sleep."
           ],
           "answer": "B",

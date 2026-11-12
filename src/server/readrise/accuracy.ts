@@ -218,7 +218,7 @@ export async function notifyLevelDown(repo: Repo, studentId: string, from: numbe
   const name = s(me?.displayName) || "A student";
   await repo.createMany("Notification", [...new Set(users.map((u) => s(u.userId)))].map((userId) => ({
     userId, type: "INTERVENTION_ALERT", title: `📉 ${name}: ReadRise ${formatLevel(from)} → ${formatLevel(to)}`.slice(0, 190),
-    body: `${name}'s ReadRise level moved down from ${formatLevel(from)} to ${formatLevel(to)}: ${reason}. This happens automatically; two strong reads (75%+) bring it back up. Nothing to do unless you want to set the level by hand.`.slice(0, 1000),
+    body: `${name}'s ReadRise level moved down from ${formatLevel(from)} to ${formatLevel(to)}: ${reason}. This happens automatically; two strong reads (75%+) bring it back up. If you think the drop is wrong, open the student's Level detail and press “Undo the drop” within 7 days.`.slice(0, 1000),
     link: "/teacher/readrise", readAt: null, createdAt: now,
   })));
   return true;

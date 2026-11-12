@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people built the first roads in the article",
+            "How people built the first roads",
             "How GPS helps people find their way using satellites",
-            "How sailors learned to read maps on paper",
-            "How phones are made in factories, as the article explains"
+            "How sailors learned to read maps on paper for long trips",
+            "How phones are made in factories"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "What does your phone do to find your exact spot?",
           "options": [
-            "It calls a person at a map company, as the article explains",
-            "It takes a photo of the sky in the article, according to the text",
-            "It listens for sounds from the ground overall",
+            "It calls a person at a map company",
+            "It takes a photo of the sky",
+            "It listens for sounds from the ground and the trees near you",
             "It talks to a few satellites and figures out how far each one is"
           ],
           "answer": "D",
@@ -166,9 +166,9 @@
           "stem": "Why did the article say the U.S. Army made GPS first?",
           "options": [
             "Because GPS was first needed for ships and military planes",
-            "Because no other group knew about space in the article",
+            "Because no other group knew about space",
             "Because satellites were too expensive for anyone else",
-            "Because phones did not exist yet at all, as the article explains"
+            "Because phones did not exist yet"
           ],
           "answer": "A",
           "skill": "inference",
@@ -182,10 +182,10 @@
         {
           "stem": "Why is GPS useful for hikers in the woods?",
           "options": [
-            "Because it keeps their backpacks lighter overall",
-            "Because it warms up cold hands in the article",
+            "Because it keeps their backpacks lighter on long, hard walks",
+            "Because it warms up cold hands",
             "Because it helps them find their way even in unfamiliar places",
-            "Because it makes trails shorter, as the article explains"
+            "Because it makes trails shorter"
           ],
           "answer": "C",
           "skill": "inference",
@@ -199,9 +199,9 @@
         {
           "stem": "In the article, a satellite is best described as —",
           "options": [
-            "a kind of road sign in the article",
-            "a type of hiking boot overall, according to the text",
-            "a small handheld map, as the article explains",
+            "a kind of road sign",
+            "a type of hiking boot made for walking on rocks",
+            "a small handheld map",
             "an object that circles far above the Earth in space"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the article mostly tell its information about GPS?",
           "options": [
-            "By comparing many kinds of hiking boots in the article in this case",
+            "By comparing many kinds of hiking boots and the trails where people wear them",
             "By explaining what GPS is, how it works, and the many ways people use it today",
-            "By listing steps for building a satellite overall, according to the text",
-            "By naming famous explorers from long ago, as the article explains"
+            "By listing steps for building a satellite",
+            "By naming famous explorers from long ago"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -234,9 +234,9 @@
           "stem": "What happened because more ordinary people could use GPS?",
           "options": [
             "GPS became part of everyday tools like phones, watches, and maps",
-            "Satellites stopped sending out signals in the article",
-            "The U.S. Army stopped using GPS completely",
-            "Ships stopped using GPS to cross the sea, as the article explains"
+            "Satellites stopped sending out signals",
+            "The U.S. Army stopped using GPS and gave its satellites away",
+            "Ships stopped using GPS to cross the sea"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "GPS was created by ordinary civilians before the military ever used it, according to the text as a result",
+            "GPS was created by ordinary civilians before the military ever used it",
             "GPS uses satellites to pinpoint exact locations, a system first built for the military that now helps ordinary people in countless everyday ways",
-            "Satellites only work for ships, not for phones or cars in the article overall in this case for this reason",
-            "GPS stopped being useful once watches and maps included it, as the article explains at that time"
+            "Satellites work mainly for ships, not for phones or cars, so ordinary people rarely use GPS in their daily lives today, especially in big cities and towns",
+            "GPS stopped being useful once watches and maps included it"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What specific process does the article describe for how your phone finds your location?",
           "options": [
-            "It sends a text message to a satellite company overall, according to the text",
-            "It takes a photo and compares it to old maps, as the article explains",
+            "It sends a text message to a satellite company",
+            "It takes a photo of the street and compares it to old maps stored inside the phone",
             "It communicates with several satellites and calculates how far away each one is",
-            "It asks nearby phones for their locations in the article in this case"
+            "It asks nearby phones for their locations"
           ],
           "answer": "C",
           "skill": "detail",
@@ -328,8 +328,8 @@
           "stem": "What specific original purpose does the article give for GPS?",
           "options": [
             "It was built only for mapping mountains",
-            "It was designed only for weather forecasting",
-            "It was created only for sending text messages",
+            "It was designed for weather forecasting",
+            "It was created for sending text messages to friends",
             "It was mainly intended for ships and military planes"
           ],
           "answer": "D",
@@ -345,9 +345,9 @@
           "stem": "What can you infer about why satellites need to send signals constantly, without pause?",
           "options": [
             "A phone likely needs an uninterrupted signal to calculate an accurate, up-to-date position",
-            "Satellites send signals only once a year in the article, according to the text",
-            "Phones do not actually need any signal from satellites overall in this case",
-            "Signals are sent only when someone is lost, as the article explains"
+            "Satellites send signals once a year, so phones save the signal and use it again many times",
+            "Phones need satellite signals once a day",
+            "Signals are sent when someone is lost"
           ],
           "answer": "A",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "What can you infer about daily life once GPS became available to ordinary people?",
           "options": [
-            "People stopped traveling to new places altogether, as the article explains",
-            "Maps and watches became completely useless in the article",
+            "People stopped traveling to new places altogether",
+            "Maps and watches became useless",
             "People likely found it easier to travel confidently to unfamiliar places",
-            "Ships stopped needing any way to find their position"
+            "Ships stopped needing a way to find their position, so sailors threw their maps away"
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,9 +378,9 @@
         {
           "stem": "In the article, the word route most nearly means —",
           "options": [
-            "a kind of satellite in space",
-            "a short pause in a signal, as the article explains",
-            "a technical name for GPS in the article",
+            "a kind of satellite that travels in space",
+            "a short pause in a signal",
+            "a technical name for GPS",
             "a path taken to get from one place to another"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "How is the information in the article mostly organized?",
           "options": [
-            "By comparing GPS systems used in different countries today, as the article explains",
+            "By comparing GPS systems used in different countries today",
             "By explaining what GPS is, how satellites make it work, its history, and its many modern uses, in that order",
-            "By explaining exactly how to build a satellite from scratch overall in this case",
-            "By arguing that paper maps are better than GPS in the article, according to the text"
+            "By explaining exactly how to build a satellite from scratch",
+            "By arguing that paper maps are better than GPS, then listing reasons people should stop using phones"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "Why did GPS become so widely useful once civilians could access it?",
           "options": [
             "Because it could help with everyday tasks like driving, hiking, and sailing, not just military uses",
-            "Because satellites became visible to the naked eye overall in this case",
-            "Because the military stopped using GPS entirely, as the article explains",
-            "Because phones became too expensive to buy in the article, according to the text"
+            "Because satellites became visible to the naked eye, so people could follow them across the sky at night",
+            "Because the military stopped using GPS entirely",
+            "Because phones became too expensive to buy"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "GPS was designed from the very beginning as a tool for ordinary civilians in the article overall in this case for this reason",
+            "GPS was designed from the beginning as a tool for ordinary civilians, and the military began using it later, after phones made it popular around the world",
             "A satellite-based system originally built for military defense gradually became an essential, everyday tool that transformed how ordinary people navigate the world",
-            "Satellites transmit signals only during emergencies or military operations, as the article explains at that time as a result",
-            "GPS technology has remained largely unchanged in its everyday applications since its creation, according to the text"
+            "Satellites transmit signals only during emergencies or military operations",
+            "GPS technology has remained largely unchanged in its everyday applications since its creation"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "What specific evidence does the article give for GPS's original, narrow purpose?",
           "options": [
-            "It states that GPS was originally designed for mapping hiking trails in the article",
-            "It states that GPS was first developed by a private technology company, as the article explains",
+            "It states that GPS was originally designed for mapping hiking trails",
+            "It states that GPS was first developed by a private technology company that sold maps to hikers and drivers",
             "It states that GPS was mainly intended for naval ships and military aircraft during its earliest operational years",
-            "It states that GPS was initially intended only for weather forecasting overall, according to the text"
+            "It states that GPS was initially intended only for weather forecasting"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "What evidence does the article give that GPS relies on a continuous, uninterrupted process?",
           "options": [
-            "It states that satellites send signals only once each day in the article overall, according to the text",
-            "It states that phones must be manually updated before each use, as the article explains at that time as a result",
-            "It states that GPS works only when a phone has no signal interruption from towers in this case for this reason",
+            "It states that satellites send signals only once each day",
+            "It states that phones must be updated by hand before each use, because the satellites send signals just once or twice a day, so the phone must wait",
+            "It states that GPS works only when a phone has no signal interruption from towers",
             "It states that satellites constantly send signals without any real interruption, and phones continuously calculate position using that information"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "How does the article's description of GPS's original military purpose compare with its description of GPS's current, everyday use?",
           "options": [
             "GPS's original purpose is presented as narrow and defense-focused, while its current use is presented as broad and woven into daily civilian life",
-            "Both the original and current uses are described as exclusively military in nature overall, according to the text",
-            "GPS's current everyday use is described as happening before its military origins, as the article explains",
-            "Neither the original purpose nor the current use is described in any detail in the article in this case at that time"
+            "Both the original and current uses are described as exclusively military in nature",
+            "GPS's current everyday use is described as happening before its military origins",
+            "Both the original purpose and the current use are described as military, so GPS is shown as a defense tool from start to end of its history"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about the broader historical significance of civilians eventually gaining permission to use GPS?",
           "options": [
-            "Civilian access had no real effect on how widely GPS was eventually used, as the article explains at that time",
-            "Civilians gained access to GPS before the military ever developed it in the article overall in this case",
+            "Civilian access had no real effect on how widely GPS was eventually used",
+            "Civilians gained access to GPS before the military ever developed it",
             "This shift likely marked a turning point that allowed a once-restricted defense technology to become a widely shared, transformative public tool",
-            "GPS remained exclusively a military tool even after civilians gained permission to use it, according to the text"
+            "GPS remained mainly a military tool even after civilians gained permission to use it, so ordinary people rarely relied on it for directions"
           ],
           "answer": "C",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "In the article, the word treacherous is used to describe certain woods that hikers navigate using GPS. What does treacherous mean here?",
           "options": [
-            "extremely colorful and scenic in the article, according to the text",
-            "completely flat and easy to walk through overall in this case",
-            "located very close to a major city, as the article explains",
+            "extremely colorful and scenic",
+            "flat and easy to walk through",
+            "located very close to a major city, where many people come to walk on weekends",
             "dangerous or unpredictable in a way that may not be immediately obvious"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the article emphasize that GPS was originally restricted to military and defense purposes before becoming available to civilians?",
           "options": [
-            "To argue that civilians should never have been allowed to use GPS, as the article explains at that time",
+            "To argue that civilians should never have been allowed to use GPS",
             "To highlight how significant a shift it was for a once-restricted technology to become a widely accessible, everyday civilian tool",
-            "To prove that GPS never actually had any military applications in the article, according to the text",
-            "To suggest that satellites stopped working once civilians gained access overall in this case for this reason"
+            "To prove that GPS had few military applications",
+            "To suggest that satellites stopped working once civilians gained access, which made the military build new ones in secret"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -592,9 +592,9 @@
           "stem": "Based on the article, what most likely allowed GPS to become such a fundamental part of modern daily navigation?",
           "options": [
             "A combination of reliable satellite technology, expanding civilian access, and integration into everyday devices likely drove this widespread adoption",
-            "A single government law required every citizen to own a GPS device in the article in this case for this reason",
-            "GPS became essential only after all paper maps were banned worldwide, as the article explains at that time",
-            "Satellites began orbiting the Earth for the very first time recently overall, according to the text as a result"
+            "A single government law required each citizen to own a GPS device, which made people use it in their daily lives whether they wanted to or not",
+            "GPS became essential after paper maps were banned in most countries",
+            "Satellites began orbiting the Earth recently, so GPS became popular as soon as the first ones were launched"
           ],
           "answer": "A",
           "skill": "inference",

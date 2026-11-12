@@ -114,7 +114,7 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "How to build a tall house near a lake",
+            "How to build a tall house near a lake in the city",
             "How a new heart gave a sick man more time",
             "How to cook a big pot of warm soup",
             "How Jarvik learned to swim each day"
@@ -166,9 +166,9 @@
           "stem": "Why did the sick man live many more days after getting the new heart?",
           "options": [
             "Because the new heart helped his blood move again",
-            "Because he stopped eating any food at all",
+            "Because he stopped eating any food",
             "Because he moved to a different, warmer country",
-            "Because doctors stopped checking on him completely"
+            "Because doctors stopped checking on him"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -183,9 +183,9 @@
           "stem": "What happened to Jarvik's new heart after the sick man used it?",
           "options": [
             "It was replaced right away by an older plan",
-            "No one liked it, so it was quickly forgotten",
+            "No one liked it, so it was quickly forgotten by the doctors",
             "It became a big step that many doctors learned from",
-            "It was never used by any doctor again"
+            "Doctors stopped using it after that"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -218,8 +218,8 @@
           "options": [
             "Only farmers who grow food for a living",
             "Doctors who care for very sick people",
-            "Only pilots who fly planes very high",
-            "Only painters who paint tall buildings"
+            "Pilots who fly planes very high",
+            "Painters who paint tall buildings"
           ],
           "answer": "B",
           "skill": "detail",
@@ -236,7 +236,7 @@
             "They give people more time and real hope",
             "They cost a very large amount of money",
             "They are used only by professional athletes",
-            "They replace food for every single person"
+            "They replace food for most people"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -295,7 +295,7 @@
           "options": [
             "Doctors never attempted to treat a failing heart before 1982",
             "Jarvik and DeVries built an artificial heart that changed heart care",
-            "The artificial heart failed completely and was never used again",
+            "The artificial heart failed and was not used again",
             "Barney Clark recovered fully and lived a normal life afterward"
           ],
           "answer": "B",
@@ -312,7 +312,7 @@
           "options": [
             "They were owned only by wealthy hospitals in Europe",
             "They were connected directly to ordinary household wiring",
-            "They could only be used by children under ten",
+            "They could be used by children under ten",
             "They were experimental and rarely worked for very long"
           ],
           "answer": "D",
@@ -327,7 +327,7 @@
         {
           "stem": "What motivated Robert Jarvik to design a fully artificial heart?",
           "options": [
-            "He wanted to replace all human organs eventually",
+            "He wanted to replace all human organs eventually with machines",
             "He wanted to give seriously ill patients more time to live",
             "He wanted to become a famous athlete someday",
             "He wanted to open a hospital of his own"
@@ -344,7 +344,7 @@
         {
           "stem": "Why was building the device from plastic and metal, instead of human tissue, so important?",
           "options": [
-            "It made the device far easier to hide from view",
+            "It made the device far easier to hide from view under clothes",
             "It meant the device did not depend on a donor heart being ready",
             "It required far more light to see at night",
             "It made the device impossible to carry anywhere"
@@ -361,9 +361,9 @@
         {
           "stem": "What can you infer about why Jarvik's design became the model most later heart devices build on?",
           "options": [
-            "Because it was only ever used by professional performers",
+            "Because it was only ever used by professional performers in the city",
             "Likely because it solved a problem many seriously ill patients shared",
-            "Because a new law required every hospital to copy it",
+            "Because a new law required hospitals to copy it",
             "Because no other heart device was ever built again"
           ],
           "answer": "B",
@@ -396,7 +396,7 @@
           "stem": "How is this article mostly organized?",
           "options": [
             "As step-by-step instructions for performing heart surgery",
-            "As a comparison of two completely unrelated inventions",
+            "As a comparison of two unrelated inventions",
             "As a sequence of events describing a problem and its solution",
             "As a scattered list of random facts about Michigan"
           ],
@@ -414,7 +414,7 @@
           "options": [
             "It replaced the need for all future heart surgery",
             "It was quickly forgotten by nearly everyone involved",
-            "It was banned from being used in any hospital",
+            "It was banned from use in hospitals",
             "It became the blueprint most later heart devices build on"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
             "Jarvik's personal drive to solve heart failure led to a device that became the lasting standard",
-            "Devices to help a failing heart were never attempted before the twentieth century",
-            "Heart failure has never truly been a problem for most patients",
-            "Artificial hearts are only useful for professional athletes"
+            "Devices to help a failing heart were never attempted before the twentieth century by doctors",
+            "Heart failure has rarely been a problem for most patients",
+            "Artificial hearts are useful mainly for professional athletes"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, how did Jarvik's research background shape his invention?",
           "options": [
-            "He had never studied engineering or medicine at all",
-            "He designed the entire device purely from distant guesswork",
+            "He had never studied engineering or medicine",
+            "He designed the entire device purely from distant guesswork about the heart",
             "He studied earlier mechanical heart pumps built for animal experiments",
-            "He had no interest in solving medical problems of any kind"
+            "He had no interest in solving medical problems"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,7 +506,7 @@
         {
           "stem": "What evidence suggests earlier mechanical heart pumps were genuinely limited, not simply undocumented?",
           "options": [
-            "They were brightly painted and somewhat difficult to clean",
+            "They were brightly painted and somewhat difficult to clean between operations",
             "They required an unusual amount of natural sunlight to use",
             "They had not proven reliable for an actual human patient for more than a few hours",
             "They were too small to be printed clearly in any book"
@@ -543,7 +543,7 @@
             "It was required everywhere by a brand-new international law",
             "No other artificial heart was ever built again after this one",
             "It likely solved a problem that many patients with heart failure shared",
-            "It was only ever used by a small group of professional performers"
+            "It was used mainly by a small group of professional performers in the theater"
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,8 +574,8 @@
         {
           "stem": "How does the article primarily structure its account of the device's development?",
           "options": [
-            "By presenting two opposing viewpoints without any real resolution",
-            "By comparing several completely unrelated writing systems",
+            "By presenting two opposing viewpoints without any real resolution between the two sides",
+            "By comparing several unrelated writing systems",
             "By listing a series of unrelated facts about Michigan generally",
             "By tracing a problem through a specific solution to its lasting modern impact"
           ],
@@ -591,9 +591,9 @@
         {
           "stem": "Based on the article, which outcome most directly resulted from Jarvik's artificial heart?",
           "options": [
-            "Teaching quickly became the only career ever open to heart patients",
-            "All hospitals everywhere switched entirely to artificial hearts within years",
-            "Human heart transplants became completely unnecessary for most patients",
+            "Teaching quickly became the main career open to heart patients after they recovered",
+            "Most hospitals switched to artificial hearts within years",
+            "Human heart transplants became unnecessary for most patients",
             "Millions of patients with heart failure gained a dependable way to survive and recover"
           ],
           "answer": "D",

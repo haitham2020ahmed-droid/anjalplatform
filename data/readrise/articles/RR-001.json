@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Karl von Frisch was the most important scientist of the twentieth century.",
+            "Karl von Frisch was the most important scientist of the twentieth century in Europe.",
             "Honey is valuable mainly because it is produced in Saudi Arabia.",
             "Pesticides have caused farmers to stop using honeybees.",
             "Honeybees form a highly organized society whose work sustains plants and agriculture."
@@ -526,7 +526,7 @@
             "Figured out the meaning of",
             "Invented a new form of music",
             "Copied and performed again",
-            "Prevented or stopped forever"
+            "Prevented or stopped"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -558,7 +558,7 @@
           "stem": "Why would farmers most likely rent hives to place beside their orchards?",
           "options": [
             "To sell the honey for a high price",
-            "To keep pests away from their trees",
+            "To keep pests away from their trees at night",
             "To make sure their crops are pollinated",
             "To teach bees how to dance"
           ],
@@ -577,7 +577,7 @@
             "Bees can use the sun's position to navigate.",
             "Bees fly only at noon.",
             "Bees perform the dance outside the hive.",
-            "Bees cannot see flowers clearly."
+            "Bees can see flowers better in the shade."
           ],
           "answer": "A",
           "skill": "inference",

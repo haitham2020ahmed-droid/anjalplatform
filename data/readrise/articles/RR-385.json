@@ -165,7 +165,7 @@
     {
      "stem": "Why does the cat run and hide at first?",
      "options": [
-      "It wants to find its old owner nearby",
+      "It wants to find its old owner nearby in the city",
       "It is scared since it does not know Layla",
       "It is busy chasing a small animal",
       "It does not like Layla's whole family"
@@ -185,7 +185,7 @@
       "She is already too old to become a pet",
       "She is a healthy young cat with no owner",
       "She already belongs to another family nearby",
-      "She is quite sick and cannot be helped at all"
+      "She is quite sick and cannot be helped"
      ],
      "answer": "B",
      "skill": "detail",
@@ -216,7 +216,7 @@
     {
      "stem": "In the story, the word stray means —",
      "options": [
-      "an animal that only eats fish",
+      "an animal that only eats fish and birds",
       "an animal kept inside a cage",
       "an animal without a home or owner",
       "an animal that lives in water"
@@ -236,7 +236,7 @@
       "The cat must learn a new trick first",
       "The cat must first find a brand new home",
       "The family must talk and agree to help",
-      "Layla must completely stop going to school"
+      "Layla must stop going to school"
      ],
      "answer": "C",
      "skill": "sequence",
@@ -296,7 +296,7 @@
       "Layla learns that running her own pet store downtown is easy.",
       "Layla and her family learn to care for a stray cat and decide to adopt her.",
       "Layla's family firmly decides a stray cat can never really be trusted.",
-      "The vet flatly refuses to help any cat that has no listed owner."
+      "The vet refuses to help a cat that has no listed owner."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -344,7 +344,7 @@
     {
      "stem": "Why does the cat slowly come closer instead of staying hidden?",
      "options": [
-      "It suddenly smells another cat somewhere nearby",
+      "It suddenly smells another cat somewhere nearby in the garden",
       "A loud noise scares it out from behind the bush",
       "The vet calls the cat over from far away",
       "Layla's patience and gentle care slowly earn its trust"
@@ -363,7 +363,7 @@
      "options": [
       "feeling angry and ready to fight about it",
       "feeling unsure and slow to act, full of doubt",
-      "feeling completely unafraid of anything at all",
+      "feeling unafraid of anything",
       "feeling excited and eager to act right away"
      ],
      "answer": "B",
@@ -379,7 +379,7 @@
      "stem": "Why does the family decide to adopt the cat instead of just helping her once?",
      "options": [
       "Because the cat already has a collar with their address on it",
-      "Because no animal shelters exist anywhere nearby at all",
+      "Because no animal shelters exist anywhere nearby",
       "Because the vet strictly orders them to keep the cat",
       "Because Layla promises daily care and the family agrees"
      ],
@@ -396,7 +396,7 @@
      "stem": "How is the story organized?",
      "options": [
       "It lists facts about different kinds of cats",
-      "It compares two different families who both find cats",
+      "It compares two different families who both find cats in the same town",
       "It follows the story's events in order, from start to finish",
       "It carefully explains exactly how vets are trained"
      ],
@@ -473,9 +473,9 @@
      "stem": "Which statement best captures the central idea of the story?",
      "options": [
       "Owning a pet guarantees instant companionship with no effort required from the family, and everyone is happy at once.",
-      "Veterinarians should decide which animals families are allowed to keep, since families cannot care for pets alone at all.",
+      "Veterinarians should decide which animals families are allowed to keep, since families cannot care for pets alone.",
       "Caring responsibly for a frightened stray cat, step by step, leads a family to recognize that the obligation is worth taking on.",
-      "A stray animal's instincts can never be changed by human kindness, so a family should leave stray cats alone."
+      "A stray animal's instincts are hard to change with kindness, so a family should leave stray cats alone."
      ],
      "answer": "C",
      "skill": "central-idea",
@@ -507,7 +507,7 @@
      "stem": "What does Mom's explanation reveal about her perspective on pet ownership?",
      "options": [
       "She thinks only adults should be responsible for animals in a home, not children",
-      "She wants to avoid the cat entirely to prevent any obligation or work",
+      "She wants to avoid the cat to prevent extra work",
       "She believes pets are more trouble than they are worth to a family",
       "She views it as a genuine, ongoing obligation rather than a passing novelty"
      ],
@@ -523,7 +523,7 @@
     {
      "stem": "In the story, the word reluctant most nearly means —",
      "options": [
-      "completely fearless",
+      "fearless",
       "unwilling or hesitant",
       "deliberately aggressive",
       "enthusiastic and eager"
@@ -557,7 +557,7 @@
     {
      "stem": "Place these events in the order they happen in the story.",
      "options": [
-      "The vet confirms the cat has no owner; the family adopts her; Layla builds a shelter",
+      "The vet confirms the cat has no owner; the family adopts her; Layla builds a temporary shelter",
       "The family adopts the cat; Layla builds a shelter; the vet examines her",
       "Layla builds a temporary shelter; the vet confirms the cat has no owner; the family adopts her",
       "The cat approaches Layla; the family adopts her; Layla builds a shelter"
@@ -574,9 +574,9 @@
     {
      "stem": "What can readers infer about why the family's discussion at the table matters to the story's meaning?",
      "options": [
-      "It shows that Mom and Dad always overrule Layla's wishes about the cat, and never ask what anyone else thinks",
+      "It shows that Mom and Dad overrule Layla's wishes about the cat, and never ask what anyone else thinks or what they want",
       "It proves that the vet's opinion is irrelevant to the decision about the cat, and was ignored",
-      "It shows that the family regrets finding the cat at all, and wants to give it back",
+      "It shows that the family regrets finding the cat, and wants to give it back",
       "It shows that decisions about shared responsibility are best made together, with everyone's commitment considered"
      ],
      "answer": "D",

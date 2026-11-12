@@ -199,7 +199,7 @@
         {
           "stem": "Grace's mother let her keep fixing clocks, even after she broke a few. What does this tell you about her mother?",
           "options": [
-            "She did not really care about the old clocks at all",
+            "She did not really care about the old clocks",
             "She wanted Grace to stop asking questions about the clocks",
             "She supported Grace's curiosity, even when mistakes happened",
             "She was upset that Grace liked machines more than dolls"
@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the central idea?",
           "options": [
             "Grace Hopper enjoyed taking apart old alarm clocks as a child.",
-            "The Navy only trained women to repair clocks and machines during the war.",
+            "The Navy only trained women to repair clocks and machines during the war and engines.",
             "Grace helped program early computers and build a compiler that changed programming.",
             "A moth once flew into a university computer room by accident."
           ],
@@ -361,7 +361,7 @@
         {
           "stem": "What happened right after Grace's team found the moth inside the computer?",
           "options": [
-            "Grace had already become a mathematics professor by then",
+            "Grace had already become a mathematics professor by then at a university",
             "They built the compiler years later in her career",
             "Grace had already joined the Navy before this happened",
             "They taped the moth into their logbook and called it debugging"
@@ -577,7 +577,7 @@
             "Her early curiosity about machines helped her later career",
             "Her difficult childhood made her permanently dislike computers",
             "She learned everything only from books, never from people",
-            "She never once showed any interest in machines as a child"
+            "She showed little interest in machines as a child"
           ],
           "answer": "A",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "Both tasks involved writing only in English, with no real difference between them",
             "Her Mark I work used numbers; her compiler later used English words",
             "The entire Mark I was originally built using plain English words",
-            "Neither the Mark I nor the compiler needed any instructions at all"
+            "Both the Mark I and the compiler used English words"
           ],
           "answer": "B",
           "skill": "compare",

@@ -378,7 +378,7 @@
         {
           "stem": "Based on the article, why should people in Saudi Arabia use groundwater carefully?",
           "options": [
-            "Groundwater is always too salty to drink.",
+            "Groundwater is too salty to drink.",
             "It refills very slowly, so it can run low.",
             "Pumping water from wells makes the dry wadis flood.",
             "Groundwater turns into dew at night."
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Desalination will soon replace the natural water cycle completely in every dry country on Earth.",
+            "Desalination will soon replace the natural water cycle in most dry countries, so rain will matter less to them.",
             "Saudi Arabia's aquifers are the largest in the world.",
             "Transpiration is the most important stage of the water cycle.",
             "The sun-driven water cycle constantly recycles Earth's water, which is especially important in a dry land."
@@ -560,7 +560,7 @@
             "It works only during rare storms.",
             "It uses a great deal of energy.",
             "It takes thousands of years.",
-            "It can be done only in wadis after heavy storms."
+            "It needs a large supply of fresh river water."
           ],
           "answer": "B",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "To connect an everyday experience to the science of condensation",
             "To argue that people should drink less juice",
             "To explain how juice is made",
-            "To compare the taste of juice with the taste of seawater"
+            "To compare the taste of juice with the taste of seawater in a glass"
           ],
           "answer": "A",
           "skill": "author-purpose",

@@ -114,10 +114,10 @@
         {
           "stem": "What happened to the village's well?",
           "options": [
-            "It was filled in with dirt",
+            "It was filled in with dirt and sand",
             "It froze during the winter",
             "Its pump broke and no water came out",
-            "It dried up completely on its own"
+            "It dried up on its own"
           ],
           "answer": "C",
           "skill": "detail",
@@ -202,7 +202,7 @@
             "The uncle was far too busy to look at the pump himself",
             "Omar had already paid his uncle some money for the work",
             "Omar had shown he knew something about tools and parts",
-            "The uncle did not care about the broken pump at all"
+            "The uncle did not care about the broken pump"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "What can you tell about Omar from how the village treated him at the end?",
           "options": [
-            "The village asked him to quietly leave the town at night",
-            "The village did not notice what he had done at all",
-            "The village was upset that he had tried to help them at all",
+            "The village asked him to quietly leave the town at night after the repair",
+            "The village did not notice what he had done",
+            "The village was upset that he had tried to help them",
             "The village thanked him because his work truly helped everyone"
           ],
           "answer": "D",
@@ -296,7 +296,7 @@
             "to buy something brand new instead of the old one",
             "to look at something closely and carefully",
             "to throw something away completely, with no thought",
-            "to ignore a problem entirely and walk away"
+            "to ignore a problem and walk away"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -330,7 +330,7 @@
             "They asked the whole village to vote on a plan for the pump",
             "They determined which replacement part was needed and found one",
             "They gave up and simply ordered a brand new pump from the city",
-            "They decided the old pump could not be fixed at all and left it"
+            "They decided the old pump could not be fixed and left it"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -363,7 +363,7 @@
           "options": [
             "He needed Omar to pay him back for the repair of the pump, which cost him a lot",
             "He had already decided to retire from his job entirely, so he let Omar do as he liked",
-            "He wanted Omar to break the pump completely and be done with the old machine for good",
+            "He wanted Omar to break the pump and be done with the old machine for good",
             "He was curious to see what Omar had actually learned from watching him"
           ],
           "answer": "D",
@@ -381,7 +381,7 @@
             "No one in the village actually liked drinking clean water",
             "The nearest other water source was far away across the hills",
             "The whole village had already decided to move away to the coast",
-            "The well itself had completely dried up on its own after years"
+            "The well itself had dried up on its own after years"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -398,7 +398,7 @@
             "By comparing several different villages' water systems side by side",
             "By listing numbered repair instructions for fixing pumps",
             "By describing the broken pump, Omar's growing skill, and the successful repair",
-            "By describing many separate days that have no connection to each other"
+            "By describing many separate days that have no connection to each other in the village"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -413,8 +413,8 @@
           "stem": "What can readers infer about Omar's feelings from how proud he felt at the end?",
           "options": [
             "He regretted ever trying to repair the broken pump",
-            "He felt embarrassed about asking his uncle for help",
-            "He wished he had never watched his uncle work at all",
+            "He felt embarrassed about asking his uncle for help with the pump",
+            "He wished he had never watched his uncle work",
             "He felt that his careful learning had truly been worthwhile"
           ],
           "answer": "D",
@@ -490,8 +490,8 @@
           "stem": "What skill did Omar need to improvise during the repair?",
           "options": [
             "A substitute approach for one step, since the ideal tool was unavailable",
-            "A new design for an entirely different pump, made by a famous builder",
-            "A way to dig an additional well nearby instead of fixing the pump",
+            "A new design for an different pump, made by a famous builder",
+            "A way to dig an additional well nearby instead of fixing the pump in the village",
             "A method for convincing the village to move elsewhere for good"
           ],
           "answer": "A",
@@ -524,7 +524,7 @@
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
             "A mechanic decides that teaching his own nephew is far too dangerous, so he sends the boy away to the city",
-            "The story argues that villages should always hire outside experts, since local children cannot learn machines",
+            "The story argues that villages should hire outside experts, since local children cannot learn machines",
             "A resourceful boy's patiently gained mechanical knowledge proves essential when the village's water supply fails",
             "A boy abandons an attempt to repair a pump halfway through, and the village must wait for the rain"
           ],
@@ -594,7 +594,7 @@
             "They were indifferent to whether the pump ever worked again",
             "They preferred to solve every problem without any outside assistance",
             "They valued practical help and recognized genuine skill when they saw it",
-            "They had never trusted Omar's uncle at all before this"
+            "They had not trusted Omar's uncle before this"
           ],
           "answer": "C",
           "skill": "inference",

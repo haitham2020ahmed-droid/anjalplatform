@@ -133,7 +133,7 @@
      "options": [
       "Tiny holes in your skin called sweat glands",
       "Your blood only, which leaks out of your veins",
-      "Your hair, which is always wet and cold",
+      "Your hair, which is wet and cold",
       "Your bones, deep inside your body somewhere"
      ],
      "answer": "A",
@@ -199,7 +199,7 @@
     {
      "stem": "Why should you drink water after you sweat a lot?",
      "options": [
-      "Water makes you run faster forever",
+      "Water makes you run faster",
       "Water changes the color of your sweat",
       "Sweating uses up water your body needs",
       "Water stops you from feeling hot ever again"
@@ -216,9 +216,9 @@
     {
      "stem": "Why might you feel cooler right after sweating on a hot day?",
      "options": [
-      "The sweat sinks deep into your skin",
+      "The sweat sinks deep into your skin and stays",
       "The sweat dries off and carries heat away",
-      "The sun totally stops shining for a while",
+      "The sun stops shining for a while",
       "Your heart stops beating so fast"
      ],
      "answer": "B",
@@ -296,7 +296,7 @@
       "Hippocrates invented sweat glands in the skin of the whole human body and gave them a name",
       "Sweating is how your body uses evaporation to cool down, and staying hydrated matters",
       "Exercise is bad for your body, so it is better to stay still and let the body rest every day",
-      "Only athletes need to drink water, because ordinary people never lose water when they sweat"
+      "Athletes need to drink water, but ordinary people lose little water when they sweat"
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -328,7 +328,7 @@
      "stem": "According to the article, what are two reasons your body produces more sweat?",
      "options": [
       "Exercise and hot weather",
-      "Sleeping and reading",
+      "Sleeping and reading in bed",
       "Eating and drinking",
       "Sitting and standing"
      ],
@@ -362,8 +362,8 @@
      "stem": "What can happen if you lose too much water through sweat without replacing it?",
      "options": [
       "You might feel tired, dizzy, or thirsty",
-      "Your skin changes color permanently",
-      "Your sweat glands stop working forever",
+      "Your skin changes color permanently after a day",
+      "Your sweat glands stop working",
       "You grow taller more quickly"
      ],
      "answer": "A",
@@ -378,7 +378,7 @@
     {
      "stem": "What can you infer from the fact that Hippocrates noticed a link between sweating and heat long before scientists understood sweat glands?",
      "options": [
-      "Ancient doctors understood evaporation better than modern scientists",
+      "Ancient doctors understood evaporation better than modern scientists of the body",
       "Sweat glands did not exist in ancient times",
       "Hippocrates invented the first thermometer",
       "People can notice patterns before fully understanding the science behind them"
@@ -398,7 +398,7 @@
       "It is a harmful accident",
       "It is a helpful, built-in process",
       "It only happens to sick people",
-      "It has nothing to do with temperature"
+      "It is a sign that the body is sick"
      ],
      "answer": "B",
      "skill": "inference",
@@ -475,7 +475,7 @@
       "The hypothalamus controls hunger, not temperature, and sweating is only a sign of fear in the body, not of heat",
       "Sweating is a thermoregulatory process that cools the body through evaporation, and losing too much water can cause dehydration",
       "Hippocrates discovered the hypothalamus when he was a young man and wrote about it in the first book on sweat",
-      "Dehydration always leads to overheating within minutes, so people must drink at the first sign of any thirst at all, even in cool air"
+      "Dehydration leads to overheating within minutes, so people must drink at the first sign of thirst, even in cool air or in cool rooms"
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -542,7 +542,7 @@
      "options": [
       "It freezes the surface of the skin",
       "It absorbs and carries heat away from the skin",
-      "It blocks sunlight from reaching the skin",
+      "It blocks sunlight from reaching the skin on hot days",
       "It thickens the outer layer of skin"
      ],
      "answer": "B",
@@ -559,7 +559,7 @@
      "options": [
       "Ancient physicians fully understood brain chemistry and the hypothalamus in the body",
       "The hypothalamus was discovered in ancient Greece by Hippocrates himself",
-      "Hippocrates' ideas were later proven completely wrong by modern doctors and tests",
+      "Hippocrates' ideas were later proven wrong by modern doctors and tests",
       "Careful observation can lead to real insight even without full scientific explanation"
      ],
      "answer": "D",
@@ -574,10 +574,10 @@
     {
      "stem": "Why does the article describe thermoregulation as a 'regulatory process' rather than a random reaction?",
      "options": [
-      "To suggest that sweating happens without any cause at all in the body",
-      "To suggest that the hypothalamus works only during hard exercise",
+      "To suggest that sweating happens without any cause in the body",
+      "To suggest that the hypothalamus works mostly during hard exercise",
       "To suggest the body deliberately controls and adjusts its temperature",
-      "To suggest that the body's temperature never actually changes at all"
+      "To suggest that the body's temperature rarely changes"
      ],
      "answer": "C",
      "skill": "inference",

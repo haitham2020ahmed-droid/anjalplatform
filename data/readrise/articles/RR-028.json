@@ -116,7 +116,7 @@
           "options": [
             "How to sell bread in a shop",
             "How simple things turn into bread",
-            "Why wheat grows in hot places",
+            "Why wheat grows in hot places and dry places",
             "Why bread is better than rice"
           ],
           "answer": "B",
@@ -184,7 +184,7 @@
           "options": [
             "Gas bubbles get stuck inside it",
             "The salt makes it swell",
-            "The baker blows air into it",
+            "The baker blows air into it with a tube",
             "The flour turns into water"
           ],
           "answer": "A",
@@ -294,7 +294,7 @@
           "stem": "Which sentence BEST states the central idea of the article?",
           "options": [
             "People have been eating bread for longer than any other food in the world.",
-            "Ovens must be very hot to cook any food.",
+            "Ovens must be very hot to cook bread well.",
             "Bread rises because of gluten, yeast, and heat working together.",
             "Flatbreads are healthier than tall loaves."
           ],
@@ -559,7 +559,7 @@
           "options": [
             "It would hold fewer gas bubbles and rise less",
             "It would turn brown much faster in the oven",
-            "It would need no salt at all",
+            "It would need no salt",
             "It would need to contain much more yeast"
           ],
           "answer": "A",

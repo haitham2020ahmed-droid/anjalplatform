@@ -167,7 +167,7 @@
           "options": [
             "Layla's teacher, who arrived the next day",
             "A judge who was at the science fair",
-            "Layla's friend who sat next to her at school",
+            "Layla's friend who sat next to her at school in the science class",
             "Omar, Layla's brother, helped her find the problem"
           ],
           "answer": "D",
@@ -233,7 +233,7 @@
         {
           "stem": "Why did the author include the part where Layla and Omar test the volcano the night before the fair?",
           "options": [
-            "To show that the volcano never worked at all, even after hard work",
+            "To show that the volcano never worked, even after hard work",
             "To explain exactly how to build a cardboard volcano with paper",
             "To describe what Omar's bedroom looked like at night",
             "To show how Layla found a problem and fixed it just in time"
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "Layla completely gives up on her whole science project after just one failed test",
+            "Layla gives up on her whole science project after one failed test and chooses a new topic",
             "Omar decides to build his own separate volcano project for the fair",
             "Layla and Omar test her volcano, discover the mixture was wrong, and fix it before the fair",
-            "Layla easily wins first place at the fair with absolutely no problems at all"
+            "Layla easily wins first place at the fair with absolutely no problems"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -397,7 +397,7 @@
           "options": [
             "It carefully compares two different volcano projects side by side, one after the other",
             "It follows the order events happened: the rehearsal, the problem, the fix, and the fair",
-            "It simply lists facts about volcanoes with no real story at all, and then it stops",
+            "It simply lists facts about volcanoes with no real story, and then it stops",
             "It describes the kitchen in great detail before describing Layla and the fair"
           ],
           "answer": "B",
@@ -474,8 +474,8 @@
           "options": [
             "Careful testing and persistence helped Layla turn a failed rehearsal into a success",
             "Science fairs are too stressful for any student to actually enjoy, even when they win.",
-            "Mistakes always end a young scientist's work for good, with no way back, so it is better to quit.",
-            "Omar built the entire volcano project without his sister's help at all, and Layla did nothing."
+            "Mistakes end a young scientist's work for good, with no way back, so it is better to quit.",
+            "Omar built the volcano project without his sister's help, and Layla watched."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -507,9 +507,9 @@
           "stem": "What was the direct cause of the eruption finally working during the second test?",
           "options": [
             "Omar poured the vinegar instead of Layla",
-            "The judges arrived early to watch the rehearsal",
+            "The judges arrived early to watch the rehearsal of the science fair",
             "Layla calculated and added a larger amount of baking soda",
-            "Layla switched to a completely different brand of vinegar"
+            "Layla switched to a different brand of vinegar"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -523,9 +523,9 @@
         {
           "stem": "What can be inferred about why Omar suggested analyzing the notes rather than giving up?",
           "options": [
-            "He wanted to take over the project completely himself and not share it with Layla and the others",
+            "He wanted to take over the project himself and not share it with Layla and the others",
             "He thought the science fair would surely be canceled by the teacher, so there was no reason to try",
-            "He did not actually care whether the project worked at all or not, and so he wished to give up early",
+            "He did not actually care whether the project worked or not, and so he wished to give up early",
             "He believed the problem could likely be identified and corrected with careful thought"
           ],
           "answer": "D",
@@ -542,7 +542,7 @@
           "options": [
             "Understanding how Layla learned from testing, failing, and adjusting her experiment",
             "Winning first place above every other student in the school science fair",
-            "Having a perfectly flawless volcano with no problems at all, from start to finish",
+            "Having a perfectly flawless volcano with no problems, from start to finish",
             "The exact brand of baking soda that Layla happened to use for her volcano model"
           ],
           "answer": "A",
@@ -592,7 +592,7 @@
           "stem": "Why does the author include the judge's question near the end of the story?",
           "options": [
             "To suggest that eruptions matter more than understanding science, which is why the judge asked",
-            "To show that judges always ask difficult, unrelated questions at the end of every fair",
+            "To show that judges ask difficult, unrelated questions at the end of every fair",
             "To explain exactly how real volcanoes form in nature, using a model made of paper and clay",
             "To highlight that the process of testing and adjusting is as important as the final result"
           ],

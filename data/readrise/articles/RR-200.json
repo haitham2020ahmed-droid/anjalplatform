@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to make a bow out of wood at home",
+            "How to make a bow out of wood at home in the yard",
             "The sport of archery and how to shoot well",
             "Why hunting was hard a long time ago",
             "How to paint a target with gold rings"
@@ -236,7 +236,7 @@
             "To show how to shoot one step at a time",
             "To tell a story about a coach",
             "To list the colors of a target",
-            "To show how bows were made long ago"
+            "To show how bows were made long ago in the past"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -295,8 +295,8 @@
           "options": [
             "Archery is a very old way of hunting animals that no one uses today.",
             "Archery is a sport that takes careful steps, focus, and safety rules.",
-            "Olympic archers always shoot at targets ten meters away.",
-            "Only adults are allowed to try archery at clubs in Saudi Arabia."
+            "Olympic archers shoot at targets ten meters away.",
+            "Adults are the main people who try archery at clubs in Saudi Arabia."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -329,7 +329,7 @@
           "options": [
             "So each shot is done the same way",
             "So the bow will not break",
-            "So the coach can see the face",
+            "So the coach can see the face of the archer",
             "So the arrow goes higher"
           ],
           "answer": "A",
@@ -396,7 +396,7 @@
           "stem": "How is archery today different from archery long ago?",
           "options": [
             "Long ago, it was used to hunt; today, it is a sport",
-            "Long ago, arrows had no points or feathers at all",
+            "Long ago, arrows had no points or feathers",
             "Today, archers do not use bows or arrows anymore",
             "Today, it is only done at night under bright lights"
           ],
@@ -489,7 +489,7 @@
         {
           "stem": "What is the purpose of the fletching?",
           "options": [
-            "To make the arrow heavier at the front",
+            "To make the arrow heavier at the front and faster",
             "To stabilize the arrow so it flies straight",
             "To hold the arrow on the string",
             "To show which archer shot the arrow"

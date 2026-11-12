@@ -165,7 +165,7 @@
         {
           "stem": "What happens to carbon when a plant or animal dies?",
           "options": [
-            "The carbon disappears completely and forever",
+            "The carbon disappears and",
             "The carbon turns into clean drinking water",
             "The carbon floats far away into outer space",
             "The body breaks down, and carbon joins the soil"
@@ -182,7 +182,7 @@
         {
           "stem": "In the article, a cycle is —",
           "options": [
-            "a kind of fast bicycle used for racing",
+            "a kind of fast bicycle used for racing on a road",
             "events that happen again in the same order",
             "a type of plant that grows near rivers",
             "a sudden event that happens only once"
@@ -218,7 +218,7 @@
           "options": [
             "Burning releases carbon that was stored inside them",
             "Coal and gas actually come from outer space",
-            "Burning fuel always makes new plants grow fast",
+            "Burning fuel makes new plants grow fast",
             "Fire instantly turns all carbon into fresh soil"
           ],
           "answer": "A",
@@ -236,7 +236,7 @@
             "Carbon moves in a cycle, and balance matters",
             "Plants should stop growing across the Earth",
             "Animals should try to stop breathing air",
-            "Burning fuel always helps the natural world"
+            "Burning fuel helps the natural world"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Oceans are said to be the only place carbon is found",
-            "Photosynthesis is described as only happening at night",
+            "Photosynthesis is described as happening at night",
             "Carbon moves between air, plants, animals, and soil in balance",
-            "Animals are said to never release carbon into the air"
+            "Animals are said to store carbon and keep it out of the air"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -310,7 +310,7 @@
         {
           "stem": "According to the article, what is photosynthesis?",
           "options": [
-            "The process animals use to digest their food",
+            "The process animals use to digest their food in the stomach",
             "The way bacteria break down dead animals",
             "The way oceans pull carbon from rainwater",
             "The process plants use to turn sunlight into food"
@@ -329,7 +329,7 @@
           "options": [
             "Animals release carbon dioxide as they breathe",
             "Plants are said to release oxygen only at night",
-            "Soil is said to absorb carbon from rain only",
+            "Soil is said to absorb carbon from rain",
             "Oceans release stored carbon into space like a gas"
           ],
           "answer": "A",
@@ -413,7 +413,7 @@
           "stem": "How is the article mainly organized?",
           "options": [
             "It explains how carbon moves in a cycle, step by step",
-            "It tells a made-up story about one ocean animal",
+            "It tells a made-up story about one ocean animal in the sea",
             "It compares two different countries' carbon use",
             "It lists rules for burning fuel safely at home"
           ],
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Phytoplankton are said to be the only users of carbon, and all other living things avoid it completely, even in the sea",
-            "Fossil fuels are said to form within a few years, so they will never run out in the future",
+            "Fossil fuels are said to form within a few years, so they will last a long time",
             "Carbon circulates in a long-stable cycle, though human combustion now adds carbon faster than it can be absorbed",
             "Oceans are said to release more carbon than they absorb, which is why the air is getting warmer"
           ],
@@ -541,7 +541,7 @@
           "stem": "In the article, the word reservoir most nearly means —",
           "options": [
             "a type of small underwater animal",
-            "a short, sudden burst of released energy",
+            "a short, sudden burst of released energy in the sky",
             "a sudden release of gas into the air",
             "a place where something is stored a long time"
           ],
@@ -559,7 +559,7 @@
           "options": [
             "To claim that carbon never moved before humans existed",
             "To show that carbon moving in and out had stayed balanced",
-            "To suggest that oceans used to be completely frozen",
+            "To suggest that oceans used to be frozen",
             "To explain why plants once lacked the ability to grow"
           ],
           "answer": "B",
@@ -575,9 +575,9 @@
           "stem": "Based on the article, why might scientists pay close attention to carbon emissions today?",
           "options": [
             "Because emissions add carbon faster than the cycle can balance",
-            "Because emissions make soil completely infertile in days",
-            "Because emissions stop all plants from photosynthesizing",
-            "Because emissions are the only source of carbon on Earth"
+            "Because emissions make soil infertile in days",
+            "Because emissions stop all plants from photosynthesizing in the world",
+            "Because emissions are the main source of carbon on Earth"
           ],
           "answer": "A",
           "skill": "inference",
@@ -593,7 +593,7 @@
           "options": [
             "Both plants and phytoplankton use sunlight to make food",
             "Plants only release carbon, while oceans only absorb it",
-            "Oceans use carbon only for breathing, like animals",
+            "Oceans use carbon for breathing, like animals",
             "Plants and oceans play no related role in the cycle"
           ],
           "answer": "A",

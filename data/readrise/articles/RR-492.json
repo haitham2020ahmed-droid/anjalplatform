@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "Why boats float better than submarines",
+            "Why boats float better than submarines do in the sea",
             "How submarines were invented and what they do today",
             "How to swim safely in deep water",
             "How fish breathe underwater"
@@ -182,7 +182,7 @@
         {
           "stem": "Why does letting water out of the tanks make a submarine rise?",
           "options": [
-            "The water pulls the submarine upward.",
+            "The water pulls the submarine upward in the sea.",
             "The submarine becomes lighter and floats up.",
             "The submarine turns into a boat.",
             "The oars push the submarine up."
@@ -219,7 +219,7 @@
             "To explore the deep sea and study strange creatures.",
             "To grow food under the water.",
             "To build new oars for old boats.",
-            "To replace all boats on the ocean."
+            "To replace the boats that sail on the ocean and in rivers."
           ],
           "answer": "A",
           "skill": "inference",
@@ -235,7 +235,7 @@
           "options": [
             "To describe how sailors learn to swim",
             "To show how submarines changed from weapons into tools for discovery",
-            "To explain why rowing boats stopped being used",
+            "To explain why rowing boats stopped being used on rivers in old cities",
             "To compare submarines with airplanes"
           ],
           "answer": "B",
@@ -295,8 +295,8 @@
           "options": [
             "Navies have never used submarines in battle.",
             "Submarines developed over centuries, from a simple rowing boat to vessels that explore the deep ocean.",
-            "Submarines were used only for amusement and never for anything else at all.",
-            "A single inventor built every submarine that has ever existed."
+            "Submarines were used mainly for amusement.",
+            "A single inventor built most of the submarines that have existed, and other engineers copied his design."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -381,7 +381,7 @@
             "It proved a tiny underwater craft could work during battle.",
             "It replaced all rowing boats immediately.",
             "It carried hundreds of sailors into battle.",
-            "It could stay underwater for months at a time."
+            "It could stay underwater for months at a time while fighting in battles."
           ],
           "answer": "A",
           "skill": "inference",
@@ -396,8 +396,8 @@
           "stem": "What can be inferred about why navies around the world adopted the sleeker submarine design?",
           "options": [
             "The new design needed no crew.",
-            "The sleeker design could not dive at all.",
-            "Navies preferred boats that only floated on top.",
+            "The sleeker design could not dive.",
+            "Navies preferred boats that floated on top of the water.",
             "A better design made submarines more useful for naval fleets."
           ],
           "answer": "D",
@@ -414,7 +414,7 @@
           "options": [
             "By comparing submarines with airplanes",
             "By listing problems with ocean travel and their solutions",
-            "By telling the article as a story from one sailor's point of view",
+            "By telling the article as a story from one sailor's point of view on the ship",
             "By describing the history of submarines in the order these events happened"
           ],
           "answer": "D",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Nuclear submarines have made all further ocean exploration completely unnecessary today.",
+            "Nuclear submarines have made further ocean exploration unnecessary, since they have already mapped the deep sea floor.",
             "Submarine technology evolved from a simple rowing craft into nuclear vessels capable of extended deep-sea exploration.",
-            "The submarine's design has never changed since Cornelius Drebbel's time.",
+            "The submarine's design has changed little since Cornelius Drebbel's time.",
             "David Bushnell's Turtle was used to explore the North Pole."
           ],
           "answer": "B",
@@ -525,7 +525,7 @@
           "options": [
             "Squeezed into a smaller space under pressure",
             "Cooled to a freezing temperature",
-            "Mixed together completely with the surrounding salty ocean water outside.",
+            "Mixed together with the surrounding salty ocean water outside.",
             "Painted a bright color"
           ],
           "answer": "A",
@@ -540,7 +540,7 @@
         {
           "stem": "Why does releasing compressed air into the ballast tanks cause a submarine to rise?",
           "options": [
-            "It increases the weight of the crew.",
+            "It increases the weight of the crew, so the craft sinks more slowly.",
             "It forces water out, making the craft lighter than the water around it.",
             "It heats the submarine's engine.",
             "It seals the hatches shut."
@@ -558,9 +558,9 @@
           "stem": "What can be inferred about the relationship between Bushnell's Turtle and later developments such as Holland's design and the Nautilus?",
           "options": [
             "The Turtle's basic success encouraged later engineers to keep improving submarine technology.",
-            "The Turtle proved that submarines could never work in real battles.",
+            "The Turtle proved that submarines would not work in real battles at sea, so engineers stopped.",
             "The Turtle carried the same nuclear engine used in the Nautilus.",
-            "Holland copied the Turtle's exact shape without any changes."
+            "Holland copied the Turtle's exact shape without changes."
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,7 +591,7 @@
         {
           "stem": "Which pair of events shows a clear cause-and-effect relationship described in the article?",
           "options": [
-            "Drebbel's rowing boat directly caused the Nautilus to reach the North Pole.",
+            "Drebbel's rowing boat directly caused the Nautilus to reach the North Pole many years later.",
             "The Nautilus caused every single ballast tank to be removed from later submarines.",
             "Holland's design caused submarines to stop using buoyancy.",
             "Bushnell's Turtle proved small submarines could work, which encouraged further engineering advances."

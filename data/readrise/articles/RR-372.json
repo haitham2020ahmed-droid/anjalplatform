@@ -182,7 +182,7 @@
     {
      "stem": "Why did the tortoise keep walking even at night?",
      "options": [
-      "He was completely lost and could not find his way back",
+      "He was lost and could not find his way back",
       "He wanted to prove that he was faster than the quick hare",
       "He was determined to deliver the message without ever stopping",
       "He was simply too afraid of the dark, quiet savanna"
@@ -236,7 +236,7 @@
       "To show that steady, patient effort can beat boastful speed",
       "To explain that tortoises can actually run faster than hares",
       "To describe exactly how to catch butterflies with a net",
-      "To teach that resting is always more important than working"
+      "To teach that resting is more important than working"
      ],
      "answer": "A",
      "skill": "author-purpose",
@@ -295,7 +295,7 @@
      "options": [
       "A tortoise's persistent effort succeeds while two boastful animals get distracted along the way",
       "A hare and a gazelle work together to help a tired old tortoise finish a race",
-      "An elderly animal carefully explains exactly how wide savannas slowly form over time",
+      "An elderly animal carefully explains exactly how wide savannas slowly form over time in the savanna",
       "A patient tortoise teaches several young, eager animals how to swim across a river"
      ],
      "answer": "A",
@@ -347,7 +347,7 @@
       "having one's attention pulled away from the main task",
       "feeling extremely proud of a difficult accomplishment",
       "walking forward slowly but very steadily",
-      "feeling completely exhausted after a very long journey"
+      "feeling exhausted after a very long journey"
      ],
      "answer": "A",
      "skill": "vocabulary",
@@ -363,8 +363,8 @@
      "options": [
       "They become too exhausted to continue walking any farther down the road",
       "Their boastful confidence leads them to get distracted and stop trying",
-      "The tortoise secretly blocks the path so they cannot pass",
-      "They get lost because they cannot read the stars at night"
+      "The tortoise secretly blocks the path to slow them down",
+      "They get lost because they do not know the way at night"
      ],
      "answer": "B",
      "skill": "inference",
@@ -412,10 +412,10 @@
     {
      "stem": "How does the author organize the events of the story?",
      "options": [
-      "By comparing the diets of tortoises, hares, and gazelles",
+      "By comparing the diets of tortoises, hares, and gazelles in the same desert",
       "In the order the task is given, the animals react, and the outcome unfolds",
       "By listing random facts about savanna animals in general",
-      "By jumping between several separate, completely unrelated stories"
+      "By jumping between several separate, unrelated stories"
      ],
      "answer": "B",
      "skill": "text-structure",
@@ -492,7 +492,7 @@
       "She believes a resolute, steady traveler suits the task better than an unreliable one",
       "She wants to secretly test how fast the hare and the gazelle truly are in a race",
       "She owes the tortoise a favor from many years earlier, and she pays it back",
-      "She cannot find any faster animal willing to carry the message for her at all"
+      "She cannot find any faster animal willing to carry the message for her"
      ],
      "answer": "A",
      "skill": "detail",
@@ -526,7 +526,7 @@
       "It makes them feel so complacent that they stop making any real effort",
       "It forces them to take a longer, much more difficult path",
       "It causes the tortoise to become jealous and give up entirely",
-      "It makes the oldest animal regret choosing the tortoise at all"
+      "It makes the oldest animal regret choosing the tortoise at all as the leader"
      ],
      "answer": "A",
      "skill": "inference",
@@ -557,7 +557,7 @@
     {
      "stem": "What underlying cause links the hare's nap and the gazelle's distraction?",
      "options": [
-      "Both animals are physically unable to continue the journey any farther",
+      "Both animals are physically unable to continue the journey any farther on the path",
       "Both animals assume their natural speed guarantees success without real effort",
       "Both animals are secretly working together against the tortoise",
       "Both animals are following orders given by the oldest animal"

@@ -182,7 +182,7 @@
         {
           "stem": "A day on Jupiter is about ten hours, but a year is about twelve Earth years. What does this tell you?",
           "options": [
-            "Jupiter does not move at all in the sky or in space",
+            "Jupiter does not move in the sky or in space",
             "Jupiter spins fast but takes a long time to go around the Sun",
             "Jupiter is closer to the Sun than Earth is, so it is very hot",
             "A day on Jupiter is much longer than a whole year there"
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Jupiter's size, gases, storms, magnetic field, and moons make it the most remarkable planet in the solar system, and spacecraft continue to study it.",
-            "Jupiter will soon become a star because it is made of hydrogen, and it is already very hot and bright, so the Sun will have a twin.",
+            "Jupiter will soon become a star because it is made of hydrogen, and it is already very hot and bright, so the Sun will have a twin in a few hundred years.",
             "Galileo's discovery with a telescope proved that Jupiter is larger than the Sun and all the other planets put together.",
-            "Io is the only moon of Jupiter worth studying, because it is the one closest to the planet and no other moon matters at all, so spacecraft ignore the rest."
+            "Io is the most interesting moon of Jupiter, because it is the closest to the planet, so spacecraft study it more than the planet."
           ],
           "answer": "A",
           "skill": "central-idea",

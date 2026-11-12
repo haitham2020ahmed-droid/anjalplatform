@@ -233,7 +233,7 @@
         {
           "stem": "What does the last part of the article explain?",
           "options": [
-            "How to read a book on the water",
+            "How to read a book on the water on a boat",
             "Where the salt comes from",
             "Why no plants grow there",
             "What is happening to the lake today"
@@ -381,7 +381,7 @@
             "To show that the lake is very deep",
             "To show why the salt stays and builds up",
             "To explain why people float",
-            "To describe how fish enter the lake"
+            "To describe how fish enter the lake from the sea"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -559,7 +559,7 @@
           "options": [
             "Both reduce the amount of water in the lake, one upstream and one at the lake itself.",
             "One adds water and the other removes salt, so the lake becomes fresher every year.",
-            "Both are natural and cannot be controlled by people, so nothing can be done to help.",
+            "Both are natural, so people can do little to help the lake.",
             "Both increase rainfall in the region and make the lake grow bigger over many years."
           ],
           "answer": "A",
@@ -577,7 +577,7 @@
             "To show that shrinking has serious effects on people",
             "To explain how the lake was formed",
             "To describe how tourists travel to the lake",
-            "To argue that buildings should be made of salt"
+            "To argue that buildings should be made of salt and sand"
           ],
           "answer": "A",
           "skill": "author-purpose",

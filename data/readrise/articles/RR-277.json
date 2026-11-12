@@ -151,7 +151,7 @@
             "Builds the racetrack by hand",
             "Rides it during every single race",
             "Feeds it well and helps it rest",
-            "Paints the stable every week"
+            "Paints the stable each week"
           ],
           "answer": "C",
           "skill": "detail",
@@ -202,7 +202,7 @@
             "So the stable has more room",
             "So horses can run side by side to the end",
             "So trainers can rest more often",
-            "So the horses can stay inside all day"
+            "So the horses can stay inside all day in the barn"
           ],
           "answer": "B",
           "skill": "inference",
@@ -217,7 +217,7 @@
           "stem": "Why might a racehorse need a clean, safe stable?",
           "options": [
             "So it can win every single race it enters",
-            "So it never needs a trainer or a rider",
+            "So it needs less help from a trainer or a rider",
             "So it can be comfortable and ready to train well",
             "So it can run on the track at night in the dark"
           ],
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Breeding, training, and care make the Arabian horse a great racer.",
-            "All horses in every race run at exactly the same speed.",
-            "In horse racing today, only grooms really matter at all.",
-            "Horse racing as a sport started only in very modern times."
+            "Horses in a race run at about the same speed.",
+            "In horse racing today, grooms matter most.",
+            "Horse racing as a sport started in very modern times in Arabia."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -312,7 +312,7 @@
           "options": [
             "Short, thin legs and a surprisingly small heart",
             "A large heart and lungs with long, powerful legs",
-            "Thick fur and unusually small lungs overall",
+            "Thick fur and unusually small lungs",
             "A short neck and unusually wide hooves"
           ],
           "answer": "B",
@@ -396,7 +396,7 @@
           "stem": "What can you infer about why a good stable matters for a racehorse?",
           "options": [
             "It makes the horse run faster during the actual race",
-            "It completely replaces the need for a trainer",
+            "It replaces the need for a trainer",
             "It keeps the horse protected and comfortable for training",
             "It alone decides which horse wins the prize"
           ],
@@ -412,7 +412,7 @@
         {
           "stem": "How is the article mostly organized?",
           "options": [
-            "As a set of step-by-step riding instructions",
+            "As a set of step-by-step riding instructions for new riders",
             "As a made-up story about a racehorse",
             "As an unordered list of random facts",
             "By moving from the horse's history to its training"
@@ -492,7 +492,7 @@
             "Improve its pedigree over time in the stable",
             "End a promising career almost overnight",
             "Make it gallop faster than before the injury",
-            "Change its breed entirely after a few weeks"
+            "Change its breed after a few weeks"
           ],
           "answer": "B",
           "skill": "detail",
@@ -507,7 +507,7 @@
           "stem": "What does the article say about the Arabian horse's heritage?",
           "options": [
             "It began only after modern veterinary science existed, in the last century",
-            "It has no connection to desert life at all, only to farms and rivers",
+            "It connects to farms and rivers more than to desert life",
             "It connects to a desert heritage predating most organized sports",
             "It started with horses trained in cold, snowy regions and was brought south"
           ],
@@ -525,7 +525,7 @@
           "options": [
             "A type of racetrack surface",
             "A horse's daily training schedule",
-            "A prize given to the fastest horse",
+            "A prize given to the fastest horse in the race",
             "A horse's ancestry and inherited traits"
           ],
           "answer": "D",
@@ -577,7 +577,7 @@
             "Pedigree and training have no connection to each other",
             "Training replaces the need to know a horse's pedigree",
             "A trainer studies pedigree to shape workouts around strengths",
-            "Pedigree only matters after a horse retires from racing"
+            "Pedigree only matters after a horse retires from racing in the stable"
           ],
           "answer": "C",
           "skill": "compare",

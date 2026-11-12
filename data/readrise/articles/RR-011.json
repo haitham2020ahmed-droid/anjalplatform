@@ -296,7 +296,7 @@
             "Robots sense, think, and act to help in many places, but still need people.",
             "Robots in car factories work faster than all other robots in the world.",
             "Mars rovers are the smartest robots ever built by engineers on Earth.",
-            "Robot vacuums will soon replace all workers who clean in the cities."
+            "Robot vacuums are the most common robots, and they now clean most city streets."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -379,7 +379,7 @@
           "stem": "A factory robot has always sorted red boxes and blue boxes. One day it is given a green box. What will most likely happen?",
           "options": [
             "It may struggle, since its program did not plan for green",
-            "It will paint the green box red to match the others",
+            "It will paint the green box red to match the others in the line",
             "It will ask a surgeon what to do with the box",
             "It will invent a new rule for green boxes by itself"
           ],
@@ -415,7 +415,7 @@
             "Robots never make any mistakes",
             "People who write programs must check them carefully",
             "Robots can change their own instructions",
-            "Instructions are only needed for robots in space"
+            "Robots learn new rules by watching people work in factories"
           ],
           "answer": "B",
           "skill": "inference",
@@ -475,7 +475,7 @@
             "Robotic surgery has replaced human surgeons in most hospitals.",
             "Autonomous rovers show that robots no longer need programmers.",
             "Robots' sense–think–act cycle makes them useful, but people remain essential.",
-            "Factory robots are valuable mainly because they never need repairs."
+            "Factory robots are valuable mainly because they never need repairs or a power supply."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -506,7 +506,7 @@
         {
           "stem": "According to the article, what is an algorithm?",
           "options": [
-            "A type of sensor that collects data",
+            "A type of sensor that collects data from the air",
             "A console used by surgeons",
             "A radio signal sent to Mars",
             "A set of instructions that people write"

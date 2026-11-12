@@ -295,8 +295,8 @@
           "options": [
             "Persia was the richest and most powerful country in the whole ancient world, and it built the qanats.",
             "Ancient builders dug underground qanats so gravity could carry water to dry farms and towns.",
-            "Modern pumps completely replaced every single old qanat many centuries ago, so no qanat remained.",
-            "Heavy rain falls almost every day in most of the deserts across the world."
+            "Modern pumps replaced every single old qanat many centuries ago, so no qanat remained.",
+            "Heavy rain falls almost each day in most of the deserts across the world."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -328,9 +328,9 @@
           "stem": "Why was no pump needed to move the water through a qanat?",
           "options": [
             "Workers carried every bucket of water along the tunnel by hand instead",
-            "The water was much too thick and heavy for any pump to move",
+            "The water was too thick and heavy for a pump to move",
             "Gravity carried the water down the sloped tunnel on its own",
-            "The whole tunnel was built completely flat from start to finish"
+            "The whole tunnel was built flat from start to finish"
           ],
           "answer": "C",
           "skill": "detail",
@@ -363,7 +363,7 @@
           "options": [
             "Underground, the hot sun could not reach the water to heat it quickly",
             "Underground tunnels naturally caught more rain than open channels",
-            "Underground water always flows much faster than surface water",
+            "Underground water flows much faster than surface water",
             "Underground tunnels were painted a special cool, pale color"
           ],
           "answer": "A",
@@ -397,7 +397,7 @@
           "options": [
             "If the slope were wrong, water might not flow steadily to the farms below",
             "A much steeper slope would make the flowing water taste quite different",
-            "The slope of the tunnel had no real effect on reaching the farm at all",
+            "The slope of the tunnel had no real effect on reaching the farm",
             "A wrong slope would somehow change the actual color of the water"
           ],
           "answer": "A",
@@ -414,7 +414,7 @@
           "options": [
             "It compares the deserts of two very different countries in detail",
             "It lists every single tool that a digger might possibly use",
-            "It argues strongly that pumps work better than any old qanat",
+            "It argues strongly that pumps work better than an old qanat",
             "It explains how a qanat is built, then where the idea later spread"
           ],
           "answer": "D",
@@ -474,7 +474,7 @@
           "options": [
             "Only the land of ancient Persia ever used underground water channels, and no other country used them.",
             "Deserts generally receive far more rainfall than most other regions on Earth, so they need no water systems.",
-            "Mechanical pumps were actually invented long before qanats ever existed, so nobody dug the old channels.",
+            "Mechanical pumps were invented long before qanats existed, so few people dug the old channels.",
             "Ancient engineers devised an ingenious underground system that still sustainably distributes water in arid regions."
           ],
           "answer": "D",
@@ -508,7 +508,7 @@
           "options": [
             "Caravans, groups of travelers who moved together across deserts",
             "Aquifers, the underground layers that hold the groundwater itself",
-            "Qanats, the original Persian-origin term used earlier in the article",
+            "Qanats, the original Persian-origin term used earlier",
             "Aflaj, channels now recognized as a UNESCO World Heritage site"
           ],
           "answer": "D",
@@ -525,8 +525,8 @@
           "options": [
             "Something that can keep working reliably for a very long time",
             "Something that costs only a very small amount of money to build",
-            "Something that was only ever built to last for a single season",
-            "Something that must be completely rebuilt again every single year"
+            "Something that was built to last for a single season",
+            "Something that must be rebuilt again each year"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -558,7 +558,7 @@
           "stem": "Why was it important that qanats required no pump or mechanical device?",
           "options": [
             "Communities with no machines could still move water reliably using gravity",
-            "Mechanical pumps were simply too costly for anyone to ever build at all",
+            "Mechanical pumps were simply too costly for anyone to ever build",
             "Mechanical pumps had not yet been invented anywhere in the whole world",
             "Water actually moved faster through a qanat than it would through a pump"
           ],
@@ -592,7 +592,7 @@
           "stem": "Why does the author likely mention how old some qanats are, alongside the fact that many still work today?",
           "options": [
             "To prove that the country of Persia no longer exists in the modern world",
-            "To explain exactly how deep every single well must always be dug",
+            "To explain exactly how deep every single well must be dug",
             "To argue that older qanats somehow produce cleaner water than newer ones",
             "To emphasize how lasting and effective this ancient engineering truly was"
           ],

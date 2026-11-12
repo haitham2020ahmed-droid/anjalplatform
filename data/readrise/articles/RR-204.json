@@ -168,7 +168,7 @@
       "Because the whole sea freezes solid each winter",
       "Because the dry winter wind blows from land to sea",
       "Because every farmer stops watering their own fields",
-      "Because clouds completely disappear each winter season"
+      "Because clouds disappear each winter season"
      ],
      "answer": "B",
      "skill": "cause-effect",
@@ -184,8 +184,8 @@
      "options": [
       "Rivers and fields could flood",
       "The land will instantly turn into a desert",
-      "The wind will stop blowing forever",
-      "Wells will all run completely dry"
+      "The wind will stop blowing",
+      "Wells will all run dry"
      ],
      "answer": "A",
      "skill": "inference",
@@ -216,7 +216,7 @@
     {
      "stem": "In the article, what does the word \"wind\" mean?",
      "options": [
-      "Air that stays completely still and quiet",
+      "Air that stays still and quiet",
       "Water that is slowly moving in the sea",
       "Air that is moving from place to place",
       "A kind of cloud sitting high in the sky"
@@ -293,9 +293,9 @@
     {
      "stem": "Which sentence best states the main idea of the article?",
      "options": [
-      "Monsoons only ever affect countries touching the Arabian Sea",
-      "Humid air always causes flooding, with no real benefits",
-      "Air pressure differences never affect which way wind blows",
+      "Monsoons only ever affect countries touching the Arabian Sea and Gulf",
+      "Humid air causes flooding, with no real benefits",
+      "Air pressure differences rarely affect which way wind blows",
       "Uneven heating creates pressure differences that drive monsoon winds"
      ],
      "answer": "D",
@@ -327,7 +327,7 @@
     {
      "stem": "What does it mean when air is described as humid?",
      "options": [
-      "Completely free of any moisture at all",
+      "Completely free of any moisture",
       "Extremely cold and icy to the touch",
       "Containing a large amount of moisture",
       "Moving very quickly across open land"
@@ -345,7 +345,7 @@
      "stem": "What happens to the monsoon wind when winter arrives and land cools faster than the sea?",
      "options": [
       "The wind reverses and blows from land toward sea",
-      "The wind stops entirely and waits until summer",
+      "The wind stops and waits until summer",
       "The wind suddenly begins blowing twice as fast",
       "The wind starts carrying much more moisture"
      ],
@@ -381,7 +381,7 @@
       "Because dry winter winds blow much harder",
       "Because extra moist air brings heavier-than-normal rain",
       "Because the entire sea evaporates completely",
-      "Because all pressure differences disappear entirely"
+      "Because pressure differences become much smaller over the sea"
      ],
      "answer": "B",
      "skill": "inference",
@@ -397,7 +397,7 @@
      "options": [
       "Speeds up without changing direction",
       "Turns to blow the opposite way",
-      "Becomes completely still",
+      "Becomes still",
       "Grows colder than before"
      ],
      "answer": "B",
@@ -474,8 +474,8 @@
      "options": [
       "Monsoons occur only rarely, once every several decades, and no one expects them",
       "Differential heating drives seasonal winds that meteorologists now forecast",
-      "Precipitation forecasts have made monsoons perfectly predictable, so no one is ever surprised",
-      "Monsoon winds blow the same direction all year, never changing from season to season"
+      "Precipitation forecasts have made monsoons perfectly predictable, so people are rarely surprised",
+      "Monsoon winds blow the same direction through the year, changing little from season to season"
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -491,8 +491,8 @@
      "options": [
       "Involving a difference between two compared things",
       "Occurring only far underground, out of sunlight",
-      "Completely equal in every single way",
-      "Related only to deep ocean currents"
+      "Equal in each way",
+      "Related to deep ocean currents"
      ],
      "answer": "A",
      "skill": "vocabulary",
@@ -506,7 +506,7 @@
     {
      "stem": "What tools do meteorologists use to forecast a monsoon's onset and intensity?",
      "options": [
-      "Only old historical records from past centuries",
+      "Only old historical records from past centuries in old books",
       "Simple thermometers placed in farmers' fields",
       "Reports from ships sailing across the ocean",
       "Orbiting satellites and sophisticated computer models"
@@ -523,7 +523,7 @@
     {
      "stem": "According to the article, what can excessive, poorly timed rainfall intensify?",
      "options": [
-      "The steady speed of distant ocean currents",
+      "The steady speed of distant ocean currents in the sea",
       "The daily brightness of the shining sun",
       "Flooding, crop damage, and transport disruption",
       "The amount of specific heat inside water"
@@ -540,7 +540,7 @@
     {
      "stem": "What sequence of events leads to the wind we call monsoon?",
      "options": [
-      "Land cools, air sinks, wind blows out to sea forever",
+      "Land cools, air sinks, wind blows out to sea",
       "Land heats, air rises, sea air flows in, creating pressure",
       "Sea heats faster than land every single day of the year",
       "Wind direction changes randomly, unrelated to temperature"
@@ -558,9 +558,9 @@
      "stem": "If ocean temperatures shift significantly due to changing climate patterns, what does the article suggest could happen to monsoons?",
      "options": [
       "Their timing, strength, or reliability could change",
-      "They would stop occurring entirely and permanently",
-      "They would become completely unaffected by any outside factor",
-      "They would begin occurring twice as often every year"
+      "They would stop occurring and permanently",
+      "They would become unaffected by any outside factor",
+      "They would begin occurring twice as often each year"
      ],
      "answer": "A",
      "skill": "inference",

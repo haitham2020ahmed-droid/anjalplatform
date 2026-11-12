@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people bake bread in ovens",
+            "How people bake bread in ovens at home and in shops each morning",
             "How Alva Fisher found a way to wash clothes with a machine",
             "How people built big cities",
             "How farmers grow cotton"
@@ -132,7 +132,7 @@
           "stem": "How did people wash clothes before washing machines, according to the article?",
           "options": [
             "By hand, which was hard work",
-            "By using a very hot oven",
+            "By using a very hot oven or fire",
             "By using a paper box",
             "By using a warm blanket"
           ],
@@ -149,7 +149,7 @@
           "stem": "What did Alva want to do, according to the article?",
           "options": [
             "Wash clothes without so much hard work",
-            "Build a bigger shop for his tools",
+            "Build a bigger shop for his tools in town",
             "Sell more paper boxes",
             "Make the ice melt faster"
           ],
@@ -166,8 +166,8 @@
           "stem": "Why do you think Alva kept trying new ways to wash clothes?",
           "options": [
             "Because he wanted to find a way that finally worked",
-            "Because he did not like clean clothes at all",
-            "Because other people forced him to try",
+            "Because he did not like clean clothes",
+            "Because other people forced him to try again each day",
             "Because he wanted his machine to break"
           ],
           "answer": "A",
@@ -201,7 +201,7 @@
           "options": [
             "A part of a machine that makes it move",
             "A kind of big tub",
-            "A type of small shop",
+            "A type of small shop that fixes bikes",
             "A soft, warm blanket"
           ],
           "answer": "A",
@@ -217,7 +217,7 @@
           "stem": "What happened after Alva's new way finally worked?",
           "options": [
             "Alva stopped trying to wash clothes",
-            "The machine completely disappeared",
+            "The machine disappeared",
             "The machine washed clothes well",
             "The shop burned down completely"
           ],
@@ -234,9 +234,9 @@
           "stem": "How was Alva's new way different from washing by hand?",
           "options": [
             "A machine with a motor washed clothes, instead of hard scrubbing by hand",
-            "The new way used no water at all",
+            "The new way used no water",
             "The new way took much longer than washing by hand",
-            "The new way and washing by hand worked exactly the same"
+            "The new way and washing by hand worked in the same way, using the same tools"
           ],
           "answer": "A",
           "skill": "compare",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "Washing by hand was always faster than using a machine",
+            "Washing by hand was faster than using a machine",
             "Alva Fisher's new method let people wash clothes using a machine and motor",
-            "Washing machines were common for hundreds of years before Alva",
-            "Shops in busy cities always succeed quickly"
+            "Washing machines were common for hundreds of years before Alva was born",
+            "Shops in busy cities succeed quickly"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -328,8 +328,8 @@
           "stem": "What did other inventors do, according to the article?",
           "options": [
             "They also tried to build a washing machine this way",
-            "They refused to try at all",
-            "They copied Alva's exact method immediately",
+            "They refused to try",
+            "They copied Alva's exact method immediately in their shops",
             "They only scrubbed clothes by hand instead"
           ],
           "answer": "A",
@@ -362,8 +362,8 @@
           "stem": "Why do you think this breakthrough mattered so much to people around the world?",
           "options": [
             "Because it let ordinary people wash clothes at home much more easily",
-            "Because it made washing by hand completely illegal",
-            "Because it made washing machines too expensive to use",
+            "Because it made washing by hand illegal",
+            "Because it made washing machines too expensive to use at home for most families",
             "Because it stopped people from wearing clean clothes"
           ],
           "answer": "A",
@@ -379,8 +379,8 @@
           "stem": "In the article, what does the word \"breakthrough\" describe about Alva's success?",
           "options": [
             "An important success after a lot of difficult effort",
-            "A machine that always fails",
-            "A type of soapy water",
+            "A machine that fails",
+            "A type of soapy water used in early washing tubs",
             "A small, quiet shop"
           ],
           "answer": "A",
@@ -396,7 +396,7 @@
           "stem": "How does the article mostly organize its information?",
           "options": [
             "It follows events in order, from the difficult problem to the lasting result",
-            "It compares two completely unrelated topics with no connection",
+            "It compares two unrelated topics with little connection between them in history",
             "It lists random facts about world geography",
             "It argues that hand washing is better than machines"
           ],
@@ -414,7 +414,7 @@
           "options": [
             "It caused hand scrubbing to become the only method used",
             "It allowed people to wash clothes much more easily",
-            "It stopped all clothes washing completely",
+            "It stopped clothes washing",
             "It made washing machines disappear from the world"
           ],
           "answer": "B",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Washing clothes by hand was always considered superior to using a machine",
+            "Washing clothes by hand was considered superior to using a machine",
             "Alva Fisher's ambitious experimentation led to a breakthrough in washing clothes mechanically",
             "No inventor besides Alva ever attempted to build a washing machine",
-            "Washing machines had no real impact on daily life after they were invented"
+            "Washing machines had little real impact on daily life after they were invented in most homes"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "What specific combination enabled Alva's method to finally succeed?",
           "options": [
-            "Painted canvas alone, with no motor of any kind",
-            "Borrowed printing tools with no machine involved",
-            "A sealed box filled entirely with sand",
+            "Painted canvas alone, with no motor",
+            "Borrowed printing tools, wooden boards, and a hand crank turned by hand",
+            "A sealed box filled with sand",
             "A metal tub, soapy water, and a carefully built electric motor"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "What can be inferred about innovation from the fact that multiple inventors in different countries pursued this same frustrating goal?",
           "options": [
             "A shared, difficult problem can inspire independent efforts toward similar solutions",
-            "Only inventors in one particular country are capable of true innovation",
-            "Every important invention in history has always had just one true creator",
-            "Independent experimentation never actually leads to useful breakthroughs"
+            "Only inventors in one particular country are capable of true innovation in the world",
+            "Most important inventions in history have had one true creator",
+            "Independent experimentation rarely leads to useful breakthroughs"
           ],
           "answer": "A",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "Why does the article emphasize the many frustrating years Alva spent testing before succeeding?",
           "options": [
             "To suggest that persistence through repeated difficulty can lead to breakthroughs",
-            "To show that experimentation always results in total failure",
+            "To show that experimentation results in total failure",
             "To argue that testing an idea repeatedly is generally pointless",
-            "Alva's careful, repeated testing shows a clear and deliberate plan"
+            "Alva's careful, repeated testing shows a clear and deliberate plan for his first machine"
           ],
           "answer": "A",
           "skill": "inference",
@@ -559,8 +559,8 @@
           "options": [
             "That they caused difficulty and annoyance because success was so elusive",
             "That they were extremely easy to accomplish quickly",
-            "That they required no motor or experimentation at all",
-            "That they were abandoned almost immediately after starting"
+            "That they required no motor or experimentation",
+            "That they were abandoned soon after starting, before much progress was made"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -576,8 +576,8 @@
           "options": [
             "It presents the frustrating early failures, the experimentation, and the lasting breakthrough in sequence",
             "It randomly jumps between unrelated inventions with no clear order",
-            "It focuses entirely on describing Alva's personal childhood memories",
-            "It only compares the prices of modern washing machines across different brands"
+            "It focuses on describing Alva's personal childhood memories",
+            "It compares the prices of modern washing machines across different brands and stores in many different countries"
           ],
           "answer": "A",
           "skill": "text-structure",

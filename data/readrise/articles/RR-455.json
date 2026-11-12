@@ -117,7 +117,7 @@
             "How rich people shop for fancy cars",
             "How Henry Ford found a faster way to build cars",
             "How workers build houses by hand",
-            "How bicycles are made in small shops"
+            "How bicycles are made in small shops by hand"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "Why do you think Ford kept trying new ways to build cars?",
           "options": [
-            "Because he did not like making cars at all",
+            "Because he did not like making cars",
             "Because other people forced him to try",
-            "Because he wanted cars to break down more",
+            "Because he wanted cars to break down more on the road",
             "Because he wanted to find a faster, cheaper way"
           ],
           "answer": "D",
@@ -217,9 +217,9 @@
           "stem": "What happened after Ford's new line started working?",
           "options": [
             "Cars stopped being made completely",
-            "Workers went back to building cars only by hand",
+            "Workers went back to building cars by hand",
             "Cars came out of the factory much faster than before",
-            "Cars became much more expensive than before"
+            "Cars became much more expensive than before in the factory"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -234,7 +234,7 @@
           "stem": "How was Ford's new line different from the old way of building cars?",
           "options": [
             "The new line was much faster, while the old way was slow",
-            "The new line used no workers at all",
+            "The new line used no workers",
             "The new line made only one car ever",
             "The new line and the old way worked exactly the same"
           ],
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "Rich families always preferred handmade cars",
+            "Rich families preferred handmade cars",
             "Henry Ford's moving line let cars be built much faster and cheaper",
-            "Car factories around the world closed down after 1913",
-            "Bicycles were replaced completely by cars"
+            "Car factories around the world closed down after 1913 because of new laws",
+            "Bicycles were replaced by cars"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -328,9 +328,9 @@
           "stem": "What did other car makers do, according to the article?",
           "options": [
             "They also built cars slowly by hand",
-            "They refused to make any cars at all",
+            "They refused to make any cars",
             "They copied Ford's assembly line immediately",
-            "They only built bicycles instead of cars"
+            "They built bicycles instead of cars"
           ],
           "answer": "A",
           "skill": "detail",
@@ -363,7 +363,7 @@
           "options": [
             "Because each worker built an entire car alone",
             "Because each worker only had to learn one small, simple task",
-            "Because the belt moved extremely slowly on purpose",
+            "Because the belt moved extremely slowly on purpose in the factory",
             "Because workers were not allowed to use any tools"
           ],
           "answer": "B",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the article mostly organize its information?",
           "options": [
-            "It compares two completely unrelated topics with no connection",
+            "It compares two unrelated topics with no connection",
             "It lists random facts about world geography",
             "It follows events in order, from the costly problem to the lasting result",
-            "It argues that handmade cars are better than factory-made ones"
+            "It argues that handmade cars are better than factory-made ones in each way"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -414,8 +414,8 @@
           "options": [
             "It caused hand building to become the only method used",
             "It allowed cars to be produced far faster than before",
-            "It stopped all car production across the country",
-            "It made cars disappear from stores completely"
+            "It stopped car production across the country",
+            "It made cars disappear from stores"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -472,8 +472,8 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Hand-built cars were always considered perfectly affordable for ordinary families",
-            "Other automakers' methods were identical in every detail to Ford's own design",
+            "Hand-built cars were considered perfectly affordable for ordinary families",
+            "Other automakers' methods were identical in every detail to Ford's own design of the assembly line",
             "Ford's moving assembly line transformed how affordably and quickly cars could be produced",
             "The assembly line had no real impact on manufacturing for several decades"
           ],
@@ -490,9 +490,9 @@
           "stem": "Based on the article, why did hand-built cars fail to meet the needs of most ordinary families?",
           "options": [
             "They required enormous amounts of time to produce and were therefore a costly luxury",
-            "They were considered too colorful and visually distracting to drive",
+            "They were considered too colorful and visually distracting to drive on busy roads",
             "They could only legally be owned by trained government officials",
-            "They were entirely banned from being sold in most towns"
+            "They were banned from being sold in most towns"
           ],
           "answer": "A",
           "skill": "detail",
@@ -508,8 +508,8 @@
           "options": [
             "A moving belt, specialized workers, and repeated, simple tasks working together",
             "Stone tools combined with handwoven cloth",
-            "Borrowed bicycle frames with no engine attached",
-            "A single craftsman building each car completely alone"
+            "Borrowed bicycle frames with no engine attached, pushed along by teams of workers",
+            "A single craftsman building each car alone"
           ],
           "answer": "A",
           "skill": "detail",
@@ -524,9 +524,9 @@
           "stem": "What can be inferred about innovation from the fact that multiple automakers struggled with the same slow, costly problem?",
           "options": [
             "Similar challenges can push different inventors toward different kinds of solutions",
-            "Only automakers with engineering degrees are capable of true innovation",
-            "Every important invention in history has always had just one true creator",
-            "Independent experimentation never actually leads to useful breakthroughs"
+            "Only automakers with engineering degrees are capable of true innovation in the car industry",
+            "Most important inventions in history have had one true creator",
+            "Independent experimentation rarely leads to useful breakthroughs"
           ],
           "answer": "A",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "Why does the article emphasize how many exhausting years Ford's engineers spent testing before succeeding?",
           "options": [
             "To suggest that persistence through repeated difficulty can lead to breakthroughs",
-            "To show that experimentation always ends in complete failure",
+            "To show that experimentation ends in complete failure",
             "To prove that Ford's rivals did all of the real work",
-            "To argue that testing new methods is generally a waste of valuable time"
+            "To argue that testing new methods is generally a waste of valuable time for new workers"
           ],
           "answer": "A",
           "skill": "inference",
@@ -558,8 +558,8 @@
           "stem": "In the article, what does \"craftsmanship\" most precisely describe about the older method of building cars?",
           "options": [
             "Careful, skilled, traditional work done by hand",
-            "A completely random, careless way of building cars",
-            "A method that used no human workers at all",
+            "A random, careless way of building cars",
+            "A method that used no human workers",
             "A method that built only one car per factory"
           ],
           "answer": "A",
@@ -575,8 +575,8 @@
           "stem": "How does the article's structure support its central idea?",
           "options": [
             "It presents the costly problem, the experimentation, and the lasting transformation in sequence",
-            "It randomly jumps between unrelated inventions with no clear order",
-            "It focuses entirely on describing Ford's personal life story",
+            "It jumps between unrelated inventions with no clear order, so readers must find the connections",
+            "It focuses on describing Ford's personal life story",
             "It only compares the prices of modern cars across different brands"
           ],
           "answer": "A",
@@ -594,7 +594,7 @@
             "It made cars scarcer and even more of a luxury than before",
             "It allowed many more ordinary families to finally afford a car",
             "It limited cars to use only by trained engineers",
-            "It had no measurable effect on car availability at all"
+            "It had no measurable effect on car availability"
           ],
           "answer": "B",
           "skill": "cause-effect",

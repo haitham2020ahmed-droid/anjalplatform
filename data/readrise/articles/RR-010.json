@@ -150,7 +150,7 @@
           "options": [
             "At the edges of plates",
             "Only in the middle of the sea",
-            "Only on top of hot spots",
+            "In the middle of deserts",
             "Close to big cities"
           ],
           "answer": "A",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Volcanoes are only dangerous near the Pacific Ocean, and nowhere else on Earth.",
-            "The lava fields of Saudi Arabia are the largest on Earth, bigger than any other fields.",
+            "Volcanoes are only dangerous near the Pacific Ocean on Earth.",
+            "The lava fields of Saudi Arabia formed long ago and have not changed since then.",
             "Volcanoes form in certain places, erupt in different ways, and are closely watched.",
-            "Tectonic plates move a few centimeters every year, and this is why volcanoes sleep."
+            "Tectonic plates move a few centimeters a year, which is why volcanoes stay quiet."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -397,7 +397,7 @@
           "options": [
             "A violent blast that hurls ash into the sky",
             "A steady flow of lava moving downhill",
-            "No eruption of any kind, ever again",
+            "No eruption, ever again",
             "An eruption made only of gas"
           ],
           "answer": "B",
@@ -541,7 +541,7 @@
           "stem": "Why might officials evacuate a town even if an eruption never happens?",
           "options": [
             "Evacuations stop magma from rising",
-            "Lava always reaches nearby towns",
+            "Lava reaches nearby towns",
             "Every town near any volcano must be emptied once a year by law",
             "Warning signs show real risk, so leaving early is safer"
           ],
@@ -574,7 +574,7 @@
         {
           "stem": "Why does the author describe the 1256 eruption near Madinah?",
           "options": [
-            "To prove that lava always stops before reaching a city",
+            "To prove that lava stops before reaching a city",
             "To explain how the Ring of Fire formed",
             "To show that eruptions have affected Arabia in recorded history",
             "To argue that every family should move out of the city of Madinah"

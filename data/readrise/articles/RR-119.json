@@ -362,7 +362,7 @@
           "stem": "Why do scientists think life on other worlds would most likely be microbes?",
           "options": [
             "Because large animals cannot live on Earth, so only microbes are left to look for in space",
-            "Because microbes live only in space, and never on our own planet's land or in its oceans",
+            "Because microbes come from space and fall to Earth in rain and dust",
             "Because the places they study are harsh, and tiny life on Earth can survive harsh places",
             "Because microbes are easy to see with a telescope, so scientists can spot them from far away"
           ],
@@ -524,8 +524,8 @@
           "stem": "How do radio-telescope searches differ from the other methods in the article?",
           "options": [
             "They look only at Mars rocks, not at the sky or at other worlds.",
-            "They study ice on Saturn's moons, rather than looking for any signals at all.",
-            "They are the only method that has already found living things on other planets.",
+            "They study ice on Saturn's moons, rather than looking for signals.",
+            "They are the one method that has already found living things on other planets.",
             "They look for signals from intelligent beings rather than signs of simple life."
           ],
           "answer": "D",
@@ -594,7 +594,7 @@
             "They expect to find a final answer within the next few weeks.",
             "They believe it is valuable even if it takes a very long time.",
             "They think it should end because nothing has been found.",
-            "They believe only robots should continue the work."
+            "They believe robots should take over the work."
           ],
           "answer": "B",
           "skill": "inference",

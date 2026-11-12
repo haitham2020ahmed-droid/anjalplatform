@@ -296,7 +296,7 @@
             "Soil forms very quickly, so people do not need to worry about losing any of it.",
             "Soil is a slow-forming, living mixture that supports our food and needs protection.",
             "Earthworms are the most important animals on Earth.",
-            "Sandy soil is found only in Saudi Arabia."
+            "Sandy soil is found mostly in Saudi Arabia."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -312,7 +312,7 @@
           "options": [
             "Almost none",
             "About one quarter",
-            "All of it",
+            "About a tenth",
             "About half"
           ],
           "answer": "D",
@@ -473,7 +473,7 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Soil is a slow-forming, living mixture that must be protected from erosion.",
-            "Clay soil is always better for farming than sandy soil.",
+            "Clay soil is better for farming than sandy soil.",
             "Weathering is the main danger to soil today.",
             "Earthworms create all of the nutrients that plants need to grow in every kind of soil."
           ],
@@ -492,7 +492,7 @@
             "It has the largest grains of any soil, like rocks and sand.",
             "It is a balanced mixture of sand, silt, and clay.",
             "It is the layer just below the subsoil, near the bedrock.",
-            "It cannot hold any water, so plants cannot use it for roots."
+            "It holds too much water, so plant roots rot in it."
           ],
           "answer": "B",
           "skill": "detail",
@@ -541,7 +541,7 @@
           "stem": "Why does water drain quickly through sandy soil?",
           "options": [
             "Sandy soil contains more humus.",
-            "Sandy soil is always frozen.",
+            "Sandy soil is frozen.",
             "Sandy soil has no minerals.",
             "Sandy soil has large grains."
           ],

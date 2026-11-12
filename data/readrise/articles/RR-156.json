@@ -219,7 +219,7 @@
             "Riyadh gets more dew than Jeddah does",
             "Both cities have the same air all year",
             "Air near the sea gets more water vapor",
-            "Riyadh is always humid in every season"
+            "Riyadh is humid in each season"
           ],
           "answer": "C",
           "skill": "inference",
@@ -575,7 +575,7 @@
           "stem": "What can you infer about coastal Jeddah compared with Riyadh?",
           "options": [
             "More water evaporates from the nearby sea into Jeddah's air",
-            "Jeddah has no hygrometers because the weather is always dry",
+            "Jeddah has no hygrometers because the weather is dry",
             "Riyadh has more water vapor in its air than a coastal city",
             "Jeddah is colder all year because it is far from the desert"
           ],

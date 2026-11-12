@@ -185,7 +185,7 @@
             "Bagged food tastes much better in space",
             "Loose food would float away without gravity",
             "There are no plates on the space station",
-            "The crew is not allowed to cook at all"
+            "The crew is not allowed to cook"
           ],
           "answer": "B",
           "skill": "inference",
@@ -200,9 +200,9 @@
           "stem": "How is life on the space station different from life on Earth?",
           "options": [
             "On the station there is almost no gravity, but on Earth gravity holds things down",
-            "On the station it rains every day, but Earth is always dry, said the astronaut",
-            "On the station people walk everywhere, but on Earth people float in the air",
-            "On the station the sun never rises, but on Earth it rises once a day and sets"
+            "On the station it rains every day, but Earth is dry, said the astronaut",
+            "On the station people walk, but on Earth people float in the air",
+            "On the station the sun rises once a week, but on Earth it rises once a day"
           ],
           "answer": "A",
           "skill": "compare",
@@ -219,7 +219,7 @@
             "a kind of space food",
             "the pull that holds things down",
             "a tool used to fix filters",
-            "a part of the space station"
+            "a part of the space station in space"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -296,7 +296,7 @@
             "An astronaut describes her daily routine, a filter problem she and her crewmate solve, and what she misses about Earth.",
             "An astronaut explains in detail how large rockets are designed, built, and launched into space, and what each part does.",
             "An astronaut frequently complains that the whole space mission was simply not worth all the trouble and the pain.",
-            "An astronaut describes an exciting trip to a brand-new planet that no one has ever visited before, with new friends."
+            "An astronaut describes an exciting trip to a new planet that has not been visited before, with new friends."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "Only one each day",
             "Exactly two or three",
             "More than a dozen",
-            "None at all, ever"
+            "One"
           ],
           "answer": "C",
           "skill": "detail",
@@ -380,8 +380,8 @@
           "options": [
             "It is recycled from moisture in the air and from sweat, instead of coming from rivers or taps",
             "It is brought up fresh from Earth by a cargo ship nearly every single day of the mission",
-            "It is made entirely from melted ice that was specially carried up from Earth months ago",
-            "It is not needed at all up here because of the station's complete lack of gravity"
+            "It is made from melted ice that was specially carried up from Earth months ago",
+            "It is not needed up here because of the station's complete lack of gravity"
           ],
           "answer": "A",
           "skill": "compare",
@@ -414,8 +414,8 @@
           "options": [
             "To warn readers never to become astronauts because the work is too hard and unsafe",
             "To give readers a full picture of both the challenges and feelings of life in space",
-            "To prove that space stations never break down, and that a filter can always be fixed",
-            "To explain how to repair any machine, from a small filter to a large engine on Earth"
+            "To prove that space stations rarely break down, and that a filter is easy to fix",
+            "To explain how to repair machines, from a small filter to a large engine on Earth"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of this diary?",
           "options": [
             "Life aboard a space station involves a demanding routine, occasional equipment malfunctions, and a deep sense of what is missed from Earth.",
-            "Space stations are generally considered far too dangerous for any ordinary astronaut to live aboard safely for long periods.",
+            "Space stations are generally considered far too dangerous for any ordinary astronaut to live aboard safely for long periods while it circles the Earth.",
             "The astronaut secretly regrets having accepted this particular space mission almost immediately after it got underway.",
-            "Mission control makes absolutely every single decision for the astronauts without any real crew input at all."
+            "Mission control makes the decisions for the astronauts with little crew input."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,7 +489,7 @@
         {
           "stem": "Why does mission control impose a strict schedule rather than letting astronauts follow natural daylight cues?",
           "options": [
-            "Because the station was originally designed and built with no windows of any kind at all",
+            "Because the station was originally designed and built with no windows",
             "Because looking directly at sunlight through the station's windows is considered far too dangerous for the crew",
             "Because sixteen sunrises a day would otherwise disrupt their circadian rhythm",
             "Because astronauts are generally not allowed to make any of their own daily decisions without approval"
@@ -540,10 +540,10 @@
         {
           "stem": "How does the life-support system's way of replenishing oxygen compare with simply breathing air on Earth?",
           "options": [
-            "On the station, oxygen apparently never needs to be replenished or refilled at all during the entire length of the mission",
+            "On the station, oxygen apparently never needs to be replenished or refilled during the entire length of the mission because the crew brings plenty of it from Earth",
             "On the station, oxygen is replenished by splitting water molecules, while on Earth people simply breathe air that is already full of oxygen",
             "On Earth, oxygen is supposedly created by splitting water molecules inside large city water treatment plants",
-            "On the station, astronauts reportedly grow enough plants to replace absolutely all of their oxygen supply"
+            "On the station, astronauts grow enough plants to replace their oxygen supply"
           ],
           "answer": "B",
           "skill": "compare",
@@ -574,10 +574,10 @@
         {
           "stem": "What can readers infer about teamwork in space from the filter malfunction?",
           "options": [
-            "Mission control always fixes problems remotely without crew help, using computers on the ground",
+            "Mission control fixes problems remotely without crew help, using computers on the ground",
             "Astronauts prefer to solve every problem alone, because teamwork wastes time in space",
             "Astronauts must depend heavily on each other, since no outside repair help is available",
-            "Filter problems are too dangerous for any crew to attempt fixing, so they wait for rescue"
+            "Filter problems are too dangerous for the crew to fix, so they wait for rescue"
           ],
           "answer": "C",
           "skill": "inference",

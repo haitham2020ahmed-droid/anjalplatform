@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Robots help hospitals in many ways, but people still make decisions and give care.",
-            "Robots now run hospitals without doctors, and no nurse is needed in the building at all.",
-            "Surgery is always done by robots today, and no person ever helps them in the room.",
-            "Hospitals should not use robots, since they cannot help sick people in any way."
+            "Robots now run hospitals without doctors, and no nurse is needed in the building.",
+            "Surgery is done by robots today, and no person ever helps them in the room.",
+            "Hospitals should not use robots, since they cannot help sick people."
           ],
           "answer": "A",
           "skill": "central-idea",

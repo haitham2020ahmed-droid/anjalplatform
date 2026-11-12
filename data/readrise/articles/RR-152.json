@@ -117,7 +117,7 @@
             "How to make ice cream at home",
             "How water changes between ice and liquid water",
             "Why snow falls only in cold countries",
-            "How to keep a kitchen freezer clean and tidy every week"
+            "How to keep a kitchen freezer clean and tidy each week"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -235,8 +235,8 @@
           "options": [
             "To show that melting happens in nature close to home",
             "To tell readers to visit the north in summer",
-            "To explain how to build a snowman with a friend",
-            "To show that it is always cold there in the north"
+            "To explain how to build a snowman with a friend in the snow",
+            "To show that it is cold there in the north"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
             "Ice cubes are the best way to cool a drink, because they melt very slowly and never warm up.",
-            "Fish need lakes that never freeze, or else they cannot find food in the winter at all.",
+            "Fish need lakes that stay warm, or else they find little food in the winter.",
             "Heat changes water between solid and liquid, and water behaves in some unusual ways.",
             "Iron and chocolate are made of exactly the same kind of tiny particles."
           ],
@@ -313,7 +313,7 @@
             "They are packed tightly and shake in place.",
             "They slide past one another freely and quickly",
             "They float far apart from each other in the air",
-            "They do not move at all, ever, even when heated"
+            "They do not move, ever, even when heated"
           ],
           "answer": "A",
           "skill": "detail",
@@ -475,7 +475,7 @@
             "Ice is dangerous because it cracks bottles, so people should never put any drinks in a freezer.",
             "Freezing and melting are reversible changes caused by heat, and water's unusual expansion has important effects.",
             "Chocolate and iron melt at the same temperature, which is why both are used in the same factories.",
-            "Snow in Tabuk proves that Saudi Arabia is a cold country, and so people there never feel any heat in the whole year."
+            "Snow in Tabuk proves that Saudi Arabia is a cold country, so people there feel little heat in the year."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -542,7 +542,7 @@
           "options": [
             "The glass blocks all heat from entering the water inside it.",
             "The heat being absorbed is used to break the ice crystals apart.",
-            "Water cannot ever be warmer than zero degrees in a glass cup.",
+            "Water in a glass cup stays cold because glass blocks heat.",
             "The ice releases heat into the water as it melts."
           ],
           "answer": "B",
@@ -557,7 +557,7 @@
         {
           "stem": "Chocolate stays firm in a cool room but melts in your mouth. What can you infer?",
           "options": [
-            "Chocolate has no melting point, so it never melts at all, even in a hot room",
+            "Chocolate has no melting point, so it never melts, even in a hot room",
             "Your mouth is colder than the room, so chocolate melts there and not outside",
             "Chocolate is denser than iron, and so it melts in your mouth but stays firm in the room",
             "Its melting point is between room temperature and body temperature."

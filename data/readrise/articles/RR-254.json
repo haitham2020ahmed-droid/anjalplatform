@@ -150,7 +150,7 @@
           "options": [
             "Germs made food taste better.",
             "Germs made food go bad.",
-            "Germs helped food stay fresh forever.",
+            "Germs helped food stay fresh.",
             "Germs had nothing to do with food."
           ],
           "answer": "B",
@@ -182,7 +182,7 @@
         {
           "stem": "In the article, the word prove means —",
           "options": [
-            "to guess without checking the facts at all, like a game",
+            "to guess without checking the facts, like a game",
             "to show with clear facts that something is true",
             "to paint a picture of something in the sky",
             "to drink a glass of milk after a long walk"
@@ -327,7 +327,7 @@
         {
           "stem": "What did Pasteur discover about heating milk?",
           "options": [
-            "A way of painting pictures of microbes",
+            "A way of painting pictures of microbes for a book",
             "A way of heating milk to kill harmful germs",
             "A type of vaccine given to babies",
             "A tool used to see tiny organisms"
@@ -344,7 +344,7 @@
         {
           "stem": "What does theory mean in the phrase 'germ theory'?",
           "options": [
-            "A guess with no evidence at all",
+            "A guess with no evidence",
             "An explanation backed up by evidence",
             "A special type of microscope lens",
             "A disease that spreads very quickly"
@@ -364,7 +364,7 @@
             "So that other scientists would trust and accept his conclusions.",
             "So that he could win a painting contest at his school in the spring.",
             "So that his milk would taste sweeter to all the people in the town.",
-            "So that he would not need to use a microscope in the lab any more."
+            "So that he would not need to use a microscope in the lab."
           ],
           "answer": "A",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "What was the effect of Pasteur proving that germs cause disease?",
           "options": [
             "Doctors could start preventing diseases caused by those germs.",
-            "People everywhere stopped using microscopes entirely.",
-            "Food always spoiled even much faster than it had before.",
-            "Scientists everywhere stopped studying diseases entirely."
+            "People stopped using microscopes to look for germs in hospitals and labs.",
+            "Food spoiled even much faster than it had before.",
+            "Scientists stopped studying diseases."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -414,8 +414,8 @@
           "options": [
             "It teaches the body's defenses to recognize and fight a specific germ.",
             "It removes every single germ from the air permanently, in the whole room.",
-            "It makes a person immune to every disease at once, in a single shot.",
-            "It completely replaces the need for any doctors at all, for life."
+            "It makes a person immune to many diseases at once, in a single shot.",
+            "It replaces the need for doctors."
           ],
           "answer": "A",
           "skill": "inference",
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea?",
           "options": [
             "Pasteur is remembered today mainly as a talented painter of fruit and flowers.",
-            "Microscopes became completely unnecessary after Pasteur's work, so doctors stopped using them.",
+            "Microscopes became unnecessary after Pasteur's work, so doctors stopped using them.",
             "Pasteur's rigorous experiments established germ theory and reshaped medicine.",
             "Vaccines had already ended most diseases before Pasteur was born in France."
           ],
@@ -491,8 +491,8 @@
           "options": [
             "That all diseases were caused by bad air alone",
             "That tiny living things caused food to spoil over time",
-            "That microscopes could never reveal anything useful",
-            "That ordinary milk never actually spoils at all"
+            "That microscopes could reveal little that was useful",
+            "That ordinary milk rarely spoils"
           ],
           "answer": "B",
           "skill": "detail",
@@ -508,7 +508,7 @@
           "options": [
             "It showed that Pasteur preferred painting over careful science, even in his lab.",
             "It proved beyond doubt that microscopes were unreliable and should not be trusted.",
-            "It meant that his very first results were always wrong, so he had to start again.",
+            "It meant that his very first results were wrong, so he had to start again.",
             "Repetition provided strong evidence that persuaded a skeptical community."
           ],
           "answer": "D",
@@ -523,7 +523,7 @@
         {
           "stem": "In the article, the word evidence most nearly means —",
           "options": [
-            "a random guess with no support at all from facts",
+            "a random guess with no support from facts",
             "facts or observations that support an idea",
             "a specific type of medical vaccine for children",
             "a particular kind of serious disease in people"
@@ -577,7 +577,7 @@
             "Pasteurization kills germs in liquids, while a vaccine trains the body's own immunity against them.",
             "Both methods work only by removing all germs from the air in a room permanently.",
             "Pasteurization and vaccines are identical processes with the same purpose and the same steps.",
-            "Neither method has any real connection to germ theory or to staying healthy in daily life."
+            "Both methods kill germs inside the body after a person gets sick."
           ],
           "answer": "A",
           "skill": "compare",
@@ -593,7 +593,7 @@
           "options": [
             "He proved instead that germs do not actually cause any disease, and so people should not wash their hands.",
             "He was simply the very first person to ever use a microscope, and he saw tiny living things in water.",
-            "He preferred painting pictures over any scientific pursuits at all, and he became famous for his art.",
+            "He preferred painting pictures to science, and he became famous for his art.",
             "His evidence-based discoveries opened the way for safer food and disease prevention."
           ],
           "answer": "D",

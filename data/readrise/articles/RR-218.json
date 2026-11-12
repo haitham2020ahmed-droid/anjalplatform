@@ -219,7 +219,7 @@
             "A souq has fixed prices like a mall",
             "A mall sells only gold and jewelry",
             "A mall is cool and closed; a souq is open and shaded",
-            "A souq always sells only gold, cloth, and spices to visitors"
+            "A souq sells gold, cloth, and spices to visitors"
           ],
           "answer": "C",
           "skill": "compare",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author end by saying souqs are still open today?",
           "options": [
-            "To show that souqs are gone forever",
+            "To show that souqs are gone",
             "To show that people still value and visit souqs",
             "To explain how to build a souq",
-            "To tell readers to stop shopping at malls forever"
+            "To tell readers to stop shopping at malls in the city"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Souqs only sell gold and jewelry to wealthy visitors each day.",
+            "Souqs only sell gold and jewelry to wealthy visitors each day in the city.",
             "Covered lanes, craft sections, and bargaining made it the city's heart.",
-            "Modern shopping malls are far more crowded than any old souq.",
-            "Souqs are always built right next to the open sea."
+            "Modern shopping malls are far more crowded than old souqs.",
+            "Souqs are built right next to the open sea."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -364,7 +364,7 @@
             "Because malls never allow any brand new shops to open",
             "Because the souq has strict rules against moving stalls",
             "Because they can pass the trade down to their children",
-            "Because building a new stall costs nothing at all"
+            "Because building a new stall costs little"
           ],
           "answer": "C",
           "skill": "inference",
@@ -379,7 +379,7 @@
           "stem": "Why do buyers and sellers usually enjoy bargaining instead of seeing it as a quarrel?",
           "options": [
             "Because it is treated as a friendly custom, not an argument",
-            "Because the seller must always lower the price",
+            "Because the seller must lower the price",
             "Because customers are forced to buy at the souq",
             "Because bargaining is faster than paying a fixed price"
           ],
@@ -525,7 +525,7 @@
           "options": [
             "Stone arches built by the government for the king",
             "A roof of wood, cloth, or dried palm leaves",
-            "Open sky with no covering at all above the lanes",
+            "Open sky with no covering above the lanes",
             "Metal sheets imported from Europe by sea traders"
           ],
           "answer": "B",
@@ -540,8 +540,8 @@
         {
           "stem": "What can you infer about why bargaining was seen as enjoyable rather than unpleasant?",
           "options": [
-            "It always ended with the seller losing money on every sale he made",
-            "It was required by law in every city to last exactly one hour",
+            "It ended with the seller losing money on every sale he made",
+            "It was required by law in each city to last one hour",
             "It was a familiar social custom woven into daily shopping, not a dispute",
             "It replaced the entire need for spoken conversation between people"
           ],
@@ -574,10 +574,10 @@
         {
           "stem": "How are a souq's social role and its economic role similar?",
           "options": [
-            "Both depend entirely on sea trade carried by ships from distant lands",
+            "Both depend on sea trade carried by ships from distant lands",
             "Both happen within the same shared lanes and stalls",
-            "Both were completely replaced once modern malls first appeared",
-            "Both always require fixed price tags attached to every item"
+            "Both were replaced once modern malls first appeared",
+            "Both require fixed price tags attached to every item"
           ],
           "answer": "B",
           "skill": "compare",
@@ -594,7 +594,7 @@
             "To criticize people who choose to shop at modern malls instead",
             "To highlight how differently the two markets are organized",
             "To argue that all modern shopping malls should be torn down",
-            "To prove that old souqs are always physically larger than malls"
+            "To prove that old souqs are physically larger than malls"
           ],
           "answer": "B",
           "skill": "author-purpose",

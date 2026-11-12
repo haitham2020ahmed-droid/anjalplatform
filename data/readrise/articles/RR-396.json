@@ -132,7 +132,7 @@
           "stem": "What does the teacher do that surprises Layla and Yousef?",
           "options": [
             "He puts the two of them in the same project group",
-            "He cancels the class project completely for everyone",
+            "He cancels the class project for everyone",
             "He gives the whole class a surprise test instead",
             "He sends Layla and Yousef home early that day"
           ],
@@ -149,8 +149,8 @@
           "stem": "How do Layla and Yousef divide the work on their project?",
           "options": [
             "They both only draw pictures and nothing else all day",
-            "They both only write facts and nothing else",
-            "They do not do any work on the project at all",
+            "They both write facts and skip the pictures",
+            "Yousef writes the facts, and Layla draws",
             "Layla writes the facts, and Yousef draws the pictures"
           ],
           "answer": "D",
@@ -185,7 +185,7 @@
             "Because each of them gets to do the part they are good at",
             "Because Layla forces him to agree with her plan",
             "Because he wants to finish quickly and go home",
-            "Because the teacher orders him to agree with Layla"
+            "Because the teacher orders him to agree with Layla and work with her"
           ],
           "answer": "A",
           "skill": "inference",
@@ -199,7 +199,7 @@
         {
           "stem": "What can you tell about Layla and Yousef by the end of the story?",
           "options": [
-            "They still do not like each other at all in the end",
+            "They still do not like each other in the end",
             "They decide they will never work together again",
             "They work well together even though they are different",
             "They become exactly the same in how they like to work"
@@ -235,7 +235,7 @@
           "options": [
             "To help readers see why their later teamwork is surprising",
             "To explain the steps for making a neat list",
-            "To compare Layla and Yousef's two different schools",
+            "To compare Layla and Yousef's two different schools and their teachers",
             "To describe all of the teacher's classroom rules"
           ],
           "answer": "A",
@@ -313,7 +313,7 @@
             "Building a detailed plan before doing anything else",
             "Asking the teacher to choose a different topic for them",
             "Drawing the poster herself before Yousef can touch it",
-            "Finishing the entire project completely on her own"
+            "Finishing the entire project on her own"
           ],
           "answer": "A",
           "skill": "detail",
@@ -327,7 +327,7 @@
         {
           "stem": "According to the story, what does Yousef do with the poster?",
           "options": [
-            "He refuses to work on the poster at all",
+            "He refuses to work on the poster",
             "He writes most of the factual information for it",
             "He illustrates it with bold, colorful artwork",
             "He throws the poster away before it is finished"
@@ -361,7 +361,7 @@
         {
           "stem": "Why does Yousef's frustration grow before the two classmates finally talk?",
           "options": [
-            "Because Layla refuses to speak to him at all during that time, and walks away",
+            "Because Layla refuses to speak to him during that time, and walks away",
             "Because the deadline is getting closer while neither is willing to compromise",
             "Because the teacher keeps changing the project's topic every week",
             "Because Yousef realizes he dislikes drawing pictures for the class"
@@ -380,8 +380,8 @@
           "options": [
             "Their different strengths combined to produce better results than either could alone",
             "Only Layla's careful planning truly mattered to the finished project, and Yousef's drawing was never used",
-            "Only Yousef's quick drawing truly mattered to the finished project, and Layla's planning was never used",
-            "Their different approaches canceled each other out and achieved nothing, so the teacher was unhappy"
+            "Yousef's quick drawing mattered most to the finished project, and Layla's planning was hardly used",
+            "Their different approaches canceled each other out, so the teacher was unhappy"
           ],
           "answer": "A",
           "skill": "inference",
@@ -413,7 +413,7 @@
           "stem": "How does the author organize the story?",
           "options": [
             "By listing numbered steps for creating a neat poster",
-            "By comparing Layla and Yousef's project with another group's project",
+            "By comparing Layla and Yousef's project with another group's project in the same class",
             "By describing their differences, then the conflict, then how they resolve it",
             "By describing one entire school year, from the first day to the last"
           ],
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the passage?",
           "options": [
-            "The teacher's assigned groups always turn out to be a disaster for everyone involved, so students should always pick their own partners",
+            "The teacher's assigned groups turn out to be a disaster for everyone involved, so students should pick their own partners",
             "Two students with conflicting approaches to work discover that their differences, once reconciled, can complement rather than undermine each other",
-            "Careful planning is always a better approach to any project than quick, spontaneous action, and students should never change a plan once it is made",
-            "Yousef eventually abandons his own natural working style in order to satisfy Layla completely, and he never works that way again"
+            "Careful planning is a better approach to any project than quick, spontaneous action, and students should never change a plan once it is made",
+            "Yousef gives up his own working style to satisfy Layla, and he stops working that way"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -507,7 +507,7 @@
           "stem": "What realization does Yousef come to, according to the passage's final paragraph?",
           "options": [
             "That Layla's facts were ultimately unnecessary for the poster in the end",
-            "That drawing quickly is always inferior to drawing slowly and with care",
+            "That drawing quickly is inferior to drawing slowly and with care",
             "That careful planning could sharpen, rather than slow down, a good idea",
             "That he should never attempt another class project again, even with a friend"
           ],
@@ -526,7 +526,7 @@
             "Each assumed there was only one right way to work, leaving no room for compromise",
             "Neither of them actually cared at all about the project's outcome",
             "They had never met each other before being placed in the same group",
-            "The teacher had secretly instructed them not to cooperate with each other"
+            "The teacher had secretly instructed them not to cooperate with each other on the project"
           ],
           "answer": "A",
           "skill": "inference",
@@ -558,7 +558,7 @@
           "stem": "In the passage, the word invaluable most nearly means —",
           "options": [
             "extremely valuable or important",
-            "having no value or worth at all",
+            "having no value or worth",
             "difficult to measure in size or weight",
             "likely to disappear very soon"
           ],
@@ -575,9 +575,9 @@
           "stem": "Why does the author end the passage by explaining what each character personally learned?",
           "options": [
             "To argue that the teacher deserves all of the credit for their success in the whole project",
-            "To suggest that only Layla actually learned anything meaningful from the experience",
+            "To suggest that Layla learned the most from the experience",
             "To show that the resolution changed both characters' understanding, not just their project's outcome",
-            "To prove that group projects should always be assigned randomly from now on in every single class and school"
+            "To prove that group projects should be assigned randomly in classes from now on"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -592,8 +592,8 @@
           "stem": "How does Layla's approach to the project compare with Yousef's throughout the passage?",
           "options": [
             "Layla cared only about drawing, while Yousef cared only about writing facts, and they never worked together on the poster",
-            "Layla and Yousef approached the project in exactly the same careful, planned way, and so they never argued about it at all",
-            "Layla and Yousef approached the project in exactly the same quick, spontaneous way, and so they never made a plan for it",
+            "Layla and Yousef approached the project in the same careful, planned way, so they rarely argued",
+            "Layla and Yousef approached the project in the same quick way, so they made no plan for it",
             "Layla favored careful planning, while Yousef favored quick action, and both approaches proved valuable once combined"
           ],
           "answer": "D",

@@ -150,7 +150,7 @@
           "options": [
             "On open land and far out at sea",
             "Only inside crowded cities",
-            "Only in very cold, snowy countries",
+            "In very cold, snowy countries",
             "Deep underneath tall mountains"
           ],
           "answer": "A",
@@ -236,7 +236,7 @@
             "By telling a made-up story about a turbine",
             "By comparing turbines to airplanes in every paragraph",
             "By explaining how turbines work and the problems they face",
-            "By listing all of the different turbine colors available"
+            "By listing the different turbine colors available"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Turbines are far too tall for engineers to build safely, so wind power is never used.",
-            "Every single wind farm in the world is built out at sea, far from any town.",
+            "Most wind farms in the world are built out at sea, far from towns.",
             "Wind turbines generate renewable electricity, though wind is not steady.",
-            "Oil and gas will always cost far less than wind power does, in every country."
+            "Oil and gas cost far less than wind power does in most countries."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -328,7 +328,7 @@
           "stem": "What has Saudi Arabia begun building, according to the article?",
           "options": [
             "Underwater tunnels built for large ships to pass through",
-            "Tall city buildings that have no windows at all",
+            "Tall city buildings that have no windows",
             "Small windmills meant only for home gardens",
             "Large wind farms as part of its push toward renewable energy"
           ],
@@ -378,8 +378,8 @@
         {
           "stem": "Why can offshore wind farms often generate more electricity than those built on land?",
           "options": [
-            "Because the sea has no maintenance costs at all",
-            "Because most workers simply prefer to work out at sea",
+            "Because the sea has no maintenance costs",
+            "Because most workers simply prefer to work out at sea in big boats",
             "Because wind blows harder and more steadily over open water",
             "Because the ocean itself is considered renewable"
           ],
@@ -412,9 +412,9 @@
         {
           "stem": "How is wind power different from burning fuel for electricity, according to the article?",
           "options": [
-            "Wind power makes far more smoke than burning oil.",
+            "Wind power makes far more smoke than burning oil or gas.",
             "Wind power never needs any kind of maintenance.",
-            "Wind power works exactly the same every single day.",
+            "Wind power works the same each day.",
             "Wind power is renewable and produces no air pollution."
           ],
           "answer": "D",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Wind turbines are useless whenever the wind slows even slightly.",
+            "Wind turbines are useless whenever the wind slows even slightly on a calm day.",
             "Robots are the single most important part of any wind farm.",
-            "All fossil fuels will completely disappear within a single decade.",
+            "Fossil fuels will disappear within a single decade.",
             "Saudi Arabia is building wind farms, managing their intermittent output."
           ],
           "answer": "D",
@@ -523,7 +523,7 @@
         {
           "stem": "What effect does changing wind speed have on electricity production, based on the article?",
           "options": [
-            "It has no noticeable effect at all on any turbine.",
+            "It has no noticeable effect on any turbine.",
             "It somehow causes the turbines to spin backward.",
             "It causes output to rise and fall with the wind.",
             "It makes the turbines generate more air pollution."

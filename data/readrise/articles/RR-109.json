@@ -362,7 +362,7 @@
           "stem": "What can the reader infer from the experiment in Dubai?",
           "options": [
             "Camels and guanacos are closely related enough to have a baby together.",
-            "Camels and guanacos have always lived together in the same deserts.",
+            "Camels and guanacos have lived together in the same deserts for many years.",
             "All camels in Dubai are half guanaco.",
             "Guanacos were first domesticated in Dubai."
           ],
@@ -380,7 +380,7 @@
           "options": [
             "hunted",
             "tamed and raised",
-            "frightened",
+            "scared and chased",
             "measured"
           ],
           "answer": "B",
@@ -413,7 +413,7 @@
           "stem": "How are llamas and alpacas different?",
           "options": [
             "Only llamas live in herds.",
-            "Only alpacas chew their food, bring it back up, and chew it again.",
+            "Alpacas chew their food twice and store it; llamas do not in the winter.",
             "Llamas have humps, but alpacas do not.",
             "Llamas are larger and carry loads; alpacas are raised for fiber."
           ],
@@ -491,7 +491,7 @@
           "options": [
             "Only the alpaca has two toes on each of its feet.",
             "The llama has long ears that curve like bananas.",
-            "Only the llama has a hump.",
+            "The llama has a small hump on its back.",
             "The alpaca has a longer neck."
           ],
           "answer": "B",

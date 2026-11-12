@@ -132,7 +132,7 @@
           "stem": "What did Al-Jazari's pump do?",
           "options": [
             "It made music for the king.",
-            "It showed the time each half hour.",
+            "It showed the time each half hour in the palace.",
             "It lifted water up to fields and homes.",
             "It made the boat float."
           ],
@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
             "Water was hard to find 800 years ago, so people dug deep wells in every town and village.",
-            "Al-Jazari built the first clock in history, and kings all over the world copied his designs.",
+            "Al-Jazari built the first clock in history, and kings across the world copied his designs.",
             "Al-Jazari was a gifted engineer whose clever machines and careful book still matter today.",
             "Royal families liked music more than machines, so they paid for songs instead of new inventions."
           ],
@@ -310,7 +310,7 @@
         {
           "stem": "How did Al-Jazari's elephant clock keep time?",
           "options": [
-            "Sunlight moved a shadow across it.",
+            "Sunlight moved a shadow across it in the garden.",
             "A bowl slowly sank in a tank of water.",
             "A person rang a bell each hour.",
             "A candle burned down slowly."
@@ -473,8 +473,8 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Al-Jazari invented every machine that people use today, from simple clocks to cars and planes, in his workshop.",
-            "Al-Jazari mainly built toys to entertain royal guests, and his machines had no other uses at all.",
-            "The elephant clock was the only important invention of the time, and no other machines were made then.",
+            "Al-Jazari mainly built toys to entertain royal guests, and his machines had no other uses.",
+            "The elephant clock was the most important invention of the time, and few other machines were made then.",
             "Al-Jazari's ingenious machines and detailed manuscript made him an engineer whose influence lasted for centuries."
           ],
           "answer": "D",
@@ -506,7 +506,7 @@
         {
           "stem": "Why does the article describe the boat's drummer as programmable?",
           "options": [
-            "It could play only one song forever.",
+            "It could play only one song.",
             "It was controlled by a person hiding in the boat.",
             "Its pegs could be rearranged to change the rhythm.",
             "It was powered by a crank and pistons."
@@ -525,7 +525,7 @@
           "options": [
             "Al-Jazari had never traveled outside his own small town.",
             "Ideas were shared among different cultures.",
-            "Clocks were only made in India.",
+            "Clocks were first made in India.",
             "Dragons were real animals then."
           ],
           "answer": "B",
@@ -540,7 +540,7 @@
         {
           "stem": "How did Al-Jazari's use of valves and gears affect his machines?",
           "options": [
-            "They stopped water from flowing at all.",
+            "They stopped water from flowing.",
             "They made the machines much heavier, slower, and harder to use.",
             "They let the machines repeat their movements automatically.",
             "They allowed the machines to run on electricity."
@@ -577,7 +577,7 @@
             "The pump was built to entertain guests, while the boat was built to help farmers water fields.",
             "The pump solved a practical problem, while the boat mainly entertained guests.",
             "Both were built only to tell time.",
-            "Neither one used any moving parts."
+            "Both were built to carry water to farms."
           ],
           "answer": "B",
           "skill": "compare",

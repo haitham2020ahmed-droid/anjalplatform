@@ -117,7 +117,7 @@
             "How to fix a flat bicycle tire at home",
             "How the bicycle changed over time to become safer and more comfortable",
             "Why penny-farthing bicycles are still used today",
-            "How animals were used for transportation long ago"
+            "How animals were used for transportation long ago in cities and towns"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -150,7 +150,7 @@
           "options": [
             "Because its hard wheels made every bump shake the rider",
             "Because it had bones painted on it",
-            "Because it moved as slowly as a walking skeleton",
+            "Because it moved as slowly as a walking skeleton on a walk",
             "Because riders had to shake it to start moving"
           ],
           "answer": "A",
@@ -165,8 +165,8 @@
         {
           "stem": "Based on the article, why did riders of the penny-farthing fall so often?",
           "options": [
-            "Because the bicycle had no wheels at all",
-            "Because the pedals were too small to use",
+            "Because the bicycle had no wheels",
+            "Because the pedals were too small to use with large boots",
             "Because riders sat very high above the ground on a narrow seat",
             "Because the bicycle had no seat"
           ],
@@ -182,7 +182,7 @@
         {
           "stem": "Why did John Boyd Dunlop's air-filled tires make riding better?",
           "options": [
-            "They made the bicycle lighter to carry",
+            "They made the bicycle lighter to carry up stairs and into houses",
             "They cushioned bumps in the road, making rides smoother",
             "They let the bicycle go underwater",
             "They made pedaling unnecessary"
@@ -200,8 +200,8 @@
           "stem": "In the article, what does the word balance mean?",
           "options": [
             "To fall over quickly",
-            "To add more weight to one side",
-            "To ride very fast in this situation in this situation",
+            "To add more weight to one side of the bicycle",
+            "To ride very fast",
             "To keep your body steady without falling"
           ],
           "answer": "D",
@@ -217,8 +217,8 @@
           "stem": "How is this article mostly organized?",
           "options": [
             "It tells the story of the bicycle's invention in the order things happened over time",
-            "It compares bicycles to cars from newest to oldest",
-            "It lists safety rules for riding a bicycle in this situation in this situation in this situation",
+            "It compares bicycles to cars from the newest model to the oldest model on the road",
+            "It lists safety rules for riding a bicycle",
             "It explains how to build a bicycle step by step"
           ],
           "answer": "A",
@@ -295,8 +295,8 @@
           "options": [
             "The bicycle slowly improved through several inventors' ideas, becoming safer and more useful for everyone",
             "Bicycles were invented all at once by one person",
-            "Bicycles were never popular until modern times",
-            "Only wealthy people could afford early bicycles"
+            "Bicycles were not popular until modern times",
+            "Wealthy people were the main buyers of early bicycles, because the machines were too costly for most families"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,7 +310,7 @@
         {
           "stem": "What job is a mechanic doing when working on a machine like an early bicycle?",
           "options": [
-            "Selling the machine to customers",
+            "Selling the machine to customers at a store",
             "Riding the machine competitively",
             "Fixing or building parts of the machine",
             "Drawing pictures of the machine"
@@ -328,7 +328,7 @@
           "stem": "According to the article, what problem did the chain in Starley's safety bicycle solve?",
           "options": [
             "It made the bicycle float on water",
-            "It let the bicycle fold up for storage",
+            "It let the bicycle fold up into a small shape for storage inside a house or a shop",
             "It stopped the tires from going flat",
             "It let the rider connect the pedals to the back wheel without needing a giant front wheel"
           ],
@@ -346,7 +346,7 @@
           "options": [
             "To show that solid tires were actually more comfortable",
             "To explain why air-filled tires cushioned bumps and made riding smoother",
-            "To describe how tires are manufactured in factories today",
+            "To describe how tires are manufactured in large factories today around the world",
             "To compare the cost of rubber and wood"
           ],
           "answer": "B",
@@ -362,7 +362,7 @@
           "stem": "What can you infer about why crowds gathered to watch Drais's running machine roll past?",
           "options": [
             "It looked strange and unfamiliar, since nothing like it existed before",
-            "They had seen many similar machines before and were bored by it",
+            "They had seen many similar machines before and were bored by it on the road",
             "They were waiting in line to buy tickets for a ride",
             "They were following official safety rules"
           ],
@@ -378,10 +378,10 @@
         {
           "stem": "Why does the article give the bicycle's story in the order the inventions happened, rather than starting with the modern bicycle?",
           "options": [
-            "To confuse readers about the timeline in this situation in this situation in this situation",
+            "To confuse readers about the timeline",
             "Because the author could not remember the correct order",
             "To show how each new invention built on and fixed problems from the one before it",
-            "Because later inventions are less important than earlier ones"
+            "Because later inventions are less important than earlier ones, so they should be described at the end"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -395,9 +395,9 @@
         {
           "stem": "According to the article, how did the safety bicycle and pneumatic tires affect ordinary people's lives?",
           "options": [
-            "They made travel more dangerous than before in this situation in this situation in this situation",
+            "They made travel more dangerous than before",
             "They made bicycles too expensive for most families",
-            "They were mainly used for racing, not daily transportation",
+            "They were mainly used for racing, not daily transportation, so few families bought them for their children",
             "They gave many people, including women, a new sense of independence and freedom to travel alone"
           ],
           "answer": "D",
@@ -412,9 +412,9 @@
         {
           "stem": "Which best compares the penny-farthing to the safety bicycle?",
           "options": [
-            "The penny-farthing had two equal wheels, while the safety bicycle had one giant wheel",
+            "The penny-farthing had two equal wheels, while the safety bicycle had one giant wheel in the front",
             "The penny-farthing was fast but dangerous, while the safety bicycle was safer and easier to balance",
-            "Both bicycles used air-filled tires in this situation in this situation in this situation in this situation",
+            "Both bicycles used air-filled tires",
             "Both bicycles were invented by the same person"
           ],
           "answer": "B",
@@ -472,8 +472,8 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "A single invention in 1817 created the modern bicycle exactly as it exists today",
-            "Bicycles have always been less popular than cars throughout history",
+            "A single invention in 1817 created the modern bicycle almost exactly as it exists today, and later inventors changed little about its design",
+            "Bicycles have been less popular than cars throughout history",
             "A series of innovations by different inventors gradually transformed an unsafe, pedal-less machine into the safe, comfortable bicycle used worldwide today",
             "Air-filled tires were the very first improvement made to the bicycle"
           ],
@@ -490,7 +490,7 @@
           "stem": "What does the word apparatus refer to in the early paragraphs of the article?",
           "options": [
             "A set of equipment or a machine built for a specific purpose, such as Drais's two-wheeled device",
-            "A government office that approves new inventions",
+            "A government office that approves new inventions before they can be sold to people in the town",
             "A kind of rubber used only in tires",
             "A document describing how to patent an idea"
           ],
@@ -507,7 +507,7 @@
           "stem": "According to the article, what specific design change let the safety bicycle avoid the dangers of the penny-farthing?",
           "options": [
             "Removing the wheels entirely",
-            "Replacing the seat with a standing platform",
+            "Replacing the seat with a standing platform so riders could see the road around them",
             "Painting the frame a brighter color",
             "Using two wheels of equal size with a chain connecting the pedals to the rear wheel"
           ],
@@ -523,7 +523,7 @@
         {
           "stem": "Based on the article, why was it significant that pneumatic tires could make riding comfortable for people of nearly any age or ability?",
           "options": [
-            "Because it meant the bicycle appealed only to professional athletes",
+            "Because it meant the bicycle appealed mostly to professional athletes, who raced on smooth tracks in big cities with large prizes for the winners",
             "Because it helped the bicycle become an everyday, widely used form of transportation rather than a machine for only a few skilled riders",
             "Because it made bicycles too heavy for children to use",
             "Because it eliminated the need for pedals altogether"
@@ -540,10 +540,10 @@
         {
           "stem": "How does the structure of the article support its main message about innovation?",
           "options": [
-            "By listing disconnected facts about bicycles with no clear order",
-            "By focusing entirely on one single inventor's complete life story",
+            "By listing disconnected facts about bicycles with no clear order, so readers must decide which inventor came first",
+            "By focusing on one single inventor's complete life story",
             "By presenting each invention chronologically, showing how one innovation's weakness motivated the next inventor's solution",
-            "By comparing bicycles only to animals used for travel in this situation in this situation in this situation in this situation"
+            "By comparing bicycles only to animals used for travel"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -558,7 +558,7 @@
           "stem": "What was most likely the author's purpose in including specific inventors' names, like Karl Drais, John Kemp Starley, and John Boyd Dunlop?",
           "options": [
             "To give credit accurately and help readers see the bicycle as the result of several real people's innovations over time",
-            "To entertain readers with unrelated trivia about famous people in this situation in this situation in this situation in this situation",
+            "To entertain readers with unrelated trivia about famous people, such as where they lived and what foods they liked",
             "To suggest that only German inventors contributed to the bicycle",
             "To prove that inventing a bicycle requires a university degree"
           ],
@@ -574,9 +574,9 @@
         {
           "stem": "Which comparison between early bicycles and the modern safety bicycle is best supported by the article?",
           "options": [
-            "The boneshaker had smoother, more comfortable wheels than the modern bicycle",
+            "The boneshaker had smoother, more comfortable wheels than the modern bicycle, so riders felt fewer bumps on the road",
             "The penny-farthing was safer to ride than the safety bicycle",
-            "The running machine already had pneumatic tires in this situation in this situation in this situation in this situation",
+            "The running machine already had pneumatic tires",
             "Early pedal-less machines required more rider effort to balance and move than the chain-driven safety bicycle"
           ],
           "answer": "D",
@@ -593,8 +593,8 @@
           "options": [
             "It discouraged most people from ever leaving their homes",
             "It gave ordinary people, including many women, new personal mobility and independence that had rarely existed before",
-            "It made bicycles available only to professional racers in this situation in this situation in this situation in this situation",
-            "It replaced walking and animal travel completely within a single year"
+            "It made bicycles available only to professional racers",
+            "It replaced walking and animal travel within a single year, as cities removed horses from their streets and roads"
           ],
           "answer": "B",
           "skill": "cause-effect",

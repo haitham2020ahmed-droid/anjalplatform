@@ -149,7 +149,7 @@
           "stem": "What does the big map show?",
           "options": [
             "Only tall mountains and rocks",
-            "Only bright stars and planets",
+            "Bright stars and planets",
             "The coast, towns, and water",
             "A king's old castle and gardens"
           ],
@@ -185,7 +185,7 @@
             "A mistake could send a ship to the wrong harbor",
             "The king is standing right next to him, watching",
             "The map is written in a strange language he cannot read",
-            "Hassan cannot see very well at all in the dim room"
+            "Hassan sees poorly in the dim room"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -216,7 +216,7 @@
         {
           "stem": "What do Omar's careful checks tell you about him?",
           "options": [
-            "He does not like making maps at all",
+            "He does not like making maps",
             "He cannot read the map very well",
             "He pays close attention to small details",
             "He wants to copy the map fast, not well"
@@ -296,7 +296,7 @@
             "An apprentice's careful checking saves a valuable map from a costly mistake",
             "A geographer builds a brand new ship for the king's navy and sails around the world",
             "Palermo is the only city in the world that makes maps, and every mapmaker lives there",
-            "Geographers in this story never make any mistakes at all, so the apprentice has no work"
+            "Geographers in this story rarely make mistakes, so the apprentice has little work"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "A busy market in modern London",
             "Palermo, Sicily, in the twelfth century",
             "A quiet desert far from the sea",
-            "A small ship sailing far from land"
+            "A small ship sailing far from land in the winter"
           ],
           "answer": "B",
           "skill": "detail",
@@ -378,7 +378,7 @@
         {
           "stem": "What can you infer about Hassan from how he reacts to Omar's discovery?",
           "options": [
-            "He does not trust his apprentices at all",
+            "He does not trust his apprentices",
             "He values accuracy and careful work",
             "He is angry that Omar found a mistake",
             "He does not care if the map is accurate"
@@ -474,8 +474,8 @@
           "options": [
             "Scholars in the twelfth century never disagreed about geography, maps, or the shape of the sea",
             "A meticulous apprentice's verification prevents a dangerous error from reaching sailors",
-            "Palermo was the only city with any skilled mapmakers, and no other town in the world had any",
-            "Kings in this century had no interest in geography, and they never asked for any maps"
+            "Palermo was the main city with skilled mapmakers, so other towns sent their maps there",
+            "Kings in this century had little interest in geography, so they rarely asked for maps"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -492,7 +492,7 @@
             "To display the finest geography in his royal library",
             "To replace a ship that had been lost at sea",
             "To settle a dispute between two merchants",
-            "To train new apprentices in painting portraits"
+            "To train new apprentices in painting portraits of the king"
           ],
           "answer": "A",
           "skill": "detail",
@@ -575,7 +575,7 @@
           "stem": "What can readers infer about why Hassan trusted Omar with this task?",
           "options": [
             "Omar was related to the patron himself",
-            "Hassan had no other apprentices available",
+            "Hassan had no other apprentices available that year",
             "Omar had shown patience and care for two years",
             "Omar had sailed on many voyages before"
           ],

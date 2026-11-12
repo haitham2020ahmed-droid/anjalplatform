@@ -219,7 +219,7 @@
             "Because it turns salty if it sits too long in the pipes",
             "Because making it takes hard work and lots of power",
             "Because the pipes are too small to carry it to every house",
-            "Because it is only used for cooking and never for washing"
+            "Because it is mixed with sea water at home"
           ],
           "answer": "B",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best tells the central idea of the article?",
           "options": [
             "Saudi Arabia removes salt from seawater to supply drinking water, using methods that need careful planning.",
-            "Seawater is dangerous, so people should stay away from the beach and never swim in the sea.",
-            "Solar power is the cheapest kind of energy in the world, so every country should use it in every home.",
-            "Coral reefs in the Red Sea are the most beautiful in the world, and divers visit them every year."
+            "Seawater is dangerous to touch, so people should stay away from the beach and swim in pools instead.",
+            "Solar power is the cheapest kind of energy, so Saudi Arabia uses it to cool its homes.",
+            "Coral reefs in the Red Sea are protected by laws, and divers help to keep them clean."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -475,7 +475,7 @@
             "Reverse osmosis will soon replace all other sources of water on Earth, including rivers, wells, and rain, as many experts say.",
             "Desalination supplies Saudi Arabia with vital drinking water, but its energy use and brine must be carefully managed.",
             "Seawater is harmful because it contains fish and coral, which must be removed by a machine before anyone can use the water.",
-            "Riyadh is the largest user of water in the world, and the city takes nearly all of its water from the sea each year."
+            "Riyadh uses more water than other Saudi cities, so most new plants are built near it."
           ],
           "answer": "B",
           "skill": "central-idea",

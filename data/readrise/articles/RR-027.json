@@ -185,7 +185,7 @@
             "Because there is no ground on the Moon",
             "Because you would be wearing a space suit",
             "Because the Moon is smaller and its pull is weaker",
-            "Because the Moon is very cold and has no water at all"
+            "Because the Moon is very cold and has no water"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -233,7 +233,7 @@
         {
           "stem": "Why does the author tell about Isaac Newton?",
           "options": [
-            "To show that he liked to sit under apple trees and eat apples",
+            "To show that he liked to sit under apple trees and eat apples in his garden",
             "To tell who saw that the same pull drops an apple and holds the Moon",
             "To explain how a child can study hard and become a scientist",
             "To show that people long ago could not see the Moon"
@@ -346,7 +346,7 @@
           "options": [
             "Pushes away",
             "Pulls toward itself",
-            "Spins around",
+            "Spins around fast",
             "Breaks apart"
           ],
           "answer": "B",

@@ -166,7 +166,7 @@
           "stem": "The falconer swings a toy called a lure. In this article, a lure is used to —",
           "options": [
             "scare the falcon away",
-            "cover the falcon's eyes completely from light",
+            "cover the falcon's eyes from light",
             "feed the falcon",
             "call the falcon back to the glove"
           ],
@@ -296,7 +296,7 @@
             "Falconry is a brand-new invention.",
             "Falconry is an old desert tradition of training falcons that remains celebrated heritage today.",
             "Falcons are faster than every car on the road.",
-            "Only falconers living in Qatar still practice falconry today, even though many other Gulf countries also celebrate this same ancient tradition."
+            "Falconers living in Qatar are the main people who still practice falconry as a sport today."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -346,7 +346,7 @@
           "options": [
             "a skill the falcon was taught by the falconer",
             "a trick the falcon learns from the lure",
-            "a strict rule that every falconer must always follow closely",
+            "a strict rule that every falconer must follow closely",
             "a natural way of reacting that the falcon is born with"
           ],
           "answer": "D",
@@ -363,7 +363,7 @@
           "options": [
             "The falcon recognizes it and swoops back to the glove.",
             "The falcon ignores it and flies away.",
-            "The hood falls off completely and the falcon becomes startled.",
+            "The hood falls off and the falcon becomes startled.",
             "The falconer puts the falcon in a cage."
           ],
           "answer": "A",
@@ -415,7 +415,7 @@
             "As a very long and overly detailed set of step-by-step cooking instructions for every single meal",
             "As an old tradition explained from its history to how it is practiced and valued today",
             "As a comparison between two sports",
-            "As a completely random list of unrelated facts with absolutely no order or structure at all"
+            "As a random list of unrelated facts with absolutely no order or structure"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -474,8 +474,8 @@
           "options": [
             "Falcons are now extinct in the wild.",
             "Falconry began as a survival skill and is now cherished as heritage, practiced as tradition and sport.",
-            "Robots have now completely and permanently replaced every human falconer in modern falconry competitions held today.",
-            "Falconry is only popular among tourists."
+            "Robots have now and permanently replaced every human falconer in modern falconry competitions held today.",
+            "Falconry is popular mostly among tourists."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -525,7 +525,7 @@
           "options": [
             "a kind of food eaten in the desert",
             "a type of leather glove",
-            "a brand-new invention created recently with no real history at all",
+            "a brand-new invention created recently with no real history",
             "traditions and history passed down through generations"
           ],
           "answer": "D",
@@ -594,7 +594,7 @@
             "Survival no longer depends on hunting, so it became mainly a sport and tradition.",
             "Falcons can no longer fly as fast as before.",
             "It is now illegal to train falcons.",
-            "Festivals completely and entirely replaced the ongoing need for trained falconers everywhere in the region."
+            "Festivals replaced the ongoing need for trained falconers everywhere in the region."
           ],
           "answer": "A",
           "skill": "cause-effect",

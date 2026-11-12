@@ -114,7 +114,7 @@
     {
      "stem": "What is this story mostly about?",
      "options": [
-      "A caravan that gets lost forever in a sandstorm",
+      "A caravan that gets lost in a sandstorm",
       "A young camel senses a sandstorm and earns respect",
       "A kind herder who teaches young camels tricks",
       "A fast race between two different camel caravans"
@@ -398,7 +398,7 @@
       "quickly obeys every command it is given",
       "refuses to change what it is doing, even when pushed",
       "falls asleep in the middle of the day",
-      "likes to travel much faster than all of the older, grown camels"
+      "likes to travel much faster than the older camels"
      ],
      "answer": "B",
      "skill": "vocabulary",
@@ -525,7 +525,7 @@
      "options": [
       "Jaber orders a rest stop for the exhausted camels and the herders, who have walked for hours",
       "Amal leads them toward a hidden well in the dunes where there is water and shade for all",
-      "The caravan always stops at that dune each year to eat, pray, and feed the animals for the night",
+      "The caravan stops at that dune each year to eat, pray, and feed the animals for the night",
       "They notice the wall of sand rising and gauge that a sandstorm is about to strike"
      ],
      "answer": "D",
@@ -542,8 +542,8 @@
      "options": [
       "Some camels may rely on instinct to sense approaching danger before humans do",
       "All camels refuse to walk whenever they are tired or thirsty in the desert",
-      "Camels cannot be trained by Bedouin herders to carry people",
-      "Camels are only useful for carrying heavy loads across the sand"
+      "Camels are hard for Bedouin herders to train",
+      "Camels are mainly useful for carrying heavy loads across the sand"
      ],
      "answer": "A",
      "skill": "inference",
@@ -560,7 +560,7 @@
       "Amal grows larger and stronger than all of the adult camels in the caravan",
       "Amal finds water for the entire caravan in the desert after the storm",
       "Amal's admirable instinct protected the caravan when experience alone could not",
-      "Jaber realizes he misjudged every young camel he has ever met"
+      "Jaber realizes he misjudged most of the young camels he has met"
      ],
      "answer": "C",
      "skill": "inference",
@@ -574,7 +574,7 @@
     {
      "stem": "In the story, to gauge something means to —",
      "options": [
-      "ignore it completely and think about something else",
+      "ignore it and think about something else",
       "judge or measure it carefully",
       "celebrate it with a feast",
       "forget about it quickly"
@@ -592,8 +592,8 @@
      "stem": "Why does the author include the detail that desert travelers have observed camels' behavior before sandstorms for centuries?",
      "options": [
       "To prove that sandstorms occur only once every hundred years in the desert",
-      "To suggest that Jaber alone invented this idea without any real basis",
-      "To argue that camels should always replace human guides entirely",
+      "To suggest that Jaber invented this idea with no real basis",
+      "To argue that camels should replace human guides",
       "To show Amal's instinct reflects a real Bedouin tradition, not mere luck"
      ],
      "answer": "D",

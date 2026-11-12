@@ -182,8 +182,8 @@
         {
           "stem": "What happened to the oryx?",
           "options": [
-            "It was never in danger at all.",
-            "It became extinct and is gone forever.",
+            "It was never in danger.",
+            "It became extinct and is gone now.",
             "It moved to the sea.",
             "It was saved and now runs free again."
           ],
@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell from the oryx story?",
           "options": [
-            "People can never help animals that are in danger.",
+            "People can never help animals that are in danger in the wild.",
             "If people work to protect animals, they can come back.",
-            "Oryx like to live in zoos forever and never go outside.",
-            "Only turtles need help."
+            "Oryx like to live in zoos and stay inside.",
+            "Turtles need more help than oryx."
           ],
           "answer": "B",
           "skill": "inference",
@@ -295,8 +295,8 @@
           "options": [
             "Animals become endangered mainly because of human actions, but people can also help them recover.",
             "Only animals that live on small islands far out at sea become endangered, because they have fewer places to hide.",
-            "The dodo is the only extinct animal that people have ever lost, so the article warns about dodos only.",
-            "Zoos are the only safe place for animals, and no animal can live well in the wild any longer."
+            "The dodo is the best-known extinct animal, so the article warns mainly about dodos.",
+            "Zoos are the safest place for animals, and few animals can live well in the wild today."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -363,7 +363,7 @@
           "options": [
             "The animals move away to the sea.",
             "The animals grow too big to run.",
-            "The habitat gets bigger every year.",
+            "The habitat gets bigger every year in the area.",
             "Not enough adults remain to raise young."
           ],
           "answer": "D",
@@ -474,7 +474,7 @@
           "options": [
             "Human activities push species toward extinction, but protection and reintroduction can reverse the decline.",
             "Extinction is a natural process, so people should never try to stop or slow it, even for the oryx.",
-            "Invasive species are the only threat to wildlife, and people and pollution do no harm to any animal.",
+            "Invasive species are the main threat to wildlife, and pollution does little harm to animals.",
             "The Arabian oryx is still extinct in the wild, and no oryx has been seen in nature for a hundred years."
           ],
           "answer": "A",
@@ -506,10 +506,10 @@
         {
           "stem": "What does the success of the Arabian oryx demonstrate, according to the article?",
           "options": [
-            "That zoos should keep all animals forever behind walls",
+            "That zoos should keep all animals behind walls",
             "That determined conservation efforts can succeed",
             "That hunting helps animal populations to grow again",
-            "That reserves are too small to help any animal"
+            "That reserves are too small to help most animals"
           ],
           "answer": "B",
           "skill": "detail",
@@ -540,10 +540,10 @@
         {
           "stem": "Why are animals that live in only one small area especially at risk?",
           "options": [
-            "They are always slower than other animals.",
+            "They are slower than other animals.",
             "If that one area is destroyed, they have nowhere else to go.",
             "They cannot find mates anywhere because they are too shy.",
-            "They are hunted only by invasive species."
+            "They are hunted mostly by invasive species."
           ],
           "answer": "B",
           "skill": "inference",
@@ -592,7 +592,7 @@
           "stem": "What can be inferred from the mention of the Arabian leopard?",
           "options": [
             "The leopard is no longer in any danger, so nobody needs to protect it.",
-            "The leopard is extinct, so no one will ever see one again.",
+            "The leopard is extinct in the wild, so people see it in zoos.",
             "The leopard harms the oryx, so rangers wanted to remove it.",
             "Saudi Arabia's conservation work did not end with the oryx."
           ],

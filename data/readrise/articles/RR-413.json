@@ -114,7 +114,7 @@
     {
      "stem": "What is this story mostly about?",
      "options": [
-      "A trip the children take to a farm far away",
+      "A trip the children take to a farm far away from the city",
       "A game two children play after school",
       "A robot that learns to tell weeds from vegetables",
       "How to build a robot from a kit"
@@ -165,7 +165,7 @@
     {
      "stem": "Why do Lina and Yousef feel sad when they find the pulled-up plants?",
      "options": [
-      "They do not like gardens at all, even in the spring",
+      "They do not like gardens, even in the spring",
       "They wanted Sprout to water less on hot afternoons",
       "They worked hard to grow those vegetables",
       "They were hoping for rain all week for the new seeds"
@@ -185,7 +185,7 @@
       "So he can sell Sprout to someone else",
       "So the robot does not pull up more good plants",
       "So the children will stop visiting the garden",
-      "So the robot can leave the garden forever"
+      "So the robot can leave the garden"
      ],
      "answer": "B",
      "skill": "inference",
@@ -294,7 +294,7 @@
      "stem": "Which sentence best states the central idea of the story?",
      "options": [
       "Robots can never learn new skills, no matter how hard people try.",
-      "Carrots and tomatoes are the only vegetables worth growing.",
+      "Carrots and tomatoes are the best vegetables to grow.",
       "Community gardens are too much work for children to help with.",
       "A robot makes mistakes but learns to tell plants apart correctly."
      ],
@@ -361,8 +361,8 @@
     {
      "stem": "What can you infer about Mr. Faisal from how he reacts to Sprout's mistake?",
      "options": [
-      "He does not care at all whether Sprout works correctly.",
-      "He plans to take Sprout away from the garden forever and ever.",
+      "He does not care whether Sprout works correctly.",
+      "He plans to take Sprout away from the garden for good.",
       "He blames Lina and Yousef for the whole mistake entirely.",
       "He wants to solve the problem and will work with the children."
      ],
@@ -379,8 +379,8 @@
      "stem": "In the story, the word recognize means —",
      "options": [
       "to notice and correctly identify something",
-      "to water a plant carefully every day",
-      "to pull a plant out of the ground completely",
+      "to water a plant carefully every day in the garden",
+      "to pull a plant out of the ground",
       "to build a brand-new kind of machine"
      ],
      "answer": "A",
@@ -398,7 +398,7 @@
       "By comparing two different gardens in every paragraph",
       "By listing steps for building a robot from scratch",
       "By introducing the garden and robot, then solving the problem",
-      "By telling the story backward, starting with the ending"
+      "By telling the story backward, starting with the ending of the story"
      ],
      "answer": "C",
      "skill": "text-structure",
@@ -472,9 +472,9 @@
     {
      "stem": "Which statement best expresses the central idea of the story?",
      "options": [
-      "Community gardens should never use any robots for chores at all.",
-      "Mr. Faisal regrets building Sprout and plans to dismantle it completely.",
-      "Carrots and tomatoes cannot ever grow in the same garden together.",
+      "Community gardens should never use any robots for chores.",
+      "Mr. Faisal regrets building Sprout and plans to take it apart.",
+      "Carrots and tomatoes grow poorly in the same garden.",
       "An experimental robot struggles but adapts through collaboration."
      ],
      "answer": "D",
@@ -524,9 +524,9 @@
      "stem": "Why might an experimental robot like Sprout especially need this kind of careful teaching?",
      "options": [
       "Because experimental machines are never tested before use",
-      "Because experimental robots cannot be fixed once they make a mistake",
+      "Because experimental robots are hard to fix after a mistake",
       "Because its abilities are not yet fully proven",
-      "Because the garden requires no watering or weeding at all"
+      "Because the garden requires no watering or weeding"
      ],
      "answer": "C",
      "skill": "inference",
@@ -540,9 +540,9 @@
     {
      "stem": "What does the ending of the story suggest about the relationship between human effort and machine learning?",
      "options": [
-      "Machines learn complex tasks instantly, without any human help.",
-      "Machines eventually stop needing any adjustment once they are built.",
-      "Humans and machines cannot successfully work on the same task.",
+      "Machines learn complex tasks instantly, without any human help or training.",
+      "Machines stop needing adjustment once they are built.",
+      "Humans and machines work poorly on the same task.",
       "Careful human guidance can help a machine adapt and improve over time."
      ],
      "answer": "D",
@@ -574,7 +574,7 @@
     {
      "stem": "Why does the author end the story with a reflection on patience and collaboration?",
      "options": [
-      "To suggest that machines should always be trusted without question",
+      "To suggest that machines should be trusted without question",
       "To highlight that mistakes can lead to improvement",
       "To explain the exact steps for programming a robot",
       "To argue that children should not be allowed near machines"

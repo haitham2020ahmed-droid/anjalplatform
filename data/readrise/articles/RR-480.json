@@ -165,7 +165,7 @@
         {
           "stem": "Why did Devol's robot arm keep working all day without a break?",
           "options": [
-            "Because it had no parts inside it at all",
+            "Because it had no parts inside it",
             "Because it was open for just one single day",
             "Because it did not need rest like a person",
             "Because it was heavier than any other machine"
@@ -185,7 +185,7 @@
             "It was replaced right away by an older tool",
             "No one liked it, so it quickly broke",
             "It became a big step many plants later used",
-            "It was never used by anyone at all"
+            "Few people used it"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -216,10 +216,10 @@
         {
           "stem": "Where do robots help today, as the text says?",
           "options": [
-            "Only ever in large boats at sea",
+            "In large boats at sea, and in caves and deserts",
             "In plants, in clinics, and even in space",
-            "Only ever inside tall mountains",
-            "Only ever in cold winter storms"
+            "Inside tall mountains",
+            "In cold winter storms"
           ],
           "answer": "B",
           "skill": "detail",
@@ -236,7 +236,7 @@
             "They do jobs that are hard or not safe",
             "They cost a very large amount of money",
             "They are used only by professional athletes",
-            "They replace reading for every single person"
+            "They replace reading for most people"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,7 +294,7 @@
           "stem": "What is the central idea of this article?",
           "options": [
             "Robots were only ever fictional and were never actually built",
-            "No one has ever built a machine to help with dangerous work",
+            "Devol built a robot that cooks meals in homes",
             "Devol built a robot arm that took on dangerous factory jobs",
             "Devol built his robot mainly to make money quickly"
           ],
@@ -311,7 +311,7 @@
           "stem": "According to the article, what were early robots like, before the 1950s?",
           "options": [
             "They were connected directly to electric wires",
-            "They could only be used inside a school building",
+            "They could only be used inside a school building for lessons",
             "They were owned only by wealthy engineers",
             "They were only fictional, appearing in stories and plays"
           ],
@@ -327,7 +327,7 @@
         {
           "stem": "What personal experience shaped Devol's decision to build his robot arm?",
           "options": [
-            "He had spent years studying painting in another country",
+            "He had spent years studying painting in another country for a few months",
             "He once owned a large shipping company near the coast",
             "He had designed a large robot arm and knew its promise firsthand",
             "He had never worked with machines or electronics before"
@@ -344,7 +344,7 @@
         {
           "stem": "Why was it important for the robot arm to never grow tired or complain?",
           "options": [
-            "It made the robot far easier to hide from view",
+            "It made the robot far easier to hide from view in the factory",
             "It let the robot handle repeated, dangerous work safely",
             "It required much more light to use at night",
             "It made the robot impossible to carry anywhere"
@@ -363,7 +363,7 @@
           "options": [
             "Because it was only ever used by professional athletes",
             "Likely because it solved a problem many factories shared",
-            "Because a new law required every machine to copy it",
+            "Because a new law required machines to copy it",
             "Because no other robot was ever built again"
           ],
           "answer": "B",
@@ -396,7 +396,7 @@
           "stem": "How is this article mostly organized?",
           "options": [
             "As step-by-step instructions for repairing an old machine",
-            "As a comparison of two completely unrelated inventions",
+            "As a comparison of two unrelated inventions",
             "As a sequence of events describing a problem and its solution",
             "As a scattered list of random facts about outer space"
           ],
@@ -412,9 +412,9 @@
         {
           "stem": "What happened to Devol's working design over time?",
           "options": [
-            "It replaced human workers completely in every job",
+            "It replaced human workers in every job",
             "It was quickly forgotten by nearly everyone involved",
-            "It was banned from being used in any country",
+            "It was banned from use in most countries",
             "It became the model most factory robots still follow"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
             "Devol's personal drive to solve a safety problem led to a machine that became the lasting standard",
-            "Machines for factory work were never attempted before the twentieth century",
-            "Factory injuries have never truly been a problem for most workers",
-            "Industrial robots are only useful for professional athletes"
+            "Machines for factory work were rarely attempted before the twentieth century, so Devol copied old designs",
+            "Factory injuries have rarely been a problem for most workers",
+            "Industrial robots are useful mainly for professional athletes"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, how did Devol's background shape his invention?",
           "options": [
-            "He had never studied machines or electronics at all",
-            "He designed the entire machine purely from distant guesswork",
+            "He had never studied machines or electronics",
+            "He designed the entire machine purely from distant guesswork about robots",
             "He experimented with mechanical arms built for isolated demonstrations",
-            "He had no interest in solving factory problems of any kind"
+            "He had no interest in solving factory problems"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,7 +506,7 @@
         {
           "stem": "What evidence suggests early fictional robots were genuinely different from Devol's machine, not simply undocumented?",
           "options": [
-            "They were brightly painted and somewhat difficult to clean",
+            "They were brightly painted and somewhat difficult to clean after each use in factories",
             "They required an unusual amount of natural sunlight to use",
             "They were purely fictional and impossible to build with the technology at the time",
             "They were too small to be printed clearly in any book"
@@ -543,7 +543,7 @@
             "It was required everywhere by a brand-new international law",
             "No other industrial robot was ever built again after this one",
             "It likely solved a problem that many factories and workers shared",
-            "It was only ever used by a small group of professional performers"
+            "It was used mainly by a small group of professional performers"
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,8 +574,8 @@
         {
           "stem": "How does the article primarily structure its account of the robot's development?",
           "options": [
-            "By presenting two opposing viewpoints without any real resolution",
-            "By comparing several completely unrelated writing systems",
+            "By presenting two opposing viewpoints without any real resolution between the two sides",
+            "By comparing several unrelated writing systems",
             "By listing a series of unrelated facts about Kentucky generally",
             "By tracing a problem through a specific solution to its lasting modern impact"
           ],
@@ -592,8 +592,8 @@
           "stem": "Based on the article, which outcome most directly resulted from Devol's industrial robot?",
           "options": [
             "Teaching quickly became the only career ever open to engineers",
-            "All factories everywhere switched entirely to robots within years",
-            "Human workers became completely unnecessary in every factory",
+            "Most factories switched to robots within years",
+            "Human workers became unnecessary in most factories",
             "Millions of workers gained a dependable way to avoid dangerous tasks"
           ],
           "answer": "D",

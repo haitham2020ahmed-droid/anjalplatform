@@ -201,7 +201,7 @@
           "options": [
             "It is a new invention made last year",
             "No one wants to learn it in the town",
-            "It is only taught in schools to children",
+            "It is taught mostly in schools to children",
             "The skill passes down and stays alive"
           ],
           "answer": "D",
@@ -216,7 +216,7 @@
         {
           "stem": "In the article, people \"fix up\" old mud walls. What does fix up mean here?",
           "options": [
-            "Tear the entire building down completely and totally",
+            "Tear the entire building down and totally",
             "Paint a different color",
             "Repair so the walls look good again",
             "Sell to a new owner"
@@ -295,8 +295,8 @@
           "options": [
             "Builders in Najd use mud brick, a locally made material, to build homes that stay comfortable and are decorated with careful patterns.",
             "Riyadh is the only city in Najd, and all the builders there come from other countries to work.",
-            "Mud brick cannot be used to decorate walls, so builders always cover the bricks with plain paint.",
-            "Modern homes everywhere are built from mud brick today, and builders no longer use cement, steel or concrete in any country for new houses."
+            "Mud brick is hard to decorate, so builders cover the bricks with plain paint.",
+            "Modern homes are built from mud brick today, and builders rarely use cement, steel or concrete for new houses in Najd and across the region."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -364,7 +364,7 @@
             "Because the clay is easier to shape and carve while it is still soft",
             "Because dry clay is softer than wet clay, so builders wait for the sun",
             "Because carving is only possible after the brick is painted with colors",
-            "Because the sun cannot dry carved clay, so it stays wet for a long time"
+            "Because the sun dries carved clay slowly, so it stays wet for a long time"
           ],
           "answer": "A",
           "skill": "inference",
@@ -379,8 +379,8 @@
           "stem": "The article calls the triangle shapes and careful carving \"decorative.\" What does decorative mean here?",
           "options": [
             "Dangerous to touch",
-            "Only found on modern buildings",
-            "Hidden completely from everyone's view at all times",
+            "Found mostly on modern buildings in cities",
+            "Hidden from everyone's view",
             "Made to look attractive, not just useful"
           ],
           "answer": "D",
@@ -412,8 +412,8 @@
         {
           "stem": "How is mud-brick building today different from mud-brick building long ago?",
           "options": [
-            "It has always been exactly the same, with no change at all",
-            "Long ago almost no one used it at all; today every single home uses it everywhere",
+            "It has been exactly the same, with no change",
+            "Long ago almost no one used it; today every single home uses it",
             "It was common long ago; today very few homes use it",
             "Long ago it used glass; today it uses clay"
           ],
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Mud-brick architecture in Najd combines a practical response to the desert climate with a decorative, skill-based craft passed down through generations.",
-            "Mud brick is the only building material ever used anywhere in Saudi Arabia, in every town and city, so no stone houses exist at all.",
-            "The desert climate of Najd makes any kind of building impossible, so people live only in tents and never make houses from any material.",
-            "Geometric patterns are found only in modern architecture, never in traditional buildings, and old houses in Najd were all plain, bare, and empty."
+            "Mud brick is the main building material used in Saudi Arabia today, in most towns and cities, so few stone or concrete houses exist there now.",
+            "The desert climate of Najd makes building very hard, so people lived mostly in tents rather than houses.",
+            "Geometric patterns are found mostly in modern architecture, and old houses in Najd were plain and bare."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,7 +506,7 @@
         {
           "stem": "How does the thickness of mud-brick walls affect temperature inside the home, according to the article?",
           "options": [
-            "It has no effect on indoor temperature at all",
+            "It has no effect on indoor temperature",
             "Thick walls block daytime heat and release warmth at night",
             "Thick walls make the home hotter both day and night",
             "Thick walls only matter for how the home looks to visitors passing by outside"
@@ -541,7 +541,7 @@
           "stem": "Which sequence correctly reflects the order of steps described for building with mud brick?",
           "options": [
             "Mix clay, water, and straw; press into a mold; dry in the sun; carve patterns before the clay fully hardens",
-            "Carve decorative patterns; mix clay, water, and straw; dry the brick in the sun; build the wall",
+            "Carve decorative patterns; mix clay, water, and straw; dry the brick in the sun; build the wall; paint the wall",
             "Dry the brick in the sun; mix clay, water, and straw; carve patterns; press into a mold",
             "Build the wall; mix clay, water, and straw; carve patterns; dry in the sun"
           ],

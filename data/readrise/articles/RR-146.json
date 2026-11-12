@@ -312,8 +312,8 @@
           "options": [
             "Three out of four",
             "Only one out of ten",
-            "None of them at all",
-            "All of them, always"
+            "One out of ten",
+            "Nine out of ten"
           ],
           "answer": "A",
           "skill": "detail",

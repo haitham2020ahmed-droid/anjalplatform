@@ -117,7 +117,7 @@
             "How kings used to build new cities and tall houses long ago",
             "A scholar who studied many subjects and learned to break codes",
             "A story about a clever bird that could sing and tell time",
-            "Why letters of the alphabet are always written in a set order"
+            "Why letters of the alphabet are written in a set order"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -217,9 +217,9 @@
           "stem": "What happened because Al-Kindi counted how often letters appeared?",
           "options": [
             "He could crack secret codes by guessing each hidden letter",
-            "The king suddenly stopped paying any scholars to study at all",
-            "People completely stopped using codes to hide messages at all",
-            "Old books stopped being translated into any new languages"
+            "The king suddenly stopped paying any scholars to study",
+            "People stopped using codes to hide messages",
+            "Old books stopped being translated into new languages"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -295,8 +295,8 @@
           "options": [
             "Al-Kindi only ever cared about building houses of wisdom",
             "Al-Kindi's wide learning and clever cipher-breaking still matter today",
-            "Kings in Baghdad built the very tallest buildings in the world",
-            "Most scholars before Al-Kindi already knew how to break any code"
+            "Kings in Baghdad built the very tallest buildings in the world at that time",
+            "Most scholars before Al-Kindi already knew how to break codes"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "A kind of code that hides a message using new symbols",
             "A tool that scholars used only for building houses of wisdom",
             "A kind of music that scholars once wrote and performed",
-            "A list of every single book that Al-Kindi ever translated"
+            "A list of the books that Al-Kindi translated"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -328,9 +328,9 @@
           "stem": "What topics did Al-Kindi write about, based on the article?",
           "options": [
             "Only music, and nothing else throughout his entire whole life",
-            "Only the stars and planets far above in the night sky",
+            "The stars and planets far above in the night sky",
             "Math, medicine, the stars, and music, among many other topics",
-            "Only secret codes, and nothing else of any real importance"
+            "Secret codes, and little else of real importance"
           ],
           "answer": "C",
           "skill": "detail",
@@ -379,8 +379,8 @@
           "stem": "What happened because Al-Kindi counted letter frequency in messages?",
           "options": [
             "He could analyze the patterns and guess the hidden letters",
-            "Rulers everywhere decided to stop using any ciphers at all",
-            "Scholars completely stopped translating any old books into Arabic",
+            "Rulers everywhere decided to stop using any ciphers",
+            "Scholars stopped translating old books into Arabic",
             "The great house of wisdom closed down soon after that happened"
           ],
           "answer": "A",
@@ -413,9 +413,9 @@
           "stem": "How is translating old books similar to cracking a cipher, based on the article?",
           "options": [
             "Both require turning something hard to read into something clear",
-            "Both were done without any other scholars helping him at all",
-            "Both happened only one single time in all of Al-Kindi's life",
-            "Neither one is connected to Al-Kindi's work in any real way"
+            "Both were done without other scholars helping him in Baghdad",
+            "Both happened one time in Al-Kindi's life",
+            "Both were done mostly by his students"
           ],
           "answer": "A",
           "skill": "compare",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Al-Kindi invented every single kind of cipher that has ever existed",
+            "Al-Kindi invented most kinds of ciphers used today",
             "Al-Kindi's broad work and pioneering cryptography still influence scholars today",
-            "Baghdad was the only city in history with a house of wisdom",
-            "Breaking ciphers was Al-Kindi's only real interest throughout his life"
+            "Baghdad was the first city in history with a house of wisdom",
+            "Breaking ciphers was Al-Kindi's main interest throughout his life and his whole career"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -490,8 +490,8 @@
           "stem": "According to the article, what does it mean to decipher a message?",
           "options": [
             "To figure out what a secret message actually says in plain words",
-            "To build an entirely brand new cipher completely from scratch",
-            "To translate a whole book from Greek into Arabic instead",
+            "To build an brand new cipher from scratch",
+            "To translate a whole book from Greek into Arabic instead for the king",
             "To count how many pages a long treatise happens to have"
           ],
           "answer": "A",
@@ -526,7 +526,7 @@
             "He focused only on cryptography and ignored every other subject",
             "He explored many different fields instead of just one narrow area",
             "He avoided philosophy because it conflicted with his own beliefs",
-            "He wrote nothing at all about either mathematics or medicine"
+            "He wrote little about mathematics or medicine"
           ],
           "answer": "B",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "How did counting letter frequency affect Al-Kindi's ability to break ciphers?",
           "options": [
             "It let him analyze patterns and identify which letters were hidden",
-            "It made every cipher completely impossible for anyone to break",
-            "It convinced rulers everywhere to abandon using ciphers altogether",
-            "It had no real effect on his cryptography work at all"
+            "It made every cipher impossible for anyone to break",
+            "It convinced rulers to stop using ciphers in their letters to friends",
+            "It had no real effect on his cryptography work"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -560,7 +560,7 @@
             "He lived in Baghdad during a remarkable time of great learning",
             "He relied on a whole team of scholars to do his writing",
             "He wrote more than two hundred treatises across many fields",
-            "He kept his clever cipher-breaking method a secret forever"
+            "He kept his clever cipher-breaking method a secret"
           ],
           "answer": "C",
           "skill": "detail",
@@ -575,9 +575,9 @@
           "stem": "How is Al-Kindi's work on philosophy similar to his work on cryptography, based on the article?",
           "options": [
             "Both show his pioneering approach to introducing genuinely new ideas",
-            "Both were written only in Greek, and never once in Arabic",
-            "Neither one required any careful, original thinking on his part",
-            "Both were completed entirely by other scholars, and not by him"
+            "Both were written in Greek rather than in Arabic",
+            "Both were copied from older Greek books",
+            "Both were completed by other scholars, and not by him in Baghdad"
           ],
           "answer": "A",
           "skill": "compare",
@@ -593,7 +593,7 @@
           "options": [
             "To show why his pioneering breadth of thought is still remembered",
             "To argue that modern scholars no longer have any need for ciphers",
-            "To list out every single treatise that Al-Kindi ever wrote",
+            "To list the treatises that Al-Kindi wrote",
             "To explain in detail exactly how modern computers work today"
           ],
           "answer": "A",

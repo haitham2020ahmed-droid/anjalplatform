@@ -150,7 +150,7 @@
           "options": [
             "About a month",
             "One day",
-            "One week",
+            "About one week",
             "One year"
           ],
           "answer": "A",
@@ -185,7 +185,7 @@
             "A shadow from Earth",
             "The side the Sun is not lighting",
             "A big hole in the Moon",
-            "A cloud in front of the Moon"
+            "A cloud in front of the Moon at night"
           ],
           "answer": "B",
           "skill": "inference",
@@ -199,7 +199,7 @@
         {
           "stem": "In what order does the Moon seem to grow?",
           "options": [
-            "Full Moon, then half Moon, then crescent",
+            "Full Moon, then half Moon, then crescent, in one week",
             "Half Moon, then no Moon, then full Moon",
             "Thin crescent, then half Moon, then full Moon",
             "Full Moon, then no Moon, then half Moon"
@@ -312,8 +312,8 @@
           "options": [
             "Exactly half",
             "Only a thin crescent",
-            "All of it",
-            "None of it during the new Moon"
+            "Most of it",
+            "A quarter of it"
           ],
           "answer": "A",
           "skill": "detail",
@@ -361,7 +361,7 @@
         {
           "stem": "Why is the Moon almost invisible at the new Moon?",
           "options": [
-            "Clouds always cover it then, all night.",
+            "Clouds cover it then, all night.",
             "Its sunlit side faces away from us.",
             "It stops reflecting light for a few days.",
             "Earth's shadow hides it from the Sun."
@@ -507,7 +507,7 @@
           "stem": "Why does the Moon always keep the same side turned toward Earth?",
           "options": [
             "It takes as long to rotate once as to orbit Earth.",
-            "It does not rotate at all as it moves around Earth.",
+            "It does not rotate as it moves around Earth in space.",
             "Earth's shadow holds it in place.",
             "The Sun lights only that side."
           ],

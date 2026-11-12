@@ -182,9 +182,9 @@
         {
           "stem": "Why do astronauts use a liquid form of salt and pepper instead of the loose kind?",
           "options": [
-            "Liquid tastes better than loose salt and pepper",
+            "Liquid tastes better than loose salt and pepper on the station",
             "Liquid is cheaper to send to space",
-            "Astronauts are not allowed to use salt at all",
+            "Astronauts are not allowed to use salt",
             "Loose bits could float into the air and cause problems"
           ],
           "answer": "D",
@@ -219,7 +219,7 @@
             "Spicy food floats less than other food",
             "Food can taste less strong in space, so bold flavors help",
             "Spicy food does not need any water added",
-            "Spicy food is the only kind allowed on the station"
+            "Spicy food stays fresh longer than other food on the station"
           ],
           "answer": "B",
           "skill": "inference",
@@ -295,7 +295,7 @@
           "options": [
             "Space food must be specially packaged and eaten with great care because of floating crumbs and drops",
             "Astronauts only eat fresh fruit while they are in space, because it is the lightest food they can carry",
-            "All space food tastes exactly the same as food on Earth, so it needs no special packages at all",
+            "Space food tastes the same as food on Earth, so it needs few special packages",
             "Space food is prepared the same way as food served on airplanes, and it is kept in plain paper boxes"
           ],
           "answer": "A",
@@ -378,7 +378,7 @@
         {
           "stem": "Why might astronauts' food taste less flavorful while they are in space?",
           "options": [
-            "Space food never contains any seasoning at all, so it tastes plain",
+            "Space food never contains any seasoning, so it tastes plain",
             "Astronauts are not allowed to taste their food in space",
             "Food loses its flavor the moment it is packaged in a bag",
             "Shifting body fluids give them a feeling like a stuffy nose"
@@ -413,7 +413,7 @@
           "stem": "How is thermostabilized food different from dehydrated food, according to the article?",
           "options": [
             "Thermostabilized food is cooked and sealed, while dehydrated food has its water removed",
-            "Thermostabilized food must be frozen, while dehydrated food is always fresh",
+            "Thermostabilized food must be frozen, while dehydrated food is fresh",
             "Thermostabilized food is only for drinks, while dehydrated food is only for snacks",
             "There is no real difference between the two types"
           ],
@@ -489,9 +489,9 @@
         {
           "stem": "According to the article, why are thermostabilized foods useful for long missions?",
           "options": [
-            "They never need to be opened or sealed, so they last forever",
+            "They never need to be opened or sealed, so they last",
             "They remain safe to eat without refrigeration for many months",
-            "They are the only food astronauts are allowed to eat in space",
+            "They are the main food astronauts are allowed to eat in space",
             "They must be eaten within a single day of preparation or they spoil"
           ],
           "answer": "B",
@@ -560,7 +560,7 @@
             "Salt crystals are heavier than bread crumbs and fall faster, so they land on the floor of the cabin more quickly",
             "A salt crystal could be just as likely to enter a vent, and either could threaten delicate electronics",
             "Bread crumbs dissolve instantly in the air, unlike salt, which stays in the cabin for days",
-            "Salt crystals are too large to float at all in microgravity, so they stay on the table"
+            "Salt crystals are too large to float in microgravity, so they stay on the table"
           ],
           "answer": "B",
           "skill": "inference",

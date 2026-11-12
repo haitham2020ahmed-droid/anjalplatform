@@ -114,10 +114,10 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            "how farmers grow food without using any water at all",
+            "how farmers grow food without using any water",
             "how people learned to turn salty sea water into fresh water we can drink",
-            "why the ocean is bigger than any lake on Earth",
-            "how people built boats to sail across the salty sea"
+            "why the ocean is bigger than lakes on Earth",
+            "how people built boats to sail across the salty sea to trade with far countries"
           ],
           "answer": "B",
           "skill": "central idea",
@@ -132,8 +132,8 @@
           "stem": "Why can't people drink water straight from the sea?",
           "options": [
             "the sea water is far too salty for people to drink",
-            "the sea water is always too cold to drink safely",
-            "the sea water has no water in it at all",
+            "the sea water is too cold to drink safely",
+            "the sea water has no water in it",
             "the sea water turns to ice as soon as it is touched"
           ],
           "answer": "A",
@@ -150,7 +150,7 @@
           "options": [
             "a deep hole dug into the sand near the shore",
             "a wooden box filled with dry desert sand",
-            "a glass jar left out under the cold night sky",
+            "a glass jar left out under the cold night sky in the desert",
             "a pot that they heated until the water turned to steam"
           ],
           "answer": "D",
@@ -166,7 +166,7 @@
           "stem": "Why does the salt get left behind when the water turns into steam?",
           "options": [
             "because the steam rises up while the heavy salt stays in the pot",
-            "because the salt melts completely and disappears forever",
+            "because the salt melts and disappears",
             "because the pot itself magically changes the salt into sugar",
             "because the cool air outside pushes the salt out of the pot"
           ],
@@ -184,8 +184,8 @@
           "options": [
             "because that land has too much rain and floods every year",
             "because that land gets very little rain, so fresh water is hard to find naturally",
-            "because that land has no ocean nearby to use at all",
-            "because that land never needs fresh water for homes or farms"
+            "because that land has no ocean nearby to use",
+            "because that land needs little fresh water for its homes, farms, or factories"
           ],
           "answer": "B",
           "skill": "inference",
@@ -217,7 +217,7 @@
           "stem": "Why does the author describe the steam touching something cool after it rises?",
           "options": [
             "to explain why the pot becomes too hot to touch",
-            "to show why the sea water never actually boils at all",
+            "to show why the sea water does not really boil in the pot over the fire",
             "to explain how the steam turns back into fresh water without any salt",
             "to describe how clouds form naturally high in the sky"
           ],
@@ -234,9 +234,9 @@
           "stem": "What happens right after the rising steam touches something cool?",
           "options": [
             "it turns back into plain water that has no salt left in it",
-            "it disappears completely and leaves nothing behind at all",
-            "it turns into ice that cannot be used for drinking",
-            "it mixes back together with the salt it left behind"
+            "it disappears and leaves nothing behind",
+            "it turns into ice that is too salty to drink",
+            "it mixes back together with the salt it left behind in the pot"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of this passage?",
           "options": [
-            "farmers around the world have completely stopped using water to grow their crops",
+            "farmers around the world have stopped using water to grow their crops",
             "the ocean is slowly running out of water due to rising temperatures",
             "an old method for removing salt from water grew into a modern tool that helps dry places",
-            "scientists recently discovered a brand new ocean hidden beneath the desert"
+            "scientists recently discovered a brand new ocean hidden beneath the desert in the region"
           ],
           "answer": "C",
           "skill": "central idea",
@@ -311,8 +311,8 @@
           "stem": "According to the passage, why can't people simply drink water straight from the sea?",
           "options": [
             "it contains far too much salt for the body to handle",
-            "it is always too cold for the human body to drink",
-            "it contains no actual water molecules at all",
+            "it is too cold for the human body to drink",
+            "it contains no actual water molecules",
             "it instantly freezes the moment someone tries to drink it"
           ],
           "answer": "A",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does the passage describe this method as feeling \"almost like a small magic trick\" to someone watching?",
           "options": [
-            "because the pot used in the process is actually invisible to onlookers",
+            "because the pot used in the process is actually invisible to onlookers, so the water seems to clean itself",
             "because it seems surprising that salty water could become perfectly clean water through such a simple process",
-            "because the water genuinely disappears and never comes back at all",
-            "because the salt turns into a completely different, edible food"
+            "because the water genuinely disappears and never comes back",
+            "because the salt turns into a different, edible food"
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,7 +395,7 @@
         {
           "stem": "Why might the author have chosen to describe the simple pot method before describing the huge modern plants?",
           "options": [
-            "to prove that modern plants do not actually use the same basic idea",
+            "to prove that modern plants do not use the same basic idea, since they work in a different way",
             "to argue that the pot method worked better than today's big plants",
             "to help readers understand the basic idea before seeing how it grew into something much bigger",
             "to show that fresh water was never truly needed by anyone long ago"
@@ -413,9 +413,9 @@
           "stem": "What is the correct order of events in how this method works?",
           "options": [
             "salty water is boiled, it rises as steam leaving salt behind, and then it cools back into fresh water",
-            "fresh water is boiled first, and only then does salt get added to it",
+            "fresh water is boiled first, and then salt is added to it, so the water turns salty again and bitter",
             "steam cools into fresh water before it is ever boiled in a pot",
-            "salt is removed completely before the water is even placed in a pot"
+            "salt is removed before the water is even placed in a pot"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -474,8 +474,8 @@
           "options": [
             "both are methods people developed to remove salt from seawater, though reverse osmosis works on a far larger scale",
             "both methods were abandoned long ago in favor of simply drinking seawater directly",
-            "both methods are used only to remove salt from freshwater lakes, never from the sea",
-            "both methods require no energy or machinery of any kind to operate"
+            "both methods are used mainly to remove salt from freshwater lakes, and they are rarely used with water from the sea",
+            "both methods require no energy or machinery to operate"
           ],
           "answer": "A",
           "skill": "central idea",
@@ -489,7 +489,7 @@
         {
           "stem": "According to the passage, what does reverse osmosis use to separate salt from seawater?",
           "options": [
-            "a large pot that is heated until the seawater turns into steam",
+            "a large pot that is heated until the seawater turns into steam and leaves the salt behind",
             "a giant net that physically catches grains of floating salt",
             "specialized membranes with microscopic pores too small for salt particles to pass through",
             "a chemical that instantly dissolves salt into harmless gas"
@@ -525,7 +525,7 @@
           "options": [
             "to argue that modern methods have nothing in common with the original idea",
             "to suggest that engineers have actually made the process less efficient over time",
-            "to prove that desalination has remained completely unchanged since it began",
+            "to prove that desalination has remained unchanged since it began",
             "to show that today's advanced methods built directly on simple ideas discovered long ago"
           ],
           "answer": "D",
@@ -574,7 +574,7 @@
         {
           "stem": "Why might the author have ended the passage by emphasizing that demand for fresh water keeps rising?",
           "options": [
-            "to argue that desalination plants will soon be completely unnecessary",
+            "to argue that desalination plants will soon be unnecessary",
             "to prove that fresh water demand has actually been falling for years",
             "to suggest desalination will likely stay important, or grow even more so",
             "to suggest that rainfall in arid regions will increase significantly soon"

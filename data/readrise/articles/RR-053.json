@@ -202,7 +202,7 @@
       "The sand there was softer to build on and to walk",
       "People could get water there to live and farm.",
       "Oases were far from any trees and from the roads",
-      "Camels would not walk any farther in the heat of day"
+      "Camels liked the shade of the palm trees there"
      ],
      "answer": "B",
      "skill": "inference",
@@ -218,7 +218,7 @@
      "options": [
       "To make the dates taste sweeter",
       "To keep camels away from plants",
-      "To bring more rain to the desert",
+      "To bring more rain to the desert each year",
       "To save water so it does not run out"
      ],
      "answer": "D",
@@ -294,9 +294,9 @@
      "stem": "Which sentence best states the central idea of the article?",
      "options": [
       "Oases hold underground water that lets people farm and live in the desert, but it must be used carefully.",
-      "Date palms are the tallest trees that grow in Saudi Arabia, and they need no water at all.",
+      "Date palms are the tallest trees that grow in Saudi Arabia, and they need no water.",
       "Camel caravans were the fastest way to travel long ago, so oases were never needed by travelers or merchants in the desert.",
-      "Al-Ahsa has more than two million palm trees, which is more than any other place in the world."
+      "Al-Ahsa has more than two million palm trees, which makes it a busy place for trade."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -330,7 +330,7 @@
       "Only grass for camels",
       "Fruit trees, with vegetables beneath them",
       "Cactus plants with sharp spines",
-      "Nothing, because the shade is too dark"
+      "Grass, because the shade keeps it green"
      ],
      "answer": "B",
      "skill": "detail",
@@ -557,7 +557,7 @@
     {
      "stem": "Why might the author call oases \"islands\" in the title?",
      "options": [
-      "They are completely surrounded by ocean water.",
+      "They are surrounded by ocean water.",
       "They can only be reached by boat or by ship.",
       "They float on top of large underground lakes.",
       "They are green spots surrounded by dry sand."
@@ -574,7 +574,7 @@
     {
      "stem": "Why does the author mention that much of the aquifer water fell as rain thousands of years ago?",
      "options": [
-      "To prove that Arabia has always been very dry",
+      "To prove that Arabia has been very dry",
       "To show the water is hard to replace once used",
       "To describe how camel caravans found the oases",
       "To explain why the dates of Al-Ahsa are sweet"

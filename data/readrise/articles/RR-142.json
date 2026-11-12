@@ -184,8 +184,8 @@
           "options": [
             "It used many people and lots of time.",
             "It needed just one person and one mountain.",
-            "It did not use any math at all.",
-            "It was done on flat land only, not on hills."
+            "It did not use any math.",
+            "It was done on flat land, not on hills near the sea."
           ],
           "answer": "B",
           "skill": "compare",
@@ -199,7 +199,7 @@
         {
           "stem": "What can you tell about Al-Biruni from this article?",
           "options": [
-            "He did not like to read or study at all.",
+            "He did not like to read or study.",
             "He gave up when things were hard for him.",
             "He was curious and liked hard problems.",
             "He only cared about the moon, not the Earth."
@@ -217,7 +217,7 @@
           "stem": "Why do you think a crater on the moon was named after him?",
           "options": [
             "He lived on the moon for a while.",
-            "He found the crater with his eyes.",
+            "He found the crater with his eyes in the sky.",
             "He built the crater with tools.",
             "People wanted to honor his great work."
           ],
@@ -415,7 +415,7 @@
             "As a list of his books",
             "As steps in order: first, next, and finally",
             "By comparing two different mountains",
-            "As a story told by one of his students"
+            "As a story told by one of his students after he died"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -523,7 +523,7 @@
         {
           "stem": "Why would even a slight error in the horizon angle have changed Al-Biruni's result considerably?",
           "options": [
-            "Because his final calculation did not use the angle at all, only the shadow",
+            "Because his final calculation did not use the angle, only the shadow",
             "Because the mountain was much taller than he had thought, and the angle was big",
             "Because the horizon kept moving during the day and night, and so the angle changed",
             "Because the angle was so tiny that small mistakes were large by comparison"
@@ -540,7 +540,7 @@
         {
           "stem": "What can be inferred about Al-Biruni's attitude toward knowledge?",
           "options": [
-            "He trusted earlier authorities without question.",
+            "He trusted earlier authorities without question or doubt.",
             "He preferred quick guesses to careful measuring.",
             "He thought claims should be checked through evidence.",
             "He believed mathematics was unimportant."
@@ -576,8 +576,8 @@
           "options": [
             "a careful calculation that may not be exact",
             "a wild guess with no evidence",
-            "a perfect measurement with no error at all",
-            "a type of mountain found in Pakistan"
+            "a perfect measurement with no error",
+            "a type of tall mountain found in Pakistan"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -593,7 +593,7 @@
           "options": [
             "Both needed large teams traveling for months.",
             "His worked from one place; theirs needed long journeys.",
-            "Theirs used a mountain, while his used flat land.",
+            "Theirs used a mountain, while his used flat land near the sea.",
             "Neither used the positions of stars or angles."
           ],
           "answer": "B",

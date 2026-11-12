@@ -296,7 +296,7 @@
             "Writing tools changed many times, helping words last and spread.",
             "Only the Sumerians knew how to write, and no other people ever learned it.",
             "The typewriter was the most important invention ever made by humans.",
-            "Paper is stronger and lasts longer than clay, so it replaced it everywhere."
+            "Paper is stronger and lasts longer than clay, so it replaced it."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -509,7 +509,7 @@
             "China never used any kind of printing.",
             "Printers there tried it centuries before Gutenberg.",
             "It was invented by the Sumerians in Mesopotamia.",
-            "It was only used for typewriters."
+            "It was used mainly for typewriters."
           ],
           "answer": "B",
           "skill": "detail",
@@ -524,7 +524,7 @@
           "stem": "In the article, what does the word \"transformed\" mean?",
           "options": [
             "Slowly forgot",
-            "Copied by hand",
+            "Copied by hand again",
             "Completely changed",
             "Kept the same"
           ],
@@ -541,7 +541,7 @@
           "stem": "How did Gutenberg's press affect literacy in Europe?",
           "options": [
             "It reduced literacy because books became rare.",
-            "It had no effect at all on reading.",
+            "It had no effect on reading.",
             "It ended the use of paper in Europe.",
             "Cheaper books helped more people learn to read."
           ],
@@ -594,7 +594,7 @@
             "To argue that keyboards should be replaced by reeds",
             "To link thousands of years of change to one human need",
             "To list the steps for making a reed pen at home",
-            "To show that writing has not changed at all"
+            "To show that writing has not changed"
           ],
           "answer": "B",
           "skill": "author-purpose",

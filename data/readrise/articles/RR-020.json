@@ -236,7 +236,7 @@
             "To sell new bikes to children at the shop in town",
             "To show ways friction helps us and causes problems",
             "To teach how to tie shoes before school every morning",
-            "To prove that friction is always bad for every machine we use"
+            "To prove that friction makes machines run faster"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -295,8 +295,8 @@
           "options": [
             "Friction is a force between surfaces that slows motion and can be both helpful and harmful.",
             "Football is played on grass because grass is soft and the ball bounces higher on it.",
-            "Ice rinks are the best place to study science, because there is no friction on ice at all.",
-            "Machines would last forever without lubricants, because oil only makes them dirty and old."
+            "Ice rinks are the best place to study science, because there is no friction on ice.",
+            "Machines would last without lubricants, because oil only makes them dirty and old."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Friction is mostly harmful, so engineers try to remove it completely from every machine they build.",
-            "Ice rinks show that smooth surfaces are always dangerous, so people should avoid skating and sliding.",
+            "Friction is mostly harmful, so engineers try to remove it from every machine they build.",
+            "Ice rinks show that smooth surfaces are dangerous, so people should avoid skating, sliding, and wet floors.",
             "Friction opposes motion between surfaces; it depends on texture, generates heat, and both helps and harms us.",
-            "Footballs stop because grass is wet, and dry grass would let them roll on forever without slowing."
+            "Footballs stop because grass is wet, and dry grass would let them roll on without slowing."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "What can the reader infer from the idea that people rarely notice how important friction is?",
           "options": [
-            "People think friction is dangerous and should always be avoided.",
+            "People think friction is dangerous and should be avoided.",
             "Friction helps us so often that we usually do not notice it.",
             "Friction only matters to scientists.",
-            "Most people have never felt friction."
+            "Friction is a rare force that few people meet."
           ],
           "answer": "B",
           "skill": "inference",

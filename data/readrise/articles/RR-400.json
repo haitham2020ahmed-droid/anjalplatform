@@ -295,8 +295,8 @@
      "options": [
       "The four friends learn that planning and talking early prevents a last-minute crisis.",
       "The four friends decide never to work in groups again.",
-      "The water cycle is actually far too difficult a topic for any Grade 6 student to properly understand.",
-      "Omar is the only member of the group who works hard."
+      "The water cycle is too difficult a topic for Grade 6 students to understand without a lot of help.",
+      "Omar is the member of the group who works hardest."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -364,7 +364,7 @@
       "They realize how little time is left to finish an unstarted project",
       "They forgot the name of their project and cannot find their notes",
       "Their teacher cancels the project, so they have no work to do",
-      "They cannot find the water cycle poster board in the class"
+      "They lost the water cycle poster board in the class"
      ],
      "answer": "A",
      "skill": "inference",
@@ -397,7 +397,7 @@
      "options": [
       "to draw a picture of something",
       "to split something into separate parts",
-      "to finish an entire job quickly without any help at all",
+      "to finish an entire job quickly without any help",
       "to feel worried about a deadline"
      ],
      "answer": "B",
@@ -415,7 +415,7 @@
       "By comparing two different schools",
       "By listing facts about Jeddah",
       "By showing a problem, then how the friends solve it together",
-      "By explaining how the water cycle works, step by step"
+      "By explaining how the water cycle works, step by step in the sky"
      ],
      "answer": "C",
      "skill": "text-structure",
@@ -475,7 +475,7 @@
       "Waiting until the last minute to divide work can nearly cause a group project to fail, but clear communication can still save it.",
       "Group projects about the water cycle are more interesting than other topics.",
       "Teachers should never give students more than one night for a project.",
-      "Noor is, without any doubt whatsoever, unquestionably and by far the single most talented and capable member of the entire four-person group."
+      "Noor is clearly the most talented and capable member of the four-person group, so she does most of the work while the others just watch her."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -507,9 +507,9 @@
      "stem": "What can you infer caused the friends to procrastinate for almost two weeks?",
      "options": [
       "The teacher forgot to assign the project",
-      "The friends were waiting for new art supplies",
+      "The friends were waiting for new art supplies from the store",
       "Each one assumed someone else would take care of it",
-      "They did not understand the water cycle at all"
+      "They did not understand the water cycle"
      ],
      "answer": "C",
      "skill": "inference",
@@ -541,7 +541,7 @@
      "stem": "Based on the story, why might delegating tasks according to each person's strengths have helped the group finish on time?",
      "options": [
       "Each person could work faster and better on a task suited to their skill",
-      "It meant only one person had to do any work at all, so the others rested",
+      "It meant only one person had to do any work, so the others rested",
       "It guaranteed the teacher would give them a perfect grade on the project",
       "It allowed them to skip checking their facts, so they saved time"
      ],

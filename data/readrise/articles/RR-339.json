@@ -185,7 +185,7 @@
             "Cold days and warm nights, with some rain",
             "Hot days, cool nights, and little rain",
             "Rain falls every day all year",
-            "Snow falls all year long on the sand"
+            "Snow falls for most of the year on the sand"
           ],
           "answer": "B",
           "skill": "detail",
@@ -295,8 +295,8 @@
           "options": [
             "The Sahara is a vast, extremely hot desert, yet people and camels have found ways to live and travel there for thousands of years.",
             "The Sahara gets more rain than any other region in Africa, so it is green and full of rivers and lakes for people to enjoy.",
-            "Camels are the only animals ever found in North Africa, and people have never lived there or tried to cross the sand at all.",
-            "Gold is the only valuable thing ever found in the Sahara, and travelers go there only to dig for it and then go home."
+            "Camels are the main animals found in North Africa, and people rarely tried to cross the sand.",
+            "Gold is the most valuable thing found in the Sahara, and travelers go there mainly to dig for it."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -311,8 +311,8 @@
           "stem": "About how large is the area the Sahara covers?",
           "options": [
             "About 9,000 square kilometers in all",
-            "About 90,000 square kilometers in all",
-            "About 900,000 square kilometers in all",
+            "About 90,000 square kilometers",
+            "About 900,000 square kilometers",
             "About nine million square kilometers"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Sahara has always looked exactly the same since the planet formed, and its sand never moves or changes in any way at all, even in the strongest wind.",
+            "The Sahara has looked exactly the same since the planet formed, and its sand never moves or changes, even in the strongest wind.",
             "The Sahara is a vast, arid desert whose extreme conditions have shaped its landscape, its history, and the indigenous people connected to it.",
             "No living thing has ever been able to survive in the Sahara, not even a small plant, an insect, or a person, so the whole desert is empty and silent.",
-            "The Sahara receives more rainfall than any tropical rainforest, so its land is green and wet and full of rivers and lakes that flow all year round."
+            "The Sahara receives more rainfall than a tropical rainforest, so its land is green and full of rivers and lakes."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -577,7 +577,7 @@
             "Artists today still paint these animals in the desert for tourists",
             "The Sahara's climate was once wet enough to support grasslands and lakes",
             "These animals currently live throughout the whole Sahara in herds",
-            "The paintings prove the Sahara has never changed at all in its history"
+            "The paintings prove the Sahara has never changed in its history"
           ],
           "answer": "B",
           "skill": "inference",

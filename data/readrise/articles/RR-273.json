@@ -199,10 +199,10 @@
         {
           "stem": "Why might a green building need fewer lights turned on?",
           "options": [
-            "The windows are painted completely black",
-            "The building has no rooms at all inside",
+            "The windows are painted black",
+            "The building has no rooms inside",
             "Big windows let in natural sunlight",
-            "The lights inside are completely broken"
+            "The lights inside are broken"
           ],
           "answer": "C",
           "skill": "inference",
@@ -218,8 +218,8 @@
           "options": [
             "So it looks the same as other buildings",
             "So it can use the sun and wind well",
-            "So birds cannot land on the roof at all",
-            "So the walls can be painted completely black"
+            "So birds cannot land on the roof",
+            "So the walls can be painted black"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
             "Smart design and technology help buildings use less energy",
-            "Every building should be painted completely black to save energy and stay cool",
-            "Wind is completely useless for cooling a building, so it has no use in design",
-            "Only solar panels can make a building green, and nothing else could ever help"
+            "Every building should be painted black to save energy and stay cool",
+            "Wind is useless for cooling a building, so it has no use in design",
+            "Solar panels are the main thing that makes a building green"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -362,7 +362,7 @@
           "stem": "Why do architects place windows and vents carefully in a green building?",
           "options": [
             "So breezes can flow through and cool rooms",
-            "So birds cannot enter the building at all",
+            "So birds cannot enter the building",
             "So the building looks much taller outside",
             "So walls can be painted a bright color"
           ],
@@ -380,8 +380,8 @@
           "options": [
             "They are more colorful than old bulbs",
             "They use far less power than old bulbs",
-            "They never need to be replaced at all",
-            "They make every room much darker inside"
+            "They never need to be replaced",
+            "They make the rooms much darker inside"
           ],
           "answer": "B",
           "skill": "detail",
@@ -414,7 +414,7 @@
           "options": [
             "Ventilation makes power, solar panels cool rooms",
             "Both of them only work at night outside",
-            "Neither helps a green building at all",
+            "Neither helps a green building",
             "Ventilation cools rooms, panels make power"
           ],
           "answer": "D",
@@ -474,7 +474,7 @@
           "options": [
             "Sustainable design cuts a building's energy use",
             "Air conditioning is the only way to cool a building",
-            "Solar panels work only in cold climates",
+            "Solar panels work best in cold climates",
             "Windcatchers are no longer useful today"
           ],
           "answer": "A",
@@ -489,7 +489,7 @@
         {
           "stem": "What is the urban heat island effect?",
           "options": [
-            "An island completely covered in concrete",
+            "An island covered in concrete",
             "A cool breeze blowing through cities at night",
             "A city being hotter than nearby countryside",
             "A kind of renewable solar energy source"
@@ -509,7 +509,7 @@
             "It generates its own electricity for the air conditioner",
             "It slows the movement of heat into the rooms",
             "It reflects wind away from the windows of the house",
-            "It blocks all sunlight completely from the roof"
+            "It blocks all sunlight from the roof"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -540,7 +540,7 @@
         {
           "stem": "Why would a building's orientation matter to its architects?",
           "options": [
-            "It has no effect on sun or wind at all for architects",
+            "It has no effect on sun or wind for architects",
             "Orientation helps a building use sun and wind well",
             "It only matters for the color of the paint on the walls",
             "It changes how tall the building looks from the street"
@@ -560,7 +560,7 @@
             "Reflective walls send sunlight back, not heat",
             "Reflective walls block all wind from entering",
             "Dark walls generate more electricity",
-            "Reflective walls are always taller buildings"
+            "Reflective walls are taller buildings"
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "How does natural ventilation differ from insulation in cooling a building?",
           "options": [
-            "Ventilation and insulation both generate electricity",
+            "Ventilation and insulation both generate electricity for the house",
             "Insulation moves air, while ventilation blocks heat",
             "Ventilation moves air; insulation slows heat through walls",
-            "Neither has any effect on temperature at all"
+            "Neither has any effect on temperature"
           ],
           "answer": "C",
           "skill": "compare",
@@ -591,7 +591,7 @@
         {
           "stem": "Why does the author connect modern green buildings to ancient windcatchers?",
           "options": [
-            "To argue that old buildings were always better",
+            "To argue that old buildings were better",
             "To explain exactly how a windcatcher is built",
             "To list every country that used windcatchers",
             "To link an ancient cooling idea to design today"

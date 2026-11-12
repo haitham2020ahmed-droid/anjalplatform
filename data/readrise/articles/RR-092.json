@@ -132,9 +132,9 @@
           "stem": "Which metals are inside a phone?",
           "options": [
             "Iron, tin, and lead only",
-            "Only plastic and glass",
+            "Plastic and glass",
             "Gold, silver, and copper",
-            "No metals at all"
+            "No metals"
           ],
           "answer": "C",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "Why is it better to get metal from old phones than from new mines?",
           "options": [
-            "Because mines are always closed by the government and no one digs there",
+            "Because mines are closed by the government and no one digs there",
             "Because phones are bigger than mines and hold more rocks in them",
             "Because mines hurt the land, and old phones already hold metal",
-            "Because metal from mines cannot be melted in a factory or reused"
+            "Because metal from mines is softer and breaks more easily"
           ],
           "answer": "C",
           "skill": "inference",
@@ -202,7 +202,7 @@
             "To turn old things into material for new things",
             "To ride a bike again and again on the same road",
             "To hide something in a drawer so no one finds it",
-            "To buy a new phone every year from the same shop"
+            "To buy a new phone each year from the same shop"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -293,8 +293,8 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Phones should be kept in drawers forever and never be thrown away or sold.",
-            "Mining is the only way to get gold, and recycling can never give any metal.",
+            "Phones should be kept in drawers and never be thrown away or sold.",
+            "Mining is the cheapest way to get gold, so recycling gives little metal.",
             "Old electronics contain valuable metals, so recycling them helps people and nature.",
             "Batteries are the most valuable part of a phone, and the other parts are not worth keeping."
           ],
@@ -313,7 +313,7 @@
             "Less than a quarter",
             "About half of it",
             "Almost all of it",
-            "None of it at all"
+            "About half"
           ],
           "answer": "A",
           "skill": "detail",
@@ -413,8 +413,8 @@
           "stem": "Which action would best help Saudi Arabia reach its recycling goals?",
           "options": [
             "Throwing old phones in the trash",
-            "Keeping old phones in a drawer forever",
-            "Burying old batteries in the yard",
+            "Keeping old phones in a drawer",
+            "Burying old batteries deep in the yard",
             "Taking an old phone to a collection point"
           ],
           "answer": "D",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Phones should be replaced every year, because old phones always work slowly and badly.",
+            "Phones should be replaced every year, because old phones work slowly and badly.",
             "Gold mines will soon run out of gold, so shops are raising the price of jewelry.",
             "Landfills are the safest place for electronics, since the ground keeps the metals safe for years.",
             "Electronics hold precious metals, so recycling them saves resources and protects the environment."
@@ -509,7 +509,7 @@
             "Toxic substances can seep into soil and groundwater",
             "The metals inside become more valuable",
             "The devices recycle themselves over time",
-            "Mines are able to produce more gold each year"
+            "Mines are able to produce more gold each year from the same land"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -526,7 +526,7 @@
             "Nearly all of it is recycled",
             "Exactly half of it",
             "Less than a quarter of it",
-            "Only the batteries"
+            "About three quarters of it"
           ],
           "answer": "C",
           "skill": "detail",
@@ -542,8 +542,8 @@
           "options": [
             "Because each phone is made mostly of gold and silver inside the case",
             "Because the metals are rare and hard to extract, so wasting them is costly",
-            "Because metals never wear out and can be used again forever and ever",
-            "Because only Saudi Arabia has these metals anywhere in the whole world, so they are very rare"
+            "Because metals never wear out and can be used again and again",
+            "Because Saudi Arabia has most of these metals, so other countries must buy them"
           ],
           "answer": "B",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "Store old phones safely in a drawer at home for years and years",
             "Throw old batteries into the household trash can every week",
             "Repair a phone when it malfunctions instead of replacing it",
-            "Buy a new phone every few months to stay modern and quick"
+            "Buy a new phone each year to stay modern and quick"
           ],
           "answer": "C",
           "skill": "detail",

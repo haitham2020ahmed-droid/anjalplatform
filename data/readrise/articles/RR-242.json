@@ -200,7 +200,7 @@
      "stem": "Why does the diaphragm sometimes cause a hiccup?",
      "options": [
       "Because it suddenly jumps or spasms on its own",
-      "Because it stops working completely for a day",
+      "Because it stops working for a day",
       "Because it grows bigger each time you eat",
       "Because it moves to a different part of the body"
      ],
@@ -234,7 +234,7 @@
      "stem": "Why does the author end the article with tips like sipping water and stretching?",
      "options": [
       "To help readers make hiccups go away faster",
-      "To explain how blood moves in the body",
+      "To explain how blood moves in the body of a person",
       "To tell a funny story about a trip",
       "To list the biggest animals that yawn"
      ],
@@ -328,7 +328,7 @@
      "stem": "What happens when the diaphragm suddenly spasms?",
      "options": [
       "The vocal cords snap shut quickly, making a 'hic' sound",
-      "The lungs completely stop working for several long hours in a row",
+      "The lungs stop working for several long hours in a row",
       "The body falls asleep immediately",
       "The stomach begins to growl loudly"
      ],
@@ -363,8 +363,8 @@
      "options": [
       "Because yawning was only discovered very recently",
       "Because there are two reasonable ideas and no single proven answer yet",
-      "Because yawning never happens more than once a year",
-      "Because only children are able to yawn at all, according to some people"
+      "Because yawning happens rarely",
+      "Because children yawn more than adults, according to some people"
      ],
      "answer": "B",
      "skill": "inference",
@@ -379,7 +379,7 @@
      "stem": "A boy eats his lunch very quickly and then gets hiccups. What does this suggest about hiccups?",
      "options": [
       "Hiccups only happen to people who never eat lunch",
-      "Hiccups are always caused by loud, scary noises",
+      "Hiccups are caused by loud, scary noises",
       "Hiccups can be caused by certain everyday habits, like eating too fast",
       "Hiccups mean that a person's diaphragm has stopped working altogether and will not start again"
      ],
@@ -396,7 +396,7 @@
      "stem": "What is one thing that can happen right after a person drinks a fizzy, carbonated drink too fast?",
      "options": [
       "The person will immediately fall asleep",
-      "The person's vocal cords will stop working forever",
+      "The person's vocal cords will stop working",
       "The person will stop breathing completely",
       "The person may start to get hiccups"
      ],
@@ -414,8 +414,8 @@
      "options": [
       "To explain two different, puzzling body reflexes one at a time",
       "To prove that yawning is more dangerous than hiccups",
-      "To show that yawning always causes hiccups afterward",
-      "To argue that only hiccups are truly worth any scientific study at all"
+      "To show that yawning causes hiccups afterward",
+      "To argue that only hiccups are truly worth any scientific study"
      ],
      "answer": "A",
      "skill": "text-structure",
@@ -472,7 +472,7 @@
     {
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
-      "Yawning and hiccups are harmful medical conditions that always require urgent professional treatment from a doctor",
+      "Yawning and hiccups are harmful medical conditions that require urgent professional treatment from a doctor",
       "Hiccups are a modern problem that did not exist in the past",
       "Only certain rare individuals ever experience yawning or hiccups",
       "Yawning and hiccups are reflexes whose triggers are known but whose deeper causes remain debated"
@@ -540,7 +540,7 @@
     {
      "stem": "Why do scientists describe the brain-cooling idea and the alertness idea as hypotheses rather than facts?",
      "options": [
-      "Because both of these competing ideas were already proven completely false by researchers long ago",
+      "Because both of these competing ideas were already proven false by researchers long ago",
       "Because yawning has never been studied by any scientist",
       "Because the two ideas are identical to each other",
       "Because neither idea has been fully confirmed as the single correct explanation"
@@ -591,10 +591,10 @@
     {
      "stem": "Why does the author present two separate hypotheses about yawning instead of just one?",
      "options": [
-      "To prove that one of the ideas is completely wrong",
+      "To prove that one of the ideas is wrong",
       "To argue that yawning should not be studied further",
       "To show that scientists have more than one reasonable explanation and no final answer yet",
-      "To convince readers that yawning is not a real or genuine reflex at all, despite appearances"
+      "To convince readers that yawning is not a real or genuine reflex, despite appearances"
      ],
      "answer": "C",
      "skill": "author-purpose",

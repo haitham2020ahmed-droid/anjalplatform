@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Only grandparents are allowed to tell stories to children, and no one else can tell them at all, so the tales end.",
+            "Only grandparents are allowed to tell stories to children, and no one else can tell them, so the tales end.",
             "Storytellers used voice, rhythm, and repetition to hold an audience and pass tales down through generations.",
             "Radio stories are better than stories told by family, because the voices are clearer and louder.",
-            "Every storyteller must use a drum while speaking, and the story stops when the drum is quiet."
+            "Storytellers must use a drum while speaking, and the story stops when the drum is quiet."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -396,7 +396,7 @@
           "stem": "What can you infer about communities where no one could read or write?",
           "options": [
             "They had no way to pass down lessons or history to children.",
-            "They stopped telling stories completely after that time.",
+            "They stopped telling stories after that time.",
             "They only used stories to count sheep and cows on the farm.",
             "They relied on oral storytelling to keep knowledge alive."
           ],
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Rhythm is the only technique that matters in storytelling, and nothing else is used.",
-            "Written books made oral storytelling disappear entirely, in every land and village.",
+            "Written books made oral storytelling disappear in most lands and villages.",
             "Storytellers used techniques to engage and preserve shared culture.",
-            "Only communities in Arabia ever told stories out loud, and no other people did."
+            "Communities in Arabia were the first to tell stories out loud, and others copied them."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -541,7 +541,7 @@
           "stem": "How did watching the audience's reactions affect a storyteller's performance?",
           "options": [
             "It caused the teller to end the story immediately and go home.",
-            "It had no real effect on how the story was told at all.",
+            "It had no real effect on how the story was told.",
             "It caused the teller to switch to a written script and read it out loud.",
             "It led the teller to adjust pace, volume, or humor to regain attention."
           ],
@@ -557,7 +557,7 @@
         {
           "stem": "What can you infer about communities that depended entirely on oral storytelling for their history?",
           "options": [
-            "They considered storytelling unimportant compared to writing.",
+            "They considered storytelling unimportant compared to writing or reading books.",
             "They had no interest in preserving their own history.",
             "They valued skilled memory and performance as much as written records.",
             "They abandoned storytelling once writing became common."
@@ -577,7 +577,7 @@
             "It would let listeners track who was speaking without explicit narration.",
             "It would make the story impossible to follow for the whole audience.",
             "It would force the audience to read along silently from a book.",
-            "It would remove the need for any lesson in the story at all."
+            "It would remove the need for any lesson in the story."
           ],
           "answer": "A",
           "skill": "inference",
@@ -593,7 +593,7 @@
           "options": [
             "To argue that modern media should be banned",
             "To show that this engaging craft has survived and still matters",
-            "To prove that oral storytelling has completely disappeared",
+            "To prove that oral storytelling has disappeared in most places",
             "To list every festival held in Arabia each year"
           ],
           "answer": "B",

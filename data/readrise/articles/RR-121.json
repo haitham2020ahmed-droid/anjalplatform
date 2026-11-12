@@ -134,7 +134,7 @@
             "It is dry, with sand and rocks.",
             "It is full of deep water.",
             "It is covered with snow.",
-            "It is a busy road for cars."
+            "It is a busy road for cars and trucks."
           ],
           "answer": "A",
           "skill": "detail",
@@ -167,8 +167,8 @@
           "options": [
             "It only happens at night.",
             "The rain may fall far away in the hills.",
-            "The water is always very quiet, so nobody can hear it.",
-            "It comes only in summer."
+            "The water is very quiet, so people do not hear it.",
+            "It comes in the summer."
           ],
           "answer": "B",
           "skill": "inference",
@@ -235,7 +235,7 @@
           "options": [
             "Because people live inside them all year with their animals",
             "Because their water helps plants, trees, wells, and farms",
-            "Because they are always full of fish and big waves",
+            "Because they are full of fish and big waves",
             "Because they are cooler than the beach and have shade"
           ],
           "answer": "B",
@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the central idea?",
           "options": [
             "Wadis can flood suddenly, but their water supports desert life.",
-            "Wadis are always dangerous places and have no benefits for anyone.",
+            "Wadis are dangerous places and have no benefits for anyone.",
             "Wadi Hanifa is the only important wadi in Saudi Arabia.",
             "Dams have made wadi floods impossible."
           ],
@@ -381,7 +381,7 @@
             "After a storm it is drier.",
             "After a storm it may be filled with rushing water.",
             "After a storm it disappears.",
-            "There is no difference, because wadis always look the same."
+            "There is no difference, because wadis look the same."
           ],
           "answer": "B",
           "skill": "compare",
@@ -395,7 +395,7 @@
         {
           "stem": "Why might people build a dam across a wadi?",
           "options": [
-            "To make the wadi flood more often",
+            "To make the wadi flood more often each year",
             "To hold back floodwater for later use",
             "To stop all rain from falling",
             "To make the wadi longer"
@@ -475,7 +475,7 @@
             "Wadis are dangerous valleys that should be filled in.",
             "Wadis are both hazardous and vital in arid lands.",
             "Wadis are rivers that flow all year in Saudi Arabia.",
-            "Erosion is the only force that affects wadis."
+            "Erosion is the main force that shapes wadis."
           ],
           "answer": "B",
           "skill": "central-idea",

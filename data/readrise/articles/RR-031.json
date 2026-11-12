@@ -131,7 +131,7 @@
         {
           "stem": "Which falcon is the fastest animal on Earth?",
           "options": [
-            "The saker falcon",
+            "The saker falcon bird",
             "The baby falcon",
             "The male falcon",
             "The peregrine falcon"
@@ -168,7 +168,7 @@
             "a place where birds sleep",
             "a glove that a trainer wears",
             "an animal that is hunted for food",
-            "a very fast drop from the sky"
+            "a very fast drop from the sky by hunters"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -296,7 +296,7 @@
             "Falcons are slow birds that eat seeds and fruit, and they live in cold lands far away from the desert.",
             "Peregrine falcons live only in Saudi Arabia, and no other country has them or trains them to hunt.",
             "Falcons are skillful, fast hunters, and training them is an old tradition in Saudi Arabia.",
-            "Falconers use gloves to keep their hands clean, and they never train the birds to hunt or fly fast at all."
+            "Falconers use gloves to keep their hands clean, and they train the birds to fly at night."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -328,7 +328,7 @@
           "stem": "How fast can a peregrine falcon go during a stoop?",
           "options": [
             "About 30 kilometers per hour",
-            "About 100 kilometers per hour",
+            "About 100 kilometers per hour in a dive",
             "Exactly as fast as a bicycle",
             "More than 300 kilometers per hour"
           ],
@@ -414,7 +414,7 @@
           "options": [
             "It can hunt only in the dark",
             "It can notice small prey far below",
-            "It never needs to dive to catch anything",
+            "It hunts mostly at night in the dark",
             "It does not need a hood"
           ],
           "answer": "B",
@@ -508,7 +508,7 @@
           "options": [
             "Falconers caught too many of them",
             "A pesticide made their eggshells so thin that they cracked",
-            "Cities grew too tall for them to fly over or nest in",
+            "Cities grew too tall for them to fly over or nest in each spring",
             "Their prey moved away to live in other countries"
           ],
           "answer": "B",
@@ -560,7 +560,7 @@
             "To prove that falcons were first found in Saudi Arabia",
             "To show how much the country values falconry as part of its heritage",
             "To explain how falcons are trained to dive",
-            "To argue that other countries should stop practicing falconry"
+            "To argue that other countries should stop practicing falconry in the desert"
           ],
           "answer": "B",
           "skill": "author-purpose",

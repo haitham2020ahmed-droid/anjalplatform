@@ -132,9 +132,9 @@
           "stem": "How fast do the Earth's plates move?",
           "options": [
             "As fast as a car on a road",
-            "They do not move at all",
+            "They do not move",
             "About as fast as your nails grow",
-            "As fast as a person can walk"
+            "As fast as a person can walk down a street"
           ],
           "answer": "C",
           "skill": "detail",
@@ -236,7 +236,7 @@
             "To show that nails are made of rock",
             "To tell readers to cut their nails",
             "To help readers picture how slow the plates are",
-            "To prove that plates stop moving at night"
+            "To prove that plates stop moving at night and start again by day"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Earthquakes only happen near the Red Sea, and nowhere else in the world.",
-            "Tsunamis are the most common kind of earthquake, and they happen every day.",
+            "Earthquakes only happen near the Red Sea.",
+            "Tsunamis are the most common kind of earthquake, and they happen often.",
             "Earthquakes happen when stuck plates suddenly slip, and people measure and prepare for them.",
-            "Scientists can now tell the exact day of every earthquake, so people never need to prepare."
+            "Scientists can now tell the exact day of an earthquake, so people can leave in time."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -347,7 +347,7 @@
             "Strong winds over the desert",
             "An undersea earthquake lifting water",
             "Heavy rain falling on the sea",
-            "Ships moving fast across the sea"
+            "Ships moving fast across the sea in a storm"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Earthquakes are rare events that only scientists can feel, using special tools, and most people never notice them at all.",
-            "The Red Sea is the most dangerous place on Earth, because earthquakes happen there every single day of the year.",
-            "Tsunamis cause more damage than any other natural event, so people mostly prepare for tsunamis, not for earthquakes.",
+            "Earthquakes are rare events that only scientists can feel, using special tools, and most people never notice them.",
+            "The Red Sea is the most dangerous place on Earth, because earthquakes happen there each week.",
+            "Tsunamis cause more damage than other natural events, so people mostly prepare for tsunamis.",
             "Earthquakes result from moving plates releasing stored energy, so people measure them and prepare."
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "What can the reader infer from the final paragraph?",
           "options": [
-            "Strong buildings can stop earthquakes from happening at all.",
+            "Strong buildings can stop earthquakes from happening.",
             "Because the timing is unknown, being prepared is the best protection.",
             "Students are the only people who need to get ready for earthquakes.",
-            "Scientists will soon be able to predict every earthquake exactly."
+            "Scientists will soon be able to predict earthquakes exactly."
           ],
           "answer": "B",
           "skill": "inference",

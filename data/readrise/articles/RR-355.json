@@ -475,7 +475,7 @@
             "A faded map leads two cousins to excavate a long-buried family keepsake, connecting them to an ancestor's childhood.",
             "A family's attic is too cluttered to ever clean.",
             "Grandfather cannot remember any stories about his father.",
-            "The cousins give up their search completely and turn back home before ever reaching the hill or finding any real clue at all"
+            "The cousins give up their search and turn back home before reaching the hill or finding a real clue in the old house"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -542,7 +542,7 @@
           "options": [
             "He wrote a letter and buried it alongside the compass and photograph",
             "The chest was found far from any path in the forest",
-            "The cousins found the chest without using any map at all",
+            "The cousins found the chest without using the map",
             "Grandfather said his father lost the chest while he was playing near the old farm"
           ],
           "answer": "A",

@@ -116,7 +116,7 @@
      "options": [
       "Two children who build a new house beside a quiet river with their father and mother",
       "A flood that made a river change its path, and two children who investigate it",
-      "A village that has no water at all in the summer months, so people must walk far",
+      "A village that has no water in the summer months, so people must walk far",
       "A trip to buy new stones for a garden at the old school with a teacher and some friends"
      ],
      "answer": "B",
@@ -219,7 +219,7 @@
       "Someone carved them by hand",
       "Water used to flow over them for a long time",
       "They fell from the hill recently",
-      "They were always smooth, even before the flood"
+      "They were smooth, even before the flood ever came"
      ],
      "answer": "B",
      "skill": "inference",
@@ -380,8 +380,8 @@
      "options": [
       "They prove that moving water once flowed there for a long time",
       "They were placed there recently by local farmers who moved them",
-      "They show that the channel was always completely dry and empty",
-      "They have nothing at all to do with the long-ago flood"
+      "They show that the channel was dry and empty",
+      "They have nothing to do with the long-ago flood"
      ],
      "answer": "A",
      "skill": "inference",
@@ -472,10 +472,10 @@
     {
      "stem": "Which statement best expresses the central idea of the story?",
      "options": [
-      "A village elder's memory alone fully explains every detail of how the river's course changed, and no other evidence of any kind is needed.",
+      "A village elder's memory alone fully explains every detail of how the river's course changed, and no other evidence is needed by the villagers.",
       "A long-ago flood permanently altered the river's course, and oral memory together with physical evidence in the terrain explain how and why.",
-      "Rivers never change course once they have been established in a particular channel, so the story is a legend only.",
-      "A visiting geologist discovered the old riverbed before any villager knew it existed, and the elder had no part in the story."
+      "Rivers rarely change course once they have a channel, so the story is a legend.",
+      "A visiting geologist discovered the old riverbed before the villagers knew it existed, and the elder played a small part."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -492,7 +492,7 @@
       "They washed all the way out to the distant sea",
       "They were carried back upstream to the village",
       "They were deposited in layers wherever the current lost speed",
-      "They dissolved completely and disappeared in the floodwater"
+      "They dissolved and disappeared in the floodwater over many days"
      ],
      "answer": "C",
      "skill": "detail",
@@ -524,8 +524,8 @@
      "stem": "In the story, the word meander means —",
      "options": [
       "to flow in a straight, direct line toward the sea",
-      "to dry up completely and disappear within a single day",
-      "to carry heavy boulders and sediment far downstream",
+      "to dry up and disappear within a single day",
+      "to carry heavy boulders and sediment far downstream into the sea",
       "to follow a winding, curving path instead of a straight one"
      ],
      "answer": "D",
@@ -543,7 +543,7 @@
       "Villagers water them by hand every week, carrying jars from the well in the village",
       "Their roots reach deep underground toward moisture that remains from the old channel",
       "They were planted recently to mark the new river's path across the dry valley floor",
-      "They do not actually need any water to survive, because desert trees live on sunlight alone"
+      "They need little water to survive, because desert trees live on sunlight"
      ],
      "answer": "B",
      "skill": "inference",
@@ -576,7 +576,7 @@
      "options": [
       "They show exactly which year the great flood occurred in the valley, and the name of the river",
       "They provide physical evidence that confirms the moving water carried and dropped material there over time",
-      "They prove that the old channel was never actually part of the river at all, only a road",
+      "They prove that the old channel was never actually part of the river, only a road",
       "They were placed there by the geologist during a recent visit to the site, to confuse the students"
      ],
      "answer": "B",

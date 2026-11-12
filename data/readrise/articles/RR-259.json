@@ -165,9 +165,9 @@
         {
           "stem": "What happened when Wu watched the particles shoot out of the cobalt?",
           "options": [
-            "No particles came out at all.",
+            "No particles came out.",
             "Particles flew out equally on both sides.",
-            "The cobalt melted completely away.",
+            "The cobalt melted away.",
             "More particles flew out in one direction."
           ],
           "answer": "D",
@@ -185,7 +185,7 @@
             "She had never studied physics at a university in her life.",
             "She designed and ran the experiment that proved the idea true.",
             "She did not work hard on the project like the others did.",
-            "The two men did not need her help at all, since they knew the answer."
+            "The two men did not need her help, since they knew the answer."
           ],
           "answer": "B",
           "skill": "inference",
@@ -202,7 +202,7 @@
             "She gave up easily when things got hard.",
             "She was determined and loved her work.",
             "She only liked easy, simple tasks.",
-            "She never wanted to be a scientist."
+            "She did not want to be a scientist."
           ],
           "answer": "B",
           "skill": "inference",
@@ -312,8 +312,8 @@
           "options": [
             "That nature behaves the same way viewed directly or as a mirror image",
             "That all metals conduct electricity equally well",
-            "That cold temperatures always slow down moving particles quite a lot indeed",
-            "That magnets always attract every single type of metal and material equally"
+            "That cold temperatures slow down moving particles quite a lot in the cold",
+            "That magnets attract most types of metal equally"
           ],
           "answer": "A",
           "skill": "detail",
@@ -397,7 +397,7 @@
           "options": [
             "to guess without any evidence or proof",
             "to show something is true using a test",
-            "to completely ignore an idea you dislike",
+            "to ignore an idea you dislike",
             "to disagree loudly with someone at school"
           ],
           "answer": "B",
@@ -474,8 +474,8 @@
           "options": [
             "Wu's rigorous experiment provided the empirical proof that overturned the assumption of parity conservation in the weak interaction.",
             "Lee and Yang personally performed the cobalt-60 experiment in their own laboratory, with their own hands and tools.",
-            "Parity conservation has never been questioned by any physicist since Wu's experiment, and every rule remains the same.",
-            "Cobalt-60 was invented by physicists specifically for Wu's research, and it has never been used in any other laboratory in the world since."
+            "Parity conservation has never been questioned by any physicist since Wu's experiment, and every rule remains the same in physics.",
+            "Cobalt-60 was invented by physicists for Wu's research, and it is rarely used in other laboratories."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -490,9 +490,9 @@
           "stem": "According to the article, what did parity conservation assume about nature?",
           "options": [
             "That nature behaves identically whether observed directly or as a mirror image",
-            "That radioactive materials decay at a constant, unchanging rate always",
-            "That magnetic fields cannot affect the nuclei of atoms",
-            "That electrons always travel faster than protons"
+            "That radioactive materials decay at a constant, unchanging rate always in a laboratory",
+            "That magnetic fields do not affect atoms",
+            "That electrons travel faster than protons"
           ],
           "answer": "A",
           "skill": "detail",
@@ -526,7 +526,7 @@
             "Because it contradicted what parity conservation predicted should happen",
             "Because it proved cobalt-60 was not actually radioactive",
             "Because it showed magnets have no effect on electrons",
-            "Because it confirmed that the Nobel Prize should go to Wu alone"
+            "Because it confirmed that the Nobel Prize should go to Wu alone and not to the men"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -557,10 +557,10 @@
         {
           "stem": "Why does the author emphasize that Wu was excluded from the Nobel Prize despite performing the decisive experiment?",
           "options": [
-            "To argue that experimental work is less important than theoretical work",
+            "To argue that experimental work is less important than theoretical work in a laboratory",
             "To highlight an injustice and credit her essential contribution to the discovery",
             "To suggest that Lee and Yang did not deserve any recognition",
-            "To prove that Wu never wanted scientific recognition at all"
+            "To prove that Wu did not want scientific recognition"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -575,7 +575,7 @@
           "stem": "In the article, the word empirical most nearly means —",
           "options": [
             "based on evidence from observation or experiment",
-            "based purely on guesswork with no testing at all",
+            "based purely on guesswork with no testing",
             "related only to mathematics and long equations",
             "impossible to measure or to observe directly"
           ],
@@ -594,7 +594,7 @@
             "Both scientists performed the exact same laboratory experiment together, in one lab on the same day, and shared the work.",
             "Lee and Yang proposed the theoretical idea; Wu designed and executed the experimental test of it.",
             "Wu proposed the theory, while Lee and Yang built the laboratory equipment and ran the test in their own lab.",
-            "Neither scientist contributed anything to the final discovery at all, since it was found by a machine on its own."
+            "Neither scientist contributed anything to the final discovery, since it was found by a machine on its own."
           ],
           "answer": "B",
           "skill": "compare",

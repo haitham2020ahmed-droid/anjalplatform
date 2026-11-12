@@ -218,7 +218,7 @@
           "options": [
             "Because forests have many more leaves and bark to trap dirt",
             "Because forests grow only in dusty places, so they catch more",
-            "Because forests do not need any sunlight to grow leaves",
+            "Because forests need little sunlight to grow leaves",
             "Because small plants push dust back into the air, not forests"
           ],
           "answer": "A",
@@ -295,8 +295,8 @@
           "options": [
             "Forests help clean the air through photosynthesis and by trapping pollutants.",
             "Oxygen is the only gas found in the atmosphere of the Earth.",
-            "All trees grow at exactly the same speed everywhere in the world.",
-            "Deforestation only happens in places without any animals living in the area."
+            "Trees grow at the same speed.",
+            "Deforestation happens mostly in places with few animals living in the area."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -413,8 +413,8 @@
           "stem": "Why does the author explain what happens when forests are cut down, right after explaining how forests clean the air?",
           "options": [
             "To show how much is lost when deforestation happens",
-            "To prove that forests do not actually clean the air at all",
-            "To argue that cutting down one tree is always harmless",
+            "To prove that forests do not actually clean the air",
+            "To argue that cutting down one tree is harmless",
             "To describe how new leaves grow back overnight"
           ],
           "answer": "A",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Forests filter the air through photosynthesis and by trapping pollutants, and deforestation removes that benefit.",
-            "Oxygen is produced only inside large forests and nowhere else on Earth, so the oceans make none at all in the whole world.",
-            "Every ecosystem on Earth depends entirely on a single kind of tree, which grows in all lands.",
-            "Emissions from factories have no real effect on the atmosphere, so forests do not need to clean it."
+            "Oxygen is produced only inside large forests on Earth, so the oceans make none in the whole world.",
+            "Most ecosystems on Earth depend on a single kind of tree, which grows in many lands.",
+            "Emissions from factories have no real effect on the atmosphere, so forests do not need to clean it or protect it in other ways."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -591,7 +591,7 @@
         {
           "stem": "How does the article's structure support its overall argument about forests and the atmosphere?",
           "options": [
-            "It lists unrelated facts about different ecosystems in no particular order at all, one after another",
+            "It lists unrelated facts about different ecosystems in no particular order, one after another",
             "It compares the price of wood from different types of forests in many countries",
             "It tells a fictional story about a single talking tree that lives in a faraway land",
             "It explains how forests benefit the atmosphere, then shows what is lost when forests are cleared"

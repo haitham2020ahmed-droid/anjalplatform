@@ -134,7 +134,7 @@
             "In deep blue sea water far from land",
             "In tall grass on hills",
             "In water that is not deep and has salt or mud",
-            "In hot, dry sand dunes out in the desert"
+            "In hot, dry sand dunes out in the desert far away"
           ],
           "answer": "C",
           "skill": "detail",
@@ -233,7 +233,7 @@
         {
           "stem": "Why does the author tell about flamingos in Saudi Arabia at the end?",
           "options": [
-            "To show that flamingos only live there and nowhere else",
+            "To show that flamingos only live there",
             "To explain how flamingos make nests of mud and stones",
             "To tell readers they might see flamingos near them",
             "To warn people to stay away from the coast and the birds"
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best tells the central idea of the article?",
           "options": [
-            "Flamingos are tall birds that cannot fly, and they stay on the ground all day.",
+            "Flamingos are tall birds that rarely fly, so they stay on the ground and wade in lakes with their friends.",
             "Flamingos are wading birds with special ways of feeding, getting their color, and living together.",
-            "Flamingos only eat algae, and nothing else, as long as they live, and they eat it at night in the shallow lakes.",
-            "Flamingos build the biggest nests of any bird, and these nests stand in the water."
+            "Flamingos eat algae at night in the shallow lakes, and they rest by day.",
+            "Flamingos build very large nests, and these nests float on the water."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -474,8 +474,8 @@
           "options": [
             "Flamingos are colorful birds whose diet, feeding method, and social habits help them thrive in salty wetlands.",
             "Flamingos are endangered and live only in Saudi Arabia, in a few salty lakes near the sea and the desert.",
-            "Carotenoids are the most important pigments in all of nature, and every plant and animal needs them.",
-            "Flamingos stand on one leg because their knees are weak, and so they cannot stand on both legs."
+            "Carotenoids are the most important pigments in nature, and most plants and animals need them.",
+            "Flamingos stand on one leg because their knees are weak, so standing on both legs hurts."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -575,8 +575,8 @@
           "stem": "Why do scientists describe the one-leg posture with words like believe and still investigating?",
           "options": [
             "Because the reason has been proven for all birds in the world",
-            "Because flamingos never stand on one leg in the water",
-            "Because the posture only happens in Saudi Arabia and nowhere else",
+            "Because flamingos rarely stand on one leg in the water",
+            "Because the posture happens mostly in Saudi Arabia",
             "Because the explanation is likely but not fully understood yet"
           ],
           "answer": "D",

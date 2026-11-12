@@ -201,7 +201,7 @@
           "options": [
             "Because new mountains are built by hand every year by workers",
             "Because the plates that formed them still push together",
-            "Because glaciers add new layers of ice every year",
+            "Because glaciers add new layers of ice each year",
             "Because snow leopards dig new peaks in the snow"
           ],
           "answer": "B",
@@ -296,7 +296,7 @@
             "Sherpa people only work as mountain guides.",
             "The Himalayas formed from colliding plates and remain a vast, challenging, changing range.",
             "Yaks are the strongest animals in Asia.",
-            "Mount Everest is the only mountain in the entire world that is worth climbing or studying."
+            "Mount Everest is the most important mountain in the world to climb and study and climb."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,7 +311,7 @@
           "stem": "According to the article, what caused the Himalayas to form?",
           "options": [
             "Two tectonic plates collided and pushed land upward",
-            "A giant river slowly carved out the mountains",
+            "A giant river slowly carved out the mountains in a few years",
             "Volcanoes built the peaks one by one",
             "Strong winds piled up sand into mountains"
           ],
@@ -328,7 +328,7 @@
           "stem": "Why do climbers near the summit of Everest need extra oxygen?",
           "options": [
             "The air there holds much less oxygen than at sea level",
-            "The summit is almost always completely covered in a thick layer of fog",
+            "The summit is almost covered in a thick layer of fog",
             "Yaks use up the oxygen on the trail",
             "The air there is too warm to breathe"
           ],
@@ -364,7 +364,7 @@
             "The Himalayas are slowly shrinking",
             "The Himalayas are still slowly rising",
             "The glaciers stop melting completely",
-            "Sherpa villages move every single year"
+            "Sherpa villages move each year"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -380,8 +380,8 @@
           "options": [
             "Because wild yaks sometimes charge and attack climbers along the narrow trail",
             "Because thin air and extreme altitude put stress on the body",
-            "Because there are no trails to follow at all",
-            "Because the mountain is always on fire"
+            "Because there are no trails to follow",
+            "Because the mountain is on fire"
           ],
           "answer": "B",
           "skill": "inference",
@@ -474,8 +474,8 @@
           "options": [
             "The Himalayas formed from tectonic collision and remain an immense, dynamic range vital to the region's water supply.",
             "Mount Everest is the only Himalayan peak worth studying, and the rest of the range is of no use to science or to the people who live below.",
-            "Sherpa communities have abandoned mountain life entirely, and no one lives in the Himalayas now.",
-            "The Tibetan Plateau is colder than the Himalayas themselves, so rivers there never flow to the sea."
+            "Sherpa communities have left mountain life, and few people live in the Himalayas now.",
+            "The Tibetan Plateau is colder than the Himalayas, so its rivers rarely reach the sea."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -558,7 +558,7 @@
           "stem": "Why do most climbers need oxygen tanks near Everest's summit?",
           "options": [
             "Because the extreme altitude leaves far less oxygen in the air",
-            "Because the summit is always shrouded in smoke",
+            "Because the summit is shrouded in smoke",
             "Because yaks cannot climb that high to help carry supplies",
             "Because expeditions are not allowed to use ropes"
           ],
@@ -576,7 +576,7 @@
           "options": [
             "Because it is located at the exact North Pole of the Earth",
             "Because it stores an enormous amount of the world's ice outside the polar regions",
-            "Because it is always covered in total darkness all year long, with no light",
+            "Because it is covered in total darkness all year long, with no light",
             "Because no rivers begin anywhere near it in the whole of Asia or in other places"
           ],
           "answer": "B",
@@ -594,7 +594,7 @@
             "Because melting ice makes Mount Everest impossible to climb for any person in the world",
             "Because faster melting could disrupt rivers that hundreds of millions of people depend on",
             "Because Sherpa villages will need to relocate to the Tibetan Plateau next year",
-            "Because erosion will stop completely once the glaciers disappear from the hills"
+            "Because erosion will stop once the glaciers disappear from the hills"
           ],
           "answer": "B",
           "skill": "inference",

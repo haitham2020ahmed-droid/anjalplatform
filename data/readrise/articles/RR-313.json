@@ -218,7 +218,7 @@
           "options": [
             "One single artist cannot hold a pencil alone.",
             "There are many jobs, like drawing, writing, and sound.",
-            "Teams always work faster since there is less to draw.",
+            "Teams work faster since there is less to draw for a big team.",
             "A team is required by a very strict law."
           ],
           "answer": "B",
@@ -294,9 +294,9 @@
           "stem": "What is the main idea of the article?",
           "options": [
             "All animated movies are made by just one single artist in one single day.",
-            "Cartoons are always made completely without any sound at all.",
+            "Cartoons are made without sound.",
             "Animators and teams use frames and an illusion of movement to make films.",
-            "Computers are never able to be used at all to make any cartoons."
+            "Computers are rarely used to make cartoons."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -346,7 +346,7 @@
           "options": [
             "So actors can be hired much more quickly for the film.",
             "So the team can plan the movie before finishing the art.",
-            "So the movie ends up needing much less sound overall.",
+            "So the movie ends up needing much less sound.",
             "So the finished film automatically becomes much shorter."
           ],
           "answer": "B",
@@ -395,10 +395,10 @@
         {
           "stem": "What can you infer about why our brain sees smooth movement from still frames?",
           "options": [
-            "Cartoons are actually filmed using real, live moving actors.",
+            "Cartoons are actually filmed using real, live moving actors in a studio.",
             "Our eyes hold each picture briefly, and the brain blends them fast.",
             "Each single frame is already moving all by itself.",
-            "Our eyes are simply not able to see pictures at all."
+            "Our eyes are simply not able to see pictures."
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,8 +412,8 @@
         {
           "stem": "How does the author organize the explanation of animation?",
           "options": [
-            "By arguing that all cartoons should be made much shorter.",
-            "By comparing two completely different animation studios.",
+            "By arguing that all cartoons should be made much shorter for children.",
+            "By comparing two different animation studios.",
             "By describing team jobs, the illusion of motion, and production.",
             "By listing many famous cartoon characters by name."
           ],
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Animation studios today refuse to use any computers when making modern animated films, and draw all by hand.",
-            "Storyboards became completely unnecessary the moment studios started owning computers.",
+            "Storyboards became unnecessary the moment studios started owning computers.",
             "Animation relies on a carefully built illusion of motion created by many skilled specialists working together.",
-            "A single still frame by itself can create the entire illusion of smooth movement on a screen, without any other frames."
+            "A single still frame by itself can create the illusion of smooth movement on a screen."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -526,7 +526,7 @@
             "So that the computer is able to render each frame much faster.",
             "So the spoken dialogue matches the lips precisely, frame by frame.",
             "So the digital rig can be built much more easily by riggers.",
-            "So the storyboard stage can be skipped entirely by the team."
+            "So the storyboard stage can be skipped by the team."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -560,7 +560,7 @@
             "First sketch a storyboard, then rig and animate, then render frames, then sync sound.",
             "First render the finished film, then build the rig, then sketch a storyboard, then animate it.",
             "First synchronize the sound, then release the film, and only then write the story.",
-            "First release the finished film, and only afterward sketch a storyboard for it."
+            "First release the finished film, and afterward sketch a storyboard for it."
           ],
           "answer": "A",
           "skill": "sequence",
@@ -574,7 +574,7 @@
         {
           "stem": "What can you infer about why rendering a single complicated frame can take hours?",
           "options": [
-            "Animators simply refuse to ever finish drawing their characters.",
+            "Animators simply refuse to ever finish drawing their characters in a film.",
             "Calculating realistic light, shadow, and color takes heavy computer work.",
             "Writers are still busy revising the story at that exact point.",
             "Storyboards are extremely difficult for any artist to sketch."
@@ -592,9 +592,9 @@
           "stem": "How is traditional hand-drawn animation different from modern computer animation, according to the article?",
           "options": [
             "Traditional hand-drawn animation uses a rig, while computer animation only uses flipbooks.",
-            "There is truly no real difference at all between these two very different techniques.",
+            "There is truly no real difference between these two very different techniques.",
             "Hand-drawn animation uses frames drawn by hand, while computer animation uses 3D models.",
-            "Computer animation never actually needs any rendering at all to finish a scene."
+            "Computer animation rarely needs rendering to finish a scene."
           ],
           "answer": "C",
           "skill": "compare",

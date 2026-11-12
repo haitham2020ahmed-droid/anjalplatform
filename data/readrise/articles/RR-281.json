@@ -166,7 +166,7 @@
           "stem": "Why do young lifters start with light weights?",
           "options": [
             "Because light weights are more fun to use than heavy ones",
-            "Because heavy weights are not allowed in most gyms at all",
+            "Because heavy weights are not allowed in most gyms",
             "Because light weights make muscles weaker over a long time",
             "So they build good form and strength slowly and safely"
           ],
@@ -216,7 +216,7 @@
         {
           "stem": "In the article, form means -",
           "options": [
-            "a type of paper used at the gym",
+            "a type of paper used at the gym for notes",
             "the right way to move during a lift",
             "the shape of the barbell",
             "a kind of warm-up exercise"
@@ -293,8 +293,8 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Only professional athletes can safely lift weights at all today",
-            "Weightlifting always causes injuries no matter how it is done",
+            "Professional athletes are the main people who lift weights in big gyms",
+            "Weightlifting causes injuries no matter how it is done",
             "Good technique protects a lifter from injury while building strength",
             "Rest is unimportant compared to the actual lift itself"
           ],
@@ -328,7 +328,7 @@
           "stem": "What does the deadlift strengthen, according to the article?",
           "options": [
             "Only the shoulders are strengthened by this particular lift",
-            "Only the fingers are strengthened by this particular lift",
+            "The fingers are strengthened by this particular lift",
             "The neck alone is strengthened by this particular lift",
             "The back and legs are strengthened together by this lift"
           ],
@@ -412,10 +412,10 @@
         {
           "stem": "Based on the article, how are lighter and heavier weights used differently by young lifters?",
           "options": [
-            "Lifters always use the heaviest weight from day one",
+            "Lifters use the heaviest weight from day one",
             "Lifters start light and slowly add a bit more weight",
             "Lifters never change the weight they use in training",
-            "Lifters lift heavy weights only during their rest days"
+            "Lifters lift heavy weights during their rest days"
           ],
           "answer": "B",
           "skill": "compare",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Tendons are never affected by weightlifting technique at all, even for beginners",
+            "Tendons are never affected by weightlifting technique, even for beginners",
             "Rest becomes unnecessary once hypertrophy actually begins in the body",
-            "Hypertrophy occurs only in professional athletes, never beginners",
+            "Hypertrophy occurs mostly in professional athletes, rarely in beginners",
             "Overload and good technique together build muscle safely through hypertrophy"
           ],
           "answer": "D",
@@ -506,9 +506,9 @@
         {
           "stem": "What is progressive overload?",
           "options": [
-            "Lifting the exact same weight forever without ever changing it",
+            "Lifting the exact same weight without ever changing it",
             "Gradually increasing the weight over many training sessions to adapt",
-            "A sudden, one-time heavy lift performed just once in training",
+            "A sudden, one-time heavy lift performed just once in training to test the body",
             "A strict rule that limits how much weight may ever be lifted"
           ],
           "answer": "B",
@@ -526,7 +526,7 @@
             "Because tendons are naturally much weaker than muscles are",
             "Because coaches almost never watch for poor technique",
             "Because it happens under heavy load without proper joint alignment",
-            "Because heavier weights always cause injury no matter the technique"
+            "Because heavier weights cause injury no matter the technique"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -540,7 +540,7 @@
         {
           "stem": "What can you infer about why a coach analyzes joint alignment during a lift?",
           "options": [
-            "Joint alignment truly has no effect on safety at all",
+            "Joint alignment truly has no effect on safety",
             "Coaches mainly care about how a lift looks visually",
             "Alignment matters only in competitions, never in practice",
             "Misaligned joints under load can lead to strain or injury"
@@ -574,10 +574,10 @@
         {
           "stem": "How does the author build the explanation of why weightlifting builds strength safely?",
           "options": [
-            "By arguing that rest should be skipped for faster results",
+            "By arguing that rest should be skipped for faster results and better health",
             "By explaining resistance, hypertrophy, overload, technique, and rest",
             "By comparing weightlifting only to the sport of running",
-            "By listing every weightlifting record that has ever been set"
+            "By listing the weightlifting records that have been set"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -591,8 +591,8 @@
         {
           "stem": "Based on the article, how do the squat and deadlift differ in what they strengthen?",
           "options": [
-            "Both of these lifts are said to strengthen only the arms",
-            "Neither lift is said to strengthen any part of the body",
+            "Both of these lifts are said to strengthen only the arms and the hands",
+            "The squat strengthens the arms, the deadlift the neck",
             "The squat strengthens the legs, the deadlift the posterior chain",
             "The squat strengthens the neck, the deadlift the fingers"
           ],

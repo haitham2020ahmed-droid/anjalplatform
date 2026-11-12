@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Only athletes can understand how swimming works.",
-            "The front crawl is the only stroke worth learning.",
+            "The front crawl is the most useful stroke to learn.",
             "Swimming depends on science, such as buoyancy, pushing forces, and drag, and swimmers must also stay safe.",
-            "Water is dangerous, so people should avoid pools, lakes, and the sea whenever they possibly can."
+            "Water is dangerous, so people should avoid pools, lakes, and the sea whenever they possibly can in the summer."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,7 +361,7 @@
         {
           "stem": "What is a swimmer trying to do by holding a streamline?",
           "options": [
-            "Float in one place without moving any part of the body at all",
+            "Float in one place without moving any part of the body",
             "Breathe more often",
             "Reduce drag so it is easier to move through the water",
             "Make more bubbles"
@@ -474,7 +474,7 @@
           "options": [
             "Swimming is mainly a matter of strength and speed, and science plays little part in how fast any person swims in a pool or in the sea.",
             "Swimming relies on physical principles such as buoyancy, action and reaction, and drag, which swimmers use to move efficiently and safely.",
-            "Archimedes invented the four competitive strokes, and swimmers still use his names for them in every race held today.",
+            "Archimedes invented the four competitive strokes, and swimmers still use his names for them in races today.",
             "Swimsuits are the most important factor in a race, so a swimmer's training and body position matter much less."
           ],
           "answer": "B",
@@ -490,7 +490,7 @@
           "stem": "According to the article, how strong is the upward force of buoyancy?",
           "options": [
             "It equals the weight of the water the body displaces",
-            "It is always twice a swimmer's weight",
+            "It is twice a swimmer's weight",
             "It depends only on how fast and how hard the swimmer kicks",
             "It is the same as the force of drag"
           ],
@@ -574,7 +574,7 @@
         {
           "stem": "The article calls the front crawl the most \"efficient\" stroke. What does this suggest?",
           "options": [
-            "It needs no breathing at all",
+            "It needs no breathing",
             "It is the easiest stroke for beginners to learn on their first day in the pool",
             "It is used only in the backstroke race",
             "It produces a lot of speed for the energy used"

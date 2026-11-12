@@ -202,7 +202,7 @@
             "She did not really care about the chimps",
             "She was patient and respected the chimps' space",
             "She was too tired to move from her spot",
-            "She wanted the chimps to leave the forest"
+            "She wanted the chimps to leave the forest and the area"
           ],
           "answer": "B",
           "skill": "inference",
@@ -345,7 +345,7 @@
           "stem": "In the article, a patient approach means",
           "options": [
             "Rushing very quickly to finish a task without care",
-            "Giving up completely after just the first try",
+            "Giving up after just the first try",
             "A careful, calm way of doing something over time",
             "Taking loud and sudden action to get attention"
           ],
@@ -364,7 +364,7 @@
             "She could finally approach them closely to observe",
             "She immediately left the forest for good",
             "She stopped recording any of her notes",
-            "The chimps eventually left the Gombe forest forever"
+            "The chimps left the Gombe forest for a while to find food"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -398,7 +398,7 @@
             "Both methods relied only on numbers for every single animal",
             "Jane's naming showed each chimp's own personality and worth",
             "Naming the chimps made them much harder to study scientifically",
-            "Neither naming nor numbering is ever mentioned in the article"
+            "Neither naming nor numbering is ever mentioned"
           ],
           "answer": "B",
           "skill": "compare",
@@ -412,10 +412,10 @@
         {
           "stem": "What can you infer from the fact that some of Jane's methods were seen as unusual for a scientist at the time?",
           "options": [
-            "Her careful approach was eventually proven to be completely wrong",
+            "Her careful approach was eventually proven to be wrong by others",
             "Her unusual methods challenged old ideas but led to real discoveries",
-            "She immediately quit all of her research after facing doubt",
-            "No one at all ever accepted any of her later findings"
+            "She quit her research after facing doubt from others",
+            "Few people accepted her later findings"
           ],
           "answer": "B",
           "skill": "inference",
@@ -473,7 +473,7 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Jane Goodall only ever studied chimpanzees living inside zoos",
-            "Louis Leakey himself personally discovered that wild chimps use tools",
+            "Louis Leakey himself personally discovered that wild chimps use tools at Gombe",
             "Jane's careful research at Gombe reshaped science and led her to protect chimps",
             "Jane Goodall personally invented the scientific word habitat"
           ],
@@ -526,7 +526,7 @@
             "Guessing answers without checking any facts",
             "Carefully observing and recording facts to learn something new",
             "Repeating old traditional stories without ever questioning them",
-            "Deliberately ignoring any evidence that seems unusual at first"
+            "Ignoring evidence that seems unusual at first"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -593,7 +593,7 @@
           "options": [
             "Both approaches studied chimpanzees only inside cages",
             "Jane studied chimps patiently in nature; others used cages",
-            "Jane never once gave any of the chimps a personal name",
+            "Jane did not give the chimps personal names",
             "Earlier scientists also lived among wild chimps for many months"
           ],
           "answer": "B",

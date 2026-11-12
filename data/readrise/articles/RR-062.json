@@ -296,7 +296,7 @@
             "Baby teeth matter more than adult teeth, so care of them is the main idea.",
             "Teeth do important jobs, and daily care and good food keep them healthy.",
             "The miswak is the only safe way to clean teeth, and brushes are harmful.",
-            "Bacteria in the mouth are always helpful, so teeth do not need any cleaning."
+            "Bacteria in the mouth are helpful, so teeth need little cleaning."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -474,7 +474,7 @@
           "options": [
             "Because permanent teeth must last a lifetime, daily habits and diet are key to stopping decay.",
             "A miswak works better than any toothpaste, and so people no longer need brushes or paste.",
-            "Enamel is so hard that it can never be damaged by food, sugar, or any drink.",
+            "Enamel is so hard that food and sugar rarely damage it, so drinks matter more.",
             "Children need more teeth than adults do, which is why they grow a new set later."
           ],
           "answer": "A",
@@ -560,7 +560,7 @@
             "Modern toothpaste no longer works well",
             "Only scientists are allowed to use a miswak",
             "Some traditional habits have real benefits",
-            "Arak trees grow in every country"
+            "Arak trees grow in many countries"
           ],
           "answer": "C",
           "skill": "inference",

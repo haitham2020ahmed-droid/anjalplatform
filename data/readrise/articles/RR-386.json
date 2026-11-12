@@ -151,7 +151,7 @@
       "He does not like the cafeteria food",
       "He does not know where he should sit",
       "He accidentally drops his lunch tray",
-      "He suddenly is not hungry at all"
+      "He suddenly is not hungry"
      ],
      "answer": "B",
      "skill": "detail",
@@ -364,7 +364,7 @@
       "loudly complains about the seat Omar offers",
       "sits down, showing thanks for Omar's kindness",
       "quietly argues with Omar about seating",
-      "completely ignores Omar's friendly invitation"
+      "ignores Omar's friendly invitation"
      ],
      "answer": "B",
      "skill": "vocabulary",
@@ -415,7 +415,7 @@
       "A small kind gesture can meaningfully change how someone feels in a new place",
       "Kindness from a classmate rarely changes how nervous someone feels in a new place",
       "Only strict teachers can truly help a new student feel comfortable at a new school",
-      "Feeling nervous on a first day can never really be eased by anyone in the class"
+      "Feeling nervous on a first day is hard for classmates to ease"
      ],
      "answer": "A",
      "skill": "inference",
@@ -472,8 +472,8 @@
     {
      "stem": "Which statement best captures the central idea of the story?",
      "options": [
-      "Making friends at a new school is simply impossible without introductions.",
-      "A new student must rely entirely on teachers to feel comfortable.",
+      "Making friends at a new school is simply impossible without introductions from a teacher.",
+      "A new student must rely on teachers to feel comfortable.",
       "A small, instinctive act of kindness can shift a nervous newcomer's whole outlook.",
       "Students with existing friends have no obligation to notice anyone new."
      ],
@@ -490,7 +490,7 @@
      "stem": "Why does Yusuf feel especially isolated while sitting in the back row of his new classroom?",
      "options": [
       "He lacks the shared history and jokes linking his classmates",
-      "He has been assigned extra difficult work by a teacher",
+      "He has been assigned extra difficult work by a teacher in the new term",
       "He cannot see the whiteboard clearly from that seat",
       "He has forgotten most of his school supplies at home"
      ],
@@ -526,7 +526,7 @@
       "eager and fully confident about the day ahead",
       "openly angry about having to move away",
       "hesitant and unsure, slow to feel comfortable",
-      "completely indifferent to whether he makes friends"
+      "indifferent to whether he makes friends"
      ],
      "answer": "C",
      "skill": "vocabulary",

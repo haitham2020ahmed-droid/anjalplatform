@@ -185,7 +185,7 @@
             "They would get much bigger.",
             "They would happen every hour.",
             "They would get much smaller.",
-            "They would only happen at night."
+            "They would happen at night."
           ],
           "answer": "C",
           "skill": "inference",
@@ -491,7 +491,7 @@
           "options": [
             "Only during a lunar eclipse",
             "The two quarter-moon phases",
-            "Only during the spring season",
+            "The spring and summer seasons of each year",
             "The new moon and full moon phases"
           ],
           "answer": "D",
@@ -575,7 +575,7 @@
           "stem": "A captain plans to enter a shallow harbor during a quarter-moon phase. What should she expect?",
           "options": [
             "A smaller difference between high and low tide than at full moon",
-            "No high tide at all that day",
+            "No high tide that day",
             "The largest tides of the whole month, much higher than usual",
             "Tides that come only once that day"
           ],

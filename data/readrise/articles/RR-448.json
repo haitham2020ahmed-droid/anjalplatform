@@ -131,7 +131,7 @@
         {
           "stem": "Why could Lama and Zaid not cross the stream after the heavy rain?",
           "options": [
-            "The small stream had completely frozen solid",
+            "The small stream had frozen solid",
             "A large tree had fallen right across the path",
             "The flat stones were covered by fast water",
             "Their school shoes were much too big"
@@ -149,7 +149,7 @@
           "stem": "What did the brothers' father ask them to do?",
           "options": [
             "Feed the farm chickens every single day",
-            "Walk Lama and Zaid all the way to school",
+            "Walk Lama and Zaid to school",
             "Go and buy some new flat stones",
             "Build a wooden bridge over the stream"
           ],
@@ -167,7 +167,7 @@
           "options": [
             "to talk or shout angrily because you disagree",
             "to quickly agree with what someone says",
-            "to walk somewhere together with a friend",
+            "to walk somewhere together with a friend on a trip",
             "to build something carefully out of wood"
           ],
           "answer": "A",
@@ -218,7 +218,7 @@
           "options": [
             "They built a bridge Lama and Zaid could cross",
             "The farm's chickens suddenly ran far away",
-            "The flooded stream completely dried up",
+            "The flooded stream dried up",
             "The new bridge quickly fell back down"
           ],
           "answer": "A",
@@ -295,7 +295,7 @@
           "options": [
             "Two stubborn brothers cooperate to build a needed bridge",
             "A simple story about raising chickens on a farm in spring",
-            "A path that quietly disappears forever one night in the dark",
+            "A path that quietly disappears one night in the dark",
             "Two brothers who never speak to each other again after the flood"
           ],
           "answer": "A",
@@ -396,7 +396,7 @@
           "stem": "Why was the new bridge able to keep Lama and Zaid's shoes from getting wet?",
           "options": [
             "The two older brothers carried them both across",
-            "It had completely stopped raining by then",
+            "It had stopped raining by then",
             "The bridge was sturdy and built above the water",
             "The flooded stream had simply disappeared"
           ],
@@ -412,7 +412,7 @@
         {
           "stem": "How does the author organize events in this story?",
           "options": [
-            "By comparing two completely different villages near the river",
+            "By comparing two different villages near the river",
             "In time order: arguing, the flood, the request, the work",
             "By simply listing different types of wood used for the bridge",
             "By describing the farm from present back to past events"
@@ -507,7 +507,7 @@
           "stem": "What compromise did the brothers eventually reach about building the bridge?",
           "options": [
             "They abandoned the whole bridge project entirely",
-            "They decided to use only Saad's original plan",
+            "They decided to use Saad's original plan",
             "They asked their father to simply decide for them",
             "They combined parts of both of their ideas"
           ],
@@ -574,10 +574,10 @@
         {
           "stem": "What does the brothers' experience suggest about resolving disagreements?",
           "options": [
-            "Ongoing rivalry always produces the very best results",
+            "Ongoing rivalry produces the very best results",
             "Collaborating can work better than acting alone",
             "Reaching any compromise is never worth the effort",
-            "Only ever one single person's plan should be used"
+            "One person's plan should be used"
           ],
           "answer": "B",
           "skill": "inference",

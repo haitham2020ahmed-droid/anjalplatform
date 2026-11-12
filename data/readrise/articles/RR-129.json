@@ -150,7 +150,7 @@
           "options": [
             "They keep the rain out of the box.",
             "They hold the food in place.",
-            "They make the box lighter to carry.",
+            "They make the box lighter to carry and move.",
             "They bounce more sunlight into the box."
           ],
           "answer": "D",
@@ -293,7 +293,7 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Solar ovens are too slow to be useful anywhere in the world, and nobody uses them.",
+            "Solar ovens are too slow to be useful, and nobody uses them.",
             "Solar ovens use sunlight to cook and can replace smoky fires that harm health.",
             "Wood is the best fuel for cooking, and smoky fires keep people healthy in their homes.",
             "Cars get hot when they are parked in the sun, and this is the main idea of the article."
@@ -413,7 +413,7 @@
           "stem": "Why does the author end with the limits of solar ovens?",
           "options": [
             "To give a fair picture that includes problems as well as benefits",
-            "To convince readers never to use them for any reason at all, even in sunny places",
+            "To convince readers never to use them for any reason, even in sunny places",
             "To explain how to fix a broken oven with a few simple tools",
             "To describe the history of ovens from the oldest to today's"
           ],
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea?",
           "options": [
             "Solar cookers turn sunlight into heat in different ways and offer a cleaner choice than smoky fires.",
-            "Parabolic cookers are always better than box ovens because they cook food much faster in all weather.",
+            "Parabolic cookers are better than box ovens because they cook food much faster in all weather.",
             "De Saussure invented cooking long ago, and he was the first person to heat food over a fire.",
-            "Forests are disappearing only because of cooking fires, so we should stop cooking with wood."
+            "Forests are disappearing mainly because of cooking fires, so we should stop cooking with wood."
           ],
           "answer": "A",
           "skill": "central-idea",

@@ -132,9 +132,9 @@
           "stem": "Why was the North Star such a big help?",
           "options": [
             "It is the biggest and brightest star of all.",
-            "It only shines on hot summer nights.",
+            "It shines on hot summer nights.",
             "It stays in one spot and shows north.",
-            "It moves all the way across the sky each hour."
+            "It moves across the sky each hour."
           ],
           "answer": "C",
           "skill": "detail",
@@ -184,7 +184,7 @@
           "options": [
             "The winds told them the names of all the stars.",
             "The winds made the stars in the sky look brighter.",
-            "The winds kept the sea calm all year long.",
+            "The winds kept the sea calm through the year.",
             "The winds changed with the seasons."
           ],
           "answer": "D",
@@ -219,7 +219,7 @@
             "They were smart and knew the sky well.",
             "They were afraid of the sea at night.",
             "They only sailed in the daytime near land.",
-            "They never left their homes or the shore."
+            "They stayed close to their homes and the shore."
           ],
           "answer": "A",
           "skill": "inference",
@@ -235,7 +235,7 @@
           "options": [
             "To show the sailors' work still lives on",
             "To teach readers how to spell star names",
-            "To say that most stars have no names at all",
+            "To say that most stars have no names",
             "To explain how dates are grown and picked"
           ],
           "answer": "A",
@@ -295,8 +295,8 @@
           "options": [
             "Arab ships were much faster than all the other ships of their time.",
             "Arab navigators used stars, tools, and winds to cross the ocean.",
-            "The North Star is the only star that sailors could see at night.",
-            "Merchants traded only horses because horses were worth the most."
+            "The North Star is the brightest star that sailors could see at night.",
+            "Merchants traded horses because horses were worth the most."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -346,7 +346,7 @@
           "options": [
             "a large wooden ship with sails",
             "a seasonal wind that changes direction",
-            "a bright star that always shows north",
+            "a bright star that shows north",
             "a busy market where spices were sold"
           ],
           "answer": "B",
@@ -364,7 +364,7 @@
             "Because the stars were much brighter in the summer",
             "Because the monsoon changed direction with the seasons",
             "Because merchants liked to rest at home all winter",
-            "Because the kamal only worked on long summer nights"
+            "Because the kamal worked best on long summer nights"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -543,7 +543,7 @@
             "The astrolabe was made only of string and knots.",
             "The astrolabe was more complex than the kamal.",
             "The astrolabe was used mainly to measure wind speed.",
-            "The astrolabe was used only in daylight to steer."
+            "The astrolabe was used in daylight to steer."
           ],
           "answer": "B",
           "skill": "compare",
@@ -593,8 +593,8 @@
           "options": [
             "Their trade routes linked many lands.",
             "They kept all of their knowledge a secret.",
-            "They only sailed along one short coast.",
-            "They never wrote any of their ideas down."
+            "They sailed along one short coast.",
+            "They wrote few of their ideas down."
           ],
           "answer": "A",
           "skill": "inference",

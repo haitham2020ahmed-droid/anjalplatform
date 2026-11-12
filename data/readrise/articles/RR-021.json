@@ -397,7 +397,7 @@
           "options": [
             "To show that pulleys have helped people for a long time",
             "To explain how wells are dug in the ground",
-            "To prove that ramps are always better than pulleys for people",
+            "To prove that ramps are better than pulleys for people",
             "To describe what villages looked like long ago"
           ],
           "answer": "A",
@@ -543,7 +543,7 @@
             "The long ramp will make the total work disappear.",
             "The worker wants to finish faster no matter how hard it is.",
             "The worker will push with less force but travel farther.",
-            "The long ramp has no friction at all."
+            "The long ramp has no friction."
           ],
           "answer": "C",
           "skill": "inference",

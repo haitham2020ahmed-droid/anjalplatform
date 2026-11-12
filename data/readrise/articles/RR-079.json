@@ -201,7 +201,7 @@
           "options": [
             "The tombs are rock, but the homes were mud.",
             "People still live in the tombs today.",
-            "The homes were carried away by camels.",
+            "The homes were carried away by camels to other towns.",
             "The tombs were built much later."
           ],
           "answer": "A",
@@ -236,7 +236,7 @@
             "To show that the workers were lazy",
             "To show how the workers carved the tombs",
             "To explain why the town was built",
-            "To warn people not to touch the tomb"
+            "To warn people not to touch the tomb inside the cave"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,7 +293,7 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Hegra was the capital city of the Roman Empire long ago.",
+            "Hegra was the capital city of the Roman Empire long ago in Arabia.",
             "Camels are the most important animals in Saudi history.",
             "Hegra is an ancient trading city famous for its rock-cut tombs.",
             "Most Nabataean homes are still standing in AlUla today."

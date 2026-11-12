@@ -117,7 +117,7 @@
             "A fisherman who travels far away to sell his old nets",
             "A grandfather who teaches patience matters more than a net",
             "A boy who learns how to swim safely in the deep blue sea",
-            "Two old fishermen who always race each other in their boats"
+            "Two old fishermen who race each other in their boats"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -200,9 +200,9 @@
           "stem": "In the article, the word patient means someone who —",
           "options": [
             "can wait calmly without rushing",
-            "fishes only in the morning",
+            "fishes only in the morning near the shore",
             "owns an expensive net",
-            "always catches the biggest fish"
+            "catches the biggest fish"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -234,8 +234,8 @@
           "stem": "What can you tell about Yusuf by the end of the story?",
           "options": [
             "He still thinks a big net is all that matters for catching fish",
-            "He gives his new net away forever to a boy in the village",
-            "He decides never to go fishing again after the long hot day",
+            "He gives his new net away to a boy in the village",
+            "He decides to stop fishing after the long hot day",
             "He wants to learn to watch and wait like his grandfather"
           ],
           "answer": "D",
@@ -296,7 +296,7 @@
             "Yusuf's new net was far too heavy for him to use properly",
             "Patience and skill in reading water matter more than an expensive net",
             "Fishing nets are usually passed down as gifts from an uncle",
-            "The Red Sea is home to many different kinds of colorful fish"
+            "The Red Sea is home to many different kinds of colorful fish near the shore"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,7 +327,7 @@
         {
           "stem": "What signs told Saleh that fish were gathering below the surface?",
           "options": [
-            "A strong wind and dark clouds",
+            "A strong wind and dark clouds over the water",
             "Loud noises from the village",
             "A change in water color only",
             "Small ripples and seabirds diving"
@@ -361,8 +361,8 @@
         {
           "stem": "In the article, the word technique most nearly means —",
           "options": [
-            "a kind of fishing net used only once",
-            "a type of fish found only in deep water",
+            "a kind of fishing net used only once by fishermen",
+            "a type of fish found in deep water",
             "a careful, practiced way of doing something",
             "a sudden guess with no real plan"
           ],
@@ -398,7 +398,7 @@
             "It helped him catch more fish than his grandfather",
             "It made him act before the right moment came",
             "It had nothing to do with his fishing",
-            "It only affected how he walked through the village"
+            "It affected how he walked through the village"
           ],
           "answer": "B",
           "skill": "inference",
@@ -414,7 +414,7 @@
           "options": [
             "Yusuf relies on his new net, while Saleh relies on skill",
             "Yusuf fishes at night, while Saleh fishes in the morning",
-            "Yusuf fishes alone, while Saleh always fishes with friends",
+            "Yusuf fishes alone, while Saleh fishes with friends",
             "Yusuf uses a boat, while Saleh fishes from the shore"
           ],
           "answer": "A",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Expensive equipment always guarantees the very best fishing results",
+            "Expensive equipment guarantees the very best fishing results",
             "A patient, observant way of reading water matters more than costly gear",
-            "Family fishing traditions do not matter at all in modern villages",
-            "Yusuf's uncle made a mistake in giving him that brand-new net"
+            "Family fishing traditions do not matter in modern villages",
+            "Yusuf's uncle made a mistake in giving him that brand-new net for his birthday"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,7 +489,7 @@
         {
           "stem": "In the article, the word anticipate most nearly means —",
           "options": [
-            "to ignore something completely without noticing",
+            "to ignore something without noticing",
             "to purchase something very quickly without thinking",
             "to argue loudly about something unimportant",
             "to expect something before it happens"
@@ -557,7 +557,7 @@
         {
           "stem": "What allowed Saleh to anticipate exactly when the fish were gathering?",
           "options": [
-            "A sudden lucky guess with no real explanation at all",
+            "A sudden lucky guess with no real explanation",
             "Advice given by Yusuf's uncle before they left",
             "A loud, sudden noise coming from the nearby village",
             "Decades of observant practice reading subtle signs"
@@ -575,7 +575,7 @@
           "stem": "How does Yusuf's view of fishing change from the beginning to the end of the story?",
           "options": [
             "He starts and ends believing only expensive equipment matters",
-            "He loses all interest in fishing altogether after this day",
+            "He loses interest in fishing after this day",
             "He begins trusting his net, then values his grandfather's technique",
             "He decides to sell his brand-new net immediately afterward"
           ],

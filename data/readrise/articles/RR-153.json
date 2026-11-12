@@ -184,8 +184,8 @@
           "options": [
             "It rains there every day",
             "Water is found deep under the ground",
-            "The soil is always wet on top",
-            "There are rivers next to every tree"
+            "The soil is wet on top",
+            "There are rivers next to the trees"
           ],
           "answer": "B",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Plants need much more sunlight than water to stay healthy and green.",
             "Root hairs are the most important part of every kind of plant on Earth.",
             "Water travels from roots to leaves and keeps the plant alive.",
-            "Date palms are the only plants that are able to grow in dry places."
+            "Date palms are the main plants that are able to grow in dry places."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -379,9 +379,9 @@
           "stem": "Why can date palms grow well in dry land?",
           "options": [
             "Their deep roots reach water far down.",
-            "They are able to live without any water at all.",
+            "They are able to live without any water.",
             "Their wide leaves soak up rain straight from the air.",
-            "They are planted only next to rivers and lakes."
+            "They are planted next to rivers and lakes."
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best summarizes the central idea of the article?",
           "options": [
-            "Plants lose water mainly because of poor soil, so farmers must always add more minerals to the ground.",
+            "Plants lose water mainly because of poor soil, so farmers must add more minerals to the ground.",
             "Roots absorb water, which transpiration and cohesion pull up the xylem to be used for food, minerals, and support.",
             "Celery is the best plant for studying how water moves, because its stalks turn a bright colour.",
             "Botanists still have no idea how water climbs a tall tree, since no one has ever studied the roots or the leaves of a tall tree."
@@ -558,9 +558,9 @@
           "stem": "Why does the author begin by pointing out that plants have no mouths?",
           "options": [
             "To raise a puzzle that the rest of the article solves",
-            "To argue that plants are less alive than animals",
+            "To argue that plants are less alive than animals in the desert",
             "To compare plants to animals in every paragraph",
-            "To show that plants never need to drink"
+            "To show that plants need less water than animals"
           ],
           "answer": "A",
           "skill": "author-purpose",

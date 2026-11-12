@@ -199,7 +199,7 @@
     {
      "stem": "Why do people in Saudi Arabia take special care of groundwater?",
      "options": [
-      "Because groundwater always tastes better than rainwater",
+      "Because groundwater tastes better than rainwater",
       "Because the government asks everyone to dig new wells",
       "Because rain is so rare, this hidden water matters a lot",
       "Because groundwater falls from the sky very often"
@@ -295,7 +295,7 @@
      "options": [
       "Rain fills permeable rock with groundwater that people reach through wells",
       "Aquifers only exist in countries that get heavy rainfall every year",
-      "A rising water table makes every nearby well useless right away",
+      "A rising water table makes nearby wells useless right away",
       "Groundwater falls straight from passing clouds directly into open wells"
      ],
      "answer": "A",
@@ -344,7 +344,7 @@
     {
      "stem": "What happens to the water table when people pump out more water than rain can recharge?",
      "options": [
-      "Nothing changes at all",
+      "Nothing changes",
       "The water table drops lower",
       "The aquifer turns to stone",
       "The water table instantly refills"
@@ -395,7 +395,7 @@
     {
      "stem": "In the article, what does the word \"permeable\" mean?",
      "options": [
-      "Completely solid with no holes at all",
+      "Solid, with no holes for water to pass",
       "Extremely hot underground",
       "Able to let water pass through easily",
       "Full of salt and minerals"
@@ -474,8 +474,8 @@
      "options": [
       "Hydrologists monitor water tables so pumped aquifers stay sustainable",
       "Wells only work properly during years of unusually heavy rainfall",
-      "Fossil water is a rare type of water found only inside fossils",
-      "Saudi Arabia receives more yearly rainfall than any other nation"
+      "Fossil water is a rare type of water found inside old rocks",
+      "Saudi Arabia receives more yearly rainfall than most other nations"
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -491,8 +491,8 @@
      "options": [
       "Extremely heavy and dense throughout",
       "Full of tiny holes that let liquid through",
-      "Resistant to any kind of water at all",
-      "Found only deep inside solid, unbroken rock"
+      "Resistant to any kind of water",
+      "Found deep inside solid, unbroken rock in a cave"
      ],
      "answer": "B",
      "skill": "vocabulary",
@@ -542,7 +542,7 @@
      "options": [
       "The water table rises and the well overflows with water, so the farmers have more",
       "The aquifer instantly refills from the sea, so it never goes dry",
-      "Nothing changes, since groundwater is unlimited and never runs out",
+      "Little changes, since groundwater refills quickly",
       "The water table falls, and the aquifer can become depleted"
      ],
      "answer": "D",
@@ -559,7 +559,7 @@
      "options": [
       "The region has had unusually heavy rainfall for many years",
       "More water is being extracted than is being recharged",
-      "The aquifer has become completely saturated with water",
+      "The aquifer has become saturated with water",
       "The well has stopped being used altogether by the town"
      ],
      "answer": "B",
@@ -575,7 +575,7 @@
      "stem": "Why might a region favor sustainable management of its aquifers over unlimited pumping?",
      "options": [
       "Because many aquifers recharge slowly and could become depleted",
-      "Because unlimited pumping is said to always increase rainfall",
+      "Because unlimited pumping is said to increase rainfall",
       "Because sustainable management makes every well deeper automatically",
       "Because aquifers are known to recharge within a single season"
      ],
@@ -593,7 +593,7 @@
      "options": [
       "To argue that careful monitoring makes aquifers recharge faster",
       "To show that tracking helps prevent irreversible depletion",
-      "To compare two completely unrelated kinds of pumps",
+      "To compare two unrelated kinds of pumps",
       "To describe in detail how wells are originally drilled"
      ],
      "answer": "B",

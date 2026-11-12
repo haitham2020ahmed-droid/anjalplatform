@@ -117,7 +117,7 @@
             "How bats use sound to find food in the dark",
             "Why bats are afraid of the sun and of light",
             "How to keep bats out of a house or a barn",
-            "Why bats cannot see at all in the dark"
+            "Why bats cannot see in the dark"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -185,7 +185,7 @@
             "The calls are too high for people to hear.",
             "Bats only make calls during the day.",
             "Bats call very far away in caves.",
-            "The calls are much too soft and quiet."
+            "The calls are much too soft and quiet to hear."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -200,7 +200,7 @@
           "stem": "Fruit bats find food with their eyes and nose. What does this show?",
           "options": [
             "Fruit bats cannot fly.",
-            "Fruit bats only eat at noon.",
+            "Fruit bats eat at noon.",
             "Bats are not blind.",
             "Fruit bats eat bugs, not fruit."
           ],
@@ -236,7 +236,7 @@
             "To show readers that bats live near them too",
             "To explain how to visit a cave in the mountains",
             "To list all the caves in the Kingdom by size",
-            "To prove bats only live in deserts and in caves"
+            "To prove bats live mostly in deserts and caves"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,7 +293,7 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Bats are blind and depend completely on luck to find food at night.",
+            "Bats are blind and depend on luck to find food at night.",
             "Many bats use echoes to hunt in the dark, and bats help people in several ways.",
             "Sonar was invented long before anyone ever studied how bats fly.",
             "Bats are the most dangerous animals of the night, and people should fear them."
@@ -364,7 +364,7 @@
             "Both use bright lights to find objects.",
             "Both were invented by scientists in a lab.",
             "Both use echoes to find objects that are hard to see.",
-            "Both only work up in the air, never underwater."
+            "Both only work up in the air, never underwater in the dark."
           ],
           "answer": "C",
           "skill": "compare",
@@ -381,7 +381,7 @@
             "It finds prey by sound, not by light.",
             "It can see better than any other animal.",
             "Insects glow in the dark.",
-            "It only hunts when the moon is full."
+            "It hunts when the moon is full."
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Bats are rare animals that have little effect on people or on nature at all, and they never help anyone.",
+            "Bats are rare animals that have little effect on people or on nature, and they never help anyone.",
             "Echolocation lets many bats navigate and hunt in darkness, and bats benefit people and nature.",
-            "Moths always escape from bats because they hear them coming from far away, so bats rarely catch food.",
-            "Bats are blind, so they must use sound to find their way in every place."
+            "Moths escape from bats because they hear them coming from far away, so bats rarely catch food.",
+            "Bats are blind, so they use sound to find their way in dark places."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,7 +489,7 @@
         {
           "stem": "What does it mean that bat calls are ultrasonic?",
           "options": [
-            "They are louder than the engine of a jet.",
+            "They are louder than the engine of a jet plane.",
             "They can travel only through ocean water.",
             "Their frequency is too high for humans to hear.",
             "They can be heard many kilometers away."
@@ -526,7 +526,7 @@
             "Its calls blur into a rapid buzz.",
             "It stops calling completely.",
             "It lands on the ground to listen.",
-            "It switches to using only its eyes."
+            "It switches to using its eyes."
           ],
           "answer": "A",
           "skill": "detail",

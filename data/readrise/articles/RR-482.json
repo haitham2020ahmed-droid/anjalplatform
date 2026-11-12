@@ -117,7 +117,7 @@
             "How to build a tall building from scratch",
             "How a new safety brake made elevators trustworthy and let buildings grow taller",
             "Why stairs are better than elevators",
-            "How New York City became famous for shopping"
+            "How New York City became famous for shopping in tall department stores and malls"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,7 +131,7 @@
         {
           "stem": "Why were early elevators dangerous?",
           "options": [
-            "They moved too slowly for anyone to use them",
+            "They moved too slowly for anyone to use them in tall buildings",
             "They were too small for more than one person",
             "They were only allowed on the ground floor",
             "Their rope could snap, causing the elevator to fall"
@@ -149,7 +149,7 @@
           "stem": "What did Elisha Otis build to solve this danger?",
           "options": [
             "A safety brake that would stop a fall",
-            "A stronger kind of rope",
+            "A stronger kind of rope made of steel",
             "A new set of stairs",
             "A bigger elevator box"
           ],
@@ -168,7 +168,7 @@
             "To show off how fast the elevator could fall",
             "Because he wanted to end the show quickly",
             "To prove his brake really worked, even in the worst situation",
-            "Because the rope was already broken by accident"
+            "Because the rope was already broken by accident that day"
           ],
           "answer": "C",
           "skill": "inference",
@@ -182,7 +182,7 @@
         {
           "stem": "Why did people start trusting elevators after Otis's demonstration?",
           "options": [
-            "Because the elevator was painted a bright color",
+            "Because the elevator was painted a bright and happy color",
             "Because they saw the brake catch the fall with their own eyes",
             "Because the government told them it was safe",
             "Because the elevator became free to ride"
@@ -217,9 +217,9 @@
           "stem": "How is this article mostly organized?",
           "options": [
             "It tells the story of the elevator problem and Otis's invention in time order",
-            "It compares elevators in different countries today",
+            "It compares elevators in different countries today, from the oldest to the newest",
             "It lists safety rules for riding elevators",
-            "It explains how to fix a broken elevator in this situation in this situation in this situation"
+            "It explains how to fix a broken elevator"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -233,10 +233,10 @@
         {
           "stem": "What happened right after Otis's successful demonstration?",
           "options": [
-            "Builders stopped making tall buildings",
+            "Builders stopped making tall buildings in the city",
             "People stopped using stairs completely",
             "The first safe passenger elevator opened in a store",
-            "Otis moved to a different country in this situation"
+            "Otis moved to a different country"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -294,9 +294,9 @@
           "stem": "What is the central idea of this article?",
           "options": [
             "A safety brake invented by Elisha Otis made elevators trustworthy, enabling much taller buildings",
-            "Stairs are always better than elevators",
-            "Elevators were invented all at once in New York City",
-            "Only wealthy people could use elevators"
+            "Stairs are better than elevators",
+            "Elevators were invented at one time in New York City, so other cities had to wait many years to use them",
+            "Wealthy people were the main users of elevators"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -346,7 +346,7 @@
           "options": [
             "To show that the cutting was an accident",
             "To prove the brake could handle the worst possible failure, not just a minor problem",
-            "To make the show more entertaining for children",
+            "To make the show more entertaining for the children and families who were watching",
             "To test how fast the rope could be cut"
           ],
           "answer": "B",
@@ -362,7 +362,7 @@
           "stem": "What can you infer about why Otis chose a public fair as the place for his demonstration?",
           "options": [
             "He wanted as many skeptical people as possible to witness it directly",
-            "Fairs were the only place elevators were allowed",
+            "Fairs were the main places where elevators were allowed by law in cities",
             "He needed a tall building for the test",
             "Fairs were free, so he could save money"
           ],
@@ -378,7 +378,7 @@
         {
           "stem": "How does the article's structure help readers understand the impact of Otis's invention?",
           "options": [
-            "By listing unrelated elevator facts with no clear order",
+            "By listing elevator facts with no clear order, so readers choose which ones matter most in their own lives",
             "By focusing only on Otis's personal life story",
             "By moving from the earlier danger, to the invention, to the demonstration, to its lasting effect on cities",
             "By comparing elevators to bicycles throughout"
@@ -395,9 +395,9 @@
         {
           "stem": "According to the article, how did Otis's invention affect architects and engineers?",
           "options": [
-            "It stopped them from designing new buildings in this situation in this situation in this situation in this situation",
+            "It stopped them from designing new buildings",
             "It forced them to remove all stairs from buildings",
-            "It made building design slower and more expensive",
+            "It made building design slower and more expensive, since each new building needed a special room for the motor",
             "It let them design much taller buildings than before, since climbing stairs was no longer the only option"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "Which best compares early elevators to the safety elevator Otis made possible?",
           "options": [
-            "Both were equally safe to ride in this situation in this situation in this situation in this situation",
+            "Both were equally safe to ride",
             "Early elevators could fall if the rope snapped, while the safety elevator had a brake to stop a fall",
             "Both were invented by Otis at the same time",
-            "Neither type of elevator was ever used by passengers"
+            "Early elevators had a brake to stop a fall, while the safety elevator relied on a strong rope that did not snap"
           ],
           "answer": "B",
           "skill": "compare",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Elisha Otis invented the first elevator of any kind in 1852",
-            "Elevators were always considered safe, even before 1852",
+            "Elisha Otis invented the first elevator in 1852",
+            "Elevators were considered safe, even before 1852",
             "Otis's safety brake transformed elevators from a feared danger into a trusted technology that enabled modern skyscrapers",
-            "Tall buildings existed long before elevators were ever needed"
+            "Tall buildings existed long before elevators were needed, because workers carried goods up the stairs by hand each day"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -508,7 +508,7 @@
           "options": [
             "A second, backup rope attached to the ceiling",
             "A large cushion placed at the bottom of the shaft",
-            "A bell that alerted workers to slow the elevator manually",
+            "A bell that alerted workers to slow the elevator manually from the top",
             "Metal teeth gripping a notched track running along the elevator shaft"
           ],
           "answer": "D",
@@ -523,7 +523,7 @@
         {
           "stem": "Why was it significant that Otis demonstrated his device by riding the platform himself and having the rope cut deliberately?",
           "options": [
-            "It showed that Otis did not actually trust his own invention",
+            "It showed that Otis did not trust his own invention, so he wanted people to see it fail before buying it from his company",
             "It proved the invention under the most convincing, visible, worst-case conditions, rather than merely claiming it worked",
             "It was required by law at the time",
             "It made the demonstration shorter and cheaper to organize"
@@ -541,9 +541,9 @@
           "stem": "How does the structure of the article support its larger point about how trust in new technology develops?",
           "options": [
             "By listing unrelated facts about New York City",
-            "By focusing only on technical details of the brake mechanism",
+            "By focusing on technical details of the brake mechanism and how its springs and teeth were made",
             "By showing a clear sequence from danger, to invention, to public proof, to lasting societal change",
-            "By comparing elevators only to animal-powered transportation"
+            "By comparing elevators to animal-powered transportation"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -559,7 +559,7 @@
           "options": [
             "To capture the dramatic, persuasive moment that helped change public opinion about elevators",
             "To entertain readers with an unrelated joke",
-            "To criticize Otis for being overconfident in this situation in this situation in this situation",
+            "To criticize Otis for being overconfident in front of a large crowd that did not trust him",
             "To prove that Otis spoke multiple languages"
           ],
           "answer": "A",
@@ -574,8 +574,8 @@
         {
           "stem": "Which comparison between early elevators and Otis's safety elevator is best supported by the article?",
           "options": [
-            "Early elevators had a brake mechanism, while Otis's elevator had none",
-            "Both elevator designs were equally trusted by the public in this situation in this situation in this situation in this situation in this situation",
+            "Early elevators had a brake mechanism that stopped falls, while Otis's elevator relied on a thicker rope that was much harder to break",
+            "Both elevator designs were equally trusted by the public",
             "Otis's elevator required climbing stairs as a backup system",
             "Early elevators could fall if their single rope failed, while Otis's design included a brake that engaged automatically to stop such a fall"
           ],
@@ -593,8 +593,8 @@
           "options": [
             "Cities stopped building upward and focused only on spreading outward",
             "Cities could grow upward through skyscrapers, since safe elevators removed the limits that stairs had placed on building height",
-            "Elevators were banned from passenger use after 1857 in this situation in this situation in this situation in this situation in this situation",
-            "Buildings became shorter because elevators were considered too risky"
+            "Elevators were banned from passenger use after 1857",
+            "Buildings became shorter because elevators were considered too risky, so cities spread outward into the nearby farmland instead"
           ],
           "answer": "B",
           "skill": "cause-effect",

@@ -202,7 +202,7 @@
             "She does not care if she ever succeeds or fails",
             "She really wants to solve the secret of the glaze",
             "Her aunt makes her keep trying every single day",
-            "She has nothing else to do all summer long"
+            "She has little else to do in the summer"
           ],
           "answer": "B",
           "skill": "inference",
@@ -219,7 +219,7 @@
             "She is patient and does not give up easily",
             "She gives up right away and leaves the clay",
             "She blames her aunt for all the failures",
-            "She is afraid to touch clay again at all"
+            "She is afraid to touch clay again"
           ],
           "answer": "A",
           "skill": "inference",
@@ -312,7 +312,7 @@
           "options": [
             "She reads old books about glazes",
             "She helps her aunt and learns to shape clay",
-            "She travels to other towns for lessons",
+            "She travels to other towns for lessons in pottery",
             "She buys finished pots from the market"
           ],
           "answer": "B",
@@ -380,7 +380,7 @@
           "options": [
             "She forgets what she tried before",
             "She wants to see exactly what each small change does",
-            "Her aunt tells her to change everything at once",
+            "Her aunt tells her to change everything at once on her pots",
             "She is trying to use up all her supplies"
           ],
           "answer": "B",
@@ -412,10 +412,10 @@
         {
           "stem": "What can you infer about why Aunt Hind feels proud at the end of the story?",
           "options": [
-            "Noor used a completely different craft than pottery",
+            "Noor used a different craft than pottery",
             "Noor's patient, careful experiments finally succeeded",
             "Noor bought a new glaze from the market",
-            "Noor was lucky and never actually tried hard"
+            "Noor was lucky and never actually tried hard at her pottery"
           ],
           "answer": "B",
           "skill": "inference",
@@ -577,7 +577,7 @@
             "The workshop discourages apprentices from asking questions",
             "The workshop supports an apprentice's independent exploration",
             "The workshop forbids any failed experiments",
-            "The workshop relies only on exact written instructions"
+            "The workshop relies on exact written instructions"
           ],
           "answer": "B",
           "skill": "inference",

@@ -236,7 +236,7 @@
             "To show that Mona is a poor listener in the class",
             "To help readers learn facts about Egypt the way Mona does",
             "To make the story longer for the readers to enjoy",
-            "To show that archaeologists are always right about the past"
+            "To show that archaeologists are right about the past"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -312,7 +312,7 @@
             "A tool used to cut stone blocks in the quarry",
             "A picture-sign ancient Egyptians used to write words",
             "A type of ramp used to move heavy stones up the side",
-            "A kind of pyramid found only in Egypt and nowhere else"
+            "A kind of pyramid found only in Egypt"
           ],
           "answer": "B",
           "skill": "detail",
@@ -362,7 +362,7 @@
           "options": [
             "Because studying the past does not mean accepting its beliefs as true today",
             "Because ancient Egyptians still worship those gods today",
-            "Because the story says modern Egyptians agree with these old beliefs",
+            "Because the story says modern Egyptians agree with these old beliefs about the gods",
             "Because the gods described are scientifically proven to be real"
           ],
           "answer": "A",
@@ -380,7 +380,7 @@
             "The work required an enormous number of workers moving stones one at a time",
             "The workers took long breaks every single day, so the building was slow and the king grew tired",
             "The pyramid was rebuilt many times after collapsing, so it took many years to finish the blocks",
-            "Only one worker was allowed to build at a time, so each stone had to wait in a long line"
+            "One worker was allowed to build at a time, so each stone had to wait in a long line"
           ],
           "answer": "A",
           "skill": "inference",
@@ -471,9 +471,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "Archaeological study of inscriptions, construction techniques, and ancient beliefs allows scholars to reconstruct history without endorsing beliefs they themselves do not hold.",
-            "Ancient Egyptian gods directly intervened to help build the pyramids, as the inscriptions say, and so Dr. Hana teaches that they are real and active.",
-            "Mona proves that modern engineers could never match ancient building methods, and Dr. Hana agrees that no one today can ever build such pyramids at all.",
-            "Dr. Hana secretly believes that the gods described in the inscriptions are real and still active today, and she tells the class that she prays to them every night."
+            "Ancient Egyptian gods directly intervened to help build the pyramids, as the inscriptions say, and so Dr. Hana teaches that they are real and active in the modern world, and she asks her students to agree.",
+            "Mona proves that modern engineers could never match ancient building methods, and Dr. Hana agrees that no one today can ever build such pyramids.",
+            "Dr. Hana secretly believes that the gods described in the inscriptions are real, and she tells the class to pray to them."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -523,7 +523,7 @@
           "options": [
             "a type of ancient Egyptian currency",
             "a form of life believed to continue after death",
-            "a season in the ancient Egyptian calendar",
+            "a season in the ancient Egyptian calendar for farming",
             "a region located south of ancient Egypt"
           ],
           "answer": "B",
@@ -556,7 +556,7 @@
           "stem": "What can readers infer about the reliability of a single, uncompared guess at a hieroglyph's meaning?",
           "options": [
             "A single guess could be mistaken and mislead other scholars for years",
-            "A single guess is always completely accurate, so nobody needs to check it later",
+            "A single guess is accurate, so nobody needs to check it later",
             "A single guess is official once an archaeologist states it in public",
             "A single guess requires no further checking by other scholars"
           ],
@@ -591,7 +591,7 @@
           "options": [
             "To suggest that archaeology is really just random guessing by scholars with old books",
             "To show that careful, evidence-based methods, not guesswork, are behind historical knowledge",
-            "To prove that ancient Egyptian writing cannot be understood by anyone at all",
+            "To prove that ancient Egyptian writing cannot be understood by anyone",
             "To criticize Dr. Hana for her weak and boring teaching methods in the lab"
           ],
           "answer": "B",

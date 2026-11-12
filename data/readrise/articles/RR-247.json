@@ -234,7 +234,7 @@
           "stem": "Which student is using the nose correctly, based on the article?",
           "options": [
             "Omar says his tongue alone tastes all of his food's flavor",
-            "Sara says smells never affect how she feels",
+            "Sara says smells do not affect how she feels",
             "Huda says her nose adds most of her food's taste",
             "Yusuf says tiny parts for smell are found in his ears"
           ],
@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The brain learns new things only through smell and never through sight",
-            "Bread always smells much stronger than flowers do",
+            "Bread smells much stronger than flowers do",
             "Receptors detect molecules that shape flavor and memory",
             "Colds are the main cause of forgetting things for most people"
           ],
@@ -379,7 +379,7 @@
           "stem": "What happens when a cold blocks the nose, based on the article?",
           "options": [
             "The tongue works alone, so food tastes dull",
-            "The brain stops sending any signals at all",
+            "The brain stops sending any signals",
             "Receptors multiply to replace the blocked ones",
             "The olfactory bulb grows larger than before"
           ],
@@ -395,9 +395,9 @@
         {
           "stem": "Zaid smells his uncle's cologne and suddenly feels happy, remembering a wedding. What explains this best?",
           "options": [
-            "Cologne always smells exactly the same to every single person",
+            "Cologne smells exactly the same to every single person",
             "The tongue stores emotional memories like this",
-            "Only unpleasant smells can bring back feelings",
+            "Unpleasant smells bring back stronger feelings",
             "Smell signals travel directly to memory and emotion areas"
           ],
           "answer": "D",
@@ -472,8 +472,8 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The tongue detects far more distinct smells than the nose does.",
-            "Colds permanently damage the olfactory bulb forever.",
+            "The tongue detects far more distinct smells than the nose does or the eyes.",
+            "Colds permanently damage the olfactory bulb.",
             "Flavor depends only on how food is prepared, never on biology.",
             "Specialized receptors detect molecules, shaping both flavor and memory."
           ],
@@ -509,7 +509,7 @@
             "Thousands of distinct basic tastes",
             "A small handful, like sweet and sour",
             "Exactly two basic tastes only",
-            "None without help from the eyes"
+            "Dozens, more than the nose can"
           ],
           "answer": "B",
           "skill": "detail",
@@ -525,7 +525,7 @@
           "options": [
             "To suddenly bring something to mind",
             "To erase something completely",
-            "To combine two different smells",
+            "To combine two different smells in a kitchen",
             "To block a receptor permanently"
           ],
           "answer": "A",
@@ -575,9 +575,9 @@
           "stem": "Which conclusion is best supported by the article's description of smell and emotion?",
           "options": [
             "Smell is processed exactly like every other sense",
-            "Only unpleasant smells can bring back memories",
+            "Unpleasant smells bring back memories more than pleasant ones",
             "Smell has an unusually direct link to memory and emotion",
-            "Memory and emotion are separate from smell entirely"
+            "Memory and emotion are separate from smell"
           ],
           "answer": "C",
           "skill": "inference",
@@ -593,8 +593,8 @@
           "options": [
             "This is unlikely, since most flavor comes from smell",
             "This is accurate, since the tongue provides full flavor",
-            "This claim cannot be tested in any way at all",
-            "This is true only for certain sour or bitter foods"
+            "This claim cannot be tested",
+            "This is true for sour or bitter foods"
           ],
           "answer": "A",
           "skill": "inference",

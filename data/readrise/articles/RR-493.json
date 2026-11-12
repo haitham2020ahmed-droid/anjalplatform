@@ -114,7 +114,7 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            "why the Moon has mountains and deep craters on its rocky surface",
+            "why the Moon has mountains and deep craters on its rocky surface in the sky",
             "how telescopes work and how they help people see distant things in space",
             "how one man built a small wooden boat for sailing",
             "why the stars seem to twinkle brightly every single night"
@@ -131,7 +131,7 @@
         {
           "stem": "What did the wise scholar discover about how our eyes see?",
           "options": [
-            "that the eye sends out rays to touch far objects",
+            "that the eye sends out rays to touch far objects in the sky",
             "that the ear helps a person see distant things",
             "that light enters the eye and carries an image with it",
             "that the nose can sense light from the sun"
@@ -149,7 +149,7 @@
           "stem": "What did people put inside a tube to make the very first telescope?",
           "options": [
             "two curved pieces of glass called lenses",
-            "a candle and a small round mirror",
+            "a candle and a small round mirror on a table",
             "a long rope tied in a loop",
             "three flat pieces of painted wood"
           ],
@@ -184,7 +184,7 @@
           "options": [
             "he discovered the Moon was actually a bright, giant star",
             "he saw mountains and deep holes that no one had ever seen with just their eyes",
-            "he realized the Moon had quietly turned into a small planet",
+            "he realized the Moon had quietly turned into a small planet like Mars or Venus",
             "he found that the Moon could not be seen at night at all"
           ],
           "answer": "B",
@@ -216,7 +216,7 @@
         {
           "stem": "Why does the author begin the passage by describing someone looking through a telescope?",
           "options": [
-            "to warn readers that looking through telescopes can be dangerous",
+            "to warn readers that looking through telescopes can be dangerous for the eyes",
             "to list the names of every star found in the night sky",
             "to help readers picture what a telescope does before explaining its history",
             "to explain the steps for building a small wooden sailboat"
@@ -234,7 +234,7 @@
           "stem": "What happened right after eyeglass makers placed two lenses inside a tube?",
           "options": [
             "the Moon suddenly grew new mountains overnight",
-            "the wise scholar built a rocket to fly into space",
+            "the wise scholar built a rocket to fly into space and look at the stars at night",
             "every star in the sky disappeared from view",
             "they had created the first telescope, which made far things look closer and bigger"
           ],
@@ -296,7 +296,7 @@
             "a group of sailors discovered a new ocean full of strange fish",
             "a farmer invented a new tool for planting seeds more quickly",
             "a scholar's discovery about light led, years later, to the invention of the telescope",
-            "scientists today mostly disagree about whether the Moon is real"
+            "scientists today mostly disagree about whether the Moon has light of its own, or reflects the light of the Sun"
           ],
           "answer": "C",
           "skill": "central idea",
@@ -312,7 +312,7 @@
           "options": [
             "that light travels into the eye, rather than the eye sending out rays",
             "that people only see clearly during the daytime hours",
-            "that the eye sends out a kind of invisible rope to objects",
+            "that the eye sends out a kind of invisible rope to objects far away",
             "that sight depends mainly on how loud a sound is"
           ],
           "answer": "A",
@@ -345,7 +345,7 @@
           "stem": "Why does bending light inside a telescope make the Moon look so much closer?",
           "options": [
             "because the curved lenses change the path of the light before it reaches the eye",
-            "because the telescope physically pulls the Moon nearer to Earth",
+            "because the telescope physically pulls the Moon nearer to Earth for a while",
             "because the night sky becomes brighter the longer someone looks",
             "because the glass inside the tube removes all shadows from view"
           ],
@@ -361,7 +361,7 @@
         {
           "stem": "Why was the scientist amazed when he first looked at the Moon through his telescope?",
           "options": [
-            "because he realized the Moon was actually much smaller than Earth",
+            "because he realized the Moon was actually much smaller than Earth and the Sun",
             "because the tube revealed mountains and craters never seen with the eye alone",
             "because the Moon suddenly appeared to glow a bright shade of red",
             "because he discovered the Moon had no surface at all"
@@ -379,7 +379,7 @@
           "stem": "In this passage, what does the word \"reveal\" most likely mean?",
           "options": [
             "to show or uncover something that was hidden before",
-            "to completely destroy or break something apart",
+            "to destroy or break something apart",
             "to measure the exact size and weight of an object",
             "to quietly hide something from view for a long time"
           ],
@@ -395,7 +395,7 @@
         {
           "stem": "Why might the author have chosen to describe the scholar's work on light before describing the telescope's invention?",
           "options": [
-            "to prove that the telescope was invented before anyone studied light",
+            "to prove that the telescope was invented before anyone studied light in that time",
             "to argue that studying light has nothing to do with telescopes",
             "to compare the scholar's work directly with building wooden ships",
             "to show how one important idea about light led to a later, useful invention"
@@ -413,7 +413,7 @@
           "stem": "What happened immediately after the scientist looked at a bright planet with his telescope?",
           "options": [
             "the planet instantly vanished from the night sky without warning",
-            "the telescope stopped working and needed to be completely rebuilt",
+            "the telescope stopped working and needed to be rebuilt with new glass lenses before he used it",
             "he noticed tiny moons circling steadily around it, which no one had ever observed before",
             "scientists decided the planet could not be real after all"
           ],
@@ -473,8 +473,8 @@
           "stem": "What is the central idea connecting the two historical figures discussed in this passage?",
           "options": [
             "both Ibn al-Haytham and Galileo Galilei made careful observations that changed how people understood light and the sky",
-            "both men were primarily famous for building ships that explored new oceans",
-            "both men disagreed completely and never contributed anything useful to science",
+            "both men were mainly famous for building ships that explored new oceans and mapped the coasts of distant lands",
+            "both men disagreed and never contributed anything useful to science",
             "both men lived at the same time and worked together on one invention"
           ],
           "answer": "A",
@@ -490,7 +490,7 @@
           "stem": "According to the passage, what is Ibn al-Haytham credited with establishing?",
           "options": [
             "experimental methods that scientists still rely upon many centuries later",
-            "the first working telescope built from curved glass lenses",
+            "the first working telescope built from curved glass lenses and mirrors",
             "a detailed map of Jupiter and its many orbiting moons",
             "the first eyeglass factory established in the Netherlands"
           ],
@@ -524,8 +524,8 @@
           "stem": "Why does the passage describe Ibn al-Haytham's belief about rays as \"an idea that seems quite strange to modern readers\"?",
           "options": [
             "to highlight how differently people once explained sight compared to how we understand it today",
-            "to prove that the idea about rays is actually still accepted by scientists now",
-            "to suggest that Ibn al-Haytham personally believed the idea was completely true",
+            "to prove that the idea about rays is actually still accepted by scientists now in their work",
+            "to suggest that Ibn al-Haytham personally believed the idea was true",
             "to show that modern readers find all old scientific ideas equally strange"
           ],
           "answer": "A",
@@ -542,7 +542,7 @@
           "options": [
             "it proved that Jupiter was actually closer to Earth than the Moon",
             "it showed that not everything in the sky orbits directly around Earth",
-            "it confirmed that Jupiter had no moons circling it at all",
+            "it confirmed that Jupiter had no moons circling it",
             "it showed that telescopes could not be used to study planets"
           ],
           "answer": "B",
@@ -574,9 +574,9 @@
         {
           "stem": "Why might the author have chosen to end the passage with modern space telescopes rather than with Galileo's discoveries?",
           "options": [
-            "to argue that Galileo's discoveries were ultimately proven completely wrong",
+            "to argue that Galileo's discoveries were ultimately proven wrong",
             "to suggest that Ibn al-Haytham's early work was eventually forgotten",
-            "to prove that space telescopes cannot see as far as ground-based ones",
+            "to prove that space telescopes see less far than ground-based ones, because space is too dark and full of dust",
             "to show that the search for understanding light and the universe has continued long after Galileo's time"
           ],
           "answer": "D",
@@ -592,7 +592,7 @@
           "stem": "What is the correct sequence of events described across the entire passage?",
           "options": [
             "Ibn al-Haytham's study of light came first, then the telescope's invention in the Netherlands, then Galileo's observations",
-            "Galileo's observations came first, followed by Ibn al-Haytham's study of light",
+            "Galileo's observations came first, followed by the telescope's invention in the Netherlands, then Ibn al-Haytham's study of light",
             "the telescope was invented before anyone had studied how light or sight worked",
             "modern space telescopes were built before the first telescope ever existed"
           ],

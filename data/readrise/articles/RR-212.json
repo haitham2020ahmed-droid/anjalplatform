@@ -116,7 +116,7 @@
           "options": [
             "How a barcode's lines and a QR code's squares help machines read information fast",
             "Why farms must grow new rice and cereal crops every single year to feed the people",
-            "Why phones need a brand new battery every single year to work well and stay fast",
+            "Why phones need a new battery each year to work well and stay fast",
             "How cashiers carefully count the money at the end of each busy day in the shop"
           ],
           "answer": "A",
@@ -216,10 +216,10 @@
         {
           "stem": "Why might a barcode help a store more than writing a price by hand?",
           "options": [
-            "It never, ever needs to be printed at all",
-            "It somehow makes the product taste much better",
+            "It never, ever needs to be printed",
+            "It makes the product last longer on the shelf in the store",
             "It lets a machine read the price quickly and correctly",
-            "It works without any cashier at all, at any time"
+            "It works without a cashier, at night"
           ],
           "answer": "C",
           "skill": "inference",
@@ -295,8 +295,8 @@
           "options": [
             "Only chewing gum companies have ever used barcodes to sell their products in shops.",
             "Barcodes and QR codes store information that machines can read quickly and accurately.",
-            "Typing every price by hand is always faster than scanning a barcode at the shop.",
-            "QR codes somehow do not work with any modern smartphone at all, not even new ones."
+            "Typing prices by hand is faster than scanning a barcode at the shop.",
+            "QR codes do not work with older smartphones, so few shops use them."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -362,9 +362,9 @@
           "stem": "Why was typing prices by hand not very accurate?",
           "options": [
             "Even a careful worker could press the wrong key, especially after a long shift",
-            "Workers at the time could simply not read any numbers at all",
-            "The old cash register had no numbers printed on any of its keys",
-            "Prices at the store almost never changed at all, year after year, even in a big city"
+            "Workers at the time could simply not read any numbers",
+            "The old cash register had no numbers printed on its keys",
+            "Prices at the store rarely changed, year after year, even in a big city"
           ],
           "answer": "A",
           "skill": "inference",
@@ -379,8 +379,8 @@
           "stem": "Why might a warehouse use barcodes to track boxes?",
           "options": [
             "Barcodes somehow make even very heavy boxes much lighter to carry around, so workers do not need any trucks or tools",
-            "Barcodes always stop boxes from ever getting wet or damaged in storage, so the workers never need to check them",
-            "Barcodes are required by a very strict law in every single far-off country, so warehouses must use them for all the boxes",
+            "Barcodes keep boxes from getting wet or damaged in storage, so workers check them less",
+            "Barcodes are required by a strict law in far-off countries, so warehouses must use them",
             "Barcodes let workers quickly and accurately know what is inside each box and where it is going"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "How is a QR code different from a barcode, based on the article?",
           "options": [
-            "A QR code can never, ever be scanned by any kind of phone",
+            "A QR code can never, ever be scanned by any kind of phone or a computer",
             "A QR code can hold much more information, like a full web address",
-            "A QR code is used only inside the one country of Japan",
-            "A barcode always needs a laser, but a QR code never does at all"
+            "A QR code is used mostly inside Japan",
+            "A barcode needs a laser, but a QR code does not"
           ],
           "answer": "B",
           "skill": "compare",
@@ -412,8 +412,8 @@
         {
           "stem": "How does the article mainly organize information about barcodes?",
           "options": [
-            "By carefully listing out the exact prices of many different products",
-            "By arguing strongly that QR codes should be banned everywhere",
+            "By carefully listing out the exact prices of many different products in the store",
+            "By arguing strongly that QR codes should be banned",
             "By explaining how barcodes work, their history, and how they are used today",
             "By comparing two very different kinds of old chewing gum brands"
           ],
@@ -473,9 +473,9 @@
           "stem": "What is the central idea of this article?",
           "options": [
             "Barcodes and QR codes encode information, and engineers invented both to speed up and improve accuracy in buying and tracking goods over time.",
-            "QR codes somehow completely replaced every single traditional barcode everywhere in the entire world by the early year of 1952.",
-            "Only factories located inside the one single country of Japan have ever used any kind of QR codes at all, anywhere.",
-            "Supermarkets everywhere around the world today no longer need any cash registers at all, anywhere, for any reason."
+            "QR codes replaced most traditional barcodes in stores around the world because they look more modern and are cheaper to print on paper and plastic bags.",
+            "Factories in Japan were the first to use QR codes, and they still use them more than others.",
+            "Supermarkets around the world no longer need cash registers today."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -524,7 +524,7 @@
           "stem": "In the article, what does orientation mean?",
           "options": [
             "The price of a product",
-            "A business that sells goods to shoppers",
+            "A business that sells goods to shoppers in the city",
             "A kind of database used by a retailer",
             "The direction something is facing or turned"
           ],
@@ -541,9 +541,9 @@
           "stem": "Why do the three squares in a QR code's corners matter?",
           "options": [
             "They store the exact product's price, its full name, and its maker's details",
-            "They stop the printed code from ever being copied or faked by anyone at all",
+            "They stop the printed code from ever being copied or faked by anyone",
             "They help a scanner's camera figure out the code's orientation no matter how it is turned",
-            "They simply make the small printed code look more decorative to shoppers nearby"
+            "They simply make the small printed code look more decorative to shoppers nearby in the store"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -575,9 +575,9 @@
           "stem": "How does a QR code generally differ from a traditional barcode, according to the article?",
           "options": [
             "A QR code can encode far more information, including entire web addresses",
-            "A QR code cannot possibly be read by any kind of scanner at all, ever",
-            "A barcode can only ever be used just a single solitary time",
-            "A QR code must always be plain black and white, while a barcode can be any color"
+            "A QR code cannot possibly be read by any kind of scanner, ever",
+            "A barcode can be used a single time",
+            "A QR code must be black and white, while a barcode can be in color or in gray"
           ],
           "answer": "A",
           "skill": "compare",

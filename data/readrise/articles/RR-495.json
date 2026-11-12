@@ -114,10 +114,10 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            "how farmers plant seeds without needing any water at all",
+            "how farmers plant seeds in the desert without needing water from the rain",
             "how people use the sun's heat to turn salty sea water into fresh water",
-            "why the sun is bigger than every star in the sky",
-            "how people built a boat that sails using only sunlight"
+            "why the sun is bigger than the stars in the sky",
+            "how people built a boat that sails using sunlight"
           ],
           "answer": "B",
           "skill": "central idea",
@@ -132,8 +132,8 @@
           "stem": "Why can't people drink water straight from the sea?",
           "options": [
             "the sea water is far too salty for people to safely drink",
-            "the sea water is always too cold for people to drink",
-            "the sea has no water in it at all",
+            "the sea water is too cold for people to drink",
+            "the sea has no water in it",
             "the sea water turns to ice as soon as someone touches it"
           ],
           "answer": "A",
@@ -149,7 +149,7 @@
           "stem": "What did people put the salty water inside of in this passage?",
           "options": [
             "a deep hole dug far down into the sand",
-            "a metal can with no openings at all",
+            "a metal can with no openings",
             "a bucket left outside only during the cold night",
             "a box with a glass top that let the sun shine in"
           ],
@@ -167,7 +167,7 @@
           "options": [
             "because the glass is cooler than the rising steam, so the steam changes back into water",
             "because the glass melts and mixes together with the steam",
-            "because the sun's light changes the water into a different color",
+            "because the sun's light changes the water into a different color and makes it heavier",
             "because the box gets so cold that nothing can escape it"
           ],
           "answer": "A",
@@ -184,7 +184,7 @@
           "options": [
             "because that land gets far too much rain every single year",
             "because that land gets lots of strong sun but very little rain",
-            "because that land has no sunlight at any time of year",
+            "because that land has little sunlight",
             "because that land already has more fresh water than it needs"
           ],
           "answer": "B",
@@ -202,7 +202,7 @@
             "to fall slowly in small drops",
             "to shine extremely brightly all at once",
             "to freeze solid almost instantly",
-            "to disappear completely without a trace"
+            "to disappear without a trace"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -234,7 +234,7 @@
           "stem": "What happens right after the sun heats the box full of salty water?",
           "options": [
             "the water turns into steam and rises up toward the glass top",
-            "the water instantly disappears and leaves the box completely empty",
+            "the water instantly disappears and leaves the box empty",
             "the water freezes solid at the bottom of the box",
             "the glass top shatters from all the built-up heat"
           ],
@@ -293,7 +293,7 @@
         {
           "stem": "What is the main idea of this passage?",
           "options": [
-            "farmers around the world have completely stopped using fresh water on their crops",
+            "farmers around the world have stopped using fresh water on their crops",
             "the sun is slowly losing its heat due to changes in the atmosphere",
             "an old sun-powered method grew into a modern tool that helps dry, sunny places",
             "scientists recently discovered a brand new ocean hidden beneath the desert sand"
@@ -311,8 +311,8 @@
           "stem": "According to the passage, why can't people simply drink water straight from the sea?",
           "options": [
             "it contains far too much salt for the body to handle",
-            "it is always too cold for the human body to drink",
-            "it contains no actual water molecules at all",
+            "it is too cold for the human body to drink",
+            "it contains no actual water molecules",
             "it instantly freezes the moment someone tries to drink it"
           ],
           "answer": "A",
@@ -327,7 +327,7 @@
         {
           "stem": "What did the water turn into after the sun heated the box?",
           "options": [
-            "solid ice that formed instantly inside the sealed box",
+            "solid ice that formed inside the sealed box when the night became cold",
             "a thick syrup that had to be poured out carefully",
             "colorful crystals that floated on top of the water",
             "rising steam, which later touched the cool glass and turned back into drops"
@@ -415,7 +415,7 @@
             "the sun heats salty water, it rises as steam, then cools into fresh water",
             "fresh water is heated first, and only then does salt get added to it",
             "steam cools into fresh water before it is ever heated by the sun",
-            "salt is removed completely before the water is even placed in the box"
+            "salt is removed before the water is even placed in the box"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -474,7 +474,7 @@
           "options": [
             "both rely on sunlight rather than burning fuel to remove salt from seawater, though modern plants work on a far larger scale",
             "both methods were abandoned long ago in favor of simply drinking seawater directly",
-            "both methods are used only to remove salt from freshwater lakes, never from the sea",
+            "both methods are used mainly to remove salt from freshwater lakes, and they are rarely used with water from the sea",
             "both methods require burning large amounts of coal or oil to operate"
           ],
           "answer": "A",
@@ -490,8 +490,8 @@
           "stem": "According to the passage, what did the sun's heat cause inside the solar still?",
           "options": [
             "the salty water to evaporate into vapor that later condensed as fresh water",
-            "the glass top to melt completely and fall into the water below",
-            "the salt to turn instantly into a harmless, edible powder",
+            "the glass top to melt and fall into the water below",
+            "the salt to turn quickly into a harmless, edible powder on the glass lid",
             "the seawater to freeze solid before any vapor could form"
           ],
           "answer": "A",
@@ -508,8 +508,8 @@
           "options": [
             "they receive both heavy rainfall and limited sunshine throughout the year",
             "they get plenty of sunshine but very little rainfall",
-            "they receive neither meaningful sunshine nor any rainfall at all",
-            "they experience rainfall only during a short winter season each year"
+            "they receive neither meaningful sunshine nor any rainfall",
+            "they experience rainfall during a short winter season each year"
           ],
           "answer": "B",
           "skill": "detail",
@@ -524,8 +524,8 @@
           "stem": "Why does the passage point out that this approach avoids burning coal, oil, or natural gas?",
           "options": [
             "to argue that coal, oil, and natural gas are no longer available anywhere",
-            "to suggest that older desalination methods never used any fuel at all",
-            "to prove that solar desalination cannot produce enough fresh water to matter",
+            "to suggest that older desalination methods never used any fuel",
+            "to prove that solar desalination produces too little fresh water to matter for a city or a town",
             "to highlight that solar desalination produces fresh water without releasing fuel-based pollution"
           ],
           "answer": "D",
@@ -574,7 +574,7 @@
         {
           "stem": "Why might the author have ended the passage by mentioning that engineers keep working to make solar systems more efficient?",
           "options": [
-            "to argue that solar desalination plants will soon be completely unnecessary",
+            "to argue that solar desalination plants will soon be unnecessary",
             "to prove that interest in solar desalination has actually been falling for years",
             "to suggest solar desalination will likely stay important, or grow even more so",
             "to suggest that rainfall in arid regions will increase significantly soon"
@@ -592,7 +592,7 @@
           "stem": "What is the correct sequence of ideas presented across the passage?",
           "options": [
             "today's large plants existed first, and the solar still was developed afterward",
-            "the problem of rainfall scarcity was solved before anyone noticed seawater was salty",
+            "the problem of rainfall scarcity was solved before anyone noticed seawater was salty in the region",
             "modern plants existed before anyone discovered that sunlight could evaporate water",
             "the salty seawater problem, then the solar still, then today's larger solar desalination plants"
           ],

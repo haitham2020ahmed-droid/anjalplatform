@@ -295,7 +295,7 @@
           "options": [
             "The Andromeda Galaxy is the brightest star in the sky, and also the nearest.",
             "Hipparchus was the only person to study the stars, and nobody else wrote about them.",
-            "Telescopes are the only way to see stars, so people knew nothing before them.",
+            "Telescopes are the best way to see stars, so people knew little before them.",
             "Over thousands of years, people in many places recorded and mapped the stars."
           ],
           "answer": "D",
@@ -474,7 +474,7 @@
           "options": [
             "Mapping the stars has been a long, shared effort across many cultures, from clay tablets to space telescopes.",
             "Greek astronomers invented every star name that is used by scientists around the world today, long before any other people.",
-            "Star maps were only useful for farmers, and sailors and kings never needed to read them.",
+            "Star maps were useful mainly for farmers, and sailors and kings rarely needed to read them.",
             "Modern telescopes have proved that ancient star catalogs were useless for scientists and sailors."
           ],
           "answer": "A",
@@ -509,7 +509,7 @@
             "It copied it word for word.",
             "It corrected and expanded it.",
             "It replaced it with Chinese charts.",
-            "It proved it entirely wrong."
+            "It proved it wrong."
           ],
           "answer": "B",
           "skill": "detail",

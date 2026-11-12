@@ -217,7 +217,7 @@
           "stem": "Why does the ISS clean and use its water again and again?",
           "options": [
             "Astronauts do not like the taste of new water.",
-            "Water on the ISS is always too hot.",
+            "Water on the ISS is too hot.",
             "The station has a big lake inside.",
             "There is no rain or river in space to get more."
           ],
@@ -344,10 +344,10 @@
         {
           "stem": "Why do astronauts often eat flat bread instead of regular bread?",
           "options": [
-            "Flat bread is the only bread that can be dried.",
+            "Flat bread is the only bread that can be dried in space.",
             "Regular bread is too heavy to send to space.",
             "Crumbs from regular bread could float into machines.",
-            "Astronauts are not allowed to eat bread at all."
+            "Astronauts are not allowed to eat bread."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -413,7 +413,7 @@
           "stem": "How is eating on the ISS different from eating on Earth?",
           "options": [
             "Astronauts eat only one meal each day.",
-            "Astronauts eat food grown only on the station.",
+            "Astronauts grow most of their food on board.",
             "Much of the food is dried, so water is added.",
             "Astronauts must eat while running on a treadmill."
           ],
@@ -508,7 +508,7 @@
           "options": [
             "Without stopping",
             "Only during holidays",
-            "Every few years",
+            "Once in a while",
             "Sometimes, but not often"
           ],
           "answer": "A",
@@ -560,7 +560,7 @@
             "Flames act differently without gravity, so they reveal new things.",
             "Fire is not allowed in any science laboratory on Earth, so scientists must go to space.",
             "The station carries more fuel than labs on Earth do, so flames are bigger there.",
-            "Flames on the ISS are used to help astronauts cook their food every day."
+            "Flames on the ISS burn hotter, so they help make more power."
           ],
           "answer": "A",
           "skill": "inference",

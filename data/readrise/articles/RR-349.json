@@ -132,7 +132,7 @@
      "stem": "How fast do Earth's plates move, according to the article?",
      "options": [
       "As fast as a car on a highway",
-      "They never move at all, not even a bit",
+      "They never move, not even a bit",
       "About as fast as your nails grow",
       "As fast as a person walking"
      ],
@@ -233,7 +233,7 @@
     {
      "stem": "What might happen to Africa far in the future, according to the article?",
      "options": [
-      "It could stop moving forever",
+      "It could stop moving",
       "It could sink under the ocean completely",
       "It could join together with Asia",
       "It could split into two separate landmasses"
@@ -295,8 +295,8 @@
      "options": [
       "Volcanoes are the only landform found in East Africa, and no lakes or valleys exist there.",
       "Tectonic plates pulled apart, forming the valley, its lakes, and volcanoes.",
-      "Lakes in Africa are always deeper than lakes anywhere else, and they are all very wide.",
-      "Scientists cannot study the Great Rift Valley from space, as satellites never see it."
+      "Lakes in Africa are deeper than lakes in other places, and they are very wide.",
+      "Scientists study the Great Rift Valley mainly from space, since it is too hot to visit."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -345,7 +345,7 @@
      "stem": "What happens to the land as two tectonic plates pull apart?",
      "options": [
       "It freezes and cracks into ice",
-      "It rises quickly into a tall mountain",
+      "It rises quickly into a tall mountain in a few years",
       "It turns instantly into a lake",
       "It stretches, thins, and eventually sinks"
      ],
@@ -364,7 +364,7 @@
       "Because sunken land forms low basins that fill with water",
       "Because people dig out the basins by hand each year",
       "Because heavy rain only ever falls inside rift valleys",
-      "Because every volcano always creates a new lake nearby"
+      "Because each volcano creates a new lake nearby"
      ],
      "answer": "A",
      "skill": "inference",
@@ -412,10 +412,10 @@
     {
      "stem": "How is Saudi Arabia's plate similar to the plates in East Africa, according to the article?",
      "options": [
-      "Both are completely still and never move at all",
+      "Both are still and never move",
       "Both are part of the same kind of rifting system",
-      "Both are entirely covered by deep lakes",
-      "Both are found only deep underwater always"
+      "Both are covered by deep lakes and rivers in Arabia",
+      "Both are found deep underwater"
      ],
      "answer": "B",
      "skill": "compare",
@@ -472,9 +472,9 @@
     {
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
-      "Volcanoes never form near divergent plate boundaries, anywhere on Earth.",
+      "Volcanoes never form near divergent plate boundaries.",
       "Continental rifting stretched and dropped the crust between divergent plates.",
-      "Lakes only form in deserts, never in rift valleys, in the whole world.",
+      "Lakes form mostly in deserts, rarely in rift valleys.",
       "Geologists have proven the rift valley will close within a decade or so."
      ],
      "answer": "B",
@@ -541,7 +541,7 @@
      "stem": "What does the Afar triple junction suggest about East Africa's future, according to the article?",
      "options": [
       "That the rift may someday split the continent",
-      "That the rift will close completely within a few years",
+      "That the rift will close within a few years",
       "That no more volcanoes will ever form there",
       "That the plates there will suddenly stop diverging"
      ],
@@ -593,7 +593,7 @@
      "options": [
       "Both involve a continent splitting apart",
       "Both happened in a single afternoon",
-      "Both were caused entirely by volcanoes erupting",
+      "Both were caused by volcanoes erupting",
       "Both are found on a different planet"
      ],
      "answer": "A",

@@ -117,7 +117,7 @@
             "How to build a flat roof on a house, with wood and stone",
             "A kind of high, flat land and how it forms and differs from mountains",
             "Animals that live only on mountain peaks, high above the clouds and the snow",
-            "A list of every valley in the world and how long each one is"
+            "A list of famous valleys and how long each one is"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -150,7 +150,7 @@
           "options": [
             "Only strong wind blowing for many years",
             "Rock being pushed up, or layers of lava",
-            "A lake slowly drying up completely",
+            "A lake slowly drying up",
             "Snow piling up on a mountain"
           ],
           "answer": "B",
@@ -165,9 +165,9 @@
         {
           "stem": "In the article, the edge of a plateau is the part that...",
           "options": [
-            "stays completely flat like the top",
+            "stays flat like the top",
             "drops down fast toward lower land",
-            "is always covered in water",
+            "is covered in water",
             "slowly grows taller every year"
           ],
           "answer": "B",
@@ -183,7 +183,7 @@
           "stem": "Why can people farm or build towns on top of a plateau?",
           "options": [
             "Because a plateau's top stays mostly flat",
-            "Because plateaus are always near the sea",
+            "Because plateaus are near the sea",
             "Because plateaus never get any rain",
             "Because plateaus are too small for towns"
           ],
@@ -217,9 +217,9 @@
           "stem": "How is a plateau different from a valley?",
           "options": [
             "A plateau is high land, while a valley is low land",
-            "A plateau is always underwater, while a valley is dry",
+            "A plateau is underwater, while a valley is dry",
             "A plateau has no edges, while a valley has many edges",
-            "A plateau is small, while a valley is always huge"
+            "A plateau is small, while a valley is huge"
           ],
           "answer": "A",
           "skill": "compare",
@@ -295,8 +295,8 @@
           "options": [
             "Plateaus form through uplift or lava, unlike mountains and valleys.",
             "The Grand Canyon is the single deepest canyon in the whole world.",
-            "Only very tall mountains can ever reach a high elevation at all.",
-            "Moving rivers never change the shape of flat land over time."
+            "Only very tall mountains can ever reach a high elevation.",
+            "Moving rivers rarely change the shape of flat land over time."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,7 +310,7 @@
         {
           "stem": "According to the article, what is uplift?",
           "options": [
-            "Lava cooling slowly into hard, flat rock over time",
+            "Lava cooling slowly into hard, flat rock over time in the plains",
             "A fast river cutting a brand-new, deep canyon",
             "A large block of land pushed upward by forces underground",
             "A whole valley slowly filling up with water"
@@ -345,8 +345,8 @@
           "stem": "Why does a plateau often have a different climate than the land around it?",
           "options": [
             "Because a plateau sits at a much higher elevation than nearby land",
-            "Because a plateau never receives any sunlight at all",
-            "Because a plateau always sits right next to the open ocean",
+            "Because a plateau never receives any sunlight",
+            "Because a plateau sits right next to the open ocean and its winds",
             "Because no river ever flows anywhere near a plateau"
           ],
           "answer": "A",
@@ -363,8 +363,8 @@
           "options": [
             "Because moving water wears away just a little rock at a time",
             "Because every river only flows for a single day each year",
-            "Because lava always has to finish cooling before erosion begins",
-            "Because tall mountains block every river from reaching a plateau"
+            "Because lava has to finish cooling before erosion begins",
+            "Because tall mountains block rivers from reaching a plateau"
           ],
           "answer": "A",
           "skill": "inference",
@@ -380,8 +380,8 @@
           "options": [
             "A plateau has a narrow, pointed top, unlike a flat-topped mountain",
             "A plateau keeps a wide, flat top, while a mountain rises to a point",
-            "A plateau is always much smaller in size than any mountain",
-            "A plateau can never reach the same height as a mountain"
+            "A plateau is much smaller in size than any mountain",
+            "A plateau is usually higher than a mountain"
           ],
           "answer": "B",
           "skill": "compare",
@@ -396,7 +396,7 @@
           "stem": "Why does the article mention the Tibetan, Deccan, and Colorado Plateaus together?",
           "options": [
             "To show that every plateau on Earth forms in the same exact way",
-            "To claim, quite wrongly, that every plateau sits somewhere in Asia",
+            "To claim that most plateaus are found in Asia",
             "To show how differently several real plateaus can form and look",
             "To argue that one of these three landforms is not a true plateau"
           ],
@@ -474,7 +474,7 @@
           "options": [
             "Every plateau on Earth formed through the exact same geologic process, and none was reshaped by erosion.",
             "Plateaus form through distinct geologic processes, then are reshaped by erosion and climate.",
-            "The Colorado Plateau is the only plateau ever shaped by any river at all, and others are not.",
+            "The Colorado Plateau is the one plateau shaped by a river, unlike the others.",
             "Mountains and plateaus are really just two names for one single landform, and they look alike."
           ],
           "answer": "B",
@@ -508,8 +508,8 @@
           "options": [
             "Because one single eruption simply cannot ever produce any solid rock",
             "Because each lava layer must cool and harden before the next one arrives",
-            "Because volcanoes on Earth only erupt once every few centuries or so",
-            "Because tectonic uplift must always happen before any volcanic eruption"
+            "Because volcanoes on Earth erupt once in a few centuries",
+            "Because tectonic uplift must happen before a volcanic eruption"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -525,8 +525,8 @@
           "options": [
             "A plateau's higher elevation often makes its climate cooler and drier",
             "Plateaus receive far more total rainfall than any valley ever does",
-            "Rivers never flow across the surface of any plateau at all",
-            "Every plateau sits at exactly the same elevation as nearby valleys"
+            "Rivers rarely flow across the surface of a plateau",
+            "A plateau sits at about the same elevation as nearby valleys"
           ],
           "answer": "A",
           "skill": "inference",
@@ -540,7 +540,7 @@
         {
           "stem": "What does the Grand Canyon best illustrate about the Colorado Plateau?",
           "options": [
-            "That tectonic uplift alone can carve a deep canyon in a single event",
+            "That tectonic uplift alone can carve a deep canyon in a single event and in a few days",
             "That erosion can slowly carve a deep canyon into an ancient, elevated plateau",
             "That volcanic eruptions formed every layer of its rock walls",
             "That the plateau's crust has not changed in billions of years"
@@ -558,9 +558,9 @@
           "stem": "How does a plateau formed by tectonic uplift differ from one formed by volcanic activity, based on the article?",
           "options": [
             "One rises as a block of crust gets pushed upward; the other builds from stacked, cooled lava",
-            "One always forms at sea level, while the other always forms high in the mountains",
-            "One forms within a single day, while the other takes many millions of years",
-            "One always turns into a canyon, while the other one never does"
+            "One forms at sea level, while the other forms high in the mountains",
+            "One forms within a single day, while the other takes many millions of years to rise above the land",
+            "One turns into a canyon, while the other one never does"
           ],
           "answer": "A",
           "skill": "compare",
@@ -576,8 +576,8 @@
           "options": [
             "To prove that tectonic uplift is the only real way a plateau can ever form on Earth",
             "To give real, concrete examples of the different processes described earlier in the article",
-            "To argue that the Colorado Plateau is not actually a true plateau at all, but a very tall mountain",
-            "To show that every famous plateau on Earth sits on the continent of Asia only"
+            "To argue that the Colorado Plateau is not actually a true plateau, but a very tall mountain",
+            "To show that the famous plateaus on Earth are found mostly in Asia"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -591,7 +591,7 @@
         {
           "stem": "What is the overall structure of the article as a whole?",
           "options": [
-            "A single opinion essay that argues mountains are better than plateaus",
+            "A single opinion essay that argues mountains are better than plateaus for hiking",
             "A general definition, then formation processes, key features, and real examples",
             "A step-by-step recipe explaining how to build an artificial plateau",
             "A personal diary written by one geologist during a single field trip"

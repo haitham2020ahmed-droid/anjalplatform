@@ -201,8 +201,8 @@
           "options": [
             "He did not trust the new machine's math yet.",
             "He wanted Katherine to fly the rocket.",
-            "He wanted to learn math from Katherine.",
-            "He did not like using numbers at all."
+            "He wanted to learn math from Katherine at work.",
+            "He did not like using numbers."
           ],
           "answer": "A",
           "skill": "detail",
@@ -233,7 +233,7 @@
         {
           "stem": "Why does the author end by saying Katherine showed the world what she could do?",
           "options": [
-            "To tell readers that math is too hard for most people",
+            "To tell readers that math is too hard for most people in school",
             "To celebrate how far Katherine's work and effort carried her",
             "To ask readers to build their own rocket",
             "To explain how movies are made"
@@ -296,7 +296,7 @@
             "Katherine Johnson mostly enjoyed teaching French to students at the small school where she worked.",
             "Through skill and persistence, Katherine's math helped NASA send astronauts safely into space.",
             "NASA allowed every mathematician to attend planning meetings, whatever their job in the building.",
-            "Electronic computers never needed to be checked by hand, because they never made mistakes at all."
+            "Electronic computers rarely needed to be checked by hand, because they made few mistakes."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -397,7 +397,7 @@
           "options": [
             "She quietly accepted it and stopped trying.",
             "She kept asking until she was allowed to attend.",
-            "She left NASA entirely to find a different job elsewhere.",
+            "She left NASA to find a different job elsewhere.",
             "She stopped doing calculations altogether."
           ],
           "answer": "B",
@@ -474,7 +474,7 @@
           "options": [
             "Katherine Johnson became famous mainly because of a movie that was made about her many years later.",
             "Her precision and persistence overcame barriers and helped shape America's early spaceflights.",
-            "NASA's electronic computers always outperformed human calculators, so the team stopped needing people.",
+            "NASA's electronic computers outperformed human calculators, so the team stopped needing people.",
             "Segregation had little effect on who worked at NASA, because every worker was treated the same way."
           ],
           "answer": "B",
@@ -489,7 +489,7 @@
         {
           "stem": "What did Katherine calculate for John Glenn's 1962 mission?",
           "options": [
-            "The detailed design of his pressurized space suit",
+            "The detailed design of his pressurized space suit and boots",
             "The trajectory and equations for his orbit around Earth",
             "The food he would eat in space",
             "The construction of the launch pad"
@@ -508,7 +508,7 @@
           "options": [
             "It reveals how much confidence engineers placed in her precision.",
             "It shows that Glenn distrusted all mathematicians equally.",
-            "It proves that electronic computers were never used at NASA.",
+            "It proves that electronic computers were rarely used at NASA.",
             "It shows that Glenn preferred to do the math himself."
           ],
           "answer": "A",
@@ -540,7 +540,7 @@
         {
           "stem": "Which event happened FIRST?",
           "options": [
-            "Katherine received the Presidential Medal of Freedom.",
+            "Katherine received the Presidential Medal of Freedom at the White House.",
             "Katherine helped with the Apollo 13 emergency.",
             "Katherine calculated the trajectory for John Glenn's orbit.",
             "A movie told the story of Katherine's career."
@@ -577,7 +577,7 @@
             "Both were trusted equally from the very start.",
             "The electronic computer replaced the need for any human checking.",
             "Katherine's verified precision was still needed even after the machine's calculation.",
-            "The electronic computer was used only after Katherine's work was finished."
+            "The electronic computer was used after Katherine's work was finished and checked."
           ],
           "answer": "C",
           "skill": "compare",
@@ -594,7 +594,7 @@
             "She proved that skill and persistence could overcome unjust barriers.",
             "She was the only mathematician NASA ever employed in its history.",
             "She preferred teaching French over working with numbers at the agency.",
-            "She avoided every important meeting at NASA to keep her work secret."
+            "She avoided important meetings at NASA to keep her work secret."
           ],
           "answer": "A",
           "skill": "inference",

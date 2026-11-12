@@ -216,10 +216,10 @@
         {
           "stem": "Why might a 3D printer be better than cutting a shape from a big block?",
           "options": [
-            "It is always much faster.",
+            "It is much faster.",
             "Less of the plastic gets thrown out.",
             "It never needs a plan.",
-            "It works without any power at all, even at night."
+            "It works without power, even at night."
           ],
           "answer": "B",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Plastic is the only material that printers can use.",
             "3D printers build solid objects by adding thin layers, and they help in many fields.",
             "3D printers are too slow to be useful.",
-            "Paper printers will soon disappear from homes, schools, and offices everywhere."
+            "Paper printers will soon disappear from homes, schools, and offices across the world."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -380,7 +380,7 @@
           "options": [
             "It makes the hand out of paper.",
             "It is the only machine that the hospital has.",
-            "Children cannot use other kinds of hands.",
+            "Children grow too fast for other kinds of hands.",
             "It can make a custom hand that fits that one child."
           ],
           "answer": "D",
@@ -397,8 +397,8 @@
           "options": [
             "It uses bigger blocks of wood.",
             "It adds material instead of cutting it away, so there is less waste.",
-            "It always uses hard metal instead of plastic, so the objects are stronger.",
-            "It needs no design at all."
+            "It uses hard metal instead of plastic, so the objects are stronger.",
+            "It needs no design."
           ],
           "answer": "B",
           "skill": "compare",
@@ -413,7 +413,7 @@
           "stem": "The author says the soft plastic squeezes out like toothpaste from a tube. Why?",
           "options": [
             "To tell readers to brush their teeth",
-            "To show that plastic tastes like toothpaste",
+            "To show that plastic tastes like toothpaste when it melts",
             "To help readers picture how the plastic comes out",
             "To explain where plastic comes from"
           ],
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "3D printers have completely replaced all factories.",
-            "3D printing only works with plastic thread.",
+            "3D printers have replaced all factories.",
+            "3D printing works with plastic thread.",
             "3D printing builds objects by adding layers and now helps many fields, although it has limits.",
-            "Chuck Hull is still the only person in the world who knows how to use a 3D printer."
+            "Chuck Hull is the person who knows best how to use a 3D printer, so he trains most users."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -558,7 +558,7 @@
           "stem": "Why would printing tools in orbit likely help astronauts?",
           "options": [
             "They could make a needed tool without waiting for a delivery from Earth.",
-            "Tools printed in space are always heavier and much stronger than tools from Earth.",
+            "Tools printed in space are heavier and much stronger than tools from Earth.",
             "Astronauts are not allowed to carry tools.",
             "Printing is the only hobby on the station."
           ],
@@ -576,7 +576,7 @@
           "options": [
             "When it needs one custom prosthetic hand",
             "When it wants to test a prototype quickly",
-            "When it needs a precise model of a new part",
+            "When it needs a precise model of a new part for a car",
             "When it must produce millions of identical items"
           ],
           "answer": "D",

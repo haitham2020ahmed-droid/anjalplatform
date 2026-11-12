@@ -151,7 +151,7 @@
             "To the left",
             "To the right",
             "Straight up",
-            "It does not curve at all"
+            "It does not curve"
           ],
           "answer": "A",
           "skill": "detail",
@@ -202,7 +202,7 @@
             "It is much heavier than other balls.",
             "It is too small to see.",
             "It can shake and dip in a strange way.",
-            "It always flies straight at the keeper's hands."
+            "It flies straight at the keeper's hands."
           ],
           "answer": "C",
           "skill": "inference",
@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the central idea?",
           "options": [
             "Free kicks are the most important and exciting part of football.",
-            "Goalkeepers can always stop curving balls if they jump high.",
+            "Goalkeepers can stop curving balls if they jump high.",
             "Spin makes a ball push air one way, so the ball curves the other way.",
             "Defenders should never stand together in a wall during a free kick."
           ],
@@ -328,7 +328,7 @@
           "stem": "According to the article, how is air pressure different around a spinning ball?",
           "options": [
             "It is exactly equal on every side of the ball.",
-            "It disappears completely as the ball flies.",
+            "It disappears as the ball flies.",
             "It is the same as the air inside the ball.",
             "It is lower on one side and higher on the other."
           ],
@@ -380,8 +380,8 @@
           "options": [
             "A spinning ball curves smoothly; a ball with no spin can wobble and dip.",
             "Both balls fly in a perfectly straight line to the goal every time, whatever the player does",
-            "Only the ball with no spin can curve around the wall of players and then fall into the net",
-            "Neither ball is affected in any way by the air around it, because air has no effect on balls"
+            "The ball with no spin curves more, so it goes around the wall of players",
+            "Neither ball is affected by the air around it, because air has no effect on balls"
           ],
           "answer": "A",
           "skill": "compare",
@@ -475,7 +475,7 @@
             "Spin makes a ball curve through a force called the Magnus effect.",
             "Heinrich Gustav Magnus was the best footballer of the 1850s.",
             "Tennis is a more scientific sport than football will ever be.",
-            "Footballs should be made without any seams or panels at all."
+            "Footballs should be made without any seams or panels."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -542,7 +542,7 @@
           "options": [
             "Because each ball's panels and seams affect how it swerves",
             "Because other balls are not allowed in training by law",
-            "Because the official ball has no air inside it at all",
+            "Because the official ball has no air inside it",
             "Because practice balls never spin when they are kicked"
           ],
           "answer": "A",
@@ -559,7 +559,7 @@
           "options": [
             "The Magnus effect only works on footballs and nothing else in any sport.",
             "The Magnus effect applies to many spinning balls moving through air.",
-            "Tennis balls cannot spin when they are hit with a racket.",
+            "Tennis balls spin less when they are hit with a racket.",
             "Table tennis was invented by Magnus himself in Germany."
           ],
           "answer": "B",

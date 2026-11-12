@@ -233,7 +233,7 @@
         {
           "stem": "Why does the author end with the mothers hugging the girls?",
           "options": [
-            "To show the mothers are angry forever",
+            "To show the mothers are angry",
             "To explain how to fix a bus",
             "To describe the farmer's house",
             "To show how loved the girls are"
@@ -296,7 +296,7 @@
             "Two friends work together and receive kindness to get home safely after their bus breaks down.",
             "A bus driver teaches two girls how to fix an engine.",
             "A farmer in the area sells fresh dates and bottles of cool water to students walking by every single afternoon.",
-            "Two girls get lost in the desert and cannot find their way."
+            "Two girls get lost in the desert and walk home alone."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "How does Abu Khalid's hospitality affect the girls' journey?",
           "options": [
-            "It delays them so much that they never reach the village at all",
-            "It convinces them to stay on the farm permanently with him",
+            "It delays them so much that they never reach the village",
+            "It convinces them to stay on the farm permanently with him and work there",
             "It gives them rest, water, and renewed strength to finish the walk",
-            "It causes them to take a completely different road to the village"
+            "It causes them to take a different road to the village"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -541,7 +541,7 @@
           "stem": "What can readers infer about Hind from her decision to suggest walking home?",
           "options": [
             "She is confident and willing to take responsibility for a plan",
-            "She is reckless and does not think about safety at all, so she makes a bad plan",
+            "She is reckless and does not think about safety, so she makes a bad plan",
             "She is afraid of the bus driver, and so she wants to walk home alone",
             "She dislikes her classmates and wants to be alone on the long road"
           ],

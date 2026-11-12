@@ -217,8 +217,8 @@
           "stem": "Why is a flat roof a good place for a garden?",
           "options": [
             "It is easy to put soil and plants on it.",
-            "It is always cold.",
-            "It has no sun at all.",
+            "It is cold.",
+            "It has no sun.",
             "It is under the ground, where plants cannot get sun."
           ],
           "answer": "A",
@@ -295,8 +295,8 @@
           "options": [
             "Rooftop gardens cool buildings and help nature, but they must be planned carefully.",
             "Every roof in the world should have a pool, so that buildings stay cool all summer.",
-            "Concrete is the best material for cities, so gardens should never be built on roofs.",
-            "Only farmers can grow food, so cities should leave all the planting to the villages."
+            "Concrete is the best material for cities, so gardens should not be built on roofs.",
+            "Farmers grow food better, so cities should leave the planting to the villages."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -473,9 +473,9 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "Rooftop gardens offer many environmental benefits but require careful engineering.",
-            "Air conditioning is the only way to cool a city, and plants cannot help at all.",
-            "The urban heat island effect cannot be changed by any plan or design.",
-            "Tomatoes grow best on rooftops, and that is why most cities build gardens."
+            "Air conditioning is the only way to cool a city, and plants cannot help.",
+            "The urban heat island effect is hard to change with plans or designs.",
+            "Tomatoes grow best on rooftops, and that is why most cities build gardens on their roofs."
           ],
           "answer": "A",
           "skill": "central-idea",

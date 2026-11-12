@@ -182,7 +182,7 @@
         {
           "stem": "Why does one side of Uranus stay dark for many years?",
           "options": [
-            "It has no Sun at all.",
+            "It has no Sun.",
             "The rings block all light.",
             "It spins on its side.",
             "Its moons cover it."
@@ -201,8 +201,8 @@
           "options": [
             "The Sun is smaller there.",
             "They are very far from the Sun.",
-            "Their air is full of rings.",
-            "It is always night there."
+            "Their air is full of rings and moons.",
+            "It is night there."
           ],
           "answer": "B",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Neptune was found in 1846 by astronomers in Europe, and the article is only about this event.",
             "Uranus and Neptune are distant, icy, blue planets with many unusual features.",
             "Voyager 2 is the fastest spacecraft ever built by people.",
-            "Methane is the most common gas in all of space, and every planet is made mostly of it."
+            "Methane is the most common gas in space, and most planets are made of it."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -475,7 +475,7 @@
             "Neptune is more important than Uranus because it is farther away, and scientists have sent many spacecraft to visit it.",
             "The ice giants are distant, unusual worlds that scientists have studied through careful observation, calculation, and one spacecraft visit.",
             "All planets in the solar system are made of ice, and scientists have visited every one of them with a probe.",
-            "Triton is the largest moon in the solar system, and it is the only moon that has an atmosphere of its own, which is why astronomers study it."
+            "Triton is the largest moon in the solar system, and it has a thick atmosphere of its own, which is why astronomers study it each year in many countries."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,7 +489,7 @@
         {
           "stem": "According to the article, how does Neptune's largest moon, Triton, differ from most large moons?",
           "options": [
-            "It is made entirely of rock, with no ice at all.",
+            "It is made of rock, with little or no ice.",
             "It is bigger than Neptune.",
             "It orbits opposite to the planet's rotation.",
             "It was found by Herschel."

@@ -134,7 +134,7 @@
             "Boil them in oil",
             "Freeze them overnight",
             "Dry them and grind them into powder",
-            "Plant them again right away in a completely different type of soil"
+            "Plant them again right away in a different type of soil"
           ],
           "answer": "C",
           "skill": "detail",
@@ -217,7 +217,7 @@
           "stem": "Why do people wash the dried paste off carefully?",
           "options": [
             "To make the color disappear right away",
-            "To avoid getting a design at all",
+            "To avoid getting a design",
             "To reveal the finished design underneath",
             "To cool down the skin"
           ],
@@ -295,7 +295,7 @@
             "Henna is a kind of permanent tattoo that is made using a sharp metal needle",
             "The henna plant can only grow in cold climates",
             "Henna is a natural dye applied to the skin to create temporary patterns for celebrations",
-            "Henna paste is always a bright purple color no matter which plant or recipe is used to make it"
+            "Henna paste is a bright purple color no matter which plant or recipe is used to make it"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -344,7 +344,7 @@
           "stem": "The article says the henna pattern will 'fade' after a few weeks. Fade most nearly means —",
           "options": [
             "to become darker",
-            "to gradually spread out to many completely new and different places on the body",
+            "to gradually spread out to many new and different places on the body",
             "to smell different",
             "to slowly disappear or grow lighter"
           ],
@@ -378,7 +378,7 @@
           "stem": "Why do people likely add lemon juice or tea to the henna paste?",
           "options": [
             "To make the paste taste better",
-            "To completely and permanently change the physical shape of the paste itself",
+            "To and permanently change the physical shape of the paste itself",
             "To help improve or change the color of the dye",
             "To make the paste cold"
           ],
@@ -396,8 +396,8 @@
           "options": [
             "Because it is strictly required by a nationwide law at every single celebration",
             "Because people enjoy decorating their skin for joyful celebrations",
-            "Because it is the only form of body art allowed",
-            "Because it lasts forever once applied"
+            "Because it is the main form of body art allowed",
+            "Because it lasts once applied"
           ],
           "answer": "B",
           "skill": "inference",
@@ -411,7 +411,7 @@
         {
           "stem": "How is the article mostly organized?",
           "options": [
-            "As a detailed comparison between two completely different and unrelated types of plants",
+            "As a detailed comparison between two different and unrelated types of plants",
             "As an argument against using henna",
             "As a set of safety warnings",
             "As a step-by-step explanation of how henna is made, applied, and how it fades"
@@ -471,9 +471,9 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "Henna is an ancient, temporary form of body art created from a natural plant pigment and valued for its intricate, symbolic designs",
-            "Henna paste, according to strict international regulations, must always be purchased exclusively from a certified, licensed professional artisan before any application is permitted",
+            "Henna paste, according to strict international regulations, must be purchased exclusively from a certified, licensed professional artisan before any application is permitted",
             "Henna was invented by UNESCO in the twenty-first century",
-            "Henna is a permanent dye that cannot be removed from skin"
+            "Henna is a permanent dye that stays on the skin for years"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,7 +540,7 @@
           "options": [
             "Old skin cells naturally wear off and are replaced by new ones",
             "The artisan scrubs it off with soap",
-            "The pigment reacts almost instantly with ordinary water and completely dissolves away within seconds",
+            "The pigment reacts almost instantly with ordinary water and dissolves away within seconds",
             "Sunlight burns the pattern away"
           ],
           "answer": "A",
@@ -572,7 +572,7 @@
         {
           "stem": "What can you infer about why henna designs often carry symbolic meanings?",
           "options": [
-            "Because the designs are chosen completely randomly with absolutely no thought or meaning behind them at all",
+            "Because the designs are chosen randomly with absolutely no thought or meaning behind them",
             "Because people use the patterns to express hopes like happiness or protection",
             "Because the artisan is required to add a meaning by law",
             "Because the pigment changes meaning depending on the weather"
@@ -590,8 +590,8 @@
           "stem": "How is the role of the henna artisan similar to the role of a painter creating a work of art?",
           "options": [
             "Both work only with permanent materials",
-            "Both are strictly required by long-standing tradition to use the exact same patterns every single time without exception",
-            "Both are paid only in food",
+            "Both are required by tradition to use the same patterns each time",
+            "Both are paid in food",
             "Both use skill and creativity to produce a detailed, intentional design"
           ],
           "answer": "D",

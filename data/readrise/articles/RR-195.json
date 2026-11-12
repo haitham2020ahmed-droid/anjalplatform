@@ -132,7 +132,7 @@
           "stem": "How does a vet find out what is wrong with a pet?",
           "options": [
             "The pet tells the vet what hurts.",
-            "The vet guesses without looking at all.",
+            "The vet guesses without looking.",
             "The vet asks the other pets for help.",
             "The vet looks for clues."
           ],
@@ -296,7 +296,7 @@
             "Vets diagnose, treat, and protect animals and people.",
             "Zoo animals need much more care than pets at home.",
             "Only camels in the Gulf have their own hospitals.",
-            "Students in Saudi Arabia cannot study to become vets."
+            "Students in Saudi Arabia must travel abroad to study to become vets."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -328,7 +328,7 @@
           "stem": "Where in Saudi Arabia can students study to become vets, according to the article?",
           "options": [
             "At a zoo in Riyadh",
-            "At the Abu Dhabi Falcon Hospital",
+            "At the Abu Dhabi Falcon Hospital in the city",
             "At King Faisal University in Al-Ahsa",
             "At a camel farm"
           ],
@@ -506,7 +506,7 @@
         {
           "stem": "Why does treating zoo animals require great caution?",
           "options": [
-            "Zoo animals are always asleep during the day.",
+            "Zoo animals are asleep during the day.",
             "Zoo animals can speak to the vet about pain.",
             "Zoo animals never get sick or hurt.",
             "Wild animals can be fragile and dangerous."
@@ -576,7 +576,7 @@
           "options": [
             "To prevent dangerous diseases before they start",
             "To make the goats grow faster",
-            "To help the goats describe their symptoms",
+            "To help the goats describe their symptoms to the vets",
             "Because vaccines are needed for surgery"
           ],
           "answer": "A",

@@ -236,7 +236,7 @@
             "It floats above its track.",
             "It runs on wheels.",
             "It runs in China.",
-            "It has no track at all."
+            "It has no track."
           ],
           "answer": "B",
           "skill": "compare",
@@ -295,7 +295,7 @@
           "options": [
             "Maglev trains are now used in almost every country in the world.",
             "Magnets are mostly toys for young children and do not move trains.",
-            "Japan builds the only fast trains in the world, and no one else tries.",
+            "Japan builds most of the fast trains in the world, so other countries buy them.",
             "Magnets let maglevs float and move fast, but they cost a lot."
           ],
           "answer": "D",
@@ -398,7 +398,7 @@
             "It costs a lot and needs a new guideway.",
             "Maglevs are slower than buses.",
             "Maglevs are too noisy for cities.",
-            "A maglev can carry only one person."
+            "A maglev can carry only one person at a time."
           ],
           "answer": "A",
           "skill": "inference",
@@ -540,7 +540,7 @@
         {
           "stem": "What can you infer about why Japan's Tokyo–Nagoya maglev route must be as straight as possible?",
           "options": [
-            "Straight routes are always the cheapest to build.",
+            "Straight routes are the cheapest to build and fix.",
             "The mountains contain magnetic rock.",
             "Tunnels make trains quieter for riders.",
             "Sharp curves would be hard to take at very high speeds."

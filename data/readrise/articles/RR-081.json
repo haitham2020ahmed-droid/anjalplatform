@@ -132,8 +132,8 @@
           "stem": "Who could get care at these hospitals?",
           "options": [
             "Only rich people",
-            "Only men",
-            "Only doctors and their families",
+            "Men from rich families",
+            "Doctors and their own families",
             "Anyone who was sick, rich or poor"
           ],
           "answer": "D",
@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Al-Razi was the only important doctor in history, and no other doctor ever wrote anything useful.",
-            "Cairo had the largest hospital in the world, and it was built before any other hospital existed.",
+            "Cairo had the largest hospital in the world, and it was built before the others.",
             "The bimaristans gave free care, sorted the sick, trained doctors, and shaped later hospitals.",
             "Hospitals long ago were dirty and dangerous, and most patients left them in a worse state."
           ],

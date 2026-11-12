@@ -183,7 +183,7 @@
           "stem": "Why can a skater glide smoothly across the ice?",
           "options": [
             "Because the blade is so thin",
-            "Because the ice is always warm",
+            "Because the ice is warm",
             "Because the boots are heavy",
             "Because the rink is very big"
           ],
@@ -199,7 +199,7 @@
         {
           "stem": "What did people in cold lands once make skates from?",
           "options": [
-            "Plastic",
+            "Plastic tubes",
             "Glass",
             "Rubber",
             "Animal bones"
@@ -219,7 +219,7 @@
             "Figure skaters jump and spin; speed skaters race fast",
             "Figure skaters race fast; speed skaters jump and spin",
             "Figure skaters never use blades",
-            "Speed skaters only skate indoors"
+            "Speed skaters skate indoors"
           ],
           "answer": "A",
           "skill": "compare",
@@ -233,10 +233,10 @@
         {
           "stem": "What can you infer about ice skating from the article?",
           "options": [
-            "It needs no practice at all",
+            "It needs no practice",
             "Only animals can do it",
             "It is both a skill and a sport",
-            "It only happens in summer"
+            "It happens mostly in summer"
           ],
           "answer": "C",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "A thin blade and good technique let skaters glide and compete",
-            "You cannot make skates without modern machines today",
-            "Speed skating is always more popular than figure skating",
-            "Ice always melts away fast once a skater steps on it"
+            "You need modern machines to make skates today",
+            "Speed skating is more popular than figure skating around the world",
+            "Ice melts away fast once a skater steps on it"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,8 +327,8 @@
         {
           "stem": "How do skaters use the two edges of a blade?",
           "options": [
-            "They never use either edge of the blade at all",
-            "They use the edges only to clean the metal blade",
+            "They never use either edge of the blade",
+            "They use the edges to clean the metal blade",
             "They shift their weight onto one edge to turn and stop",
             "They remove one edge from the blade before skating"
           ],
@@ -381,7 +381,7 @@
             "Speed skaters use curved blades for jumps and spins, while figure skaters use flat blades to race",
             "Speed skaters never wear boots that have blades, and they race in their socks on the ice",
             "Speed skaters use flatter blades to race; figure skaters use curved blades to jump",
-            "Figure skaters only ever compete indoors in summer, and speed skaters compete only outdoors in winter"
+            "Figure skaters compete indoors in summer, and speed skaters compete outdoors in winter"
           ],
           "answer": "C",
           "skill": "compare",
@@ -397,7 +397,7 @@
           "options": [
             "Smoother metal blades made more people want to skate",
             "Only people from the Netherlands ever liked skating",
-            "The sport of skating was once banned everywhere else",
+            "The sport of skating was once banned in other countries",
             "Old bone skates worked better than new metal ones"
           ],
           "answer": "A",
@@ -473,8 +473,8 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Ice skating relies on blade pressure, friction, and balance, now a precise sport",
-            "Speed skating was invented after figure skating became popular worldwide",
-            "Scientists have fully and completely solved why ice is slippery",
+            "Speed skating was invented after figure skating became popular worldwide in many countries",
+            "Scientists have fully and solved why ice is slippery",
             "Ice skating needs no training if a skater has natural balance"
           ],
           "answer": "A",
@@ -525,7 +525,7 @@
           "options": [
             "To clean the metal blade between each turn",
             "To turn sharply, stop fast, and build momentum",
-            "To avoid ever touching the ice at all",
+            "To avoid ever touching the ice",
             "To make the thin metal blade much heavier"
           ],
           "answer": "B",
@@ -576,7 +576,7 @@
           "options": [
             "The real explanation is more complex than one simple cause",
             "No one has ever studied this question before today, in any lab",
-            "Ice is not actually slippery at all, in truth, to skaters",
+            "Ice is not actually slippery, in truth, to skaters",
             "Skating blades do not really reduce friction much on the ice"
           ],
           "answer": "A",

@@ -134,7 +134,7 @@
             "Its blades spin fast.",
             "A pilot inside pushes it.",
             "Hot air fills a bag.",
-            "The wind always carries it."
+            "The wind carries it."
           ],
           "answer": "A",
           "skill": "detail",
@@ -296,7 +296,7 @@
             "Drones have four propellers that spin quickly, and they can fly for many hours in the rain.",
             "Drones fly without a pilot on board and do many useful jobs, but they must be flown safely.",
             "Farmers use drones to spray their crops, and no other jobs are done by drones in Saudi Arabia.",
-            "Drones must be registered in Saudi Arabia, and children are not allowed to fly them at all."
+            "Drones must be registered in Saudi Arabia, and children are not allowed to fly them."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -364,7 +364,7 @@
             "They make the medicine stronger.",
             "They never need their batteries charged.",
             "They can fly straight there without roads.",
-            "Villages are always close to airports."
+            "Villages are close to airports."
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,10 +378,10 @@
         {
           "stem": "What can you infer about a drone that follows a route planned by a computer?",
           "options": [
-            "A pilot must always ride on board with it.",
+            "A pilot must ride on board with it.",
             "No person has to steer it the whole time.",
             "It cannot carry a camera or other sensors.",
-            "It is only able to fly during the night."
+            "It flies best during the night."
           ],
           "answer": "B",
           "skill": "inference",
@@ -508,7 +508,7 @@
           "options": [
             "Drones have sprayed crops on every farm.",
             "Drones have delivered blood to hospitals.",
-            "Drones have replaced all mountain roads.",
+            "Drones have replaced mountain roads.",
             "Drones have been banned near hospitals."
           ],
           "answer": "B",

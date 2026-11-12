@@ -310,7 +310,7 @@
     {
      "stem": "According to the article, about how strong is Earth's gravity at the altitude where most spacecraft orbit?",
      "options": [
-      "Almost completely gone, with barely any pull left at all",
+      "Almost gone, with barely any pull left",
       "About half as strong as on the ground",
       "Almost as strong as it is on the ground",
       "Twice as strong as on the ground"
@@ -379,9 +379,9 @@
      "stem": "Why might the inner ear send confusing signals to an astronaut's brain in space?",
      "options": [
       "The inner ear normally relies on gravity to sense up and down",
-      "The inner ear stops working completely in space for every person",
+      "The inner ear stops working in space for every person",
       "Space is too quiet for the inner ear to work properly",
-      "The inner ear only works on roller coasters and swings"
+      "The inner ear works best on roller coasters and swings in the park"
      ],
      "answer": "A",
      "skill": "inference",
@@ -473,7 +473,7 @@
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
       "Astronauts float because they are in continuous free fall around Earth, which also affects their bodies",
-      "Astronauts float because engineers have found a way to turn off gravity inside the spacecraft",
+      "Astronauts float because engineers have found a way to turn off gravity inside the spacecraft before each flight",
       "Floating only matters during a spacewalk outside the spacecraft",
       "Microgravity training on Earth is more difficult than living in space itself"
      ],
@@ -489,8 +489,8 @@
     {
      "stem": "According to the article, why do astronauts aboard an orbiting spacecraft feel no sensation of weight?",
      "options": [
-      "The spacecraft is too far from Earth for gravity to act on it at all, so they float",
-      "Special suits cancel out the pull of gravity, so the astronauts feel no weight at all",
+      "The spacecraft is too far from Earth for gravity to act on it, so they float",
+      "Special suits cancel out the pull of gravity, so the astronauts feel no weight",
       "They and the spacecraft are continuously falling toward Earth at the same rate",
       "The spacecraft spins fast enough to cancel gravity, like a washing machine does"
      ],
@@ -575,7 +575,7 @@
      "stem": "Why does the author explain the everyday example of a fast elevator or roller coaster drop?",
      "options": [
       "To help readers connect a familiar sensation to the unfamiliar physics of orbit",
-      "To warn readers that roller coasters are not safe for them to ride at all in a park",
+      "To warn readers that roller coasters are not safe for them to ride in a park",
       "To argue that elevators should be redesigned to go slower in tall towers",
       "To describe how elevators are built inside spacecraft and space stations"
      ],

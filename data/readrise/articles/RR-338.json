@@ -133,7 +133,7 @@
      "options": [
       "A hard mineral found in rock",
       "A resource found deep in rock underground",
-      "A kind of tree that grows in a forest",
+      "A kind of tree that grows in a forest or a park",
       "A gas found only in deserts"
      ],
      "answer": "B",
@@ -182,7 +182,7 @@
     {
      "stem": "Why can hot, wet land grow a thick forest?",
      "options": [
-      "Because the land has no rock at all",
+      "Because the land has no rock",
       "Because forests need oil to grow and spread",
       "Because the land has many minerals",
       "Because trees need heat and water to grow"
@@ -217,9 +217,9 @@
      "stem": "Why do countries trade resources with each other?",
      "options": [
       "Because every country has the exact same resources, so there is nothing to trade",
-      "Because trading is required by law everywhere in the world, even for small things",
+      "Because trading is required by law, even for small things",
       "Because one country may have oil but little water, while another has the opposite",
-      "Because resources never run out, so countries can trade whenever they like"
+      "Because resources last a long time, so countries can trade whenever they like"
      ],
      "answer": "C",
      "skill": "inference",
@@ -235,7 +235,7 @@
      "options": [
       "It shows that no land ever has both oil and water, anywhere on the planet, not even a little",
       "It shows that oil is more important than water to every country in the world, in every year",
-      "It shows that water always comes from oil under the ground, so the two must be found together",
+      "It shows that water comes from oil under the ground, so the two must be found together",
       "It shows that one country might have plenty of oil but little water, while another has the reverse"
      ],
      "answer": "D",
@@ -293,8 +293,8 @@
     {
      "stem": "Which sentence best states the central idea of the article?",
      "options": [
-      "Workers dig deep to find oil, and then they sell it to every country in the world for a high price and keep none for themselves at all.",
-      "Some countries sit on huge amounts of oil, while others have none, and so the oil is never traded with anyone at all, in any year, or at any price.",
+      "Workers dig deep to find oil, and then they sell it to every country in the world for a high price and keep none for themselves.",
+      "Some countries sit on huge amounts of oil, while others have little, so oil is rarely traded between them.",
       "Rain falls more in some regions than others, and so farmers in those places grow more crops than anyone else in the world, and sell them far away.",
       "Natural resources are distributed unevenly across the Earth because of geology and climate, so countries trade what they have for what they lack."
      ],
@@ -378,9 +378,9 @@
     {
      "stem": "What can you infer about a country with almost no oil reserves?",
      "options": [
-      "It must also have no other resources of any kind",
+      "It must also have no other resources",
       "It never studies geology at school or in college",
-      "It always has a desert climate with little rain",
+      "It has a desert climate with little rain",
       "It may rely on trade to get oil from elsewhere"
      ],
      "answer": "D",
@@ -397,8 +397,8 @@
      "options": [
       "Because geology can vary even between nearby places",
       "Because minerals only exist in one place on Earth",
-      "Because trade removes all minerals from the ground",
-      "Because mineral deposits move around every year"
+      "Because trade removes the minerals from the ground",
+      "Because mineral deposits move around each year"
      ],
      "answer": "A",
      "skill": "inference",
@@ -413,7 +413,7 @@
      "stem": "How does the article explain why resources are spread unevenly?",
      "options": [
       "By comparing geology and climate across regions",
-      "By listing countries in alphabetical order",
+      "By listing countries in alphabetical order of the world",
       "By describing only one country's resources",
       "By telling a story about a mineral"
      ],
@@ -473,8 +473,8 @@
      "stem": "Which statement best summarizes the article?",
      "options": [
       "Gulf countries hold large oil reserves under the desert and the sea, so every country in the world has a lot of oil and gas, as it is spread out evenly.",
-      "Rivers and glaciers shape where fresh water collects, so every country has the same amount of water, and no country ever has too little water for its people.",
-      "Mineral deposits form near ancient volcanoes, so only countries with volcanoes have any minerals at all, and other countries must buy all of theirs from them.",
+      "Rivers and glaciers shape where fresh water collects, so most countries have about the same amount of water for their people.",
+      "Mineral deposits form near ancient volcanoes, so countries with volcanoes have the most minerals and sell them to others.",
       "Natural resources are distributed unevenly because of geology and climate, making some finite resources abundant in one country and scarce in another."
      ],
      "answer": "D",
@@ -523,10 +523,10 @@
     {
      "stem": "The article describes oil and minerals as finite resources. What does finite mean here?",
      "options": [
-      "Impossible to extract from the ground at all",
-      "Found only in hot desert climates and nowhere else",
+      "Impossible to extract from the ground",
+      "Found only in hot desert climates",
       "Having a limit and able to eventually run out",
-      "Traded only between two countries, never more"
+      "Traded between two countries at a time at a fair price"
      ],
      "answer": "C",
      "skill": "vocabulary",
@@ -557,7 +557,7 @@
     {
      "stem": "What can be inferred about a country with an abundant oil reserve but very little fresh water?",
      "options": [
-      "It must have no climate at all",
+      "It must have no climate",
       "It will automatically develop thick rainforests",
       "It may need to trade for water while exporting oil",
       "It cannot use its oil reserve for anything"
@@ -574,8 +574,8 @@
     {
      "stem": "Why does the uneven distribution of finite resources encourage trade between countries?",
      "options": [
-      "Because every country has identical reserves of everything",
-      "Because finite resources can never actually be extracted",
+      "Because every country has identical reserves of everything and resource",
+      "Because finite resources are too hard to extract",
       "Because trade causes resources to regenerate instantly",
       "Because one country's abundance can make up for another's scarcity"
      ],
@@ -593,8 +593,8 @@
      "options": [
       "It shows that no country can be rich in both oil and water at the same time, ever",
       "It shows that a country can be rich in oil but scarce in water, while another is the reverse",
-      "It shows that oil-rich countries always have abundant water too, in every single case",
-      "It shows that water-rich countries never need oil, because they have so many rivers"
+      "It shows that oil-rich countries have abundant water too, in every single case",
+      "It shows that water-rich countries rarely need oil, because they have so many rivers"
      ],
      "answer": "B",
      "skill": "compare",

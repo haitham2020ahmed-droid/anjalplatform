@@ -235,8 +235,8 @@
           "options": [
             "To teach how to swim in a pond or a river",
             "To show that a lot of life is hidden from our eyes",
-            "To tell readers not to drink pond water at all",
-            "To explain how ponds are made in the ground"
+            "To tell readers not to drink pond water",
+            "To explain how ponds are made in the ground by rain"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -296,7 +296,7 @@
             "Robert Hooke was a better scientist than Leeuwenhoek because he drew more pictures of insects.",
             "Microscopes reveal a hidden world of tiny living things and help science and medicine.",
             "Pond water is dangerous and should never be touched by anyone, not even to look at it.",
-            "Electron microscopes have replaced all other kinds of microscopes."
+            "Electron microscopes have replaced most other kinds of microscopes."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -397,7 +397,7 @@
           "options": [
             "People knew all about bacteria and how they spread.",
             "Doctors could easily see germs in blood with their eyes.",
-            "Almost every family owned a lens at home for school.",
+            "Most families owned a lens at home for school.",
             "People did not know that tiny creatures lived in water."
           ],
           "answer": "D",
@@ -475,7 +475,7 @@
             "Microscopes have uncovered an invisible world and remain essential to science and medicine.",
             "Cork is the best material for studying cells because it is thin and light, and so schools still use it today.",
             "Electron microscopes are too expensive for schools, so most students use only their eyes.",
-            "Leeuwenhoek invented the compound microscope, and all later ones were copies."
+            "Leeuwenhoek invented the compound microscope, and later ones were copies of it."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -524,7 +524,7 @@
           "stem": "What can an electron microscope reach that a school microscope cannot?",
           "options": [
             "A magnification of about 400 times",
-            "The ability to view thin slices of cork",
+            "The ability to view thin slices of cork and leaves",
             "The use of a thin glass slide",
             "A magnification of more than a million times"
           ],
@@ -558,7 +558,7 @@
           "stem": "Why does the author mention that Leeuwenhoek's instruments were \"remarkably powerful\" though they had a single lens?",
           "options": [
             "To show that skill and careful work mattered more than having many lenses",
-            "To prove that a microscope with one lens is always better than one with two",
+            "To prove that a microscope with one lens is better than one with two",
             "To explain why he became a doctor",
             "To show that he copied Hooke"
           ],

@@ -149,7 +149,7 @@
      "stem": "What went wrong with Skylab when it launched?",
      "options": [
       "The astronauts ran out of food and water",
-      "It could not reach orbit at all",
+      "It could not reach orbit",
       "Part of it broke and let in too much heat",
       "Its crew forgot to bring water"
      ],
@@ -296,7 +296,7 @@
       "Early stations such as Salyut, Skylab, and Mir tested ideas that shaped the ISS.",
       "Mir was the most comfortable space station ever built.",
       "Skylab was built only to study the Sun.",
-      "The Soviet Union never shared any of its space stations with other countries at all."
+      "The Soviet Union kept its space stations closed to other countries and their crews."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -413,7 +413,7 @@
      "stem": "How was Mir different from Salyut 1?",
      "options": [
       "Mir grew bigger over time with added modules, while Salyut 1 did not",
-      "Mir had no crew living aboard it at all, while Salyut 1 did have one",
+      "Mir had no crew living aboard it, while Salyut 1 did have one for a short time",
       "Mir never had any problems, while Salyut 1 had many",
       "Mir was built by the United States, while Salyut 1 was not"
      ],
@@ -473,9 +473,9 @@
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
       "Early stations such as Salyut, Skylab, and Mir, despite setbacks, built the knowledge and cooperation that shaped the ISS.",
-      "Space stations have always been free of danger or difficulty, so astronauts never worry about them.",
-      "The Soviet Union built space stations only to compete with the United States, and never to study science, medicine or space travel.",
-      "Skylab was the only station that ever had serious problems, while all the others worked perfectly well."
+      "Space stations have been free of danger or difficulty, so astronauts never worry about them.",
+      "The Soviet Union built space stations mainly to compete with the United States, not to study science or medicine.",
+      "Skylab was the one station that had serious problems, while the others worked perfectly well."
      ],
      "answer": "A",
      "skill": "central-idea",

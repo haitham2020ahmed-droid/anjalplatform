@@ -131,10 +131,10 @@
     {
      "stem": "Why can't people drink sea water safely?",
      "options": [
-      "It is always too cold to drink safely",
+      "It is too cold to drink safely",
       "It is too salty and can make a person sick",
-      "It is too thick to pour from a cup",
-      "It is always full of tiny fish"
+      "It is too thick to pour from a cup or a jug",
+      "It is full of tiny fish"
      ],
      "answer": "B",
      "skill": "detail",
@@ -184,8 +184,8 @@
      "options": [
       "It turns back into water that has no salt",
       "It turns into a solid block of salt",
-      "It flows straight into the sea again",
-      "It disappears into the air forever"
+      "It flows straight into the sea again right after",
+      "It disappears into the air"
      ],
      "answer": "A",
      "skill": "sequence",
@@ -201,7 +201,7 @@
      "options": [
       "Because it has too many rivers to manage",
       "Because it is dry and has very few rivers or lakes",
-      "Because the sea near it has no salt at all",
+      "Because the sea near it has no salt",
       "Because its pipes are too old to use any more in cities"
      ],
      "answer": "B",
@@ -216,7 +216,7 @@
     {
      "stem": "How is the filter method different from the heat method?",
      "options": [
-      "The filter method never uses any water at all",
+      "The filter method never uses any water",
       "The heat method uses tiny holes instead of heat",
       "The filter method uses tiny holes, not heat",
       "The heat method and the filter method are exactly the same"
@@ -395,10 +395,10 @@
     {
      "stem": "Why might a newer desalination plant choose reverse osmosis over distillation?",
      "options": [
-      "Because reverse osmosis needs no water at all",
-      "Because distillation always produces salty water",
+      "Because reverse osmosis needs no water",
+      "Because distillation produces salty water",
       "Because reverse osmosis can use noticeably less energy",
-      "Because distillation works only during the winter"
+      "Because distillation works only during the winter in cold places"
      ],
      "answer": "C",
      "skill": "inference",
@@ -489,7 +489,7 @@
     {
      "stem": "What can pass through the pores of a reverse osmosis membrane?",
      "options": [
-      "Dissolved salt ions only, with no water at all",
+      "Dissolved salt ions only, with no water",
       "Water molecules, but not dissolved salt ions",
       "Both salt ions and water equally, with no filtering",
       "Neither salt ions nor water molecules can pass"
@@ -507,7 +507,7 @@
      "stem": "According to the article, what must be done with leftover brine?",
      "options": [
       "It must be boiled a second time right away",
-      "It must be frozen before anyone can touch it",
+      "It must be frozen before anyone can touch it at the plant",
       "It must be managed so it does not harm marine life",
       "It must be sold directly to nearby farms"
      ],
@@ -541,7 +541,7 @@
      "stem": "Why has reverse osmosis become the preferred method at many newer plants?",
      "options": [
       "It requires considerably less energy than boiling water",
-      "It requires no pumps or pressure at all in the plant",
+      "It requires no pumps or pressure in the plant",
       "It produces no leftover brine whatsoever from the water",
       "It works only in extremely cold climates and in winter"
      ],
@@ -575,7 +575,7 @@
      "stem": "A coastal city has plentiful cheap electricity but wants to protect sea life nearby. Based on the article, what is most important for it to manage carefully?",
      "options": [
       "The color of the pipelines carrying fresh water",
-      "The number of schools connected to the water supply",
+      "The number of schools connected to the water supply in the country",
       "The leftover brine, so it does not harm marine ecosystems",
       "The price of bottled water sold in stores"
      ],
@@ -591,7 +591,7 @@
     {
      "stem": "Why does the author mention both the energy cost and the leftover brine near the end of the article?",
      "options": [
-      "To argue that desalination should never be used at all",
+      "To argue that desalination should never be used in a country",
       "To explain exactly how electricity is generated",
       "To describe how rivers form in mountain regions",
       "To give a balanced view that includes real drawbacks"

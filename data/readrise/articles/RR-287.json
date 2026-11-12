@@ -397,7 +397,7 @@
      "options": [
       "As a timeline of one surfer's first wave",
       "By explaining swells, buoyancy, glide, and waves",
-      "As a comparison between surfing and sailing",
+      "As a comparison between surfing and sailing in the sea",
       "As instructions for building a surfboard"
      ],
      "answer": "B",
@@ -472,7 +472,7 @@
     {
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
-      "Surfing results depend almost entirely on luck",
+      "Surfing results depend almost on luck",
       "A surfer's glide and timing rely on gravity and momentum",
       "Physics explains sailing better than it explains surfing",
       "Only board size determines how a wave is ridden"
@@ -490,7 +490,7 @@
      "stem": "According to the article, what happens to the board once gravity pulls it down the sloped face of a wave?",
      "options": [
       "It loses all of its momentum almost instantly",
-      "It stops moving until the surfer paddles again",
+      "It stops moving until the surfer paddles again with his arms",
       "It gains momentum along a curving trajectory forward",
       "It sinks straight down to the ocean floor"
      ],
@@ -559,7 +559,7 @@
      "options": [
       "Gravity and friction both speed up the board equally on every wave",
       "Gravity pulls the board forward; friction slows the wave's base",
-      "Gravity only matters near shore, and friction only matters far from it",
+      "Gravity matters mostly near shore, and friction matters mostly far from it",
       "Neither gravity nor friction affects a surfer's ride on the water"
      ],
      "answer": "B",

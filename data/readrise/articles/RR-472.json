@@ -117,7 +117,7 @@
             "How doctors give out medicine",
             "How glass tubes get made",
             "How a man found a way to see bones",
-            "How Röntgen's wife got married"
+            "How Röntgen's wife got married in the city"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -183,7 +183,7 @@
           "stem": "What did Röntgen do after he noticed the ray?",
           "options": [
             "He left Germany for good",
-            "He called a doctor right away",
+            "He called a doctor right away to look at it",
             "He threw the glass tube away",
             "He tried the ray on his wife's hand"
           ],
@@ -233,7 +233,7 @@
         {
           "stem": "Why are x-ray machines useful to doctors today?",
           "options": [
-            "They replace the need for doctors",
+            "They take the place of doctors in small towns and villages",
             "They let doctors see bones without cutting the skin",
             "They make patients feel sleepy",
             "They only work on farm animals"
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of this article?",
           "options": [
-            "Doctors always knew how to see inside a body",
+            "Doctors knew how to see inside a body",
             "Germany simply had many famous scientists",
             "Röntgen's tube work led to an accidental x-ray discovery",
-            "Anna Bertha Röntgen became a scientist too"
+            "Anna Bertha Röntgen became a famous scientist too in Germany"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -312,7 +312,7 @@
           "options": [
             "They had far too many patients to treat",
             "They could not travel to visit patients",
-            "They had no medicine of any kind",
+            "They had no medicine",
             "They could not see inside a living body"
           ],
           "answer": "D",
@@ -344,7 +344,7 @@
         {
           "stem": "Why did Röntgen's discovery reduce the need for certain surgeries?",
           "options": [
-            "It made patients less likely to get sick",
+            "It made patients less likely to get sick after an operation",
             "It somehow made human bones stronger",
             "It replaced the need for all medicine",
             "It let doctors see broken bones without opening the body"
@@ -379,7 +379,7 @@
           "stem": "In this article, what does the word invisible describe?",
           "options": [
             "Something that cannot be seen by the eye",
-            "Something that is very loud indeed",
+            "Something that is very loud",
             "Something that is extremely heavy",
             "Something that moves extremely slowly"
           ],
@@ -412,8 +412,8 @@
         {
           "stem": "What happened to Röntgen in 1901?",
           "options": [
-            "He moved permanently out of Germany",
-            "He fully patented the x-ray machine",
+            "He moved out of Germany for good",
+            "He fully patented the x-ray machine to doctors",
             "He received the first Nobel Prize in Physics",
             "He stopped working in science"
           ],
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Patents are always necessary for scientific progress",
+            "Patents are necessary for scientific progress",
             "An accidental lab observation led Röntgen to a discovery that transformed medical diagnosis",
             "Germany lacked skilled scientists before the 1900s",
-            "Anna Bertha Röntgen was the true discoverer of the x-ray"
+            "Anna Bertha Röntgen was the true discoverer of the x-ray, but her husband took the credit for it"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -490,9 +490,9 @@
           "stem": "According to the article, what limitation did physicians face before x-rays existed?",
           "options": [
             "They had no reliable way to diagnose a fracture without surgery",
-            "They were forbidden by law from treating broken bones",
+            "They were forbidden by law from treating broken bones in that country",
             "They lacked any real knowledge of human bones",
-            "They could only ever treat patients inside hospitals"
+            "They could treat patients inside hospitals alone"
           ],
           "answer": "A",
           "skill": "detail",
@@ -524,7 +524,7 @@
           "stem": "Why does the article mention that Röntgen declined to patent the x-ray?",
           "options": [
             "To explain why other scientists distrusted him",
-            "To suggest that his discovery had little real value",
+            "To suggest that his discovery had little real value for doctors",
             "To show that patents were illegal in Germany then",
             "To highlight his choice to favor medical benefit over profit"
           ],
@@ -593,7 +593,7 @@
           "options": [
             "Physics stopped being studied as a serious science",
             "Cathode ray tubes were banned from laboratories",
-            "Surgery became completely unnecessary in all cases",
+            "Surgery became unnecessary in all cases",
             "Doctors gained a reliable way to diagnose fractures"
           ],
           "answer": "D",

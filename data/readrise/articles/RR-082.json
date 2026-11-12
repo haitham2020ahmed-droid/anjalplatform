@@ -296,7 +296,7 @@
             "The Great Wall is a set of walls built over centuries to protect China.",
             "The Great Wall was built in one year by one emperor, who ordered every worker to finish it fast.",
             "Nomadic groups built the Great Wall to keep China out of the northern lands for many years.",
-            "The Great Wall is the only thing visible from the Moon, and nothing else on Earth can be seen."
+            "The Great Wall can be seen from the Moon, which is why it was built so long."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "The Ming dynasty was the only dynasty that cared about defense, and it built every wall.",
-            "The Great Wall failed, so it should never have been built in the first place.",
+            "The Great Wall failed, so later rulers stopped building it in stone.",
             "Built over two thousand years, the wall was a vast defense system and is now a world treasure.",
             "Nomadic peoples designed and built the Great Wall to keep out other tribes."
           ],
@@ -559,7 +559,7 @@
           "options": [
             "Defending the northern border stayed important for centuries",
             "Every ruler disliked the earlier walls and wanted to knock them down",
-            "The wall was finished in one generation, so no one needed to add more",
+            "The wall was finished in one generation, so later rulers just repaired it",
             "The raids ended after Qin Shi Huang, so the wall was no longer needed"
           ],
           "answer": "A",

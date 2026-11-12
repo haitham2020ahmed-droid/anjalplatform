@@ -185,7 +185,7 @@
       "Try to score a goal herself instead",
       "Take a short rest near the sideline",
       "Block the ball before it reaches the goal",
-      "Switch places with her own goalkeeper"
+      "Switch places with her own goalkeeper in the game"
      ],
      "answer": "C",
      "skill": "inference",
@@ -294,7 +294,7 @@
      "stem": "Which sentence best states the central idea of the article?",
      "options": [
       "Success in handball depends only on a player's height",
-      "Handball is really just a slow, calm version of basketball",
+      "Handball is really just a slow, calm version of basketball for most players",
       "Handball mixes fast running, jumping, throwing, rules, and defense",
       "Teams in handball try to score fewer points than rivals"
      ],
@@ -330,7 +330,7 @@
       "Blocks throws from far outside the court area",
       "Stands near the goal and opens space for a teammate",
       "Takes over as goalkeeper in the second half",
-      "Decides on their own which team wins the match"
+      "Decides on their own which team wins the match of the game"
      ],
      "answer": "B",
      "skill": "detail",
@@ -379,9 +379,9 @@
      "stem": "Why might back players often shoot from farther away than wing players do?",
      "options": [
       "Defenders usually have more room and time to react near the goal",
-      "Back players are never allowed anywhere near the goal area",
-      "Shots from farther away are always easier for every player",
-      "The goalkeeper cannot see shots taken from far away"
+      "Back players are never allowed anywhere near the goal area during the match",
+      "Shots from farther away are easier for most players",
+      "The goalkeeper sees shots taken from far away less clearly"
      ],
      "answer": "A",
      "skill": "inference",
@@ -414,8 +414,8 @@
      "options": [
       "A wing player stays still near the goal while the pivot runs along the sides",
       "A wing player runs along the sides, while the pivot stands near the goal",
-      "A wing player never touches the ball, while the pivot always holds it",
-      "There is really no difference at all between these two roles"
+      "A wing player never touches the ball, while the pivot holds it",
+      "There is really no difference between these two roles"
      ],
      "answer": "B",
      "skill": "compare",
@@ -489,10 +489,10 @@
     {
      "stem": "According to the article, what happens to momentum as a player leaps, rotates the trunk, and snaps the wrist during a jump shot?",
      "options": [
-      "It disappears completely the instant the player leaves the ground",
-      "It only affects how the player lands, not the ball at all",
+      "It disappears the instant the player leaves the ground",
+      "It only affects how the player lands, not the ball",
       "It passes through the arm and gives the ball velocity and trajectory",
-      "It is cancelled out entirely by the defender's block before release"
+      "It is cancelled out by the defender's block before release and stops the throw"
      ],
      "answer": "C",
      "skill": "detail",
@@ -523,9 +523,9 @@
     {
      "stem": "Why does jumping before releasing a shot, instead of shooting from the ground, help an attacker create a steeper downward trajectory?",
      "options": [
-      "Jumping has no real effect on the ball's path at all",
-      "Jumping only helps a player avoid the goal area",
-      "Jumping always slows down the throw's speed",
+      "Jumping has no real effect on the ball's path",
+      "Jumping mostly helps a player avoid the goal area and its players",
+      "Jumping slows down the throw's speed",
       "Releasing the ball higher lets momentum angle it downward"
      ],
      "answer": "D",

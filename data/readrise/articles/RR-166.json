@@ -184,7 +184,7 @@
           "options": [
             "Things fall faster on the Moon",
             "You could jump much higher on the Moon",
-            "You could not stand on the Moon at all",
+            "You could not stand on the Moon",
             "The Moon pulls things toward the Sun"
           ],
           "answer": "B",
@@ -475,7 +475,7 @@
             "Living on the Moon is a huge challenge, but its own resources could help make a base possible",
             "The Apollo missions ended because the Moon has no gravity, so astronauts floated away",
             "Regolith is the most valuable resource on the Moon, and nothing else can be used there",
-            "Only Saudi astronauts plan to live on the Moon, and no other country has such a plan"
+            "Saudi astronauts plan to live on the Moon first, before other countries try"
           ],
           "answer": "A",
           "skill": "central-idea",

@@ -380,7 +380,7 @@
           "options": [
             "They need people to feed them every day or they go hungry.",
             "They like the taste of glass.",
-            "They cannot find food in the sea.",
+            "They like the taste of glass and metal.",
             "They can figure out how to solve new problems."
           ],
           "answer": "D",
@@ -414,7 +414,7 @@
           "options": [
             "Each paragraph describes a different feature of the octopus.",
             "Events are told in the order they happened.",
-            "Octopuses are compared with sharks in every paragraph.",
+            "Octopuses are compared with sharks in every paragraph and whales.",
             "A problem is described and then solved."
           ],
           "answer": "A",
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Octopuses are the only animals in the sea that have no bones.",
-            "Scientists have proved that octopuses are smarter than every other animal.",
+            "Scientists have shown that octopuses learn faster than dolphins and apes.",
             "The octopus's flexible body, skin and unusual nervous system make it a remarkable invertebrate.",
             "Octopuses live short lives because changing color so often uses up too much of their energy."
           ],
@@ -540,7 +540,7 @@
         {
           "stem": "About two-thirds of an octopus's neurons are in its arms. What can a reader infer from this?",
           "options": [
-            "The octopus's brain does no real work at all in its body.",
+            "The octopus's brain does no real work in its body.",
             "Each arm can sense and react partly on its own.",
             "Its arms grow back very quickly.",
             "Octopuses cannot learn new things."

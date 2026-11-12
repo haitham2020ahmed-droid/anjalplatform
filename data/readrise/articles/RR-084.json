@@ -167,8 +167,8 @@
           "options": [
             "He kept only the facts that the king liked the best.",
             "He kept facts that lots of people said.",
-            "He kept every story he heard.",
-            "He kept only the facts from old maps."
+            "He kept the stories he liked best.",
+            "He kept the facts from old maps."
           ],
           "answer": "B",
           "skill": "detail",
@@ -560,7 +560,7 @@
             "It places east at the top of the page.",
             "It shows only the countries of Europe and nothing else.",
             "It places south at the top instead of north.",
-            "It has no directions at all, only pictures."
+            "It places east at the top instead of north."
           ],
           "answer": "C",
           "skill": "compare",
@@ -591,10 +591,10 @@
         {
           "stem": "What can you infer about al-Idrisi's view of a single traveler's story?",
           "options": [
-            "He thought it was always correct.",
+            "He thought it was correct.",
             "It might be wrong unless others agreed.",
             "He thought sailors never told the truth.",
-            "He thought only the king's opinion about places mattered."
+            "He thought the king's opinion about places mattered most."
           ],
           "answer": "B",
           "skill": "inference",

@@ -395,9 +395,9 @@
         {
           "stem": "Why would an electromagnet be more useful than lodestone in a scrapyard?",
           "options": [
-            "Lodestone cannot pull iron or steel at all.",
+            "Lodestone cannot pull iron or steel.",
             "An electromagnet pulls wood and glass, too.",
-            "Lodestone only works on ships at sea.",
+            "Lodestone is too heavy to lift with a crane.",
             "It can be switched off to drop the metal."
           ],
           "answer": "D",
@@ -474,8 +474,8 @@
           "options": [
             "Magnetism follows clear rules, and people use it to navigate and to lift heavy metal.",
             "Lodestone is the only true magnet, and every other magnet is simply a copy of it.",
-            "Compasses are no longer useful because modern technology has completely replaced them.",
-            "Magnets attract every material, including wood and glass, if they are powerful enough."
+            "Compasses are no longer useful because modern technology has replaced them.",
+            "Magnets work best on wood and glass, so people use them to build ships and houses."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -575,7 +575,7 @@
           "stem": "How is lodestone different from an industrial electromagnet?",
           "options": [
             "Lodestone needs an electric current, but an electromagnet works without one.",
-            "Lodestone repels iron, while an electromagnet always attracts iron instead.",
+            "Lodestone repels iron, while an electromagnet attracts iron instead.",
             "Lodestone is a natural magnet; an electromagnet can be switched on and off.",
             "Lodestone was invented recently, while electromagnets are thousands of years old."
           ],

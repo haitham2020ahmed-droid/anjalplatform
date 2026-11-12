@@ -233,10 +233,10 @@
         {
           "stem": "How is a geyser different from other hot springs?",
           "options": [
-            "It is always cold and never makes steam",
-            "It has no minerals in the water at all",
+            "It is cold and never makes steam",
+            "It has no minerals in the water",
             "It shoots water and steam into the air",
-            "It is only found in Saudi Arabia, in the north"
+            "It is found in Saudi Arabia, in the north"
           ],
           "answer": "C",
           "skill": "compare",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Hot springs are dangerous places, so people should close them and stay away.",
+            "Hot springs are dangerous places, so people should close them and stay away from the hot water.",
             "Rainwater sinks underground, gets heated by hot rocks, and rises to form hot springs.",
-            "Geysers are the only kind of hot spring that can be found anywhere in the world.",
-            "Hot springs are found only near the sea."
+            "Geysers are the only kind of hot spring that can be found.",
+            "Hot springs are found mostly near the sea."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Iceland has more hot springs and geysers than any other country in the whole world.",
+            "Iceland has more hot springs and geysers than any other country in the whole world and Asia.",
             "Hot springs form when geothermal heat warms groundwater that then rises back to the surface.",
-            "Magma is found close to the surface under every city and town on Earth.",
-            "Microbes are the only cause of hot spring smells."
+            "Magma is found close to the surface under most cities and towns on Earth.",
+            "Microbes are the main cause of hot spring smells."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -540,8 +540,8 @@
         {
           "stem": "How does a geyser differ from an ordinary hot spring?",
           "options": [
-            "A geyser contains no minerals at all in its water",
-            "A geyser is always colder than a spring in the ground",
+            "A geyser contains no minerals in its water",
+            "A geyser is colder than a spring in the ground",
             "A geyser is found only in Saudi Arabia, in the desert",
             "Pressure builds inside it until water and steam erupt"
           ],
@@ -574,7 +574,7 @@
         {
           "stem": "What does the example of Iceland mainly show?",
           "options": [
-            "That hot springs are dangerous for homes",
+            "That hot springs are dangerous for homes and farms",
             "That geothermal energy can be useful to people",
             "That Iceland has no cold weather",
             "That geysers only exist in Europe"

@@ -295,7 +295,7 @@
           "options": [
             "Steppe eagles are the only birds that ever visit Saudi Arabia.",
             "Scientists catch wild birds so that they can keep them as pets.",
-            "Birds would be much safer if they stayed in the north all winter.",
+            "Birds would be much safer if they stayed in the north in winter with their young.",
             "Millions of birds migrate over Arabia and use special skills to survive."
           ],
           "answer": "D",
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Saudi Arabia is the final destination for most of the birds that migrate.",
-            "Bird migration is caused mainly by sandstorms that sweep across the desert.",
+            "Bird migration is caused mainly by sandstorms that sweep across the desert each spring and fall.",
             "Small birds are much stronger fliers than large storks and eagles are.",
             "Arabia lies on a major flyway, and migrating birds use clever strategies to survive."
           ],
@@ -559,8 +559,8 @@
           "options": [
             "Small birds cannot see well enough to fly during the day.",
             "Small birds may avoid some daytime heat by flying in cooler air.",
-            "Small birds rely only on thermals to carry them across Arabia.",
-            "Small birds never need to stop and rest during the journey."
+            "Small birds rely on thermals to carry them across Arabia.",
+            "Small birds need fewer stops than large birds on the trip across the desert."
           ],
           "answer": "B",
           "skill": "inference",

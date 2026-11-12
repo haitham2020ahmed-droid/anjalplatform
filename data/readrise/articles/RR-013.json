@@ -199,7 +199,7 @@
         {
           "stem": "What can you tell about building roads and towns in the mountains?",
           "options": [
-            "It gives leopards more places to hide",
+            "It gives leopards more places to hide in the trees",
             "It has no effect on wild animals",
             "It can make wild animals lose their homes",
             "It brings more ibex to the mountains"
@@ -296,7 +296,7 @@
             "Arabian leopards hunt ibex, gazelles, and hares in the dark.",
             "The Arabian leopard is a small but skilled cat with a golden coat.",
             "The rare Arabian leopard is at risk, and people are working to save it.",
-            "Herders in Arabia have always had trouble with wild animals."
+            "Herders in Arabia have had trouble with wild animals."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -395,7 +395,7 @@
         {
           "stem": "Why do scientists plan to release leopards into protected areas rather than anywhere in the mountains?",
           "options": [
-            "Protected areas are much closer to the towns and cities",
+            "Protected areas are much closer to the towns and cities in the region",
             "Leopards in protected areas will be easier to sell",
             "Protected areas have no other animals",
             "The leopards will be safer from hunting and habitat loss there"
@@ -412,7 +412,7 @@
         {
           "stem": "How does the author organize the paragraph about why the leopard is endangered?",
           "options": [
-            "By describing the leopard's day from morning to night",
+            "By describing the leopard's day from morning to night in the mountains",
             "By comparing the leopard with other big cats",
             "By giving the problem and then explaining the reasons for it",
             "By telling a story about one leopard"
@@ -492,7 +492,7 @@
             "It is in danger only in certain seasons of the year, not always",
             "It faces an extremely high risk of extinction in the wild",
             "It is dangerous to people who live nearby in the villages",
-            "It can survive only in breeding centers and not in the wild"
+            "It has been moved to breeding centers outside Arabia"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -577,7 +577,7 @@
             "Released leopards need wild food so they won't hunt livestock",
             "Ibex would protect the leopards from herders",
             "Prey animals make the mountains cooler",
-            "Leopards can only be released in places where no people live at all"
+            "Leopards can only be released in places where no people live"
           ],
           "answer": "A",
           "skill": "inference",

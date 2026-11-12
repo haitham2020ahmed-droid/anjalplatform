@@ -183,9 +183,9 @@
           "stem": "What happened because the dhow's sail could catch wind well?",
           "options": [
             "The ship could move and turn more easily.",
-            "The ship had to stay close to shore at all times.",
+            "The ship had to stay close to shore in bad weather.",
             "The wooden boards came apart.",
-            "Sailors no longer needed any wind at all."
+            "Sailors no longer needed any wind."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -201,8 +201,8 @@
           "options": [
             "So the ship could handle the sea without falling apart.",
             "So the ship would be lighter than a paper boat on the water.",
-            "So sailors would not need any rope at all on the ship.",
-            "So the ship could float without any wind in the sea."
+            "So sailors would not need any rope on the ship.",
+            "So the ship could float without wind in the sea."
           ],
           "answer": "A",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Builders made strong wooden ships, like the dhow, and sailors used the wind to carry goods far across the sea.",
             "Only Arab sailors living near the Arabian Gulf ever used triangular sails on their ships, the article says.",
             "Modern engines work better than wind ever did, so sailors no longer use sails and the dhow.",
-            "Coconut trees happened to only grow near the southern coast of Arabia, and the boats were built from them."
+            "Coconut trees grew near the southern coast of Arabia, so the boats were built from them."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -362,9 +362,9 @@
           "stem": "Why could sailors on a dhow steer and turn more easily than sailors using older square sails?",
           "options": [
             "The lateen sail could catch wind from a wider range of directions.",
-            "The dhow had no sail at all.",
+            "The dhow had no sail.",
             "Square sails were actually much larger than lateen sails.",
-            "The keel was always taken out and left behind on shore before the ship turned."
+            "The keel was taken out and left behind on shore before the ship turned."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -396,9 +396,9 @@
           "stem": "What can you infer about why sailors timed their voyages around the monsoons?",
           "options": [
             "Predictable winds made it easier to sail out and later sail back home.",
-            "The monsoons made the sea completely calm all year, so ships could go anywhere.",
-            "Monsoons only blew near the coast of Arabia, so ships stayed close to the shore.",
-            "Sailors wanted to avoid carrying any cargo at all, so they sailed with empty ships."
+            "The monsoons made the sea calm all year, so ships could go.",
+            "Monsoons blew near the coast of Arabia, so ships stayed close to the shore.",
+            "Sailors wanted to avoid carrying cargo, so they sailed with empty ships."
           ],
           "answer": "A",
           "skill": "inference",
@@ -414,7 +414,7 @@
           "options": [
             "By describing how the ship was built, then how it sailed and traded",
             "By ranking the fastest ships in history",
-            "By comparing the price of spices across different centuries",
+            "By comparing the price of spices across different centuries and silk",
             "By listing famous sailors in alphabetical order"
           ],
           "answer": "A",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Skilled shipwrights constructed sturdy wooden vessels, like the dhow, that used sails and seasonal winds to carry merchants and their cargo across long distances.",
-            "The dhow was invented after the first engine was built, and it replaced older boats that used only oars and no wind at all.",
+            "The dhow was invented after the first engine was built, and it replaced older boats that used only oars and no wind.",
             "Monsoon winds made ocean travel impossible before engines existed, so merchants stayed near the shore until steam ships were made.",
-            "Square sails always worked better than triangular lateen sails, which is why every sailor in the region chose them for long trips across the open sea and the ocean."
+            "Square sails worked better than triangular lateen sails, which is why sailors in the region chose them for long trips across the open sea to India and back."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,9 +540,9 @@
         {
           "stem": "How did the lateen sail's wide range of wind angles affect a dhow's sailing ability?",
           "options": [
-            "It made the ship completely unable to turn.",
+            "It made the ship unable to turn.",
             "It let crews maneuver the ship and even sail somewhat against the wind.",
-            "It forced sailors to wait for monsoons before leaving port at all.",
+            "It forced sailors to wait for the monsoons before leaving port in the spring.",
             "It made the hull leak far more than before."
           ],
           "answer": "B",
@@ -558,9 +558,9 @@
           "stem": "What can you infer about square-rigged ships compared with dhows, based on the article?",
           "options": [
             "Square-rigged ships generally had less control when sailing against the wind.",
-            "Square-rigged ships never carried any cargo at all.",
-            "Square-rigged ships were built entirely without using any wood at all.",
-            "Square-rigged ships always traveled much faster than every dhow in every single situation."
+            "Square-rigged ships never carried any cargo.",
+            "Square-rigged ships were built without using wood.",
+            "Square-rigged ships traveled much faster than dhows in most situations."
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,9 +574,9 @@
         {
           "stem": "Why might shipwrights have passed their building knowledge down across many generations, rather than writing detailed plans?",
           "options": [
-            "Because dhows were always rebuilt completely new from scratch before every single voyage.",
-            "Because monsoon winds changed the overall shape of the hull automatically every year.",
-            "Because merchants, rather than shipwrights, were the ones who controlled how every ship was built.",
+            "Because dhows were rebuilt new from scratch before every single voyage.",
+            "Because monsoon winds changed the shape of the hull each year.",
+            "Because merchants, rather than shipwrights, were the ones who controlled how ships were built in each port town.",
             "Because the specialized skills were learned hands-on and closely guarded within communities of craftsmen."
           ],
           "answer": "D",

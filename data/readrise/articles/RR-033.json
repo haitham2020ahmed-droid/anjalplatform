@@ -185,7 +185,7 @@
             "The desert got too cold at night.",
             "Hunters shot too many of them.",
             "All the grass dried up in the hills.",
-            "They all moved into zoos far away."
+            "The desert became too hot for them."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -233,7 +233,7 @@
         {
           "stem": "Why does the author tell about the oryx that lived in zoos?",
           "options": [
-            "To show that zoos are better than the desert",
+            "To show that zoos are better than the desert for the oryx",
             "To tell how oryx get water",
             "To explain why hunters shot oryx",
             "To show how the oryx was saved and grew in number"
@@ -313,7 +313,7 @@
             "It hides the oryx from hunters at night.",
             "It reflects sunlight, which keeps the animal cooler.",
             "It soaks up dew so the oryx can drink.",
-            "It makes the oryx look bigger to other animals."
+            "It makes the oryx look bigger to other animals and stronger."
           ],
           "answer": "B",
           "skill": "detail",
@@ -344,7 +344,7 @@
         {
           "stem": "The article says that in captivity, people protected the oryx and helped them breed. What does captivity mean?",
           "options": [
-            "Living free in the open desert",
+            "Living free in the open desert with its herd",
             "Running away from hunters",
             "Being kept and cared for by people",
             "Searching for rain and grass"
@@ -363,7 +363,7 @@
           "options": [
             "The cars made the grass stop growing, so the oryx had nothing left to eat.",
             "The noise of the cars made the oryx sick, and many of them died of fright.",
-            "The cars brought water that the oryx could not drink, so they all went thirsty.",
+            "The cars made so much noise that the oryx left the desert for the mountains near the coast.",
             "They could chase oryx across the open desert, where the animals had nowhere to hide."
           ],
           "answer": "D",
@@ -381,7 +381,7 @@
             "Oryx are now kept only in zoos, where they are safe.",
             "Its wild numbers rose from zero to over a thousand.",
             "Hunters now drive slower cars in the desert.",
-            "The oryx no longer needs to drink any water at all."
+            "The oryx learned to drink from desert wells."
           ],
           "answer": "B",
           "skill": "inference",
@@ -474,8 +474,8 @@
           "options": [
             "The Arabian oryx, well suited to the desert, was hunted out of the wild but returned through captive breeding and protected reserves.",
             "The Arabian oryx is the only animal that lives in the Empty Quarter, and so it needs protection, and the reserves are for it alone, say the guides in the park.",
-            "Radio collars are the most important tool for studying desert animals, say the people who work in the park, and they are used on every animal in the desert.",
-            "Oman and Saudi Arabia have the largest zoos in the world, and the oryx lives in these zoos only, as it was hunted out of the wild and is not found in any reserve."
+            "Radio collars are the most important tool for studying desert animals, say the people who work in the park.",
+            "Oman and Saudi Arabia built large zoos for the oryx, where it now lives because the open desert is too dangerous."
           ],
           "answer": "A",
           "skill": "central-idea",

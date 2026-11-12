@@ -311,7 +311,7 @@
           "stem": "What gas does yeast give off in bread dough?",
           "options": [
             "Oxygen",
-            "Nitrogen",
+            "Nitrogen gas",
             "Carbon dioxide",
             "Steam"
           ],
@@ -475,7 +475,7 @@
             "Microorganisms are mainly dangerous, so people should avoid them.",
             "Although some microbes cause disease, most are harmless and many are essential.",
             "Fermentation is the most important food invention in history, more than farming.",
-            "Antibiotics have solved the problem of harmful bacteria forever."
+            "Antibiotics have solved the problem of harmful bacteria."
           ],
           "answer": "B",
           "skill": "central-idea",

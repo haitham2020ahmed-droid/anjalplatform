@@ -184,7 +184,7 @@
           "options": [
             "The sun turns a different color in the evening, as it gets tired.",
             "The light passes through more air, so most blue is lost.",
-            "Dust always fills the sky in the evening, and it paints the clouds red.",
+            "Dust fills the sky in the evening, and it paints the clouds red.",
             "There is no air near the ground at night, so the sky shows its fire."
           ],
           "answer": "B",
@@ -218,7 +218,7 @@
           "options": [
             "It would not look blue.",
             "It would look bluer than now.",
-            "It would always be red.",
+            "It would be red.",
             "It would look like a rainbow."
           ],
           "answer": "A",
@@ -236,7 +236,7 @@
             "To teach how to fly a rocket",
             "To warn readers to stay inside on dusty and windy days",
             "To show the sky's color changes when the air changes",
-            "To prove that the sky is always blue"
+            "To prove that the sky is blue"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -345,7 +345,7 @@
           "stem": "The article says human eyes are \"more sensitive to blue.\" What does this mean?",
           "options": [
             "Blue light hurts our eyes.",
-            "Our eyes cannot see violet at all.",
+            "Our eyes cannot see violet.",
             "Our eyes notice blue more easily.",
             "Blue light makes our eyes tired."
           ],
@@ -363,7 +363,7 @@
           "options": [
             "Violet light cannot pass through a glass prism like the other colors.",
             "Violet light has the longest wavelength.",
-            "Violet light is only made at sunset.",
+            "Violet light is made at sunset.",
             "Sunlight has less violet, and our eyes notice blue more."
           ],
           "answer": "D",
@@ -381,7 +381,7 @@
             "The sun gives off less blue light in the evening.",
             "Its path through the atmosphere is much longer.",
             "The molecules in the air change at night.",
-            "Clouds always cover the sun at sunset."
+            "Clouds cover the sun at sunset."
           ],
           "answer": "B",
           "skill": "inference",
@@ -526,7 +526,7 @@
             "Dull and faded like old cloth",
             "Clearly separate from one another",
             "Mixed together into white light",
-            "Too faint to see well at all"
+            "Too faint to see well"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -541,7 +541,7 @@
           "stem": "What is the effect of sunlight traveling through a thicker section of the atmosphere at sunset?",
           "options": [
             "More violet light reaches our eyes.",
-            "The light stops being scattered at all once it gets near the ground.",
+            "The light stops being scattered once it gets near the ground.",
             "Clouds turn black.",
             "Most blue light is scattered away, leaving mainly red and orange."
           ],

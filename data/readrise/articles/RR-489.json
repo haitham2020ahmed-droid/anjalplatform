@@ -117,7 +117,7 @@
             "How to build a magnet",
             "How Faraday made the first motor using a wire and a magnet",
             "Why wires are dangerous to touch",
-            "How people moved heavy things long ago"
+            "How people moved heavy things long ago with ropes and wheels"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -150,7 +150,7 @@
           "options": [
             "It broke apart",
             "It began to move and spin around the magnet",
-            "It turned a bright color",
+            "It turned a bright color and got very hot",
             "It became very cold"
           ],
           "answer": "B",
@@ -168,7 +168,7 @@
             "Because nothing had ever moved on its own using power before",
             "Because wires are usually very heavy",
             "Because magnets usually glow brightly",
-            "Because spinning things were against the law"
+            "Because spinning things were against the law in England"
           ],
           "answer": "A",
           "skill": "inference",
@@ -183,7 +183,7 @@
           "stem": "Why was Faraday's spinning wire important for people's work?",
           "options": [
             "It made wires cheaper to buy",
-            "It made magnets stronger overall",
+            "It made magnets much stronger, so they could lift heavy things like iron and steel",
             "It was faster than walking",
             "It showed that power could make things move without anyone touching them"
           ],
@@ -200,9 +200,9 @@
           "stem": "In the article, what does the word spin mean?",
           "options": [
             "To turn around and around quickly",
-            "To stop moving completely",
+            "To stop moving completely in one place",
             "To break into many pieces",
-            "To change color slowly in this situation"
+            "To change color slowly"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -216,9 +216,9 @@
         {
           "stem": "How is this article mostly organized?",
           "options": [
-            "It compares different kinds of magnets",
+            "It compares different kinds of magnets and what they are used for",
             "It tells the story of the motor's invention in the order it happened",
-            "It explains how to fix a broken wire in this situation in this situation",
+            "It explains how to fix a broken wire",
             "It lists safety rules for electricity"
           ],
           "answer": "B",
@@ -233,10 +233,10 @@
         {
           "stem": "What happened right after Faraday let power flow through the wire?",
           "options": [
-            "He gave up on his idea completely",
-            "The magnet disappeared in this situation in this situation",
+            "He gave up on his idea and wrote a letter to a friend",
+            "The magnet disappeared",
             "The wire began to move and spin around the magnet",
-            "He stopped using wire forever"
+            "He stopped using wire"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -296,7 +296,7 @@
             "Magnets should never be placed near wires",
             "A scientist named Faraday built the first motor by discovering that a wire could spin continuously near a magnet",
             "Wires are more useful than magnets",
-            "Sparks are the best way to make things move"
+            "Sparks are the best way to make things move, so Faraday built a spark machine to power factories, trains, and ships"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "Going on without stopping",
             "Happening only once",
             "Moving very slowly",
-            "Changing shape often"
+            "Changing shape often and color"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -346,7 +346,7 @@
           "options": [
             "So other scientists could learn how his device worked and build their own",
             "To keep his invention a complete secret",
-            "To sell his device directly to every home",
+            "To sell his device directly to homes and factories across England for profit",
             "To explain how newspapers are printed"
           ],
           "answer": "A",
@@ -361,9 +361,9 @@
         {
           "stem": "What can you infer about why Faraday tested his idea with a loop instead of a straight wire?",
           "options": [
-            "A straight wire looked less interesting",
+            "A straight wire looked less interesting to the people watching him",
             "Loops are easier to find in a workshop",
-            "Straight wires cannot carry any power at all",
+            "Straight wires cannot carry any power",
             "A loop shape let the wire spin continuously around the magnet"
           ],
           "answer": "D",
@@ -380,8 +380,8 @@
           "options": [
             "By listing unrelated facts about England with no clear order",
             "By showing, step by step, how a strange observation led to a tested, working device",
-            "By focusing only on the price of motors today in this situation in this situation in this situation",
-            "By comparing motors to candles throughout the article"
+            "By focusing only on the price of motors today",
+            "By comparing motors to candles throughout the article, from start to finish in the lab"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -395,10 +395,10 @@
         {
           "stem": "According to the article, what effect did Faraday's discovery eventually have on machines?",
           "options": [
-            "It completely replaced the need for any machines at all",
+            "It replaced the need for any machines",
             "It gave machines a way to turn power directly into steady, useful motion",
-            "It was limited only to Faraday's own workshop forever",
-            "It made electricity illegal to use in devices in this situation"
+            "It was used mostly in Faraday's own workshop to light his lamps and tools",
+            "It made electricity illegal to use in devices"
           ],
           "answer": "B",
           "skill": "detail",
@@ -414,8 +414,8 @@
           "options": [
             "Earlier machines needed constant pushing, while Faraday's motor spun on its own once power flowed",
             "Earlier machines spun faster than Faraday's motor",
-            "Both worked by exactly the same method in this situation in this situation in this situation in this situation",
-            "Faraday's motor needed no wire at all, unlike earlier machines"
+            "Both worked by exactly the same method",
+            "Faraday's motor needed no wire, unlike earlier machines, which had to be turned by hand by workers"
           ],
           "answer": "A",
           "skill": "compare",
@@ -474,8 +474,8 @@
           "options": [
             "Magnets were invented specifically to spin wires",
             "A scientist's careful experiment with a wire loop and a magnet revealed electromagnetic induction, leading to the first true electric motor",
-            "The electric motor was invented purely by luck with no real testing involved",
-            "Electrons have always spun wires with no cause at all"
+            "The electric motor was invented purely by luck, when Faraday dropped a magnet near a wire and saw it spin by accident while cleaning his lab",
+            "Electrons have spun wires with no cause"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -490,7 +490,7 @@
           "stem": "What does the word induction mean, based on how the article describes Faraday's discovery?",
           "options": [
             "The process of creating an electric current by moving a wire near a magnet",
-            "A type of metal used in motors",
+            "A type of heavy metal used to build the frames of early electric motors",
             "A unit used to measure torque",
             "A kind of loop shape only"
           ],
@@ -507,7 +507,7 @@
           "stem": "According to the article, what did later engineers add to Faraday's basic design to increase torque?",
           "options": [
             "More batteries and less wire",
-            "Smaller magnets and thinner wire",
+            "Smaller magnets and thinner wire in the motor",
             "More loops of wire and stronger magnets",
             "Less current and fewer loops"
           ],
@@ -525,8 +525,8 @@
           "options": [
             "It let other scientists understand and build on his discovery of electromagnetic induction",
             "It made the magnet stop working entirely",
-            "It eliminated the need for any current at all",
-            "It made the motor illegal to build elsewhere"
+            "It removed the need for current",
+            "It made the motor illegal to build in other countries, so Faraday could sell it alone"
           ],
           "answer": "A",
           "skill": "inference",
@@ -540,10 +540,10 @@
         {
           "stem": "How does the structure of the article support its larger point about how scientific discoveries can happen?",
           "options": [
-            "By listing unrelated facts about England with no clear order",
+            "By listing facts about England with no clear order, so readers can choose the ones they like best to read",
             "By showing a clear sequence in which a curious observation led step by step to a tested, reliable invention",
             "By focusing only on the biography of magnet mining",
-            "By comparing motors only to ancient tools"
+            "By comparing motors to ancient tools"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -557,9 +557,9 @@
         {
           "stem": "What was most likely the author's purpose in explaining exactly how the electromagnetic force caused the wire to rotate?",
           "options": [
-            "To entertain readers with unrelated trivia about physics",
+            "To entertain readers with unrelated trivia about physics, such as how magnets are found in nature or in rocks",
             "To suggest that only scientists can ever discover anything useful",
-            "To prove that electric motors are dangerous to use in this situation in this situation in this situation in this situation",
+            "To prove that electric motors are dangerous to use",
             "To help readers understand the real scientific cause behind the invention, not just the idea that inspired it"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Which comparison between Faraday's first device and later motors is best supported by the article?",
           "options": [
             "Faraday's first device proved the basic idea, while later motors with more loops and stronger magnets could produce far more torque",
-            "Faraday's first device and later motors worked by completely different, unrelated processes",
-            "Later motors used no electricity at all, unlike Faraday's device in this situation in this situation in this situation in this situation",
-            "Faraday's device could already lift the heaviest loads, just like later motors"
+            "Faraday's first device and later motors worked by different, unrelated processes",
+            "Later motors used no electricity, unlike Faraday's device",
+            "Faraday's device could already lift the heaviest loads, just like later motors, so engineers made few changes to it over the years"
           ],
           "answer": "A",
           "skill": "compare",
@@ -591,9 +591,9 @@
         {
           "stem": "What long-term effect did Faraday's invention have on machines in daily life, according to the article?",
           "options": [
-            "Machines returned entirely to hand power after a brief trial of motors",
+            "Machines returned to hand power after a brief trial of motors, because motors were too noisy",
             "Electric motors became common, quietly running fans, pumps, and clocks in homes and factories",
-            "Factories stopped using any machines entirely in this situation in this situation in this situation",
+            "Factories stopped using any machines",
             "Magnets were banned from use in devices afterward"
           ],
           "answer": "B",

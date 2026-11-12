@@ -165,7 +165,7 @@
     {
      "stem": "In the story, an excuse is —",
      "options": [
-      "a true reason for being late to school",
+      "a true reason for being late to school on a busy day",
       "a written plan for the next day",
       "a reason given to avoid blame, true or not",
       "another name for a homework notebook"
@@ -185,7 +185,7 @@
       "He is out of breath from running",
       "He wants to stay calm instead of panicking",
       "He is about to fall asleep on the bus",
-      "He is cold because it is early morning"
+      "He is cold because it is early morning and windy"
      ],
      "answer": "B",
      "skill": "inference",
@@ -381,7 +381,7 @@
       "He feels proud at first, then embarrassed afterward",
       "He feels angry at first, then quite bored afterward about it",
       "He feels worried at first, then calm after making a plan",
-      "He feels calm the whole time and never worries at all"
+      "He feels calm the whole time and never worries"
      ],
      "answer": "C",
      "skill": "compare",
@@ -560,7 +560,7 @@
       "Because excuses are against the school's official rules",
       "Because an honest, deliberate plan shows real accountability",
       "Because Yusuf is the only student who ever forgets homework",
-      "Because Miss Nadia almost always dislikes hearing any such explanations"
+      "Because Miss Nadia dislikes hearing such explanations"
      ],
      "answer": "B",
      "skill": "cause-effect",
@@ -592,8 +592,8 @@
      "stem": "Why does the author most likely include Miss Nadia's question about accountability?",
      "options": [
       "To show that Miss Nadia is only ever interested in punishing mistakes",
-      "To suggest that homework assignments do not really matter very much at all",
-      "To explain in detail how school rules about late work are formally written",
+      "To suggest that homework assignments do not really matter very much",
+      "To explain in detail how school rules about late work are formally written in the student handbook",
       "To highlight that real responsibility includes a concrete plan, not just an apology"
      ],
      "answer": "D",

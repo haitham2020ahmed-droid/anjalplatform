@@ -115,7 +115,7 @@
           "stem": "What is this article mostly about?",
           "options": [
             "Why Venus is the hottest planet because of its thick air and clouds",
-            "How people can see every single planet in the whole night sky without using any telescope at all",
+            "How people can see every single planet in the whole night sky without using any telescope",
             "Why Earth is the best planet to live on",
             "How people built a spaceship to visit Venus"
           ],
@@ -183,7 +183,7 @@
           "stem": "How is Venus different from Earth, even though they are almost the same size?",
           "options": [
             "Venus has thick air and clouds that trap heat, but Earth does not.",
-            "Venus has no air at all.",
+            "Venus has no air.",
             "Venus is much farther from the sun than Earth is, even though that is not actually true based on real distances",
             "Venus is made of ice."
           ],
@@ -201,7 +201,7 @@
           "options": [
             "Mercury has thick clouds that are even thicker than the clouds on every other planet, and they send all the heat away quickly",
             "Mercury spins too fast to get hot.",
-            "Mercury does not get any sunlight at all.",
+            "Mercury gets little sunlight.",
             "Venus has thick air and clouds that trap much more heat."
           ],
           "answer": "D",
@@ -293,7 +293,7 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Venus is almost exactly the same size as Earth in every possible way, so the two planets must be considered completely identical twins",
+            "Venus is almost exactly the same size as Earth in every possible way, so the two planets must be considered identical twins in the solar system",
             "Venus's thick, acidic atmosphere traps heat so well that it becomes the hottest planet, even though it is farther from the sun than Mercury.",
             "Mercury is the most interesting planet to study.",
             "Spacecraft can easily explore the surface of Venus for many years."
@@ -380,7 +380,7 @@
           "options": [
             "Venus is not a real planet, but only a bright star that moves across the sky.",
             "Something about Venus's history or formation may have been unusual.",
-            "Venus does not actually orbit the sun, but circles around Earth every day.",
+            "Venus does not orbit the sun, but circles around Earth each day.",
             "Venus's backward spin makes it colder than other planets, and so it is covered with ice."
           ],
           "answer": "B",
@@ -397,7 +397,7 @@
           "options": [
             "Venus moves around the sun extremely slowly, taking far longer than the other planets to go around.",
             "Venus spins on its own axis extremely slowly, even though it moves around the sun fairly quickly.",
-            "Venus has no axis at all, so it cannot spin and the day is the same as the night.",
+            "Venus has no axis, so it cannot spin and the day is the same as the night.",
             "Venus takes breaks from spinning, so it stops for long periods before it starts again."
           ],
           "answer": "B",
@@ -415,7 +415,7 @@
             "To help readers understand just how extreme Venus's atmosphere is",
             "To explain how astronauts breathe on Venus",
             "To compare Venus's crushing pressure to the pressure inside a kitchen oven set at full heat",
-            "To prove that Venus has no atmosphere at all"
+            "To prove that Venus has no atmosphere"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -474,8 +474,8 @@
           "options": [
             "Venus's size alone makes it impossible for scientists to study.",
             "A runaway greenhouse effect caused by Venus's thick, corrosive atmosphere makes it the solar system's hottest planet, despite being farther from the sun than Mercury.",
-            "Mercury's total lack of clouds, dust, and any atmosphere at all makes it an even more dangerous and risky planet for astronauts to explore than Venus could ever possibly be",
-            "Spacecraft have never successfully landed on Venus."
+            "Mercury's total lack of clouds, dust, and any atmosphere makes it an even more dangerous and risky planet for astronauts to explore than Venus could ever possibly be",
+            "Venus is the closest planet to the sun, so it receives the most heat."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "Why might scientists studying Earth's climate also be interested in Venus's atmosphere?",
           "options": [
-            "Venus clearly proves beyond any doubt that greenhouse gases never affect a planet's temperature in any way at all",
+            "Venus clearly proves beyond any doubt that greenhouse gases never affect a planet's temperature",
             "Venus demonstrates, in an extreme form, how greenhouse gases can transform a planet's climate.",
             "Venus and Earth have identical atmospheres.",
-            "Venus has no connection to climate science at all."
+            "Venus has no connection to climate science."
           ],
           "answer": "B",
           "skill": "inference",

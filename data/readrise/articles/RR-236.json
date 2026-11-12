@@ -150,8 +150,8 @@
           "options": [
             "Kilometers are only used in Saudi Arabia.",
             "The numbers in kilometers would become much too long.",
-            "Stars do not have any real distance from Earth.",
-            "Kilometers can only measure things on the ground."
+            "Stars move too fast to measure.",
+            "Kilometers are used to measure things on the ground."
           ],
           "answer": "B",
           "skill": "detail",
@@ -200,7 +200,7 @@
           "stem": "A star is many light-years away from Earth. What does that tell you about the light you see from it?",
           "options": [
             "The light left the star very recently.",
-            "The light shows what the star looks like today.",
+            "The light shows what the star looks like today in the sky.",
             "The light left the star long ago, so you see the past.",
             "The star's light never actually reaches Earth."
           ],
@@ -347,7 +347,7 @@
             "To show that even nearby light takes some travel time, unlike an instantaneous signal",
             "To prove that the Sun is actually very far from Earth, in space, and that it never moves",
             "To explain why the Sun looks yellow in the sky at noon, and red at the end of day",
-            "To show that the Sun is the brightest object in space, brighter than any star or moon"
+            "To show that the Sun is the brightest object in space, brighter than other stars"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -364,7 +364,7 @@
             "filled with thick clouds of dust",
             "empty, with nothing in it, not even air",
             "covered in water and ice",
-            "packed tightly with countless stars"
+            "packed tightly with countless stars and planets"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -378,7 +378,7 @@
         {
           "stem": "A student says, \"A light-year must be a very long time, since it has the word year in it.\" What is the best response, based on the article?",
           "options": [
-            "The student is right; a light-year always means one thousand years.",
+            "The student is right; a light-year means one thousand years.",
             "The student is mistaken; a light-year measures distance, not time.",
             "The student is right, but only for stars beyond the Sun.",
             "The student is wrong; a light-year actually measures weight."
@@ -474,8 +474,8 @@
           "options": [
             "The light-year lets astronomers measure space, and shows us a star's past.",
             "Kilometers measure every star's distance just as well as light-years.",
-            "Every star in the night sky shines at a completely different speed.",
-            "Only the Sun's light is able to actually reach planet Earth."
+            "Each star in the night sky shines at a different speed.",
+            "The Sun's light reaches Earth faster than starlight does."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -543,7 +543,7 @@
             "Because the number is so huge that it is hard to believe or grasp",
             "Because the number is actually fairly small and simple to picture",
             "Because the number changes to a new value every single year",
-            "Because the number only applies to the small, nearby planet Mars"
+            "Because the number applies to the small, nearby planet Mars"
           ],
           "answer": "A",
           "skill": "inference",
@@ -558,9 +558,9 @@
           "stem": "How is the strangeness of seeing starlight from the past different from everyday experience on Earth?",
           "options": [
             "On Earth, light's travel delay is too brief for anyone to ever notice it.",
-            "On Earth, there is no light delay at all, and every space delay is the same.",
+            "On Earth, there is no light delay, and every space delay is the same.",
             "On Earth, light reaches us almost instantly, while starlight takes years over vast distances.",
-            "On Earth, ordinary things travel faster than light, unlike anything found in space."
+            "On Earth, ordinary things travel faster than light, unlike anything found in space or far away."
           ],
           "answer": "C",
           "skill": "compare",
@@ -575,7 +575,7 @@
           "stem": "Why does the author include the historical detail about parallax measurements in the 1800s?",
           "options": [
             "To criticize early astronomers harshly for being quite inaccurate in their work",
-            "To argue that modern telescopes are now completely unnecessary for measuring stars",
+            "To argue that modern telescopes are now unnecessary for measuring stars",
             "To explain simply why planet Earth orbits around the Sun every year",
             "To show how humans first turned the light-year into real measured distances"
           ],
@@ -594,7 +594,7 @@
             "People on Earth would see the explosion within a few minutes.",
             "People on Earth would not see the explosion for about 1,000 years.",
             "The explosion would be visible instantly everywhere in the universe.",
-            "No one in the universe would ever be able to detect it."
+            "People on Earth would see it the same night it happened."
           ],
           "answer": "B",
           "skill": "inference",

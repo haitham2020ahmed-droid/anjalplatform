@@ -115,7 +115,7 @@
           "stem": "What is this article mainly about?",
           "options": [
             "Why clouds high in the sky make rain fall down",
-            "How to carefully pack a big suitcase for a long trip",
+            "How to carefully pack a big suitcase for a long trip for a family",
             "How a plane's wings, engine, and pilot work together to fly",
             "How small birds build their cozy little nests"
           ],
@@ -167,7 +167,7 @@
           "options": [
             "A certain kind of airplane engine part",
             "A force that pushes something up into the air",
-            "A careful way to safely land a big plane",
+            "A careful way to safely land a big plane at the airport",
             "A certain type of airplane wing shape"
           ],
           "answer": "B",
@@ -218,7 +218,7 @@
           "options": [
             "Flat wooden boards simply look much nicer to most people",
             "Curved wings are usually much cheaper to build",
-            "Flat boards are far too heavy to lift at all",
+            "Flat boards are far too heavy to lift",
             "The curved shape helps create the lift that is needed to fly"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Gravity does not affect airplanes at all once they are flying high up in the sky.",
+            "Gravity does not affect airplanes once they are flying high up in the sky.",
             "Airplanes fly because four forces, especially lift, work together with the pilot's help.",
             "Only the Wright brothers' very first plane ever needed an engine to fly in the air.",
-            "Modern jets flying today never, ever cross any big oceans at all, only small seas."
+            "Modern jets rarely cross big oceans, so they fly over small seas."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -379,7 +379,7 @@
           "stem": "Why must the engines' thrust be strong enough to work against drag?",
           "options": [
             "So the plane's shiny wings can slowly change color",
-            "So the small, quiet cockpit stays completely silent",
+            "So the small, quiet cockpit stays silent",
             "So the plane can keep moving forward through the air",
             "So the force of gravity simply disappears completely"
           ],
@@ -395,7 +395,7 @@
         {
           "stem": "How are lift and gravity different, based on the article?",
           "options": [
-            "Lift and gravity always point in the same direction",
+            "Lift and gravity point in the same direction",
             "Lift only works on the ground, while gravity only works in the sky",
             "Lift and gravity are both created by the cockpit",
             "Lift pushes the plane up, while gravity pulls the plane down"
@@ -473,8 +473,8 @@
           "stem": "What is the central idea of this article?",
           "options": [
             "Flight comes from four balanced forces and a wing's airfoil shape, refined by engineers since 1903.",
-            "Ailerons are no longer used on any modern passenger planes flying in the sky today anywhere.",
-            "The Wright brothers' original fragile 1903 biplane is still flown every single day.",
+            "Ailerons are rarely used on modern passenger planes, because computers now steer and balance them.",
+            "The Wright brothers' 1903 biplane is still flown at air shows each year.",
             "Composite materials make modern planes much heavier than wood and cloth ever did."
           ],
           "answer": "A",
@@ -542,7 +542,7 @@
           "options": [
             "Because the outside atmosphere is too thin to breathe safely at that height",
             "Because gravity becomes noticeably stronger way up at high altitude",
-            "Because the ailerons simply stop working without enough air pressure",
+            "Because the ailerons simply stop working without enough air pressure around the plane",
             "Because composite materials need extra pressure just to stay strong"
           ],
           "answer": "A",
@@ -560,7 +560,7 @@
             "To paint the small test model many different bright colors so it looks nice for visitors and children",
             "To check how the design will perform in the air before committing to a full-sized version",
             "To deliberately make the small test model noticeably heavier than before so it falls faster",
-            "To completely and permanently replace the need for a trained human pilot in every plane"
+            "To and permanently replace the need for a trained human pilot in every plane"
           ],
           "answer": "B",
           "skill": "inference",
@@ -577,7 +577,7 @@
             "Composite materials are heavier but noticeably weaker overall than wood",
             "Composite materials are weaker but much, much cheaper to produce",
             "Composite materials combine strength with much lower weight",
-            "Composite materials cannot easily be shaped into wings at all, ever"
+            "Composite materials cannot easily be shaped into wings, ever"
           ],
           "answer": "C",
           "skill": "compare",

@@ -236,7 +236,7 @@
       "To show how kind and helpful a community can be",
       "To explain the steps to build a fence around a farm",
       "To describe a recipe for warm bread in the oven",
-      "To show the family did not need any help at all"
+      "To show the family did not need any help"
      ],
      "answer": "A",
      "skill": "author-purpose",
@@ -313,7 +313,7 @@
       "Only about ten centimeters",
       "Exactly one kilometer wide",
       "Nearly two meters",
-      "It did not rise at all that night"
+      "It did not rise that night"
      ],
      "answer": "C",
      "skill": "detail",
@@ -344,7 +344,7 @@
     {
      "stem": "Why did the river rise so quickly that stormy night?",
      "options": [
-      "The family had forgotten to close a gate near the old barn",
+      "The family had forgotten to close a gate near the old barn behind the house",
       "The farm's chickens had dug a hole near the riverbank",
       "The neighbors had opened a dam somewhere further upstream",
       "Heavy rain upstream added more water than the ground could absorb"
@@ -362,7 +362,7 @@
      "stem": "In the story, the word evacuate means —",
      "options": [
       "to leave a dangerous place quickly and reach safety",
-      "to construct a brand-new house very quickly indeed",
+      "to construct a brand-new house very quickly",
       "to feed all of the farm animals every single morning",
       "to carefully repair a broken wooden fence post"
      ],
@@ -379,7 +379,7 @@
      "stem": "Why did Yousef speak to the cow in a calm, steady voice?",
      "options": [
       "He was practicing his lines for a school play",
-      "He wanted the cow to walk faster than the sheep",
+      "He wanted the cow to walk faster than the sheep on the road",
       "He hoped a calm voice would soothe the frightened cow",
       "He was teaching the cow some new words"
      ],
@@ -412,7 +412,7 @@
     {
      "stem": "How does the author mainly organize the story?",
      "options": [
-      "By comparing two completely different farms in two separate countries",
+      "By comparing two different farms in two separate countries",
       "By listing numbered steps for cleaning up after any storm",
       "By describing each farm animal one at a time with no real story",
       "By following events in time order, from rain to recovery"
@@ -473,7 +473,7 @@
      "stem": "Which statement best expresses the central idea of the story?",
      "options": [
       "The family's quick thinking and a resilient community help them survive the flood and rebuild.",
-      "A family abandons their farm forever after just one bad flood, and the village is empty.",
+      "A family abandons their farm after just one bad flood, and the village is empty.",
       "The story mainly explains how to measure a river's exact depth with a rope and stone.",
       "A family builds an embankment that stops every future flood completely, and no flood ever comes."
      ],
@@ -489,8 +489,8 @@
     {
      "stem": "Why did the river overtop its embankment so suddenly?",
      "options": [
-      "The embankment had never actually been built at all",
-      "The family had removed the embankment themselves before the storm",
+      "The embankment had never actually been built",
+      "The family had removed the embankment themselves before the storm in the spring",
       "Chickens had weakened the embankment by digging underneath it",
       "An intense storm sent more water downstream than the ground could absorb"
      ],
@@ -543,7 +543,7 @@
       "They had likely planned beforehand what to do if the river flooded",
       "They had never once considered the river dangerous before",
       "They wanted an excuse to leave the farm permanently and move away",
-      "They did not care much about their animals' safety at all"
+      "They did not care much about their animals' safety"
      ],
      "answer": "A",
      "skill": "inference",
@@ -575,7 +575,7 @@
      "stem": "Why does the author include the detail that the river was \"ordinarily no deeper than a person's waist\"?",
      "options": [
       "To teach readers how to measure a river's depth accurately",
-      "To suggest that the river was never truly dangerous at all",
+      "To suggest that the river was never truly dangerous",
       "To emphasize how extraordinary and dangerous the sudden rise truly was",
       "To compare the river to an ordinary swimming pool at a big hotel in town"
      ],

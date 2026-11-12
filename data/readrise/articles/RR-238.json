@@ -182,9 +182,9 @@
     {
      "stem": "What happens to a muscle after you use it hard in sports and then rest and eat well?",
      "options": [
-      "It disappears completely after a hard day",
+      "It shrinks and gets weak after a hard day",
       "It turns into a tendon again",
-      "It stops pulling forever after use",
+      "It stops pulling after use",
       "It fixes itself and grows back thicker"
      ],
      "answer": "D",
@@ -235,8 +235,8 @@
      "options": [
       "Omar, who plays and exercises, then rests and eats well",
       "Lina, who never moves much and stays inside all day",
-      "Huda, who eats only candy and sweets all day long",
-      "Sami, who never drinks any water at all"
+      "Huda, who eats candy and sweets most of the day",
+      "Sami, who drinks little water"
      ],
      "answer": "A",
      "skill": "inference",
@@ -295,8 +295,8 @@
      "options": [
       "Muscles contract and pull bones in pairs to create movement.",
       "Tendons alone are responsible for every movement a body makes.",
-      "Only professional athletes ever truly need strong muscles.",
-      "Joints can bend and straighten without any help from muscles at all."
+      "Professional athletes are the people who need strong muscles.",
+      "Joints can bend and straighten with little help from muscles."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -379,8 +379,8 @@
      "stem": "What is the effect of exercise on muscle fibers?",
      "options": [
       "Tiny tears form and heal into thicker, stronger fibers.",
-      "The fibers immediately turn into tough tendons.",
-      "The fibers stop contracting completely and permanently.",
+      "The fibers turn into tough tendons right away and bones.",
+      "The fibers stop contracting and permanently.",
       "The fibers slowly disappear if used too often."
      ],
      "answer": "A",
@@ -475,7 +475,7 @@
       "Skeletal muscles pull bones in antagonist pairs and strengthen through exercise.",
       "Only the biceps and triceps are ever capable of true antagonist movement.",
       "Nerves are considerably more essential to movement than muscles themselves.",
-      "Hypertrophy happens entirely automatically, regardless of exercise or diet."
+      "Hypertrophy happens automatically, regardless of exercise or diet."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -490,9 +490,9 @@
      "stem": "According to the article, what is skeletal muscle unlike?",
      "options": [
       "Cardiac and smooth muscle, which function involuntarily",
-      "Tendons, which are said to never move at all in the body",
-      "Joints, which supposedly contain no tissue or bone at all",
-      "Fibers, which are said to never bundle together in the body"
+      "Tendons, which are said to never move in the body",
+      "Joints, which supposedly contain no tissue or bone",
+      "Fibers, which are said to stay apart in the body"
      ],
      "answer": "A",
      "skill": "detail",
@@ -560,7 +560,7 @@
       "It causes immediate, permanent damage that never heals.",
       "It slowly converts muscle fibers into nerve tissue.",
       "It triggers tiny tears that heal into hypertrophy.",
-      "It entirely eliminates the need for antagonist pairs."
+      "It eliminates the need for antagonist pairs."
      ],
      "answer": "C",
      "skill": "cause-effect",

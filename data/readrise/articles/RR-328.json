@@ -199,9 +199,9 @@
     {
      "stem": "Why can a tall mountain near the equator still have cold, snowy peaks?",
      "options": [
-      "Because mountains always sit in the polar zone",
+      "Because mountains sit in the polar zone of the Earth",
       "Because the thin air high up holds less heat",
-      "Because deserts always surround mountains",
+      "Because deserts surround mountains",
       "Because the equator moves during winter"
      ],
      "answer": "B",
@@ -219,7 +219,7 @@
       "Deserts quickly form across the land when it is cold",
       "Rain clouds never form overhead in cold places",
       "People wear warm coats to stay comfortable",
-      "People stop growing any crops at all, even in summer"
+      "People stop growing crops, even in summer"
      ],
      "answer": "C",
      "skill": "cause-effect",
@@ -295,8 +295,8 @@
      "options": [
       "Latitude mainly shapes Earth's climate zones, though other factors matter too.",
       "Every single region on Earth shares exactly the same climate, in every season.",
-      "Deserts can only ever exist near the North and South Poles, and nowhere else.",
-      "Temperate zones never experience more than just one season in the year."
+      "Deserts are found mostly near the North and South Poles.",
+      "Temperate zones have one season in the year."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -364,7 +364,7 @@
       "To create more rain clouds overhead in the sky",
       "To cool down the hot desert air with big fans",
       "To turn seawater into fresh water they can use",
-      "To grow crops without any water at all in the sand"
+      "To grow crops without any water in the sand"
      ],
      "answer": "C",
      "skill": "inference",
@@ -380,7 +380,7 @@
      "options": [
       "Because the temperate zone has the hottest weather on all of Earth",
       "Because the temperate zone's moderate climate suits large populations",
-      "Because the temperate zone never experiences any rain at all",
+      "Because the temperate zone gets little rain",
       "Because the temperate zone sits closest to the frozen poles"
      ],
      "answer": "B",
@@ -415,7 +415,7 @@
       "By telling a single story about one traveler's journey across several lands and seas, from one place to the next",
       "By describing each climate zone in turn, from the equator to the poles, then adding other factors",
       "By comparing two countries in great detail, one paragraph after another, without any other zones",
-      "By listing problems with the climate and their solutions only, with no talk about any climate zone at all"
+      "By listing problems with the climate and their solutions, with little talk about climate zones"
      ],
      "answer": "B",
      "skill": "text-structure",
@@ -473,9 +473,9 @@
      "stem": "Which statement best captures the central idea of the article?",
      "options": [
       "Latitude largely determines climate zones, but other factors modify them.",
-      "Every single climate zone on Earth gets the same precipitation.",
-      "Subtropical deserts only occur at very high elevation always.",
-      "The temperate zone experiences no meaningful seasonal change at all."
+      "Most climate zones on Earth get about the same precipitation in each season of the year.",
+      "Subtropical deserts occur mostly at very high elevation.",
+      "The temperate zone experiences no meaningful seasonal change."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -507,8 +507,8 @@
      "stem": "What does the article say elevation does to climate, even near the equator?",
      "options": [
       "It raises temperatures at every single altitude equally.",
-      "It has no measurable effect on temperature at all.",
-      "It always creates tropical rainforest on mountain slopes.",
+      "It has no measurable effect on temperature.",
+      "It creates tropical rainforest on mountain slopes.",
       "It makes high mountains cold since thin air holds less heat."
      ],
      "answer": "D",
@@ -542,8 +542,8 @@
      "options": [
       "Because climate has no real effect on how countries develop, so every country grows in the same way",
       "Because water scarcity and growing conditions influence what a country can produce and how it must adapt",
-      "Because every country shares the exact same climate zone, so all of them have the same crops and work",
-      "Because elevation always determines a country's currency, and the money changes when the land gets higher"
+      "Because most countries share the same climate zone, so they have the same crops and work",
+      "Because elevation determines a country's currency, and the money changes when the land gets higher"
      ],
      "answer": "B",
      "skill": "inference",
@@ -558,9 +558,9 @@
      "stem": "What can be inferred about why temperate-zone cities have historically attracted large populations?",
      "options": [
       "Their moderate climate and seasons make them easy places to live.",
-      "They are the only cities ever located near the equator.",
-      "They never experience any kind of extreme weather at all.",
-      "They are located only at very high mountain elevation."
+      "They are the cities located nearest to the equator and the sea.",
+      "They rarely experience extreme weather.",
+      "They are located at very high mountain elevation."
      ],
      "answer": "A",
      "skill": "inference",
@@ -575,9 +575,9 @@
      "stem": "How does a subtropical desert zone differ from a polar zone in terms of precipitation, according to the article?",
      "options": [
       "A subtropical desert receives very little precipitation, while the polar zone is covered in snow and ice.",
-      "A subtropical desert receives constant heavy rain, while the polar zone stays completely dry.",
+      "A subtropical desert receives constant heavy rain, while the polar zone stays dry and warm in each season of the year.",
       "Both zones receive exactly the same amount of precipitation each year.",
-      "Neither zone experiences any form of precipitation whatsoever."
+      "Neither zone experiences any form of precipitation."
      ],
      "answer": "A",
      "skill": "compare",
@@ -593,8 +593,8 @@
      "options": [
       "To argue that deserts are the most important climate zone on Earth, above all the rest, in every part of the world",
       "To ground the abstract idea of subtropical aridity in a real, specific place and its adaptations",
-      "To prove that Saudi Arabia has no climate zone at all, since it is only sand",
-      "To show that elevation has no effect anywhere in the world on the weather of any zone"
+      "To prove that Saudi Arabia has no climate zone, since it is mostly sand",
+      "To show that elevation has little effect on the weather of a zone"
      ],
      "answer": "B",
      "skill": "author-purpose",

@@ -114,7 +114,7 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "How to grow plants in France",
+            "How to grow plants in France in the cold",
             "How a new code helped blind people read",
             "How to build a school",
             "How Louis learned to sing"
@@ -167,7 +167,7 @@
           "options": [
             "It used loud sounds instead",
             "It fit small dots on one page",
-            "It needed no fingers at all",
+            "It needed no fingers",
             "It only worked at night"
           ],
           "answer": "B",
@@ -184,8 +184,8 @@
           "options": [
             "It became a model many books use",
             "It was never used again",
-            "It was replaced right away",
-            "No one liked it"
+            "It was replaced right away by a new code",
+            "Few people liked it"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -218,8 +218,8 @@
           "options": [
             "Only inside one single school",
             "On signs and in books",
-            "Only on television shows",
-            "Only inside car engines"
+            "On television shows",
+            "Inside car engines"
           ],
           "answer": "B",
           "skill": "detail",
@@ -236,7 +236,7 @@
             "It gives them freedom to choose what to read",
             "It is only used by doctors",
             "It costs a lot of money",
-            "It replaces talking for everyone"
+            "It replaces talking for most people in their homes"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of this article?",
           "options": [
-            "Braille was invented by the army in 1700s",
+            "Braille was invented by the army in 1700s in France",
             "Blind people have never had a way to read",
             "Louis Braille invented a code now used worldwide",
-            "Louis Braille never once went to school"
+            "Louis Braille rarely went to school"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -311,7 +311,7 @@
           "stem": "According to the article, what problem did blind people face before braille existed?",
           "options": [
             "They were not allowed into any schools",
-            "They could not speak any language well",
+            "They could not speak a language well",
             "They were required to work in old factories",
             "They had no reliable way to read on their own"
           ],
@@ -329,7 +329,7 @@
           "options": [
             "He had studied music at a university",
             "He relied on a flawed code and knew its flaws",
-            "He had traveled through many countries",
+            "He had traveled through many countries as a boy",
             "He owned a busy printing shop in town"
           ],
           "answer": "B",
@@ -362,7 +362,7 @@
           "stem": "What can you infer about why braille took decades to be officially adopted?",
           "options": [
             "No schools for the blind existed anywhere",
-            "Louis Braille refused to share his new code",
+            "Louis Braille refused to share his new code with others",
             "The new code was immediately banned by law",
             "Older, familiar methods likely took time to change"
           ],
@@ -413,8 +413,8 @@
           "stem": "What happened to braille after Louis Braille completed his system?",
           "options": [
             "It was quickly forgotten by everyone",
-            "It was simply banned from all schools",
-            "It replaced spoken language entirely",
+            "It was simply banned from all schools in France",
+            "It replaced spoken language",
             "It became the blueprint most readers follow"
           ],
           "answer": "D",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Braille has remained unchanged since Roman times",
+            "Braille has remained unchanged since Roman times, when it began",
             "French schools adopted it the year it finished",
             "Blind readers now rely only on spoken audio",
             "His tactile code became the enduring standard worldwide"

@@ -150,7 +150,7 @@
           "options": [
             "When the king is trapped and cannot get away",
             "When all the pawns have been taken off",
-            "When the clock rings for the first time",
+            "When the clock rings for the first time in the game",
             "When one player gets tired of playing"
           ],
           "answer": "A",
@@ -296,7 +296,7 @@
             "It is an old game, now a sport that needs skill and planning.",
             "Chess is a game that only adults should play, because children cannot learn it.",
             "Chess is a new game that was invented in 2017 by a boy.",
-            "Chess is played without any rules, so anything goes in a game."
+            "Chess has few rules, so players can move pieces as they like."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,7 +344,7 @@
         {
           "stem": "Why must players think quickly when a clock is used?",
           "options": [
-            "The clock moves the pieces by itself",
+            "The clock moves the pieces by itself on the board",
             "The clock ends the game every minute",
             "Each player has a limited amount of time",
             "The clock decides who wins first"
@@ -540,7 +540,7 @@
         {
           "stem": "Which detail best supports the claim that chess is a real sport today?",
           "options": [
-            "Each player has 16 pieces",
+            "Each player starts with 16 pieces",
             "The board has 64 squares",
             "The Olympic Committee recognizes it",
             "It began in India"

@@ -311,7 +311,7 @@
           "stem": "What does a solar cell do when sunlight hits it?",
           "options": [
             "It turns the light into electricity.",
-            "It makes the sun shine brighter.",
+            "It makes the sun shine brighter in the sky.",
             "It stores water for farms.",
             "It cools the panel down."
           ],
@@ -381,7 +381,7 @@
             "Panels work better when they are cold, so a desert is a poor place.",
             "Strong, steady sunlight lets the panels make more power.",
             "Deserts have no need for electricity, so panels are not needed there.",
-            "Sunlight in the desert never stops at all, even through the night."
+            "Sunlight in the desert never stops, even through the night."
           ],
           "answer": "B",
           "skill": "inference",
@@ -398,7 +398,7 @@
             "The panels will make little electricity.",
             "The panels will make extra electricity.",
             "The cells will spin faster than usual.",
-            "The grid will stop working everywhere."
+            "The grid will stop working."
           ],
           "answer": "A",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Solar power is clean and renewable, but it needs backup because sunlight varies.",
-            "Solar farms will soon replace every other source of electricity everywhere.",
+            "Solar farms will soon replace every other source of electricity.",
             "Solar panels are much too expensive to be useful to anyone.",
-            "Ancient civilizations invented electricity to power their sundials."
+            "Ancient civilizations invented electricity to power their sundials and clocks."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,8 +540,8 @@
         {
           "stem": "How do power companies deal with the intermittent nature of solar power?",
           "options": [
-            "They build taller panels so sunlight never stops.",
-            "They use solar power only at night.",
+            "They build taller panels so sunlight never stops at night.",
+            "They use solar power mostly at night.",
             "They pair solar farms with other sources or batteries.",
             "They turn off the grid on cloudy days."
           ],

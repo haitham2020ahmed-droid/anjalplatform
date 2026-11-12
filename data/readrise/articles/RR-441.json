@@ -150,7 +150,7 @@
           "options": [
             "It had a small lake in the middle",
             "It was covered in thick snow all winter",
-            "It had a tall fence all around it",
+            "It had a tall fence around it",
             "It was full of trash and weeds"
           ],
           "answer": "D",
@@ -330,7 +330,7 @@
           "stem": "Why did the heavy work go faster than expected?",
           "options": [
             "A large machine dug up the entire lot",
-            "Only Mr. Nasser did all of the digging work",
+            "Only Mr. Nasser did all of the digging work in the lot",
             "The neighbors cooperated instead of working alone",
             "The stubborn weeds pulled themselves out"
           ],
@@ -346,8 +346,8 @@
         {
           "stem": "How does the author organize this story?",
           "options": [
-            "By comparing two completely different gardens side by side in the city",
-            "By listing numbered steps for how to plant vegetables in a garden",
+            "By comparing two different gardens side by side in the city",
+            "By listing numbered steps for how to plant vegetables in a garden in the city",
             "By describing only one single day from the morning to the night",
             "By describing the lot's problem, the community's solution, and Lina's change"
           ],
@@ -476,7 +476,7 @@
           "options": [
             "The harvest is shared, and then Mr. Nasser has his idea",
             "Lina meets Sara, and then Mr. Nasser has his idea",
-            "Volunteers clear the lot, and then the harvest is shared first",
+            "Volunteers clear the lot, and then the harvest is shared first with the class",
             "Mr. Nasser has his idea, volunteers clear the lot, Lina plants a seed"
           ],
           "answer": "D",
@@ -511,7 +511,7 @@
             "Because they had already paid for the vegetables in advance",
             "Because they personally had grown the most vegetables",
             "Because they could not come outside to gather the harvest themselves",
-            "Because Mr. Nasser only liked certain neighbors on the street"
+            "Because Mr. Nasser only liked certain neighbors on the street in the neighborhood"
           ],
           "answer": "C",
           "skill": "inference",

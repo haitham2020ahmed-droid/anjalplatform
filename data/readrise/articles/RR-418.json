@@ -140,7 +140,7 @@
           "options": [
             "Only passengers who want to see the stars",
             "Goods to sell in far towns",
-            "Only empty water bags",
+            "Empty water bags",
             "Tools used to build new wells"
           ],
           "answer": "B",
@@ -191,7 +191,7 @@
           "options": [
             "They want to help him and keep the caravan safe",
             "They have far too much water to carry",
-            "The leaking bag belongs to Faisal's father",
+            "The leaking bag belongs to Faisal's father from home",
             "The king orders them to share water"
           ],
           "answer": "A",
@@ -206,7 +206,7 @@
         {
           "stem": "What can you tell about the men in the caravan from how they treat each other?",
           "options": [
-            "They do not trust each other at all",
+            "They do not trust each other",
             "They care about and help one another",
             "They want to keep all their water for themselves",
             "They do not want new helpers on the trip"
@@ -223,7 +223,7 @@
         {
           "stem": "Why is Faisal proud at the end of the story?",
           "options": [
-            "He rode the fastest camel in the group",
+            "He rode the fastest camel in the group that day",
             "He found a brand new star in the sky",
             "He helped sell the goods on his first trip",
             "He built a new well in the desert"
@@ -302,8 +302,8 @@
           "options": [
             "A boy's first journey shows how merchants rely on skill and trust to survive the desert",
             "Merchants in this story never need to carry any water, because oases are on every road",
-            "The desert route is different every single year, so a boy cannot learn the way at all",
-            "Camels can travel through the desert without any guidance, so merchants only need to follow"
+            "The desert route changes each year, so a boy must learn it again",
+            "Camels can travel through the desert without guidance, so merchants just follow them"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -319,7 +319,7 @@
           "options": [
             "Only tools for building new wells",
             "Spices and other goods to sell",
-            "Only maps drawn by geographers",
+            "Maps drawn by geographers",
             "Letters sent between two kings"
           ],
           "answer": "B",
@@ -482,7 +482,7 @@
             "Frankincense is more valuable than water in the desert, so the merchants spend most of their water on it, and the young man learns to buy it",
             "A young merchant's first journey reveals how navigation, careful water use, and cooperation keep a caravan alive",
             "Ancient incense routes were used by only one caravan, which crossed the desert once and never came back to the town again",
-            "Camels require no water when crossing the desert, so a caravan can travel for months without any supplies from the wells"
+            "Camels need little water when crossing the desert, so a caravan can travel for months without stopping at wells"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -530,7 +530,7 @@
         {
           "stem": "In the story, essential most likely means —",
           "options": [
-            "completely unnecessary and easy to replace at any time",
+            "unnecessary and easy to replace at any time",
             "absolutely necessary and impossible to do without",
             "extremely rare and valuable to merchants in the city",
             "difficult to carry across long distances on camels"

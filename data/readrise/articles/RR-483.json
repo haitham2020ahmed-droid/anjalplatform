@@ -116,7 +116,7 @@
           "options": [
             "How to drive a car safely on the highway",
             "How traffic lights were invented to make busy streets safer",
-            "Why horses are no longer allowed on city streets",
+            "Why horses are no longer allowed on city streets in big cities",
             "How police officers are trained today"
           ],
           "answer": "B",
@@ -166,7 +166,7 @@
           "stem": "Why do you think the worker in the booth got tired of the job?",
           "options": [
             "Because the booth was too cold",
-            "Because the lights were too bright to look at",
+            "Because the lights were too bright to look at for a long time each day during summer",
             "Because turning the lights on and off by hand all day was slow, repetitive work",
             "Because the job paid very little money"
           ],
@@ -182,7 +182,7 @@
         {
           "stem": "Why was adding a yellow light a good idea?",
           "options": [
-            "It made the light look more colorful",
+            "It made the light look more colorful and pretty at night",
             "It let drivers know when to slow down before stopping",
             "It replaced the need for a red light",
             "It was required for cars to start"
@@ -217,7 +217,7 @@
           "stem": "How is this article mostly organized?",
           "options": [
             "It tells the story of traffic signals in the order they were invented",
-            "It compares traffic rules in different countries today",
+            "It compares traffic rules in different countries today and how they changed",
             "It explains how to become a police officer",
             "It lists dangers of walking near traffic"
           ],
@@ -236,7 +236,7 @@
             "Cars stopped being used in cities",
             "The yellow light was added immediately",
             "Other cities began putting up similar signals",
-            "Police officers stopped working at intersections forever"
+            "Police officers stopped working at intersections"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -295,7 +295,7 @@
           "options": [
             "Traffic signals evolved from hand signals to an automatic three-color light that made streets safer",
             "Police officers no longer direct any traffic today",
-            "Yellow lights are more important than red or green lights",
+            "Yellow lights are more important than red or green lights, so they were added first to most streets",
             "Cars were invented at the same time as traffic lights"
           ],
           "answer": "A",
@@ -313,7 +313,7 @@
             "Moving as fast as possible",
             "A loud warning sound",
             "Careful behavior meant to avoid danger",
-            "Complete stillness, with no movement at all"
+            "Complete stillness, with no movement"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -328,7 +328,7 @@
           "stem": "According to the article, what specific job did the human worker in the booth do?",
           "options": [
             "Fixed broken cars nearby",
-            "Painted the traffic signals different colors",
+            "Painted the traffic signals different colors each month in the city",
             "Counted the number of cars passing by",
             "Controlled the lights by hand all day, switching them on and off"
           ],
@@ -347,7 +347,7 @@
             "To suggest officers did not work hard enough",
             "To show why an automatic signal system was eventually needed as cities grew",
             "To explain how officers are paid",
-            "To compare officers in different cities today"
+            "To compare the officers in different cities today and their pay and their working hours"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -364,7 +364,7 @@
             "It clearly solved a problem that many busy cities were struggling with",
             "It was required by a national law",
             "It was the cheapest sign ever made",
-            "Wire personally built one for every city"
+            "Wire personally built one for each city, so they had to use his design"
           ],
           "answer": "A",
           "skill": "inference",
@@ -379,9 +379,9 @@
           "stem": "How does the article's structure help explain why the traffic signal kept improving over time?",
           "options": [
             "By listing unrelated city facts with no clear order",
-            "By focusing only on one single year, 1920 in this situation in this situation in this situation",
+            "By focusing only on one single year, 1920",
             "By showing, step by step, how each new idea fixed a problem with the one before it",
-            "By comparing traffic signals to animals used for transportation"
+            "By comparing traffic signals to animals used for transportation, such as horses and camels"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -395,9 +395,9 @@
         {
           "stem": "According to the article, what effect did the three-light signal have on cities around the world?",
           "options": [
-            "It made cities stop allowing cars on the road",
+            "It made cities stop allowing cars on the road during the busiest hours of the day",
             "It replaced the need for streets entirely",
-            "It was used only in the United States in this situation in this situation in this situation",
+            "It was used only in the United States",
             "It spread to cities everywhere, making intersections much safer for everyone"
           ],
           "answer": "D",
@@ -412,9 +412,9 @@
         {
           "stem": "Which best compares the early two-light signal to the later three-light signal?",
           "options": [
-            "The two-light signal had a yellow caution light that the three-light signal lacked",
+            "The two-light signal had a yellow caution light that the three-light signal lacked, since drivers found it confusing",
             "The two-light signal only had red and green, while the three-light signal added yellow to warn drivers before stopping",
-            "Both signals were controlled entirely by hand in this situation in this situation in this situation in this situation in this situation",
+            "Both signals were controlled entirely by hand",
             "Both signals were invented in the same year by the same person"
           ],
           "answer": "B",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Traffic signals have never changed since police officers first used hand gestures",
+            "Traffic signals have changed little since police officers first used hand gestures, so drivers today follow the same old rules",
             "Yellow lights were the very first traffic control method ever used",
             "Traffic control evolved from an exhausting, manual system into an automatic, standardized three-color signal that transformed city safety",
-            "Only Detroit ever adopted an electric traffic signal"
+            "Detroit was the one city that adopted an electric traffic signal"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -490,7 +490,7 @@
           "stem": "What does the word standardize mean, based on how the article describes the three-color signal?",
           "options": [
             "To make something follow the same common design everywhere",
-            "To make something unique and different in every city",
+            "To make something unique and different in every city in the country",
             "To remove a rule entirely",
             "To slow down how quickly something spreads"
           ],
@@ -507,7 +507,7 @@
           "stem": "According to the article, what specific limitation of the manual hand-signal system led directly to the need for an automatic device?",
           "options": [
             "It required too much paperwork",
-            "It was against the law in most cities",
+            "Hand signals were against the law in most cities, so officers could use them on a few streets",
             "It worked only during the daytime",
             "A single officer could not realistically control more than one busy intersection at a time"
           ],
@@ -526,7 +526,7 @@
             "It made the signal invisible at night",
             "It allowed the signal to work consistently without needing a tired human to operate it constantly",
             "It eliminated the need for a red light entirely",
-            "It made the signal more expensive than hand signals for no benefit"
+            "It made the signal more expensive than hand signals, with little benefit for drivers or for police officers"
           ],
           "answer": "B",
           "skill": "inference",
@@ -540,10 +540,10 @@
         {
           "stem": "How does the structure of the article support its larger point about how transportation technology improves?",
           "options": [
-            "By listing unrelated facts about city populations in this situation in this situation in this situation",
+            "By listing unrelated facts about city populations",
             "By focusing only on the personal biography of Lester Wire",
             "By showing a clear sequence in which each new idea solved a specific limitation of the one before it",
-            "By comparing traffic signals only to ancient forms of communication"
+            "By comparing traffic signals to ancient forms of communication, such as smoke signals and drums"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -558,9 +558,9 @@
           "stem": "What was most likely the author's purpose in specifically naming Lester Wire and the Detroit police officer who added the yellow light?",
           "options": [
             "To accurately credit the specific contributions that built the modern traffic signal over time",
-            "To entertain readers with unrelated trivia about police departments",
+            "To entertain readers with unrelated trivia about police departments and their uniforms",
             "To suggest that only police officers can invent useful devices",
-            "To prove that all inventions happen in a single city in this situation in this situation in this situation"
+            "To prove that most inventions happen in a single city"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -574,9 +574,9 @@
         {
           "stem": "Which comparison between the manual hand-signal system and the modern automatic traffic signal is best supported by the article?",
           "options": [
-            "The manual system could manage unlimited intersections at once, unlike the automatic signal",
-            "Both systems used the exact same three colors as each other, with no differences at all",
-            "The automatic signal required more officers than the manual system did in this situation",
+            "The manual system could manage many intersections at once, while the automatic signal needed an officer standing beside it",
+            "Both systems used the exact same three colors as each other, with no differences",
+            "The automatic signal required more officers than the manual system did",
             "The manual system depended on one tiring officer per intersection, while the automatic signal ran on its own"
           ],
           "answer": "D",
@@ -593,8 +593,8 @@
           "options": [
             "Cities returned to using only police officers at every intersection",
             "Intersections could be managed safely and automatically, without needing a human officer present at each one",
-            "Pedestrians were banned from crossing at traffic signals in this situation in this situation in this situation",
-            "Traffic signals were eventually removed because cars became safer on their own"
+            "Pedestrians were banned from crossing at traffic signals",
+            "Traffic signals were eventually removed because cars became safer on their own and drivers learned to take turns"
           ],
           "answer": "B",
           "skill": "cause-effect",

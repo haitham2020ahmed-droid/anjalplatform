@@ -218,7 +218,7 @@
           "options": [
             "He never read books.",
             "He was not afraid to say an old idea was wrong.",
-            "He did not like working in big hospitals at all.",
+            "He did not like working in big hospitals in the city.",
             "He wanted his books to be lost."
           ],
           "answer": "B",
@@ -296,7 +296,7 @@
             "Ibn al-Nafis challenged Galen's theory and correctly described how blood travels between the heart and lungs.",
             "Galen was the most important doctor who ever lived, and nobody improved on his ideas for hundreds of years.",
             "Libraries in Berlin hold many books about the heart, the lungs, and medicine.",
-            "The heart has four chambers that pump blood around the body of every animal that has a heart and lungs."
+            "The heart has four chambers that pump blood around the body of each animal that has a heart and lungs."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -475,7 +475,7 @@
             "Ibn Sina wrote a famous encyclopedia of medicine that doctors in Europe read for a long time after his death.",
             "William Harvey discovered everything about blood, and nobody had written about it before him.",
             "Ibn al-Nafis used careful reasoning about anatomy to describe the pulmonary circulation centuries before Europe.",
-            "Hospitals in Cairo were the largest in the world, and they treated all kinds of sick people for free."
+            "Hospitals in Cairo were the largest in the world, and they treated sick people for free."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -575,7 +575,7 @@
           "stem": "What can you infer about why Galen's theory lasted so long?",
           "options": [
             "No one was allowed to study medicine.",
-            "Galen's books were all lost.",
+            "Galen's books were lost.",
             "The heart is too small and too hidden for doctors to study closely.",
             "Doctors trusted a famous authority without questioning him."
           ],

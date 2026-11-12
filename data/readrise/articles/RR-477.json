@@ -166,7 +166,7 @@
           "stem": "Why did Hutchison's small box work better than the old horn?",
           "options": [
             "Because it was open for just one single day",
-            "Because it had no parts inside it at all",
+            "Because it had no parts inside it",
             "Because it was heavier than the old horn",
             "Because it used a battery to make sound loud"
           ],
@@ -182,8 +182,8 @@
         {
           "stem": "What happened to Hutchison's small box after he made it?",
           "options": [
-            "It was never used by anyone at all",
-            "No one liked it, so it quickly broke",
+            "It was never used by anyone",
+            "Few people liked it, so it quickly broke",
             "It became a plan many hearing aids copied",
             "It was replaced right away by the old horn"
           ],
@@ -218,8 +218,8 @@
           "options": [
             "Only ever on top of a tall hat",
             "In or just behind the ear",
-            "Only ever inside a thick glove",
-            "Only ever tied around one ankle"
+            "Inside a thick glove",
+            "Tied around one ankle"
           ],
           "answer": "B",
           "skill": "detail",
@@ -236,7 +236,7 @@
             "They give kids freedom to hear what they want",
             "They cost a very large amount of money",
             "They are used only by busy doctors at work",
-            "They replace reading for every single person"
+            "They replace reading for most people"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,7 +294,7 @@
           "stem": "What is the central idea of this article?",
           "options": [
             "Ear trumpets worked perfectly and were never replaced",
-            "No one has ever built a device to help people hear",
+            "Hutchison built the first ear trumpet to sell to doctors in the city",
             "Hutchison built the first electric hearing aid to help a friend",
             "Hutchison built his device mainly to make money quickly"
           ],
@@ -312,7 +312,7 @@
           "options": [
             "They were connected directly to electric wires",
             "They could only be used inside a school building",
-            "They were owned only by wealthy inventors",
+            "They were owned mostly by wealthy inventors",
             "They barely made sound louder and were hard to carry"
           ],
           "answer": "D",
@@ -361,9 +361,9 @@
         {
           "stem": "What can you infer about why Hutchison's design became the model most hearing aids follow?",
           "options": [
-            "Because it was only ever used by professional athletes",
+            "Because it was used mostly by professional athletes and singers in big cities",
             "Likely because it solved a problem many people with hearing loss shared",
-            "Because a new law required every device to copy it",
+            "Because a new law required devices to copy it",
             "Because no other hearing device was ever built again"
           ],
           "answer": "B",
@@ -395,8 +395,8 @@
         {
           "stem": "How is this article mostly organized?",
           "options": [
-            "As step-by-step instructions for repairing an old horn",
-            "As a comparison of two completely unrelated inventions",
+            "As step-by-step instructions for repairing an old horn or a trumpet",
+            "As a comparison of two unrelated inventions",
             "As a sequence of events describing a problem and its solution",
             "As a scattered list of random facts about Alabama"
           ],
@@ -412,7 +412,7 @@
         {
           "stem": "What happened to Hutchison's electric design over time?",
           "options": [
-            "It replaced spoken language completely for most people",
+            "It replaced spoken language for most people",
             "It was quickly forgotten by nearly everyone involved",
             "It was banned from being used in any country",
             "It became the blueprint most hearing aids still follow"
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
             "Hutchison's personal connection to hearing loss led him to invent a device that became the lasting standard",
-            "Devices to help people hear were never built before the twentieth century",
-            "Hearing loss has never truly been a problem for most communities",
-            "Electric hearing aids are only useful for professional musicians"
+            "Devices to help people hear were rarely built before the twentieth century, so Hutchison copied an old toy",
+            "Hearing loss has rarely been a problem for most communities",
+            "Electric hearing aids are useful mainly for professional musicians"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -490,7 +490,7 @@
           "stem": "According to the article, how did Hutchison's personal background shape his invention?",
           "options": [
             "He had never personally known anyone with hearing loss",
-            "He designed the entire device purely from distant academic theory",
+            "He designed the entire device purely from distant academic theory in the city",
             "He witnessed a close friend's daily struggle with hearing loss firsthand",
             "He had no interest in electricity until much later in life"
           ],
@@ -507,7 +507,7 @@
           "stem": "What evidence suggests earlier hearing devices were genuinely limited, not simply undocumented?",
           "options": [
             "They were bulky, barely amplified sound, and were hard to carry with real ease",
-            "They were brightly painted and somewhat difficult to clean",
+            "They were brightly painted and somewhat difficult to clean after use and use",
             "They required an unusual amount of natural sunlight to use",
             "They were too small to be printed clearly in any book"
           ],
@@ -543,7 +543,7 @@
             "It was required everywhere by a brand-new international law",
             "No other hearing devices were ever built again after this one",
             "It likely solved a problem that many people with hearing loss shared",
-            "It was only ever used by a small group of professional performers"
+            "It was used mainly by a small group of professional performers"
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,8 +574,8 @@
         {
           "stem": "How does the article primarily structure its account of the device's development?",
           "options": [
-            "By presenting two opposing viewpoints without any real resolution",
-            "By comparing several completely unrelated writing systems",
+            "By presenting two opposing viewpoints without any real resolution between the two sides",
+            "By comparing several unrelated writing systems",
             "By listing a series of unrelated facts about Alabama generally",
             "By tracing a problem through a specific solution to its lasting modern impact"
           ],
@@ -592,8 +592,8 @@
           "stem": "Based on the article, which outcome most directly resulted from Hutchison's electronic device?",
           "options": [
             "Teaching quickly became the only career ever open to people with hearing loss",
-            "All communication everywhere switched entirely to written notes within years",
-            "Spoken language became completely unnecessary for most people",
+            "Most communication switched to written notes within a few years, so people carried paper with them",
+            "Spoken language became unnecessary for most people",
             "Millions of people with hearing loss gained a dependable way to listen and live independently"
           ],
           "answer": "D",

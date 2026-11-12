@@ -234,7 +234,7 @@
           "stem": "Which student is most likely helping their brain?",
           "options": [
             "Omar, who stays up all night playing",
-            "Sara, who skips water all day at school",
+            "Sara, who skips water at school",
             "Ali, who quits after one try at a game",
             "Huda, who practices a little each day"
           ],
@@ -295,7 +295,7 @@
           "options": [
             "The hippocampus is the only part of the brain that matters for learning, and the rest of the brain does nothing.",
             "Learning changes the brain, and habits like practice, sleep, and review help it learn.",
-            "Riding a bicycle is the hardest skill that any child can ever learn, and it takes the longest time.",
+            "Riding a bicycle is the hardest skill a child can learn, and it takes the longest time.",
             "The brain uses most of the body's energy, so a person should sleep less and eat more to learn."
           ],
           "answer": "B",
@@ -575,9 +575,9 @@
           "stem": "Which conclusion is best supported by the article's description of mistakes?",
           "options": [
             "A student who makes many errors cannot learn the material, even with help.",
-            "Teachers should never let students see wrong answers, because they cause confusion.",
+            "Teachers should hide wrong answers, because they cause confusion.",
             "A wrong answer followed by another attempt can make a pathway more accurate.",
-            "Mistakes damage the brain's synapses so that they cannot recover, even with practice."
+            "Mistakes weaken the brain's synapses, so practice should be avoided."
           ],
           "answer": "C",
           "skill": "inference",

@@ -378,7 +378,7 @@
         {
           "stem": "Why did Yusuf decide to watch the clock instead of guessing at a fix?",
           "options": [
-            "Hassan firmly ordered him to stay completely quiet",
+            "Hassan firmly ordered him to stay quiet",
             "He wanted to discover the real cause first",
             "He truly did not care whether the clock worked",
             "He wanted to avoid upsetting the impatient leader"
@@ -412,7 +412,7 @@
         {
           "stem": "How does the story mostly unfold?",
           "options": [
-            "By carefully comparing two very different cities",
+            "By carefully comparing two very different cities and their people",
             "By listing exact steps for oiling an old clock",
             "By describing many different city festivals",
             "By presenting a problem and then solving it patiently"
@@ -474,8 +474,8 @@
           "options": [
             "Meticulous observation helped an apprentice solve an intricate problem.",
             "Yusuf found engineering far too difficult and quickly gave up entirely.",
-            "Hassan built the whole intricate clock entirely by himself alone.",
-            "The governor firmly rejected the finished clock as completely unacceptable."
+            "Hassan built the whole intricate clock by himself alone.",
+            "The governor firmly rejected the finished clock as unacceptable."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -541,8 +541,8 @@
           "stem": "Why does the story describe Yusuf as 'an engineer in training' near the end?",
           "options": [
             "His careful approach showed real engineering skill",
-            "He had already completely and fully finished his training",
-            "He firmly planned to stop making clocks forever",
+            "He had already and fully finished his training",
+            "He firmly planned to stop making clocks",
             "He had secretly invented a brand-new kind of clock"
           ],
           "answer": "A",
@@ -577,7 +577,7 @@
             "It was forgotten soon after his death",
             "It only ever mattered to people living in his own city",
             "It continued to influence engineers for generations",
-            "It was eventually replaced by a completely different tradition"
+            "It was eventually replaced by a different tradition"
           ],
           "answer": "C",
           "skill": "inference",

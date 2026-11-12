@@ -167,7 +167,7 @@
           "options": [
             "to walk past someone quickly",
             "to quickly win the whole game",
-            "to completely miss a shot",
+            "to miss a shot",
             "to throw the ball to a teammate"
           ],
           "answer": "D",
@@ -183,7 +183,7 @@
           "stem": "Why do the Hawks lose so many games earlier in the season?",
           "options": [
             "The players often play alone",
-            "The team does not practice at all",
+            "The team does not practice",
             "The Eagles are not a real team",
             "Coach Nasser is never at practice"
           ],
@@ -380,7 +380,7 @@
           "options": [
             "Teamwork does not really matter in close games",
             "A team that works together can overcome difficulty",
-            "One great player can always win a game alone",
+            "One great player can win a game alone",
             "Strategy is less important than individual talent"
           ],
           "answer": "B",
@@ -473,8 +473,8 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "After a tough season, the Hawks achieve real cohesion and win their final game.",
-            "The Hawks' victory is due entirely to one outstanding individual player.",
-            "Coach Nasser's strategy focuses only on individual scoring records.",
+            "The Hawks' victory is due to one outstanding individual player.",
+            "Coach Nasser's strategy focuses only on individual scoring records for each player.",
             "The story mainly explains the official rules of basketball."
           ],
           "answer": "A",
@@ -574,7 +574,7 @@
         {
           "stem": "How is the Hawks' play during most of the season different from their play in the final game?",
           "options": [
-            "During the season they practiced constantly; in the final game they did not practice at all",
+            "During the season they practiced constantly; in the final game they did not practice",
             "During the season they had no coach; in the final game Coach Nasser appeared for the first time",
             "During the season players often acted individually; in the final game they moved with real cohesion and trust",
             "During the season they played against the Eagles exclusively; in the final game they faced a new opponent"

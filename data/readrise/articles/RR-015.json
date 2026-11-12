@@ -202,7 +202,7 @@
             "To show they are great athletes, too",
             "To show they never need a coach",
             "To show the races are very short",
-            "To show they only race at night"
+            "To show they race against other teams"
           ],
           "answer": "A",
           "skill": "inference",
@@ -295,7 +295,7 @@
           "options": [
             "The Olympic Games have changed but still value sport, friendship, and fair play.",
             "The ancient Games were better than the modern Games in every way, and today's athletes are worse.",
-            "Only athletes from Greece can win medals at the Olympic Games, since the rules have not changed.",
+            "The Olympic Games began in Rome and moved to Greece when more nations joined in.",
             "The Paralympic Games are more popular than the Olympics, and so they have replaced them for most people."
           ],
           "answer": "A",
@@ -380,7 +380,7 @@
           "options": [
             "The modern Games are held only in Olympia.",
             "The modern Games include women and many nations.",
-            "The modern Games have only one running race.",
+            "The modern Games are held in one city each time.",
             "The modern Games give olive wreaths, not medals."
           ],
           "answer": "B",
@@ -396,8 +396,8 @@
           "stem": "The article says athletes promise to compete honestly. What does this suggest about the Games?",
           "options": [
             "Rules matter only in the ancient sports.",
-            "Cheating is always discovered right away.",
-            "Winning is not important to athletes at all.",
+            "Cheating is discovered right away.",
+            "Winning is not important to athletes.",
             "How athletes win matters, not just winning."
           ],
           "answer": "D",
@@ -414,7 +414,7 @@
           "options": [
             "They train hard and compete at a high level.",
             "They compete only in running races.",
-            "They take part only in the ancient Games.",
+            "They mostly compete in team sports, not races.",
             "They do not need to follow the rules."
           ],
           "answer": "A",
@@ -559,7 +559,7 @@
           "options": [
             "Greek cities never went to war with one another.",
             "The Games mattered enough to pause conflicts.",
-            "Only soldiers were allowed to attend the Games.",
+            "Soldiers trained for war by running at the Games.",
             "The Games were held in secret to avoid fighting."
           ],
           "answer": "B",
@@ -593,7 +593,7 @@
           "options": [
             "To list the punishments for modern athletes",
             "To show that only ancient athletes cared about fairness",
-            "To argue that winning is the only goal of sport",
+            "To argue that winning medals matters more than fair play",
             "To show that honesty links the ancient and modern Games"
           ],
           "answer": "D",

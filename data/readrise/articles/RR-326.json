@@ -134,7 +134,7 @@
             "Land that has water on most sides but joins bigger land on one side",
             "A small lake that sits surrounded by dry desert land and sand dunes",
             "A tall, steep mountain that rises right next to the sea and the beach",
-            "A country that has absolutely no coastline anywhere at all, only dry land"
+            "A country that has absolutely no coastline, only dry land"
           ],
           "answer": "A",
           "skill": "detail",
@@ -168,7 +168,7 @@
             "Because mountains block most of the land routes",
             "Because the desert makes land travel faster",
             "Because water surrounds it on three sides, so ships can reach many parts",
-            "Because the north side of the peninsula has no countries at all"
+            "Because the north side of the peninsula has few countries and roads"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -184,8 +184,8 @@
           "options": [
             "Only the northern side, next to Jordan and Iraq, because it is dry",
             "The western, southern, or eastern sides, since water borders them",
-            "No side at all, since the peninsula has no coastline",
-            "Only the side next to Jordan and Iraq in the north"
+            "No side, since the peninsula has no coastline",
+            "The side next to Jordan and Iraq in the north"
           ],
           "answer": "B",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Water on three sides and varied terrain shape the Arabian Peninsula and the countries on it.",
             "The Empty Quarter is the hottest desert in the entire world and has the highest dunes.",
             "Saudi Arabia is the only country located on the Arabian Peninsula, with no neighbours.",
-            "Mountains cover almost the entire Arabian Peninsula, leaving little room for any desert land."
+            "Mountains cover most of the Arabian Peninsula, leaving little room for desert land."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -347,7 +347,7 @@
             "Extremely wealthy from oil and gas alone",
             "Self-governing, with their own independent government",
             "Located only near the very driest deserts",
-            "Connected only by a single shared desert border"
+            "Connected by a single shared desert border and one ruler"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -397,7 +397,7 @@
           "options": [
             "Because each country controls a distinct stretch of coastline with its own terrain",
             "Because they are located on two separate peninsulas that are far from each other",
-            "Because one of them has no coastline at all, and the other has a very long one",
+            "Because one of them has no coastline, and the other has a very long one",
             "Because the article says all countries on the peninsula are identical in every way"
           ],
           "answer": "A",
@@ -415,7 +415,7 @@
             "By defining a peninsula, then describing its water, countries, and terrain",
             "By telling a personal travel story about visiting Arabia",
             "By ranking all the countries from richest to the very poorest",
-            "By comparing the geography of the peninsula only to distant islands"
+            "By comparing the geography of the peninsula to distant islands in other oceans of the world"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "The Arabian Peninsula's surrounding seas and varied terrain have shaped its countries, climate, and long history of trade.",
-            "The Strait of Hormuz is the only important waterway in the entire Middle East, and nothing else matters.",
-            "All of the countries on the Arabian Peninsula have identical landscapes and climates, with deserts everywhere and no seas at all.",
-            "Oil is the only resource that has ever mattered on the Arabian Peninsula, and trade was never important there."
+            "The Strait of Hormuz is the most important waterway in the Middle East, and the other seas matter little to trade.",
+            "The countries on the Arabian Peninsula have the same landscapes and climates, with deserts and few seas.",
+            "Oil is the main resource that has mattered on the Arabian Peninsula, and trade was less important there."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -507,9 +507,9 @@
           "stem": "Why does the peninsula's position across equatorial and subtropical latitudes result in an arid climate for much of the year, based on the article?",
           "options": [
             "Because this position leads to intense heat with rainfall limited to brief seasons",
-            "Because mountains completely block the ocean from the interior, so no rain can come",
+            "Because mountains block the ocean from the interior, so no rain can come",
             "Because every country on the peninsula restricts rainfall intentionally by law",
-            "Because the surrounding gulfs evaporate all nearby moisture instantly and leave none"
+            "Because the surrounding gulfs evaporate nearby moisture quickly and leave little"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -543,7 +543,7 @@
             "Because so much of the world's oil exports must pass through that narrow waterway",
             "Because the strait is the only body of water on the entire peninsula, so ships must use it",
             "Because the strait connects directly to the Empty Quarter and its sand dunes",
-            "Because no ships are allowed to use the Red Sea, so all trade goes around"
+            "Because ships are not allowed to use the Red Sea, so trade goes around"
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,10 +557,10 @@
         {
           "stem": "If overland trade routes across the Empty Quarter had been the only option available in ancient times, what does the article suggest would likely have happened to trade between Arabia and distant regions?",
           "options": [
-            "Trade would probably have moved just as quickly as it did by sea.",
+            "Trade would probably have moved about as quickly as it did by sea or by camel.",
             "Trade would have been considerably slower than the maritime routes that existed.",
-            "Trade would have stopped completely, with no alternative at all.",
-            "Trade would likely have shifted entirely to air travel instead of ships."
+            "Trade would have stopped completely, with no alternative.",
+            "Trade would likely have shifted to air travel instead of ships."
           ],
           "answer": "B",
           "skill": "inference",
@@ -577,7 +577,7 @@
             "To argue that oil has never been economically important to the region in any age or any year",
             "To highlight that the peninsula's maritime location created valuable trade connections long before oil was found",
             "To prove that ancient trade routes still operate unchanged today across the whole of the peninsula, with the same ships and the same roads",
-            "To suggest that geography and natural resources are unrelated topics for any country"
+            "To suggest that geography and natural resources are unrelated topics for a country"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -593,8 +593,8 @@
           "options": [
             "That rugged terrain made trade impossible throughout history for all the people who lived there, in every century",
             "That varied terrain and surrounding water together shaped where people could travel, settle, and trade",
-            "That trade occurred only in the mountainous regions of the peninsula and nowhere else, since the coast was empty",
-            "That terrain has had no real effect on the region's history or on its people at all"
+            "That trade occurred mainly in the mountainous regions of the peninsula, since the coast was empty",
+            "That terrain has had no real effect on the region's history or on its people"
           ],
           "answer": "B",
           "skill": "author-purpose",

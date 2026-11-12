@@ -295,8 +295,8 @@
      "options": [
       "Sea turtles face threats like habitat loss and pollution, but conservation efforts such as reserves and hatcheries can protect them.",
       "All sea turtles live only in zoos, because the sea is now too dirty and too warm for any turtle to live in it.",
-      "The Red Sea has no sandy beaches, so turtles cannot lay their eggs anywhere along its coast, and none visit it.",
-      "Hatchlings always crawl toward bright lights on purpose, because they want to find the city and live with people near the shore."
+      "The Red Sea has few sandy beaches, so turtles rarely lay their eggs along its coast.",
+      "Hatchlings crawl toward bright lights on purpose, because they want to find the city and live with people near the shore."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -347,7 +347,7 @@
       "They dislike all other beaches in the entire region equally for no clear reason.",
       "They are guided by instinct or memory tied to that coastline.",
       "They are forced to return by boat.",
-      "They cannot swim far from one beach."
+      "They are too tired to swim far from one beach."
      ],
      "answer": "B",
      "skill": "inference",
@@ -472,10 +472,10 @@
     {
      "stem": "Which sentence best summarizes the article?",
      "options": [
-      "Sea turtles face no real threats anywhere in the world, so nobody needs to protect their beaches, eggs, or the sea around them, and the number of turtles keeps on growing every year, as many people say today.",
-      "Predators are the only threat sea turtles have ever faced, and people do not harm them at all, so reserves and hatcheries are not needed, and the turtle numbers are rising.",
+      "Sea turtles face few real threats, so their beaches and eggs need little protection, and the number of turtles keeps growing each year in most seas around the world, as scientists in many countries report.",
+      "Predators are the main threat sea turtles face, and people rarely harm them, so the turtle numbers are rising without help.",
       "Sea turtle populations are declining primarily because of habitat loss, light pollution, and ocean pollution, but conservation programs like protected reserves and hatcheries are helping restore their nesting beaches.",
-      "Hatcheries have completely replaced natural nesting on every beach, so no turtle lays eggs in sand anymore, and the sea turtle populations are now larger than ever before in history."
+      "Hatcheries have replaced natural nesting on most beaches, so few turtles lay eggs in sand now, and their numbers are larger than before."
      ],
      "answer": "C",
      "skill": "central-idea",
@@ -523,9 +523,9 @@
     {
      "stem": "What can be inferred about why turtles rarely nest successfully on unfamiliar shores?",
      "options": [
-      "Turtles absolutely cannot swim to any new locations at all under any circumstances whatsoever, according to recent studies.",
+      "Turtles absolutely cannot swim to any new locations under any circumstances, according to recent studies.",
       "Turtles instinctively rely on conditions specific to the beach where they themselves hatched.",
-      "Unfamiliar beaches always lack sand.",
+      "Unfamiliar beaches lack sand.",
       "Turtles prefer crowded, noisy beaches."
      ],
      "answer": "B",
@@ -574,10 +574,10 @@
     {
      "stem": "How does the article structure its explanation of sea turtle conservation?",
      "options": [
-      "It presents conservation efforts in extremely full detail before ever mentioning any threats or problems faced by turtles at all.",
-      "It focuses only on one single species of turtle.",
+      "It presents conservation efforts in extremely full detail before ever mentioning any threats or problems faced by turtles.",
+      "It focuses on one species of turtle.",
       "It explains the natural nesting process first, then threats, then the conservation efforts that address them.",
-      "It argues that conservation efforts have entirely failed."
+      "It argues that conservation efforts have failed."
      ],
      "answer": "C",
      "skill": "text-structure",
@@ -593,8 +593,8 @@
      "options": [
       "Turtles depend on very specific beaches and rarely nest successfully elsewhere.",
       "Construction immediately kills every adult turtle in the region, so the whole group is lost",
-      "Turtles abandon the ocean entirely once one beach is lost, and live on land",
-      "Losing a beach causes more predators to appear everywhere, and so all the turtles die"
+      "Turtles abandon the ocean once one beach is lost, and live on land",
+      "Losing a beach causes more predators to appear, so most of the turtles die"
      ],
      "answer": "A",
      "skill": "cause-effect",

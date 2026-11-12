@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How a village gets through a drought by sharing water fairly",
-            "How to build a brand-new mosque for the whole village",
+            "How to build a brand-new mosque for the whole village in the town",
             "A race between two water delivery trucks in summer",
-            "Steps for growing new plants without any water at all"
+            "Steps for growing new plants without any water"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -131,7 +131,7 @@
         {
           "stem": "What did Lama see when she checked the big water tank?",
           "options": [
-            "The tank was completely full of water",
+            "The tank was full of water",
             "The water level was very low",
             "The tank had a large crack in it",
             "Workers were busy painting the tank"
@@ -201,7 +201,7 @@
           "options": [
             "He had just finished building it that same week",
             "He remembered it from long ago, before the tank was built",
-            "He read about a similar cistern in a new storybook",
+            "He read about a similar cistern in a new storybook from his school",
             "He dreamed about a hidden cistern the night before"
           ],
           "answer": "B",
@@ -217,7 +217,7 @@
           "stem": "Why was finding the cistern good news for the village?",
           "options": [
             "It meant that nobody needed buckets ever again in the village",
-            "It meant the truck would never need to come at all",
+            "It meant the truck would not need to come",
             "It gave them a second place to find water while they waited",
             "It let the council remove the ration right away that same day"
           ],
@@ -233,9 +233,9 @@
         {
           "stem": "What lesson does the story mainly teach?",
           "options": [
-            "Trucks always travel faster than people expect them to on roads",
+            "Trucks travel faster than people expect them to on roads",
             "Sand is far more useful to a desert village than clean water, the story says",
-            "Villages should stop using water tanks completely forever and trust the rain",
+            "Villages should stop using water tanks and trust the rain",
             "Sharing fairly and working together can help people through hard times"
           ],
           "answer": "D",
@@ -347,7 +347,7 @@
             "To punish families who had used too much water before",
             "To make sure the limited water supply lasted until help arrived",
             "To force every family to buy water from the truck",
-            "To test how long people could survive without any water"
+            "To test how long people could survive with little water in the village"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -362,7 +362,7 @@
           "stem": "In the article, the word scarce means —",
           "options": [
             "easy to find almost anywhere you look around",
-            "completely gone forever with none left at all",
+            "gone with none left",
             "stored safely underground for later use by people",
             "very hard to find because there is little of it"
           ],
@@ -379,7 +379,7 @@
           "stem": "Why was finding the old cistern important for the village?",
           "options": [
             "It gave the village a second water source while everyone waited",
-            "It replaced the need for the water truck forever, so the truck was sent away",
+            "It replaced the need for the water truck, so the truck was sent away",
             "It proved that rain would fall again very soon, so the people could relax",
             "It let the council cancel the ration completely, so everyone drank freely"
           ],
@@ -396,7 +396,7 @@
           "stem": "What can you tell about Lama's grandfather from the story?",
           "options": [
             "He had never visited the old mosque before that day in his life",
-            "He did not care about the water shortage at all, so he stayed home",
+            "He did not care about the water shortage, so he stayed home",
             "He remembered important information from the village's past",
             "He built the stone cistern himself that same week for the village"
           ],
@@ -414,7 +414,7 @@
           "options": [
             "To explain exactly how to build a new mosque in the village",
             "To compare the village of Zahra with a much larger city",
-            "To argue that water trucks are completely unnecessary",
+            "To argue that water trucks are unnecessary",
             "To show two ways the village coped with a serious water shortage"
           ],
           "answer": "D",
@@ -474,7 +474,7 @@
           "options": [
             "A village overcomes a drought through fair allocation and collaboration",
             "A village abandons its old mosque during a very difficult drought, then moves away",
-            "A single family solves the whole drought entirely on its own",
+            "A single family solves the whole drought on its own",
             "The article mainly describes how to construct a modern water tank"
           ],
           "answer": "A",

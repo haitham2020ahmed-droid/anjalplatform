@@ -132,7 +132,7 @@
      "stem": "What color is copper?",
      "options": [
       "Gold",
-      "Silver",
+      "Silver-white",
       "Red-orange",
       "Black"
      ],
@@ -202,7 +202,7 @@
       "To make the metal much softer",
       "To add a pattern to the finished piece",
       "To cool the metal down faster",
-      "To help turn the copper into brass"
+      "To help turn the copper into brass in the fire"
      ],
      "answer": "B",
      "skill": "inference",
@@ -219,7 +219,7 @@
       "Because it is the cheapest thing in the whole market on that day, so everyone buys it",
       "Because the article says it is a gift or a useful item for the home",
       "Because it is the only item that is sold in the whole market",
-      "Because it never needs to be cleaned or polished"
+      "Because it rarely needs to be cleaned or polished"
      ],
      "answer": "B",
      "skill": "inference",
@@ -293,8 +293,8 @@
     {
      "stem": "Which sentence best states the main idea of the article?",
      "options": [
-      "Copper is always more valuable than brass in the markets of Arabia, and brass is used only for toys and for small gifts.",
-      "Markets in Arabia sell only metal items, and no cloth, food, or spices are sold in the stalls.",
+      "Copper is more valuable than brass in the markets of Arabia, and brass is used only for toys and for small gifts.",
+      "Markets in Arabia sell mostly metal items, and little cloth, food, or spices.",
       "Artisans use hammering, heating, and engraving to turn flat copper and brass into useful, decorative objects.",
       "Apprentices work faster than master craftsmen, and so masters are no longer needed in the workshops."
      ],
@@ -327,9 +327,9 @@
     {
      "stem": "Why does the craftsman repeatedly heat the metal during shaping?",
      "options": [
-      "To melt it completely into a liquid",
+      "To melt it into a liquid",
       "To make it soft so it can bend without cracking",
-      "To clean away dirt from the whole surface",
+      "To clean away dirt from the whole surface before it is sold",
       "To change its color permanently too"
      ],
      "answer": "B",
@@ -381,7 +381,7 @@
       "Because the items are the cheapest things available in the market",
       "Because the handmade items are useful at home and meaningful as gifts",
       "Because the law requires every single family to own one at home",
-      "Because the items can only be found in one small shop in the city"
+      "Because the items are found in one small shop in the city"
      ],
      "answer": "B",
      "skill": "inference",
@@ -472,10 +472,10 @@
     {
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
-      "Brass is always more expensive than copper in every market, so only rich buyers can afford any metalwork at all.",
+      "Brass is more expensive than copper in every market, so only rich buyers can afford any metalwork.",
       "Copper and brass metalwork relies on demanding hand techniques and long apprenticeships that keep an old tradition alive today.",
-      "Modern machines have completely replaced hand-hammered metal objects, so no one works with a hammer or an anvil in any workshop today.",
-      "Souks exist only to sell handmade coffee pots, and nothing else is ever sold in them, by anyone, at any time of day."
+      "Modern machines have replaced hand-hammered metal objects, so few people work with a hammer or an anvil in workshops today.",
+      "Souks exist mainly to sell handmade coffee pots, and few other goods are sold in them."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -489,10 +489,10 @@
     {
      "stem": "According to the article, what distinguishes an alloy like brass from a pure metal like copper?",
      "options": [
-      "An alloy is always considerably softer than any pure metal, so it cannot be used to make strong tools.",
+      "An alloy is considerably softer than any pure metal, so it cannot be used to make strong tools.",
       "An alloy is a deliberate combination of two or more metals, unlike a pure metal.",
-      "An alloy cannot ever be hammered into any new shape at all, so it can only be cast in a mold.",
-      "An alloy is only used for engraving tools, never for finished pieces."
+      "An alloy is too hard to hammer into a new shape, so it is cast in a mold.",
+      "An alloy is used mainly for engraving tools, not for finished pieces."
      ],
      "answer": "B",
      "skill": "detail",
@@ -508,8 +508,8 @@
      "options": [
       "To explain that chasing removes thin slices of metal entirely",
       "To show how chasing differs from techniques that cut or carve material out",
-      "To argue that chasing is always faster than engraving and needs fewer tools",
-      "To suggest that chasing only ever works on soft wood and never on metal"
+      "To argue that chasing is faster than engraving and needs fewer tools",
+      "To suggest that chasing works on soft wood better than on metal"
      ],
      "answer": "B",
      "skill": "vocabulary",
@@ -576,8 +576,8 @@
      "options": [
       "Raising forms the object's basic shape, while chasing adds decorative patterns to a shape that already exists.",
       "Raising decorates the surface, while chasing forms the basic shape of the object from a flat sheet of metal.",
-      "Both techniques only affect the color of the metal, and neither one changes its shape or surface at all.",
-      "Raising is used only on brass, while chasing is used only on copper, so the two never meet in one piece."
+      "Both techniques only affect the color of the metal, and neither one changes its shape or surface.",
+      "Raising is used on brass, while chasing is used on copper, so the two are rarely used on one piece."
      ],
      "answer": "A",
      "skill": "compare",

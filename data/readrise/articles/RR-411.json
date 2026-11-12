@@ -148,7 +148,7 @@
     {
      "stem": "Why does Bo give the wrong answer to Fahd's question?",
      "options": [
-      "Bo does not know how to do subtraction problems at all",
+      "Bo does not know how to do subtraction problems",
       "Fahd simply does not raise his hand to ask it",
       "Bo does not understand Fahd's own special wording",
       "The class was far too noisy for Bo to hear clearly"
@@ -295,7 +295,7 @@
       "A new robot named Bo struggles to understand a student's own speech, until classmates help it learn.",
       "A new robot quietly takes over every one of the teacher's daily jobs in the school, then the teacher leaves.",
       "A student named Fahd gets punished harshly for talking in his own way in class, so he stops talking.",
-      "A brand-new robot refuses to work at all until it receives a reward from the whole class."
+      "A brand-new robot refuses to work until it receives a reward from the whole class."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -312,7 +312,7 @@
       "Bo rolls through the classroom door for the first time",
       "A few kids laugh, and Ms. Huda asks the class to be patient",
       "The whole school quickly hears about Bo's brand-new job",
-      "Fahd simply decides not to ask any more questions at all"
+      "Fahd simply decides not to ask any more questions"
      ],
      "answer": "B",
      "skill": "sequence",
@@ -346,7 +346,7 @@
       "watch something happen without joining in",
       "do something again and again to get much better",
       "write a long report about a difficult subject",
-      "give up completely on a hard task right away"
+      "give up on a hard task right away"
      ],
      "answer": "B",
      "skill": "vocabulary",
@@ -363,7 +363,7 @@
       "Different wording gives Bo more chances to recognize a match",
       "Ms. Huda strictly requires every student to speak at least once",
       "The students are simply bored and want something new to do",
-      "Fahd honestly cannot repeat his own question a second time"
+      "Fahd forgets his own question after asking it"
      ],
      "answer": "A",
      "skill": "inference",
@@ -377,10 +377,10 @@
     {
      "stem": "What does Bo's success by the end of the story suggest about how robots like Bo learn?",
      "options": [
-      "They learn instantly and never need any examples at all",
+      "They learn instantly and never need any examples to learn from",
       "They can improve by comparing new input to stored patterns",
-      "They stop learning completely right after their first day",
-      "They only ever learn from just one single student at a time"
+      "They stop learning right after their first day",
+      "They learn from one student at a time"
      ],
      "answer": "B",
      "skill": "inference",
@@ -523,7 +523,7 @@
      "options": [
       "shared by every person in the class",
       "written down clearly in a classroom textbook",
-      "programmed permanently into every robot",
+      "programmed into each robot",
       "distinctive and specific to just one person"
      ],
      "answer": "D",
@@ -539,9 +539,9 @@
      "stem": "Based on the story, what can be inferred about natural language processing?",
      "options": [
       "It lets a computer recognize speech patterns it has seen in examples before",
-      "It lets a computer understand any dialect instantly without training",
-      "It is a skill that only humans, never computers, can develop",
-      "It completely prevents computers from ever making any mistake at all"
+      "It lets a computer understand any dialect instantly without training from people",
+      "It is a skill that humans develop but computers do not",
+      "It prevents computers from making mistakes"
      ],
      "answer": "A",
      "skill": "inference",
@@ -558,7 +558,7 @@
       "To strongly suggest that Bo is actually far more intelligent than any student",
       "To help students see repeated practice as something they share with Bo",
       "To clearly explain why robots should fully replace human teachers",
-      "To firmly warn the students that robots can never make mistakes"
+      "To warn the students that robots rarely make mistakes"
      ],
      "answer": "B",
      "skill": "inference",
@@ -572,7 +572,7 @@
     {
      "stem": "How does Bo's method of learning Fahd's phrasing compare with how engineers later use the classroom experience?",
      "options": [
-      "Both methods rely entirely on random guesswork rather than real examples",
+      "Both methods rely on random guesswork rather than real examples",
       "Bo learns only through punishment, while engineers learn through rewards",
       "Both use real examples to improve performance, for Bo and for robots nationwide",
       "Bo's learning has absolutely no connection to the engineers' later work"

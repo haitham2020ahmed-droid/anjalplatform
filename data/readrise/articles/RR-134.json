@@ -134,7 +134,7 @@
             "They sold them all to traders.",
             "They hid them in the river.",
             "They wrote them again in Arabic.",
-            "They threw them all away."
+            "They sold them in the market."
           ],
           "answer": "C",
           "skill": "detail",
@@ -202,7 +202,7 @@
             "The army wrote new books for the city.",
             "Nobody had ever read any of the old books.",
             "The ideas had already spread to other places.",
-            "The books were all made of stone."
+            "The books were made of stone."
           ],
           "answer": "C",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell about the scholars from the article?",
           "options": [
-            "They did not like math at all.",
+            "They did not like math.",
             "They were curious and loved to learn.",
             "They only cared about money and gold.",
-            "They never looked at the sky."
+            "They did not like to look at the sky."
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,7 +233,7 @@
         {
           "stem": "How does the author mostly tell the story of the House of Wisdom?",
           "options": [
-            "From the newest event to the oldest",
+            "From the newest event to the oldest in time",
             "As a list of rules",
             "As a poem about the river",
             "In time order, from its start to its end"
@@ -296,7 +296,7 @@
             "Baghdad was only a city for trade, and scholars never lived or worked there.",
             "The House of Wisdom gathered and grew knowledge that still matters today.",
             "Paper was invented by the scholars of Europe and then sent to Baghdad.",
-            "The caliphs did not care about learning, so they closed all the libraries."
+            "The caliphs did not care about learning, so they closed the libraries."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -362,9 +362,9 @@
           "stem": "Why did translating books into Arabic matter so much?",
           "options": [
             "It let people read ideas from many lands in one language.",
-            "It made every one of the books much shorter.",
+            "It made most of the books much shorter and easier to carry.",
             "It kept the books secret from most people.",
-            "It replaced all of the old math books in the city."
+            "It replaced the old math books in the city."
           ],
           "answer": "A",
           "skill": "inference",
@@ -378,10 +378,10 @@
         {
           "stem": "How were the scholars different from people who only copy books?",
           "options": [
-            "They never read old books at all.",
-            "They wrote only in the Greek language.",
+            "They never read old books.",
+            "They wrote in the Greek language.",
             "They added new discoveries, like algebra.",
-            "They worked alone and never shared their ideas."
+            "They worked alone and kept their ideas secret."
           ],
           "answer": "C",
           "skill": "detail",
@@ -413,9 +413,9 @@
           "stem": "Why does the author end the article by saying we still use these ideas today?",
           "options": [
             "To show that the House of Wisdom still matters",
-            "To argue that Baghdad was never attacked",
+            "To argue that Baghdad was never attacked by an army",
             "To explain how to translate a book",
-            "To list every scholar's name"
+            "To list the scholars' names"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -475,7 +475,7 @@
             "The House of Wisdom was mainly a place for storing gold and silver coins for the caliph.",
             "It gathered, preserved, and expanded knowledge that shaped later learning.",
             "Abbasid caliphs discouraged translation from other languages and burned most foreign books.",
-            "The Mongol attack ended all scientific progress forever, and no scholar ever wrote again."
+            "The Mongol attack ended all scientific progress, and no scholar ever wrote again."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "Why did paper make the House of Wisdom's work more effective?",
           "options": [
-            "Paper lasted forever, and fire could never damage the books.",
+            "Paper lasted, and fire could never damage the books.",
             "Paper cost far less than animal skins, so books spread more easily.",
-            "Paper allowed books to be printed quickly by large machines.",
-            "Paper was required by the caliphs' laws for all books."
+            "Paper allowed books to be printed quickly by large machines in the city of Baghdad.",
+            "Paper was required by the caliphs' laws for books."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -575,7 +575,7 @@
           "stem": "What does the work of the Banu Musa brothers suggest about scholars at the House of Wisdom?",
           "options": [
             "They studied only ancient poetry, and nothing else, in the library.",
-            "They worked only as translators of old books from Greece.",
+            "They worked mainly as translators of old books from Greece.",
             "They refused to read foreign books from other lands.",
             "They used their knowledge to build practical inventions."
           ],

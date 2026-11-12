@@ -150,8 +150,8 @@
           "options": [
             "Drink clean water",
             "Stay in bed all day",
-            "Eat only bread",
-            "Never go outside"
+            "Eat bread at each meal",
+            "Stay inside the house"
           ],
           "answer": "A",
           "skill": "detail",
@@ -398,7 +398,7 @@
             "They could not read any other language.",
             "It was the shortest medical book they had.",
             "It clearly explained how to find and treat diseases.",
-            "They were required to by the ruler of Bukhara."
+            "They were required to by the ruler of Bukhara in that time."
           ],
           "answer": "C",
           "skill": "inference",
@@ -540,7 +540,7 @@
         {
           "stem": "What can you infer from the fact that Ibn Sina often wrote while traveling from city to city?",
           "options": [
-            "He did not take his writing seriously at all, and he often stopped.",
+            "He did not take his writing seriously, and he often stopped.",
             "He was determined to keep writing even in difficult conditions.",
             "He wrote only short notes while he was traveling.",
             "He traveled because no city would accept him as a guest or give him a house."

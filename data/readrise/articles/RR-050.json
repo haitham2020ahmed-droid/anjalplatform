@@ -184,7 +184,7 @@
           "options": [
             "To keep the tools clean",
             "So the things do not float away",
-            "So the rocket can go faster",
+            "So the rocket can go faster into space",
             "To keep the food warm"
           ],
           "answer": "B",
@@ -364,7 +364,7 @@
             "The bags keep out loud noise from the rocket engines.",
             "Without them, they would float around while sleeping.",
             "The floor is too cold to sleep on in space.",
-            "The station has no room for any beds at all."
+            "The station has no room for any beds."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -558,7 +558,7 @@
           "stem": "What can you infer about why students across Saudi Arabia joined the experiments?",
           "options": [
             "It linked the mission to learning in schools across the country.",
-            "The astronauts did not have time to finish their own work.",
+            "The astronauts did not have time to finish their own work on the station.",
             "The students' results were sent to the commander to grade.",
             "The schools needed to test their new equipment."
           ],
@@ -575,7 +575,7 @@
           "stem": "What does the last paragraph suggest about the long-term goal of the mission?",
           "options": [
             "To prove that the capsule could land on dry ground",
-            "To announce that Saudi Arabia's space program is now finished",
+            "To announce that Saudi Arabia's space program is now finished and will close soon",
             "To encourage young Saudis to choose careers in science and exploration",
             "To show that one mission is enough"
           ],
@@ -591,7 +591,7 @@
         {
           "stem": "Why does the author describe floating water drops and drifting pens?",
           "options": [
-            "To warn readers not to drink water in space",
+            "To warn readers not to drink water in space or on Earth",
             "To prove that pens do not work in space",
             "To compare the station with an airplane",
             "To help readers imagine what microgravity is like"

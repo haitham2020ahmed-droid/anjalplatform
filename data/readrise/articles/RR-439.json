@@ -312,7 +312,7 @@
           "options": [
             "She ran the same one kilometer every single week",
             "She gradually ran a little farther each week",
-            "She trained only in the final week before the race",
+            "She trained in the final week before the race",
             "She switched from running to swimming"
           ],
           "answer": "B",
@@ -363,8 +363,8 @@
           "options": [
             "all at once, very suddenly",
             "a little at a time, slowly",
-            "only during the summer",
-            "with no plan at all"
+            "during the summer",
+            "with no plan"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -474,7 +474,7 @@
           "options": [
             "Natural talent alone decides who finishes a long race.",
             "Patient training and steady pacing let Noor outlast faster, less careful runners.",
-            "Running fast at the very start of a race is always the wisest possible plan.",
+            "Running fast at the very start of a race is the wisest possible plan for a runner.",
             "A coach becomes unnecessary once a runner trains for a few weeks."
           ],
           "answer": "B",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the story end by saying Noor's lesson applied to challenges \"both on and off the running track\"?",
           "options": [
-            "To hint that Noor plans to switch to a different sport entirely next year",
+            "To hint that Noor plans to switch to a different sport next year",
             "To suggest that pacing and determination help with more than just running",
             "To indicate that the story's events were only a dream at night",
-            "To argue that running matters less than other activities in school"
+            "To argue that running matters less than other activities in school at school"
           ],
           "answer": "B",
           "skill": "author-purpose",

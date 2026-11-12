@@ -219,7 +219,7 @@
             "It stayed on Earth the whole time of the long trip",
             "It was used only to carry food and water for the crew",
             "It was built to fly down and land on the Moon's surface",
-            "It never separated from the main ship in space at all"
+            "It stayed joined to the main ship in space"
           ],
           "answer": "C",
           "skill": "inference",
@@ -295,7 +295,7 @@
           "options": [
             "The Apollo 11 mission sent astronauts to land on the Moon and return home safely.",
             "The Moon's gravity pulls about one-sixth as strongly as Earth's gravity does.",
-            "Michael Collins built the entire Saturn V rocket completely by himself.",
+            "Michael Collins built the entire Saturn V rocket by himself.",
             "The Pacific Ocean is simply the largest ocean found anywhere on Earth."
           ],
           "answer": "A",
@@ -364,7 +364,7 @@
             "A spacecraft landing in the ocean",
             "A kind of swimming race",
             "A storm over the ocean",
-            "A rocket launching into space"
+            "A rocket launching into space at night"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Mission controllers on Earth deserve all the credit for this mission's success, and the astronauts did little.",
+            "Mission controllers on Earth deserve most of the credit for this mission's success, while the astronauts mainly followed orders.",
             "Reaching orbit depended on a planned trajectory, a controlled descent, and quarantine precautions to land humans on the Moon safely.",
             "The Moon's gravity pulls exactly as strongly as Earth's own gravity does, so walking there feels the same.",
-            "Telemetry technology was invented specifically just for the Apollo 11 mission, and nobody has used it since that single flight into space."
+            "Telemetry technology was invented for the Apollo 11 mission, and it was used on that single flight into space."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -492,7 +492,7 @@
             "Data automatically transmitted from a spacecraft's instruments",
             "A particular type of fuel used only in rocket engines on the ground",
             "A special kind of material used to make spacesuits and helmets",
-            "A tool astronauts used only to collect Moon rocks and dust"
+            "A tool astronauts used to collect Moon rocks and dust"
           ],
           "answer": "A",
           "skill": "detail",

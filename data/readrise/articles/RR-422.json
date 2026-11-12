@@ -295,8 +295,8 @@
           "options": [
             "Omar learns his family's lantern-making craft and, through patient practice and his father's guidance, creates a meaningful birthday gift for his grandfather.",
             "Omar decides lantern-making is too hard and quits, so his father sells the shop and moves the family to a faraway city for good.",
-            "Khalid takes over the family shop from Omar, and Omar goes to school to learn another job and never makes a lantern again, even for fun.",
-            "Grandpa Saeed opens a brand-new workshop for his birthday, and the whole family moves into it, so Omar has no gift to make for him at all, and the lantern is never made."
+            "Khalid takes over the family shop from Omar, and Omar goes to school to learn another job and never makes a lantern again, even for fun with his family.",
+            "Grandpa Saeed opens a new workshop for his birthday, and the family moves into it, so Omar decides to buy a gift instead."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -397,7 +397,7 @@
           "options": [
             "His early attempts used brass, while his finished lantern used wood",
             "His early attempts were crooked and uneven, while his finished lantern was clean and precise",
-            "His early attempts were about animals, while his finished lantern was about the sea",
+            "His early attempts were about animals, while his finished lantern was about the sea and the ships",
             "His early attempts took one night, while his finished lantern took one hour"
           ],
           "answer": "B",
@@ -475,7 +475,7 @@
             "Omar decides the ancestral craft is outdated and abandons it.",
             "Khalid criticizes Omar's lack of talent throughout the story.",
             "Omar's patient apprenticeship helps him create an intricate, symbolic lantern.",
-            "Grandpa Saeed retires from lantern-making on his ninetieth birthday."
+            "Grandpa Saeed retires from lantern-making on his ninetieth birthday and closes his shop."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -524,7 +524,7 @@
           "stem": "In the story, the word craftsmanship means —",
           "options": [
             "a tool used for engraving metal",
-            "a family celebration held once a year",
+            "a family celebration held once a year in the village",
             "a type of brass used in lanterns",
             "skill and care in making something by hand"
           ],
@@ -574,7 +574,7 @@
         {
           "stem": "Why did Grandpa react with such overwhelming pride when he lit the finished lantern?",
           "options": [
-            "Because the lantern was more expensive than any gift he had received before",
+            "Because the lantern was more expensive than any gift he had received before in his long life",
             "Because the pattern symbolically connected him to generations of family craftsmanship",
             "Because Omar had won a citywide competition with the design",
             "Because the lantern was the first one ever made in the workshop"
@@ -591,7 +591,7 @@
         {
           "stem": "Why does the author emphasize that the family's craft would continue despite modern conveniences?",
           "options": [
-            "To argue that modern tools are superior to traditional ones",
+            "To argue that modern tools are superior to traditional ones in old crafts",
             "To suggest that Omar will eventually abandon the craft",
             "To show that meaningful traditions can endure in a changing world",
             "To explain the economic cost of running a small workshop"

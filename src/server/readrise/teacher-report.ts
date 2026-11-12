@@ -17,7 +17,7 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import { assertClassRead } from "../teacher/coordinators";
-import { RETAKE_REASON, readRisePlaced, riyadhDay, s, toDate, weekLabel, weekStart, yearEndFor } from "./engine";
+import { RETAKE_REASON, readRisePlaced, riyadhDay, s, toDate, undoableDrop, weekLabel, weekStart, yearEndFor, type UndoableDrop } from "./engine";
 import { articleRuns, baseBand, isFirst, isStretch, keyRowsLookup, rapidRead, scoredRun, storedMs, tallyAnswers, tallyBy, tallyRuns } from "./first-try";
 import { gradeBand, readingSignals, type ReadingSignals } from "./dashboards";
 import { levelJourney, type HistoryKind } from "./growth-report";
@@ -391,6 +391,8 @@ export interface LevelDetail {
   forecast: { initial: number; updated: number } | null;
   assessments: AssessmentRow[];
   chart: { months: string[]; actual: (number | null)[]; initial: (number | null)[]; expected: (number | null)[]; meets: { min: number; max: number } } | null;
+  /** ↩️ round 11: the last automatic drop the teacher can still undo (engine.ts undoableDrop) */
+  undoDrop: UndoableDrop | null;
 }
 
 /** The questions and time of one placement / check (pure). */
@@ -424,7 +426,7 @@ export async function levelDetail(repo: Repo, actor: Actor, classId: string, stu
   const goal = { activities: yearRuns.length, target: ANNUAL_GOAL.activities, avg, targetAvg: ANNUAL_GOAL.avg, pctActivities: Math.min(100, Math.round((100 * yearRuns.length) / ANNUAL_GOAL.activities)), met: yearRuns.length >= ANNUAL_GOAL.activities && (avg ?? 0) >= ANNUAL_GOAL.avg };
   const assessments = placements.filter((p) => time(p.completedAt) >= yearStartT).map(assessmentOf).sort((a, b) => a.at.localeCompare(b.at));
   const placed = !!rr && readRisePlaced(rr, placements.some((p) => p.result !== null && p.result !== undefined));
-  const base: LevelDetail = { classId, studentId, name: who.name, grade: g, placed, goal, preTest: null, current: null, growth: null, band: null, bandLabel: null, forecast: null, assessments, chart: null };
+  const base: LevelDetail = { classId, studentId, name: who.name, grade: g, placed, goal, preTest: null, current: null, growth: null, band: null, bandLabel: null, forecast: null, assessments, chart: null, undoDrop: rr ? undoableDrop(changeRows, Number(rr.level), now) : null };
   if (!placed || !rr) return base;
   const o = overviewOf({ runs, rr, placed, placements, grade: g, yearStart: windows.yearStart, yearEnd, now });
   const startAt = new Date(time(o.preTestAt));

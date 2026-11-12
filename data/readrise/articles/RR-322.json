@@ -149,9 +149,9 @@
           "stem": "Why did many old cities grow next to rivers?",
           "options": [
             "Boats on rivers could carry goods quickly",
-            "Rivers were always frozen solid",
+            "Rivers were frozen solid",
             "Rivers kept the cities hidden",
-            "There were no roads anywhere on Earth"
+            "There were no roads anywhere on Earth at that time"
           ],
           "answer": "A",
           "skill": "detail",
@@ -185,7 +185,7 @@
             "The river keeps the soil frozen all year round",
             "The river water and rich soil help plants grow well",
             "Farmers paint the soil a dark color before planting",
-            "The soil near a river has no water in it at all"
+            "The soil near a river has no water in it"
           ],
           "answer": "B",
           "skill": "inference",
@@ -200,7 +200,7 @@
           "stem": "What can you tell about rivers from the fact that they are found on many continents?",
           "options": [
             "Only one single country in the whole world has a river",
-            "All rivers flow in exactly the same direction everywhere",
+            "All rivers flow in exactly the same direction everywhere across the land",
             "Rivers and the need for water are important all around the world",
             "Rivers only exist in places where it never, ever rains"
           ],
@@ -295,8 +295,8 @@
           "options": [
             "Rivers have served as natural highways that have shaped trade, farming, and great civilizations for thousands of years.",
             "Rivers are useful only for drinking water.",
-            "All rivers in the world flow through Africa.",
-            "Modern transportation, including highways, railways, and airplanes, has entirely and completely made every river on Earth totally unnecessary for any purpose at all."
+            "Most rivers in the world flow through Africa.",
+            "Modern transportation, including highways, railways, and airplanes, has made rivers much less useful for trade and farming."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,7 +327,7 @@
         {
           "stem": "Why did ancient Egyptian farmers depend on the Nile's floods?",
           "options": [
-            "The floods carried fish directly into the fields",
+            "The floods carried fish directly into the fields from the river",
             "The floods deposited rich soil that helped crops grow",
             "The floods kept the weather cool all year",
             "The floods built roads for trading goods"
@@ -347,7 +347,7 @@
             "Boats carving the land as they travel",
             "Dams blocking all water flow",
             "Flowing water gradually wearing down the land it crosses",
-            "Farmers slowly digging brand-new channels by hand every single year"
+            "Farmers slowly digging new channels by hand each year"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -363,7 +363,7 @@
           "options": [
             "frozen and covered in ice",
             "good for growing plants",
-            "completely covered by a dam",
+            "covered by a dam",
             "too dry for any crops"
           ],
           "answer": "B",
@@ -379,8 +379,8 @@
           "stem": "Why would a city built along a river have an advantage in trade long ago?",
           "options": [
             "Boats could move goods faster than carrying them overland",
-            "Rivers always froze solid, making travel easy",
-            "Cities built along rivers never ever needed any food at all",
+            "Rivers froze solid, making travel easy",
+            "Cities built along rivers never ever needed any food",
             "Rivers removed the need for farming nearby"
           ],
           "answer": "A",
@@ -474,8 +474,8 @@
           "options": [
             "Rivers form through gravity-driven flow, and throughout history they have functioned as vital routes for trade, agriculture, and the rise of major civilizations.",
             "Rivers are useful only in regions where no roads have ever been built.",
-            "Every major river on Earth originates in a desert.",
-            "Hydroelectric dams built across rivers are, according to this option, the only modern use that rivers have ever had or will ever have in the future, anywhere in the world."
+            "Most major rivers on Earth begin in a desert and end in the sea.",
+            "Hydroelectric dams are the main modern use of rivers, so trade and farming along them have mostly moved to other places far away from the water today."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -524,7 +524,7 @@
           "stem": "In the article, the word erode most nearly means —",
           "options": [
             "to slowly wear away land through the action of flowing water",
-            "to quickly and completely flood an entire city within minutes",
+            "to flood an entire city quickly within a few minutes of heavy rain",
             "to build a strong wall across a river",
             "to plant new crops along a riverbank"
           ],
@@ -557,7 +557,7 @@
         {
           "stem": "Which sequence correctly reflects the process described in the article by which a river forms?",
           "options": [
-            "A dam is first built by people long ago, water slowly collects behind it over time, and tributaries only appear sometime afterward as a result",
+            "A dam is first built by people long ago, water slowly collects behind it over time, and tributaries only appear sometime afterward",
             "A valley is eroded first, and then rain begins to fall into it",
             "Boats travel along dry land, and water later fills in behind them",
             "Precipitation and snow accumulate in mountains, flow downhill under gravity, and tributaries converge into a larger river"
@@ -594,7 +594,7 @@
             "Irrigation involves people actively directing water to crops, while flooding happens naturally when a river rises",
             "Irrigation only happens in deserts with no rivers nearby",
             "Irrigation and flooding are described as exactly the same process",
-            "Irrigation completely and entirely removes all possible need for fertile soil of any kind whatsoever, according to this incorrect option"
+            "Irrigation adds fertile soil to fields, while flooding washes the soil away from the river and its banks"
           ],
           "answer": "A",
           "skill": "compare",

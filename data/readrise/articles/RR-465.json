@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "A man who built the first tall tower in a city in the article",
+            "A man who built the first tall tower in a city",
             "A man named al-Khwarizmi who helped invent a kind of math called algebra",
-            "A woman who sailed across the sea to a new land overall",
-            "A king who ruled over a large, wealthy kingdom, as the article explains"
+            "A woman who sailed across the sea to a new land and wrote a book about it",
+            "A king who ruled over a large, wealthy kingdom"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -132,7 +132,7 @@
           "stem": "Where did al-Khwarizmi live?",
           "options": [
             "Paris",
-            "Rome in the article",
+            "Rome",
             "Baghdad",
             "Cairo"
           ],
@@ -182,10 +182,10 @@
         {
           "stem": "Why did al-Khwarizmi's new number signs help people?",
           "options": [
-            "Because they made books much heavier, as the article explains",
-            "Because they made writing completely unnecessary",
+            "Because they made books much heavier",
+            "Because they made writing unnecessary for traders and builders",
             "Because they made adding and solving problems much faster",
-            "Because they made buildings taller in the article"
+            "Because they made buildings taller"
           ],
           "answer": "C",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the article mostly tell its information about al-Khwarizmi?",
           "options": [
-            "By comparing many different kinds of boats overall, according to the text",
+            "By comparing many different kinds of boats that sailed from his home city",
             "By explaining who he was, what he wrote, and how his ideas spread to others",
-            "By listing steps for building a house in the article in this case",
-            "By naming famous painters from long ago, as the article explains"
+            "By listing steps for building a house",
+            "By naming famous painters from long ago"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Al-Khwarizmi invented algebra in Europe before moving to Baghdad overall, according to the text",
+            "Al-Khwarizmi invented algebra in Europe and later moved to Baghdad to teach it to young students at the palace",
             "Al-Khwarizmi wrote an influential math book that gave us algebra and later spread his ideas across the world",
-            "Al-Khwarizmi's book used number signs instead of plain words, as the article explains",
-            "Traders refused to use al-Khwarizmi's math methods at all in the article in this case"
+            "Al-Khwarizmi's book used number signs instead of plain words",
+            "Traders refused to use al-Khwarizmi's math methods"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -345,8 +345,8 @@
           "stem": "What can you infer about why scholars far away wanted to study al-Khwarizmi's book?",
           "options": [
             "His methods for solving problems were likely useful and not widely known elsewhere yet",
-            "They wanted to prove his math methods were completely wrong in the article",
-            "They had already invented the exact same methods themselves, as the article explains",
+            "They wanted to prove his math methods were wrong",
+            "They had already invented the same methods themselves and wanted to check that his answers matched",
             "They were required by law to read every math book ever written"
           ],
           "answer": "A",
@@ -361,10 +361,10 @@
         {
           "stem": "What can you infer about daily life in al-Khwarizmi's region once his new number signs spread?",
           "options": [
-            "People stopped trading goods with each other entirely overall",
-            "Builders stopped measuring land before building in the article",
+            "People stopped trading goods with each other",
+            "Builders stopped measuring land before building",
             "Everyday tasks like trading and building likely became faster and more accurate",
-            "Daily work became slower than it had been before, as the article explains"
+            "Daily work became slower than it had been before because the new signs were hard to learn"
           ],
           "answer": "C",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "How is the information in the article mostly organized?",
           "options": [
-            "By comparing modern calculators with ancient number signs",
+            "By comparing modern calculators with ancient number signs and the people who used them",
             "By following al-Khwarizmi's life and ideas in the order they happened over time",
-            "By explaining exactly how to build a house step by step in the article",
-            "By arguing that plain words are always better than number signs"
+            "By explaining exactly how to build a house step by step",
+            "By arguing that plain words are better than number signs"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "Why did al-Khwarizmi's methods help traders work in a fair way?",
           "options": [
             "Because his careful, step-by-step methods made calculating prices more accurate",
-            "Because the government required every trader to use them in the article",
-            "Because his methods made trading completely free of cost, as the article explains",
-            "Because his methods were only available to wealthy traders"
+            "Because the government required each trader to use them and checked their books each month",
+            "Because his methods made trading free of cost",
+            "Because his methods were available to wealthy traders"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "European scholars invented algebra before al-Khwarizmi's treatise appeared overall, according to the text",
+            "European scholars invented algebra before al-Khwarizmi's treatise appeared",
             "Al-Khwarizmi's systematic mathematical treatise, written in Baghdad, established algebra and eventually transformed mathematics across Europe",
-            "Al-Khwarizmi's treatise relied primarily on modern mathematical symbols, as the article explains at that time",
-            "Traders and builders found his methods impractical for everyday work in the article in this case for this reason"
+            "Al-Khwarizmi's treatise relied primarily on modern mathematical symbols",
+            "Traders and builders found his methods impractical for everyday work, so algebra stayed a subject for scholars in Baghdad and rarely reached Europe"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "What specific evidence does the article give for the House of Wisdom's role in al-Khwarizmi's work?",
           "options": [
-            "It describes the House of Wisdom as a marketplace for trading goods in the article in this case",
-            "It describes the House of Wisdom as a building constructed by surveyors, as the article explains",
+            "It describes the House of Wisdom as a marketplace for trading goods",
+            "It describes the House of Wisdom as a building constructed by surveyors to store maps and tax records for the city",
             "It describes the institution as a place where scholars from many lands gathered to study, debate, and share knowledge",
-            "It describes the House of Wisdom as located outside of Baghdad entirely overall, according to the text"
+            "It describes the House of Wisdom as located outside of Baghdad"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "What evidence does the article give that al-Khwarizmi's treatise was accessible to non-specialists?",
           "options": [
-            "It states that only royal mathematicians were permitted to read it overall",
-            "It states that the treatise was written entirely in a secret code, as the article explains",
-            "It states that the treatise included no explanations of any kind in the article",
+            "It states that only royal mathematicians were permitted to read it",
+            "It states that the treatise was written in a secret code so that traders could not copy it and use",
+            "It states that the treatise included no explanations",
             "It explains that his book used plain, carefully chosen words instead of modern number signs or symbols"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "How does the article's description of al-Khwarizmi's era compare with its description of the translation period centuries later?",
           "options": [
             "His era is shown as a time of gathering and creating knowledge, while the later period is shown as a time of transmitting that knowledge elsewhere",
-            "Both periods are described as focused solely on trading goods, as the article explains at that time as a result",
-            "The translation period is described as occurring before al-Khwarizmi's own lifetime in this case for this reason",
-            "Neither period is connected to mathematics in the article in the article overall, according to the text"
+            "Both periods are described as focused solely on trading goods",
+            "The translation period is described as happening before al-Khwarizmi's own lifetime, so his work had little to do with sharing knowledge",
+            "Neither period is connected to mathematics"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about why the article mentions traders and surveyors specifically?",
           "options": [
-            "They were the only two professions that existed in Baghdad at the time, according to the text",
-            "They personally helped al-Khwarizmi write his original treatise, as the article explains",
+            "They were the two most powerful groups in Baghdad and paid for his work at the House of Wisdom for many years",
+            "They personally helped al-Khwarizmi write his original treatise",
             "They likely illustrate how abstract mathematical methods had concrete, practical value in ordinary daily life",
-            "They opposed the use of his new number signs entirely in the article overall in this case"
+            "They opposed the use of his new number signs"
           ],
           "answer": "C",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "In the article, the word systematic is used to describe al-Khwarizmi's methods. What does systematic mean here?",
           "options": [
-            "done quickly without any particular plan in the article",
-            "kept completely secret from other scholars, as the article explains",
-            "based entirely on religious teachings alone overall",
+            "done quickly without a clear plan, by guessing until the answer looks right",
+            "kept secret from other scholars",
+            "based on religious teachings alone",
             "organized according to clear, consistent steps rather than guesswork"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the article emphasize that al-Khwarizmi's book avoided modern number signs and symbols?",
           "options": [
-            "To argue that number signs and symbols should never be used in any mathematics overall in this case at that time",
+            "To argue that number signs and symbols should be avoided in mathematics, so writers should explain each idea in plain, careful words instead",
             "To highlight how his methods relied on careful verbal explanation, which later made the eventual shift to symbolic notation feel like a further advance",
-            "To prove that al-Khwarizmi could not understand basic arithmetic in the article, according to the text as a result",
-            "To suggest that his treatise contained no real mathematical content at all, as the article explains for this reason"
+            "To prove that al-Khwarizmi did not understand basic arithmetic, so other scholars had to finish his work for him",
+            "To suggest that his treatise contained no real mathematical content"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -592,9 +592,9 @@
           "stem": "Based on the article, what most likely allowed al-Khwarizmi's influence to endure for so many centuries?",
           "options": [
             "A combination of practical usefulness, institutional support, and later translation efforts likely sustained his lasting influence",
-            "His treatise was reprinted using modern printing presses immediately, as the article explains",
-            "Every ruler after him personally enforced the use of his methods in the article in this case at that time",
-            "His methods were kept completely hidden until relatively recent times overall, according to the text"
+            "His treatise was reprinted using modern printing presses right away, which let copies reach schools in many countries quickly",
+            "Every ruler after him personally enforced the use of his methods",
+            "His methods were kept hidden until relatively recent times"
           ],
           "answer": "A",
           "skill": "inference",

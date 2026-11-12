@@ -296,7 +296,7 @@
             "Sea stars are unusual animals with special ways of moving, eating, and healing.",
             "Sea stars are dangerous fish that live only in the Red Sea and bite swimmers.",
             "Tide pools are the best places to find seaweed and sea snails.",
-            "Sea urchins and sand dollars are the same as sea stars in every way."
+            "Sea urchins and sand dollars are the same as sea stars in most ways."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -380,7 +380,7 @@
           "options": [
             "All sea stars eat only coral.",
             "Coral is a kind of sea star.",
-            "Crown-of-thorns sea stars live only in tide pools.",
+            "Crown-of-thorns sea stars live in tide pools.",
             "Some sea stars can harm coral reefs."
           ],
           "answer": "D",
@@ -398,7 +398,7 @@
             "Sea stars never get hurt.",
             "Sea stars can survive an attack that costs an arm.",
             "Birds and crabs are afraid of sea stars and leave them alone.",
-            "Sea stars grow a new arm every day."
+            "Sea stars grow a new arm each day."
           ],
           "answer": "B",
           "skill": "inference",

@@ -115,7 +115,7 @@
           "stem": "What is this story mostly about?",
           "options": [
             "How to grow mold on bread",
-            "How doctors wash their hands",
+            "How doctors wash their hands before work",
             "How a man found a new medicine by accident",
             "How Fleming moved to England"
           ],
@@ -219,7 +219,7 @@
             "It fed them",
             "It killed them",
             "It made them grow bigger",
-            "It had no effect at all"
+            "It had no effect"
           ],
           "answer": "B",
           "skill": "detail",
@@ -235,7 +235,7 @@
           "options": [
             "They taste good",
             "They are easy to grow at home",
-            "They replace the need for doctors",
+            "They replace the need for doctors in hospitals",
             "They stop small cuts from turning deadly"
           ],
           "answer": "D",
@@ -296,7 +296,7 @@
             "Scotland has produced many famous doctors",
             "Petri dishes were invented by Fleming himself",
             "It was the first widely used antibiotic medicine",
-            "Bacteria are always harmless to every person"
+            "Bacteria are harmless to every person"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -310,7 +310,7 @@
         {
           "stem": "According to the article, what problem did people face before antibiotics existed?",
           "options": [
-            "There were too few doctors available",
+            "There were too few doctors available in towns",
             "People could not grow their own food",
             "Travel between cities was too slow",
             "Even a small cut could lead to deadly infection"
@@ -363,7 +363,7 @@
           "options": [
             "No one at the time believed that bacteria existed",
             "Fleming kept his discovery a complete secret",
-            "Doctors refused to treat any infections at all",
+            "Doctors refused to treat infections",
             "It was likely hard to make enough of the substance"
           ],
           "answer": "D",
@@ -378,7 +378,7 @@
         {
           "stem": "In this article, what does the word discover mean?",
           "options": [
-            "To completely destroy or wipe something out",
+            "To destroy or wipe something out",
             "To find or learn something new",
             "To hide something away from everyone else",
             "To sell something quickly for money"
@@ -396,7 +396,7 @@
           "stem": "How is the article mostly organized?",
           "options": [
             "As a comparison between two diseases",
-            "As a list of random facts about Scotland",
+            "As a list of random facts about Scotland and its people",
             "As a sequence of events leading to a discovery",
             "As a set of steps for growing mold"
           ],
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what made Fleming's laboratory habits relevant to the discovery?",
           "options": [
-            "His labs were always kept extremely clean and empty",
-            "He never worked with petri dishes at all",
+            "His labs were kept extremely clean and empty",
+            "He never worked with petri dishes",
             "His untidiness let a forgotten dish grow mold",
-            "He refused to study bacteria of any kind"
+            "He refused to study bacteria"
           ],
           "answer": "C",
           "skill": "detail",
@@ -543,7 +543,7 @@
             "It was required by international treaty for armies",
             "It replaced the need for any other kind of medicine",
             "It could treat wounds that would otherwise kill soldiers",
-            "It was the only medicine invented during that decade"
+            "It was the main medicine invented during that decade"
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Based on the article, which outcome most directly resulted from Fleming's 1928 observation?",
           "options": [
-            "Bacteria stopped existing in hospitals entirely",
+            "Bacteria stopped existing in hospitals entirely after that",
             "Petri dishes were banned from laboratories",
             "Doctors gained a reliable medicine against infection",
-            "Scientific research into infection completely stopped"
+            "Scientific research into infection stopped"
           ],
           "answer": "C",
           "skill": "cause-effect",

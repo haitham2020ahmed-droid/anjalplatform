@@ -200,9 +200,9 @@
           "stem": "Why would a family in Saudi Arabia check the forecast before a trip to a dry valley?",
           "options": [
             "A storm could fill the valley with water fast.",
-            "Valleys are always too hot to visit in the day",
+            "Valleys are too hot to visit in the day",
             "Satellites only work in valleys, not on hills",
-            "Clouds never form over the desert at all"
+            "The valley gets very cold at night"
           ],
           "answer": "A",
           "skill": "inference",
@@ -380,7 +380,7 @@
           "options": [
             "The clouds will turn into ice and disappear.",
             "A thunderstorm might form.",
-            "The air will become completely dry.",
+            "The air will become dry.",
             "The clouds will sink to the ground as fog."
           ],
           "answer": "B",
@@ -396,9 +396,9 @@
           "stem": "Why are forecasts for several weeks ahead less reliable than forecasts for the next few days?",
           "options": [
             "Meteorologists stop working after a few days, so nobody can check the weather.",
-            "Computers cannot store data for more than a week, so old facts are erased.",
+            "Computers keep weather data for a week, so older facts are not used.",
             "Weather changes in many ways over time, so it is harder to predict far ahead.",
-            "Satellites can only see clouds that will appear tomorrow, not later."
+            "Satellites see clouds better at night, so day forecasts are harder."
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,7 +412,7 @@
         {
           "stem": "How does the article organize its information?",
           "options": [
-            "It compares weather in Saudi Arabia with weather in other countries.",
+            "It compares weather in Saudi Arabia with weather in other countries around the world.",
             "It tells the life story of one meteorologist.",
             "It lists problems and their solutions in each paragraph.",
             "It explains how clouds form, then how rain falls, then how forecasts are made."
@@ -577,7 +577,7 @@
             "To show that forecasting has limits even with modern technology",
             "To argue that meteorologists should stop forecasting the weather",
             "To prove that weather satellites are broken and cannot be used",
-            "To suggest that only Saudi forecasts are reliable for the region"
+            "To suggest that Saudi forecasts are more reliable than others"
           ],
           "answer": "A",
           "skill": "inference",

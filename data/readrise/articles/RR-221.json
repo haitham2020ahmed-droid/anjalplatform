@@ -117,7 +117,7 @@
             "How to build a boat for crossing the desert",
             "How Egyptians used the Nile's flood to make a calendar",
             "Why the desert in Egypt is covered in sand",
-            "How ancient Egyptians cooked bread in clay ovens"
+            "How ancient Egyptians cooked bread in clay ovens for the king"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -185,7 +185,7 @@
             "So they could leave Egypt before the flood started",
             "So they could plan their planting and harvesting",
             "So they could build taller houses near the river",
-            "So they could stop the flood from happening at all"
+            "So they could stop the flood from happening"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -217,9 +217,9 @@
           "stem": "What can you tell about how closely Egyptians studied the sky?",
           "options": [
             "They paid very careful attention to it, year after year.",
-            "They rarely looked up at the sky at all.",
+            "They rarely looked up at the sky.",
             "They only watched the sky during the harvest season.",
-            "They believed the sky never changed in any way."
+            "They believed the sky stayed the same."
           ],
           "answer": "A",
           "skill": "inference",
@@ -345,7 +345,7 @@
           "stem": "In the article, the word \"cycle\" best describes —",
           "options": [
             "a kind of boat used on the Nile River",
-            "a tool farmers used to measure the height of a flood",
+            "a tool farmers used to measure the height of a flood in the fields",
             "a special mud found only along riverbanks",
             "a series of events that repeat in the same order each year"
           ],
@@ -364,7 +364,7 @@
             "Because they measured rainfall far upstream every single day",
             "Because they noticed Sirius rising just before the sun each year",
             "Because government officials announced the exact date by letter",
-            "Because the flood came at a different random time every year"
+            "Because the flood came at a different time each year"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -395,7 +395,7 @@
         {
           "stem": "How does the article mostly organize its information?",
           "options": [
-            "It tells the complete life story of one Egyptian pharaoh.",
+            "It tells the complete life story of one Egyptian pharaoh in great detail.",
             "It explains a yearly problem, then the calendar that solved it.",
             "It compares the diets of Egyptian farmers and priests.",
             "It lists the steps for building a stone pyramid."
@@ -475,7 +475,7 @@
             "Egyptian civilization relied on the Nile's annual flood and careful astronomical observation to build a precise solar calendar.",
             "Egyptian civilization abandoned farming once stone pyramids were built, and then the calendar was left unused for many hundreds of years afterward.",
             "The star Sirius was discovered by Egyptian astronomers only in modern times, long after the pyramids and the great temples were built along the river.",
-            "Egyptian priests tracked time using only the changing phases of the moon, and never used the sun, the stars, or the Nile flood to make a calendar."
+            "Egyptian priests tracked time using the changing phases of the moon, and they rarely used the sun or the Nile flood to make a calendar."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -490,7 +490,7 @@
           "stem": "According to the article, what did five additional days added at the year's end accomplish?",
           "options": [
             "They extended the flooding season by several extra weeks.",
-            "They were set aside entirely for astronomical observation.",
+            "They were set aside for astronomical observation.",
             "They allowed priests to skip tracking the star Sirius.",
             "They brought the calendar's total close to a true solar year."
           ],
@@ -542,8 +542,8 @@
           "options": [
             "It ignored the flooding of the Nile River entirely.",
             "It was based on the sun and stars rather than the moon.",
-            "It had no fixed number of days in a year at all.",
-            "It used only two seasons instead of three."
+            "It had no fixed number of days in a year.",
+            "It used two seasons instead of three."
           ],
           "answer": "B",
           "skill": "compare",
@@ -559,8 +559,8 @@
           "options": [
             "Because it arrived with remarkable, almost clockwork regularity",
             "Because it only happened once every several decades",
-            "Because its timing changed completely and unpredictably each year",
-            "Because it affected only a tiny, unimportant stretch of farmland"
+            "Because its timing changed and unpredictably each year",
+            "Because it affected a tiny, unimportant stretch of farmland"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -577,7 +577,7 @@
             "To highlight how accurate this ancient, hand-observed system actually was",
             "To argue that modern astronomers have never agreed on the solar year's length",
             "To suggest that the Egyptians calculated the length of the lunar month instead",
-            "To prove that ancient Egyptians cared nothing about accurate timekeeping"
+            "To prove that ancient Egyptians cared little about accurate timekeeping"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -592,7 +592,7 @@
           "stem": "What can you infer about the lasting influence of the Nile calendar?",
           "options": [
             "Its basic structure quietly shaped how later civilizations organized time.",
-            "It was completely forgotten the moment the pharaohs lost power in Egypt.",
+            "It was forgotten the moment the pharaohs lost power in Egypt.",
             "It was replaced by lunar calendars within a single generation of people.",
             "No civilization after ancient Egypt ever counted days in years or months."
           ],

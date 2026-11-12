@@ -293,7 +293,7 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Light comes only from the sun, and from no other thing at all in the sky or on the Earth",
+            "Light comes only from the sun, and from no other thing in the sky or on the Earth",
             "Shadows form when objects block light, and their size and length can change.",
             "Glass is the most useful material in the world for making shadows and for blocking light",
             "People today still use sundials to tell the time of day in the town and at home"
@@ -346,7 +346,7 @@
           "options": [
             "Something that blocks light",
             "Something that makes its own light",
-            "A dark area behind an object",
+            "A dark area behind an object in a room",
             "A tool that tells the time"
           ],
           "answer": "B",
@@ -474,7 +474,7 @@
           "options": [
             "Opaque objects block straight-moving light, making shadows that change.",
             "The moon is the brightest light source in the night sky, brighter than any lamp.",
-            "Sundials are more accurate than modern clocks and work in all weather.",
+            "Sundials are more accurate than modern clocks and work in cloudy weather.",
             "Translucent materials are the most useful choice for building windows."
           ],
           "answer": "A",
@@ -560,7 +560,7 @@
             "It blocks all light, so the room stays dark all through the day.",
             "It makes the room hotter by trapping the heat of the sun.",
             "It lets light in while making shapes blurry, which gives privacy.",
-            "It reflects all sunlight away from the house to save power."
+            "It reflects sunlight away from the house to save power."
           ],
           "answer": "C",
           "skill": "inference",

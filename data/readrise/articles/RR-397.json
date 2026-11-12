@@ -150,7 +150,7 @@
           "options": [
             "They close the library club",
             "They plan Mystery Month and the book wall",
-            "They ask the teacher to pick new kids",
+            "They ask the teacher to pick new kids to join the club",
             "They stop meeting on Tuesdays"
           ],
           "answer": "B",
@@ -199,7 +199,7 @@
         {
           "stem": "What can you tell about Sara, Omar, and Lina from the story?",
           "options": [
-            "They do not care about their club",
+            "They do not care about their club or their books",
             "They want the club to stay small",
             "They want to stop reading books",
             "They work together to solve a problem"
@@ -235,7 +235,7 @@
           "options": [
             "They both happen outside the school building, in a park",
             "They both help make the library club more popular",
-            "They both are about sports, not about books at all",
+            "They both are about sports, not about books",
             "They both happen only one time, at the end of the year"
           ],
           "answer": "B",
@@ -295,7 +295,7 @@
           "options": [
             "Three students use creative ideas to grow their library club and make it popular.",
             "A librarian decides to remove all the mystery books from the shelves of the library.",
-            "A school cancels every after-school club because of low attendance in the fall.",
+            "A school cancels its after-school clubs because of low attendance in the fall.",
             "A student wins a prize for reading the most books in the whole school this year."
           ],
           "answer": "A",
@@ -380,7 +380,7 @@
           "options": [
             "It lists every rule of the library",
             "It shows notes from classmates about books they liked",
-            "It shows a map of where every book is kept",
+            "It shows a map of where the books are kept",
             "It tells students which books are too hard to read"
           ],
           "answer": "B",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
             "A small, struggling club is transformed when its members design initiatives that make reading feel genuinely exciting.",
-            "A principal forces every student to attend an after-school club against their will, and nobody enjoys it at all.",
-            "A library closes permanently because too few students show any interest in reading or in the club at all.",
-            "Three students compete against each other to see who can read the most books, and one of them wins a prize."
+            "A principal forces every student to attend an after-school club against their will, and nobody enjoys it.",
+            "A library closes because too few students show interest in reading or in the club.",
+            "Three students compete against each other to see who can read the most books, and one of them wins a prize at the end of the year."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -542,8 +542,8 @@
           "options": [
             "It ranks every student by how many books they have read",
             "It gathers real book tips from many classmates",
-            "It replaces the need for a librarian entirely",
-            "It only recommends books written by famous authors"
+            "It replaces the need for a librarian",
+            "It recommends books written by famous authors"
           ],
           "answer": "B",
           "skill": "inference",
@@ -593,7 +593,7 @@
           "options": [
             "To emphasize how a thoughtful, creative initiative transformed a struggling club",
             "To explain the detailed steps for organizing a staff meeting",
-            "To suggest that teachers deserve all the credit for the club's success",
+            "To suggest that teachers deserve all the credit for the club's success and the success of the library",
             "To describe a brand-new problem the characters must still solve"
           ],
           "answer": "A",

@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Fear of water can never truly be overcome, no matter how much someone practices",
+            "Fear of water can never truly be overcome, no matter how much someone practices in a swimming pool",
             "A patient coach and gradual practice help a nervous beginner overcome her fear of water",
             "Coach Huda discourages Lama from continuing lessons after her first attempt",
-            "Lama's natural talent allows her to swim without any real practice"
+            "Lama's natural talent allows her to swim with little practice"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -491,8 +491,8 @@
           "options": [
             "All at once, expecting Lama to master everything in a single lesson",
             "Gradually, breaking each skill into small, manageable steps",
-            "Only through written instructions, without any hands-on help",
-            "By having Lama watch instructional videos before every lesson"
+            "Through written instructions, without hands-on help",
+            "By having Lama watch instructional videos before each lesson"
           ],
           "answer": "B",
           "skill": "detail",
@@ -525,8 +525,8 @@
           "options": [
             "happening suddenly, all at once",
             "happening slowly, over a period of time",
-            "happening only during the daytime",
-            "happening by accident, without any plan"
+            "happening during the daytime",
+            "happening by accident, without a plan"
           ],
           "answer": "B",
           "skill": "vocabulary",

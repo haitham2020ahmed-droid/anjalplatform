@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How monks lived inside their quiet workshops",
+            "How monks lived and prayed inside their quiet workshops in Europe",
             "How Gutenberg invented a press that could print books quickly",
             "Why the Bible is an important book to read",
             "How paper is made from trees today"
@@ -183,7 +183,7 @@
           "stem": "Why do you think Gutenberg's metal letters could be used again and again?",
           "options": [
             "Because they were painted a slightly different color each time",
-            "Because they completely melted away after every single use",
+            "Because they melted away after every single use",
             "Because they could be moved and rearranged to spell new words",
             "Because they were simply thrown away after just one book"
           ],
@@ -218,7 +218,7 @@
           "options": [
             "Handwritten books became the only books anyone wanted",
             "Many copies of books could be made much faster than before",
-            "People stopped reading books completely",
+            "People stopped reading books",
             "Monks began copying books even more slowly"
           ],
           "answer": "B",
@@ -234,9 +234,9 @@
           "stem": "How was printing in Gutenberg's time different from copying books by hand?",
           "options": [
             "Printing made many copies fast, while hand copying made one slow copy at a time",
-            "Printing used no ink at all, while hand copying used lots of ink",
+            "Printing used no ink, while hand copying used lots of ink",
             "Printing needed no letters, while hand copying needed many letters",
-            "Printing was done by children, while hand copying was done by monks"
+            "Printing was done by children, while hand copying was done by monks in the old cities"
           ],
           "answer": "A",
           "skill": "compare",
@@ -296,7 +296,7 @@
             "Monks preferred copying books over printing them",
             "Gutenberg's workshop testing led to a press that could print books far faster than hand copying",
             "Books from China were better than European books",
-            "Printing presses were invented only in modern times"
+            "Printing presses were invented in modern times, after machines and electricity spread across Europe"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -345,7 +345,7 @@
           "stem": "Why do you think Gutenberg kept testing his press even when early attempts failed?",
           "options": [
             "He believed the idea could succeed and wanted to prove it",
-            "He had nothing better to do with his time",
+            "He had little else to do with his free time at home in Germany",
             "He enjoyed wasting metal and paper",
             "He was ordered to by church leaders"
           ],
@@ -363,8 +363,8 @@
           "options": [
             "Because it let far more people finally obtain and read books",
             "Because it made hand copying faster instead",
-            "Because the government required every town to buy one",
-            "Because Gutenberg traveled to every town himself"
+            "Because the government required every town to buy one in a year",
+            "Because Gutenberg traveled to each town himself"
           ],
           "answer": "A",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "How does the article mostly organize its information?",
           "options": [
             "It follows events in the order they happened, from the problem to the lasting result",
-            "It compares two completely unrelated topics with no connection",
+            "It compares two unrelated topics with no connection",
             "It lists random facts about European geography",
-            "It argues that handwritten books are better than printed ones"
+            "It argues that handwritten books are better than printed ones, giving reasons"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -412,10 +412,10 @@
         {
           "stem": "What effect did Gutenberg's working press have on how books were produced?",
           "options": [
-            "It caused hand copying to become the only method used",
+            "It caused hand copying to become the main method used for books across Europe",
             "It allowed many identical copies to be produced far faster than before",
-            "It stopped all book production across Europe entirely",
-            "It made books disappear from stores completely"
+            "It stopped book production across Europe",
+            "It made books disappear from stores"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Hand-copied books were always considered perfectly affordable for ordinary families",
+            "Hand-copied books were considered perfectly affordable for ordinary families",
             "China's printing methods were identical in every detail to Gutenberg's own design",
             "Gutenberg's mechanism for movable type transformed how books were produced across Europe",
             "Printing presses had no real impact on European society for several centuries"
@@ -489,10 +489,10 @@
         {
           "stem": "Based on the article, why did hand-copied books fail to meet the needs of most people?",
           "options": [
-            "They were considered too colorful and visually distracting to read",
+            "They were considered too colorful and visually distracting to read for long hours",
             "They required enormous amounts of time to produce and were therefore extremely costly",
             "They could only legally be owned by trained government officials",
-            "They were entirely banned from being read in most European towns"
+            "They were banned from being read in most European towns"
           ],
           "answer": "B",
           "skill": "detail",
@@ -509,7 +509,7 @@
             "Metal type, specially prepared ink, and a sturdy mechanism working together",
             "Stone tablets combined with brightly colored paint",
             "Cloth strips woven together with thread",
-            "Wooden carvings copied directly from Chinese designs"
+            "Wooden carvings copied directly from Chinese designs, used one page at a time"
           ],
           "answer": "A",
           "skill": "detail",
@@ -525,8 +525,8 @@
           "options": [
             "Similar solutions to a shared problem can emerge in separate places",
             "Only European inventors are capable of true innovation",
-            "Every invention in history has always had just one true creator",
-            "Independent inventors never actually succeed without copying others"
+            "Most inventions in history have had one true creator",
+            "Independent inventors rarely succeed without copying others in other lands"
           ],
           "answer": "A",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "Why does the article emphasize how many exhausting experiments Gutenberg conducted before succeeding?",
           "options": [
             "To suggest that persistence through repeated failure can lead to breakthroughs",
-            "To show that experimentation always ends in complete failure",
+            "To show that experimentation ends in complete failure",
             "To prove that Gutenberg's helpers did all of the real work",
-            "To argue that testing ideas is generally a waste of valuable time"
+            "To argue that testing ideas is generally a waste of valuable time for inventors and printers"
           ],
           "answer": "A",
           "skill": "inference",
@@ -558,7 +558,7 @@
           "stem": "In the article, what does \"transform\" most precisely describe about Gutenberg's discovery?",
           "options": [
             "That it changed book production so completely and fundamentally",
-            "That it kept book production exactly the same as before",
+            "That it kept book production exactly the same as before in Europe",
             "That it only affected a single small town in Europe",
             "That it made books slightly more colorful than before"
           ],
@@ -575,8 +575,8 @@
           "stem": "How does the article's structure support its central idea?",
           "options": [
             "It presents the costly problem, the experimentation, and the lasting transformation in sequence",
-            "It randomly jumps between unrelated inventions with no clear order",
-            "It focuses entirely on describing Gutenberg's personal life story",
+            "It jumps between unrelated inventions with no clear order, so readers must find the connections",
+            "It focuses on describing Gutenberg's personal life story",
             "It only compares the prices of modern printed books"
           ],
           "answer": "A",
@@ -591,10 +591,10 @@
         {
           "stem": "What effect did Gutenberg's mechanism have on the availability of books across Europe?",
           "options": [
-            "It made books scarcer and even more costly than before",
+            "It made books scarcer and even more costly than before in Europe",
             "It allowed many more people to finally obtain and read books",
             "It limited books to use only inside monasteries",
-            "It had no measurable effect on book availability at all"
+            "It had no measurable effect on book availability"
           ],
           "answer": "B",
           "skill": "cause-effect",

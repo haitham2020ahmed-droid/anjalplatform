@@ -380,7 +380,7 @@
           "options": [
             "extremely proud of a recent achievement at school",
             "feeling like giving up because something is hard",
-            "completely confused about a school lesson on maps",
+            "confused about a school lesson on maps",
             "excited and full of extra energy for the game"
           ],
           "answer": "B",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Zaid learns that consistent effort toward pacing and breathing brings real improvement, even without winning",
-            "The school track meet gets canceled because of poor weather, so nobody runs in the race at all this year",
+            "The school track meet gets canceled because of poor weather, so nobody runs in the race this year at the school",
             "Coach Ali decides that Zaid should quit running for good, because he is too slow to join the team",
-            "Zaid concludes that winning first place is the only true measure of success in sports and in life"
+            "Zaid concludes that winning first place is the truest measure of success in sports and in life"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,8 +540,8 @@
         {
           "stem": "Based on the article, why does Coach Ali most likely decide to intervene and talk with Zaid?",
           "options": [
-            "He is simply required by school rules to speak with him",
-            "He wants to recruit Zaid for an entirely different sport",
+            "He is simply required by school rules to speak with him after the race",
+            "He wants to recruit Zaid for an different sport",
             "He notices Zaid's discouragement and believes coaching can help",
             "He wants Zaid to stop attending the team practices"
           ],
@@ -592,7 +592,7 @@
           "stem": "Why does the author end the article by stating that becoming better than you once were can feel as rewarding as winning outright?",
           "options": [
             "To emphasize the theme that personal improvement is a meaningful success",
-            "To explain the precise scientific method behind measuring stamina",
+            "To explain the precise scientific method behind measuring stamina in a runner",
             "To argue that competitive school racing should be eliminated",
             "To suggest Coach Ali secretly regrets his own racing career"
           ],

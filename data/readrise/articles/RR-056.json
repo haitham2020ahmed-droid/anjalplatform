@@ -236,7 +236,7 @@
             "The caves are much too cold for them now.",
             "There is less rain to drip in now.",
             "People painted over all of the old ones.",
-            "The limestone has all turned into sand."
+            "The limestone has turned into sand."
           ],
           "answer": "B",
           "skill": "inference",
@@ -295,7 +295,7 @@
           "options": [
             "Caves are dangerous places that people should never, ever enter.",
             "Acidic water carves caves and slowly builds stone shapes inside them.",
-            "Saudi Arabia has more caves than any other country in the world.",
+            "Saudi Arabia has more caves than most other countries.",
             "Limestone is the hardest kind of rock found anywhere on Earth."
           ],
           "answer": "B",
@@ -328,8 +328,8 @@
           "stem": "About how fast does a stalactite grow, according to the article?",
           "options": [
             "About one meter every single year",
-            "It never grows once it has formed",
-            "About one centimeter every day",
+            "About a meter in a year",
+            "About one centimeter each day",
             "About a centimeter in a century"
           ],
           "answer": "D",
@@ -575,7 +575,7 @@
           "stem": "What can you infer about water in the As-Summan caves today compared with the past?",
           "options": [
             "There is probably more water dripping into the caves now.",
-            "The water has always stayed exactly the same.",
+            "The water has stayed exactly the same.",
             "The water today is probably saltier than seawater.",
             "There is probably less water than when the formations grew."
           ],

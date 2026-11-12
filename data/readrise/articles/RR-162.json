@@ -344,7 +344,7 @@
         {
           "stem": "What does a honeybee's dance tell the other bees?",
           "options": [
-            "Which flowers are the most colorful",
+            "Which flowers are the most colorful in the field",
             "Which direction to fly and how far to go",
             "When a snake is near the hive",
             "Where the queen bee is sleeping"
@@ -473,9 +473,9 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "Elephants communicate better than any other animal, using only their trunks and nothing else.",
-            "Only animals with voices can communicate with one another, so fish and insects cannot.",
+            "Animals with voices communicate best, so fish and insects rarely communicate.",
             "Animals communicate through sounds, movements, and chemicals that serve important purposes.",
-            "Scientists have fully decoded animal languages and can now talk with them in every case."
+            "Scientists have decoded animal languages and can now talk with some animals."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -543,7 +543,7 @@
             "Eagles cannot fly near trees, so a tree is a safe place for monkeys.",
             "Trees are where snakes live, so a monkey would meet a snake there.",
             "An eagle attacks from the sky, so the top of a tree would leave a monkey exposed.",
-            "Monkeys cannot climb when they are scared, so they would just fall from the tree."
+            "Monkeys climb slowly when they are scared, so the eagle would catch them in the trees."
           ],
           "answer": "C",
           "skill": "inference",

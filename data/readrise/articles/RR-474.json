@@ -165,7 +165,7 @@
         {
           "stem": "Why could the new wheelchair be carried easily?",
           "options": [
-            "It had a small motor inside",
+            "It had a small motor inside for power",
             "It could fold flat and was light",
             "It was very small in size",
             "It had two extra big wheels"
@@ -185,7 +185,7 @@
             "It became a model other chairs copy",
             "It was never used by anyone again",
             "It was fully replaced by wood chairs",
-            "No one in town liked it at all"
+            "Few people in town liked it"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -234,7 +234,7 @@
           "stem": "Why do wheelchairs matter to people today?",
           "options": [
             "They are only used in hospitals",
-            "They cost very little money at all",
+            "They cost very little money",
             "They replace walking for everyone",
             "They give people freedom to choose"
           ],
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of this article?",
           "options": [
-            "Wheelchairs were invented in 1980 in America",
+            "Wheelchairs were invented in 1980 in America by one man",
             "Wood is still the best wheelchair material",
             "Two men designed a folding wheelchair now copied widely",
-            "Everest and Jennings never worked together at all"
+            "Everest and Jennings never worked together"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -329,7 +329,7 @@
           "options": [
             "He had studied medicine at a college",
             "He relied on a wheelchair daily after an accident",
-            "He had traveled through many countries",
+            "He had traveled through many countries as a sailor",
             "He owned a large metal factory nearby"
           ],
           "answer": "B",
@@ -347,7 +347,7 @@
             "Wood was simply cheaper to produce",
             "Plastic looked much more colorful",
             "Light metal tubing made it easier to carry",
-            "Heavier material made it feel safer"
+            "Heavier material made it feel safer to the rider"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -380,7 +380,7 @@
           "options": [
             "Learned only by reading an old book",
             "Learned through direct personal experience",
-            "Guessed without any real evidence at all",
+            "Guessed without real evidence",
             "Copied word for word from someone's notes"
           ],
           "answer": "B",
@@ -414,7 +414,7 @@
           "options": [
             "It was quickly forgotten by everyone",
             "It was simply banned from all hospitals",
-            "It replaced every other kind of chair",
+            "It replaced other kinds of chairs",
             "It became the blueprint most chairs follow"
           ],
           "answer": "D",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Wheelchairs have never changed since ancient times",
+            "Wheelchairs have stayed the same since they were first built long ago",
             "Wood remains the best wheelchair material today",
-            "Wheelchairs are only useful for elite athletes",
+            "Wheelchairs are useful mainly for elite athletes",
             "Their collaboration produced the standard modern blueprint"
           ],
           "answer": "D",
@@ -506,7 +506,7 @@
         {
           "stem": "What evidence suggests the earlier wheeled chairs were genuinely impractical, not simply old-fashioned?",
           "options": [
-            "They were brightly painted and hard to clean",
+            "They were brightly painted and hard to clean by hand",
             "They were cumbersome and nearly impossible to fold",
             "They were too small for most grown adults",
             "They required a special license to operate"
@@ -524,7 +524,7 @@
           "stem": "Why does the article emphasize that Everest and Jennings tested their prototype repeatedly?",
           "options": [
             "To suggest the final design was a failure",
-            "To prove that folding chairs are dangerous",
+            "To prove that folding chairs are dangerous to use",
             "To argue that testing was unnecessary work",
             "To show the design required careful engineering"
           ],

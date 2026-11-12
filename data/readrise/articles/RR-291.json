@@ -182,7 +182,7 @@
         {
           "stem": "Why must a student have patience to learn calligraphy?",
           "options": [
-            "Because the pen breaks easily",
+            "Because the pen breaks easily in the hand",
             "Because ink is hard to find",
             "Because learning takes many years",
             "Because mosques are far away"
@@ -201,8 +201,8 @@
           "options": [
             "Straight lines and sharp corners",
             "It uses bright colors",
-            "It is written very quickly",
-            "It is always written in gold"
+            "It is written very quickly by young students",
+            "It is written in gold"
           ],
           "answer": "A",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Reed pens are the rarest tool in the Islamic world and cost a lot of money",
             "A respected art grew from writing, learned through years of practice",
             "Mosques are decorated only with coins and with colored glass from far away",
-            "Kufic is better than Naskh in every single way and every writer agrees"
+            "Kufic is better than Naskh in most ways, and most writers agree"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "Because paper was very rare back then in the Islamic world",
             "People wanted to write the Quran's words beautifully",
             "Because kings required calligraphy by law in every city",
-            "Because ink was always expensive to buy in the market"
+            "Because ink was expensive to buy in the market"
           ],
           "answer": "B",
           "skill": "detail",
@@ -328,9 +328,9 @@
           "stem": "In the article, a precise angle on the qalam's tip is one that is",
           "options": [
             "picked at random, since it never matters",
-            "left with no real point at all",
+            "left with no real point",
             "cut very exactly and with great care",
-            "only ever used for writing Kufic"
+            "used mostly for writing Kufic"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -475,7 +475,7 @@
             "Calligraphy grew into a revered art mastered through disciplined practice",
             "Kufic script is no longer used anywhere today, and nobody can read it.",
             "Reed pens are the single most expensive calligraphy tool in the world.",
-            "Only royal families were ever allowed to learn calligraphy in the old days."
+            "Royal families were the main people who learned calligraphy in the old days."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,7 +506,7 @@
         {
           "stem": "What does meticulous mean as it is used to describe trimming a qalam's nib?",
           "options": [
-            "Quick and rather careless about detail",
+            "Quick and rather careless about detail in each line",
             "Decorated all over with shining gold",
             "Extremely careful about every small detail",
             "Done only by total beginners"
@@ -559,7 +559,7 @@
           "options": [
             "Thuluth is the only script that uses a qalam, and Naskh uses a brush",
             "Its tall, graceful letters create a striking visual impact",
-            "Naskh cannot ever be written using ink, so it is never used in books",
+            "Naskh is hard to write with ink, so it is rarely used in books",
             "Thuluth takes far less time to learn than Naskh, so it is easier to write"
           ],
           "answer": "B",

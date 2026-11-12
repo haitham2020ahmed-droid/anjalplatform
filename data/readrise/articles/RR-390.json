@@ -200,7 +200,7 @@
      "stem": "Why do Omar and Lina decide to look inside Classroom 5?",
      "options": [
       "They are curious and want to know the truth",
-      "A teacher tells them to clean the room",
+      "A teacher tells them to clean the room after class",
       "They want to hide from their friends",
       "They left a book inside"
      ],
@@ -296,7 +296,7 @@
       "Two friends investigate a sound and find a calm explanation",
       "A teacher scares students by telling stories near Classroom 5",
       "Students refuse to go to school because of a strange noise",
-      "The janitor locks Classroom 5 forever to stop the strange noise"
+      "The janitor locks Classroom 5 to stop the strange noise"
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -381,7 +381,7 @@
       "Most students accept the rumor, while Omar and Lina seek real evidence",
       "Most students question the rumor immediately, while Omar and Lina accept it without proof",
       "Both groups investigate the mysterious sound together from the very beginning",
-      "Neither group pays any real attention to the strange sound at all"
+      "Neither group pays any real attention to the strange sound"
      ],
      "answer": "A",
      "skill": "compare",
@@ -396,7 +396,7 @@
      "stem": "Why does the loose shutter keep banging against the window frame?",
      "options": [
       "Because strong wind blows through the open window",
-      "Because a student keeps knocking on the door",
+      "Because a student keeps knocking on the door in the afternoon",
       "Because the janitor is fixing the frame",
       "Because the classroom light keeps flickering"
      ],
@@ -474,7 +474,7 @@
      "options": [
       "Two skeptical friends gather evidence and find a rational explanation",
       "Two friends decide that mysterious sounds can never really be explained",
-      "A rumor about Classroom 5 turns out to be completely and surprisingly true",
+      "A rumor about Classroom 5 turns out to be and surprisingly true",
       "The school closes Classroom 5 permanently because of the noise"
      ],
      "answer": "A",
@@ -492,7 +492,7 @@
       "easily frightened by rumors",
       "extremely curious about everything",
       "not easily convinced without proof",
-      "completely certain about an idea"
+      "certain about an idea"
      ],
      "answer": "C",
      "skill": "vocabulary",
@@ -526,7 +526,7 @@
       "He assumes the strangest possible explanation is usually correct",
       "He prefers evidence and reasoning over unproven assumptions",
       "He avoids investigating anything that seems mysterious",
-      "He believes rumors are always completely accurate"
+      "He believes rumors are accurate"
      ],
      "answer": "B",
      "skill": "inference",
@@ -543,7 +543,7 @@
       "Most students accept the rumor, while Omar and Lina seek real evidence",
       "Most students question the rumor immediately, while Omar and Lina accept it without proof",
       "Both groups investigate the mysterious sound together from the very beginning",
-      "Neither group pays any real attention to the strange sound at all"
+      "Neither group pays any real attention to the strange sound"
      ],
      "answer": "A",
      "skill": "compare",
@@ -591,7 +591,7 @@
     {
      "stem": "Why does the author most likely include the detail that the rumor grew stranger with each retelling?",
      "options": [
-      "To show that rumors are always based on solid evidence",
+      "To show that rumors are based on solid evidence",
       "To illustrate how unchecked assumptions drift from the truth",
       "To prove conclusively that the classroom really was mysterious",
       "To explain how the janitor eventually fixed the window"

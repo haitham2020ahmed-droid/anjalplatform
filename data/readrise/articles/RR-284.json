@@ -217,9 +217,9 @@
           "stem": "Why do climbers need both grip and balance?",
           "options": [
             "Pulling with the arms alone is not enough",
-            "The wall is always wet, so climbers must be careful",
+            "The wall is wet, so climbers must be careful",
             "A rope cannot be used otherwise on a high wall",
-            "Chalk only works with good balance and strong legs"
+            "Chalk works best with good balance and strong legs"
           ],
           "answer": "A",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Rock climbing combines careful planning with physical strength.",
             "Rock climbing is only safe when done outdoors, on real rock, with no help.",
             "Rock climbing was invented at the 2020 Olympics in Tokyo, in Japan.",
-            "Rock climbing does not need any safety equipment, like ropes or helmets."
+            "Rock climbing needs little safety equipment, like ropes or helmets."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -381,7 +381,7 @@
             "Mountaineers needed climbing skills to stay safe on real mountains",
             "Mountaineers disliked climbing walls and thought they were boring",
             "Mountaineers only trained indoors, in gyms in the cities",
-            "Mountaineers never used ropes when they climbed on rocks"
+            "Mountaineers rarely used ropes when they climbed on rocks"
           ],
           "answer": "A",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "What does the growth of climbing gyms around the world suggest?",
           "options": [
             "Rock climbing has become a widely popular sport",
-            "Outdoor climbing has completely disappeared",
+            "Outdoor climbing has disappeared",
             "Climbing is only popular in one country",
-            "Climbing gyms replaced the Olympic Games"
+            "Climbing gyms replaced the Olympic Games in some countries"
           ],
           "answer": "A",
           "skill": "inference",
@@ -475,7 +475,7 @@
             "Climbing is a sport of chance that depends mainly on luck and not on skill.",
             "Climbing combines physical strength with careful planning and safety.",
             "Climbing is only practiced indoors on artificial walls in big cities.",
-            "Climbing has no official competitions or disciplines in any country."
+            "Climbing has few official competitions or disciplines."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -559,8 +559,8 @@
           "options": [
             "Indoor holds are plastic; outdoor holds are natural rock features",
             "Only outdoor climbing uses a rope and a harness",
-            "Only indoor climbing has a difficulty grade for its routes",
-            "Indoor climbing does not require balance, strength, or any planning"
+            "Indoor climbing has a difficulty grade for its routes, but outdoor climbing does not",
+            "Indoor climbing needs less balance, strength, or planning"
           ],
           "answer": "A",
           "skill": "compare",

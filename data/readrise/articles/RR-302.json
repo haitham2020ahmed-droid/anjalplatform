@@ -182,7 +182,7 @@
         {
           "stem": "What happens after the beans are roasted?",
           "options": [
-            "They are planted in the ground.",
+            "They are planted in the ground to grow.",
             "They are given to guests whole.",
             "They are ground into a fine powder.",
             "They are thrown away."
@@ -216,7 +216,7 @@
         {
           "stem": "Why might a host offer a date along with the coffee?",
           "options": [
-            "To replace the coffee completely at the end",
+            "To replace the coffee at the end",
             "To make the guest leave sooner than planned",
             "To hide the smell of the cardamom in the pot",
             "To help balance the coffee's bold taste"
@@ -312,7 +312,7 @@
           "options": [
             "It is a disposable item replaced after every use at home, and never kept for long.",
             "It is a traditional vessel often passed down within families.",
-            "It is only used in modern coffee shops in the city, and rarely in a home.",
+            "It is used mostly in modern coffee shops in the city, and rarely in a home.",
             "It is rarely used for making qahwa today, as people prefer tea in a glass."
           ],
           "answer": "B",
@@ -344,10 +344,10 @@
         {
           "stem": "The article describes serving qahwa as a \"ritual.\" What does ritual mean here?",
           "options": [
-            "A random act done without any plan or order at all",
+            "A random act done without any plan or order",
             "A set of actions done the same careful way each time",
             "A single ingredient added to the coffee pot or the cup",
-            "A type of cup used only once at a big party"
+            "A type of cup used once at a big party"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -475,7 +475,7 @@
             "Saffron is the single most essential ingredient in any Arabian coffee, and no cup is ever served without it.",
             "Preparing and serving qahwa follows a precise heritage ritual that expresses the region's culture of hospitality.",
             "Modern coffee shops have fully replaced the traditional qahwa ritual in homes and in the cities.",
-            "Only elders are permitted to drink qahwa at a gathering, and young people must leave the room."
+            "Elders are the main people who drink qahwa at a gathering, and young people serve them."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -492,7 +492,7 @@
             "Standing up and leaving the room",
             "Asking loudly for the ritual to end",
             "Gently shaking the empty cup before returning it",
-            "Turning the cup completely upside down on the tray"
+            "Turning the cup upside down on the tray with both hands"
           ],
           "answer": "C",
           "skill": "detail",
@@ -540,7 +540,7 @@
         {
           "stem": "How does filling each cup only part way affect the overall impression a host makes?",
           "options": [
-            "It suggests the host is being careless with the coffee supply.",
+            "It suggests the host is being careless with the coffee supply and the cups.",
             "It has no real effect on how guests view the host.",
             "It signals attentive care, strengthening the guest's sense of welcome.",
             "It suggests the host wants the visit to end immediately."
@@ -593,7 +593,7 @@
           "options": [
             "To show that the hospitality ritual still meaningfully engages a wide range of people today",
             "To argue that only local guests should be served qahwa in the majlis, never visitors from far away",
-            "To suggest that the tradition has lost all of its original meaning in the modern world today",
+            "To suggest that the tradition has lost most of its original meaning today",
             "To claim that modern guests no longer enjoy the custom and prefer to drink tea in a cup"
           ],
           "answer": "A",

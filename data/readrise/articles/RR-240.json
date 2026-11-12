@@ -131,7 +131,7 @@
         {
           "stem": "What does skin do like a shield?",
           "options": [
-            "It helps you run faster than before.",
+            "It helps you run faster than before in a race.",
             "It keeps germs and dirt out of the body.",
             "It turns into a scab right away.",
             "It makes your bones grow longer."
@@ -165,7 +165,7 @@
         {
           "stem": "In this article, what happens after skin gets a small cut?",
           "options": [
-            "The skin stops working forever after that day.",
+            "The skin stops working after that day.",
             "A scab forms and new skin grows under it.",
             "Sweat covers the whole cut quickly like a bandage.",
             "The cut turns into a shield of hard metal."
@@ -183,7 +183,7 @@
           "stem": "What happens when your skin touches something sharp, like a pin?",
           "options": [
             "It grows a new scab right away, before you feel it.",
-            "It stops feeling anything at all for an hour.",
+            "It stops feeling anything for an hour.",
             "It sends a message to your brain fast.",
             "It makes extra sweat come out of your hand."
           ],
@@ -200,8 +200,8 @@
           "stem": "Why might it be a good idea not to pick at a scab before it is ready to fall off?",
           "options": [
             "The scab makes your skin sweat too much.",
-            "The scab is actually part of your shield forever.",
-            "The scab stops your brain from feeling touch.",
+            "The scab is actually part of your shield.",
+            "The scab stops your brain from feeling touch in that place.",
             "The scab is helping protect the skin while it heals."
           ],
           "answer": "D",
@@ -295,7 +295,7 @@
           "options": [
             "Skin performs several essential jobs for the body at once.",
             "Skin is useful only when a person gets a small cut.",
-            "Receptors are the only important part found in skin.",
+            "Receptors are the most important part found in skin and the body.",
             "Sweat is the main reason people ever feel cold."
           ],
           "answer": "A",
@@ -312,7 +312,7 @@
           "options": [
             "It prevents water from escaping too quickly.",
             "It removes all water from the body on purpose.",
-            "It replaces water with sweat at all times.",
+            "It replaces water with sweat.",
             "It stops the body from ever producing sweat."
           ],
           "answer": "A",
@@ -381,7 +381,7 @@
             "The person would no longer feel pressure, heat, or pain.",
             "The person's skin would stop producing sweat completely.",
             "The person's blood vessels would permanently widen.",
-            "The person's cuts would never form a scab again."
+            "The person's cuts would stop forming scabs."
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The epidermis is the only layer of skin that matters at all, and the other layers are not needed.",
+            "The epidermis is the only layer of skin that matters, and the other layers are not needed.",
             "Skin is composed of layers that together perform multiple vital functions.",
-            "Marcello Malpighi invented the skin's ability to heal itself, and before him, skin never healed.",
+            "Marcello Malpighi discovered how to make skin heal itself, and before him, skin healed slowly.",
             "Sweat glands are harmful and should be avoided when possible, because they make the skin weak."
           ],
           "answer": "B",
@@ -490,7 +490,7 @@
           "stem": "According to the article, where are receptors that detect pressure, temperature, and pain mainly distributed?",
           "options": [
             "Only inside blood vessels",
-            "Only within scabs",
+            "Within scabs",
             "Throughout the dermis",
             "Throughout the bones"
           ],
@@ -542,7 +542,7 @@
           "options": [
             "To permanently stop blood vessels from working",
             "To shield the area from new germs while it heals",
-            "To replace the epidermis with an entirely new organ",
+            "To replace the epidermis with a new organ",
             "To prevent any new skin cells from ever forming"
           ],
           "answer": "B",
@@ -557,10 +557,10 @@
         {
           "stem": "Why might someone describe skin's temperature regulation as working with 'precision'?",
           "options": [
-            "It allows the body to overheat without any consequences.",
-            "It only functions correctly once every few years.",
+            "It allows the body to overheat without any consequences for a short time.",
+            "It works correctly just a few times a year.",
             "It keeps the body's temperature within a narrow, steady range.",
-            "It replaces the need for any blood vessels entirely."
+            "It replaces the need for blood vessels."
           ],
           "answer": "C",
           "skill": "inference",
@@ -576,7 +576,7 @@
           "options": [
             "No other scientist has studied skin since the 1600s.",
             "The layer disappeared after being named and no longer exists.",
-            "Modern microscopes have proven his idea completely wrong.",
+            "Modern microscopes have proven his idea wrong.",
             "His description of that skin layer remains accurate and useful."
           ],
           "answer": "D",

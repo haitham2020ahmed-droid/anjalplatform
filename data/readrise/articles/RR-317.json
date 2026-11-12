@@ -185,7 +185,7 @@
       "It is a quiet, ordinary day",
       "It is an important celebration",
       "It happens only once every ten years",
-      "Only children celebrate it"
+      "Children celebrate it more than adults"
      ],
      "answer": "B",
      "skill": "inference",
@@ -233,7 +233,7 @@
     {
      "stem": "Which of these usually happens first on National Day, according to the article?",
      "options": [
-      "Fireworks burst high above the city",
+      "Fireworks burst high above the city at midnight",
       "The national anthem plays on TV",
       "People decorate their homes and streets",
       "Families finish their evening meal"
@@ -294,8 +294,8 @@
      "stem": "Which sentence best states the central idea of the article?",
      "options": [
       "National Day celebrates how the country was united, with lasting traditions.",
-      "Riyadh is the only city where National Day is ever celebrated at all.",
-      "Fireworks are dangerous and should not be used at any celebrations.",
+      "Riyadh is the only city where National Day is ever celebrated.",
+      "Fireworks are dangerous and should not be used at celebrations with big crowds.",
       "The national anthem was written sometime in the year 1932."
      ],
      "answer": "A",
@@ -381,7 +381,7 @@
       "Confused about one's own country and its rules",
       "Showing love and pride for one's country",
       "Afraid of loud noises at night in the city",
-      "Uninterested in any celebrations or songs at all"
+      "Uninterested in any celebrations or songs"
      ],
      "answer": "B",
      "skill": "vocabulary",
@@ -396,7 +396,7 @@
      "stem": "How does the author mostly organize the article?",
      "options": [
       "By comparing National Day with holidays in other countries around the world and their dates",
-      "By arguing at length that all fireworks should be banned entirely in every city",
+      "By arguing at length that all fireworks should be banned in every city",
       "By describing the celebration's traditions in the order they happen through the day",
       "By listing the total populations of many different Saudi cities and their regions"
      ],
@@ -412,10 +412,10 @@
     {
      "stem": "How is daytime on National Day different from nighttime, based on the article?",
      "options": [
-      "Daytime has no celebrations at all; nighttime has everything in the city instead",
+      "Daytime has no celebrations; nighttime has everything in the city instead",
       "Daytime features decorating and the parade; nighttime features fireworks and lit-up landmarks",
       "Daytime is only for the fireworks; nighttime is only for the decorating and the parade",
-      "There is really no noticeable difference at all between daytime and nighttime on that day"
+      "There is really no noticeable difference between daytime and nighttime on that day"
      ],
      "answer": "B",
      "skill": "compare",
@@ -475,7 +475,7 @@
       "National Day commemorates 1932 through traditions of civic pride and heritage.",
       "National Day is more important than Founding Day and should replace it entirely.",
       "Fireworks displays are the single most expensive part of National Day.",
-      "Only large cities such as Riyadh and Jeddah take part in National Day."
+      "Large cities such as Riyadh and Jeddah take part in National Day more than towns."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -508,8 +508,8 @@
      "options": [
       "National Day happens every ten years, while Founding Day happens annually in the spring",
       "National Day marks 1932, while Founding Day marks the 1727 founding of the first Saudi state",
-      "National Day has no official date, while Founding Day falls on 23 September every year",
-      "There is really no meaningful difference at all between the two days, and both mark one event"
+      "National Day has no fixed date, while Founding Day falls on 23 September each year",
+      "There is really no meaningful difference between the two days, and both mark one event"
      ],
      "answer": "B",
      "skill": "detail",
@@ -524,9 +524,9 @@
      "stem": "What does the growth of National Day celebrations over recent decades suggest about their role in society?",
      "options": [
       "They have become a meaningful civic tradition that many citizens value and take part in",
-      "They are gradually being replaced entirely by small private family gatherings",
+      "They are gradually being replaced by small private family gatherings at home with friends",
       "They have stayed exactly the same size and shape since the year 1932",
-      "They are no longer broadcast at all on either television or radio"
+      "They are no longer broadcast on either television or radio"
      ],
      "answer": "A",
      "skill": "inference",
@@ -577,7 +577,7 @@
       "To argue that National Day should only be celebrated outside the kingdom",
       "To show that national identity and civic pride extend beyond the country's own borders",
       "To compare the yearly budgets of embassies across many different countries",
-      "To explain in careful detail exactly how foreign embassies are normally built"
+      "To explain in careful detail exactly how foreign embassies are normally built in other countries"
      ],
      "answer": "B",
      "skill": "author-purpose",

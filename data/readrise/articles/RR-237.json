@@ -294,9 +294,9 @@
      "stem": "Which sentence best states the central idea of the article?",
      "options": [
       "Bones are living tissue that grow during childhood and can repair themselves when broken.",
-      "Calcium is the only thing bones need to grow strong, so no other food or exercise matters at all.",
-      "Marrow is more important than calcium for strong bones in every child and every grown-up person.",
-      "Doctors always need to fix a broken bone with a cast or a metal tool, because bones cannot heal."
+      "Calcium is the only thing bones need to grow strong, so no other food or exercise matters.",
+      "Marrow is more important than calcium for strong bones in children and adults.",
+      "Doctors fix a broken bone with a cast or a metal tool, because bones heal slowly on their own."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -415,7 +415,7 @@
       "They work together to make bones both strong and lighter.",
       "They are exactly the same kind of tissue.",
       "Only the spongy layer protects organs.",
-      "The outer layer contains all of the body's marrow."
+      "The outer layer holds most of the body's marrow and blood."
      ],
      "answer": "A",
      "skill": "inference",
@@ -473,9 +473,9 @@
      "stem": "Which statement best captures the central idea of the article?",
      "options": [
       "Bone is a living tissue that grows through cartilage-based growth plates and can regenerate itself through a structured healing and remodeling process.",
-      "Bones are essentially inert structures that never change once puberty ends, and they cannot heal at all after a break or a crack in the arm or leg.",
+      "Bones are essentially inert structures that never change once puberty ends, and they cannot heal after a break or a crack in the arm or leg.",
       "Marrow is the single most important factor in determining skeletal health, and the growth plates play no part in how bones grow.",
-      "Fractures permanently weaken a bone, leaving it unable to regain its original strength, so a broken bone never heals as well as before."
+      "Fractures weaken a bone for good, so a broken bone heals more weakly than it was before."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -491,7 +491,7 @@
      "options": [
       "Throughout the marrow cavity in the center of every bone",
       "At growth plates composed of cartilage near the ends of long bones",
-      "Within the compact outer layer only, near the surface of the bone",
+      "Within the compact outer layer, near the surface of the bone",
       "Inside the protective hematoma that forms after a break in the bone"
      ],
      "answer": "B",
@@ -577,7 +577,7 @@
       "This is likely, since growth plates stay open for several more years.",
       "This is unlikely, since the growth plates have already closed.",
       "This is possible only if the teenager increases calcium intake dramatically.",
-      "This is possible only through intense weight-bearing exercise."
+      "This is possible through intense weight-bearing exercise."
      ],
      "answer": "B",
      "skill": "inference",

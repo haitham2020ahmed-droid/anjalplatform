@@ -202,7 +202,7 @@
             "The goods must cross through a friend country first",
             "The goods must be made much smaller than before",
             "The goods must travel only by airplane every time",
-            "The goods must stay inside the country forever"
+            "The goods must stay inside the country"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -235,7 +235,7 @@
           "options": [
             "To show landlocked countries exist all over the world",
             "To compare which country is richest of all",
-            "To explain in detail how the oceans first formed",
+            "To explain in detail how the oceans first formed over time",
             "To describe many different kinds of large ships"
           ],
           "answer": "A",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea?",
           "options": [
             "Only African countries in the world are landlocked today, since all the others touch the sea",
-            "Landlocked countries cannot trade with any other nation at all, so they have no shops or ports",
+            "Landlocked countries rarely trade with other nations, so they have few shops",
             "Landlocked countries face trade problems but still find a way to reach the sea",
-            "All landlocked countries are extremely small in total size, like a village or a single town"
+            "Landlocked countries are mostly very small, like a village or a single town"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -345,7 +345,7 @@
           "stem": "Why do neighboring countries often charge fees for transit?",
           "options": [
             "Because they control the port the goods must pass through",
-            "Because the landlocked country always asks them to charge",
+            "Because the landlocked country asks them to charge",
             "Because large ships cost a great deal of money to build",
             "Because the goods are usually damaged along the way"
           ],
@@ -378,10 +378,10 @@
         {
           "stem": "How is trade for a landlocked country different from trade for a coastal country?",
           "options": [
-            "A coastal country cannot use ships for its trade at all",
-            "A landlocked country never trades with any other nation at all",
+            "A coastal country cannot use ships for its trade",
+            "A landlocked country rarely trades with other nations around it",
             "A landlocked country's goods must first cross another country's land",
-            "There is really no difference at all between the two kinds"
+            "There is really no difference between the two kinds"
           ],
           "answer": "C",
           "skill": "compare",
@@ -397,7 +397,7 @@
           "options": [
             "To gain a guaranteed right to move goods through a neighbor's land",
             "To stop every single ship from ever using its own roads and ports",
-            "To close its own border to all outside trade completely and forever",
+            "To close its own border to outside trade",
             "To build a brand new coastline somewhere along its own edge"
           ],
           "answer": "A",
@@ -475,7 +475,7 @@
             "Being landlocked is a problem only for countries located in Africa",
             "Landlocked countries are economically identical to coastal countries",
             "Landlocked status imposes real costs, offset through transit agreements",
-            "No landlocked country can ever trade internationally in any way"
+            "No landlocked country can ever trade internationally"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "How can a neighboring country's political tension affect a landlocked nation's trade?",
           "options": [
-            "Such tension actually has no real effect at all on trade routes",
+            "Such tension actually has no real effect on trade routes",
             "The neighbor can abruptly close its border, disrupting trade routes",
-            "Tension between neighbors always leads to much lower transit fees",
+            "Tension between neighbors leads to much lower transit fees",
             "It forces the landlocked country to build an ocean of its own"
           ],
           "answer": "B",
@@ -524,7 +524,7 @@
           "stem": "In the article, the word sovereign most nearly means —",
           "options": [
             "having full control of one's own government",
-            "entirely dependent on a stronger foreign power",
+            "dependent on a stronger foreign power",
             "located directly along a busy ocean coastline",
             "wealthy enough to build a very large navy"
           ],
@@ -542,7 +542,7 @@
           "options": [
             "To make a coastline of their own appear on world maps",
             "To stop every bit of their foreign trade permanently and completely",
-            "To avoid ever using any ocean shipping routes whatsoever again",
+            "To avoid using ocean shipping routes again",
             "To reduce their reliance on unpredictable, informal arrangements"
           ],
           "answer": "D",
@@ -575,8 +575,8 @@
           "stem": "Why might a landlocked country prefer a regional trade organization over a single neighbor's goodwill?",
           "options": [
             "A regional agreement provides predictable, legally guaranteed rules",
-            "Regional organizations remove the need for any transit at all",
-            "A single neighbor's goodwill is always the more reliable choice",
+            "Regional organizations remove the need for any transit",
+            "A single neighbor's goodwill is the more reliable choice",
             "Regional organizations provide new coastlines for their members"
           ],
           "answer": "A",
@@ -593,7 +593,7 @@
           "options": [
             "The costs are so severe that absolutely no solution has ever worked",
             "Transit agreements and infrastructure meaningfully reduce real costs",
-            "There are no costs at all once a single trade agreement is signed",
+            "There are no costs once a single trade agreement is signed",
             "Workable solutions exist only for countries located within Europe"
           ],
           "answer": "B",

@@ -219,7 +219,7 @@
             "They only read books that were written in Baghdad",
             "They did not like to share",
             "They wanted to learn from many lands and share it",
-            "They made paper all day"
+            "They made paper most of the day"
           ],
           "answer": "C",
           "skill": "inference",
@@ -474,7 +474,7 @@
           "options": [
             "Abbasid Baghdad imported all its books from Europe, which made scholarship grow slowly in the city.",
             "The arrival of papermaking in Abbasid Baghdad lowered the cost of books and helped scholarship flourish.",
-            "Parchment remained the main writing material in Baghdad, because paper was never used by scholars there.",
+            "Parchment remained the main writing material in Baghdad, because scholars there preferred it to paper.",
             "Al-Khwarizmi invented paper, and this was the main reason the city became famous for science."
           ],
           "answer": "B",
@@ -523,7 +523,7 @@
         {
           "stem": "In the article, the word flourished most nearly means —",
           "options": [
-            "closed down",
+            "closed and failed",
             "grew and thrived",
             "was hidden",
             "was rebuilt"

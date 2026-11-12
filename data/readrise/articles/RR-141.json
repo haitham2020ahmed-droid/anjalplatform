@@ -184,7 +184,7 @@
           "options": [
             "They were all very small, like houses made for toys and dolls",
             "They had bending walls and roofs instead of flat, square sides.",
-            "They were made only of sand and were rebuilt after every storm",
+            "They were made of sand and were rebuilt after storms",
             "They had no doors or windows, so people entered from the roof"
           ],
           "answer": "B",
@@ -236,7 +236,7 @@
             "To show that her ideas were bad and nobody liked them",
             "To explain the steps for how to build a swimming pool",
             "To show that she did not give up when things were hard",
-            "To prove that London had no builders at all in that time"
+            "To prove that London had no builders in that time"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -295,8 +295,8 @@
           "options": [
             "Zaha Hadid's new ideas about curved buildings were doubted at first but later changed architecture around the world.",
             "Zaha Hadid designed only buildings in London, where she lived and worked for most of her life.",
-            "Architects should always use square corners, because curved buildings are weaker, cost more and look strange to people.",
-            "The Pritzker Prize is given every year to a woman who designs the most unusual building."
+            "Architects should use square corners, because curved buildings are weaker, cost more and look strange to people.",
+            "The Pritzker Prize is given each year to a woman who designs the most unusual building."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -474,8 +474,8 @@
           "options": [
             "Zaha Hadid succeeded mainly because her buildings were easy and cheap to build for every client.",
             "Through persistence and bold ideas, Zaha Hadid changed what architecture could look like and left a lasting legacy.",
-            "Zaha Hadid preferred painting to designing buildings, and she only drew for fun in her later years, far from any city or building site.",
-            "Zaha Hadid's work was admired only after her death, and no one praised it while she lived."
+            "Zaha Hadid preferred painting to designing buildings, and she drew for fun in her later years, far from building sites.",
+            "Zaha Hadid's work was admired after her death, but few people praised it while she lived."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -559,8 +559,8 @@
           "options": [
             "Critics praised her work early, then rejected it later on.",
             "They doubted her at first, but her work later won top awards.",
-            "They never noticed her work at all.",
-            "They always agreed her ideas were easy to build."
+            "They never noticed her work.",
+            "They agreed her ideas were easy to build."
           ],
           "answer": "B",
           "skill": "compare",

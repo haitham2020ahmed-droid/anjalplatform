@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to keep a sea turtle as a pet at home",
+            "How to keep a sea turtle as a pet at home in a tank",
             "How sea turtles travel, lay eggs, and need help",
             "Why sea turtles are a kind of big fish",
             "How turtles build their hard shells"
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Sea turtles are fish that never leave the water.",
-            "Sea turtles lay eggs in the sand every single night of the year, all year long.",
+            "Sea turtles lay eggs in the sand each night during the warm months of the year.",
             "Sea turtles make long journeys to nest, and their young face many dangers.",
-            "Sea turtles are only found in the Red Sea."
+            "Sea turtles swim to the Red Sea to escape the cold."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -346,7 +346,7 @@
           "options": [
             "people who clean the beach",
             "animals such as birds and crabs that hunt hatchlings",
-            "the bright lights of the buildings on the shore",
+            "the bright lights of the buildings on the shore at night",
             "the eggs that do not hatch"
           ],
           "answer": "B",
@@ -474,8 +474,8 @@
           "options": [
             "Sea turtles complete remarkable journeys guided by instinct, but their survival now depends partly on human choices.",
             "Sea turtles are fish that rarely leave the ocean, and they cannot breathe or lay eggs on any beach, so they stay at sea all their lives.",
-            "Sea turtle eggs always produce equal numbers of males and females, no matter how warm the sand is.",
-            "Sea turtles are no longer found near Saudi Arabia, and scientists think none will ever return."
+            "Sea turtle eggs produce equal numbers of males and females, no matter how warm the sand is.",
+            "Sea turtles are rarely seen near Saudi Arabia now, and scientists think they moved to colder seas."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -543,7 +543,7 @@
             "Because no adult ever teaches a young turtle the route",
             "Because turtles travel in large groups",
             "Because scientists have trained young turtles to follow maps",
-            "Because turtles always nest on the nearest beach"
+            "Because turtles nest on the nearest beach"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,8 +591,8 @@
         {
           "stem": "Why does the author describe the dangers of lights and plastic before mentioning conservation efforts?",
           "options": [
-            "To prove that turtles cannot survive at all",
-            "To show that every one of the problems has already been solved",
+            "To prove that turtles cannot survive",
+            "To show that most of the problems have already been solved",
             "To compare turtles with jellyfish",
             "To show the problems first, so the solutions make sense"
           ],

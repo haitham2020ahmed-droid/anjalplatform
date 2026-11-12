@@ -148,7 +148,7 @@
     {
      "stem": "What animal does Fahad chase?",
      "options": [
-      "a lizard",
+      "a desert lizard",
       "a camel",
       "a fennec fox",
       "a bird"
@@ -294,8 +294,8 @@
      "stem": "Which sentence best tells what this story is mainly about?",
      "options": [
       "A boy learns that staying calm and using landmarks and stars helps him when he is lost",
-      "A boy decides he will never go camping again with his father in the desert",
-      "A fennec fox leads a boy safely back to his family's camp every single night",
+      "A boy decides he will never go camping again with his father in the desert after that night",
+      "A fennec fox leads a boy safely back to his family's camp each night",
       "A father buys his son a brand new compass as a surprise birthday gift"
      ],
      "answer": "A",
@@ -344,7 +344,7 @@
     {
      "stem": "In the story, the word silhouette refers to —",
      "options": [
-      "the bright, warm light of the midday sun",
+      "the bright, warm light of the midday sun in the desert",
       "the whistling sound of the desert wind",
       "a small, furry kind of desert animal",
       "the dark outline of the hills against the sky"
@@ -379,7 +379,7 @@
      "stem": "Compare how Fahad feels right after losing the compass with how he feels after remembering his father's advice.",
      "options": [
       "He feels panicked at first, then calmer after he focuses on his father's advice",
-      "He feels perfectly calm the whole time and never worries at all, even when lost",
+      "He feels perfectly calm the whole time and never worries, even when lost",
       "He feels angry at first, and then feels quite sad later on in the evening",
       "He feels tired at first, and then feels very excited later on after supper"
      ],
@@ -523,7 +523,7 @@
     {
      "stem": "What in the story suggests that chasing the fox was an instinctive reaction rather than a planned decision?",
      "options": [
-      "Fahad carefully studied a detailed map before he ever moved",
+      "Fahad carefully studied a detailed map before he ever moved from the camp",
       "Fahad asked his father for permission before running",
       "Fahad had carefully planned the chase the night before",
       "The story says he chased it 'instinctively,' without thinking twice"
@@ -541,7 +541,7 @@
      "stem": "Compare Fahad's state of mind right after losing the compass with his state of mind once he begins following his father's method.",
      "options": [
       "He moves from disoriented panic to focused, steady action",
-      "He remains equally fearful throughout both moments",
+      "He remains equally fearful throughout both moments of the story",
       "He feels proud at first, then ashamed later",
       "He feels bored at first, then alarmed later"
      ],
@@ -557,7 +557,7 @@
     {
      "stem": "Why have sailors and desert travelers relied on that particular star for centuries?",
      "options": [
-      "It is part of a constellation that only appears once a year",
+      "It is part of a constellation that only appears once a year in the winter",
       "It always points toward the north, regardless of season or location",
       "It is the only star visible in the desert sky",
       "It changes color to warn of storms"

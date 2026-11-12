@@ -311,7 +311,7 @@
           "stem": "How did Rosalind learn the skilled method of X-ray crystallography?",
           "options": [
             "By reading many long books about the distant stars at night",
-            "By studying at a far away university entirely through the mail",
+            "By studying at a far away university through the mail",
             "By copying old scientific tools kept in a local museum",
             "By training at university and working as a lab researcher"
           ],
@@ -395,10 +395,10 @@
         {
           "stem": "Why most likely did Rosalind continue studying coal and viruses with the same careful methods?",
           "options": [
-            "She did not like studying DNA at all, so she turned to other kinds of science instead.",
+            "She did not like studying DNA, so she turned to other kinds of science instead.",
             "She trusted that precise, careful research could reveal useful shapes in many kinds of matter.",
             "She wanted to avoid working with other researchers, so she chose small and quiet projects.",
-            "She thought crystallography only worked on coal, so she never tried it on anything else at all."
+            "She thought crystallography only worked on coal, so she never tried it on anything else."
           ],
           "answer": "B",
           "skill": "inference",
@@ -414,7 +414,7 @@
           "options": [
             "She quickly lost interest in every topic she studied.",
             "She refused to work on more than one subject.",
-            "She believed only DNA was worth studying.",
+            "She believed DNA was the most important thing to study.",
             "She used her skills to study many different questions."
           ],
           "answer": "D",
@@ -473,8 +473,8 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Rosalind Franklin's meticulous research made an essential contribution to science, even though it was overlooked for years.",
-            "Nobel Prizes should always be shared equally among every scientist involved, even if they never met each other or worked together at all.",
-            "X-ray crystallography is too dangerous to be used safely in any laboratory, so scientists have stopped using it for their work.",
+            "Nobel Prizes should be shared equally among every scientist involved, even if they never met each other or worked together.",
+            "X-ray crystallography is too dangerous to be used safely, so scientists have stopped using it.",
             "Coal research is more important than DNA research, and so most scientists chose to study coal in the laboratory for many years."
           ],
           "answer": "A",
@@ -541,9 +541,9 @@
           "stem": "How does Rosalind's meticulous work on coal compare with her later work on DNA?",
           "options": [
             "Both used the same careful X-ray crystallography methods to study different materials.",
-            "The coal research used X-rays, but the DNA research did not use them at all.",
-            "She was careful with DNA but careless with the coal work, and she hurried it.",
-            "She never used crystallography for coal at all in her whole career as a scientist."
+            "The coal research used X-rays, but the DNA research did not use them.",
+            "She was careful with DNA but careless with the coal work, and she hurried it to finish.",
+            "She never used crystallography for coal in her whole career as a scientist."
           ],
           "answer": "A",
           "skill": "compare",
@@ -577,7 +577,7 @@
             "Because she refused to let anyone see her results at the lab, so no one could use them in any work.",
             "Because the two scientists who built the final model received most of the public credit instead.",
             "Because she had not actually finished her research before she died, and her notes were thrown out.",
-            "Because her photograph was eventually lost in a university, and nobody could find the picture any more."
+            "Because her photograph was lost in a university, so it could not be shown."
           ],
           "answer": "B",
           "skill": "inference",
@@ -593,8 +593,8 @@
           "options": [
             "Careful methods are rarely connected to any important scientific discoveries.",
             "Meticulous research can matter greatly, even when credit arrives slowly.",
-            "Only already-famous scientists truly need to be careful with their methods.",
-            "Meticulous research only matters in chemistry labs, never in biology."
+            "Famous scientists need to be more careful with their methods than others.",
+            "Meticulous research matters more in chemistry labs than in biology."
           ],
           "answer": "B",
           "skill": "inference",

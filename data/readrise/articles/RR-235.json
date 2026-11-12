@@ -295,8 +295,8 @@
      "options": [
       "The solar system is made up of the Sun, eight planets in two main groups, and the asteroid belt between them.",
       "Mercury is the planet closest to the Sun, and that fact is all that really matters here for the study of space and stars.",
-      "Light from the Sun always takes exactly the same amount of time to reach every single planet in the system.",
-      "Only the four terrestrial planets truly count as part of the solar system at all, and the rest are not planets."
+      "Light from the Sun takes the same amount of time to reach each planet in the system.",
+      "The four terrestrial planets are the true planets, and the outer ones are large moons."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -312,7 +312,7 @@
      "options": [
       "Giant planets, simply because they are the largest four",
       "Terrestrial planets, because they have solid, rocky surfaces",
-      "Gas planets, because they are made almost entirely of gas",
+      "Gas planets, because they are made almost of gas",
       "Outer planets, because they lie farthest from the Sun"
      ],
      "answer": "B",
@@ -345,7 +345,7 @@
      "stem": "In the article, what does the word \"gravity\" mean?",
      "options": [
       "A bright light given off by a star",
-      "A kind of rock found in the asteroid belt",
+      "A kind of rock found in the asteroid belt and near Mars",
       "The speed at which a planet spins",
       "The force that pulls objects toward each other"
      ],
@@ -379,7 +379,7 @@
      "stem": "What can you infer about objects orbiting even farther out than Neptune?",
      "options": [
       "They would receive sunlight almost instantly, with no delay",
-      "They would not be considered part of the solar system at all",
+      "They would not be considered part of the solar system",
       "They would orbit much closer to the Sun than Earth does",
       "They would take even longer than four hours to receive sunlight"
      ],
@@ -415,7 +415,7 @@
       "Terrestrial planets are rocky, while giant planets are mostly gas and ice",
       "Terrestrial planets are much bigger in size than the giant planets",
       "Giant planets orbit noticeably closer to the Sun than terrestrial planets",
-      "Terrestrial planets have no gravity pulling on anything at all"
+      "Terrestrial planets have no gravity pulling on anything"
      ],
      "answer": "A",
      "skill": "compare",
@@ -474,8 +474,8 @@
      "options": [
       "The solar system is a vast system dominated by the Sun, with planets whose composition and location sort them into two major groups.",
       "Every single planet in the solar system has roughly the same composition as Earth does, with rock and water.",
-      "The asteroid belt is actually the largest single object in the whole solar system, bigger than the Sun itself.",
-      "Elliptical orbits are found only in other distant solar systems, never in our own, where all the planets move in perfect circles."
+      "The asteroid belt is the largest single object in the solar system, bigger than most of the planets put together and even bigger than some of the moons.",
+      "Elliptical orbits are found in other distant solar systems, while the planets in ours move in perfect circles."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -540,9 +540,9 @@
     {
      "stem": "Why does the Sun \"dominate\" the solar system, based on the article?",
      "options": [
-      "Because it is the only object in the system that moves at all",
+      "Because it is the only object in the system that moves",
       "Because it holds the system's mass and its gravity controls the orbits",
-      "Because it happens to be the coldest object in the whole system",
+      "Because it happens to be the coldest object in the whole system and the farthest from Earth",
       "Because it is located way out at the very edge of the system"
      ],
      "answer": "B",
@@ -575,8 +575,8 @@
      "stem": "Why does the author describe the vast distances sunlight must travel to reach different planets?",
      "options": [
       "To help readers grasp just how enormous and spread out the solar system truly is",
-      "To explain in detail how modern telescopes are designed and built",
-      "To argue, incorrectly, that sunlight cannot reach the outer planets at all",
+      "To explain in detail how modern telescopes are designed and built and launched into space",
+      "To argue that sunlight is too weak to reach the outer planets",
       "To describe the daily weather conditions found on each planet"
      ],
      "answer": "A",
@@ -591,7 +591,7 @@
     {
      "stem": "How does the composition of the terrestrial planets compare with that of the giant planets, according to the article?",
      "options": [
-      "Both groups are made up almost entirely of gas and ice",
+      "Both groups are made up almost of gas and ice",
       "Terrestrial planets are dominated by rock and metal, giants by gas and ice",
       "Giant planets are dominated by rock, terrestrial ones by gas instead",
       "Both groups share nearly identical compositions throughout the system"

@@ -166,8 +166,8 @@
           "stem": "Why must ships sail with care through the strait?",
           "options": [
             "Land sits close on both sides of the narrow path",
-            "There are never any other ships nearby at all",
-            "The water in the strait is always frozen solid",
+            "There are never any other ships nearby",
+            "The water in the strait is frozen solid",
             "The strait stretches very wide from shore to shore"
           ],
           "answer": "A",
@@ -217,9 +217,9 @@
           "stem": "What would happen if ships could not use the strait?",
           "options": [
             "Oil would be hard to move, and many lands would feel it",
-            "Nothing at all would change anywhere in the world",
-            "The sea on both sides would quickly dry up",
-            "Every single ship nearby would sink at once"
+            "Nothing would change",
+            "The sea on both sides would quickly dry up and turn to sand",
+            "The ships nearby would sink at once"
           ],
           "answer": "A",
           "skill": "inference",
@@ -236,7 +236,7 @@
             "Because it is the single widest strait found on Earth",
             "Because no ships have ever used this narrow strait",
             "Because so much oil moves through it to the world",
-            "Because its water is always covered in thick ice"
+            "Because its water is covered in thick ice"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -327,7 +327,7 @@
         {
           "stem": "Why must large ships stay within marked shipping lanes in the strait?",
           "options": [
-            "Because other ships are completely forbidden from the water",
+            "Because other ships are forbidden from the water",
             "Because the lanes are painted a very bright color",
             "Because the government charges a fee for each lane",
             "Because the safe depth is narrow and land is close by"
@@ -347,7 +347,7 @@
             "has not yet been cleaned or processed",
             "has already been turned into fuel for cars",
             "comes only from underground lakes",
-            "is no longer useful for anything at all"
+            "is no longer useful for anything"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -363,8 +363,8 @@
           "options": [
             "It travels on to refineries, homes, and factories worldwide",
             "It is simply poured straight back into the open sea",
-            "It is kept and stored forever aboard the same ships",
-            "It turns into natural gas somewhere along the journey"
+            "It is kept and stored aboard the same ships",
+            "It turns into natural gas somewhere along the journey in pipes"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -378,10 +378,10 @@
         {
           "stem": "How is the Strait of Hormuz different from a wide, open ocean?",
           "options": [
-            "The strait has no ships at all, unlike a busy ocean full of boats",
+            "The strait has no ships, unlike a busy ocean full of boats",
             "The strait is narrow, with land close by, unlike an open ocean",
-            "The strait is always much colder than any ocean, in every season",
-            "There is really no difference between them at all, in any way"
+            "The strait is much colder than any ocean, in every season",
+            "There is really no difference between them"
           ],
           "answer": "B",
           "skill": "compare",
@@ -395,10 +395,10 @@
         {
           "stem": "Why might a country's energy supply be affected by problems in the strait?",
           "options": [
-            "Because the strait is located very far from any oil fields",
+            "Because the strait is located very far from any oil fields and ports",
             "Because so much of the world's oil travels through this one strait",
             "Because the strait actually produces its own electricity",
-            "Because ships never carry any oil through the strait"
+            "Because ships rarely carry oil through the strait"
           ],
           "answer": "B",
           "skill": "inference",
@@ -474,7 +474,7 @@
           "options": [
             "The Strait of Hormuz functions as a vital global energy chokepoint",
             "Oil is extracted directly from the waters of the strait itself",
-            "Pipelines have completely replaced the need for the strait",
+            "Pipelines have replaced the need for the strait",
             "The Strait of Hormuz carries almost no shipping traffic today"
           ],
           "answer": "A",
@@ -506,10 +506,10 @@
         {
           "stem": "Why can the strait's geography make global energy supply vulnerable?",
           "options": [
-            "Because oil fields are spread evenly all around the planet",
-            "Because all existing pipelines run directly beneath the strait",
+            "Because oil fields are spread evenly all around the planet and the seas",
+            "Because most pipelines run directly beneath the strait",
             "Because so much seaborne energy trade funnels through one chokepoint",
-            "Because the strait carries almost no tanker traffic at all"
+            "Because the strait carries almost no tanker traffic"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -526,7 +526,7 @@
             "a tax charged on all goods being shipped across the sea",
             "a narrow passage carrying a large share of trade",
             "a type of very large oil storage tanker at a port",
-            "a wide, open area with no traffic at all near the coast"
+            "a wide, open area with no traffic near the coast"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -575,7 +575,7 @@
           "stem": "Why do energy analysts pay close attention to a passage as narrow as the Strait of Hormuz?",
           "options": [
             "Its narrow geography concentrates a huge volume of trade",
-            "It has no real connection to any ocean at all, so ships avoid it",
+            "It has no real connection to any ocean, so ships avoid it",
             "No tanker vessel has ever used it successfully, so analysts watch it",
             "It is in fact the largest body of water on Earth, so analysts watch it"
           ],
@@ -594,7 +594,7 @@
             "Its width is so great that it closely resembles an open ocean",
             "Despite its modest width, it carries an outsized share of trade",
             "Economic importance has nothing to do with geography here",
-            "Its narrowness makes it almost entirely meaningless economically"
+            "Its narrowness makes it almost meaningless economically"
           ],
           "answer": "B",
           "skill": "compare",

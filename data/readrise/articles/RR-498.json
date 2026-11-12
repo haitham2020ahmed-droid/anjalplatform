@@ -114,7 +114,7 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            "why rockets are hard to build well",
+            "why rockets are hard to build well and cost a lot of money",
             "a machine that flies above Earth and helps people in many ways",
             "how the moon moves around Earth",
             "why phones stopped working one day"
@@ -166,7 +166,7 @@
           "stem": "Why did other lands start sending up their own machines after 1957?",
           "options": [
             "because the first one showed that this new plan could truly work",
-            "because the first one broke apart shortly after launch",
+            "because the first one broke apart shortly after launch into space",
             "because no rockets existed until that exact year",
             "because people wanted a new way to cook food"
           ],
@@ -182,9 +182,9 @@
         {
           "stem": "Why do people rely on these machines every day, even without seeing them?",
           "options": [
-            "because they make a loud sound we can always hear",
+            "because they make a loud sound we can hear",
             "because they fall to the ground once a week",
-            "because they are visible in the sky during the day",
+            "because they are easy to see in the sky during the day and at night from Earth",
             "because they quietly help with things like calls, news, and finding our way"
           ],
           "answer": "D",
@@ -200,7 +200,7 @@
           "stem": "What does the word 'beep' mean in this passage?",
           "options": [
             "a short, simple sound that a machine makes",
-            "a bright light that flashes on and off",
+            "a bright light that flashes on and off at night",
             "a type of metal used in rockets",
             "a place where rockets are built"
           ],
@@ -216,8 +216,8 @@
         {
           "stem": "How does the passage mostly explain this machine, from beginning to end?",
           "options": [
-            "it compares machines built on two very different and far-off planets",
-            "it strongly argues that no more rockets should ever be built at all",
+            "it compares machines built on two very different and far-off planets, then picks the best one",
+            "it strongly argues that no more rockets should ever be built",
             "it tells what the machine does, then its first launch long ago, then how many fly above us",
             "it tells a made-up story about a tiny machine that can talk and sing"
           ],
@@ -294,9 +294,9 @@
           "stem": "What is the central idea of this passage?",
           "options": [
             "satellites perform many jobs for people, a tradition that began with Sputnik",
-            "satellites were only ever built after the year 2000",
-            "engineers have never once improved satellite technology",
-            "satellites can only take simple pictures of storms"
+            "satellites were first built after the year 2000, when rockets became cheap",
+            "engineers have rarely improved satellite technology",
+            "satellites mainly take simple pictures of storms"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -328,7 +328,7 @@
           "stem": "Based on the passage, how do navigation satellites help people today?",
           "options": [
             "they help televisions turn on automatically",
-            "they help forecast tomorrow's weather exactly",
+            "they help forecast tomorrow's weather exactly, so people know when it will rain",
             "they help maps work accurately and guide travelers to where they want to go",
             "they help phones take clearer photographs"
           ],
@@ -347,7 +347,7 @@
             "to show how basic the first satellite was, compared to the advanced satellites used today",
             "to prove that satellites have never really improved",
             "to suggest that beeping signals are still used today",
-            "to argue that Sputnik's launch was actually a failure"
+            "to argue that Sputnik's launch was a failure, because its signal was too weak to hear on Earth"
           ],
           "answer": "A",
           "skill": "inference",
@@ -363,8 +363,8 @@
           "options": [
             "Sputnik's success showed that satellites were truly achievable and worth pursuing",
             "every other country had supposedly already built satellites much earlier",
-            "satellites apparently became illegal to launch after that particular year",
-            "no other country actually had rockets capable of reaching space at that time"
+            "satellites apparently became illegal to launch after that particular year in the world",
+            "no other country actually had rockets capable of reaching space"
           ],
           "answer": "A",
           "skill": "inference",
@@ -396,7 +396,7 @@
           "stem": "How is this passage mostly organized?",
           "options": [
             "it argues that satellites should be banned from orbit",
-            "it compares satellite costs across many different countries",
+            "it compares satellite costs across many different countries, then lists the companies that build them and sell them",
             "it gives step-by-step instructions for building a satellite",
             "it describes satellites' many jobs, then tells the story of the first launch, then shows how satellites are used today"
           ],
@@ -413,9 +413,9 @@
           "stem": "What happens after engineers launch a satellite into space using powerful rockets, according to the passage?",
           "options": [
             "the satellite begins orbiting Earth and performing its intended job",
-            "the satellite instantly returns to the ground below",
+            "the satellite quickly returns to the ground below for repairs",
             "the satellite stops functioning almost immediately",
-            "the rocket itself continues circling Earth forever"
+            "the rocket itself continues circling Earth"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -475,7 +475,7 @@
             "Sputnik's 1957 launch began the Space Race and led to the vast satellite network humans depend on today",
             "the Space Race ended before Sputnik was ever launched",
             "satellites today perform only a single simple task",
-            "the United States launched Sputnik before the Soviet Union did"
+            "the United States launched Sputnik before the Soviet Union did, which started a long race to reach the Moon"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "What can you infer about why Sputnik's launch is described as sparking a 'Space Race'?",
           "options": [
-            "it caused every other country in the world to immediately stop all rocket research",
+            "it caused other countries in the world to stop their rocket research, since they could not catch up",
             "it created intense competition between two rival nations eager to achieve dominance in space exploration",
-            "it proved that only one single nation would ever build satellites",
-            "it ended all further cooperation between scientists around the globe"
+            "it proved that one nation would build satellites",
+            "it ended cooperation between scientists around the globe"
           ],
           "answer": "B",
           "skill": "inference",
@@ -541,7 +541,7 @@
           "stem": "What is most likely the reason the passage describes satellites as an 'invisible network' that most people rarely notice?",
           "options": [
             "because satellites quietly support daily tasks like calls and navigation without most people ever seeing them",
-            "because satellites are actually too small for scientists to detect accurately",
+            "because satellites are too small for scientists to detect, so most people forget they are in the sky",
             "because satellites stopped working properly many years ago",
             "because very few satellites currently orbit the Earth today"
           ],
@@ -575,7 +575,7 @@
           "stem": "How does the passage's structure help explain satellites' importance today?",
           "options": [
             "it moves from Sputnik's historic 1957 launch, through decades of advancement, to today's reliance on satellites for countless tasks",
-            "it presents two opposing arguments about whether satellites should exist",
+            "it presents two opposing arguments about whether satellites should exist, then asks readers which side they agree with and why",
             "it offers a step-by-step guide for building a satellite at home",
             "it ranks several countries by how many satellites they currently own"
           ],
@@ -593,7 +593,7 @@
           "options": [
             "people will keep depending on satellites for many important daily tasks",
             "fewer countries will likely choose to launch new satellites in the future",
-            "satellites will eventually and completely stop orbiting Earth altogether",
+            "satellites will eventually and stop orbiting Earth altogether",
             "scientists will probably stop using satellites for weather forecasting entirely"
           ],
           "answer": "A",

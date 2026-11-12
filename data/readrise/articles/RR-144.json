@@ -201,7 +201,7 @@
           "options": [
             "Plants sleep in the day",
             "Birds drink the water",
-            "The water is colder at noon",
+            "The water is colder at noon than at night",
             "Less water dries up in the heat"
           ],
           "answer": "D",
@@ -295,7 +295,7 @@
           "options": [
             "Fresh water is hard to get, so families should conserve it.",
             "Saudi Arabia has more rivers and lakes than any other country in the world.",
-            "Washing machines should never be used.",
+            "Washing machines should be used less often.",
             "Desalination is free and easy."
           ],
           "answer": "A",
@@ -347,7 +347,7 @@
             "It is too salty to use for drinking.",
             "It refills very slowly after it is used.",
             "People pour it into the sea every day.",
-            "It is used only for desalination plants."
+            "It is used mostly for desalination plants."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -395,7 +395,7 @@
         {
           "stem": "What can you infer about saving water and saving energy?",
           "options": [
-            "They are not connected at all in any way that we know.",
+            "They are not connected that we know.",
             "Energy is only used for washing machines and dishwashers at home",
             "Saving water uses more energy than it saves, so it is a waste",
             "Using less water also saves the energy needed to make it."
@@ -414,7 +414,7 @@
           "options": [
             "Fixing a dripping tap",
             "Turning off the tap while brushing",
-            "Running the washing machine only when it is completely full",
+            "Running the washing machine only when it is full",
             "Watering plants in the early morning or evening"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Its water sources are costly or limited, so households must use less.",
-            "Desalination has completely solved all of Saudi Arabia's water problems forever.",
+            "Desalination has solved all of Saudi Arabia's water problems in each city and town.",
             "Groundwater in Saudi Arabia refills quickly after rain.",
-            "Only farmers need to save water."
+            "Farmers are the ones who need to save water."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -491,7 +491,7 @@
           "options": [
             "It is polluted by factories, so nobody can use it.",
             "It is replenished far more slowly than it is used.",
-            "It is too deep to reach with any pump or well.",
+            "It is too deep to reach with most pumps or wells.",
             "It turns into salt water when it is used too much."
           ],
           "answer": "B",
@@ -594,7 +594,7 @@
             "To build new rivers across the country for the farms in the north",
             "To sell more washing machines to families",
             "To persuade people to reduce water consumption at home",
-            "To stop desalination completely in all towns"
+            "To stop desalination in all towns"
           ],
           "answer": "C",
           "skill": "inference",

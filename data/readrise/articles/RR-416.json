@@ -183,7 +183,7 @@
           "stem": "Why did the scroll need to be copied within three days?",
           "options": [
             "Because the scroll would fall apart after three days",
-            "Because Scholar Nasir was leaving the library forever",
+            "Because Scholar Nasir was leaving the library",
             "Because it had to go back to its owner after that time",
             "Because Yusuf wanted a new scroll for himself"
           ],
@@ -219,7 +219,7 @@
             "Someone put it back in the wrong place by mistake",
             "The scroll walked there on its own",
             "Scholar Nasir hid it there on purpose",
-            "The merchant moved it there to keep it safe"
+            "The merchant moved it there to keep it safe from thieves"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -295,7 +295,7 @@
           "options": [
             "Scholars at the House of Wisdom mostly spend their time copying old cookbooks from Greece.",
             "An apprentice's careful knowledge of the catalog system solves the mystery of a misplaced scroll.",
-            "Scholar Nasir decided the library no longer needed to keep a borrowing ledger at all.",
+            "Scholar Nasir decided the library no longer needed to keep a borrowing ledger.",
             "Yusuf accidentally lost the scroll himself and had to confess it to Scholar Nasir."
           ],
           "answer": "B",
@@ -313,7 +313,7 @@
             "The traveling merchant said he still personally had the scroll with him",
             "Scholar Nasir remembered seeing the scroll on the shelf the day before",
             "The ledger showed the scroll had already been returned to the library",
-            "The scroll's small colored tag had completely fallen off and vanished"
+            "The scroll's small colored tag had fallen off and vanished"
           ],
           "answer": "C",
           "skill": "detail",
@@ -328,7 +328,7 @@
           "stem": "What caused the mix-up on the shelves?",
           "options": [
             "The scroll itself was written in a language nobody could read",
-            "The library had never used any catalog system at all before this",
+            "The library had not used a catalog system before this",
             "Scholar Nasir simply forgot exactly where the astronomy shelf was",
             "The astronomy and medicine shelves used nearly identical colored tags"
           ],
@@ -379,9 +379,9 @@
           "stem": "Why does the author mention that another apprentice set the scroll down 'by mistake' while reshelving?",
           "options": [
             "To explain that the merchant stole the scroll from the shelf",
-            "To suggest that apprentices should not be trusted with scrolls at all",
+            "To suggest that apprentices should not be trusted with scrolls",
             "To show that the mix-up was an honest error, not something done on purpose",
-            "To show that Scholar Nasir broke the library's rules on purpose"
+            "To show that Scholar Nasir broke the library's rules on purpose during his visit"
           ],
           "answer": "C",
           "skill": "inference",
@@ -395,9 +395,9 @@
         {
           "stem": "Because the ledger showed the scroll had already been returned, what did Scholar Nasir need to do next?",
           "options": [
-            "Add a new rule banning apprentices from the shelves of the library",
+            "Add a new rule banning apprentices from the shelves of the library for good",
             "Ask the merchant to send a brand-new scroll from his shop in town",
-            "Cancel the translation project completely and send all the workers home",
+            "Cancel the translation project and send all the workers home",
             "Search the library physically instead of assuming it was still out on loan"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The House of Wisdom was only a storage room with no real organization at all.",
+            "The House of Wisdom was only a storage room with no real organization.",
             "Scholar Nasir translated the whole manuscript by himself before Yusuf ever arrived.",
             "Dedicated apprentices and careful archives let Baghdad's scholars preserve ancient science.",
-            "The traveling merchant personally organized every shelf inside the library himself."
+            "The traveling merchant organized the shelves inside the library himself."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -540,7 +540,7 @@
         {
           "stem": "Why was the similarity between the astronomy and medicine shelf tags especially risky for the archive?",
           "options": [
-            "It meant scholars could no longer read Greek at all, and many books were burned",
+            "It meant scholars could no longer read Greek, and many books were burned",
             "It meant the merchant could easily steal manuscripts, and nobody would notice",
             "It meant rare, hard-to-replace manuscripts could seem lost even while physically present",
             "It meant the library had to close for repairs, and the apprentices lost their jobs"

@@ -216,9 +216,9 @@
     {
      "stem": "Why might the rebaba be good for telling a story through its sound?",
      "options": [
-      "Because it is the loudest of all the instruments in the band",
+      "Because it is the loudest of all the instruments in the band at a wedding",
       "Because its long, singing sound can carry feeling, even without words",
-      "Because it is always played alone, never with others, in a quiet room",
+      "Because it is played alone, without others, in a quiet room",
       "Because it is shaped like a cup, which holds the sounds in"
      ],
      "answer": "B",
@@ -236,7 +236,7 @@
       "By describing one instrument at a time and its role",
       "By comparing prices of instruments",
       "By telling a made-up story about a musician",
-      "By explaining how to build a daf step by step"
+      "By explaining how to build a daf step by step at home"
      ],
      "answer": "A",
      "skill": "text-structure",
@@ -293,10 +293,10 @@
     {
      "stem": "Which sentence best states the main idea of the article?",
      "options": [
-      "The mizmar is the only instrument used at Arabian weddings, and no drums or other instruments are ever played there at all, anywhere.",
+      "The mizmar is the only instrument used at Arabian weddings, and no drums or other instruments are ever played there at the party.",
       "Traditional Arabian instruments, including drums, the rebaba, and the mizmar, each fill a different role in music and gatherings.",
-      "All traditional instruments are louder than modern instruments, so the article says people should stop making the new kinds of music and play them.",
-      "The rebaba replaced drums in most performances, and today drums are almost never heard at any party, gathering, or show in Arabia."
+      "Traditional instruments are louder than modern instruments, so people prefer them at most parties.",
+      "The rebaba replaced drums in most performances, and today drums are rarely heard at gatherings in Arabia."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -313,7 +313,7 @@
       "Percussion, like the tabla and daf",
       "A wind instrument, like the mizmar",
       "A bowed, stringed instrument",
-      "An instrument with no strings at all"
+      "An instrument with no strings"
      ],
      "answer": "C",
      "skill": "detail",
@@ -362,9 +362,9 @@
      "stem": "Why are these instruments often played together rather than alone, based on the article?",
      "options": [
       "Because each instrument fills a different role that complements the others",
-      "Because playing alone is against the law, and musicians must always be in groups",
+      "Because playing alone is against the law, and musicians must be in groups",
       "Because only one musician in the region knows how to play music, so he leads the rest",
-      "Because instruments cannot be carried separately, so they are tied together"
+      "Because instruments are heavy to carry separately, so they are tied together"
      ],
      "answer": "A",
      "skill": "inference",
@@ -381,7 +381,7 @@
       "Its round, flat shape lets it be held upright and struck with the hands.",
       "Its narrow shape lets a bow glide smoothly across it, like a violin.",
       "Its shape forces it to be blown like a simple flute.",
-      "Its shape means it must always be played underwater."
+      "Its shape means it must be played underwater."
      ],
      "answer": "A",
      "skill": "cause-effect",
@@ -397,8 +397,8 @@
      "options": [
       "Because its long, flowing tone can feel like it is telling a story, unlike the mizmar's piercing volume",
       "Because the rebaba is the loudest instrument described, so it can be heard by every listener in a large crowd",
-      "Because the mizmar cannot be played outdoors, since the wind would stop the sound completely",
-      "Because poetry can only be sung without any instruments, as the singer needs to be heard"
+      "Because the mizmar is hard to play outdoors, since the wind weakens the sound",
+      "Because poetry is sung without instruments, so the singer can be heard"
      ],
      "answer": "A",
      "skill": "inference",
@@ -472,10 +472,10 @@
     {
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
-      "Modern instruments have entirely replaced traditional Arabian instruments, so nobody plays the old ones in any gathering, wedding or festival today.",
+      "Modern instruments have replaced traditional Arabian instruments, so few people play the old ones at gatherings, weddings, or festivals today across the region.",
       "Traditional Arabian instruments, from percussion to bowed and wind instruments, each developed a distinct sound and social role that still shapes gatherings today.",
-      "The mizmar is considered more important than any other traditional instrument, and people say it is the only one that matters at festivals.",
-      "All traditional instruments in the region are played only by professional musicians, and ordinary people are not allowed to touch them at any celebration."
+      "The mizmar is considered more important than the other instruments, and people say it matters most at festivals.",
+      "Traditional instruments in the region are played by professional musicians, and ordinary people rarely touch them."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -509,7 +509,7 @@
       "To suggest the mizmar is an inferior instrument that people do not like to hear",
       "To highlight a specific quality that explains why the mizmar suits loud, crowded, outdoor celebrations",
       "To argue that Western instruments cannot be played outdoors, because they are too quiet to be heard by a crowd",
-      "To claim the mizmar has no reed at all, which is why its sound is so sharp and loud"
+      "To claim the mizmar has no reed, which is why its sound is so sharp and loud"
      ],
      "answer": "B",
      "skill": "vocabulary",
@@ -540,10 +540,10 @@
     {
      "stem": "How does choosing the mizmar over the rebaba affect a large outdoor celebration, based on the article?",
      "options": [
-      "It makes the event completely silent.",
+      "It makes the event silent.",
       "It lets the sound carry despite crowd noise.",
       "It prevents dancers from moving to any rhythm.",
-      "It eliminates the need for any percussion instruments."
+      "It removes the need for percussion instruments."
      ],
      "answer": "B",
      "skill": "cause-effect",
@@ -558,9 +558,9 @@
      "stem": "Which detail best supports the idea that these instruments serve complementary, rather than identical, purposes?",
      "options": [
       "All three instrument types are described as equally loud.",
-      "Every instrument in the article is a percussion instrument.",
+      "Most instruments in the article are percussion instruments.",
       "Each instrument serves a clearly different role than the others.",
-      "The article says only one instrument may be played at any single event."
+      "The article says one instrument may be played at a single event."
      ],
      "answer": "C",
      "skill": "detail",
@@ -575,7 +575,7 @@
      "stem": "How are the tabla and the daf similar to, yet different from, the rebaba?",
      "options": [
       "All three of these instruments are wind instruments played only by blowing air.",
-      "The tabla, daf, and rebaba are all played only with a bow and nothing else.",
+      "The tabla, daf, and rebaba are each played with a bow.",
       "The rebaba is a type of drum, just like the tabla and daf.",
       "The tabla and daf are percussion; the rebaba is a separate bowed instrument."
      ],
@@ -593,7 +593,7 @@
      "options": [
       "To argue that traditional instruments have disappeared entirely, because nobody plays them today in any country",
       "To show that this musical tradition has adapted over time while still remaining actively practiced today",
-      "To claim that newer instruments are always louder than the old ones, so they win every contest",
+      "To claim that newer instruments are louder than the old ones, so they win most contests",
       "To suggest that traditional instruments are now illegal to play in public, even at weddings"
      ],
      "answer": "B",

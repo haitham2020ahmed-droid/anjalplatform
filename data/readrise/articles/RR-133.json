@@ -217,7 +217,7 @@
           "stem": "Why does a big game take years to make?",
           "options": [
             "The team plays it all day and night",
-            "The team only has one person to do it",
+            "The team has one person to do it",
             "There are many jobs and many steps",
             "The computer is very slow and old"
           ],
@@ -294,7 +294,7 @@
           "stem": "What is the main idea of the article?",
           "options": [
             "Teams with different jobs make games through careful steps.",
-            "Video games are always made by one person working alone at home late at night.",
+            "Video games are made by one person working alone at home late at night.",
             "Video games are easy to make in a few days.",
             "Video games do not need testing."
           ],

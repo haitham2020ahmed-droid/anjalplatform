@@ -200,7 +200,7 @@
           "stem": "Why did the team make a slow, steady sound instead of staying silent?",
           "options": [
             "To call other fishermen for help",
-            "To scare the whale away from the shore",
+            "To scare the whale away from the shore with loud noises",
             "To calmly guide the whale toward deep water",
             "To test their boat's engine"
           ],
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Whales always swim in circles close to the shore without ever needing any help from people.",
-            "Children are never allowed anywhere near a whale during any rescue like this one.",
-            "Research centers in this coastal area only ever study fish and never study whales at all.",
+            "Whales swim in circles close to the shore without ever needing any help from people from fishermen or from scientists.",
+            "Children are kept far away from whales during rescues like this one.",
+            "Research centers in this coastal area study fish more than whales.",
             "Fishermen and biologists work together with patience to guide a confused young whale back to open water."
           ],
           "answer": "D",
@@ -414,7 +414,7 @@
           "options": [
             "The fishermen cared for the whale's health, while the biologists caught fish for it to eat after the rescue is done",
             "The fishermen first noticed and reported the whale, while the biologists understood whale behavior and guided it to safety",
-            "The fishermen and biologists did exactly the same job all day long, with no difference between them at all",
+            "The fishermen and biologists did exactly the same job all day long, with no difference between them",
             "The biologists caught the whale in a net while the fishermen watched from the beach and took some photos"
           ],
           "answer": "B",
@@ -472,8 +472,8 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Humpback whales never travel in any groups and always migrate completely alone across the ocean.",
-            "The Red Sea coast is far too dangerous for any research boats to ever safely operate near it at all.",
+            "Humpback whales never travel in any groups and migrate alone across the ocean.",
+            "The Red Sea coast is too dangerous for research boats to work near it.",
             "Marine biologists regularly capture wild whales so they can study them closely inside large tanks.",
             "A young, disoriented whale is guided back to open water by fishermen, biologists, and schoolchildren."
           ],
@@ -542,8 +542,8 @@
           "options": [
             "To explain why the whale was likely traveling along a migration route when it became separated from its pod",
             "To prove that humpback whales never stay near the Red Sea, and only live in cold places far away from it",
-            "To show that whales migrate only once in their lives, so the whale was probably on its first and last trip",
-            "To explain why fishermen cannot find whales in the sea, since the animals swim much too fast for boats"
+            "To show that whales migrate once in their lives, so the whale was probably on its first trip",
+            "To explain why fishermen rarely find whales in the sea, since the animals swim too fast for boats"
           ],
           "answer": "A",
           "skill": "inference",
@@ -576,8 +576,8 @@
           "options": [
             "It relies on patient, calming sound rather than force or sudden noise that could frighten the whale further",
             "It involves capturing the whale with strong nets so that it can be carried to the open sea by a big truck",
-            "It requires no understanding of whale behavior at all, only strong boats and a lot of speed",
-            "It is exactly the same as chasing the whale, only slower and with a few more boats"
+            "It requires no understanding of whale behavior, only strong boats and a lot of speed",
+            "It is the same as chasing the whale, but slower and with a few more boats"
           ],
           "answer": "A",
           "skill": "compare",

@@ -117,7 +117,7 @@
             "How to build a boat from wood and rope on the shore of a lake or a river",
             "Animals that live in the rainforest and hide in tall trees all day and night",
             "A river that carries huge amounts of water and shapes life along its banks",
-            "A list of every country in South America and the name of its capital city"
+            "A list of the countries in South America and their capital cities"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -166,7 +166,7 @@
           "stem": "In the article, when the river floods, water...",
           "options": [
             "spreads over land that is usually dry",
-            "turns completely to ice in the cold",
+            "turns to ice in the cold",
             "disappears into the sky like a cloud",
             "stops flowing toward the sea for a day"
           ],
@@ -184,8 +184,8 @@
           "options": [
             "No bridge crosses the main river, and many villages have no roads.",
             "Cars are not allowed anywhere in Brazil, so people use boats for every trip",
-            "The water is too cold for roads nearby, so builders cannot put them down",
-            "The river is too narrow for roads to run beside it, so boats are the only choice"
+            "The water is too cold for roads nearby, so builders do not put them down",
+            "The river is too narrow for roads to run beside it, so boats are the better choice"
           ],
           "answer": "A",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Brazil built the first bridge across the Amazon last century.",
             "The Amazon's size, tributaries, and remoteness shape how people live along it.",
             "The Rio Negro is a river that most boats try hard to avoid.",
-            "The Amazon rainforest has more animal species than any other forest."
+            "The Amazon rainforest has more animal species than any other forest in the world."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,7 +311,7 @@
           "stem": "According to the article, how does the Amazon's discharge compare with other rivers?",
           "options": [
             "Its discharge has never once been measured by any scientist.",
-            "It discharges roughly the same amount of water as most rivers.",
+            "It discharges roughly the same amount of water as most rivers in the world.",
             "It discharges far less water each year than most major rivers.",
             "It discharges more water than the next seven largest rivers combined."
           ],
@@ -329,7 +329,7 @@
           "options": [
             "The Solimões carries pale sediment from the mountains, while the Rio Negro runs darker.",
             "A large dam was once built directly between the two joining rivers, and it still divides them.",
-            "Both rivers happen to flow gently downhill at the very same speed, so they never mix at all.",
+            "Both rivers happen to flow gently downhill at the very same speed, so they never mix.",
             "The two rivers have exactly the same amount of dissolved salt in them, so their colors stay apart."
           ],
           "answer": "A",
@@ -380,8 +380,8 @@
           "options": [
             "The river's width, remoteness, and shifting banks make roads and bridges hard to build.",
             "The government of Brazil banned any road building near rivers decades ago.",
-            "All the roads near the river were destroyed by a strong earthquake years ago, and none were rebuilt.",
-            "People living along the river simply prefer walking over any vehicle, so they never asked for roads."
+            "The roads near the river were destroyed by a strong earthquake years ago and not rebuilt.",
+            "People living along the river prefer walking over vehicles, so they did not ask for roads."
           ],
           "answer": "A",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Brazil's government has largely failed to connect Amazon villages with modern roads.",
-            "The Rio Negro is the only Amazon tributary that carries any sediment at all.",
+            "The Rio Negro is the only Amazon tributary that carries any sediment.",
             "The Amazon's discharge, watershed, and shifting course shape its character and daily life.",
-            "The Amazon rainforest contains more plant and animal species than any other ecosystem on Earth."
+            "The Amazon rainforest contains more plant and animal species than most ecosystems on Earth."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -490,7 +490,7 @@
           "stem": "According to the article, what is a watershed?",
           "options": [
             "An area of land where water drains toward the same river",
-            "A dam built to control a river's seasonal flooding",
+            "A dam built to control a river's seasonal flooding each year",
             "The exact spot where two tributaries visibly meet",
             "A boat used to carry goods along a navigable river"
           ],
@@ -506,8 +506,8 @@
         {
           "stem": "Why do the Solimões and the Rio Negro remain visibly separate for several kilometers after they meet?",
           "options": [
-            "Because the Rio Negro flows only during the rainy season each year, so it is not always there to mix.",
-            "Because a narrow strip of land briefly separates the two rivers underwater, so their waters cannot meet.",
+            "Because the Rio Negro flows only during the rainy season each year, so it is not there to mix.",
+            "Because a narrow strip of land separates the two rivers underwater, so their waters meet later.",
             "Because differences in temperature, speed, and density keep their waters from mixing at once.",
             "Because one of the two rivers is navigable and the other is simply not, so ships keep the waters apart."
           ],
@@ -543,7 +543,7 @@
             "Villages along the river depend on it for their daily drinking water.",
             "The Solimões originates high up in the Andes Mountains of Peru.",
             "The river's plume is visible from space and alters ocean salinity for kilometers.",
-            "Boats of every size travel the river, from small canoes to large ferries."
+            "Boats of every size travel the river, from small canoes to large ferries each day."
           ],
           "answer": "C",
           "skill": "detail",
@@ -574,9 +574,9 @@
         {
           "stem": "How does the Amazon's seasonal flooding compare with its dry-season state, based on the article?",
           "options": [
-            "The warm Amazon region freezes completely during part of every year, and the river turns into ice.",
-            "It floods only in the dry season and shrinks back in the wet season, when the rains come.",
-            "Its width stays exactly the same width throughout the entire year, with no change in any month.",
+            "The warm Amazon region freezes during part of every year, and the river turns into ice.",
+            "It floods in the dry season and shrinks back in the wet season, when the rains come.",
+            "Its width stays the same throughout the year, with little change from month to month.",
             "In the wet season it floods the plain; in the dry season it stays within narrower banks."
           ],
           "answer": "D",

@@ -219,7 +219,7 @@
             "He gets more money every time he cheats a buyer",
             "The whole market closes down for good in a week",
             "People stop trusting him and stop coming back",
-            "He must sell all his cloth for free to everyone"
+            "He must give his cloth away for free"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -294,7 +294,7 @@
           "options": [
             "Ammar wanted Salim to charge every traveler the same low price so that Salim would become popular.",
             "Salim learns that a merchant who deals fairly earns lasting trust and success, while cheating customers leads to failure.",
-            "Traveling merchants from distant lands always charge strangers more money than they charge local customers.",
+            "Traveling merchants from distant lands charge strangers more money than they charge local customers in the market, so they make the most profit.",
             "The market town was famous mainly for its spicy dates and its soft, brightly colored cloth."
           ],
           "answer": "B",
@@ -310,8 +310,8 @@
           "stem": "Why didn't the traveler know the fair price of the cloth?",
           "options": [
             "He had never bought any cloth before in his entire life",
-            "The cloth in the market had no price tag on it at all",
-            "Ammar had raised all of his prices earlier that same day",
+            "The cloth in the market had no price tag on it",
+            "Ammar had raised his prices earlier that same day",
             "He was a stranger from a distant land"
           ],
           "answer": "D",
@@ -344,9 +344,9 @@
           "stem": "In the story, the word apprentice means —",
           "options": [
             "a traveler from a faraway land who needs help",
-            "a wealthy merchant who owns many stalls in town",
+            "a wealthy merchant who owns many stalls in town and his sons",
             "a young person learning a trade from a skilled worker",
-            "a customer who always bargains over prices"
+            "a customer who bargains over prices"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -362,7 +362,7 @@
           "options": [
             "He simply forgets what price he charged last time",
             "The town has an old law that fixes all prices",
-            "He honestly cannot tell who is wealthy or poor",
+            "He finds it hard to tell who is wealthy or poor",
             "He believes fairness matters more than extra profit"
           ],
           "answer": "D",
@@ -413,7 +413,7 @@
           "options": [
             "By listing clear rules for pricing cloth in any market, town, or city that Salim and Ammar visit",
             "Through a single event where Salim is tempted, followed by Ammar's explanation of why fairness matters",
-            "By comparing two completely different market towns and showing which one is richer and which one is bigger",
+            "By comparing two different market towns and showing which one is richer and which one is bigger",
             "By describing the long history of Arabian trade routes and the towns that grew along them over many years"
           ],
           "answer": "B",
@@ -471,9 +471,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "Fair dealing, rather than short-term profit gained by exploiting a customer's ignorance, is what sustains a merchant's reputation and long-term success.",
-            "Traveling merchants from distant lands always pay noticeably more than local customers in every Arabian market and shop, since they carry more coins and gold.",
-            "Ammar's apprentice, Salim, eventually becomes far wealthier than his master by learning to bargain aggressively with each and every customer.",
-            "Honest merchants in old Arabia were required by strict law to charge perfectly identical prices to every single buyer in the market."
+            "Traveling merchants from distant lands pay noticeably more than local customers in every Arabian market and shop, since they carry more coins and gold.",
+            "Ammar's apprentice, Salim, becomes wealthier than his master by learning to bargain hard with customers.",
+            "Honest merchants in old Arabia were required by law to charge the same prices to the buyers in the market."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,8 +540,8 @@
           "options": [
             "Because a reputation for integrity brings repeat customers and lasting commerce, while one unfair sale destroys trust permanently.",
             "Because the local town fines any merchant who is caught being unfair, and the fine is very large",
-            "Because travelers, as a rule, never return to any market town twice, so a good name is not needed",
-            "Because integrity somehow allows a merchant to avoid paying local taxes, so he can keep all his money for himself and his family"
+            "Because travelers rarely return to a market town twice, so a good name matters less",
+            "Because integrity helps a merchant avoid paying local taxes, so he keeps more of his money for his family and his shop each year"
           ],
           "answer": "A",
           "skill": "inference",
@@ -558,7 +558,7 @@
             "Ammar claims he never once faced any temptation as a young apprentice in the busy market of the town",
             "Ammar likely faced a similar temptation himself when he was a young apprentice, and chose honesty",
             "Ammar was once formally punished for cheating a customer, and the guild fined him a great deal of money",
-            "Ammar only learned fairness after losing every one of his customers in the town and his shop closing"
+            "Ammar learned fairness after losing most of his customers and closing his shop"
           ],
           "answer": "B",
           "skill": "inference",
@@ -574,7 +574,7 @@
           "options": [
             "His quiet skill at exploiting strangers who do not know local prices",
             "The simple fact that he happens to own the only stall in the market",
-            "His long-standing habit of quietly charging more money to his wealthier customers",
+            "His long-standing habit of quietly charging more money to his wealthier customers in the market",
             "His consistent fairness and trustworthiness, which sustain customer loyalty over many years"
           ],
           "answer": "D",
@@ -592,7 +592,7 @@
             "To show that Salim eventually abandoned fair dealing for quick profit and became rich",
             "To show that the lesson of fair, trustworthy commerce lasted and shaped Salim's own future choices",
             "To explain in detail how Salim became wealthier than Ammar himself in only a few years",
-            "To suggest that prices in this market always rise over time, because merchants grow greedy and sell less cloth"
+            "To suggest that prices in this market rise over time, because merchants grow greedy and sell less cloth"
           ],
           "answer": "B",
           "skill": "author-purpose",

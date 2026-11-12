@@ -202,7 +202,7 @@
             "It is the newest building in all of Egypt.",
             "It is old and huge, and it still stands.",
             "It is still full of gold and treasure today.",
-            "It is the only building near Cairo."
+            "It is the tallest building near Cairo."
           ],
           "answer": "B",
           "skill": "inference",
@@ -234,7 +234,7 @@
           "stem": "How does the author explain the building of the pyramids?",
           "options": [
             "By comparing them with buildings today",
-            "By telling a made-up story about a king",
+            "By telling a made-up story about a king of Egypt",
             "By listing the names of all the workers",
             "By showing the steps used to move the stones"
           ],
@@ -295,7 +295,7 @@
           "options": [
             "Robbers stole the treasures from every pyramid.",
             "The pyramids were royal tombs built with great skill.",
-            "Granite is a much stronger stone than limestone.",
+            "Granite is a much stronger stone than limestone for statues.",
             "Cairo is the largest city on the Nile River."
           ],
           "answer": "B",
@@ -345,7 +345,7 @@
           "stem": "Why did the workers cut most of the limestone from a quarry right next to the pyramid?",
           "options": [
             "Limestone could only be cut near the Nile River bank.",
-            "The pharaoh wanted to see the quarry from his tomb every day.",
+            "The pharaoh wanted to see the quarry from his tomb each day.",
             "Engineers did not know how to use boats on the river.",
             "Moving heavy blocks a short distance saved time and effort."
           ],
@@ -363,7 +363,7 @@
           "options": [
             "The work was organized and skilled.",
             "The workers only came for one day.",
-            "Nobody wanted to work on the pyramids.",
+            "Few people wanted to work on the pyramids.",
             "The town was built after the pyramid."
           ],
           "answer": "A",
@@ -378,7 +378,7 @@
         {
           "stem": "The Great Pyramid is one of the Seven Wonders of the Ancient World. What does wonder mean here?",
           "options": [
-            "A question that has no answer at all",
+            "A question that has no answer",
             "A small statue made of gold and stone",
             "Something amazing that people admire",
             "A tomb that has been robbed by thieves"

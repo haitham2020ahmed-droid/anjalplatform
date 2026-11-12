@@ -149,7 +149,7 @@
           "stem": "What should you do first for a small burn?",
           "options": [
             "Hold it under cool running water",
-            "Put a bag of ice right on it",
+            "Put a bag of ice right on it for an hour",
             "Rub some butter all over it",
             "Cover it with a warm towel"
           ],
@@ -295,8 +295,8 @@
           "options": [
             "Only doctors should help people who are hurt, and others must wait for them.",
             "Knowing a few simple first aid steps helps you help others safely.",
-            "Burns are the most common injury, and all first aid is about burns.",
-            "Every injury needs an ambulance, so people should always call one."
+            "Burns are the most common injury, so first aid is mostly about burns.",
+            "Each injury needs an ambulance, so people should call one."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -474,8 +474,8 @@
           "options": [
             "First aid is complicated and only for experts, so children should not try it.",
             "Simple, correct first aid steps can protect people until professional help arrives.",
-            "Heatstroke is the only real emergency that people ever face outside their homes.",
-            "Children should treat serious injuries alone, and should not call any adult for help."
+            "Heatstroke is the most common emergency that people face outside their homes.",
+            "Children should treat serious injuries alone, without calling an adult for help."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -575,7 +575,7 @@
           "stem": "Why does the author mention the Saudi summer when discussing heat illness?",
           "options": [
             "Because the heat there makes heat illness a real risk for readers",
-            "Because heatstroke never happens anywhere else in the world",
+            "Because heatstroke never happens anywhere else in the world in the summer",
             "To describe famous tourist places to visit in summer",
             "To explain how scientists predict the weather each day"
           ],

@@ -134,7 +134,7 @@
             "There are too many trees",
             "It rains every single day",
             "It is hot and there is little rain",
-            "The ground is too wet and cold"
+            "The ground is too wet and cold in winter"
           ],
           "answer": "C",
           "skill": "detail",
@@ -217,7 +217,7 @@
           "stem": "Why might a farm in the desert use solar panels?",
           "options": [
             "The desert has a lot of sun to make power",
-            "Solar panels give water to the plants",
+            "Solar panels give water to the plants in the farm",
             "Solar panels keep sand off the roads",
             "The desert has no wind or air"
           ],
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Desert farming is impossible, so food must always come from other countries.",
+            "Desert farming is impossible, so food must come from other countries.",
             "Smart farms use technology to grow food in the desert with less water.",
             "Greenhouses are only useful in cold places with lots of snow.",
-            "Dates are the only crop that people can grow in Saudi Arabia."
+            "Dates are the main crop that people can grow in Saudi Arabia."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,7 +311,7 @@
           "stem": "What does drip irrigation do?",
           "options": [
             "It sprays water into the air above the field",
-            "It floods the whole field with water once a week",
+            "It floods the whole field with water once a week from the river",
             "It delivers water directly to the roots of each plant",
             "It pulls water out of the soil"
           ],
@@ -379,7 +379,7 @@
           "stem": "How is hydroponics different from growing plants in a field?",
           "options": [
             "Plants grow without soil, and the water is used again",
-            "Plants grow in sand with no water at all",
+            "Plants grow in sand with no water",
             "Plants grow only at night when the air is cool",
             "Plants need much more water than they do in fields"
           ],
@@ -472,9 +472,9 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Desert farms should stop growing dates and grow only vegetables.",
+            "Desert farms should stop growing dates and grow only vegetables in big farms.",
             "Technology allows desert farms to grow food while using far less water.",
-            "Solar panels are the single most important tool on every farm.",
+            "Solar panels are the most important tool on a farm.",
             "Greenhouses are too expensive to be useful in hot regions."
           ],
           "answer": "B",
@@ -492,7 +492,7 @@
             "It uses salty water pumped from the sea",
             "It only works at night when it is cool",
             "Water goes straight to the roots, so little is lost",
-            "It uses many more pipes than other systems do"
+            "It uses many more pipes than other systems do in the field"
           ],
           "answer": "C",
           "skill": "cause-effect",

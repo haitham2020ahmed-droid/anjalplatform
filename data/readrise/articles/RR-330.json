@@ -233,7 +233,7 @@
         {
           "stem": "Why does a map need a scale?",
           "options": [
-            "So you always know exactly what each symbol means",
+            "So you know exactly what each symbol means",
             "So the finished map simply looks more colorful",
             "So you know how real distances compare to the map",
             "So the whole map can fold up into a small size"
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of this article?",
           "options": [
-            "Every single map in the whole world uses the exact same projection and has no distortion anywhere on it at all.",
-            "Maps are only ever useful for drivers who need simple directions to one specific road.",
-            "A legend is honestly the only part of any map that really matters to its reader.",
+            "Every single map in the whole world uses the exact same projection and has no distortion anywhere on it or in its legend.",
+            "Maps are useful mainly for drivers who need simple directions to one road.",
+            "A legend is the most important part of a map for its reader.",
             "Mapmakers use projections, symbols, legends, and scales together to turn Earth's round surface into a useful flat map."
           ],
           "answer": "D",
@@ -311,7 +311,7 @@
           "stem": "What does a map projection do?",
           "options": [
             "It converts the round surface of Earth into a flat image.",
-            "It removes all distortion from a map completely and perfectly.",
+            "It removes all distortion from a map and perfectly.",
             "It measures real distances in exact miles on the ground.",
             "It draws symbols for forests and campgrounds on a map."
           ],
@@ -330,7 +330,7 @@
             "Exactly at the very center of the map",
             "Near the top and bottom edges of the map",
             "Only on road maps, never on any other kind",
-            "Only inside the legend box itself"
+            "Inside the legend box itself"
           ],
           "answer": "B",
           "skill": "detail",
@@ -363,7 +363,7 @@
           "options": [
             "One of the two maps must simply be drawn incorrectly.",
             "Only physical maps can show a country's true real shape.",
-            "Countries actually change their shape slightly every year.",
+            "Countries change their shape a little each year.",
             "They were likely made using two different projections."
           ],
           "answer": "D",
@@ -413,7 +413,7 @@
           "stem": "How are a political map and a physical map similar?",
           "options": [
             "Both only ever show roads and highways, never rivers, borders or mountains.",
-            "Both completely ignore the real shape of Earth and show only flat squares.",
+            "Both show the real shape of Earth as a round ball.",
             "Both are kinds of maps that use symbols, a legend, and a scale.",
             "Both were first invented in the exact same year by the same mapmaker."
           ],
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Modern satellites have completely eliminated the need for map projections, so cartographers do not make any trade-offs now, since every map is perfect and shows no distortion at all, ever.",
-            "Every cartographer throughout history has used the exact same single projection, so maps from every country, every century, and every culture look alike and never change at all.",
+            "Modern satellites have removed the need for map projections, so cartographers make few trade-offs now, and most maps show the whole Earth without distortion, as satellites photograph it directly from space.",
+            "Cartographers throughout history have used the same projection, so maps from different centuries and cultures look alike.",
             "Cartographers must make deliberate trade-offs when turning Earth's round surface into a flat map, using tools like projections, symbols, legends, scale, and coordinate grids despite unavoidable distortion.",
-            "Latitude and longitude were invented only after digital maps already existed, so earlier sailors and travelers had no way to describe any place on Earth at all, even with a compass and a chart."
+            "Latitude and longitude were invented after digital maps existed, so earlier sailors described places by drawing pictures of the coast."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -526,7 +526,7 @@
             "Natural features are too difficult for any cartographer to draw well.",
             "Leaving them out keeps the map focused and clear for drivers.",
             "Mountains do not exist in most countries that have many roads.",
-            "Road maps are not permitted to use any color at all."
+            "Road maps are printed in black and white to save money."
           ],
           "answer": "B",
           "skill": "inference",
@@ -540,9 +540,9 @@
         {
           "stem": "Why might a digital map app rarely mention 'projection' to its everyday users?",
           "options": [
-            "Digital maps do not actually use any projection at all in their software or screens.",
-            "Projections were abandoned entirely once satellites were launched.",
-            "Only paper maps have ever needed a projection in the first place.",
+            "Digital maps do not actually use any projection in their software or screens.",
+            "Projections were abandoned once satellites were launched.",
+            "Paper maps need a projection, but digital maps do not.",
             "The underlying math still happens, but it is handled automatically and invisibly."
           ],
           "answer": "D",
@@ -575,7 +575,7 @@
           "stem": "Why does the author end the article by discussing digital maps on phones and computers?",
           "options": [
             "To connect centuries-old mapmaking ideas to a tool most readers already use today",
-            "To argue that paper maps are now completely useless to travelers, since phones are better",
+            "To argue that paper maps are now useless to travelers, since phones are better",
             "To explain exactly how satellites are physically built and sent up into the sky",
             "To compare the price of paper maps with digital maps in the shops"
           ],
@@ -594,7 +594,7 @@
             "Both were invented at the exact same global conference.",
             "Both rely only on satellites for all of their information.",
             "Both solve a problem created by Earth's round, non-flat shape.",
-            "Both ignore longitude completely when doing their work."
+            "Both ignore longitude when doing their work."
           ],
           "answer": "C",
           "skill": "compare",

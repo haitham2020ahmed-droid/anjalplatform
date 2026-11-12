@@ -150,8 +150,8 @@
      "options": [
       "A tiny boat that is only used for fishing near the shore",
       "A boat that can carry heavy stone and still sail fast",
-      "A boat built completely out of shiny metal and glass",
-      "A boat that is meant only for a fun race on feast days"
+      "A boat built out of shiny metal and glass",
+      "A boat that is meant for a fun race on feast days"
      ],
      "answer": "B",
      "skill": "detail",
@@ -185,7 +185,7 @@
       "The wood was painted the wrong bright color for the sea",
       "It is too heavy and not built the right shape for the load",
       "Hamid forgot to add a tall sail to it before the race",
-      "Yusuf did not help build that particular boat at all"
+      "Yusuf did not help build that particular boat"
      ],
      "answer": "B",
      "skill": "inference",
@@ -219,7 +219,7 @@
       "The boat floats well and sails fast",
       "The new boat tips over again right away",
       "Faris refuses to accept the finished boat",
-      "The boat sinks completely into the harbor"
+      "The boat sinks into the harbor"
      ],
      "answer": "A",
      "skill": "cause-effect",
@@ -295,8 +295,8 @@
      "options": [
       "Yusuf's careful observation of another boat helps Hamid solve a design problem and complete a difficult commission.",
       "Dhows are described as being, without question, the fastest boats anywhere in the entire world, faster than any ship.",
-      "Hamid is shown refusing completely to ever listen to his young apprentice's ideas, even when the boat is in danger.",
-      "Faris eventually decides, for no clear reason at all, not to buy a boat after all, and the work is cancelled."
+      "Hamid is shown refusing to ever listen to his young apprentice's ideas, even when the boat is in danger.",
+      "Faris decides not to buy a boat, so the work stops."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -329,7 +329,7 @@
      "options": [
       "A narrow hull that sits very deep in the water",
       "A hull made out of thick, heavy metal plates",
-      "A boat that, in fact, has no hull at all",
+      "A boat that, in fact, has no hull",
       "A wider, flatter hull"
      ],
      "answer": "D",
@@ -378,10 +378,10 @@
     {
      "stem": "Why was the wider fishing boat somewhat slower than a narrow boat?",
      "options": [
-      "It happened to have no sails fitted to it at all, so it moved by oars",
+      "It happened to have no sails fitted to it, so it moved by oars",
       "A wider, flatter hull trades some speed for greater stability",
       "It was simply much older than most of the other boats in the port",
-      "Fishermen always rowed it instead of ever sailing it in the wind"
+      "Fishermen rowed it instead of ever sailing it in the wind"
      ],
      "answer": "B",
      "skill": "inference",
@@ -395,10 +395,10 @@
     {
      "stem": "How does the final dhow design compare to the original design?",
      "options": [
-      "It ends up being exactly identical to the original design, with no change at all",
+      "It ends up being exactly identical to the original design, with no change",
       "It is made narrower everywhere compared to the original design of the boat",
       "It combines a wider curve near the bottom for balance with curved sides for speed",
-      "It completely removes the keel from the boat's hull and also the sides"
+      "It removes the keel from the boat's hull and also the sides"
      ],
      "answer": "C",
      "skill": "compare",
@@ -413,8 +413,8 @@
      "stem": "How does the passage mainly organize the events of the story?",
      "options": [
       "It follows the problem of the tipping boat, then the idea, the test, and the fix, in order",
-      "It simply lists, one after another, the ingredients needed for building any boat",
-      "It compares, point by point, five completely different kinds of boats",
+      "It simply lists, one after another, the ingredients needed for building any boat in the harbor",
+      "It compares, point by point, five different kinds of boats",
       "It describes, from birth to old age, the merchant Faris's entire life story"
      ],
      "answer": "A",
@@ -475,7 +475,7 @@
       "Yusuf's attentive observation and willingness to question the usual design help Hamid solve a structural problem and fulfill a demanding commission.",
       "Dhows are presented in the passage as having never once been successfully redesigned throughout all of history, according to the old builders.",
       "Faris is shown eventually canceling the entire commission out of sheer frustration with Hamid's work, and he leaves the harbor.",
-      "Buoyancy is described in the passage as having essentially no real effect on how any boat floats in the water."
+      "Buoyancy is described in the passage as having little effect on how a boat floats in the water."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -541,8 +541,8 @@
      "stem": "Why does a wider, flatter hull provide greater stability than a narrow one, based on the passage?",
      "options": [
       "It spreads the boat's weight over a broader surface, resisting tipping, even though it sacrifices some speed",
-      "It happens to be built from an entirely different type of wood altogether, which is lighter than oak and also much cheaper",
-      "It has no keel whatsoever fitted to it, so it simply cannot tip at all, even in a storm",
+      "It happens to be built from an different type of wood altogether, which is lighter than oak and also much cheaper",
+      "It has no keel fitted to it, so it simply cannot tip, even in a storm",
       "It is described as carrying noticeably less cargo than a narrow hull would, so it floats higher"
      ],
      "answer": "A",
@@ -557,10 +557,10 @@
     {
      "stem": "What does Hamid's willingness to change his usual design suggest about him?",
      "options": [
-      "He is, in truth, quite stubborn and refuses any new ideas whatsoever, even from his own apprentices at the shop",
-      "He has, by this point, completely lost all trust in his own skills and no longer wants to make any designs at all",
+      "He is, in truth, quite stubborn and refuses any new ideas, even from his own apprentices at the shop",
+      "He has lost trust in his own skills and no longer wants to make designs",
       "He values craftsmanship but remains open to a better solution when evidence supports it",
-      "He clearly dislikes working closely with any apprentices at all, and so he works alone every single day in the shop"
+      "He dislikes working with apprentices, so he works alone in the shop"
      ],
      "answer": "C",
      "skill": "inference",
@@ -575,8 +575,8 @@
      "stem": "Which sequence of events is correct?",
      "options": [
       "Hamid reshapes the hull first, then builds a test model, and only then does Faris arrive with his commission",
-      "The reshaped hull succeeds first, and only afterward does Faris arrive, with the original hull failing last",
-      "Yusuf proposes his idea well before Faris ever arrives with the commission at all, and then the reshaped hull is built and tested",
+      "The reshaped hull succeeds first, and afterward Faris arrives, with the original hull failing last",
+      "Yusuf proposes his idea well before Faris ever arrives with the commission, and then the reshaped hull is built and tested",
       "Faris arrives with the commission, the original hull fails its stability test, Yusuf proposes an idea, and the reshaped hull succeeds"
      ],
      "answer": "D",
@@ -593,7 +593,7 @@
      "options": [
       "To suggest that experienced craftsmen should ignore absolutely every new idea they encounter in their work",
       "To emphasize that true skill includes the humility to adapt traditional methods when circumstances demand it",
-      "To argue that long-standing tradition should always be abandoned completely without question or thought",
+      "To argue that long-standing tradition should be abandoned without question or thought",
       "To explain, in passing, why Faris happened to pay extra for this particular commission last year"
      ],
      "answer": "B",

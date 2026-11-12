@@ -184,7 +184,7 @@
           "options": [
             "People stopped doing math.",
             "The new numbers spread there.",
-            "The books were lost forever.",
+            "The books were lost.",
             "Baghdad became a small town."
           ],
           "answer": "B",
@@ -293,7 +293,7 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Baghdad was once one of the largest cities in the world.",
+            "Baghdad was once one of the largest cities in the world at that time in history.",
             "Computers were invented by scholars in Baghdad.",
             "Al-Khwarizmi's methods and books shaped the math we use today.",
             "Latin was the most important language for science."
@@ -560,7 +560,7 @@
             "Baghdad's scholars refused to read foreign books.",
             "Its scholars learned from many cultures.",
             "Only Greek ideas were valued in Baghdad.",
-            "Al-Khwarizmi wrote all of the manuscripts in the library himself."
+            "Al-Khwarizmi wrote most of the manuscripts in the library himself."
           ],
           "answer": "B",
           "skill": "inference",

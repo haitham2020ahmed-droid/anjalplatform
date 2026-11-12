@@ -116,8 +116,8 @@
      "options": [
       "A game played with seeds and small holes",
       "How to grow seeds into new plants",
-      "A game that always uses dice to win",
-      "A sport played outside with a ball"
+      "A game that uses dice to win",
+      "A sport played outside with a ball and a net"
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -149,7 +149,7 @@
      "stem": "How does a player move pieces in this game?",
      "options": [
       "By rolling two dice first",
-      "By drawing a card from a pile",
+      "By drawing a card from a pile in the game",
       "By flipping a single coin",
       "By moving seeds from hole to hole"
      ],
@@ -295,8 +295,8 @@
      "options": [
       "A simple, ancient board game has tested strategy across the region for centuries.",
       "This board game was invented last year in one single country, and so no one has played it for long.",
-      "Players must own costly equipment to play this old game, and only rich families have ever joined in.",
-      "Luck, not skill, decides who wins this old board game, and strategy has no part in the play at all."
+      "Players need costly boards to play this old game, so mostly rich families have played it.",
+      "Luck, not skill, decides who wins this old board game, and strategy has no part in the play."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -378,7 +378,7 @@
     {
      "stem": "What can you infer about why this game is played across so many places?",
      "options": [
-      "It can only be played by very wealthy opponents",
+      "It can only be played by very wealthy opponents in big cities",
       "It was recently invented and spread fast online",
       "It requires a very large, expensive board",
       "It needs simple, easy-to-find materials anyone can use"
@@ -412,9 +412,9 @@
     {
      "stem": "How is this ancient game different from a game that uses dice?",
      "options": [
-      "This game has no winner, while a dice game always has one",
-      "This game uses no board, while a dice game always needs one",
-      "This game needs many players, while a dice game needs one",
+      "This game has no winner, while a dice game has one",
+      "This game uses no board, while a dice game needs one",
+      "This game needs many players, while a dice game needs one or two",
       "This game depends on skill, while a dice game depends on chance"
      ],
      "answer": "D",
@@ -473,7 +473,7 @@
      "stem": "Which statement best summarizes the article?",
      "options": [
       "An ancient, purely strategic game remains widespread today.",
-      "A newly invented game has quickly replaced older board games everywhere.",
+      "A newly invented game has quickly replaced older board games.",
       "Only wealthy households can afford to play this traditional game.",
       "This game depends mostly on rolling dice and guessing correctly."
      ],
@@ -525,7 +525,7 @@
      "options": [
       "To plan a better move and capture more seeds",
       "To end the match as quickly as can be done",
-      "To avoid ever using any seeds at all",
+      "To avoid ever using any seeds",
       "To make the game board larger during play"
      ],
      "answer": "A",
@@ -558,7 +558,7 @@
      "stem": "How is this ancient game similar across the Arab world and Africa, despite regional variation?",
      "options": [
       "Every single region uses the exact same local name",
-      "Only one region is allowed to use seeds as pieces",
+      "Each region uses a different number of seeds and goals",
       "The core goal of capturing seeds stays the same",
       "Each region uses a wholly different board shape"
      ],
@@ -576,8 +576,8 @@
      "options": [
       "The game rewards careful thought over chance",
       "The game cannot ever be enjoyed by beginners",
-      "The game ends up with no clear winner at all",
-      "The game was designed only for professionals"
+      "The game ends up with no clear winner",
+      "The game was designed mainly for professionals"
      ],
      "answer": "A",
      "skill": "inference",

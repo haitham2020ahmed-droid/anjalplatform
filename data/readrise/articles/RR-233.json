@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell about space from the article?",
           "options": [
-            "It is always warm and comfortable for a person who goes there",
+            "It is warm and comfortable for a person who goes there",
             "It is full of breathable air all around, just like on Earth",
             "It is too dangerous for a person to enter without a suit",
-            "It has no temperature at all, so nothing there is hot or cold"
+            "It is warm there, so a suit is not needed"
           ],
           "answer": "C",
           "skill": "inference",
@@ -234,7 +234,7 @@
           "stem": "Why might an astronaut's suit be compared to a tiny spacecraft?",
           "options": [
             "Because it is shaped like a house, with a roof, a door, and windows on every side of it",
-            "Because astronauts sleep inside it every night, in a small bed that is made of soft cloth",
+            "Because astronauts sleep inside it each night, in a small bed made of soft cloth",
             "Because it has furniture inside it, such as a table, a chair, and a shelf for their food",
             "Because it gives the astronaut air, safety, and a steady temperature just like a spacecraft does"
           ],
@@ -295,8 +295,8 @@
           "options": [
             "A spacesuit is built in layers that supply oxygen, control pressure and temperature, and protect an astronaut from radiation during a spacewalk.",
             "Astronauts only need gloves to survive in space, because the air outside is safe to breathe and the Sun is gentle on the skin, so they need nothing more.",
-            "Spacesuits are mainly designed to look impressive in photographs, and the layers inside them are only there for show and for color.",
-            "The Sun never produces harmful radiation, so astronauts can float outside the station without any spacesuit on at all."
+            "Spacesuits are mainly designed to look impressive in photographs, and the layers inside them are mostly for show.",
+            "The Sun produces little harmful radiation, so astronauts can float outside the station in light suits."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -475,7 +475,7 @@
             "Engineers have never successfully tested a spacesuit, so astronauts must work outside with only simple clothing and no air.",
             "A spacesuit combines cooling, pressure, insulation, and radiation shielding into one system engineered to let an astronaut survive extravehicular activity.",
             "Micrometeoroids are not a real danger in space, so a spacesuit needs no outer layers and can be made as thin as a shirt.",
-            "The ventilation garment is the only part of a spacesuit that matters, because the other layers, the helmet and the gloves, are never used by astronauts."
+            "The ventilation garment is the most important part of a spacesuit, because the other layers, the helmet and the gloves, are rarely used during a spacewalk outside the station."
           ],
           "answer": "B",
           "skill": "central-idea",

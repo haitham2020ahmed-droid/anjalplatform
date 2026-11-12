@@ -150,7 +150,7 @@
           "options": [
             "Only flowers and plain grass",
             "Fruit trees that grow very tall",
-            "Only weeds that nobody wants",
+            "Weeds and wild grass",
             "Vegetables, like tomatoes and mint"
           ],
           "answer": "D",
@@ -165,7 +165,7 @@
         {
           "stem": "Why does Saleh give away the vegetables he grows?",
           "options": [
-            "Because he does not like eating vegetables himself",
+            "Because he does not like eating vegetables himself from the shop",
             "Because elderly neighbors cannot easily walk to the shop",
             "Because the building manager orders him to do it",
             "Because the vegetables would spoil otherwise"
@@ -200,7 +200,7 @@
           "stem": "How do Yousef and Mira probably feel after learning the truth about the garden?",
           "options": [
             "Impressed and happy to learn about Saleh's kindness",
-            "Disappointed that it was not a real mystery at all",
+            "Disappointed that it was not a real mystery",
             "Angry that Saleh kept a secret from everyone in the building",
             "Afraid of Saleh after hearing his answer about the garden"
           ],
@@ -345,9 +345,9 @@
           "stem": "How do Yousef and Mira's feelings about Saleh change from the beginning to the end of the story?",
           "options": [
             "They go from feeling curious and suspicious to feeling admiring and grateful",
-            "They go from trusting him completely to suddenly suspecting him of a secret crime",
+            "They go from trusting him to suddenly suspecting him of a secret crime",
             "They dislike him throughout the entire story, from the first page to the last",
-            "Their feelings about him never change at all in the story, even at the end"
+            "Their feelings about him never change in the story, even at the end"
           ],
           "answer": "A",
           "skill": "compare",
@@ -363,7 +363,7 @@
           "options": [
             "He believes kind acts only count if everyone finds out about them, so he tells all",
             "He is embarrassed about enjoying gardening as a hobby, and wants to hide it",
-            "He wants the children to stop asking him any more questions about the garden",
+            "He wants the children to stop asking him questions about the garden",
             "He thinks quiet, unannounced kindness is just as meaningful as public kindness"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "In the story, the word tend means to —",
           "options": [
-            "to completely ignore something nearby",
+            "to ignore something nearby",
             "to sell something quickly for money",
             "to take care of something, such as plants",
-            "to hide something carefully from view"
+            "to hide something carefully from view in a closet"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author structure the story?",
           "options": [
-            "By comparing two completely different buildings in the city",
+            "By comparing two different buildings in the city",
             "By listing the exact steps needed for growing vegetables",
             "By presenting a mystery, then revealing its simple, kind explanation",
-            "By describing Saleh's entire childhood from beginning to end"
+            "By describing Saleh's entire childhood from beginning to end in the town"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -474,7 +474,7 @@
           "options": [
             "Saleh's quiet, humble habit of tending a garden to provide vegetables for elderly neighbors shows that genuine kindness does not require recognition",
             "Night watchmen are formally required by law to maintain a garden at every building in the whole city, even if they dislike the work, and the neighbors pay them.",
-            "The children eventually discover that Saleh is secretly a trained professional farmer who grows vegetables to sell at the market, and that he earns a lot of money from them every night.",
+            "The children discover that Saleh is secretly a professional farmer who grows vegetables to sell at the market for a lot of money.",
             "The elderly residents of the building eventually decide to move away, so Saleh's garden is left empty, and the children plant flowers in the pots for the new people who come."
           ],
           "answer": "A",
@@ -507,7 +507,7 @@
           "stem": "What finally prompts Saleh to explain the garden to the children?",
           "options": [
             "A sign that someone posted near the garden",
-            "An official announcement from the building manager",
+            "An official announcement from the building manager of the town",
             "A newspaper article written about him",
             "Being directly and respectfully asked by Yousef and Mira"
           ],
@@ -525,7 +525,7 @@
           "options": [
             "They assumed something mysterious or concerning, but the truth was a simple, considerate act of community kindness",
             "They assumed he was gardening purely for profit, and that assumption proved true at the end of the story",
-            "They assumed absolutely nothing at all until the very end of the story, when the building manager told them",
+            "They assumed absolutely nothing until the very end of the story, when the building manager told them",
             "They assumed it involved the building manager, which also proved true when the manager told them everything"
           ],
           "answer": "A",
@@ -558,8 +558,8 @@
           "stem": "Based on the story, why might quiet acts of compassion matter especially to elderly neighbors like Umm Fahd?",
           "options": [
             "Such acts of consideration can meet real daily needs without requiring them to ask for help publicly",
-            "Elderly residents generally prefer not to interact with watchmen at all, because they feel shy",
-            "They are completely unaware that the vegetables even exist, because nobody tells them",
+            "Elderly residents generally prefer not to interact with watchmen, because they feel shy",
+            "They are unaware that the vegetables even exist, because nobody tells them",
             "They would much rather receive money than fresh vegetables, since money buys anything they want"
           ],
           "answer": "A",
@@ -594,7 +594,7 @@
             "To suggest that gardening is the only true and meaningful form of kindness in the whole world",
             "To explain exactly how to successfully grow tomatoes at home each year, with simple steps",
             "To emphasize that meaningful kindness is often quiet and unnoticed rather than dramatic or public",
-            "To criticize the people in this particular story who choose never to garden at all, or to share"
+            "To criticize the people in this story who choose not to garden or share"
           ],
           "answer": "C",
           "skill": "author-purpose",

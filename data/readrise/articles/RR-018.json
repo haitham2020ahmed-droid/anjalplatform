@@ -149,7 +149,7 @@
           "stem": "Why is there no sound in space?",
           "options": [
             "There is no air for sound to move through.",
-            "Space is much too cold for any sound.",
+            "Space is much too cold for any sound to travel.",
             "Space is too dark for anyone to hear.",
             "The stars in space are too far away."
           ],
@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Bats and dolphins are the best listeners in nature, hearing sounds that people cannot.",
-            "Thunder is louder than any other sound, because lightning makes the air shake.",
+            "Thunder is the loudest sound in nature, so it can be heard from very far away.",
             "Sound is a wave of vibrations that needs a medium to travel and is heard by our ears.",
             "Steel is the best material for carrying sound, since it is hard and very smooth."
           ],
@@ -473,7 +473,7 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Sound waves are vibrations passed through a medium, and their frequency and amplitude shape what our ears and brain detect.",
-            "Thunderstorms are dangerous because light is faster than sound, so people always see lightning before they hear the thunder.",
+            "Thunderstorms are dangerous because light is faster than sound, so people see lightning before they hear the thunder.",
             "Animals hear better than people because they use echolocation to find food in the dark and in the sea.",
             "Steel is the most useful material in the world because it is strong and can be made into many things."
           ],
@@ -577,7 +577,7 @@
             "The roar should have a higher pitch in space, as the sound travels fast.",
             "The explosion should be silent because space has almost no particles to transmit sound.",
             "The roar should reach the audience before the flash of light, as sound is quick and bright.",
-            "Explosions do not cause vibrations in the air or in the ship at all."
+            "Explosions do not cause vibrations in the air or in the ship."
           ],
           "answer": "B",
           "skill": "inference",

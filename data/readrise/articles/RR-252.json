@@ -217,7 +217,7 @@
           "stem": "Why do you think Carver spent so much time finding uses for the peanut?",
           "options": [
             "Because he did not like any other plant",
-            "Because peanuts were the only crop in Alabama",
+            "Because peanuts were the main crop in Alabama",
             "Because the school told him to stop studying cotton",
             "So farmers had a reason to keep growing peanuts"
           ],
@@ -312,7 +312,7 @@
           "options": [
             "Crop rotation using peanuts and sweet potatoes",
             "Watering the crops twice a day instead of letting them dry",
-            "Burning all of the old crops completely and starting over",
+            "Burning all of the old crops and starting over",
             "Importing new soil from other states by truck and train"
           ],
           "answer": "A",
@@ -398,7 +398,7 @@
             "It made all peanuts illegal to waste",
             "It made cotton farming popular again",
             "It gave farmers reasons to keep growing peanuts",
-            "It was strictly required by the government"
+            "It was strictly required by the government of the country"
           ],
           "answer": "C",
           "skill": "inference",
@@ -526,7 +526,7 @@
             "Expensive, rare, and hard to find",
             "Difficult to understand fully",
             "Able to be used in many different ways",
-            "Limited to just one single purpose"
+            "Limited to just one single purpose and use"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -541,8 +541,8 @@
           "stem": "What can you infer from Carver's choice to call his crop rotation approach sustainable?",
           "options": [
             "He expected farmers to abandon it quickly",
-            "He believed cotton was a better long-term crop",
-            "He thought peanuts should replace cotton completely and forever",
+            "He believed cotton was a better long-term crop for the soil",
+            "He thought peanuts should replace cotton and",
             "He wanted the soil to produce well for a very long time"
           ],
           "answer": "D",
@@ -577,7 +577,7 @@
             "Carver promoted rotating crops instead of repeating the soil",
             "Carver avoided studying soil health entirely",
             "Carver insisted that farmers plant cotton twice as often",
-            "Carver believed only wealthy farmers should rotate crops"
+            "Carver believed wealthy farmers should rotate crops first"
           ],
           "answer": "A",
           "skill": "compare",

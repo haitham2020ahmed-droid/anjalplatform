@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Galileo was the greatest astronomer of all time.",
-            "Saturn is so light that it could one day float away from the sun forever.",
+            "Saturn is so light that it could one day drift away from the sun and its moons.",
             "Titan is the most important moon in space.",
             "Saturn is a giant gas planet with rings, many moons, and unusual days and years."
           ],
@@ -558,7 +558,7 @@
           "stem": "Why might scientists find Enceladus especially worth studying?",
           "options": [
             "It may hide a liquid ocean beneath its icy surface.",
-            "It is the largest object in the solar system.",
+            "It is the largest object in the solar system after the Sun.",
             "It is the only moon that has rings.",
             "It was the first moon Galileo saw."
           ],

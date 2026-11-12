@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Technology has completely replaced referees, so humans no longer make decisions in professional football.",
+            "Technology has replaced referees, so humans no longer make decisions in professional football.",
             "Football technology supports referees and coaches, though some people dislike the delays.",
             "Only the World Cup uses technology to make decisions.",
             "Trackers are the most important invention in football history."
@@ -558,7 +558,7 @@
           "stem": "Why does the author mention the Saudi Pro League?",
           "options": [
             "To show that the technology is used in local football as well",
-            "To argue that Saudi teams are the best in the world and always win",
+            "To argue that Saudi teams are the best in the world and win",
             "To explain the history of the league and its first few seasons",
             "To compare it with the Olympic Games and the World Cup final"
           ],

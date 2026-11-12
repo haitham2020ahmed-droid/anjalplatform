@@ -116,8 +116,8 @@
           "options": [
             "How your eyes let you see color and light",
             "How your ear hears sound and sends it to your brain",
-            "How to play a drum the right way in a band",
-            "Why some animals cannot hear at all in the dark"
+            "How to play a drum the right way in a band or at school",
+            "Why some animals cannot hear in the dark"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,7 +148,7 @@
         {
           "stem": "What does the eardrum do when sound hits it?",
           "options": [
-            "It stays completely still.",
+            "It stays still.",
             "It shakes fast, like a drum.",
             "It sends sound straight back outside.",
             "It makes the sound quieter right away."
@@ -183,8 +183,8 @@
           "stem": "Why can loud sound be bad for your ears?",
           "options": [
             "It can harm tiny parts inside the ear.",
-            "It always makes the eardrum disappear.",
-            "It stops sound waves from moving at all.",
+            "It makes the eardrum disappear.",
+            "It stops sound waves from moving.",
             "It makes your outer ear grow bigger."
           ],
           "answer": "A",
@@ -202,7 +202,7 @@
             "His ears could be harmed from the loud sound.",
             "His outer ear will catch more sound waves than before.",
             "His eardrum will stop shaking completely.",
-            "Nothing at all will happen to his hearing."
+            "His ears will get used to it and hear better."
           ],
           "answer": "A",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Hearing happens in a single instant, in only one part of the ear, with no other steps involved.",
             "Hearing is a step-by-step process that turns sound waves into signals the brain understands.",
             "The outer ear is more important for hearing than the inner ear is.",
-            "Loud noise always causes immediate, noticeable pain."
+            "Loud noise causes immediate, noticeable pain."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "It absorbs the sound waves completely, so they go no further.",
             "It vibrates rapidly, much like a drum being struck.",
             "It sends an electrical signal straight to the brain.",
-            "It amplifies sound before any other part of the ear acts on it."
+            "It amplifies sound before the other parts of the ear act on it."
           ],
           "answer": "B",
           "skill": "detail",
@@ -345,7 +345,7 @@
           "stem": "The article says the tiny bones amplify the vibrations. What does amplify mean here?",
           "options": [
             "To make something stronger or bigger",
-            "To make something completely silent",
+            "To make something silent",
             "To slow something down until it stops",
             "To hide something out of sight"
           ],
@@ -361,7 +361,7 @@
         {
           "stem": "Why do hair cells inside the cochlea matter so much for hearing?",
           "options": [
-            "They catch sound waves before they ever enter the ear canal at all.",
+            "They catch sound waves before they ever enter the ear canal.",
             "They vibrate like the eardrum to help start the whole hearing process.",
             "They amplify vibrations before the middle ear bones ever act on them.",
             "They convert fluid vibrations into electrical signals the brain interprets."
@@ -378,10 +378,10 @@
         {
           "stem": "Why might someone not notice any pain even as loud noise damages their hearing?",
           "options": [
-            "Because the eardrum stops working completely during loud noise, so the pain cannot be felt.",
-            "Because the auditory nerve blocks all signals during loud sound, so the brain feels nothing.",
+            "Because the eardrum stops working during loud noise, so the pain cannot be felt.",
+            "Because the auditory nerve blocks the signals during loud sound, so the brain feels little.",
             "Because hair cells in the cochlea can be damaged without causing warning pain.",
-            "Because loud sound never actually reaches the inner ear, so no part of it can be harmed."
+            "Because loud sound rarely reaches the inner ear, so that part is hard to harm."
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "Why did the author most likely write this article?",
           "options": [
-            "To persuade readers to stop listening to all music forever",
+            "To persuade readers to stop listening to all music",
             "To explain how hearing works and why protecting it matters",
             "To compare different kinds of musical drums",
-            "To tell an entertaining story about a famous singer"
+            "To tell an entertaining story about a famous singer and her life"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The pinna alone is entirely responsible for all of human hearing.",
+            "The pinna alone is responsible for all of human hearing.",
             "Hearing results from connected structures, and loud noise can permanently damage them.",
-            "The cochlea produces sound itself rather than detecting incoming sound waves.",
-            "Hearing loss from loud noise is always temporary and fully reversible."
+            "The cochlea produces sound itself rather than detecting incoming sound waves from the air.",
+            "Hearing loss from loud noise is temporary and fully reversible."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -557,7 +557,7 @@
         {
           "stem": "Why would wearing hearing protection during a loud concert most likely help prevent permanent hearing loss?",
           "options": [
-            "It would stop the pinna from capturing any sound waves at all, so no sound can enter.",
+            "It would stop the pinna from capturing any sound waves, so no sound can enter.",
             "It would reduce vibrations reaching the hair cells, lowering the risk of damage.",
             "It would make the auditory nerve regenerate more quickly than usual after a concert.",
             "It would amplify vibrations so hair cells detect them more easily and work harder."
@@ -575,8 +575,8 @@
           "stem": "How does the role of the three middle ear bones differ from the role of the cochlea's hair cells, according to the article?",
           "options": [
             "The middle ear bones transmit and amplify vibrations; the hair cells then convert them into electrical signals.",
-            "The middle ear bones produce electrical signals of their own, while the hair cells amplify sound.",
-            "Both structures always perform the exact same conversion of vibration into signal, with no difference.",
+            "The middle ear bones produce electrical signals of their own, while the hair cells amplify sound for the brain.",
+            "Both structures perform the exact same conversion of vibration into signal, with no difference.",
             "The middle ear bones sit inside the cochlea itself, not beside it, according to the article."
           ],
           "answer": "A",
@@ -593,8 +593,8 @@
           "options": [
             "To entertain readers with a surprising twist in a made-up story",
             "To help readers understand why loud noise can be a hidden danger",
-            "To suggest that hearing damage is not a serious problem at all",
-            "To argue that pain always warns us about every type of injury"
+            "To suggest that hearing damage is not a serious problem",
+            "To argue that pain warns us about every type of injury"
           ],
           "answer": "B",
           "skill": "author-purpose",

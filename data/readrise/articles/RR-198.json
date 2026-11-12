@@ -202,7 +202,7 @@
             "It is a different color",
             "It stays low and skids instead of bouncing high",
             "It goes over the fence",
-            "It always goes straight into the net in the middle"
+            "It goes straight into the net in the middle"
           ],
           "answer": "B",
           "skill": "compare",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Tennis balls are always yellow, and they are made from the same kind of felt in all countries.",
+            "Tennis balls are yellow, and they are made from the same kind of felt in all countries.",
             "Tennis players win points with fast serves and spin, and the court surface changes how the ball behaves.",
-            "Grass courts are better than clay courts because the ball bounces faster and higher on grass for all players.",
+            "Grass courts are better than clay courts because the ball bounces faster and higher on grass for most players.",
             "Riyadh has the most tennis courts in the world, and more people play tennis there than anywhere else."
           ],
           "answer": "B",
@@ -381,7 +381,7 @@
             "It skids and stays low on grass, but slows down and bounces higher on clay",
             "It bounces higher on grass and lower on clay, so the ball is slower on grass",
             "It is the same on both surfaces of the court, and it never changes",
-            "It cannot spin on clay at all, so players avoid that court"
+            "It spins less on clay, so players avoid that court"
           ],
           "answer": "A",
           "skill": "compare",
@@ -414,7 +414,7 @@
           "options": [
             "The ball will bounce higher than usual",
             "The player will need to adjust, because the ball will stay lower and skid",
-            "The player will not be able to serve at all on a grass court like that",
+            "The player will not be able to serve on a grass court with the same racket",
             "Spin will no longer matter"
           ],
           "answer": "B",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Tennis is won only by the player with the fastest serve, and the spin of the ball does not matter at all.",
+            "Tennis is won only by the player with the fastest serve, and the spin of the ball does not matter.",
             "Players combine powerful serves with spin that changes the ball's path and bounce, and they adjust to each surface.",
-            "Felt is the most important part of a tennis ball, because it makes the ball bounce high on every kind of court.",
-            "Clay courts are illegal in professional tennis, and every major tournament is now played on hard concrete."
+            "Felt is the most important part of a tennis ball, because it makes the ball bounce high on each kind of court.",
+            "Clay courts are rare in professional tennis, and most major tournaments are now played on hard concrete."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -559,7 +559,7 @@
           "options": [
             "Because every court surface is identical in speed and bounce for all players",
             "Because grass and clay change the bounce, so players must change their strategy",
-            "Because players must use a different ball on each court, so strategy never changes",
+            "Because players must use a different ball on each court, so they choose the lightest one",
             "Because serves are not allowed on clay courts or grass courts"
           ],
           "answer": "B",

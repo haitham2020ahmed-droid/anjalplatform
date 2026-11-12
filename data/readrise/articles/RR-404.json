@@ -114,7 +114,7 @@
     {
      "stem": "What is this story mostly about?",
      "options": [
-      "A boy who builds a real working rocket for science class",
+      "A boy who builds a real working rocket for science class at school",
       "A boy who imagines his future self and writes about his dreams",
       "A boy who gets lost on a school field trip downtown",
       "A boy who wins a sports contest for his school team"
@@ -132,7 +132,7 @@
      "stem": "What did Omar's teacher ask the class to do?",
      "options": [
       "Draw a detailed picture of their whole family",
-      "Build a small toy out of wood for the class fair",
+      "Build a small toy out of wood for the class fair in the spring",
       "Write a letter to themselves to read twenty years later",
       "Give a short speech in front of the entire class"
      ],
@@ -199,8 +199,8 @@
     {
      "stem": "Why does Mr. Khalid say the letter writing is \"just for fun\"?",
      "options": [
-      "Because the letters are silly and nobody takes them seriously at all in class",
-      "Because no one will ever read them once they are put away in a box",
+      "Because the letters are silly and nobody takes them seriously in class",
+      "Because the letters will be thrown away after class",
       "Because it is not a real school lesson, so there are no marks",
       "Because it is a game of imagining the future, not something real happening"
      ],
@@ -558,9 +558,9 @@
      "stem": "Based on the story, why might Omar's reflection on his own character matter as much as his career plans?",
      "options": [
       "Because character is not actually important to engineers, only skill and speed matter",
-      "Because Mr. Khalid only grades character, not career plans, and he never reads the letters",
+      "Because Mr. Khalid grades character, not career plans",
       "Because who a person becomes shapes how they use their skills to help others",
-      "Because his classmates only wrote about careers and not about who they wanted to be"
+      "Because his classmates wrote about careers and not about who they wanted to be"
      ],
      "answer": "C",
      "skill": "inference",

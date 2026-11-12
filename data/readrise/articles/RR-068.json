@@ -296,7 +296,7 @@
             "GPS finds your location by timing signals from several satellites.",
             "Phones send messages up to the satellites all day long.",
             "Satellites are mostly used to take pictures of the land below.",
-            "GPS works only for cars and trucks."
+            "GPS works mainly for cars and trucks."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -396,7 +396,7 @@
           "stem": "The phone only listens and does not send anything back. What can you infer from this?",
           "options": [
             "GPS only works at night.",
-            "Satellites can see every phone on Earth.",
+            "Satellites can see each phone on Earth.",
             "Phones must be close to a satellite to work.",
             "Many people can use GPS at the same time."
           ],
@@ -560,7 +560,7 @@
             "Ordinary clocks cannot survive in space, where it is cold.",
             "Tiny timing errors would cause large mistakes in position.",
             "Atomic clocks are cheaper to build than ordinary ones.",
-            "Ordinary clocks cannot send radio signals through the air."
+            "Ordinary clocks are too heavy to send into space."
           ],
           "answer": "B",
           "skill": "inference",

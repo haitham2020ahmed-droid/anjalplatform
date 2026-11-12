@@ -199,7 +199,7 @@
         {
           "stem": "In the article, the word storm means —",
           "options": [
-            "a quiet, sunny day with no clouds at all",
+            "a quiet, sunny day with no clouds",
             "a special kind of loud bird call in the trees",
             "a strong weather event with wind and rain",
             "a soft type of nest made of grass and twigs"
@@ -234,7 +234,7 @@
           "stem": "What can you tell about Hamza from how he spent his time?",
           "options": [
             "He was patient and liked to watch things",
-            "He disliked being outside in the sun",
+            "He disliked being outside in the sun on hot days",
             "He mostly wanted to become famous",
             "He was afraid of loud storms"
           ],
@@ -296,7 +296,7 @@
             "Hamza used a secret magical power to control the birds of the village",
             "By observing bird calls, Hamza learned a pattern that warned of a storm",
             "Birds in the village only ate food that Hamza gave them each day",
-            "The storm destroyed every single house in the village by the sea"
+            "The storm destroyed most of the houses in the village by the sea"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -330,7 +330,7 @@
             "A loud, unfamiliar warning call much like this one",
             "Thunder rumbling faintly from somewhere far away",
             "A cheerful song sung by his favorite bird",
-            "Nothing at all that seemed unusual that day"
+            "Nothing that seemed unusual that day"
           ],
           "answer": "A",
           "skill": "detail",
@@ -345,8 +345,8 @@
           "stem": "Why did many villagers assume Hamza could talk to birds?",
           "options": [
             "Because he could imitate several of their calls well",
-            "Because he had told them he had magic powers",
-            "Because the birds always followed him everywhere",
+            "Because he had told them he had magic powers over the birds",
+            "Because the birds followed him",
             "Because he liked to wear real bird feathers"
           ],
           "answer": "A",
@@ -381,7 +381,7 @@
             "He had studied the birds' patterns closely enough to notice something",
             "He owned a very special weather radio that told him about every storm",
             "An elder had told him about it in advance, in a story at night",
-            "He simply guessed randomly and got lucky, as he did every day"
+            "He guessed and got lucky, as he often did"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,9 +395,9 @@
         {
           "stem": "What does the villagers' initial doubt about Hamza's warning suggest?",
           "options": [
-            "They trusted him completely from the very start",
+            "They trusted him from the very start",
             "They did not expect a boy to predict weather so well",
-            "They thought birds could not make sounds at all",
+            "They thought birds could not make sounds",
             "They believed only village elders could study animals"
           ],
           "answer": "B",
@@ -508,8 +508,8 @@
           "options": [
             "Only large eagles and hunting hawks",
             "Sparrows, pigeons, and occasionally falcons",
-            "Colorful parrots and strutting peacocks",
-            "Only plain gray pigeons near the well"
+            "Colorful parrots and strutting peacocks in the city",
+            "Plain gray pigeons near the well"
           ],
           "answer": "B",
           "skill": "detail",
@@ -526,7 +526,7 @@
             "They simply did not like Hamza personally",
             "They thought birds could not fly during storms",
             "The sky still looked clear, so no evidence yet existed",
-            "They had never once seen a clear sky turn stormy"
+            "They had never once seen a clear sky turn stormy in their lives"
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "How does Hamza's method of 'forecasting' the storm differ from relying on modern weather instruments?",
           "options": [
-            "It relies on no observation of nature at all",
+            "It relies on no observation of nature",
             "It depends on observing a natural signal, not machines",
             "It requires costly equipment only scientists can use",
-            "It can never be accurate under any circumstances"
+            "It is less accurate than guessing"
           ],
           "answer": "B",
           "skill": "compare",

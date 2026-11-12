@@ -184,7 +184,7 @@
           "options": [
             "Straits are more fun for sailors to sail through",
             "Going around land takes longer",
-            "Ships are not able to sail around land at all",
+            "Ships are not able to sail around land",
             "Straits are the only water that exists on Earth"
           ],
           "answer": "B",
@@ -201,7 +201,7 @@
           "options": [
             "Ships would have to take a longer way, and prices could go up",
             "Ships could pass through the strait even faster than before",
-            "Nothing at all would change for ships or for trade",
+            "Nothing would change for ships or for trade",
             "The whole sea would slowly dry up and disappear"
           ],
           "answer": "A",
@@ -295,7 +295,7 @@
           "options": [
             "Straits are narrow waterways that are vital to global trade and sometimes to strategy",
             "The Strait of Hormuz is the only strait that truly matters to the whole world's trade",
-            "Every ship must stop at an inn before crossing a strait, so travelers can rest",
+            "Each ship must stop at an inn before crossing a strait, so travelers can rest",
             "Straits are dangerous places that cargo ships should avoid, so they sail around them"
           ],
           "answer": "A",
@@ -310,7 +310,7 @@
         {
           "stem": "According to the article, what can a strait allow a ship to avoid?",
           "options": [
-            "Carrying any cargo at all during the trip",
+            "Carrying any cargo at all during the trip in one week",
             "Sailing all the way around an entire continent",
             "Paying for any fuel during the whole trip",
             "Crossing any ocean or sea during the trip"
@@ -361,10 +361,10 @@
         {
           "stem": "Why might blocking a strait for even a short time affect markets far away?",
           "options": [
-            "Because straits have nothing at all to do with trade",
+            "Because straits have nothing to do with trade",
             "Because cargo moving through that waterway would be delayed",
-            "Because every ship using it would simply disappear",
-            "Because all countries would stop trading with each other forever"
+            "Because the ships using it would be lost",
+            "Because countries would stop trading with each other for a long time"
           ],
           "answer": "B",
           "skill": "inference",
@@ -380,7 +380,7 @@
           "options": [
             "Because so much trade and cargo depends on these narrow routes",
             "Because straits are popular places to visit on vacation",
-            "Because straits are the largest bodies of water on Earth",
+            "Because straits are the largest bodies of water on Earth with the most fish",
             "Because every strait in the world stays closed to ships"
           ],
           "answer": "A",
@@ -395,9 +395,9 @@
         {
           "stem": "What do the Strait of Malacca and the Bosphorus have in common, according to the article?",
           "options": [
-            "Both of them are located very close to Arabia and the sea",
+            "Both of them are located very close to Arabia and the sea in the region",
             "Both of them are rivers rather than true straits of water",
-            "Both of them are completely closed off to all ships at all times",
+            "Both of them are closed off to all ships",
             "Both are busy waterways that connect two larger bodies of water"
           ],
           "answer": "D",
@@ -475,7 +475,7 @@
             "Narrow straits function as vital, strategic chokepoints that carry a huge share of trade",
             "The Strait of Hormuz is really a long river somewhere in Europe, and ships use it to carry goods inland.",
             "Straits matter far less to global trade than wide, open oceans do today, since ships avoid narrow water.",
-            "Every strait anywhere in the world is run by one single country, which collects a fee from each ship."
+            "Every strait is run by one single country, which collects a fee from each ship."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -507,7 +507,7 @@
           "stem": "According to the article, what can a strait that functions as a chokepoint also become?",
           "options": [
             "A dry desert with very little water nearby",
-            "A tall mountain range running along the coast",
+            "A tall mountain range running along the coast near the sea",
             "A bottleneck that delays cargo across supply chains",
             "A new kind of currency used by sailors"
           ],
@@ -542,8 +542,8 @@
           "options": [
             "Because tankers were the only kind of ship that ever sailed the seas",
             "Because a large share of the world's oil trade travels through tankers",
-            "Because tankers are simply not able to fit through any narrow strait",
-            "Because tankers are used by sailors only for catching fish at sea"
+            "Because tankers are too large to fit through narrow straits",
+            "Because tankers are used by sailors for catching fish at sea"
           ],
           "answer": "B",
           "skill": "inference",
@@ -559,8 +559,8 @@
           "options": [
             "Because disrupting a chokepoint can affect trade and energy markets across the globe",
             "Because far-away countries never use ships for any reason, so they only watch the news",
-            "Because straits have no real link to the global economy and only matter to nearby fishermen",
-            "Because any conflict always makes a narrow strait grow much wider and easier for ships"
+            "Because straits have little link to the global economy and matter mostly to nearby fishermen",
+            "Because conflicts make a narrow strait wider and easier for ships"
           ],
           "answer": "A",
           "skill": "inference",
@@ -575,8 +575,8 @@
           "stem": "Why does international maritime law generally protect the right of vessels to pass through straits used for navigation?",
           "options": [
             "To make it illegal for any ship anywhere to use a strait, even in times of peace",
-            "To give just one single country total control of every strait in the world's seas",
-            "To stop every single oil tanker from ever sailing again through the busy waterways",
+            "To give one country control of the straits in the world's seas",
+            "To stop oil tankers from sailing through the busy waterways",
             "To make sure trade through these narrow, critical waterways is not unfairly blocked"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "How does the article's discussion of Hormuz and Bab-el-Mandeb support its larger point about straits?",
           "options": [
-            "It proves that straits only exist near the Arabian Peninsula region and nowhere else on Earth",
+            "It proves that straits are found mostly near the Arabian Peninsula",
             "It explains the old methods sailors used long ago to navigate by stars",
             "It shows specific, real examples of how narrow waterways carry strategic and economic weight",
-            "It argues that every narrow strait should be filled in with land to help trade"
+            "It argues that narrow straits should be filled in with land so trucks can carry goods"
           ],
           "answer": "C",
           "skill": "text-structure",

@@ -167,7 +167,7 @@
           "options": [
             "Strong winds push it across the land all year long.",
             "Camels and other animals drag it along the ground slowly.",
-            "Heavy rain washes it down into the sea every spring.",
+            "Heavy rain washes it down into the sea each spring.",
             "It is so heavy that its weight pulls it downhill."
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Glaciers never change and always stay in one place on a mountain.",
+            "Glaciers never change and stay in one place on a mountain.",
             "Icebergs are the largest and most dangerous objects in the whole ocean.",
             "Glaciers form from snow, shape land, store water, and are shrinking.",
-            "Snow is only found on the highest mountains, far away from people."
+            "Snow is found mostly on the highest mountains, far away from people."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -378,7 +378,7 @@
         {
           "stem": "Why might a valley in a place with no ice today still show signs of a glacier?",
           "options": [
-            "Because rain always makes deep valleys",
+            "Because rain makes deep valleys",
             "Because icebergs float into valleys",
             "A glacier melted long ago may have carved it.",
             "Because glaciers can only form in deserts"

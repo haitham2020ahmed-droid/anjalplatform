@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Only professional athletes can run marathons.",
+            "Professional athletes are the main real marathon runners.",
             "Finishing takes training, food, water, and a steady pace.",
-            "The marathon story from Greece is completely true.",
-            "Marathons are always held on hot days."
+            "The marathon story from Greece is true.",
+            "Marathons are held on hot days."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -524,7 +524,7 @@
           "stem": "Based on the article, why might a runner eat rice or pasta in the days before a marathon?",
           "options": [
             "To build up the carbohydrates the body stores as glycogen",
-            "To lose as much weight as possible before the race",
+            "To lose as much weight as possible before the race with little food",
             "To replace the salt lost in sweat",
             "To make the muscles rest"
           ],

@@ -379,7 +379,7 @@
           "stem": "What can you infer about why many dugongs live in the Arabian Gulf?",
           "options": [
             "The Gulf has warm, shallow water where seagrass can grow.",
-            "The Gulf has no boats at all, so the dugongs are safe there.",
+            "The Gulf has no boats, so the dugongs are safe there.",
             "The water in the Gulf is very cold, so the dugongs like it.",
             "There are no other animals in the Gulf, so dugongs live alone."
           ],
@@ -474,7 +474,7 @@
           "options": [
             "The dugong, a slow-breeding herbivore that depends on seagrass, is vulnerable and needs legal protection.",
             "The dugong is closely related to fish and sharks, not to land animals, and it lives only in cold water.",
-            "The dugong is the fastest swimmer in the Arabian Gulf, so it can escape from every danger.",
+            "The dugong is a fast swimmer in the Arabian Gulf, so it can escape most dangers.",
             "The dugong has no natural enemies and is not in danger, so it needs no help from people."
           ],
           "answer": "A",

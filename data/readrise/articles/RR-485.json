@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to walk a dog safely in the woods",
+            "How to walk a dog safely in the woods and fields near a river",
             "How George de Mestral invented Velcro after seed pods stuck to him",
             "Why plants grow seed pods",
             "How buttons are made"
@@ -133,7 +133,7 @@
           "options": [
             "He got lost",
             "He found a lost dog",
-            "He fell into a river",
+            "He slipped and fell into a cold river on the way home",
             "Seed pods stuck to his socks and his dog's fur"
           ],
           "answer": "D",
@@ -168,7 +168,7 @@
             "Because he wanted to make a new kind of hat",
             "Because he needed to fix his dog's fur",
             "Because he saw that hooks and loops could stick together, like the seed pod had",
-            "Because loops are easier to sew than buttons"
+            "Because loops are easier to sew than buttons, so clothes could be made faster"
           ],
           "answer": "C",
           "skill": "inference",
@@ -185,7 +185,7 @@
             "He kept forgetting his idea",
             "He had to try many different materials before finding ones that worked",
             "He was waiting for someone else to help him",
-            "He had to wait for permission from the government"
+            "He had to wait for permission from the government before he could start"
           ],
           "answer": "B",
           "skill": "inference",
@@ -199,8 +199,8 @@
         {
           "stem": "In the article, what does the word stick mean?",
           "options": [
-            "To hit something hard",
-            "To grow taller in this situation in this situation",
+            "To hit something hard and fast with a stick",
+            "To grow taller",
             "To make a loud sound",
             "To attach firmly to something else"
           ],
@@ -217,8 +217,8 @@
           "stem": "How is this article mostly organized?",
           "options": [
             "It tells the story of Velcro in the order it was invented",
-            "It compares different dog breeds in this situation in this situation",
-            "It explains how to remove seed pods from clothes",
+            "It compares different dog breeds",
+            "It explains how to remove seed pods from clothes and dog fur",
             "It lists facts about French words"
           ],
           "answer": "A",
@@ -295,8 +295,8 @@
           "options": [
             "George de Mestral copied a natural burr's design to invent a useful, reusable fastener",
             "Dogs should never be taken into the woods",
-            "Buttons are always better than hook-and-loop fasteners",
-            "Microscopes were invented at the same time as Velcro"
+            "Buttons are better than hook-and-loop fasteners",
+            "Microscopes were invented at the same time as Velcro, so de Mestral could study the burr closely"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "To throw something away",
             "To make something louder",
             "To look at something closely and carefully",
-            "To paint something a new color"
+            "To paint something a new, brighter color"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -327,7 +327,7 @@
         {
           "stem": "According to the article, what specific detail did de Mestral notice about the burr?",
           "options": [
-            "It was brightly colored",
+            "It was brightly colored, like a small purple flower",
             "It smelled like flowers",
             "It was unusually heavy",
             "It was covered in dozens of curved, hooked spines"
@@ -344,7 +344,7 @@
         {
           "stem": "Why does the article explain that buttons, laces, and buckles each had their own drawbacks?",
           "options": [
-            "To suggest that clothing should have no fasteners at all",
+            "To suggest that clothing should be made without fasteners",
             "To show why a different kind of fastener might be welcomed",
             "To explain how buttons are manufactured",
             "To compare clothing styles in different countries"
@@ -362,9 +362,9 @@
           "stem": "What can you infer about why the clothing industry was slow to notice Velcro at first?",
           "options": [
             "New, unusual inventions often take time before people recognize their usefulness",
-            "Velcro was illegal to sell at first in this situation in this situation in this situation",
-            "No one in the clothing industry owned fabric",
-            "The invention was kept completely secret forever"
+            "Velcro was illegal to sell at first",
+            "Clothing companies did not own the right kind of fabric or machines to make it",
+            "The invention was kept secret"
           ],
           "answer": "A",
           "skill": "inference",
@@ -378,8 +378,8 @@
         {
           "stem": "How does the article's structure help explain how Velcro was developed?",
           "options": [
-            "By listing unrelated facts about Switzerland with no clear order",
-            "By focusing only on the color of the fastener in this situation",
+            "By listing unrelated facts about Switzerland with no clear order or main idea",
+            "By focusing only on the color of the fastener",
             "By showing, step by step, how a natural observation led to a useful invention",
             "By comparing Velcro to shoelaces throughout the article"
           ],
@@ -395,9 +395,9 @@
         {
           "stem": "According to the article, what effect did Velcro eventually have on everyday products?",
           "options": [
-            "It completely replaced all forms of clothing",
-            "It was banned from use in most countries",
-            "It made fabric unnecessary in this situation",
+            "It replaced all forms of clothing",
+            "It was banned from use in most countries for many years",
+            "It made fabric unnecessary",
             "It spread to shoes, bags, coats, and even space suits"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "Which best compares a burr's natural hooks to de Mestral's fabric design?",
           "options": [
-            "The burr's hooks were made of metal, just like de Mestral's design",
+            "The burr's hooks were made of metal, just like de Mestral's design, which used thin metal wires on cloth",
             "The burr's hooks worked on loops of fabric naturally, and de Mestral's design copied that same hook-and-loop idea",
-            "De Mestral invented the hook shape before any burr existed in this situation in this situation in this situation in this situation",
-            "Burrs and de Mestral's fastener worked in completely unrelated ways"
+            "De Mestral invented the hook shape before any burr existed",
+            "Burrs and de Mestral's fastener worked in unrelated ways"
           ],
           "answer": "B",
           "skill": "compare",
@@ -472,8 +472,8 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Buttons have always worked better than any hook-and-loop fastener",
-            "Velcro was invented purely by accident with no real observation involved",
+            "Buttons have worked better than any hook-and-loop fastener",
+            "Velcro was invented purely by accident, when de Mestral spilled glue on his socks during a walk in the woods in the snow",
             "De Mestral's close examination of a natural burr led to a synthetic, reusable fastener that became a worldwide innovation",
             "Burrs stopped sticking to clothing once Velcro was invented"
           ],
@@ -492,7 +492,7 @@
             "Made by people using chemicals, rather than found naturally",
             "Grown directly from a burr plant",
             "Extremely heavy and difficult to sew",
-            "Illegal to manufacture in most countries"
+            "Illegal to manufacture in most countries without special permission"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -523,7 +523,7 @@
         {
           "stem": "Why was it significant that de Mestral created a durable, synthetic version of the burr's natural design?",
           "options": [
-            "It made the invention weigh less than a burr",
+            "It made the invention weigh less than a natural burr, so it was easier to carry and to ship abroad to other countries",
             "A durable synthetic version could be manufactured reliably and used repeatedly, unlike a single natural burr",
             "It eliminated the need for any patent",
             "It made the fastener invisible when worn"
@@ -540,10 +540,10 @@
         {
           "stem": "How does the structure of the article support its larger point about how useful inventions can develop?",
           "options": [
-            "By listing unrelated facts about Swiss geography with no clear order",
+            "By listing facts about Swiss geography with no clear order, so readers can pick the ones they find interesting",
             "By focusing only on the personal biography of de Mestral's dog",
             "By showing a clear sequence in which a natural observation led step by step to a manufactured solution",
-            "By comparing Velcro only to ancient Roman clothing fasteners"
+            "By comparing Velcro to ancient Roman clothing fasteners"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -559,8 +559,8 @@
           "options": [
             "To show the careful, scientific process behind what might seem like a simple idea",
             "To entertain readers with unrelated trivia about microscopes",
-            "To suggest that only scientists can invent useful devices in this situation",
-            "To prove that the invention happened within a single afternoon"
+            "To suggest that only scientists can invent useful devices",
+            "To prove that the invention happened within a single afternoon of hard work"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -575,8 +575,8 @@
           "stem": "Which comparison between a natural burr and de Mestral's finished fastener is best supported by the article?",
           "options": [
             "The burr's hooks worked only once, while de Mestral's fastener could never be reused",
-            "De Mestral's fastener used no hooks at all, unlike the burr in this situation in this situation in this situation in this situation in this situation",
-            "The burr's hooks and de Mestral's fastener worked through entirely different mechanisms",
+            "De Mestral's fastener used no hooks, unlike the burr",
+            "The burr's hooks and de Mestral's fastener worked through different mechanisms, since his version used glue instead of hooks on the fabric",
             "Both the burr and de Mestral's fastener use a hook-and-loop mechanism, but de Mestral's version was manufactured to be durable and reusable"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "What long-term effect did de Mestral's innovation have on how everyday items were fastened, according to the article?",
           "options": [
-            "Buttons and laces disappeared completely from all clothing",
+            "Buttons and laces disappeared from all clothing",
             "Hook-and-loop fasteners spread to shoes, bags, coats, and even space suits worldwide",
-            "Only Swiss companies were ever allowed to manufacture the fastener",
-            "Burrs stopped growing hooked spines in nature in this situation in this situation in this situation"
+            "Swiss companies were the ones allowed to manufacture the fastener for many years",
+            "Burrs stopped growing hooked spines in nature"
           ],
           "answer": "B",
           "skill": "cause-effect",

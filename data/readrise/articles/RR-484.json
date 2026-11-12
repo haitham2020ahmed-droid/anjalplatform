@@ -116,7 +116,7 @@
           "options": [
             "How to sew clothing by hand",
             "How the zipper was invented and improved over time",
-            "Why buttons are better than zippers",
+            "Why buttons are better than zippers on coats and jackets",
             "How boots are made in factories"
           ],
           "answer": "B",
@@ -149,7 +149,7 @@
           "stem": "What did Whitcomb Judson's clasp locker use to fasten things?",
           "options": [
             "Small metal hooks",
-            "Round buttons",
+            "Round wooden buttons",
             "String ties",
             "Sticky tape"
           ],
@@ -166,9 +166,9 @@
           "stem": "Why do you think the clasp locker frustrated the people who wore it?",
           "options": [
             "Because it was too heavy to wear",
-            "Because it was very expensive to buy",
+            "Because it was very expensive to buy in shops",
             "Because it jammed or popped open at bad times",
-            "Because it had no teeth at all"
+            "Because it had no teeth"
           ],
           "answer": "C",
           "skill": "inference",
@@ -182,7 +182,7 @@
         {
           "stem": "Why was Sundback's metal teeth design better than Judson's hooks?",
           "options": [
-            "The teeth were painted bright colors",
+            "The teeth were painted bright colors in the factory",
             "The teeth locked together much more smoothly",
             "The teeth were made of wood",
             "The teeth did not need a slide"
@@ -199,8 +199,8 @@
         {
           "stem": "In the article, what does the word fasten mean?",
           "options": [
-            "To break something apart in this situation",
-            "To paint something a new color",
+            "To break something apart",
+            "To paint something a new color with a brush",
             "To make something heavier",
             "To close or attach something firmly"
           ],
@@ -217,9 +217,9 @@
           "stem": "How is this article mostly organized?",
           "options": [
             "It tells the story of the zipper in the order it was invented and improved",
-            "It compares zippers used in different countries today",
+            "It compares zippers used in different countries today and their sizes",
             "It explains how to repair a broken zipper",
-            "It lists different sizes of zippers in this situation in this situation in this situation"
+            "It lists different sizes of zippers"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -233,7 +233,7 @@
         {
           "stem": "What happened right after a shoe company put the fastener on rubber boots?",
           "options": [
-            "Buttons were banned everywhere",
+            "Buttons were banned",
             "Judson invented the clasp locker",
             "The fastener was given the name zipper",
             "The fastener stopped working completely"
@@ -294,9 +294,9 @@
           "stem": "What is the central idea of this article?",
           "options": [
             "The zipper evolved from an unreliable hooked fastener into a smoothly working, popular invention",
-            "Buttons are still the most common way to fasten clothing today",
+            "Buttons are still the most common way to fasten clothing today, so zippers were quickly forgotten",
             "Whitcomb Judson and Gideon Sundback never actually met",
-            "Tobacco pouches are the only product that ever used zippers"
+            "Tobacco pouches are the main product that used zippers"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,7 +310,7 @@
         {
           "stem": "What does the word improve mean, as used in the article?",
           "options": [
-            "To make something worse than before",
+            "To make something much worse than it was before",
             "To remove something completely",
             "To make something better than it was before",
             "To copy something exactly"
@@ -328,7 +328,7 @@
           "stem": "According to the article, what specific products first used the improved fastener?",
           "options": [
             "Shirts and hats",
-            "Cars and bicycles",
+            "Cars, bicycles, and train seats",
             "Books and papers",
             "Rubber boots and tobacco pouches"
           ],
@@ -344,10 +344,10 @@
         {
           "stem": "Why does the article explain that Judson's clasp locker jammed and popped open regularly?",
           "options": [
-            "To suggest Judson had no good ideas at all",
+            "To suggest Judson had no good ideas",
             "To show why inventors like Sundback saw room for real improvement",
             "To explain how tobacco pouches are made",
-            "To compare different countries' fastener laws"
+            "To compare the fastener laws of different countries in Europe"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -363,8 +363,8 @@
           "options": [
             "A memorable name likely helped the product sell better to customers",
             "The company was legally required to rename it",
-            "The original name was too short to remember in this situation in this situation",
-            "Customers could not pronounce the word fastener at all"
+            "The original name was too short to remember",
+            "Customers could not pronounce the word fastener in many stores"
           ],
           "answer": "A",
           "skill": "inference",
@@ -379,9 +379,9 @@
           "stem": "How does the article's structure help explain how the fastener kept improving?",
           "options": [
             "By listing unrelated facts about clothing with no clear order",
-            "By focusing only on a single year, 1913 in this situation in this situation",
+            "By focusing only on a single year, 1913",
             "By showing, step by step, how each new idea fixed a problem with the one before it",
-            "By comparing zippers to shoelaces throughout the whole article"
+            "By comparing zippers to shoelaces throughout the whole article, from start to end"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -396,8 +396,8 @@
           "stem": "According to the article, what effect did the improved fastener have on everyday life?",
           "options": [
             "It made buttons illegal to manufacture",
-            "It replaced all forms of clothing entirely",
-            "It was banned from use on boots in this situation in this situation",
+            "It replaced most buttons on clothing within a single year in most countries",
+            "It was banned from use on boots",
             "It spread to jackets, bags, and pants, becoming popular worldwide"
           ],
           "answer": "D",
@@ -412,9 +412,9 @@
         {
           "stem": "Which best compares Judson's clasp locker to Sundback's later design?",
           "options": [
-            "Judson's hooks interlocked perfectly, while Sundback's teeth often failed",
+            "Judson's hooks interlocked perfectly, while Sundback's teeth often failed and had to be replaced by hand after a few weeks",
             "Judson's hooks often failed to interlock well, while Sundback's matching teeth locked together smoothly and reliably",
-            "Both designs used exactly the same kind of teeth in this situation in this situation in this situation in this situation",
+            "Both designs used exactly the same kind of teeth",
             "Sundback invented his design many years before Judson did"
           ],
           "answer": "B",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Buttons have always been faster to use than any fastener ever invented",
+            "Buttons have been faster to use than any fastener ever invented",
             "Gideon Sundback invented the very first fastener in human history",
             "An unreliable sliding-hook mechanism was transformed through careful redesign into the dependable, popular zipper",
-            "Zippers were never used on any clothing until the twenty-first century"
+            "Zippers were rarely used on clothing until the twenty-first century, when cheap plastic teeth replaced metal hooks"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -490,7 +490,7 @@
           "stem": "What does the word interlock mean, based on how the article describes the teeth of the zipper?",
           "options": [
             "To fit together closely so the parts do not easily come apart",
-            "To separate completely and never touch again",
+            "To separate and stay apart so the parts can move freely again",
             "To become invisible when closed",
             "To change color when heated"
           ],
@@ -506,7 +506,7 @@
         {
           "stem": "According to the article, what specific flaw in Judson's mechanism led directly to the need for Sundback's redesign?",
           "options": [
-            "The hooks were too expensive to manufacture",
+            "The hooks were too expensive to manufacture in large numbers",
             "The hooks were illegal in most cities",
             "The hooks only worked in cold weather",
             "The hooks frequently jammed or popped open during ordinary use"
@@ -525,7 +525,7 @@
           "options": [
             "It made the zipper lighter than any button",
             "Even spacing allowed the teeth to interlock reliably every single time they were used",
-            "It eliminated the need for a patent altogether",
+            "It removed the need for a patent, so other companies could copy the design freely",
             "It made the fastener invisible when worn"
           ],
           "answer": "B",
@@ -540,10 +540,10 @@
         {
           "stem": "How does the structure of the article support its larger point about how useful inventions develop?",
           "options": [
-            "By listing unrelated facts about clothing with no clear order in this situation in this situation in this situation",
+            "By listing unrelated facts about clothing with no clear order",
             "By focusing only on the personal biography of Whitcomb Judson",
             "By showing a clear sequence in which each redesign solved a specific limitation of the previous version",
-            "By comparing zippers only to ancient Roman clothing fasteners"
+            "By comparing zippers to ancient Roman clothing fasteners, such as pins, ties, and leather straps"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -559,8 +559,8 @@
           "options": [
             "To accurately credit the distinct contributions that together produced the modern zipper",
             "To entertain readers with unrelated trivia about engineers",
-            "To suggest that only engineers from Sweden can invent useful devices",
-            "To prove that all inventions happen within a single year in this situation in this situation"
+            "To suggest that engineers from Sweden are the best at inventing useful devices in the world",
+            "To prove that most inventions happen within a single year"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -574,8 +574,8 @@
         {
           "stem": "Which comparison between Judson's original mechanism and Sundback's redesigned mechanism is best supported by the article?",
           "options": [
-            "Judson's hooks interlocked perfectly every time, unlike Sundback's teeth",
-            "Both mechanisms used the exact same metal teeth design in this situation in this situation in this situation in this situation",
+            "Judson's hooks interlocked smoothly each time, while Sundback's teeth slipped apart and failed often in cold weather",
+            "Both mechanisms used the exact same metal teeth design",
             "Sundback's design required no patent while Judson's did",
             "Judson's hooks interlocked unevenly and failed often, while Sundback's teeth interlocked consistently and securely"
           ],
@@ -591,10 +591,10 @@
         {
           "stem": "What long-term effect did Sundback's innovation have on how clothing and textile products were fastened, according to the article?",
           "options": [
-            "Clothing makers returned to using only buttons after a brief trial of zippers",
+            "Clothing makers returned to using buttons after a brief trial of zippers, because the teeth broke too often on heavy coats",
             "The reliable zipper spread to a wide range of products and became one of the most common fasteners in textiles worldwide",
-            "Rubber boots became the only product ever fastened with zippers",
-            "Tobacco pouches were banned from using any kind of fastener in this situation in this situation in this situation in this situation"
+            "Rubber boots became the main product fastened with zippers",
+            "Tobacco pouches were banned from using fasteners"
           ],
           "answer": "B",
           "skill": "cause-effect",

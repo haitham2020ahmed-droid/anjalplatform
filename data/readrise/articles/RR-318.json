@@ -150,8 +150,8 @@
      "options": [
       "Only soft paper and sticky glue and water",
       "Stone, metal, or other strong materials",
-      "Only frozen ice and cold snow from mountains",
-      "Only thin, light plastic bags and soft cloth"
+      "Frozen ice and cold snow from mountains",
+      "Thin, light plastic bags and soft cloth"
      ],
      "answer": "B",
      "skill": "detail",
@@ -182,10 +182,10 @@
     {
      "stem": "What can you tell about public art from the fact that it shows things like palm trees or old pots?",
      "options": [
-      "It has nothing to do with the local land or culture",
+      "It has nothing to do with the local land or culture around it",
       "It may be connected to the local land, culture, or history",
-      "It is always only about faraway, foreign countries",
-      "It can only ever be shown inside museums and galleries"
+      "It is mostly about faraway, foreign countries",
+      "It is shown inside museums and galleries"
      ],
      "answer": "B",
      "skill": "inference",
@@ -199,7 +199,7 @@
     {
      "stem": "In the article, a symbol is something that stands for an idea. What does the word symbol mean here?",
      "options": [
-      "A sweet type of food eaten at parties",
+      "A sweet type of food eaten at parties and weddings",
       "A very loud, sudden kind of sound",
       "Something that stands for an idea or place",
       "A kind of strong building material"
@@ -235,8 +235,8 @@
      "options": [
       "A museum sculpture usually costs money to see; public art is free to see outside",
       "They are exactly the same as each other in every single way, according to the article",
-      "Public art is always much smaller in overall size than museum art in every town",
-      "Museum art is always far older in age than any public art found in a city"
+      "Public art is much smaller than museum art in most towns",
+      "Museum art is older than public art found in a city"
      ],
      "answer": "A",
      "skill": "compare",
@@ -310,10 +310,10 @@
     {
      "stem": "According to the article, what durable materials can a sculpture be made from?",
      "options": [
-      "Only soft, fresh flowers cut that morning",
+      "Only soft, fresh flowers cut that morning from a garden",
       "Stone, metal, wood, or other durable materials",
-      "Only sweet, melted chocolate from a shop",
-      "Only sand that has not been treated"
+      "Melted chocolate from a shop",
+      "Sand that has not been treated"
      ],
      "answer": "B",
      "skill": "detail",
@@ -328,9 +328,9 @@
      "stem": "What does the article say a roundabout sculpture can become for drivers over time?",
      "options": [
       "A place where drivers can park overnight for free",
-      "A spot where all traffic always stops completely",
+      "A spot where all traffic stops completely",
       "A landmark they recognize and use for directions",
-      "A place where absolutely no one is allowed to drive"
+      "A place where drivers are not allowed to go"
      ],
      "answer": "C",
      "skill": "detail",
@@ -362,7 +362,7 @@
      "stem": "Why might a city choose a sculpture that shows palm trees or traditional tools rather than something unrelated to the area?",
      "options": [
       "To represent the local land, culture, and identity of the place",
-      "Because unrelated designs are not legally allowed at all",
+      "Because unrelated designs are not legally allowed",
       "Because palm trees are simply the cheapest shape to build",
       "Because traditional tools are the easiest for cars to drive around"
      ],
@@ -379,7 +379,7 @@
      "stem": "The article says a sculpture can \"represent\" the city. What does represent mean here?",
      "options": [
       "To destroy something else on purpose in the city",
-      "To completely replace something else with a new thing",
+      "To replace something else with a new thing",
       "To hide something away from view of the people",
       "To stand for or show an idea about something"
      ],
@@ -397,7 +397,7 @@
      "options": [
       "By explaining what public art is, why cities commission it, and how it connects to local identity",
       "By ranking every single city from the most artistic to the least artistic one in the world",
-      "By arguing strongly that all public art should be banned entirely everywhere in the world",
+      "By arguing strongly that public art should be banned",
       "By describing very detailed, step-by-step instructions for welding metal into a statue"
      ],
      "answer": "A",
@@ -473,9 +473,9 @@
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
       "Public art gives cities a lasting emblem that can narrate history and shape identity, free for anyone to see.",
-      "Public art should always be a lot more expensive than art kept inside museums, in every city and town.",
-      "Roundabouts were originally built only so that sculptures could be displayed inside them for visitors.",
-      "Saudi cities are the only places in the whole wide world with public art on the streets and squares."
+      "Public art should be a lot more expensive than art kept inside museums, in every city and town.",
+      "Roundabouts were originally built so that sculptures could be displayed inside them for visitors in their cars each day.",
+      "Saudi cities have more public art on their streets and squares than other cities in the world."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -492,7 +492,7 @@
       "Soft materials like cloth, because they are so very inexpensive and easy to find",
       "Durable materials like stone or metal, because they withstand sun, wind, and rain",
       "Materials that dissolve away in water, so the art changes its shape every day",
-      "Materials that must be fully replaced every single week because they break so fast"
+      "Materials that must be replaced each week because they break so fast"
      ],
      "answer": "B",
      "skill": "detail",
@@ -523,10 +523,10 @@
     {
      "stem": "What can be inferred from the fact that paying for civic art often involves high costs and long public debate?",
      "options": [
-      "Cities treat public art as a decision of very little consequence at all, and spend no time on it",
+      "Cities treat public art as a decision of very little consequence, and spend no time on it",
       "Cities generally consider public art an important, carefully weighed civic investment",
-      "Public art proposals are always rejected outright by city officials after a short meeting",
-      "Artists never charge cities any fee at all for their own work, since they enjoy making it"
+      "Public art proposals are rejected outright by city officials after a short meeting",
+      "Artists never charge cities any fee for their own work, since they enjoy making it"
      ],
      "answer": "B",
      "skill": "inference",
@@ -594,7 +594,7 @@
       "Public art requires scheduled visiting hours and a ticket, just like a gallery does",
       "Public art is exposed to weather and free, while gallery art is protected and often paid",
       "Both are exactly identical in how people are able to access them and see them",
-      "Gallery art is always kept outdoors, while public art is always kept indoors"
+      "Gallery art is kept outdoors, while public art is kept indoors"
      ],
      "answer": "B",
      "skill": "compare",

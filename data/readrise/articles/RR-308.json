@@ -167,7 +167,7 @@
           "options": [
             "They are painted black",
             "The small carved gaps let light in but hide the inside from people outside",
-            "They are always kept completely and permanently locked shut at all times of day and night",
+            "They are kept locked shut during the day and the night, so few people can look in",
             "They are made of glass"
           ],
           "answer": "B",
@@ -199,9 +199,9 @@
         {
           "stem": "An apprentice watches a craftsman and slowly tries the work. What does this tell you about learning this craft?",
           "options": [
-            "It can be learned completely in just one single day with no practice",
+            "It can be learned in just one single day with no practice",
             "It is only written in books",
-            "It cannot be taught to anyone",
+            "It is learned quickly from a book",
             "The skill is learned slowly, over time"
           ],
           "answer": "D",
@@ -236,7 +236,7 @@
             "Because it uses expensive machines",
             "Because it takes years of practice with tools and wood",
             "Because it was only just recently invented yesterday afternoon by someone new",
-            "Because anyone can do it without any practice"
+            "Because the wood is soft and easy to cut"
           ],
           "answer": "B",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Craftsmen carve wood by hand into doors, shutters, and furniture.",
-            "Wood of any kind can never be used to make any doors at all, anywhere.",
-            "Modern machines carve every door today.",
-            "Shutters are never used to cover windows."
+            "Wood can never be used to make any doors.",
+            "Modern machines carve most doors today.",
+            "Shutters are rarely used to cover windows in homes today in Najd."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,7 +345,7 @@
           "stem": "What is one effect of the small carved gaps in a window shutter?",
           "options": [
             "They let heavy rain fall directly into the room every single time it storms",
-            "They make the room completely dark",
+            "They make the room dark",
             "They let in light and air while still protecting privacy",
             "They make the shutter impossible to close"
           ],
@@ -364,7 +364,7 @@
             "Because carving separate wood is easier than carving finished furniture",
             "Because carving is only possible after the furniture is painted",
             "Because wood actually becomes much softer after the furniture is fully built",
-            "Because tools cannot be used on finished furniture at all"
+            "Because tools are too big to use on finished furniture"
           ],
           "answer": "A",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Traditional Saudi woodworking combines practical needs with decorative art passed to apprentices.",
-            "Wood is, and always has been, the only building material ever used anywhere across all of Saudi Arabia.",
-            "Carved doors and shutters serve no practical purpose at all.",
-            "Geometric patterns are found only on modern factory-made furniture."
+            "Wood is, and has been, the only building material ever used anywhere across all of Saudi Arabia.",
+            "Carved doors and shutters serve no practical purpose.",
+            "Geometric patterns are found mostly on modern factory-made furniture."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -508,8 +508,8 @@
           "options": [
             "They have no real function beyond decoration",
             "They let in light and a breeze while protecting privacy",
-            "They only protect privacy and let in no light at all",
-            "They only let in light and provide no privacy at all"
+            "They only protect privacy and let in no light",
+            "They block the breeze while letting in more light at night"
           ],
           "answer": "B",
           "skill": "detail",
@@ -526,7 +526,7 @@
             "Carved doors were considered worthless by most families",
             "Every family in the region owned an identical carved door",
             "A carved door showed a family's standing in the community",
-            "Only craftsmen were allowed to own carved doors"
+            "Craftsmen were the main owners of carved doors"
           ],
           "answer": "C",
           "skill": "inference",
@@ -558,8 +558,8 @@
           "stem": "The article describes the carved patterns as often being intricate. What does intricate mean in this context?",
           "options": [
             "Extremely plain and simple, with no decoration",
-            "Made without any tools at all, only by hand",
-            "Completely invisible to the eye of a person",
+            "Made without any tools, only by hand",
+            "Too small to be seen by the eye",
             "Having many small, carefully arranged details"
           ],
           "answer": "D",
@@ -576,7 +576,7 @@
           "options": [
             "It proves the skill was unimportant to the community",
             "It shows the skill relied on direct teaching and hands-on experience",
-            "It means the skill disappeared completely within one generation",
+            "It means the skill disappeared within one generation",
             "It shows that written instructions were actually more common than hands-on practice"
           ],
           "answer": "B",
@@ -591,7 +591,7 @@
         {
           "stem": "Why does the author spend so much time describing the geometric and floral motifs alongside the apprentice system of training?",
           "options": [
-            "To argue that modern furniture factories are entirely superior",
+            "To argue that modern furniture factories are superior",
             "To provide detailed instructions for carving one specific ornament",
             "To show that woodworking is a practical craft and an artistic heritage",
             "To compare Saudi woodworking directly with furniture styles in other countries"

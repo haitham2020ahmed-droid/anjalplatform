@@ -115,9 +115,9 @@
           "stem": "What is this passage mostly about?",
           "options": [
             "a small flying machine with no pilot that a person flies from the ground",
-            "a big plane that carries many people",
+            "a big plane that carries many people from one city to another across the sea",
             "a man who fixes planes for a living",
-            "a toy that cannot fly at all"
+            "a toy that cannot fly"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -150,7 +150,7 @@
           "options": [
             "they flew higher than any plane ever has",
             "they turned into big airplanes over time",
-            "they stopped needing any control at all",
+            "they stopped needing control",
             "they often crashed back down to the ground"
           ],
           "answer": "D",
@@ -166,7 +166,7 @@
           "stem": "Why did people need a pilot inside a plane long ago, based on the passage?",
           "options": [
             "because that was the only known way to steer a plane through the sky",
-            "because planes could not fly without extra weight inside",
+            "because planes could not fly without extra weight inside to keep it steady",
             "because pilots were required to fix the plane's engine",
             "because no one had yet thought of flying at all"
           ],
@@ -185,7 +185,7 @@
             "because even though they crashed, they proved a person could fly a machine from the ground",
             "because crashing proved that drones should never be built",
             "because crashing meant the idea was a total waste of time",
-            "because crashing showed that pilots were not needed at all before this"
+            "because crashing showed that pilots were not needed on planes before this time in many countries"
           ],
           "answer": "A",
           "skill": "inference",
@@ -202,7 +202,7 @@
             "a small device used to make a drone fly and move",
             "a loud sound a drone makes while flying",
             "a type of fuel used to power a drone",
-            "a place where drones are built and tested"
+            "a place where drones are built and tested in a factory"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -216,7 +216,7 @@
         {
           "stem": "How does the passage mostly tell about drones, from start to end?",
           "options": [
-            "it only compares the price of drones in different stores",
+            "it compares the prices of drones in different stores, then tells which store has the best one and the lowest prices",
             "it only argues that drones should be banned everywhere",
             "it tells what a drone is, then the past with only big planes, then the first drones, then jobs drones do now",
             "it only lists steps for building a plane from scratch"
@@ -296,7 +296,7 @@
             "drones now perform many helpful jobs",
             "airplanes stopped being used once drones were invented",
             "drones can only be flown by military pilots today",
-            "every early drone flew perfectly on its very first flight"
+            "most early drones flew perfectly on their first flight"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -328,8 +328,8 @@
           "stem": "Based on the passage, why did people long believe flying required a pilot seated inside the aircraft?",
           "options": [
             "because for many years, there was no other way for anyone to get into the air",
-            "because laws required a pilot to be present at all times",
-            "because engines could not work unless a pilot sat near them",
+            "because laws required a pilot to be present",
+            "because engines could not work unless a pilot sat near them and checked them",
             "because passengers refused to fly without seeing a pilot"
           ],
           "answer": "A",
@@ -347,7 +347,7 @@
             "to prove that drones were a complete waste of effort",
             "to suggest that crashing was actually the intended design",
             "to show how limited and unreliable this technology still was at first",
-            "to argue that pilots should have flown these machines instead"
+            "to argue that pilots should have flown these machines instead in the war"
           ],
           "answer": "C",
           "skill": "inference",
@@ -361,7 +361,7 @@
         {
           "stem": "What can you infer about why drones today are used for jobs like inspecting crops and delivering packages?",
           "options": [
-            "farmers and companies are legally required to use drones for everything",
+            "farmers and companies are legally required to use drones for most of their daily work each day",
             "drones have become too unreliable for any other kind of use",
             "no human workers are willing to do these jobs anymore",
             "people have found that drones can safely and efficiently do jobs once difficult for humans alone"
@@ -379,7 +379,7 @@
           "stem": "What does the word 'airborne' mean as it is used in this passage?",
           "options": [
             "in the air, flying",
-            "completely out of battery power",
+            "out of battery power",
             "attached firmly to the ground",
             "ready to be sold in a store"
           ],
@@ -413,8 +413,8 @@
           "stem": "What happened to drones as battery technology, cameras, and radio controls improved, according to the passage?",
           "options": [
             "drones became more reliable and capable of performing more varied tasks",
-            "drones completely stopped being manufactured by companies",
-            "drones became far too expensive for ordinary people to buy",
+            "drones stopped being manufactured by companies",
+            "drones became far too expensive for ordinary people to buy in a shop",
             "drones lost the ability to be controlled from the ground"
           ],
           "answer": "A",
@@ -474,7 +474,7 @@
           "options": [
             "drones evolved from crude military scouts into versatile tools used in countless ways",
             "drones have remained exclusively military tools since their invention",
-            "drone technology has not changed meaningfully since the twentieth century",
+            "drone technology has not changed meaningfully since the twentieth century in its basic design",
             "every country in the world currently bans the private ownership of drones"
           ],
           "answer": "A",
@@ -524,8 +524,8 @@
           "stem": "What can you infer about why drones became widely available to ordinary consumers by the early twenty-first century?",
           "options": [
             "military organizations likely stopped using drones for any purpose",
-            "governments likely required every household to purchase one drone",
-            "helicopters likely became completely unavailable for photography work",
+            "governments likely required each household to buy one drone",
+            "helicopters likely became unavailable for photography work",
             "improving technology likely made drones smaller and more affordable"
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "What is most likely the reason the passage states that drones now inspect bridges and power lines, jobs once dangerous for human workers?",
           "options": [
-            "because human workers refused to perform these jobs under any condition",
-            "because these particular jobs no longer need to be done at all",
+            "because human workers refused to perform these jobs for low pay or in bad weather",
+            "because these particular jobs no longer need to be done",
             "because drones can safely reach dangerous places without risking a worker's life",
-            "because drones are required by law to replace all human inspectors"
+            "because drones are required by law to replace human inspectors"
           ],
           "answer": "C",
           "skill": "inference",
@@ -560,7 +560,7 @@
             "able to be used for many different purposes",
             "extremely expensive to purchase or maintain",
             "limited to use by trained military personnel only",
-            "designed to fly at only one fixed altitude"
+            "designed to fly at one fixed altitude"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -593,7 +593,7 @@
           "options": [
             "to help protect airplanes, safeguard privacy, and prevent accidents",
             "to prevent any further improvements to drone technology",
-            "to ensure that only military organizations may legally own drones",
+            "to ensure that military organizations are the main legal owners of drones",
             "to raise money exclusively for building new airports"
           ],
           "answer": "A",

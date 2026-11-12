@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "A map that showed the roads of a large city overall in this case at that time",
+            "A map that showed the roads of a large city and the places where travelers could rest at night",
             "A tool called the astrolabe that helped people find time and direction using the sun and stars",
-            "A boat used only for fishing trips in the article, according to the text",
-            "A clock built only for use inside houses, as the article explains for this reason"
+            "A boat used only for fishing trips",
+            "A clock built for use inside houses"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -166,9 +166,9 @@
           "stem": "Why did sailors find the astrolabe so useful at sea?",
           "options": [
             "Because it helped them know their direction even when they could not see land",
-            "Because it could cook food for the whole crew overall, according to the text",
-            "Because it made the ship sail much faster in the article",
-            "Because it kept the sailors warm at night, as the article explains"
+            "Because it could cook food for the whole crew when the weather was too rough for a fire",
+            "Because it made the ship sail much faster",
+            "Because it kept the sailors warm at night"
           ],
           "answer": "A",
           "skill": "inference",
@@ -183,9 +183,9 @@
           "stem": "Why did Muslim scientists want to improve the astrolabe?",
           "options": [
             "Because the Greek version was too heavy to lift",
-            "Because the Greek version was too colorful in the article",
+            "Because the Greek version was too colorful",
             "Because the early Greek version was not accurate enough yet",
-            "Because the Greek version had no sailors to use it"
+            "Because the Greek version had no sailors to use it on long trips"
           ],
           "answer": "C",
           "skill": "inference",
@@ -199,9 +199,9 @@
         {
           "stem": "In the article, to mark something means to —",
           "options": [
-            "throw it far away in the article in this case",
-            "wash it with water, as the article explains",
-            "break it into pieces overall, according to the text",
+            "throw it far away",
+            "wash it with water",
+            "break it into small pieces and throw the pieces away",
             "put a small line or symbol on it to show information"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the article mostly tell its information about the astrolabe?",
           "options": [
-            "By comparing many different kinds of boats today overall in this case",
+            "By comparing many different kinds of boats today, from fishing boats to big ships",
             "By telling the story in time order, from the ancient Greeks to later improvements",
-            "By listing steps for building a house in the article, according to the text",
-            "By naming famous painters from long ago, as the article explains"
+            "By listing steps for building a house",
+            "By naming famous painters from long ago"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -234,9 +234,9 @@
           "stem": "What happened because Muslim scientists improved the astrolabe?",
           "options": [
             "More sailors and travelers could use it to find their way",
-            "Ships stopped sailing across the sea completely",
-            "The stars disappeared from the night sky in the article",
-            "People stopped needing to tell time at all"
+            "Ships stopped sailing across the sea completely after it was made",
+            "The stars disappeared from the night sky",
+            "People stopped needing to tell time"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "The astrolabe was invented in Europe before anywhere else, as the article explains at that time",
+            "The astrolabe was invented in Europe before anywhere else",
             "An ancient Greek tool was later greatly improved by Muslim scientists and became essential for finding time and direction",
-            "The astrolabe was mainly used for cooking food at sea in the article, according to the text",
-            "The astrolabe stopped being useful once sailors reached Europe overall in this case for this reason"
+            "The astrolabe was mainly used for cooking food at sea",
+            "The astrolabe stopped being useful once sailors reached Europe, so it was replaced by maps drawn by Greek scholars"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What specific markings did the improved astrolabe include?",
           "options": [
-            "Markings showing ocean depth at every point, as the article explains",
-            "Markings showing distances between cities in the article in this case",
+            "Markings showing ocean depth at every point",
+            "Markings showing distances between cities",
             "Markings for star positions, the time of day, and the direction to face for prayer",
-            "Markings showing the names of nearby countries overall, according to the text"
+            "Markings showing the names of nearby countries and the distances between their capital cities"
           ],
           "answer": "C",
           "skill": "detail",
@@ -327,8 +327,8 @@
         {
           "stem": "What does the article say about the earliest Greek version of the astrolabe?",
           "options": [
-            "It was already perfectly accurate when first made",
-            "It was made from gold and covered in jewels in the article",
+            "It was already perfectly accurate when first made by the Greeks",
+            "It was made from gold and covered in jewels",
             "It could already tell the direction for prayer",
             "It was simple and not very accurate, so it needed many changes"
           ],
@@ -345,9 +345,9 @@
           "stem": "What can you infer about why al-Fazari's work was important?",
           "options": [
             "It built on earlier ideas while making the tool more accurate and useful for more purposes",
-            "It completely replaced every earlier idea about the stars overall",
-            "It was quickly forgotten soon after it was created, as the article explains",
-            "It was used only one single time by one person in the article, according to the text"
+            "It replaced every earlier idea about the stars",
+            "It was quickly forgotten soon after it was created, until European scholars found it centuries later",
+            "It was used one time by one person"
           ],
           "answer": "A",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "What can you infer about why sailors trusted the astrolabe so much?",
           "options": [
-            "Sailors had no other way of traveling across water at all overall, according to the text",
-            "The astrolabe was the only object allowed on any ship in the article in this case",
+            "Sailors had no other way of traveling across water at all",
+            "The astrolabe was the only object allowed on any ship",
             "Few, if any, other tools of that time could offer the same reliability for finding direction at sea",
-            "Sailors were required by law to carry one at all times, as the article explains"
+            "Sailors were required by law to carry one, and captains checked it before each ship left the harbor"
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,8 +378,8 @@
         {
           "stem": "In the article, the word direction most nearly means —",
           "options": [
-            "a kind of tool used only for telling time",
-            "a bright star seen only in winter in the article",
+            "a kind of tool used only for telling time on a ship",
+            "a bright star seen in winter",
             "a written set of instructions for cooking",
             "the way or path someone is facing or moving toward"
           ],
@@ -395,10 +395,10 @@
         {
           "stem": "How is the information in the article mostly organized?",
           "options": [
-            "By comparing modern GPS devices with older tools, as the article explains",
+            "By comparing modern GPS devices with older tools",
             "By following the astrolabe's history in the order it happened, from ancient Greece onward",
-            "By explaining how to build a ship from scratch in the article in this case",
-            "By arguing that sailors should stop using any tools overall, according to the text"
+            "By explaining how to build a ship from scratch",
+            "By arguing that sailors should stop using old tools and learn to read the stars with their own eyes"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "Why did the astrolabe remain useful for so many centuries?",
           "options": [
             "Because no other equally dependable method for finding time and direction existed yet",
-            "Because people were forbidden from inventing anything new overall",
-            "Because the stars changed position every single year in the article",
-            "Because sailors preferred decoration over usefulness, as the article explains"
+            "Because people were forbidden from inventing new tools, so they kept using the old ones they had",
+            "Because the stars changed position every single year",
+            "Because sailors preferred decoration over usefulness"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "European scientists invented the astrolabe before any other civilization did in the article",
+            "European scientists invented the astrolabe before any other civilization did",
             "A once-simple Greek instrument was transformed by Muslim scientists into an essential tool that shaped navigation for centuries",
-            "The astrolabe was used exclusively for religious ceremonies and nothing else, as the article explains",
-            "The astrolabe became obsolete almost immediately after Muslim scientists improved it overall"
+            "The astrolabe was used mainly for religious ceremonies and rarely for navigation",
+            "The astrolabe became obsolete soon after Muslim scientists improved it, because sailors found simpler tools for navigation"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "What specific evidence does the article give for the astrolabe's wide range of practical uses?",
           "options": [
-            "It states the astrolabe was decorated only for ceremonial display in the article in this case",
-            "It states the astrolabe could only be used by trained astronomers, as the article explains at that time",
+            "It states the astrolabe was decorated only for ceremonial display",
+            "It states the astrolabe could be used by trained astronomers alone",
             "Its markings showed star positions, the time of day, and the direction for prayer, serving sailors, travelers, and scholars alike",
-            "It states the astrolabe was replaced immediately by a better Greek tool overall, according to the text"
+            "It states that the astrolabe was replaced right away by a better Greek tool, so sailors and scholars rarely used it in the following centuries"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "What evidence does the article give for al-Fazari's specific contribution to the astrolabe's history?",
           "options": [
-            "He is credited with inventing the astrolabe with no earlier influence at all, according to the text",
-            "He is described as the first European to use the tool at sea in the article overall in this case",
-            "He is credited only with decorating the astrolabe's outer surface, as the article explains at that time",
+            "He is credited with inventing the astrolabe with no earlier influence",
+            "He is described as the first European to use the tool at sea",
+            "He is credited mainly with decorating the astrolabe's outer surface with stars and patterns, not with building it himself",
             "He reportedly helped build one of the earliest known astrolabes in the eighth century, drawing on and improving earlier Greek ideas"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "How does the article's description of the Greek astrolabe compare with its description of the Islamic Golden Age version?",
           "options": [
             "The Greek version is presented as simple and unreliable, while the later version is presented as precise and widely trusted",
-            "Both versions are described as equally accurate and widely trusted, as the article explains",
-            "The Greek version is described as more advanced than the later version, according to the text",
-            "Neither version is ever described in terms of accuracy in the article overall in this case"
+            "Both versions are described as equally accurate and widely trusted",
+            "The Greek version is described as more advanced than the later version, which added decoration but little else to it",
+            "Neither version is ever described in terms of accuracy"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about the broader historical significance of the astrolabe reaching Europe?",
           "options": [
-            "It likely had no lasting influence on any later navigation methods, as the article explains",
-            "It likely caused Europeans to abandon exploration of the oceans entirely overall in this case",
+            "It likely had little lasting influence on later navigation methods, since sailors in Europe used older tools for many centuries afterward",
+            "It likely caused Europeans to abandon exploration of the oceans",
             "Its arrival likely contributed to later developments in European navigation and exploration during subsequent centuries",
-            "It likely replaced every religious use the tool previously had in the article, according to the text"
+            "It likely replaced the religious uses the tool had before"
           ],
           "answer": "C",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "In the article, the word landmark is used to describe what sailors could not always rely on while at sea. What does landmark mean here?",
           "options": [
-            "a type of instrument used only by scholars in the article",
-            "a specific measurement of time during the day, as the article explains",
-            "a formal title given to a respected astronomer",
+            "a type of instrument used only by scholars",
+            "a specific measurement of time during the day",
+            "a formal title given to a respected astronomer who studied the stars at night",
             "a noticeable, fixed feature on land used to recognize one's location"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the article emphasize that the astrolabe's markings included the direction for daily prayer?",
           "options": [
-            "To argue that navigation tools should never include any religious features overall in this case",
+            "To argue that navigation tools should not include religious features, because sailors found them confusing at sea and on land",
             "To show how the instrument served both practical navigation needs and important cultural and religious practices of its users",
-            "To suggest that only religious travelers ever used the astrolabe in the article, according to the text",
-            "To prove that the Greek version already included this exact feature, as the article explains"
+            "To suggest that religious travelers were the main users of the astrolabe",
+            "To prove that the Greek version already included this exact feature"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -592,9 +592,9 @@
           "stem": "Based on the article, what most likely allowed the astrolabe to remain a trusted tool across many centuries?",
           "options": [
             "Its combination of accuracy, versatility, and the absence of any equally dependable alternative sustained its widespread use",
-            "Governments across the world required every sailor to own one, as the article explains at that time",
-            "Newer, more advanced instruments were banned from being built overall, according to the text",
-            "The stars themselves became easier to see with the naked eye in the article in this case for this reason"
+            "Governments across the world required each sailor to own one, and ships without it were not allowed to leave port",
+            "Newer, more advanced instruments were banned from being built",
+            "The stars themselves became easier to see with the naked eye"
           ],
           "answer": "A",
           "skill": "inference",

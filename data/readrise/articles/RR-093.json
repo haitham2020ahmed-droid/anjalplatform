@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "Why and how people plant trees in the desert",
-            "How to grow dates on a farm in the city",
+            "How to grow dates on a farm in the city near the river",
             "How camels find water in the sand",
-            "Why it is always hot in the desert"
+            "Why it is hot in the desert"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -201,8 +201,8 @@
           "options": [
             "They need little water and have deep roots.",
             "They grow best in cold, snowy places in the north.",
-            "They do not need any roots at all to stand up.",
-            "They must be given water every hour of the day."
+            "They do not need any roots to stand up.",
+            "They grow fast and give a lot of fruit."
           ],
           "answer": "A",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The ghaf tree has very deep roots, which let it find water far below the hot desert sand, and so it survives long droughts.",
-            "Goats and camels eat young trees, so people must keep all animals away from the desert and its small plants forever.",
+            "Goats and camels eat young trees, so people must keep all animals away from the desert and its small plants.",
             "People plant native trees in the desert because trees bring many benefits, and they care for them until they can survive.",
-            "Saudi Arabia launched a plan in 2021 to make its cities greener, and the plan has already finished all its work."
+            "Saudi Arabia launched a plan in 2021 to make its cities greener, and the plan has already finished its work."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -380,7 +380,7 @@
           "options": [
             "They store water in their bright flowers.",
             "They are watered by hand every day.",
-            "They grow only along the cool, wet coast.",
+            "They grow mostly along the cool, wet coast.",
             "Their deep roots reach water far underground."
           ],
           "answer": "D",
@@ -473,7 +473,7 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "The ghaf tree's roots may reach thirty meters, so it is the tallest tree in every desert.",
-            "Africa is building the Great Green Wall, a long line of stone walls that stops all sandstorms.",
+            "Africa is building the Great Green Wall, a long line of stone walls that stops sandstorms.",
             "Recycled water is wastewater that has been cleaned, and it is mostly used for drinking in big cities.",
             "Desert tree planting brings real benefits but needs careful choices of species, water, and protection."
           ],
@@ -542,7 +542,7 @@
           "options": [
             "Nobody in Saudi Arabia uses fire anymore.",
             "Native trees grow back within a few days.",
-            "Only newly planted trees help the land.",
+            "New trees help the land more than old trees.",
             "Losing old trees would undo planting work."
           ],
           "answer": "D",
@@ -558,7 +558,7 @@
           "stem": "Why would planting native trees likely succeed more often than planting trees from rainy regions?",
           "options": [
             "Trees from rainy regions grow too tall for the hot desert wind.",
-            "Native trees do not need any care at all, not even a little water.",
+            "Native trees do not need any care, not even a little water.",
             "Native trees are already suited to drought and heat.",
             "Rainy-region trees attract too many birds to the dry land."
           ],

@@ -114,7 +114,7 @@
     {
      "stem": "What is this story mostly about?",
      "options": [
-      "A young boy who learns to build small wooden fishing boats",
+      "A young boy who learns to build small wooden fishing boats by the sea",
       "A messenger who crosses the desert to bring help for a sick leader",
       "A girl who takes care of camels in a small village market",
       "A traveling merchant who sells water and cloth in town"
@@ -294,7 +294,7 @@
      "stem": "Which sentence best states the central idea of the story?",
      "options": [
       "Salim races across the desert on a swift camel, using careful planning and good judgment to deliver a life-saving letter just in time.",
-      "Salim gets lost in a terrible sandstorm and never manages to reach the town of Dirah at all, and the letter is lost.",
+      "Salim gets lost in a terrible sandstorm and never manages to reach the town of Dirah, and the letter is lost.",
       "Salim is simply a desert merchant who travels around selling water to thirsty travelers, and he has no letter to bring.",
       "Camels are described as being the fastest and strongest animals living anywhere in the desert, and the story is about their speed."
      ],
@@ -415,7 +415,7 @@
       "Both of these two choices are equally risky for Salim in the middle of a storm",
       "Sheltering protects him from getting lost or hurt, while racing ahead risks disaster",
       "Racing ahead through a sandstorm is faster and also much safer than waiting",
-      "There is no real difference at all between these two choices for Salim"
+      "There is no real difference between these two choices for Salim"
      ],
      "answer": "B",
      "skill": "compare",
@@ -473,9 +473,9 @@
      "stem": "Which statement best captures the central idea of the passage?",
      "options": [
       "Salim's careful judgment, pacing, and endurance allow him to deliver a vital message across the desert just in time to save a life.",
-      "The desert is presented in the passage as being impossible for anyone to cross safely under any circumstances whatsoever.",
-      "Camels are described throughout the passage as requiring very little water to survive even the longest journeys.",
-      "Sandstorms are described in the passage as posing no real danger at all to experienced desert travelers."
+      "The desert is presented in the passage as being impossible for anyone to cross safely under any circumstances.",
+      "Camels are described throughout the passage as requiring very little water to survive even the longest journeys across the hot, dry sands.",
+      "Sandstorms are described in the passage as posing no real danger to experienced desert travelers."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -490,7 +490,7 @@
      "stem": "According to the passage, how does Salim manage his water supply?",
      "options": [
       "He drinks freely and without any real restraint whenever he happens to feel thirsty",
-      "He carries no water at all with him and relies entirely on desert plants instead",
+      "He carries no water with him and relies on desert plants instead",
       "He trades some of his water with other desert travelers along the way",
       "He rations his water, taking small sips, and replenishes it at oases"
      ],
@@ -524,7 +524,7 @@
      "stem": "In the passage, the word meticulously most nearly means —",
      "options": [
       "in a careless, hurried, and rather sloppy manner",
-      "without stopping to do any planning at all beforehand",
+      "without stopping to do any planning beforehand",
       "with great care and attention to detail",
       "in a reluctant, slow, and rather unwilling manner"
      ],
@@ -540,9 +540,9 @@
     {
      "stem": "Why does Salim choose to shelter behind the outcrop rather than race ahead of the sandstorm?",
      "options": [
-      "He underestimates how dangerous the storm could be to him and Badr",
+      "He underestimates how dangerous the storm could be to him and Badr on the long trip",
       "He recognizes that pressing on risks becoming lost or losing vital supplies",
-      "He is simply too exhausted to continue at all after walking the whole day",
+      "He is simply too exhausted to continue after walking the whole day",
       "Badr refuses to move any farther along the dry trail, so they stop"
      ],
      "answer": "B",
@@ -560,7 +560,7 @@
       "He simply happened to be the only available rider in town that particular day, so the elders chose him",
       "He was known throughout Najim as being, by far, the single wealthiest person, so the elders trusted his money",
       "His familiarity with the desert routes and his disciplined pace make him uniquely suited to the task",
-      "He had never once ridden a camel before, so he badly needed the practice that this long ride would give"
+      "He had rarely ridden a camel before, so he needed the practice that this long ride would give"
      ],
      "answer": "C",
      "skill": "inference",
@@ -592,7 +592,7 @@
      "stem": "Why does the passage emphasize that a 'wise traveler who knows when to wait' often arrives sooner than one who presses on recklessly?",
      "options": [
       "To suggest that patience and good judgment can be more valuable than raw speed",
-      "To argue that waiting is always better than moving, even when a storm is far away",
+      "To argue that waiting is better than moving, even when a storm is far away",
       "To criticize Salim for being too slow and for stopping at noon each day",
       "To explain why camels need rest and water after long days in the heat"
      ],

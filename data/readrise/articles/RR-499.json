@@ -166,9 +166,9 @@
           "stem": "Why did people need to carry two separate things long ago, based on the passage?",
           "options": [
             "because a phone could only call, and a camera could only take pics",
-            "because phones did not exist yet at that time",
+            "because phones did not exist yet",
             "because cameras were too heavy to carry alone",
-            "because people did not like taking pictures back then"
+            "because people did not like taking pictures back then with old cameras"
           ],
           "answer": "A",
           "skill": "inference",
@@ -183,8 +183,8 @@
           "stem": "Why does the passage say the first camera phone's pics 'were not very good'?",
           "options": [
             "to show that the idea still needed to improve, even though it worked",
-            "to prove the whole idea was a complete failure",
-            "to argue that cameras are always better than phones",
+            "to prove the idea was a failure that people quickly forgot after a short time",
+            "to argue that cameras are better than phones",
             "to show that no one liked phones back then"
           ],
           "answer": "A",
@@ -216,9 +216,9 @@
         {
           "stem": "How does the passage mostly tell about the camera phone, from start to end?",
           "options": [
-            "it only compares prices of old and new phones",
-            "it only argues that cameras should be banned",
-            "it only lists steps for fixing a broken phone",
+            "it compares the prices of old and new phones, then lists the shops that sell them in each city today, from the biggest one",
+            "it argues that cameras should be banned",
+            "it lists steps for fixing a broken phone",
             "it tells what it is, then how phones and cameras used to be separate, then the first one, then how it is used now"
           ],
           "answer": "D",
@@ -234,7 +234,7 @@
           "stem": "What happened after the first camera phone came out in 1997, according to the passage?",
           "options": [
             "almost every phone made later got a camera built inside it",
-            "phones stopped being made with cameras right away",
+            "phones stopped being made with cameras right away in a year",
             "cameras became much bigger and heavier",
             "people stopped using cameras to call anyone"
           ],
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of this passage?",
           "options": [
-            "cameras became completely useless and unwanted right after 1997 for most buyers",
-            "phones could already take sharp, clear pictures long before 1997 came along",
+            "cameras became useless and unwanted right after 1997 for most buyers",
+            "phones could already take sharp, clear pictures long before 1997 came along in the world",
             "combining a phone and a camera into one device changed how people take and share pictures",
-            "engineers working in Japan stopped making any new phones at all afterward"
+            "engineers working in Japan stopped making any new phones afterward"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -328,8 +328,8 @@
           "stem": "Based on the passage, why did people have to carry both a camera and a phone long ago?",
           "options": [
             "because phones were not invented until after cameras",
-            "because cameras could not be carried outside the home",
-            "because combining them was against the law at that time",
+            "because cameras could not be carried outside the home on long trips",
+            "because combining them was against the law",
             "because each device performed only one specific job for its owner"
           ],
           "answer": "D",
@@ -345,9 +345,9 @@
           "stem": "Why does the passage note that few people noticed the first camera phone right away?",
           "options": [
             "to show that its low photo quality kept it from becoming an instant success",
-            "to prove that cameras had already disappeared from the market",
+            "to prove that cameras had already disappeared from the market in a few years",
             "to suggest that phones were illegal to sell in Japan",
-            "to argue that no engineer actually built it at all"
+            "to argue that no engineer actually built it"
           ],
           "answer": "A",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "What can you infer about why manufacturers worldwide began adding cameras to nearly every phone?",
           "options": [
-            "cameras had become completely illegal to sell on their own",
+            "cameras had become illegal to sell on their own",
             "they recognized how useful and popular combining the two devices could become",
             "phones without cameras had stopped working entirely",
-            "governments around the world required every phone to include one"
+            "governments around the world required phones to include one for safety reasons"
           ],
           "answer": "B",
           "skill": "inference",
@@ -380,7 +380,7 @@
           "options": [
             "simple and rough, not finely made",
             "extremely expensive to purchase",
-            "completely broken and unusable",
+            "broken and unusable",
             "designed only for professional photographers"
           ],
           "answer": "A",
@@ -395,7 +395,7 @@
         {
           "stem": "How is this passage mostly organized?",
           "options": [
-            "it compares camera prices across several different countries",
+            "it compares camera prices across several different countries, then explains which camera is the best to buy",
             "it argues that photography should return to using film",
             "it explains what a camera phone is, then the past without one, then its 1997 invention, then its impact today",
             "it gives instructions for repairing a broken camera phone"
@@ -413,9 +413,9 @@
           "stem": "What happened within roughly a decade after the first camera phone was released, according to the passage?",
           "options": [
             "camera phones became standard, and most phones sold included a built-in camera",
-            "cameras disappeared completely from every store worldwide",
-            "phones stopped being manufactured in Japan entirely",
-            "photography stopped being a popular hobby for most people"
+            "cameras disappeared from every store worldwide",
+            "phones stopped being manufactured in Japan",
+            "photography stopped being a popular hobby for most people, and camera shops closed"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -473,9 +473,9 @@
           "stem": "What is the central idea of this passage?",
           "options": [
             "the 1997 invention of the camera phone fundamentally reshaped photography and continues to influence it today",
-            "photography completely disappeared once camera phones were invented",
-            "dedicated cameras today take far better photographs than any camera phone",
-            "the Kyocera VP-210 remained the only camera phone ever manufactured"
+            "photography disappeared once camera phones were invented",
+            "dedicated cameras today take far better photographs than camera phones, so most people have stopped using phone cameras",
+            "the Kyocera VP-210 remained the most popular camera phone for many years"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -525,8 +525,8 @@
           "options": [
             "the idea of capturing and sharing photographs without a separate camera proved far more important than image quality",
             "the device's poor image quality alone convinced manufacturers to abandon the idea entirely",
-            "low-resolution images were actually preferred by most photographers at that particular time",
-            "the device never actually worked well enough to transmit any photographs at all"
+            "low-resolution images were actually preferred by most photographers at that time, because they were easier to print",
+            "the device worked too poorly to send photographs"
           ],
           "answer": "A",
           "skill": "inference",
@@ -542,8 +542,8 @@
           "options": [
             "because camera phones became so capable that most people no longer needed a separate camera",
             "because governments worldwide banned the manufacturing of standalone cameras",
-            "because point-and-shoot cameras were always far too expensive for most households",
-            "because professional photographers refused to use any kind of digital camera"
+            "because point-and-shoot cameras were far too expensive for most households",
+            "because professional photographers refused to use digital cameras and asked stores to stop selling them"
           ],
           "answer": "A",
           "skill": "inference",
@@ -559,7 +559,7 @@
           "options": [
             "causing a major, lasting change",
             "happening only for a very brief period of time",
-            "related only to the chemistry used in film",
+            "related to the chemistry used in film",
             "limited to a single country or region"
           ],
           "answer": "A",
@@ -575,9 +575,9 @@
           "stem": "How does the passage's structure help explain the camera phone's lasting importance?",
           "options": [
             "it moves from life before the invention, through its creation in 1997, to its decades-long impact on photography worldwide",
-            "it presents two opposing debates about whether cameras should exist at all",
+            "it presents two opposing debates about whether cameras should exist",
             "it offers a step-by-step guide for assembling a camera phone at home",
-            "it ranks several technology companies by how many phones each one sold"
+            "it ranks several technology companies by how many phones each one sold, from the largest to the smallest in the world"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -593,7 +593,7 @@
           "options": [
             "dedicated cameras will likely keep becoming rarer as camera phones keep improving",
             "camera phones will likely stop being manufactured within the next few years",
-            "photography as a skill will likely disappear completely from modern life",
+            "photography as a skill will likely disappear from modern life",
             "manufacturers will likely stop improving camera phone technology altogether"
           ],
           "answer": "A",

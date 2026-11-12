@@ -542,7 +542,7 @@
           "options": [
             "The lake grew larger.",
             "Less water reached the lake, so it shrank.",
-            "Cotton farming in the region stopped completely within a year.",
+            "Cotton farming in the region stopped within a year.",
             "The northern dam was destroyed."
           ],
           "answer": "B",
@@ -575,7 +575,7 @@
           "stem": "Based on the article, which situation would most likely make a lake grow?",
           "options": [
             "Years of heavy rain while less river water is taken for farms",
-            "A long, hot period with no rain at all for many years",
+            "A long, hot period with no rain for many years",
             "New irrigation canals from its rivers to the nearby farms and towns",
             "A new opening in its floor that lets the water drain out"
           ],

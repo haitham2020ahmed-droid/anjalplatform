@@ -185,7 +185,7 @@
             "The river water is cold and clean all year long.",
             "The land far from the river is desert.",
             "The sea is too far to walk to.",
-            "The dam keeps all the sand away."
+            "The dam keeps the sand away."
           ],
           "answer": "B",
           "skill": "inference",
@@ -362,7 +362,7 @@
           "stem": "In the article, the word fertile describes land that...",
           "options": [
             "is covered by sand",
-            "is always under water",
+            "is under water",
             "is very far away from any river",
             "can grow many healthy crops"
           ],
@@ -474,8 +474,8 @@
           "options": [
             "The Nile's flow, floods, and sediment shaped where and how people in Egypt could live and farm.",
             "The Aswan High Dam was a complete mistake, and it harmed every farm and village along the river.",
-            "The Nile is the only river in all of Africa that flows from south to north.",
-            "The White Nile supplies all of the Nile's water, so the Blue Nile does not matter at all."
+            "The Nile is the longest river in Africa, and it flows from south to north.",
+            "The White Nile supplies most of the Nile's water, so the Blue Nile matters little."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -574,7 +574,7 @@
         {
           "stem": "How did the Aswan High Dam change life compared with the time of the yearly floods?",
           "options": [
-            "It made the floods much larger, although they came less often than before.",
+            "It made the floods much larger, although they came less often than before in Egypt.",
             "It ended the floods and added electricity, but kept sediment from reaching fields.",
             "It moved the delta farther south.",
             "It made the Blue Nile flow into Lake Victoria."

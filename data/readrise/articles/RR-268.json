@@ -166,9 +166,9 @@
      "stem": "The article says renewable sources do not run out. What does renewable mean?",
      "options": [
       "Able to be used again without running out",
-      "Found only in just one single country",
+      "Found only in just one single country in the world",
       "Far too dangerous for anyone to use",
-      "Something made only by big machines"
+      "Something made by big machines"
      ],
      "answer": "A",
      "skill": "vocabulary",
@@ -236,7 +236,7 @@
       "To show that people are already using energy more wisely",
       "To explain how coal mines work",
       "To describe a new kind of phone",
-      "To argue that renewable energy will disappear soon"
+      "To argue that renewable energy will disappear soon in a few years"
      ],
      "answer": "A",
      "skill": "author-purpose",
@@ -296,7 +296,7 @@
       "Fossil fuels are the only energy source worth using, and renewable sources are a waste of money for every country, because they never last long.",
       "Renewable energy comes from sources that replenish themselves, while nonrenewable energy comes from fossil fuels that take millions of years to form.",
       "Wind and water are dangerous sources of energy, and countries should not build farms or dams to use them, since they harm the land and people.",
-      "All countries use only renewable energy today, and no country burns oil, coal, or gas in its power plants, because those fuels are all gone."
+      "Most countries use renewable energy today, and few countries burn oil, coal, or gas, because those fuels cost too much."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -344,7 +344,7 @@
     {
      "stem": "The article says renewable sources replenish themselves. What does replenish mean?",
      "options": [
-      "Disappear forever from the Earth",
+      "Disappear from the Earth",
       "Naturally fill back up or renew",
       "Become more expensive to buy",
       "Turn into rock over time"
@@ -475,7 +475,7 @@
       "Renewable energy sources naturally replenish themselves, while nonrenewable fossil fuels are finite and took millions of years to form.",
       "Fossil fuels will never run out, because nature makes new coal, oil and gas every single year in huge amounts.",
       "Wind and solar power are the same source of energy, since both of them come from burning materials in a furnace.",
-      "Every nation currently relies entirely on one single energy source, which is the same for every country on Earth, and no other kind of energy is used anywhere today."
+      "Each nation currently relies on one main energy source, which is the same for most countries on Earth, and other kinds of energy are rarely used."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -540,10 +540,10 @@
     {
      "stem": "Why does the article call renewable sources \"essentially inexhaustible\"?",
      "options": [
-      "Because they were discovered very recently by scientists in a laboratory",
+      "Because they were discovered very recently by scientists in a laboratory in a few countries",
       "Because they replenish naturally and are unlikely to run out on a human timescale",
       "Because they formed millions of years ago in the ground, under the sea",
-      "Because they cannot be used to generate electricity at all, said the writer"
+      "Because they cannot be used to generate electricity, said the writer"
      ],
      "answer": "B",
      "skill": "inference",
@@ -560,7 +560,7 @@
       "Because its renewable resources may be limited by its geography",
       "Because fossil fuels never pollute the air",
       "Because fossil fuels replenish themselves daily",
-      "Because sunlight is always available everywhere equally"
+      "Because sunlight is available equally in each country on the planet"
      ],
      "answer": "A",
      "skill": "inference",
@@ -576,7 +576,7 @@
      "options": [
       "To make fossil fuels form faster",
       "To stop using electricity completely",
-      "To increase the number of fossil fuels available",
+      "To increase the number of fossil fuels available in the world",
       "To reduce pollution and rely less on a finite resource"
      ],
      "answer": "D",

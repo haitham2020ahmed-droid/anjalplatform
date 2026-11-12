@@ -166,7 +166,7 @@
           "stem": "A steel ship is very heavy. Why does it still float?",
           "options": [
             "Steel is lighter than wood.",
-            "The water is always salty.",
+            "The water is salty.",
             "Ships move too fast to sink.",
             "It is hollow and full of air."
           ],
@@ -217,7 +217,7 @@
           "stem": "Why does the author write about the Dead Sea?",
           "options": [
             "To warn people not to swim there",
-            "To tell about fish that live in it",
+            "To tell about fish that live in it and the plants",
             "To show that salty water pushes up more",
             "To explain how ships are made"
           ],
@@ -361,7 +361,7 @@
         {
           "stem": "A huge log floats, but a tiny pebble sinks. What does this show?",
           "options": [
-            "Small things always float, no matter what they are made of.",
+            "Small things float, no matter what they are made of.",
             "Wood is heavier than stone.",
             "Weight alone does not decide what floats.",
             "Logs are hollow inside."
@@ -524,7 +524,7 @@
           "stem": "Why does ice float on liquid water?",
           "options": [
             "Ice contains salt that pushes it upward.",
-            "Cold water is always denser than air.",
+            "Cold water is denser than air.",
             "Its molecules are spaced farther apart, so it is less dense.",
             "Ice has trapped air bubbles that make it hollow like a hull."
           ],
@@ -577,7 +577,7 @@
             "The ship would sit a little lower in the water.",
             "The ship would rise higher in the water, floating on top.",
             "The ship would sink at once.",
-            "Nothing would change at all."
+            "Nothing would change."
           ],
           "answer": "A",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "Both stay at the surface all the time, in calm water and in storms.",
             "Both use a swim bladder, like a fish, to float up and down in the sea.",
             "Both control floating by changing their average density with air or water.",
-            "Both are made of materials less dense than water, so they never sink at all."
+            "Both are made of materials less dense than water, so they float."
           ],
           "answer": "C",
           "skill": "compare",

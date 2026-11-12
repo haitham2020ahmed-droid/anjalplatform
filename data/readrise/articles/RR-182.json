@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Jeddah's wall was its most valuable feature, and the town was famous for nothing else.",
+            "Jeddah's wall was its most valuable feature, and the town was famous for nothing else in the past.",
             "Al-Balad's role as a port shaped its architecture and culture, which people now work to preserve.",
-            "Coral is the best building material in the world, and all new buildings should use it.",
-            "Nassif House is the only important building in Jeddah, and no other house is worth a visit."
+            "Coral is the best building material in the world, so new buildings should use it.",
+            "Nassif House is the most important building in Jeddah, so visitors go there first."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -543,7 +543,7 @@
             "It was nearby and light enough for tall houses.",
             "It was imported by merchants on ships from India.",
             "It never needs repairs.",
-            "It was the only stone that floats."
+            "It was the stone that floats best."
           ],
           "answer": "A",
           "skill": "inference",

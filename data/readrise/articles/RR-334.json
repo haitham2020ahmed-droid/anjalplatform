@@ -184,7 +184,7 @@
           "options": [
             "Big cities are never allowed to have any buildings",
             "A country can choose a smaller city for its own reasons",
-            "Only very small countries are allowed to have a capital",
+            "Very small countries must choose their oldest town",
             "Big, busy cities do not really exist in most places"
           ],
           "answer": "B",
@@ -202,7 +202,7 @@
             "It is a big, busy city where leaders work",
             "It is a small, quiet village with few people",
             "It is found deep at the bottom of the ocean",
-            "It has almost no people living there at all"
+            "It has almost no people living there"
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,7 +216,7 @@
         {
           "stem": "Why do leaders meet in the capital city?",
           "options": [
-            "Because the capital is always the smallest city there is",
+            "Because the capital is the smallest city there is",
             "Because a group of camels lives in that city",
             "Because it never rains in that part of the land",
             "Because that is where they make laws and big choices"
@@ -236,7 +236,7 @@
             "To prove that only very old cities can be capitals",
             "To explain each step for how silk cloth is made",
             "To show that capitals can be chosen or built in different ways",
-            "To describe strange animals that live deep in the ocean"
+            "To describe strange animals that live deep in the ocean near the capital"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "A capital is a city chosen or built to be a country's center of government",
-            "Every single capital city is the oldest city in its country, and it was always the first one built",
-            "Only very large countries are allowed to have a capital city, and small ones cannot choose one",
-            "Riyadh is the only capital city that exists anywhere, and other countries just use a big town"
+            "Every single capital city is the oldest city in its country, and it was the first one built",
+            "Large countries have capital cities, but small countries usually choose not to have one",
+            "Riyadh is the oldest capital city, and other countries copied its plan"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -312,7 +312,7 @@
           "options": [
             "The largest farm found anywhere in a country",
             "The official seat of government",
-            "A place that has no government buildings at all",
+            "A place that has no government buildings",
             "A city that has no leaders working in it"
           ],
           "answer": "B",
@@ -361,10 +361,10 @@
         {
           "stem": "Why might a central location feel fairer for a large country's capital?",
           "options": [
-            "Because central cities are always the biggest in a country",
+            "Because central cities are the biggest in a country",
             "Because it does not favor one region over the others",
             "Because leaders can only work inside a central city",
-            "Because a central spot is always closer to the open sea"
+            "Because a central spot is closer to the open sea"
           ],
           "answer": "B",
           "skill": "inference",
@@ -380,8 +380,8 @@
           "options": [
             "Because it connects the government to the country's long history",
             "Because historic cities never have any government buildings",
-            "Because building any new city is against the law",
-            "Because a historic city must always be the smallest one"
+            "Because building a new city is against the law",
+            "Because a historic city must be the smallest one"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,9 +395,9 @@
         {
           "stem": "How is a planned capital, like Canberra, different from a historic capital?",
           "options": [
-            "A planned capital never has any leaders working inside it at all",
-            "A historic capital was always built within a single year by one king",
-            "There really is no difference between the two kinds of capital at all",
+            "A planned capital never has any leaders working inside it",
+            "A historic capital was built within a single year by one king",
+            "There really is no difference between the two kinds of capital in the world",
             "A planned capital was built for its role; a historic one grew over time"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "A capital is both the seat of government and a symbol of national identity",
-            "Every capital is always the largest and oldest city around, in every country on Earth",
-            "Capitals have only existed since fairly modern times began, and old nations had none",
-            "Riyadh is described as the single largest city on Earth, bigger than any other capital"
+            "Every capital is the largest and oldest city around, in every country on Earth",
+            "Capitals were first chosen in modern times, so old nations had no seat of rule",
+            "Riyadh is described as the largest city on Earth, bigger than other capitals"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -491,7 +491,7 @@
           "options": [
             "It was moved all the way across the ocean to Lisbon, in Portugal",
             "It was relocated from Rio de Janeiro to the new city of Brasilia",
-            "It stayed fixed in Rio de Janeiro for good, permanently, and never moved",
+            "It stayed in Rio de Janeiro and did not move",
             "It slowly became a small, uninhabited island nearby in the sea"
           ],
           "answer": "B",
@@ -524,8 +524,8 @@
           "stem": "The article says a capital often carries 'symbolic' weight. What does symbolic mean here?",
           "options": [
             "Made only of symbols instead of real buildings and streets",
-            "Related only to numbers and simple mathematics in school",
-            "Having absolutely no meaning or purpose at all in a city",
+            "Related to numbers and simple mathematics in school",
+            "Having absolutely no meaning or purpose in a city",
             "Representing something larger, like a country's identity"
           ],
           "answer": "D",
@@ -542,8 +542,8 @@
           "options": [
             "Because brand-new capitals are never allowed to have any roads, so people use boats",
             "Because a new city needs buildings, roads, and utilities built from scratch",
-            "Because infrastructure only matters inside much older cities with a long history",
-            "Because new capitals always stay smaller than tiny villages, so few things are needed"
+            "Because infrastructure matters more inside older cities with a long history",
+            "Because new capitals stay smaller than tiny villages, so few things are needed"
           ],
           "answer": "B",
           "skill": "inference",
@@ -559,8 +559,8 @@
           "options": [
             "A central location can feel more fair to different regions of the country",
             "Because coastal cities are never legally allowed to be capitals of any country",
-            "Because every new capital must be built out on an island in the sea",
-            "Because older capital cities no longer have any leaders to rule them"
+            "Because new capitals must be built on an island in the sea",
+            "Because older capital cities no longer have leaders to rule them"
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,9 +574,9 @@
         {
           "stem": "According to the article, what is one reason a newly designated capital might also serve a symbolic purpose?",
           "options": [
-            "It stops a country from ever having any laws at all",
-            "It removes the need for a country to build any offices",
-            "It makes a country's older cities vanish completely overnight",
+            "It stops a country from ever having any laws",
+            "It removes the need for a country to build offices for its leaders",
+            "It makes a country's older cities vanish overnight",
             "It can represent a fresh start or a more unified national identity"
           ],
           "answer": "D",

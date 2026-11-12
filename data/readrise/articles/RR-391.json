@@ -166,7 +166,7 @@
      "stem": "Why is the capsule made of metal?",
      "options": [
       "So water cannot get inside and ruin the letters",
-      "So that it looks nicer sitting under the tree",
+      "So that it looks nicer sitting under the tree in the hospital",
       "So that it is easier to carry to the garden",
       "So that it can float safely in rain puddles"
      ],
@@ -185,7 +185,7 @@
       "a sealed box that holds letters and objects to open later",
       "a machine that flies high above the clouds",
       "a small garden tool used for digging in soil",
-      "a kind of medicine that doctors give to sick people"
+      "a kind of medicine that doctors give to sick people in a hospital"
      ],
      "answer": "A",
      "skill": "vocabulary",
@@ -217,7 +217,7 @@
      "stem": "What can you tell about how the class feels about the future?",
      "options": [
       "They are scared that the future might be worse",
-      "They do not care at all about what happens later",
+      "They do not care about what happens later",
       "They are curious and excited to imagine what might change",
       "They think the future will look exactly the same as today"
      ],
@@ -361,9 +361,9 @@
      "stem": "In the article, the word preserve means —",
      "options": [
       "to keep something safe so it lasts",
-      "to throw something far away forever",
+      "to throw something far away",
       "to make a sound much louder",
-      "to copy something else exactly"
+      "to copy something else exactly by hand"
      ],
      "answer": "A",
      "skill": "vocabulary",
@@ -395,7 +395,7 @@
      "stem": "What can you infer about Lina from her hope to become a doctor?",
      "options": [
       "She dislikes helping other people very much at school",
-      "She does not enjoy going to school at all each day",
+      "She does not enjoy going to school each day",
       "She cares about helping sick people in her community",
       "She wants to work with robots instead of sick people"
      ],
@@ -411,9 +411,9 @@
     {
      "stem": "How are Omar's and Huda's predictions about the future similar?",
      "options": [
-      "Both predict that school will be cancelled forever",
-      "Both predict that it will rain every single day",
-      "Both predict that robots will fully replace all teachers",
+      "Both predict that school will be cancelled",
+      "Both predict that it will rain every single day in the next year",
+      "Both predict that robots will replace teachers",
       "Both predict that technology will help people in new ways"
      ],
      "answer": "D",
@@ -473,7 +473,7 @@
       "A simple classroom project becomes a genuine legacy for the future.",
       "Time capsules are much too fragile to survive underground for very long.",
       "Only famous, historic buildings are ever allowed to contain time capsules.",
-      "Robots will eventually and completely replace the need for time capsules."
+      "Robots will eventually and replace the need for time capsules."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -504,10 +504,10 @@
     {
      "stem": "According to the article, what does Lina anticipate for her school by the time the capsule is opened?",
      "options": [
-      "that the school will close completely and forever",
-      "that the school will move to a brand new country",
+      "that the school will close and",
+      "that the school will move to a brand new country next year",
       "that the school will have new computers and a larger library",
-      "that the school will completely stop teaching science"
+      "that the school will stop teaching science"
      ],
      "answer": "C",
      "skill": "detail",
@@ -522,7 +522,7 @@
      "stem": "In the article, the word posterity refers to —",
      "options": [
       "a kind of sealed metal container",
-      "a teacher who explains class projects",
+      "a teacher who explains class projects to the class",
       "a tool used to dig under a tree",
       "people who will live in future generations"
      ],
@@ -575,7 +575,7 @@
       "It argues that classroom capsules are more scientifically accurate than real ones",
       "It claims that only grown adults are ever allowed to bury real time capsules",
       "It shows that both serve a similar purpose: preserving messages for the future",
-      "It explains that cornerstone capsules are always found again within just one year"
+      "It explains that cornerstone capsules are found again within just one year"
      ],
      "answer": "C",
      "skill": "compare",
@@ -590,7 +590,7 @@
      "stem": "Why does the author end the article by calling the project 'a genuine archive of childhood'?",
      "options": [
       "To argue that archives should contain only official government documents",
-      "To suggest that all of children's school projects have no lasting value",
+      "To suggest that children's school projects have little lasting value",
       "To explain in detail exactly how big museums collect objects",
       "To emphasize that an ordinary school activity can hold real meaning"
      ],

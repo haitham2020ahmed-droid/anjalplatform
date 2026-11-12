@@ -149,7 +149,7 @@
           "stem": "What do birds do when they fly back home in warm weather?",
           "options": [
             "They never fly again after they come home",
-            "They stop eating completely for the whole season",
+            "They stop eating for the whole season",
             "They build a nest and raise their young",
             "They swim across the sea instead of flying"
           ],
@@ -217,7 +217,7 @@
           "stem": "Why do many birds fly over the Arabian Peninsula?",
           "options": [
             "It never gets hot there, so the birds like to rest on it and sleep",
-            "It is the only place on Earth with food and water for birds to eat",
+            "It is the main place on Earth with food and water for birds",
             "It sits between Africa, Asia, and Europe, making it a useful path",
             "Birds are not allowed to fly anywhere else in the world, by law"
           ],
@@ -294,8 +294,8 @@
           "stem": "What is the main idea of this article?",
           "options": [
             "The Arabian Peninsula has no birds living there, because the land is too dry and hot for them.",
-            "All birds always stay in exactly the same one place for their whole lives.",
-            "Birds cannot survive any cold weather at all, so they die when winter begins in any place.",
+            "All birds stay in exactly the same one place for their whole lives.",
+            "Most birds sleep through the winter in their nests, so they rarely need to find food.",
             "Some bird species migrate long distances each year to find food and safe places to breed."
           ],
           "answer": "D",
@@ -313,7 +313,7 @@
             "Very easy to find nearly everywhere around",
             "Very dangerous to eat for most people",
             "Not enough of something; hard to find",
-            "Found only in deep underground places"
+            "Found deep in underground places"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -330,7 +330,7 @@
             "Rivers, coastlines, and mountain ranges",
             "Only tall buildings in cities",
             "Road signs placed along the highways",
-            "Only the color of the sky above"
+            "The color of the sky above"
           ],
           "answer": "A",
           "skill": "detail",
@@ -344,7 +344,7 @@
         {
           "stem": "Why does the Arabian Peninsula matter to many migrating bird species?",
           "options": [
-            "It has no deserts at all, so birds can rest on green grass",
+            "It has no deserts, so birds can rest on green grass",
             "It is located between Africa, Asia, and Europe, forming a natural path",
             "It is the only place that birds can find water in the whole world",
             "Birds are forbidden by law from flying anywhere else in the region"
@@ -362,8 +362,8 @@
           "stem": "What happens to a migrating bird's breeding territory while it is away?",
           "options": [
             "The bird returns to it with remarkable accuracy when the weather warms",
-            "It disappears completely and is never used again by any bird or animal",
-            "It becomes a dry desert in the heat and the wind of the summer",
+            "It disappears and is never used again by any bird or animal",
+            "It becomes a dry desert in the heat and the wind of the summer in the north",
             "Another species takes it over permanently and keeps it"
           ],
           "answer": "A",
@@ -396,9 +396,9 @@
           "stem": "What can you infer about young birds migrating for the first time?",
           "options": [
             "They must rely on instinct and cues without prior guidance",
-            "They never attempt to migrate at all",
-            "They are always guided personally by their parents the whole way",
-            "They fly shorter distances than adult birds every time"
+            "They never attempt to migrate",
+            "They are guided personally by their parents the whole way",
+            "They fly shorter distances than adult birds"
           ],
           "answer": "A",
           "skill": "inference",
@@ -414,8 +414,8 @@
           "options": [
             "Because migration routes naturally connect regions across continents",
             "Because all birds are born on a single continent and never leave it",
-            "Because birds cannot cross any ocean, so they stay on the same land",
-            "Because every species stays within one country and never moves away"
+            "Because birds rarely cross oceans, so they stay on the same land",
+            "Because most species stay within one country"
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Arabian Peninsula has absolutely no connection to any bird's migratory route whatsoever, scientists now say after many years of counting birds.",
-            "Birds can only ever navigate by using man-made landmarks such as roads, tall buildings, and bridges.",
-            "Migration is an extremely rare behavior found in only one or two bird species anywhere on the entire planet.",
+            "The Arabian Peninsula has absolutely no connection to any bird's migratory route, scientists now say after many years of counting birds.",
+            "Birds navigate mainly by man-made landmarks such as roads, tall buildings, and bridges.",
+            "Migration is a rare behavior found in a few bird species that live near the Arabian Peninsula.",
             "Migratory birds use multiple natural cues to travel vast seasonal distances, often along flyways like the one over the Arabian Peninsula."
           ],
           "answer": "D",
@@ -490,9 +490,9 @@
           "stem": "According to the article, what is a flyway?",
           "options": [
             "A regular, repeated migration route used by the same species generation after generation",
-            "A type of nest that birds build only very high up in tall trees near the sea",
-            "A single flight made by just one bird only once during its whole life in the sky",
-            "A long man-made runway that is built only for large airplanes to use at the airport"
+            "A type of nest that birds build high up in tall trees near the sea, year after year",
+            "A single flight made by one bird during its whole life in the sky",
+            "A long man-made runway that is built for large airplanes at the airport"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -540,8 +540,8 @@
         {
           "stem": "How does a young bird's first migration compare to an older bird's later migrations?",
           "options": [
-            "The young bird is physically unable to fly at all, so it waits for older birds to carry it",
-            "The young bird always travels a much shorter route than any adult, and stops at every pond",
+            "The young bird is physically unable to fly, so it waits for older birds to carry it",
+            "The young bird travels a much shorter route than any adult, and stops at every pond",
             "The young bird must rely on instinct without the guidance older birds may draw on from experience",
             "There is no meaningful difference described in the article between young birds and older birds"
           ],
@@ -576,8 +576,8 @@
           "options": [
             "To argue that migration happens only in Antarctica, where the birds live and nest in the ice",
             "To emphasize how widespread and significant this natural behavior truly is",
-            "To suggest that migration is a rare, isolated event that few animals ever take part in at all",
-            "To focus the article only on a single bird species, the swallow, and its yearly flight"
+            "To suggest that migration is a rare, isolated event that few animals ever take part in",
+            "To focus the article on a single bird species, the swallow, and its yearly flight"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -592,9 +592,9 @@
           "stem": "What can you infer about why birds rely on several navigational cues rather than just one?",
           "options": [
             "Using multiple cues together makes navigation more reliable if one cue is unclear",
-            "Birds actually use no cues at all and simply guess their direction",
+            "Birds actually use no cues and simply guess their direction",
             "A single cue works perfectly in every weather condition, so backups are unnecessary",
-            "Each bird species uses a completely different, unrelated cue with no overlap"
+            "Each bird species uses a different, unrelated cue with no overlap"
           ],
           "answer": "A",
           "skill": "inference",

@@ -201,7 +201,7 @@
           "options": [
             "Adults know all the recipes.",
             "Heat can burn you.",
-            "Kids cannot stir tea.",
+            "Kids are too short to stir tea.",
             "Eggs are hard to find."
           ],
           "answer": "B",
@@ -235,7 +235,7 @@
           "options": [
             "Because people do science there when they cook",
             "Because only scientists may cook in the kitchen",
-            "Because kitchens have no food in them at all",
+            "Because kitchens have no food in them",
             "Because labs make the best bread in the world"
           ],
           "answer": "A",
@@ -295,8 +295,8 @@
           "options": [
             "Cooking includes physical changes and chemical changes that make new substances.",
             "Vinegar is the most important food in the kitchen at home, because every meal needs it.",
-            "Chemical changes are always easy to undo in any kitchen.",
-            "Ice and butter are the only things that ever change when we cook."
+            "Chemical changes are easy to undo in a kitchen.",
+            "Ice and butter are the main things that change when we cook."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,7 +310,7 @@
         {
           "stem": "What gas is made when baking soda is mixed with vinegar?",
           "options": [
-            "Oxygen",
+            "Pure oxygen gas",
             "Steam",
             "Carbon dioxide",
             "Smoke"
@@ -474,8 +474,8 @@
           "options": [
             "Kitchens are dangerous, so children should never cook.",
             "Cooking shows both reversible and irreversible changes.",
-            "All kitchen changes can be undone with enough cooling.",
-            "Chemistry is only practiced by scientists in laboratories."
+            "Most kitchen changes can be undone with enough cooling.",
+            "Chemistry is practiced mainly by scientists in laboratories."
           ],
           "answer": "B",
           "skill": "central-idea",

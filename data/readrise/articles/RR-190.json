@@ -183,7 +183,7 @@
           "stem": "How was Tesla's current different from Edison's?",
           "options": [
             "It could travel a long way",
-            "It could not go far at all",
+            "It could not go far",
             "It only worked at night",
             "It was made from water"
           ],
@@ -234,7 +234,7 @@
           "stem": "Why do you think the man who paid Tesla wanted his plan?",
           "options": [
             "He wanted to move to a small town in Europe",
-            "He did not like power or lights at all",
+            "He did not like power or lights",
             "He saw that the current could go far",
             "He wanted Tesla to stop working on it"
           ],
@@ -313,7 +313,7 @@
             "Direct current is newer, faster, and safer to use",
             "Alternating current changes direction and travels far",
             "Direct current can be used only in small motors",
-            "Alternating current only works near big waterfalls"
+            "Alternating current works best near big waterfalls"
           ],
           "answer": "B",
           "skill": "compare",
@@ -347,7 +347,7 @@
             "He invented direct current for Edison's company",
             "He fought with Tesla in court for many years",
             "He bought Tesla's patents and helped build the system",
-            "He built the very first light switch in New York"
+            "He built the very first light switch in New York in the city"
           ],
           "answer": "C",
           "skill": "detail",
@@ -396,7 +396,7 @@
           "stem": "Why do you think Westinghouse bought Tesla's patents?",
           "options": [
             "He wanted to stop Tesla from working",
-            "He thought direct current was much better",
+            "He thought direct current was much better for big cities",
             "He believed Tesla's system could send power far",
             "He wanted to give the patents to Edison"
           ],
@@ -414,7 +414,7 @@
           "options": [
             "In time order, from his childhood to his death",
             "As a list of problems and their prices",
-            "As a set of steps for wiring a new house",
+            "As a set of steps for wiring a new house in the city",
             "As a poem about lights and electricity"
           ],
           "answer": "A",
@@ -474,8 +474,8 @@
           "options": [
             "Tesla's work on alternating current shaped the electrical systems we use today.",
             "Edison invented every important electrical device that people still use in their homes.",
-            "Waterfalls are the only source of the electricity that reaches modern cities.",
-            "Tesla's failures prove that his ideas were never useful to anyone."
+            "Waterfalls are the main source of the electricity that reaches modern cities.",
+            "Tesla's failures prove that his ideas were of little use to others."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -492,7 +492,7 @@
             "Building a new power station every few meters",
             "A transformer that changes the voltage",
             "Sending electricity through the air without wires",
-            "Using only direct current in every city"
+            "Using direct current in each city"
           ],
           "answer": "B",
           "skill": "detail",
@@ -542,8 +542,8 @@
           "options": [
             "Tesla favored alternating current; Edison promoted direct current",
             "Both men strongly preferred direct current for every city",
-            "Edison wanted wireless power, while Tesla wanted only wires",
-            "Tesla wanted fewer homes and factories to have electricity"
+            "Edison wanted wireless power, while Tesla wanted wires",
+            "Tesla wanted fewer homes and factories to have electricity in the city"
           ],
           "answer": "A",
           "skill": "compare",

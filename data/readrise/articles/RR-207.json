@@ -200,9 +200,9 @@
           "stem": "The article says the crack keeps getting a little wider every year. What does this tell us about the two plates?",
           "options": [
             "They are slowly moving away from each other",
-            "They are completely still and never move",
+            "They are still and never move",
             "They are melting into the sea",
-            "They are moving toward each other"
+            "They are moving slowly toward each other"
           ],
           "answer": "A",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "The Red Sea sits in a widening rift between two tectonic plates, which helps explain why it is so warm and salty.",
             "The Red Sea has more rivers flowing into it than any other sea in the world, and that is why it is warm.",
             "Coral reefs are the main reason the Red Sea formed, since they grew and then pushed the land apart.",
-            "Ships cannot cross the Red Sea because it is too narrow, and so cargo must be carried by camels."
+            "Ships rarely cross the Red Sea because it is too narrow, so cargo is carried by camels."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -311,7 +311,7 @@
           "stem": "According to the article, what is a rift?",
           "options": [
             "A rare kind of coral found only in the Red Sea",
-            "A type of fish that lives only near fault lines",
+            "A type of fish that lives near fault lines",
             "A warm ocean current that flows through the basin",
             "A long crack where two plates slowly pull apart"
           ],
@@ -378,7 +378,7 @@
         {
           "stem": "What can be inferred about the Red Sea's future from the article's description of the widening rift?",
           "options": [
-            "It will stay the exact same size and shape forever and ever",
+            "It will stay the exact same size and shape for good",
             "It will shrink and disappear within a few years of today",
             "It may continue widening until it becomes a full new ocean",
             "It will freeze over as the plates slow down in the cold"
@@ -542,7 +542,7 @@
           "options": [
             "The tectonic process shaping the Red Sea is still active today",
             "The rift stopped widening millions of years ago and is now still",
-            "The Red Sea was formed entirely by river erosion over time",
+            "The Red Sea was formed by river erosion over time",
             "Volcanic activity has made the sea less salty than other seas"
           ],
           "answer": "A",

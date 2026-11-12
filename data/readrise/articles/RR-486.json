@@ -116,7 +116,7 @@
           "options": [
             "How to make popcorn at home",
             "How a melted candy bar led to the invention of the microwave",
-            "Why radar machines are used by the military",
+            "Why radar machines are used by the military in wartime and at sea",
             "How to cook an egg quickly"
           ],
           "answer": "B",
@@ -168,7 +168,7 @@
             "Because he had not touched any heat source at all",
             "Because he dropped the candy bar",
             "Because the candy bar was very old",
-            "Because he was far away from the machine"
+            "Because he was far away from the machine in the lab"
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,7 +216,7 @@
         {
           "stem": "How is this article mostly organized?",
           "options": [
-            "It compares different kinds of candy bars",
+            "It compares different kinds of candy bars and what they are made of",
             "It tells the story of the microwave oven in the order it was invented",
             "It explains how to build a radar machine",
             "It lists kitchen safety rules"
@@ -293,7 +293,7 @@
         {
           "stem": "What is the central idea of this article?",
           "options": [
-            "Radar machines are too dangerous to use safely",
+            "Radar machines are too dangerous to use safely, so the army stopped using them during the war",
             "An engineer's accidental discovery of a melted candy bar led to the invention of the microwave oven",
             "Candy bars should never be carried in pockets",
             "Popcorn was invented at the same time as radar"
@@ -312,7 +312,7 @@
           "options": [
             "Happening by chance, without being planned",
             "Happening exactly as planned",
-            "Occurring very slowly over many years",
+            "Occurring very slowly over many years in the lab",
             "Happening only in a laboratory"
           ],
           "answer": "A",
@@ -327,7 +327,7 @@
         {
           "stem": "According to the article, what specific job did Percy Spencer have?",
           "options": [
-            "He was a chef who cooked in restaurants",
+            "He was a chef who cooked in restaurants for soldiers",
             "He was a farmer who grew popcorn",
             "He was an engineer who built machines for the military",
             "He sold candy bars in a shop"
@@ -345,7 +345,7 @@
           "stem": "Why does the article explain that the earliest machines were huge and expensive?",
           "options": [
             "To show why ordinary families could not buy one right away",
-            "To suggest the invention was a complete failure",
+            "To suggest the invention was a complete failure in the kitchen",
             "To explain how machines are manufactured today",
             "To compare prices in different countries"
           ],
@@ -361,9 +361,9 @@
         {
           "stem": "What can you infer about why Spencer tested his idea with popcorn and an egg instead of just trusting his first guess?",
           "options": [
-            "He needed something to eat that day in this situation in this situation",
+            "He needed something to eat that day",
             "He was told to do so by his manager",
-            "Popcorn and eggs are required for all science experiments",
+            "Popcorn and eggs are required for all science experiments in the lab",
             "He wanted solid evidence before believing something so surprising"
           ],
           "answer": "D",
@@ -380,7 +380,7 @@
           "options": [
             "By listing unrelated facts about World War Two with no clear order",
             "By showing, step by step, how an accidental discovery led to a tested, working invention",
-            "By focusing only on the price of modern microwaves in this situation",
+            "By focusing on the price of modern microwaves and where people can buy them today",
             "By comparing microwaves to refrigerators throughout the article"
           ],
           "answer": "B",
@@ -395,10 +395,10 @@
         {
           "stem": "According to the article, what effect did the microwave oven eventually have on kitchens worldwide?",
           "options": [
-            "It completely replaced the need for any other kitchen appliance",
+            "It replaced the need for any other kitchen appliance",
             "It became a common appliance used daily to heat snacks and meals quickly",
-            "It was limited only to restaurants and ships forever",
-            "It made cooking food illegal in most homes in this situation"
+            "It was used mostly in restaurants and on ships, not in family homes",
+            "It made cooking food illegal in most homes"
           ],
           "answer": "B",
           "skill": "detail",
@@ -413,9 +413,9 @@
           "stem": "Which best compares the earliest microwave models to today's versions?",
           "options": [
             "The earliest models were huge and expensive, while today's versions are small and affordable for most homes",
-            "The earliest models were small and cheap, unlike today's huge, expensive versions",
+            "The earliest models were small and cheap, unlike today's huge, expensive versions that restaurants buy",
             "Both the earliest and today's models cost exactly the same amount",
-            "Today's microwaves use open flames, unlike the earliest models in this situation in this situation in this situation"
+            "Today's microwaves use open flames, unlike the earliest models"
           ],
           "answer": "A",
           "skill": "compare",
@@ -474,8 +474,8 @@
           "options": [
             "Radar equipment was designed specifically to melt candy bars",
             "An engineer's accidental observation near radar equipment led to a scientifically understood, patented kitchen innovation",
-            "The microwave oven was invented purely by luck with no real science involved",
-            "Candy bars have always contained invisible energy"
+            "The microwave oven was invented purely by luck, with little science involved, when a cook left candy near a hot stove",
+            "Candy bars have contained invisible energy"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -490,7 +490,7 @@
           "stem": "What does the word molecule mean, based on how the article describes what happens inside the food?",
           "options": [
             "A very small particle made of two or more atoms joined together",
-            "A large metal part inside the radar machine",
+            "A large metal part inside the radar machine that sends out waves",
             "A type of candy bar ingredient",
             "A unit used to measure cooking time"
           ],
@@ -525,7 +525,7 @@
           "options": [
             "It formally recognized and protected his new invention, allowing him to develop it commercially",
             "It made the candy bar melt faster",
-            "It eliminated the need for further testing",
+            "It removed the need for more testing, so the oven could be sold to families the next week",
             "It made the invention illegal to sell"
           ],
           "answer": "A",
@@ -540,10 +540,10 @@
         {
           "stem": "How does the structure of the article support its larger point about how scientific discoveries can happen?",
           "options": [
-            "By listing unrelated facts about World War Two history with no clear order",
+            "By listing facts about World War Two history with no clear order, so readers can pick the ones they find useful",
             "By showing a clear sequence in which an accidental observation led step by step to a tested, patented invention",
             "By focusing only on the biography of radar technology",
-            "By comparing microwave ovens only to ancient cooking methods"
+            "By comparing microwave ovens to ancient cooking methods"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -557,9 +557,9 @@
         {
           "stem": "What was most likely the author's purpose in explaining exactly how the magnetron's waves caused water molecules to vibrate?",
           "options": [
-            "To entertain readers with unrelated trivia about physics",
+            "To entertain readers with unrelated trivia about physics, such as how light and sound travel through the air",
             "To suggest that only scientists can ever discover anything useful",
-            "To prove that microwaves are dangerous to use in this situation in this situation in this situation in this situation",
+            "To prove that microwaves are dangerous to use",
             "To help readers understand the real scientific mechanism behind the invention, not just the accident that revealed it"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Which comparison between the accidental discovery and the finished invention is best supported by the article?",
           "options": [
             "The accidental melting revealed an effect that Spencer then deliberately studied and engineered into a reliable, commercial product",
-            "The accidental melting and the finished invention are completely unrelated events",
-            "The finished invention happened before the candy bar ever melted in this situation in this situation in this situation in this situation",
-            "The candy bar incident made further scientific testing unnecessary"
+            "The accidental melting and the finished invention are unrelated events",
+            "The finished invention happened before the candy bar ever melted",
+            "The candy bar incident made further scientific testing unnecessary, so Spencer sold the first oven a few days later to a big store"
           ],
           "answer": "A",
           "skill": "compare",
@@ -591,10 +591,10 @@
         {
           "stem": "What long-term effect did Spencer's innovation have on how people cook food, according to the article?",
           "options": [
-            "Cooking returned entirely to open flames after a brief trial of microwaves",
+            "Cooking returned to open flames after a brief trial of microwaves, because families did not trust the new machines",
             "The microwave oven became a common household appliance, offering a fast way to heat food without any open flame",
             "Restaurants stopped using any kind of cooking equipment entirely",
-            "Radar equipment was banned from all military use afterward in this situation in this situation in this situation"
+            "Radar equipment was banned from all military use afterward"
           ],
           "answer": "B",
           "skill": "cause-effect",

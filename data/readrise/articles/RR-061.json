@@ -526,7 +526,7 @@
             "Carrying oxygen to cells all over the body",
             "Protecting joints like the knees and elbows",
             "Turning sweat into a gas in the hot air",
-            "Removing waste from the blood every day"
+            "Removing waste from the blood each day"
           ],
           "answer": "B",
           "skill": "detail",
@@ -559,8 +559,8 @@
           "options": [
             "The body sweats more, losing more water.",
             "The kidneys stop working when it is hot.",
-            "Hot air contains no oxygen at all.",
-            "Saliva disappears completely in hot weather."
+            "Hot air contains no oxygen.",
+            "Saliva disappears in hot weather."
           ],
           "answer": "A",
           "skill": "inference",

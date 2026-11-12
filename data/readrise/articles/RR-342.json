@@ -165,7 +165,7 @@
         {
           "stem": "In the article, what does the word \"space\" mean?",
           "options": [
-            "An empty room with nothing in it at all, like a classroom at night",
+            "An empty room with nothing in it, like a classroom at night",
             "The area far above Earth, where astronauts travel",
             "A parking spot for cars near the shop in town",
             "The deep, dark part of the ocean far below the waves"
@@ -200,9 +200,9 @@
           "stem": "Why might scientists say the reef holds more kinds of life than almost any other place in the sea?",
           "options": [
             "Because so many different animals make their home there",
-            "Because no fish can survive anywhere else nearby",
+            "Because no fish can survive anywhere else nearby in the sea",
             "Because the reef is the only place with water",
-            "Because people bring new animals there every day"
+            "Because people bring new animals there each day"
           ],
           "answer": "A",
           "skill": "inference",
@@ -219,7 +219,7 @@
             "Because each piece of coral is tiny and builds very slowly",
             "Because storms destroy the reef every single year in the sea",
             "Because people kept stopping the building work on the reef",
-            "Because the water was too cold for building any coral at all"
+            "Because the water was too cold for coral to grow fast"
           ],
           "answer": "A",
           "skill": "inference",
@@ -295,8 +295,8 @@
           "options": [
             "Only sharks and turtles live anywhere near the coast of Australia, and no other animals do.",
             "The Great Barrier Reef is an enormous, biodiverse marine ecosystem now facing serious threats.",
-            "Astronauts spend most of their time studying coral from the space station every day.",
-            "Queensland has no coastline at all, so the reef is far from the sea."
+            "Astronauts spend most of their time studying coral from the space station.",
+            "Queensland has no coastline, so the reef is far from the sea."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -490,9 +490,9 @@
           "stem": "According to the article, what distinguishes the Great Barrier Reef's structure from a single solid reef?",
           "options": [
             "It consists of one continuous, unbroken wall of coral",
-            "It is formed entirely from volcanic rock",
+            "It is formed from volcanic rock",
             "It is composed of almost 3,000 smaller reefs and hundreds of islands",
-            "It is a man-made structure built entirely by engineers to protect the coastline from storms"
+            "It is a man-made structure built by engineers to protect the coastline from storms"
           ],
           "answer": "C",
           "skill": "detail",
@@ -543,7 +543,7 @@
             "Polyps die first, and only afterward do they build skeletons",
             "A polyp builds a skeleton, dies, and new polyps grow on top, repeating for ages",
             "Astronauts photograph the reef, then polyps begin building it",
-            "Islands form first, long before any coral polyps ever arrive in the area"
+            "Islands form first, long before coral polyps arrive in the area to live there"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -560,7 +560,7 @@
             "Because earlier reef growth and sea-level changes across many ice ages shaped it",
             "Because it was carried there by ocean currents from another continent",
             "Because scientists built it artificially to support new coral",
-            "Because it contains no connection at all to coral growth or to the reef above it"
+            "Because it contains no connection to coral growth or to the reef above it"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Based on the article, why does the designation of the reef as a protected heritage site matter?",
           "options": [
-            "It guarantees the ocean will never warm again in the future",
+            "It guarantees the ocean near the reef will stay cool in the future years",
             "It reflects real efforts to conserve a vulnerable ecosystem for the future",
-            "It means tourists are no longer allowed anywhere near the reef",
-            "It proves the reef is no longer at any risk at all from bleaching or warming"
+            "It means tourists are no longer allowed near the reef",
+            "It proves the reef is now safe from bleaching or warming"
           ],
           "answer": "B",
           "skill": "inference",

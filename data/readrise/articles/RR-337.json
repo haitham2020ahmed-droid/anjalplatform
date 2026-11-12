@@ -235,7 +235,7 @@
      "options": [
       "How it will become a small village again one day",
       "How it changed from a small town into a big city",
-      "How it was always a big city in the desert",
+      "How it was a big city in the desert",
       "How farmers grow crops there with deep wells"
      ],
      "answer": "B",
@@ -361,7 +361,7 @@
     {
      "stem": "Why do city leaders need to plan carefully as a city's population increases?",
      "options": [
-      "So that farms can return to the busy city center",
+      "So that farms can return to the busy city center in the city",
       "So that fewer new buildings are built downtown",
       "So that the city's population quickly shrinks",
       "So that the growing number of people can be served well"
@@ -379,7 +379,7 @@
      "stem": "Why might someone see moving to a city as an opportunity?",
      "options": [
       "Villages offer more jobs than cities, so people should stay in the countryside",
-      "Cities never need new infrastructure, because the old roads and pipes last forever",
+      "Cities never need new infrastructure, because the old roads and pipes last",
       "A city may offer a chance at a better life through jobs and services",
       "Rural areas have more hospitals than cities, so the sick should live there"
      ],
@@ -472,7 +472,7 @@
     {
      "stem": "Which statement best summarizes the article?",
      "options": [
-      "Riyadh's roads are wider than those of other capitals, and the city has no traffic at all, because its cars are few and its drivers are careful, so there are no problems.",
+      "Riyadh's roads are wider than those of other capitals, and the city has no traffic, because its cars are few and its drivers are careful, so there are no problems.",
       "Rural villages generally have more hospitals than cities, because villages have more people to care for and more space for them to build large clinics.",
       "Government buildings are the tallest structures in Riyadh, and no houses, hotels, or towers rise above them in the city, because the law does not allow it.",
       "Urbanization, driven by economic opportunity, has reshaped Riyadh into a modern megacity, though rapid growth brings infrastructure and sustainability challenges."
@@ -525,7 +525,7 @@
      "options": [
       "Growth that happens instantly, in a single day or night, and never slows down",
       "Growth that can continue without causing serious long-term harm",
-      "Growth that only affects government buildings and offices in the capital",
+      "Growth that affects government buildings and offices in the capital",
       "Growth that reduces a city's population year after year until it is empty"
      ],
      "answer": "B",
@@ -540,7 +540,7 @@
     {
      "stem": "What economic factors does the article link to Riyadh's rapid growth?",
      "options": [
-      "Fishing exports and seaside tourism trade",
+      "Fishing exports and seaside tourism trade on the coast",
       "Farming subsidies and large crop exports",
       "Foreign aid for rural road development",
       "Oil wealth, government jobs, and new businesses"
@@ -558,7 +558,7 @@
      "stem": "What can be inferred about cities that grow without enough planning for infrastructure?",
      "options": [
       "They will automatically become far more sustainable",
-      "They will immediately stop attracting any new residents",
+      "They will immediately stop attracting any new residents in the future",
       "They will struggle to provide services to all their residents",
       "They will shrink back into small rural villages quickly"
      ],
@@ -576,7 +576,7 @@
      "options": [
       "It makes a city smaller and easier to manage, with fewer roads and buses to build",
       "It can stretch infrastructure and services over a wider area than planned",
-      "It always lowers the cost of housing, so every family can buy a larger home nearby",
+      "It lowers the cost of housing, so every family can buy a larger home nearby",
       "It has no effect on roads or transportation, because people still live close to work"
      ],
      "answer": "B",

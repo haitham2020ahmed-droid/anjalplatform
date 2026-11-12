@@ -233,7 +233,7 @@
         {
           "stem": "Why might people in a tall tower trust the lift?",
           "options": [
-            "The lift has no cables at all, so it floats on air",
+            "The lift has no cables, so it floats on air",
             "The box is made of glass, so people can see out",
             "A brake would stop the box from falling",
             "The lift moves very slowly, so it is safe"
@@ -295,7 +295,7 @@
           "options": [
             "Elevators use clever machines and safety parts to carry people up tall buildings",
             "Elisha Otis built the first skyscraper in New York, and the article is about that tower",
-            "Hydraulic elevators are always faster than cable elevators in every building",
+            "Hydraulic elevators are faster than cable elevators in every building",
             "The Kingdom Centre is the tallest tower in the world today"
           ],
           "answer": "A",
@@ -346,7 +346,7 @@
           "options": [
             "To paint evenly",
             "To slow down quickly",
-            "To measure how fast the car is moving",
+            "To measure how fast the car is moving in the shaft",
             "To make both sides nearly equal in weight"
           ],
           "answer": "D",
@@ -379,7 +379,7 @@
           "stem": "Why do short buildings, not skyscrapers, usually use hydraulic elevators?",
           "options": [
             "A rod pushing from below works best for short distances",
-            "Hydraulic elevators need no electricity at all",
+            "Hydraulic elevators need no electricity",
             "Skyscrapers have rules that do not allow any oil inside them",
             "Hydraulic elevators were invented later"
           ],
@@ -395,10 +395,10 @@
         {
           "stem": "How is a cable elevator different from a hydraulic elevator?",
           "options": [
-            "One has a car for passengers and the other does not have one at all",
+            "One has a car for passengers and the other does not have one",
             "One is pulled from above by cables, the other is pushed from below",
             "Only hydraulic elevators have brakes, and the cable ones can stop without them",
-            "Only cable elevators move people, while the hydraulic ones carry only goods"
+            "Cable elevators move people, while hydraulic ones carry goods"
           ],
           "answer": "B",
           "skill": "compare",
@@ -474,8 +474,8 @@
           "options": [
             "Elevators combine physics ideas such as traction, balance, and safety systems to make tall buildings usable",
             "The Kingdom Centre has the fastest elevators in the world, and they travel more than a mile every minute",
-            "Hydraulic elevators have replaced cable elevators in nearly all tall buildings because they are quieter",
-            "Computers have made elevator cables unnecessary, so new towers are built without any strong ropes at all"
+            "Hydraulic elevators have replaced cable elevators in most tall buildings because they are quieter",
+            "Computers have made elevator cables less needed, so new towers use thinner ropes"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -559,7 +559,7 @@
           "options": [
             "To prove the mechanism would stop the car in front of an audience",
             "To test how fast the car could fall to the ground below",
-            "To show that cables were not needed at all in elevators",
+            "To show that cables were not needed in elevators",
             "To make the elevator lighter for the people riding inside it"
           ],
           "answer": "A",

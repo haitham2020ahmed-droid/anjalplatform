@@ -165,8 +165,8 @@
         {
           "stem": "Why did their second kite spin and crash?",
           "options": [
-            "Because there was no wind at all that day",
-            "Because Ms. Reem suddenly took the kite away",
+            "Because there was no wind that day",
+            "Because Ms. Reem suddenly took the kite away from the class",
             "Because the kite was far too small to see",
             "Because its shape and design still were not right"
           ],
@@ -202,7 +202,7 @@
             "Because she owns a small kite shop nearby and sells them new string",
             "Because they could not solve the problem with their kites alone",
             "Because she told them firmly to stop trying and to go home",
-            "Because kites of any kind are not allowed at school or in the yard"
+            "Because kites are not allowed at school or in the yard"
           ],
           "answer": "B",
           "skill": "inference",
@@ -219,7 +219,7 @@
             "They gave up after their first kite broke",
             "They let other students build the kite for them",
             "They kept trying until they solved the problem",
-            "They were not interested in kites at all"
+            "They were not interested in kites"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,7 +233,7 @@
         {
           "stem": "Why does the author describe both of the kites that broke before showing the kite that worked?",
           "options": [
-            "To prove that every single kite always breaks eventually",
+            "To prove that every single kite breaks eventually",
             "To explain exactly how to fly a real airplane safely",
             "To show that paper kites work better than plastic kites",
             "To show that trying again after failing can lead to success"
@@ -377,10 +377,10 @@
         {
           "stem": "Why did the boys add a long tail to their new kite?",
           "options": [
-            "To make the kite much heavier overall",
+            "To make the kite much heavier",
             "To help the kite stay balanced in the wind",
             "To make the kite look prettier for the day",
-            "To slow the kite down completely in flight"
+            "To slow the kite down in flight"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -413,7 +413,7 @@
           "options": [
             "The first kite was much bigger and heavier than the final one, and had a longer string",
             "The first kite flew much higher than the final kite did on both of the days",
-            "The first kite had a tail, but the final kite did not have one at all",
+            "The first kite had a tail, but the final kite did not have one",
             "The first kite used weak paper, while the final kite used strong plastic"
           ],
           "answer": "D",
@@ -472,7 +472,7 @@
           "options": [
             "Through failure and problem-solving, the boys come to understand aerodynamics.",
             "Kites are far too dangerous and should never be flown at school, even on calm days.",
-            "Only very expensive kites made of solid metal can ever fly in the open air.",
+            "Expensive kites made of metal fly better than cheap paper kites.",
             "Ms. Reem secretly built the winning kite for the two boys the night before."
           ],
           "answer": "A",
@@ -489,7 +489,7 @@
           "options": [
             "Because it was painted an unusual bright color by the boys at home",
             "Because something about its shape and design was still not right",
-            "Because there was no wind at all on Kite Day at the park",
+            "Because there was no wind on Kite Day at the park",
             "Because it was flown indoors inside the gym of the school"
           ],
           "answer": "B",
@@ -539,7 +539,7 @@
           "stem": "What can be inferred about why Ms. Reem explained the science behind kites rather than simply building one for the boys?",
           "options": [
             "She wanted them to understand their failures and solve it themselves",
-            "She did not know how to build a kite herself at all, so she gave a lecture",
+            "She did not know how to build a kite herself, so she gave a lecture",
             "She secretly wanted the boys to fail a third time so they would give up",
             "She firmly believed that only adults should ever fly kites in the open fields"
           ],
@@ -572,7 +572,7 @@
         {
           "stem": "How does the article compare lift and drag in a kite's flight?",
           "options": [
-            "It claims that drag is always more useful than lift",
+            "It claims that drag is more useful than lift",
             "It claims that lift and drag are exactly the same force",
             "It shows that lift must rise while too much drag stops good flight",
             "It claims that only adult kites ever experience lift and drag"
@@ -589,8 +589,8 @@
         {
           "stem": "Why does the author end the article by describing Yousef and Khalid explaining their discovery to classmates?",
           "options": [
-            "To suggest that only teachers should ever explain science",
-            "To argue that all kite-flying should be banned at school",
+            "To suggest that only teachers should ever explain science to the students",
+            "To argue that kite-flying should be banned at school",
             "To show that their classmates were uninterested in kites",
             "To emphasize that what they learned was valuable enough to share"
           ],

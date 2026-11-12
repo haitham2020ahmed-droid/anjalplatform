@@ -12,7 +12,7 @@ import { formatLevel } from "@/server/readrise/level";
 import type { ActivityRow, ClassOverview, LevelDetail, TrendPoint } from "@/server/readrise/teacher-report";
 import { rateText } from "@/server/readrise/teacher-report";
 import type { ClassSettings, PlanWeek, TeacherGuide } from "@/server/readrise/teacher";
-import { setReadRiseClassSettingAction } from "../actions";
+import { setReadRiseClassSettingAction, undoReadRiseDropAction } from "../actions";
 
 const lv = (n: number | null | undefined) => (n === null || n === undefined ? "—" : formatLevel(n));
 const sg = (n: number | null | undefined) => (n === null || n === undefined ? "—" : n > 0 ? `+${n}` : String(n));
@@ -253,6 +253,14 @@ export function LevelDetailView({ d, t }: { d: LevelDetail; t: TFn }) {
   return (
     <div className="space-y-6" data-testid="rr-level-detail">
       <h2 className="text-2xl font-bold text-brand-navy">{d.name}</h2>
+      {d.undoDrop && (
+        <form action={undoReadRiseDropAction} className="flex flex-wrap items-center gap-3 rounded-2xl bg-amber-50 p-4 text-sm ring-1 ring-amber-200" data-testid="rr-undo-drop">
+          <input type="hidden" name="classId" value={d.classId} />
+          <input type="hidden" name="studentId" value={d.studentId} />
+          <p className="flex-1 text-amber-900">📉 {t("The level dropped automatically: {a} → {b}.", { a: formatLevel(d.undoDrop.from), b: formatLevel(d.undoDrop.to) })} <span className="text-amber-800">{t("If you think the drop is wrong, you can undo it within 7 days (then no automatic drop for the next 8 articles).")}</span></p>
+          <button className="rounded-xl bg-amber-600 px-4 py-2 font-semibold text-white hover:bg-amber-700">↩️ {t("Undo the drop")}</button>
+        </form>
+      )}
       <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
         <Section title="Annual goal" icon="🎯" hint={t("{a} activities with a {p}% first-try average this school year.", { a: d.goal.target, p: d.goal.targetAvg })}>
           <div className="space-y-3">

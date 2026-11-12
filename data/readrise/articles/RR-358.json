@@ -183,7 +183,7 @@
           "stem": "What happens to the island at low tide compared to high tide?",
           "options": [
             "It is bigger at low tide and smaller at high tide",
-            "It disappears completely at low tide",
+            "It disappears at low tide",
             "It is bigger at high tide and smaller at low tide",
             "It looks the same size at both times"
           ],
@@ -235,7 +235,7 @@
           "options": [
             "To show that the family is lost and cannot find their way home",
             "To show that the island is dangerous and must be avoided",
-            "To show that the family has grown completely tired of fishing every single day",
+            "To show that the family has grown tired of fishing each day",
             "To show how the children stay curious and keep learning about it"
           ],
           "answer": "D",
@@ -295,7 +295,7 @@
           "options": [
             "A fishing family decides to argue loudly about whether they should ever visit the new island, and they never go",
             "A fishing family discovers a new sand island after a storm and investigates how shifting currents formed it.",
-            "A fishing family decides to stop fishing near the rocky points forever after the big storm",
+            "A fishing family decides to stop fishing near the rocky points after the big storm",
             "A fishing family builds an entire new island out of wood, rope, and old fishing nets by hand"
           ],
           "answer": "B",
@@ -378,9 +378,9 @@
         {
           "stem": "What can you infer about the island's future from what the teacher explains in class?",
           "options": [
-            "It will move to a completely different part of the sea by itself",
+            "It will move to a different part of the sea by itself",
             "It could shrink or even disappear if another storm changes the current again",
-            "It will definitely stay exactly the same size forever",
+            "It will definitely stay exactly the same size",
             "It will turn into a lush green forest full of tall trees within just a few years"
           ],
           "answer": "B",
@@ -412,10 +412,10 @@
         {
           "stem": "How is this story organized?",
           "options": [
-            "It lists many completely different kinds of fish that live near the new island",
-            "It explains, step by step, exactly how to build a sturdy wooden fishing boat",
+            "It lists many different kinds of fish that live near the new island",
+            "It explains, step by step, exactly how to build a sturdy wooden fishing boat in the harbor",
             "It moves through events in order and ends with an explanation of why the island formed",
-            "It compares two completely different fishing villages side by side in great detail"
+            "It compares two different fishing villages side by side in great detail"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -475,7 +475,7 @@
             "A fishing family competes with scientists to name the new island first, and the family wins a big prize from the king.",
             "A fishing family worries that the new island will destroy their village, so the whole family moves away to a new town.",
             "A fishing family observes and investigates a temporary sandy island formed when a storm shifted sediment-carrying currents.",
-            "A fishing family decides that studying the sea is too difficult for children to understand at all."
+            "A fishing family decides that studying the sea is too difficult for children to understand."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -491,7 +491,7 @@
           "options": [
             "The village built a wall that redirected the current on purpose",
             "The storm altered the usual direction of the current that converges there",
-            "The current always flows the same way regardless of weather",
+            "The current flows the same way regardless of weather",
             "The fish changed the current by swimming together in very large groups"
           ],
           "answer": "B",
@@ -524,7 +524,7 @@
           "stem": "In the story, the word phenomenon most nearly refers to —",
           "options": [
             "a type of boat used only by scientists on research trips",
-            "a kind of fish found only near new islands in the sea",
+            "a kind of fish found near new islands in the sea",
             "a dangerous storm that destroys everything nearby",
             "a notable natural occurrence worth observing and studying"
           ],
@@ -542,8 +542,8 @@
           "options": [
             "The island will sink permanently the very next time it rains lightly",
             "If a future storm redirects the current, erosion could gradually wear the island away",
-            "The island will definitely stay the same size forever, since sand never moves once deposited",
-            "The island will disappear only if the family stops visiting it"
+            "The island will definitely stay the same size, since sand never moves once deposited",
+            "The island will disappear if the family stops visiting it"
           ],
           "answer": "B",
           "skill": "inference",
@@ -593,8 +593,8 @@
           "options": [
             "To criticize the family for not understanding the island sooner than they did",
             "To connect the family's personal discovery to a broader geological process that explains it",
-            "To suggest that the children's earlier observations were completely wrong from the start",
-            "To shift the story's focus away from the family and onto the teacher and her class"
+            "To suggest that the children's earlier observations were wrong from the start",
+            "To shift the story's focus away from the family and onto the teacher and her class at the school"
           ],
           "answer": "B",
           "skill": "author-purpose",

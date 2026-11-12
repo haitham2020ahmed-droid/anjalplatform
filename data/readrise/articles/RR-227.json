@@ -184,7 +184,7 @@
           "options": [
             "Asteroids are rock and metal, but comets are mostly ice.",
             "Asteroids are mostly ice, but comets are made of rock.",
-            "Asteroids always grow long, bright tails near the Sun.",
+            "Asteroids grow long, bright tails near the Sun.",
             "Comets never move around the sun in space."
           ],
           "answer": "A",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Asteroids are exactly and completely the same as comets in every single way, so scientists should never study them as separate or different kinds of objects at all",
+            "Asteroids are exactly and the same as comets in every single way, so scientists should never study them as separate or different kinds of objects in space",
             "Asteroids are rocky leftovers from the solar system's formation, mostly found in a belt between Mars and Jupiter, and scientists track the ones that pass near Earth.",
             "Jupiter is the most dangerous planet in the solar system.",
-            "Every asteroid eventually becomes a full-sized planet."
+            "Asteroids are pieces of broken planets that crashed into each other long ago."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -347,7 +347,7 @@
             "Freeze solid",
             "Turn into gas",
             "Break into rocks",
-            "Disappear forever without a trace"
+            "Disappear without a trace"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -380,7 +380,7 @@
           "options": [
             "To describe only objects that have already hit Earth in the past, and nothing that flies near it",
             "To identify asteroids whose orbits bring them close enough to Earth to need tracking",
-            "To describe comets that never leave the asteroid belt of the sun",
+            "To describe comets that stay inside the asteroid belt",
             "To name asteroids that are bigger than planets in the solar system"
           ],
           "answer": "B",
@@ -397,8 +397,8 @@
           "options": [
             "Asteroids can give scientists clues about what the early solar system was like.",
             "Asteroids are the youngest objects in the solar system, formed only a few years ago.",
-            "Asteroids change their composition every year, so scientists must study them again.",
-            "Scientists cannot learn anything new from asteroids because they are far too old."
+            "Asteroids change their makeup each year, so scientists must study them again.",
+            "Scientists learn little from asteroids because they are too old to measure."
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Jupiter's immense and overwhelming gravity completely destroyed every single asteroid that had ever existed anywhere within the entire solar system, leaving absolutely nothing behind at all",
+            "Jupiter's immense and overwhelming gravity destroyed every single asteroid that had ever existed anywhere within the entire solar system, leaving absolutely nothing behind",
             "Asteroids are rocky remnants from the solar system's formation, mostly confined to the belt between Mars and Jupiter, and astronomers track those that approach Earth.",
             "Comets and asteroids are identical objects with different names.",
             "No scientist has ever successfully tracked a near-Earth object."
@@ -525,7 +525,7 @@
           "options": [
             "Break apart into smaller pieces and fly away from each other",
             "Come together and combine into a larger mass",
-            "Melt completely into liquid in the heat of space",
+            "Melt into liquid in the heat of space",
             "Disappear into empty space and leave no trace"
           ],
           "answer": "B",
@@ -557,7 +557,7 @@
         {
           "stem": "What can you infer from the fact that the asteroid belt's total mass is still less than the mass of Earth's moon?",
           "options": [
-            "The asteroid belt contains very few objects overall.",
+            "The asteroid belt contains very few objects.",
             "Scientists have likely miscounted the number of asteroids.",
             "The asteroid belt is actually far more massive than any single planet found anywhere in our entire solar system",
             "Even with millions of objects, most asteroids must be quite small individually."
@@ -594,7 +594,7 @@
             "As a timeline describing exactly when each and every object was first discovered by early astronomers using simple telescopes",
             "By contrasting what each object is made of and how that difference leads to different behavior near the sun",
             "As a step-by-step guide to identifying a comet",
-            "As a list of every known comet's name"
+            "As a list of the comets that were seen near the sun"
           ],
           "answer": "B",
           "skill": "text-structure",

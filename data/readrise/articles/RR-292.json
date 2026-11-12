@@ -185,7 +185,7 @@
             "Because deserts are hot by day, cold at night",
             "Because animals do not like sun or wind",
             "Because the cloth was cheap to buy",
-            "Because they always wanted bright, cheerful colors"
+            "Because they wanted bright, cheerful colors"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -311,7 +311,7 @@
           "stem": "Why was the ground loom often set up outdoors near the family's tent?",
           "options": [
             "Because looms could only be used at night",
-            "Because weaving indoors was against tradition",
+            "Because weaving indoors was against tradition in the desert",
             "Families moved around and wove wherever they camped",
             "Because goats needed to watch the weaving"
           ],
@@ -328,7 +328,7 @@
           "stem": "In the article, a durable piece of sadu cloth is one that",
           "options": [
             "looks the most colorful of all the cloths",
-            "uses the least amount of thread of any cloth",
+            "uses less thread than other cloth",
             "is the fastest cloth to weave in the tent",
             "lasts a long time without wearing out"
           ],
@@ -378,7 +378,7 @@
         {
           "stem": "Why did the bayt al-sha'ar work well in both hot and cold desert conditions?",
           "options": [
-            "It had a metal frame that held its shape",
+            "It had a metal frame that held its shape in the wind",
             "It was built underground to stay cool",
             "Its densely woven fibers blocked sun and wind",
             "It was painted white to reflect heat"
@@ -473,7 +473,7 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "A useful, symbolic craft now protected as heritage",
-            "Factory-made cloth has always been better than sadu",
+            "Factory-made cloth has been better than sadu",
             "Only men were allowed to practice sadu weaving",
             "UNESCO invented the sadu weaving tradition in 2020"
           ],
@@ -506,10 +506,10 @@
         {
           "stem": "What does intangible mean, as used to describe cultural heritage in the article?",
           "options": [
-            "Made entirely of stone or metal",
+            "Made of stone or metal",
             "A type of geometric pattern",
             "Existing as skill or tradition, not an object",
-            "Something that no longer exists anywhere"
+            "Something that no longer exists anywhere in the world"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -574,10 +574,10 @@
         {
           "stem": "How are the bayt al-sha'ar and a woven saddlebag similar in purpose?",
           "options": [
-            "Both were eventually replaced by stone buildings",
+            "Both were eventually replaced by stone buildings in the towns",
             "Both were woven only by the men in a family",
             "Both met real, practical needs of nomadic desert life",
-            "Both were mainly symbols with no practical use at all"
+            "Both were mainly symbols with no practical use"
           ],
           "answer": "C",
           "skill": "compare",
@@ -593,7 +593,7 @@
           "options": [
             "To discourage people from ever trying to learn it, since it takes so long",
             "To explain in detail exactly how looms are built and how they are repaired",
-            "To argue that factory-made cloth is always worse than cloth made by hand",
+            "To argue that factory-made cloth is worse than cloth made by hand",
             "To highlight the real skill behind a seemingly plain craft"
           ],
           "answer": "D",

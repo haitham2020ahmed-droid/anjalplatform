@@ -236,7 +236,7 @@
             "To show that the Sun is helpful but also needs care",
             "To tell readers to stay inside all day long every day",
             "To explain how to make sunscreen at home with oil",
-            "To prove that the Sun is not very hot at all"
+            "To prove that the Sun is not very hot"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -295,8 +295,8 @@
           "options": [
             "The Sun is helpful, but its UV rays and heat can harm us, so we must protect ourselves.",
             "Vitamin D is the most important part of sunlight, and people should lie in the Sun all day.",
-            "People should never go outside in summer, because the Sun is too hot for everyone.",
-            "Clouds block all of the Sun's rays, so we never need protection on a cloudy day."
+            "People should stay inside in summer, because the Sun is too hot for most people.",
+            "Clouds block most of the Sun's rays, so we need little protection on a cloudy day."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -395,7 +395,7 @@
         {
           "stem": "Which person is best protected from the Sun?",
           "options": [
-            "Ali, swimming in the sea at noon with no hat at all",
+            "Ali, swimming in the sea at noon with no hat",
             "Huda, sitting on the bright sand at 1 p.m. with no shade or hat",
             "Omar, wearing a wide hat, sunglasses, and sunscreen in the shade",
             "Laila, playing on a cloudy beach without any sunscreen on her skin"
@@ -474,8 +474,8 @@
           "options": [
             "Sunlight is both beneficial and potentially harmful, so people should take sensible precautions.",
             "Sunscreen is the only protection anyone needs, so hats and shade are never useful.",
-            "UV rays are visible on cloudy days, so people can always see when they are in danger from the sun.",
-            "Vitamin D causes sunburn, so children should stay away from sunlight at all times."
+            "UV rays are visible on cloudy days, so people can see when they are in danger from the sun.",
+            "Vitamin D causes sunburn, so children should stay away from sunlight."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -577,7 +577,7 @@
             "Clouds increase the Sun's heat.",
             "UV rays pass through clouds and are also reflected by sand and water.",
             "Sea water contains UV rays.",
-            "Sunscreen stops working completely whenever it is near the ocean."
+            "Sunscreen stops working when it is near the salty ocean air and the hot sand."
           ],
           "answer": "B",
           "skill": "inference",

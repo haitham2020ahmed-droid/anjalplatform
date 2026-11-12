@@ -201,8 +201,8 @@
           "options": [
             "Pottery was invented only last year",
             "People in many different places made pottery",
-            "Only kings were allowed to own pottery",
-            "Pottery could only be made in one country"
+            "Kings were the main owners of pottery in their palaces",
+            "Pottery was made in one country"
           ],
           "answer": "B",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Only farmers ever needed clay pots, so potters made them just for fields and gardens, and for no one else in towns.",
             "Kilns are more important than potter's wheels, so the article says a potter can skip kneading, shaping, and decorating.",
             "Potters use skills like kneading, shaping, firing, and decorating to turn clay into useful and beautiful objects",
-            "Only people in China ever made pottery, and no other country has ever used clay to make bowls, jugs, or plates."
+            "People in China were the first to make pottery, and other countries copied their bowls, jugs, and plates."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -312,7 +312,7 @@
           "options": [
             "To remove tiny air bubbles that could crack a piece in the kiln",
             "To add bright color and shine to the surface of the clay before it is shaped",
-            "To cool the warm clay down completely before any shaping begins",
+            "To cool the warm clay down before any shaping begins",
             "To make the clay dry out much faster than it normally would"
           ],
           "answer": "A",
@@ -379,9 +379,9 @@
           "stem": "What can you infer about why Egypt, Iraq, China, and Arabia developed different pottery styles?",
           "options": [
             "Because clay suitable for pottery only exists in one of those places",
-            "Because pottery was completely banned across most of those regions for a long time",
+            "Because pottery was banned across most of those regions for a long time",
             "Because each region had its own history, beliefs, and daily life that shaped its art",
-            "Because only one of those regions ever learned how to use a kiln to bake clay"
+            "Because one of those regions learned how to use a kiln before the others did and taught them"
           ],
           "answer": "C",
           "skill": "inference",
@@ -397,7 +397,7 @@
           "options": [
             "To prove that pottery is too difficult for most people to ever learn",
             "To help readers follow the whole process pottery goes through, in order",
-            "To argue that wheels always work much better than shaping by hand",
+            "To argue that wheels work much better than shaping by hand",
             "To compare the craft of pottery with the craft of cooking bread"
           ],
           "answer": "B",
@@ -473,8 +473,8 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "Pottery is only truly valuable to archaeologists working today, because ordinary people never used clay pots in their homes, markets, or kitchens",
-            "Only Chinese porcelain really matters in the entire history of pottery, and other places made nothing important, useful, or beautiful at all",
-            "Kneading alone is the single most important part of making pottery, and firing, glazing, or decoration do not matter at all in any country or in any age",
+            "Chinese porcelain matters most in the history of pottery, and other places made few important or beautiful objects",
+            "Kneading is the most important part of making pottery, and firing, glazing, or decoration matter much less",
             "Through careful craftsmanship, firing, and decoration, potters across civilizations turned clay into objects that were both useful and artistically significant"
           ],
           "answer": "D",
@@ -542,7 +542,7 @@
           "options": [
             "They did not know how to paint people or animals",
             "Clay could not hold curved or rounded shapes",
-            "Geometric patterns were simply easier to glaze than pictures",
+            "Geometric patterns were simply easier to glaze than pictures by artists",
             "This choice reflected deeply held artistic and religious traditions"
           ],
           "answer": "D",
@@ -559,7 +559,7 @@
           "options": [
             "Because pottery pieces survive for centuries after other materials decay",
             "Because every piece of pottery includes a written history",
-            "Because pottery was always kept safely in museums",
+            "Because pottery was kept safely in museums",
             "Because ancient potters buried their work on purpose for the future"
           ],
           "answer": "A",
@@ -574,8 +574,8 @@
         {
           "stem": "Why does the author compare pottery traditions in China and the Islamic world?",
           "options": [
-            "To argue that Chinese porcelain is superior to all other pottery made anywhere in the world",
-            "To prove that pottery began in China before anywhere else in the world",
+            "To argue that Chinese porcelain is superior to all other pottery made in each way and each place",
+            "To prove that pottery began in China before other places in the world",
             "To explain in detail how a kiln is constructed and how it is heated",
             "To show how different civilizations developed their own distinct artistic traditions"
           ],
@@ -591,9 +591,9 @@
         {
           "stem": "How is the role of kneading different from the role of glazing in making pottery?",
           "options": [
-            "Kneading happens only after firing is fully complete, while glazing always happens before any shaping ever begins",
+            "Kneading happens only after firing is fully complete, while glazing happens before any shaping ever begins",
             "Both of these two separate steps happen at the exact same time, during the long firing process itself",
-            "Neither of these two steps has any real or lasting effect on the final finished piece of pottery",
+            "Both steps are done after firing, to make the finished piece shine",
             "Kneading prevents air bubbles before firing, while glazing adds color and seals the surface after shaping"
           ],
           "answer": "D",

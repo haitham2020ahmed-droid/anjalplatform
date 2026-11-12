@@ -116,7 +116,7 @@
           "options": [
             "How to dig and build a long canal",
             "How to grow a small vegetable garden at a family home",
-            "Why farmers never need any water at all for their crops",
+            "Why farmers never need any water for their crops",
             "A new way to water crops that wastes less water"
           ],
           "answer": "D",
@@ -132,7 +132,7 @@
           "stem": "In old ways of watering, what happens to a field?",
           "options": [
             "It is flooded with water",
-            "It gets no water at all",
+            "It gets no water",
             "It is covered with pipes only",
             "It is watered one plant at a time"
           ],
@@ -167,7 +167,7 @@
           "options": [
             "The water in the pipe drips far too slowly for the plant",
             "Much of the water runs off or dries up in the sun",
-            "The pipe has no holes at all in it",
+            "The pipe has no holes in it",
             "The root drinks far too much water"
           ],
           "answer": "B",
@@ -201,7 +201,7 @@
           "options": [
             "Slow means the farmer can rest all day long in the shade of a tree",
             "Slow means the plant drinks a little water for a long time, so less is wasted",
-            "Slow means the field never gets any water at all from the pipes",
+            "Slow means the field gets little water from the pipes",
             "Slow means the pipe breaks less often than a fast one would do in the field"
           ],
           "answer": "B",
@@ -218,8 +218,8 @@
           "options": [
             "It uses far less water to grow the same crop",
             "It makes the local weather rain much more often than before",
-            "It removes the need for any water on the farm at all",
-            "It only works for just one single type of crop on a farm"
+            "It removes the need for any water on the farm",
+            "It works for one type of crop on a farm"
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,9 +293,9 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "Plants that grow in dry regions do not have any roots at all, so they cannot drink.",
-            "Farmers living in dry regions should stop growing crops completely, since water is scarce.",
-            "Flood irrigation is actually the single most efficient way to water any field, in dry lands or wet.",
+            "Plants that grow in dry regions do not have any roots, so they cannot drink.",
+            "Farmers living in dry regions should stop growing crops, since water is scarce.",
+            "Flood irrigation is the most efficient way to water a field, in dry lands or wet, so farmers prefer it.",
             "Drip irrigation delivers water to crop roots slowly and wastes far less than flood irrigation."
           ],
           "answer": "D",
@@ -345,7 +345,7 @@
           "stem": "Why does traditional flood irrigation waste so much water?",
           "options": [
             "Because water runs off and evaporates before plants can absorb it",
-            "Because the pipes used in flood irrigation are always far too narrow",
+            "Because the pipes used in flood irrigation are far too narrow",
             "Because flood irrigation uses emitters",
             "Because the crops grown in flooded fields do not have any roots"
           ],
@@ -364,7 +364,7 @@
             "It stays perfectly in place near the roots",
             "It washes away with the runoff",
             "It evaporates into the air completely",
-            "It is not used in flood irrigation at all"
+            "It is not used in flood irrigation"
           ],
           "answer": "B",
           "skill": "detail",
@@ -398,7 +398,7 @@
             "They grow much faster than in a flooded field, since they get more water",
             "They are destroyed by the emitters when the water drips on them",
             "They receive less encouragement to grow between the rows",
-            "They are not affected by water at all in a drip field"
+            "They are not affected by water in a drip field"
           ],
           "answer": "C",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Arid regions no longer need any form of irrigation of any kind at all for their crops, because they now get heavy rain every day",
-            "Flood irrigation has completely replaced drip irrigation on modern farms everywhere, and no farmer uses pipes with small holes anymore.",
+            "Arid regions no longer need any form of irrigation for their crops, because they now get heavy rain every day",
+            "Flood irrigation has replaced drip irrigation on modern farms, and no farmer uses pipes with small holes anymore.",
             "Drip irrigation's slow, targeted delivery of water makes farming in arid regions far more efficient than flooding.",
-            "Fertilizer use is completely unrelated to how a given field is irrigated or watered, so farmers never need to think about it."
+            "Fertilizer use is unrelated to how a field is irrigated, so farmers rarely need to think about it."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -491,7 +491,7 @@
           "options": [
             "Because it evaporates in the intense sun before it can soak in",
             "Because emitters block the water from entering the soil",
-            "Because the soil in arid regions cannot absorb any water at all",
+            "Because the soil in arid regions cannot absorb any water in summer",
             "Because flood irrigation uses buried pipes"
           ],
           "answer": "A",
@@ -507,8 +507,8 @@
           "stem": "What keeps the soil near a plant's root from becoming saturated under drip irrigation?",
           "options": [
             "Pipes that release all their water only once a year in spring",
-            "A sudden, large flood of water released all at once into the field",
-            "The complete and total absence of any water near the roots for many weeks",
+            "A sudden, large flood of water released at once into the field in a few minutes",
+            "The lack of water near the roots for many weeks",
             "The gradual, steady release of small amounts of water over many hours"
           ],
           "answer": "D",
@@ -542,7 +542,7 @@
           "options": [
             "Flood irrigation loses more fertilizer to runoff than drip irrigation does",
             "Drip irrigation loses more fertilizer than flood irrigation does",
-            "Neither method affects fertilizer at all, so farmers can use either one",
+            "Neither method affects fertilizer, so farmers can use either one",
             "Both methods lose exactly the same amount of fertilizer, so they are equal"
           ],
           "answer": "A",
@@ -559,7 +559,7 @@
           "options": [
             "Plants end up absorbing much more water than they really need",
             "Water and fertilizer are lost before reaching the roots",
-            "The soil in the field becomes permanently dry forever after that",
+            "The soil in the field becomes permanently dry after that",
             "Emitters release even more water in response"
           ],
           "answer": "B",

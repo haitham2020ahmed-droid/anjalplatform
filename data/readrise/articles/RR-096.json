@@ -329,8 +329,8 @@
           "options": [
             "It only happens in cold water.",
             "It makes almost no heat.",
-            "It is always blue.",
-            "It only shines in winter."
+            "It is blue.",
+            "It shines most in winter."
           ],
           "answer": "B",
           "skill": "detail",
@@ -380,7 +380,7 @@
           "options": [
             "Blue light travels farthest through water.",
             "Blue is the only color animals can see.",
-            "Sea water turns all light blue.",
+            "Sea water turns light blue.",
             "Blue light is the warmest color."
           ],
           "answer": "A",
@@ -395,7 +395,7 @@
         {
           "stem": "Each kind of firefly has its own pattern of blinks. What can you infer from this?",
           "options": [
-            "Fireflies blink at random with no purpose at all in the night",
+            "Fireflies blink at random with no purpose in the night",
             "All fireflies are the same kind, so they all blink the same way",
             "Fireflies blink to warm their wings on cold nights",
             "A firefly can tell which flashes come from its own kind."
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Bioluminescence is a rare accident of nature that does not help living things in any real way.",
-            "Only ocean animals are able to produce light.",
+            "Ocean animals make light mainly to keep warm.",
             "Living light is made by a chemical reaction and serves many purposes for survival.",
             "Bioluminescence was first discovered in a laboratory."
           ],
@@ -542,7 +542,7 @@
           "options": [
             "Because the brighter glow would make the fish stand out against the dim background",
             "Because bright light uses up all the oxygen in the sea around the fish and its home",
-            "Because predators can only see red light in the deep water, far below the waves",
+            "Because predators see red light best in the deep water, far below the waves",
             "Because the fish would become too warm and sink slowly down to the bottom of the sea"
           ],
           "answer": "A",
@@ -560,7 +560,7 @@
             "Red light is too hot for the deep sea animals to make",
             "Their predators prefer red light and cannot see blue or green",
             "Blue-green light would be seen over a greater distance underwater.",
-            "Red chemicals cannot mix with oxygen in the deep water"
+            "Red chemicals do not mix well with oxygen in deep water"
           ],
           "answer": "C",
           "skill": "inference",

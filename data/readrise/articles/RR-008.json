@@ -295,7 +295,7 @@
           "options": [
             "Solar panels are too expensive for most countries to use.",
             "Sunny lands like Saudi Arabia are turning sunlight into power, though it has challenges.",
-            "Oil and gas will always be the best and cheapest way for every country to make electricity.",
+            "Oil and gas will be the best and cheapest way for every country to make electricity.",
             "Robots are now doing most of the work in the desert."
           ],
           "answer": "B",
@@ -330,7 +330,7 @@
             "To stop using electricity at night",
             "To build one solar panel for every home in the whole country",
             "To make about half of its electricity from renewable sources",
-            "To sell all of its desert sand to other countries by that year"
+            "To build a new desert city that runs on oil"
           ],
           "answer": "C",
           "skill": "detail",
@@ -361,7 +361,7 @@
         {
           "stem": "Why did engineers design cleaning robots that do not use water?",
           "options": [
-            "Water would make the panels rust right away.",
+            "Water would make the panels rust right away in the rain.",
             "Robots are cheaper than any other machine.",
             "Water is precious and hard to find in the desert.",
             "Water makes panels produce power at night."
@@ -396,7 +396,7 @@
           "stem": "Why does the author explain that large batteries can store extra energy made during the day?",
           "options": [
             "To show one way people are solving the problem of darkness",
-            "To prove that solar power has no problems at all, in the day or the night",
+            "To prove that solar power has no problems, in the day or the night",
             "To explain how silicon is made from sand in the factory",
             "To persuade readers to stop using air conditioners at home"
           ],

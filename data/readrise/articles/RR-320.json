@@ -116,8 +116,8 @@
           "options": [
             "How illustrators draw pictures that go with stories",
             "How to build a wooden bookshelf at home",
-            "Why some books cost more money than others",
-            "How to write a story using no pictures at all"
+            "Why some books cost more money than others in a shop",
+            "How to write a story using no pictures"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "How is illustration different from fine art, according to the article?",
           "options": [
-            "Fine art always uses more colors than any illustration",
-            "Illustration is always much bigger than fine art",
-            "Fine art is only ever found inside of books",
+            "Fine art uses more colors than illustration does in a museum",
+            "Illustration is much bigger than fine art",
+            "Fine art is found inside of books",
             "Illustration goes with a story, but fine art can stand alone"
           ],
           "answer": "D",
@@ -185,7 +185,7 @@
             "It can make the whole book heavier to carry to school and home",
             "It helps young readers see who is in the story and where it happens",
             "It can replace all of the written words in the whole book",
-            "It can make the book too hard to read for any child at all"
+            "It can make the book too hard to read for a child"
           ],
           "answer": "B",
           "skill": "inference",
@@ -200,8 +200,8 @@
           "stem": "What can you tell about illustrators from the article?",
           "options": [
             "They never look closely at the words of a story before drawing",
-            "They draw without thinking about the story at all, just for fun",
-            "They only ever draw pictures for grown-up books and magazines",
+            "They draw without thinking about the story, just for fun",
+            "They draw pictures mostly for grown-up books and magazines",
             "They plan their pictures with care so they match the story"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "What happened before printing presses were invented?",
           "options": [
-            "No one told any stories at all back then",
-            "Pictures were never used in any old books",
+            "No one told any stories back then",
+            "Pictures were rarely used in old books",
             "Workers drew pictures by hand in old books",
-            "Those old books had no words, only pictures"
+            "Those old books had no words, just pictures"
           ],
           "answer": "C",
           "skill": "detail",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Fine art and illustration always use the exact same methods",
+            "Fine art and illustration use the exact same methods",
             "Illustrators create pictures that work with words to help tell a story",
             "Children's books never actually include any illustrations",
-            "Printing presses were needed before any pictures could exist in books"
+            "Printing presses were needed before pictures could exist in books"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,7 +311,7 @@
           "stem": "According to the article, what is a scene?",
           "options": [
             "A folded set of pages that is sewn into a book",
-            "A tool that artists use to mix their paint colors",
+            "A tool that artists use to mix their paint colors for a painting",
             "A chosen moment from a story that an illustrator draws",
             "The printed title of a children's picture book"
           ],
@@ -345,9 +345,9 @@
           "stem": "Why does the article say a picture that does not match its words can confuse readers?",
           "options": [
             "Readers expect a picture to depict what its nearby words describe",
-            "Pictures are always far more important than any words",
-            "Illustrators never actually read the story they illustrate",
-            "Fine art and illustration always look completely identical"
+            "Pictures are far more important than any words",
+            "Illustrators rarely read the story they illustrate before drawing",
+            "Fine art and illustration look identical"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -361,9 +361,9 @@
         {
           "stem": "How does illustration differ from fine art, according to the article?",
           "options": [
-            "Illustration always uses far brighter colors than fine art does",
-            "Fine art is only ever found in old manuscripts and in books",
-            "Illustration never requires any planning at all before drawing",
+            "Illustration uses far brighter colors than fine art does",
+            "Fine art is only ever found in old manuscripts and in books in museums",
+            "Illustration needs less planning before drawing",
             "Fine art can stand alone, while illustration must accompany a story"
           ],
           "answer": "D",
@@ -379,7 +379,7 @@
           "stem": "Why might old handwritten manuscripts have included illustrations?",
           "options": [
             "Pictures helped readers follow the story as they read along",
-            "It replaced the need for any written words at all in the books",
+            "It replaced the need for any written words in the books",
             "It made old manuscripts far heavier to carry around for the scribes",
             "It helped hide the story from most curious readers who passed by"
           ],
@@ -398,7 +398,7 @@
             "Children's books never contain any written words at all",
             "Illustrations always make books far more expensive to print",
             "Pictures help young readers follow a story before reading every word",
-            "Publishers generally dislike using words in children's books"
+            "Publishers generally dislike using words in children's books for young readers"
           ],
           "answer": "C",
           "skill": "inference",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Printing presses were the very first tools used to create illustrations",
+            "Printing presses were the very first tools used to create illustrations in old books",
             "Fine art and illustration are simply two names for one practice",
             "Illustration only became important once children's books were invented",
             "Illustrators create pictures that complement a narrative, distinct from fine art"
@@ -506,10 +506,10 @@
         {
           "stem": "How does the article distinguish illustration from fine art?",
           "options": [
-            "Fine art always depicts scenes, while illustration never does",
+            "Fine art depicts scenes, while illustration never does",
             "Illustration needs no planning, while fine art needs careful composition",
             "Fine art can stand alone, while illustration must accompany a narrative",
-            "Fine art is always more colorful than any illustration made"
+            "Fine art is more colorful than illustration"
           ],
           "answer": "C",
           "skill": "compare",
@@ -524,7 +524,7 @@
           "stem": "In the article, the word stylized most nearly describes pictures that are —",
           "options": [
             "copied directly and exactly from an existing photograph",
-            "left completely blank and entirely unfinished",
+            "left blank and unfinished",
             "painted using only a single plain color",
             "drawn in a particular style rather than very realistically"
           ],
@@ -541,9 +541,9 @@
           "stem": "Why does the article say a picture that fails to match its surrounding text can leave readers confused?",
           "options": [
             "Illustration is meant to complement and support the narrative around it",
-            "Fine art is always included in every illustrated storybook, so readers expect it",
-            "Illustrators never actually read the text before they draw their pictures",
-            "Children's books never contain any written narrative at all, only pictures"
+            "Fine art is included in every illustrated storybook, so readers expect it",
+            "Illustrators rarely read the text before they draw their pictures",
+            "Children's books contain little written narrative, mostly pictures"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -559,8 +559,8 @@
           "options": [
             "Illustrations were only ever used within one single culture or one region",
             "Readers across many cultures found pictures helped them follow a narrative",
-            "Old manuscripts never included any narrative to accompany",
-            "Illustrators refused to plan their careful work with any care"
+            "Old manuscripts included little narrative to accompany",
+            "Illustrators planned their work with less care back then"
           ],
           "answer": "B",
           "skill": "inference",
@@ -575,8 +575,8 @@
           "stem": "Why does the author mention that illustrators never included anything improper for their audience?",
           "options": [
             "To highlight how illustrators considered their audience when choosing what to depict",
-            "To argue that illustrators ignored their own audience completely when they made pictures",
-            "To suggest illustration has no real connection to any narrative or story at all",
+            "To argue that illustrators ignored their own audience when they made pictures",
+            "To suggest illustration has no real connection to any narrative or story",
             "To explain in detail how printing presses were first built in old workshops"
           ],
           "answer": "A",
@@ -592,7 +592,7 @@
           "stem": "How are composing a scene and choosing a palette related, according to the article?",
           "options": [
             "Composing a scene replaces the need to choose any palette",
-            "A palette is chosen only after a book has already been printed",
+            "A palette is chosen after a book has already been printed",
             "Both are choices an illustrator makes to convey a scene's mood",
             "Composing a scene and choosing a palette are unrelated tasks"
           ],

@@ -195,8 +195,9 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
       await ensureRRStudent(repo, s.studentId!, T0);
       await repo.updateMany("RRStudent", { studentId: s.studentId! }, { level: 990, startLevel: 990, source: "PLACEMENT", placedAt: T0 }); // round 8: Achieve3000 scale (990L reads the 900 version ≈1040L)
     }
-    // A: five first tries at 75% (detail always wrong) over 15 days → up 50 after the third
-    for (const [i, d] of [1, 4, 7, 10, 15].entries()) await read(repo, A, arts[i], 6, at(d));
+    // A: five first tries at 75% (detail always wrong) over 15 days, the third at 88% → up 50 after the third
+    // (round 11: the strong scores must average ABOVE 75%, as in Achieve3000)
+    for (const [i, d] of [1, 4, 7, 10, 15].entries()) await read(repo, A, arts[i], i === 2 ? 7 : 6, at(d));
     // B: one reading 20 days ago, nothing since → "not reading"
     await read(repo, B, arts[0], 8, at(1));
   });
@@ -229,7 +230,7 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
     // 3 readings moved it up + 3 at the new level (50%+) support it
     assert.equal(g.confidence!.readings, 6);
     assert.equal(g.confidenceText, "Level confirmed by 6 readings");
-    assert.equal(g.skills.find((k) => k.skill === "detail")!.pct, 0);
+    assert.ok(g.skills.find((k) => k.skill === "detail")!.pct! <= 10, "detail: wrong in every reading but the 88% one (round 11)");
     assert.equal(g.skills.find((k) => k.skill === "central-idea")!.pct, 100);
     assert.ok(g.projection, "6 readings over 16 days → a projection");
     assert.ok(g.projection!.low < g.projection!.mid || g.projection!.mid < g.projection!.high);
@@ -286,7 +287,7 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
     const oneFile = await exp(admin, { classId, studentId: A.studentId! });
     const one = Buffer.from(oneFile.bytes).toString("utf8");
     assert.match(one, /Date,From,Level,Reason/);
-    assert.match(one, /,990L,1040L,Up 50: 3 of the last 3/); // round 7: levels read with formatLevel
+    assert.match(one, /,990L,1040L,"?Up 50: 3 of the last 3/); // round 7: levels read with formatLevel (round 11: the reason has a comma → quoted)
     const tableIds = (d: typeof oneFile.doc) => d.sections.flatMap((x) => (x.type === "table" ? [x.id] : []));
     assert.deepEqual(tableIds(oneFile.doc), ["history", "trend", "skills", "readings"]);
     const readings = oneFile.doc.sections.find((x) => x.type === "table" && x.id === "readings");

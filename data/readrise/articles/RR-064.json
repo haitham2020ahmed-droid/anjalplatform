@@ -134,7 +134,7 @@
             "Half",
             "None",
             "One fourth",
-            "All of it"
+            "A quarter"
           ],
           "answer": "A",
           "skill": "detail",
@@ -295,7 +295,7 @@
           "options": [
             "Grains are the only food that gives energy.",
             "Eating many food groups gives the body what it needs.",
-            "Children should never eat any fried food at all.",
+            "Children should eat fried food just on weekends with friends.",
             "Kabsa is the healthiest meal in the world."
           ],
           "answer": "B",
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Dairy foods matter more than every other food group put together.",
-            "Sweets should never be eaten by anyone, at any time.",
+            "Sweets should be eaten just after exercise.",
             "Protein is the body's main source of energy.",
             "Different food groups, in sensible amounts, meet the body's needs."
           ],
@@ -492,7 +492,7 @@
             "Bright colors make food taste sweeter.",
             "Each color has a different mix of vitamins and minerals.",
             "Colorful vegetables contain more protein.",
-            "Dark-colored vegetables contain no fiber at all, so avoid them."
+            "Dark-colored vegetables contain no fiber, so avoid them."
           ],
           "answer": "B",
           "skill": "detail",
@@ -524,9 +524,9 @@
           "stem": "The article says fried foods and sweets are fine only now and then. What does eating something in moderation mean?",
           "options": [
             "Only when eating at restaurants",
-            "Every day, at every single meal",
+            "Each day, at each meal",
             "Occasionally and in small amounts",
-            "Only when eaten together with vegetables"
+            "When eaten together with vegetables"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -557,7 +557,7 @@
         {
           "stem": "According to the article, how do whole grains like brown rice compare with other grains?",
           "options": [
-            "Whole grains contain no carbohydrates at all, unlike others.",
+            "Whole grains contain no carbohydrates, unlike others.",
             "Other grains contain more calcium.",
             "Whole grains contain more sugar.",
             "They keep more fiber, so you stay full longer."

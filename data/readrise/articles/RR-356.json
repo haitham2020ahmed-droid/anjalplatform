@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Khalid is afraid of mountains and never wants to hike again, even with his friends and class, and so he stays home all year.",
-            "Their teacher refuses to let the class go on any more hikes ever again after this trip, since the mountain is too far away.",
+            "Their teacher refuses to let the class go on more hikes after this trip, since the mountain is too far away.",
             "When Yusuf and Khalid get separated from their group, they use calm thinking and hiking skills to find their way back safely.",
-            "Yusuf and Khalid plan to go hiking again next year with their families and with all their friends from school and the town."
+            "Yusuf and Khalid plan to go hiking again next year with their families and their friends from school and the town."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -475,7 +475,7 @@
             "A teacher decides the class should never hike again, because two of the students got lost for a day on the mountain.",
             "A mountain hike is canceled because of dangerous weather, and the class goes back to school by bus.",
             "Two friends, briefly separated from their hiking group, use composure and methodical skills to navigate back and reunite with their class.",
-            "Two disoriented hikers completely abandon their training and simply hope for someone to rescue them without trying to move or to think"
+            "Two disoriented hikers abandon their training and simply hope for someone to rescue them without trying to move or to think about where to go"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -542,7 +542,7 @@
           "options": [
             "It had nothing to do with their eventual survival",
             "It was designed to make the hike more difficult",
-            "It was only meant to teach them which plants are edible",
+            "It was meant to teach them which plants are safe to eat in the desert",
             "It was meant to prepare them for exactly this kind of emergency"
           ],
           "answer": "D",

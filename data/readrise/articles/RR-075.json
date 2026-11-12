@@ -219,7 +219,7 @@
             "Blocks never have any steps.",
             "Blocks make the computer think and plan for itself.",
             "Kids can snap steps together without typing them.",
-            "Blocks only work for drawing pictures."
+            "Blocks make the computer run faster."
           ],
           "answer": "C",
           "skill": "inference",
@@ -235,7 +235,7 @@
           "options": [
             "They never make any mistakes in their work.",
             "They stop when they find a bug in the code.",
-            "They only write code for robots and toys.",
+            "They write code mostly for robots and toys.",
             "Fixing mistakes is part of their job."
           ],
           "answer": "D",
@@ -296,7 +296,7 @@
             "Computers are smarter than people, and soon they will think for us.",
             "Only adults can learn to write code, so children should wait.",
             "Coding means giving a computer exact steps, and it teaches problem solving.",
-            "Scratch is the only programming language that people use today, and all coders learn it."
+            "Scratch is the most popular programming language, and most coders learn it first."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -474,7 +474,7 @@
           "options": [
             "Coding needs exact instructions, and learning it builds problem-solving habits.",
             "Computers will soon be able to guess what programmers mean, so coding will need no steps.",
-            "Typed languages are always better than block-based languages, and so beginners should avoid blocks.",
+            "Typed languages are better than block-based languages, and so beginners should avoid blocks.",
             "Debugging is only needed by beginners, and so expert coders never have bugs in their work."
           ],
           "answer": "A",
@@ -506,7 +506,7 @@
         {
           "stem": "Why can a single missing symbol stop a Python program from running?",
           "options": [
-            "Python programs are always very short.",
+            "Python programs are very short and simple.",
             "Python cannot use loops.",
             "Typed languages require exact syntax.",
             "Python was invented in 1947."
@@ -526,7 +526,7 @@
             "It prevents spelling mistakes.",
             "It lets the computer guess the coder's meaning.",
             "It works without any sequence.",
-            "It never needs debugging."
+            "It runs programs faster."
           ],
           "answer": "A",
           "skill": "detail",
@@ -542,7 +542,7 @@
           "options": [
             "Programmers must type very quickly all day long.",
             "Programs rarely work perfectly on the first attempt.",
-            "Computers refuse to run short programs of any kind.",
+            "Computers refuse to run short programs.",
             "Loops take a long time to write and to read."
           ],
           "answer": "B",
@@ -558,8 +558,8 @@
           "stem": "What does it mean that a computer follows instructions literally?",
           "options": [
             "It reads only books and articles.",
-            "It works only with words, not numbers.",
-            "It solves every problem faster than any person ever could.",
+            "It works with words better than numbers.",
+            "It solves problems much faster than a person can.",
             "It does exactly what is written, not what was meant."
           ],
           "answer": "D",

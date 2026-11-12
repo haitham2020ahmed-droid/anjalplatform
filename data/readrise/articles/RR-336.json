@@ -182,10 +182,10 @@
         {
           "stem": "What happens when there is no river or mountain to use as a border?",
           "options": [
-            "Countries cannot have a border at all",
+            "Countries cannot have a border",
             "The border becomes a checkpoint",
             "Countries agree on a straight line instead",
-            "The two countries become one country"
+            "The two countries become one country in the end"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -219,7 +219,7 @@
             "The worker will not be able to check who the traveler is",
             "The traveler will become a citizen of the new country",
             "The border will move to a new place",
-            "The checkpoint will close forever"
+            "The checkpoint will close"
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Borders are always made of walls and fences, and nature plays no part in them at all, so checkpoints are never needed, say the writers of the article.",
-            "Rivers can never serve as a natural border between any two neighboring countries in the world, and mountains cannot do so, either, say the experts.",
+            "Borders are made of walls and fences, and nature plays no part in them, so checkpoints are never needed, say the writers of the article.",
+            "Rivers and mountains rarely serve as borders, so most borders are straight lines drawn on maps by experts.",
             "Borders mark where countries' territory ends, and they are set by nature or by agreement, with checkpoints to manage crossing.",
-            "Checkpoints exist only to collect maps from travelers and tourists who come from far away, and have no use in managing how people cross the border."
+            "Checkpoints exist mainly to collect maps from tourists who come from far away, not to manage crossings."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "The article says officials \"negotiate\" a border. Which words in the article help explain negotiate?",
           "options": [
-            "stop completely before crossing",
+            "stop before crossing",
             "meet repeatedly, discuss the details",
             "look closely at passports",
-            "carry goods across the border"
+            "carry goods across the border by truck"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -378,9 +378,9 @@
         {
           "stem": "Why might two countries choose to use a mountain range as their border rather than negotiate a brand-new line?",
           "options": [
-            "Because negotiating is against the law everywhere",
-            "Because mountain ranges have no territory on either side",
-            "Because mountain ranges always have checkpoints already built",
+            "Because negotiating is against the law",
+            "Because mountain ranges have no territory on either side of them",
+            "Because mountain ranges have checkpoints already built",
             "Because mountain ranges are easy to recognize and hard to move"
           ],
           "answer": "D",
@@ -475,7 +475,7 @@
             "Checkpoints exist mainly to collect old treaties from travelers who cross, and to send them back to their own countries for study.",
             "Every border in the world follows a river, and no border has ever been drawn across land, mountains, or the sea by anyone.",
             "Borders are set by nature or diplomatic agreement, and checkpoints help each sovereign country manage who and what crosses.",
-            "Diplomatic negotiation is never used to help decide any border's exact location, because countries only follow natural lines and never talk."
+            "Diplomatic talks are rarely used to decide a border's location, because countries mostly follow natural lines."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -525,7 +525,7 @@
           "options": [
             "Officials discuss legal and territorial details at length",
             "Posts or markers placed at intervals along a straight line",
-            "Vehicles stopping completely at a checkpoint",
+            "Vehicles stopping at a checkpoint",
             "Passports being checked for a stated purpose"
           ],
           "answer": "B",
@@ -541,7 +541,7 @@
           "stem": "Why, according to the article, do checkpoints help prevent smuggling?",
           "options": [
             "Because they automatically redraw the border each year",
-            "Because they remove the need for any treaty at all",
+            "Because they remove the need for any treaty",
             "Because they allow goods crossing the border to be inspected",
             "Because they replace the need for diplomatic negotiation"
           ],
@@ -577,7 +577,7 @@
             "Strengthening checkpoint infrastructure to check travelers and goods",
             "Removing all checkpoints along the border",
             "Replacing the border with an unofficial, unmarked line",
-            "Ending all diplomatic contact entirely with the neighboring country's government"
+            "Ending diplomatic contact with the neighboring country's government"
           ],
           "answer": "A",
           "skill": "inference",
@@ -593,7 +593,7 @@
           "options": [
             "To argue that natural borders are illegal and countries should only use straight lines",
             "To show that countries use more than one method depending on the geography available",
-            "To prove that negotiated borders never last, so countries must always use rivers",
+            "To prove that negotiated borders do not last, so countries should use rivers",
             "To argue that checkpoints are unnecessary once a treaty is signed and the line is drawn"
           ],
           "answer": "B",

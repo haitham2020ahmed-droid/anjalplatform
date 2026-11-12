@@ -202,7 +202,7 @@
             "It is cold all the time, and its body shivers.",
             "Its nest is far from flowers and the water.",
             "Its busy body uses up lots of energy.",
-            "It eats only one bug a day, but it is full."
+            "It eats one bug a day, but it is full."
           ],
           "answer": "C",
           "skill": "inference",
@@ -218,7 +218,7 @@
           "options": [
             "She will not see one there.",
             "She will see one every day.",
-            "She will see one only at night.",
+            "She will see one at night.",
             "She will see one at the beach."
           ],
           "answer": "A",
@@ -489,7 +489,7 @@
         {
           "stem": "According to the article, what allows a hummingbird to hover?",
           "options": [
-            "Hollow beaks that weigh almost nothing at all",
+            "Hollow beaks that weigh almost nothing in flight",
             "Tiny feet that grip the air",
             "A long tongue that balances its body",
             "Flexible shoulders that let the wings twist"
@@ -541,9 +541,9 @@
           "stem": "Which conclusion is best supported by the description of torpor?",
           "options": [
             "Hummingbirds sleep more than any other bird, even owls and parrots.",
-            "Torpor makes hummingbirds fly faster the next day than all other birds.",
+            "Torpor makes hummingbirds fly faster the next day than other birds.",
             "Without torpor, a hummingbird might run out of energy before sunrise.",
-            "Torpor happens only during long migrations, and never in the garden."
+            "Torpor happens during long migrations, not in the garden."
           ],
           "answer": "C",
           "skill": "inference",

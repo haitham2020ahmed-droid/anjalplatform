@@ -149,9 +149,9 @@
      "stem": "What happens to the sea after the calm beginning?",
      "options": [
       "A storm with big waves comes",
-      "It freezes completely overnight",
+      "It freezes in the night and snow",
       "It turns into a lake",
-      "Nothing at all ever changes"
+      "Nothing ever changes"
      ],
      "answer": "A",
      "skill": "detail",
@@ -166,7 +166,7 @@
      "stem": "In the story, a sail is —",
      "options": [
       "a thick rope used to tie up the ship",
-      "a small bucket used for carrying water",
+      "a small bucket used for carrying water on the deck",
       "a type of large, crashing ocean wave",
       "a cloth that catches wind to move the ship"
      ],
@@ -185,7 +185,7 @@
       "He does not know how to swim at all",
       "He simply wants to go home very early",
       "He has never been in a storm at sea before",
-      "He is quite angry at the captain today"
+      "He is quite angry at the captain today on the ship"
      ],
      "answer": "C",
      "skill": "inference",
@@ -200,9 +200,9 @@
      "stem": "Why do the sailors make the sails smaller during the storm?",
      "options": [
       "So the wind cannot push the ship too hard",
-      "So the ship simply looks nicer overall",
+      "So the ship simply looks nicer",
       "So they can see the waves better",
-      "So the captain can rest for a while"
+      "So the captain can rest for a while in his cabin"
      ],
      "answer": "A",
      "skill": "inference",
@@ -294,9 +294,9 @@
      "stem": "Which sentence best states the central idea of the story?",
      "options": [
       "On his first voyage, Yousef learns that an experienced crew's skill and teamwork can bring a ship safely through a storm",
-      "Yousef decides that trading by sea is too dangerous for him, so he stays at home with his family forever and ever",
+      "Yousef decides that trading by sea is too dangerous for him, so he stays at home with his family for good and works with his father",
       "The captain refuses to let Yousef help during the storm, so the old sailors save the ship without him",
-      "The storm destroys the ship completely and the crew must swim back to a faraway shore, where no one finds them"
+      "The storm destroys the ship and the crew must swim back to a faraway shore, where no one finds them"
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -473,7 +473,7 @@
      "stem": "Which statement best expresses the central idea of the story?",
      "options": [
       "Yousef learns that a veteran crew's skill and teamwork can carry a vessel safely through danger",
-      "Yousef concludes that trading goods by sea is simply not worth the risk at all, so he stays at home",
+      "Yousef concludes that trading goods by sea is simply not worth the risk, so he stays at home",
       "The storm proves that Captain Nasser is not truly an experienced sailor, so the crew loses its trust",
       "The voyage shows that the cargo is more valuable than the entire crew's safety, so everyone guards it"
      ],
@@ -523,8 +523,8 @@
     {
      "stem": "What does the crew's ability to act without being told twice suggest about them?",
      "options": [
-      "They clearly do not respect Captain Nasser's authority on this ship at all",
-      "They are each working completely alone without any help from one another",
+      "They clearly do not respect Captain Nasser's authority on this ship",
+      "They are each working alone without any help from one another",
       "They are brand new to sailing together as part of this particular crew",
       "Their long experience collaborating has made their teamwork almost automatic"
      ],

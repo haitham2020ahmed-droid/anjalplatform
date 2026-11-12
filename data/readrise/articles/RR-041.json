@@ -151,7 +151,7 @@
             "Four or five times",
             "Only one time",
             "About ten times",
-            "It never sheds its skin"
+            "Once, just before it flies"
           ],
           "answer": "A",
           "skill": "detail",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author include the paragraph about Saudi Arabia?",
           "options": [
-            "To prove that butterflies live only in Saudi Arabia, and nowhere else",
+            "To prove that butterflies live only in Saudi Arabia",
             "To explain how painted ladies migrate from place to place in the spring",
-            "To list every butterfly that lives in the desert, one after another",
+            "To list the butterflies that live in the desert, one after another",
             "To show a local butterfly whose food plant helps keep it safe"
           ],
           "answer": "D",
@@ -490,7 +490,7 @@
           "stem": "According to the article, what happens to most of the caterpillar's body inside the chrysalis?",
           "options": [
             "It dissolves into a kind of soup before a new body develops.",
-            "It hardens into a thick shell that later cracks open.",
+            "It hardens into a thick shell that later cracks open in the sun.",
             "It stays the same but grows a pair of wings.",
             "It shrinks until it can fit inside the egg again."
           ],
@@ -594,7 +594,7 @@
             "To prove that butterflies can drink any liquid",
             "To help readers picture how the butterfly sucks up nectar",
             "To show that people invented the straw by copying butterflies",
-            "To explain why butterflies cannot taste their food"
+            "To explain why butterflies drink more water than nectar"
           ],
           "answer": "B",
           "skill": "author-purpose",

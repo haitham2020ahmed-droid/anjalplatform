@@ -183,7 +183,7 @@
           "stem": "What happened right after sailors rubbed the needle against the lodestone?",
           "options": [
             "The needle became a magnet and could point north.",
-            "The lodestone broke into many small pieces.",
+            "The lodestone broke into many small pieces on the floor.",
             "The sailors threw the needle into the sea.",
             "The ship turned around and sailed home."
           ],
@@ -218,7 +218,7 @@
           "options": [
             "They were curious and liked to test how things worked.",
             "They never traveled anywhere outside their own town.",
-            "They were afraid to touch rocks of any kind.",
+            "They were afraid to touch rocks.",
             "They did not care about finding directions at sea."
           ],
           "answer": "A",
@@ -296,7 +296,7 @@
             "A magnetized needle in a compass helped sailors find direction at sea.",
             "Iron ore is the most valuable metal ever found by sailors in the sea.",
             "Sailors in China never traded with people from other lands or countries.",
-            "Compasses were only ever used inside small bowls of water on the shore."
+            "Compasses were used inside small bowls of water on the shore."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -346,7 +346,7 @@
           "options": [
             "to buy and sell goods for a profit",
             "to plan and find the way across the sea",
-            "to pull a thin needle across a rock",
+            "to pull a thin needle across a rock in the dark",
             "to build a wooden box for a tool"
           ],
           "answer": "B",
@@ -415,7 +415,7 @@
             "The idea of the compass spread to many different lands.",
             "Merchants kept the compass a complete secret from sailors.",
             "Only one single ship ever used a compass at sea.",
-            "The compass was too heavy for any ship to carry."
+            "The compass was too heavy for most ships to carry."
           ],
           "answer": "A",
           "skill": "inference",
@@ -526,7 +526,7 @@
             "a new idea or device that improves how something is done",
             "a natural rock that can attract pieces of iron",
             "a trade route that crosses the Mediterranean Sea",
-            "a printed circle of marks around a compass needle"
+            "a printed circle of marks around a compass needle on a map"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -540,10 +540,10 @@
         {
           "stem": "How did the early straw-and-water method differ from the later pivot-in-a-box design?",
           "options": [
-            "The straw-and-water method never used a magnetized needle at all.",
+            "The straw-and-water method never used a magnetized needle.",
             "The pivot design balanced the needle without needing a bowl of water.",
-            "The pivot design could only be used by daylight, never at night.",
-            "The straw-and-water method required no iron needle whatsoever."
+            "The pivot design could be used by daylight, but not at night.",
+            "The straw-and-water method required no iron needle whatsoever or a bowl."
           ],
           "answer": "B",
           "skill": "compare",
@@ -558,7 +558,7 @@
           "stem": "Why did the compass remain reliable even when clouds covered the night sky?",
           "options": [
             "Because its needle's magnetism did not depend on seeing the stars",
-            "Because sailors could always hear the ship's distant engines",
+            "Because sailors could hear the ship's distant engines",
             "Because the compass rose glowed brightly in complete darkness",
             "Because lodestones only worked correctly on cloudy nights"
           ],
@@ -575,8 +575,8 @@
           "stem": "Why does the author emphasize that a compass works \"unlike the stars or the sun\"?",
           "options": [
             "To highlight the compass's key advantage over earlier navigation methods",
-            "To argue that the stars and sun are no longer useful for anything",
-            "To suggest that ancient sailors never looked at the sky at all",
+            "To argue that the stars and sun are no longer useful for anything at sea",
+            "To suggest that ancient sailors never looked at the sky",
             "To explain exactly how the sun and stars were formed"
           ],
           "answer": "A",
@@ -592,9 +592,9 @@
           "stem": "What can you infer about why the compass spread so widely across different regions?",
           "options": [
             "Because it offered a dependable advantage that traders carried along their routes",
-            "Because every region had already invented an identical device on its own",
-            "Because sailors were legally required to use only compasses at sea",
-            "Because lodestones could only be mined within the Mediterranean region"
+            "Because every region had already invented an identical device on its own a long time before",
+            "Because sailors were legally required to use compasses at sea",
+            "Because lodestones could be mined within the Mediterranean region"
           ],
           "answer": "A",
           "skill": "inference",

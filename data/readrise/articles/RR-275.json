@@ -218,7 +218,7 @@
           "options": [
             "The ball would be easier to spin",
             "The net would need to be taller",
-            "Players would score more points automatically",
+            "Players would score more points automatically in each game",
             "It would be harder to control or spin the ball well"
           ],
           "answer": "D",
@@ -295,8 +295,8 @@
           "options": [
             "Table tennis combines fast reaction time, scoring rules, and the science of spin",
             "Table tennis has only ever been played competitively in England and in no other country",
-            "Rubber paddles always cost much more money than old wooden ones",
-            "Every single rally in table tennis lasts exactly one full minute"
+            "Rubber paddles cost much more money than old wooden ones",
+            "Each rally in table tennis lasts about one full minute"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -330,7 +330,7 @@
             "It switches to the other player",
             "It is cancelled completely",
             "It becomes worth two points",
-            "It must always bounce exactly twice"
+            "It must bounce exactly twice"
           ],
           "answer": "A",
           "skill": "detail",
@@ -345,7 +345,7 @@
           "stem": "Why does the angle of the paddle at contact matter?",
           "options": [
             "It decides how many points a player scores automatically",
-            "It completely determines the overall color of the ball",
+            "It determines the overall color of the ball",
             "It changes the official size of the entire table and the net",
             "It decides whether the spin curves the ball up, down, or sideways"
           ],
@@ -474,8 +474,8 @@
           "options": [
             "Table tennis combines reflex speed, trajectory, spin, and friction into one fast sport",
             "Table tennis was invented only for highly trained professional athletes, not for families",
-            "Rubber paddles are always more expensive than wooden ones, so most players use wood",
-            "Every table tennis match lasts exactly the same length of time, whoever is playing"
+            "Rubber paddles are more expensive than wooden ones, so most players use wood",
+            "Each table tennis match lasts about the same length of time, whoever is playing"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -526,7 +526,7 @@
             "The official size of the regulation table",
             "The exact height of the net above the table",
             "Friction between the rubber paddle and the ball",
-            "The total number of points scored overall"
+            "The total number of points scored"
           ],
           "answer": "C",
           "skill": "detail",
@@ -557,8 +557,8 @@
         {
           "stem": "How does a smoother paddle compare with a textured rubber paddle, according to the article?",
           "options": [
-            "Both grip the ball exactly the same amount, so there is no difference between them at all",
-            "A smoother paddle always makes the ball travel slower, no matter how the player hits it",
+            "Both grip the ball the same amount, so there is little difference in spin between them when they hit the ball",
+            "A smoother paddle makes the ball travel slower, no matter how the player hits it",
             "A textured paddle cannot be used to serve the ball in a match, so players avoid it",
             "A smoother paddle grips the ball less and produces weaker rotation than a textured rubber paddle"
           ],

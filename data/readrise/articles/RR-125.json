@@ -217,8 +217,8 @@
           "stem": "Which breakfast fits the article's ideas best?",
           "options": [
             "A big sweet cake and a cold soda from the shop",
-            "Nothing at all, only some water before school",
-            "Only candy from the shop and a bag of chips",
+            "Nothing, only some water before school",
+            "Candy from the shop and a bag of chips",
             "An egg, whole wheat bread, and some fruit"
           ],
           "answer": "D",
@@ -295,7 +295,7 @@
           "options": [
             "Breakfast refuels the body after the night and helps the brain work well.",
             "Children should eat only dates for breakfast every single day, with nothing else added.",
-            "Breakfast should always be large and fancy, with many dishes on a long table.",
+            "Breakfast should be large and fancy, with many dishes on a long table.",
             "Sleeping well is more important than eating, so children should skip breakfast."
           ],
           "answer": "A",
@@ -378,10 +378,10 @@
         {
           "stem": "Why might a student who skipped breakfast buy a sugary snack at break time?",
           "options": [
-            "Because sugary snacks have the most fiber of any food",
+            "Because sugary snacks have the most fiber of any food in the shop",
             "Because the student is likely to be very hungry before lunch",
             "Because sugary snacks contain protein",
-            "Because the teacher asked every student to buy one"
+            "Because the teacher asked the students to buy one"
           ],
           "answer": "B",
           "skill": "inference",
@@ -398,7 +398,7 @@
             "Cereal gives energy that drops fast; bread gives energy that lasts.",
             "Both give energy that lasts all day.",
             "Bread gives a quick burst of energy, but cereal gives energy that lasts much longer.",
-            "Neither one gives any energy."
+            "Both give energy that drops fast."
           ],
           "answer": "A",
           "skill": "compare",
@@ -474,8 +474,8 @@
           "options": [
             "A balanced breakfast refuels the body after the overnight fast and supports concentration and learning.",
             "Glucose is harmful to the brain and should be avoided by children at breakfast, since it makes them sleepy.",
-            "Only children need to eat breakfast, and grown-ups do not need it at all, since they can go without food.",
-            "Refined foods are the healthiest choice in the morning, since they give a quick burst of energy and nothing else."
+            "Only children need to eat breakfast, and grown-ups do not need it, since they can go without food.",
+            "Refined foods are the healthiest choice in the morning, since they give a quick burst of energy."
           ],
           "answer": "A",
           "skill": "central-idea",

@@ -166,9 +166,9 @@
           "stem": "What happens right after Sam rides back to Nour?",
           "options": [
             "They work together to fix the chain",
-            "They race to the finish line",
+            "They race to the finish line together",
             "They walk their bikes home",
-            "They decide to stop riding forever"
+            "They decide to stop riding"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -184,7 +184,7 @@
           "options": [
             "Sam's bike also breaks down on the road to school",
             "Sam cares more about the friend than about winning",
-            "Sam does not like racing at all, even with friends",
+            "Sam does not like racing, even with friends",
             "Sam's mom tells Sam to stop and wait at the gate"
           ],
           "answer": "B",
@@ -233,7 +233,7 @@
         {
           "stem": "Why does the author end the article with Sam saying helping a friend felt better than winning?",
           "options": [
-            "To show that winning races does not matter at all",
+            "To show that winning races does not matter to the friends",
             "To explain how to fix a bike chain",
             "To show that friendship can matter more than winning",
             "To tell readers to stop racing bikes"
@@ -293,7 +293,7 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Nour decides never to ride a bike again after the race",
+            "Nour decides never to ride a bike again after the race with Sam",
             "Sam and Nour's neighbors organize the whole race",
             "Sam chooses to help a friend instead of winning an easy race",
             "Sam buys a brand-new bike after the old one breaks"
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Neighborhood bike races always end in an argument between friends, and no one rides again",
+            "Neighborhood bike races end in an argument between friends, and no one rides again in the summer",
             "Nour decides to give up bicycling after the chain breaks on the road",
-            "Bicycle chains are too unreliable to use in any race, so the riders walk",
+            "Bicycle chains are too unreliable to use in a race, so the riders walk",
             "Sam makes a deliberate choice to value genuine friendship over an easy, uncontested victory"
           ],
           "answer": "D",

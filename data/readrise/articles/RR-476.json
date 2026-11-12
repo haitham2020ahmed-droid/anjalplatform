@@ -150,8 +150,8 @@
           "options": [
             "A busy school just for deaf kids",
             "A quiet school that taught only art",
-            "A big school that taught only sports",
-            "A small school that taught only cooking"
+            "A big school that taught sports",
+            "A small school that taught cooking"
           ],
           "answer": "A",
           "skill": "detail",
@@ -165,8 +165,8 @@
         {
           "stem": "Why did deaf kids learn to sign fast at the new school?",
           "options": [
-            "Because the school was open just one day",
-            "It had no teachers working there at all",
+            "Because the school was open just one day a week",
+            "It had no teachers working there",
             "It only taught math problems all day",
             "It used real sign language, not made-up waves"
           ],
@@ -185,7 +185,7 @@
             "No one liked it, so it quickly closed",
             "It became a model that many schools copied",
             "It was replaced right away by another school",
-            "It was never really used by any kids"
+            "Few kids used it"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -218,8 +218,8 @@
           "options": [
             "Only ever inside one single old school",
             "In school, at work, and on video calls",
-            "Only ever on loud television shows",
-            "Only ever deep inside car engines"
+            "On loud television shows",
+            "Deep inside car engines"
           ],
           "answer": "B",
           "skill": "detail",
@@ -235,8 +235,8 @@
           "options": [
             "It gives them freedom to say what they want",
             "It costs a very large amount of money",
-            "It is used only by busy doctors at work",
-            "It replaces reading for every single person"
+            "It is used only by busy doctors at work in hospitals",
+            "It replaces reading for most people"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of this article?",
           "options": [
-            "The school in Connecticut closed shortly after it opened its doors",
-            "Deaf people have never had a reliable way to communicate at all",
+            "The school in Connecticut closed shortly after it opened its doors to students",
+            "Deaf people have never had a reliable way to communicate",
             "Gallaudet and Clerc built a shared teaching method that became the lasting standard",
-            "Sign language was invented by a single deaf teacher working entirely alone"
+            "Sign language was invented by a single deaf teacher working alone"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "According to the article, what problem did deaf people face before this school existed?",
           "options": [
-            "They were required to work long hours on distant farms",
+            "They were required to work long hours on distant farms in the country",
             "They had no reliable way to communicate with others independently",
             "They could not travel freely to any other countries",
-            "They were not allowed to attend any schools whatsoever"
+            "They were not allowed to attend schools"
           ],
           "answer": "B",
           "skill": "detail",
@@ -330,7 +330,7 @@
             "He had spent years studying painting in southern Italy",
             "He once owned a large shipping company near the coast",
             "He was a skilled deaf teacher who understood sign language's value firsthand",
-            "He relied on an old, flawed code and knew each of its flaws"
+            "He relied on an old, flawed code and knew each of its many flaws by heart"
           ],
           "answer": "C",
           "skill": "detail",
@@ -344,9 +344,9 @@
         {
           "stem": "Why was building the school on real sign language, instead of invented gestures, so important?",
           "options": [
-            "It required far more careful light to read by at night",
+            "It required far more careful light to read by at night in the classroom",
             "It made each daily lesson noticeably heavier to carry",
-            "It made the dots on each page completely invisible to touch",
+            "It made the dots on each page invisible to touch",
             "It made the whole method far easier to read, teach, and learn"
           ],
           "answer": "D",
@@ -363,8 +363,8 @@
           "options": [
             "Because it was only ever used by professional athletes",
             "Likely because it solved a problem many deaf communities shared",
-            "Because no other schools for the deaf ever existed again",
-            "Because a brand-new national law required every school to use it"
+            "Because no other schools for the deaf ever existed again after that",
+            "Because a new national law required schools to use it"
           ],
           "answer": "B",
           "skill": "inference",
@@ -396,7 +396,7 @@
           "stem": "How is this article mostly organized?",
           "options": [
             "As step-by-step instructions for building a brand-new school",
-            "As a comparison of two completely unrelated inventions",
+            "As a comparison of two unrelated inventions",
             "As a scattered list of random facts about France",
             "As a sequence of events describing a problem and then its solution"
           ],
@@ -412,8 +412,8 @@
         {
           "stem": "What happened to the school's teaching method over the following years?",
           "options": [
-            "It replaced spoken language completely for most people",
-            "It was quickly forgotten by nearly everyone involved",
+            "It replaced spoken language for most people",
+            "It was quickly forgotten by nearly everyone involved in the school",
             "It was banned from being used in any school",
             "It became the blueprint that most deaf schools still follow"
           ],
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Sign language is only ever useful for formal theater performances",
+            "Sign language is useful mainly for formal theater performances, so few deaf people learn it at school",
             "Gallaudet and Clerc's partnership produced a structured method that became the enduring standard",
-            "Sign language has remained completely unchanged since ancient times",
-            "Deaf communities never developed any way to communicate before 1817"
+            "Sign language has remained unchanged since ancient times",
+            "Deaf communities had little way to communicate before 1817"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -490,8 +490,8 @@
           "stem": "According to the article, how did Laurent Clerc's personal background shape the school's approach?",
           "options": [
             "He had never actually taught another person before this",
-            "He designed the entire method purely from distant academic research",
-            "He had no real personal connection to deaf communities at all",
+            "He designed the method from distant academic research, without meeting deaf students",
+            "He had no real personal connection to deaf communities",
             "His own experience as a deaf person gave him firsthand insight into structured sign language"
           ],
           "answer": "D",
@@ -506,7 +506,7 @@
         {
           "stem": "What evidence suggests earlier sign systems were genuinely limited, not simply undocumented?",
           "options": [
-            "They were far too small to ever be printed clearly in books",
+            "They were far too small to be printed clearly in books for students in the schools",
             "They required an unusual amount of natural sunlight to use",
             "They were isolated, informal, and nearly impossible to teach widely or standardize",
             "They were brightly painted and somewhat difficult to clean"
@@ -525,7 +525,7 @@
           "options": [
             "To argue that careful testing of new methods was actually unnecessary",
             "To show that achieving a reliable teaching method required careful effort, not luck",
-            "To suggest that their final method ultimately turned out to be a failure",
+            "To suggest that their final method ultimately turned out to be a failure in the classroom",
             "To prove that teaching deaf children is an unusually dangerous task"
           ],
           "answer": "B",
@@ -541,8 +541,8 @@
           "stem": "What can be inferred about why the school's model spread to other regions over time?",
           "options": [
             "It was only ever used by a small group of professional performers",
-            "It was required everywhere by a brand-new international law",
-            "No other schools for the deaf were ever built again after this one",
+            "It was required by a new international law",
+            "Few other schools for the deaf were built after this one, so it stayed unique",
             "It likely solved a problem that many deaf communities shared across different places"
           ],
           "answer": "D",
@@ -558,8 +558,8 @@
           "stem": "In this article, what does the word standardize most likely mean?",
           "options": [
             "To make something follow one consistent set of rules everywhere",
-            "To make something far more expensive to produce overall",
-            "To remove a plan entirely and leave no structure behind",
+            "To make something far more expensive to produce",
+            "To remove a plan entirely and leave no structure behind in a school",
             "To make a method impossible for anyone else to teach"
           ],
           "answer": "A",
@@ -574,10 +574,10 @@
         {
           "stem": "How does the article primarily structure its account of the school's development?",
           "options": [
-            "By presenting two opposing viewpoints without any real resolution",
+            "By presenting two opposing viewpoints without any real resolution between the two sides",
             "By listing a series of unrelated facts about France generally",
             "By tracing a problem through a specific solution to its lasting modern impact",
-            "By comparing several completely unrelated writing systems"
+            "By comparing several unrelated writing systems"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -591,10 +591,10 @@
         {
           "stem": "Based on the article, which outcome most directly resulted from the school's structured method?",
           "options": [
-            "Teaching quickly became the only career ever open to deaf people",
+            "Teaching quickly became the main career open to deaf people in America and in Europe",
             "Millions of deaf people gained a dependable way to communicate and live independently",
-            "Spoken language became completely unnecessary for most people",
-            "All schools everywhere switched entirely to video calls within years"
+            "Spoken language became unnecessary for most people",
+            "Most schools switched to video calls within years"
           ],
           "answer": "B",
           "skill": "cause-effect",

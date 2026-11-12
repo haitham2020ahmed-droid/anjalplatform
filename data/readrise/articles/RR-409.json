@@ -117,7 +117,7 @@
       "A robot that runs a race against a toy car in the street with all of the children",
       "A family who gives their helper robot a real name because of its fun quirks",
       "A boy who builds his own telescope in the garden to look at the stars at night",
-      "A robot that gets lost in a big city at night and cannot find its way home"
+      "A robot that gets lost in a big city at night and looks for its home"
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -184,7 +184,7 @@
      "options": [
       "Because it was too hard to say out loud",
       "Because it was just a number, not a name",
-      "Because robots cannot have names of any kind",
+      "Because robots cannot have names",
       "Because Dad did not like it very much"
      ],
      "answer": "B",
@@ -312,7 +312,7 @@
      "options": [
       "Only on weekends",
       "Right before the family eats breakfast",
-      "Only after dinner",
+      "After dinner, when asked",
       "Each morning, without being asked"
      ],
      "answer": "D",
@@ -330,7 +330,7 @@
       "It sorts them neatly by size without anyone asking",
       "It hides them in a closet every night before bed",
       "It arranges them by color, not by size, along the wall",
-      "It only lines up its own metal feet by the door"
+      "It lines up its own metal feet by the door"
      ],
      "answer": "A",
      "skill": "detail",
@@ -345,8 +345,8 @@
      "stem": "What caused Faisal to finally notice Unit 7's quirks?",
      "options": [
       "Dad ordered him to pay attention to the robot at once",
-      "He read about robots in a book that he found at the library",
-      "Unit 7 stopped working completely and needed fixing right away",
+      "He read about robots in a book that he found at the library near his school",
+      "Unit 7 stopped working and needed fixing right away",
       "He finally paused to notice the traits Lama had already pointed out"
      ],
      "answer": "D",
@@ -396,7 +396,7 @@
      "stem": "How did Lama's reaction to Unit 7's quirks differ from Faisal's at first?",
      "options": [
       "Lama ignored the quirks, while Faisal noticed them right away",
-      "Both siblings completely ignored the new robot at first",
+      "Both siblings ignored the new robot at first",
       "Faisal wanted to return the robot, while Lama agreed",
       "Lama cared about the quirks right away, but Faisal needed more time"
      ],
@@ -412,10 +412,10 @@
     {
      "stem": "What happened right after Unit 7 arrived at the house?",
      "options": [
-      "The family immediately gave it the name Breezy",
+      "The family immediately gave it the name Breezy on the first day",
       "It began doing chores like washing dishes and sweeping",
       "Faisal took it apart to see how it worked",
-      "The family decided to keep calling it Unit 7 forever"
+      "The family decided to keep calling it Unit 7"
      ],
      "answer": "B",
      "skill": "sequence",
@@ -472,10 +472,10 @@
     {
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
-      "Unit 7 malfunctions badly and must be completely reprogrammed by Faisal",
+      "Unit 7 malfunctions badly and must be reprogrammed by Faisal",
       "Robots should never be treated as part of a real family",
       "A family's care for a robot's small traits leads them to give it a real name",
-      "The story argues that chores are more important than companionship"
+      "The story argues that chores are more important than companionship in a busy home"
      ],
      "answer": "C",
      "skill": "central-idea",
@@ -541,8 +541,8 @@
      "stem": "Why did Faisal's view of the robot change over the course of the evening?",
      "options": [
       "Dad ordered him to agree with Lama about the robot",
-      "The robot stopped working correctly during the evening",
-      "He had never actually disagreed with Lama about it at all",
+      "The robot stopped working correctly during the evening in the kitchen",
+      "He had never actually disagreed with Lama about it",
       "He noticed the same traits his sister had already pointed out"
      ],
      "answer": "D",
@@ -592,9 +592,9 @@
      "stem": "Why does the author describe Faisal's early skepticism before he changes his mind?",
      "options": [
       "To show that not everyone agrees at first, which makes the final unanimous choice feel earned",
-      "To argue that older siblings should never be trusted with family decisions of any kind",
+      "To argue that older siblings should never be trusted with family decisions",
       "To explain in detail why Faisal secretly dislikes robots in general and does not want one",
-      "To criticize Lama's idea as being completely unreasonable and also quite unfair to the others"
+      "To criticize Lama's idea as being unreasonable and also quite unfair to the others"
      ],
      "answer": "A",
      "skill": "author-purpose",

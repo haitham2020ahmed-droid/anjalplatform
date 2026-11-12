@@ -132,7 +132,7 @@
           "stem": "What did the caravan's camels carry?",
           "options": [
             "Cloth, salt, and dried dates for the market",
-            "Water jugs and extra tents for the camp",
+            "Water jugs and extra tents for the camp in the desert",
             "Bags of gold coins from the city",
             "Wood, stone, and heavy metal tools"
           ],
@@ -362,8 +362,8 @@
           "stem": "What can you infer about Younes's father from the article?",
           "options": [
             "He had once worked as a guide and taught Younes to read desert signs",
-            "He was a merchant who had almost never left his own home town",
-            "He did not believe in reading any of nature's small signs",
+            "He was a merchant who had almost never left his own home town before",
+            "He did not believe in reading nature's small signs",
             "He led the very same caravan that Malik leads now"
           ],
           "answer": "A",
@@ -412,7 +412,7 @@
         {
           "stem": "Why did Malik finally decide to change the caravan's route?",
           "options": [
-            "He wanted to visit a new and very distant market town",
+            "He wanted to visit a new and very distant market town to sell his goods",
             "The camels suddenly stopped walking on the usual path",
             "He flipped an old, worn coin to decide what to do",
             "He weighed Younes's observations against his own experience"
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Desert insects are scientifically proven to control the weather across the whole region, and merchants must obey them",
-            "A merchant's decades of experience are always more reliable than a young guide's instinct in the desert, so storms never matter",
+            "A merchant's decades of experience are more reliable than a young guide's instinct in the desert, so storms never matter on the long trip",
             "A young apprentice's careful attention to subtle natural signs leads a skeptical, experienced merchant to change course before a storm",
-            "A caravan's route is chosen entirely by chance, so no one can plan a safe journey and signs of nature are never useful"
+            "A caravan's route is chosen by chance, so safe journeys depend on luck rather than signs of nature"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -541,7 +541,7 @@
           "stem": "What can you infer about Malik's usual approach to decisions, based on how rarely he set aside his own judgment?",
           "options": [
             "Malik normally relied heavily on his own experience and rarely trusted someone else's observations over it",
-            "Malik always asked his apprentices for advice before deciding anything on the road to the city and the market",
+            "Malik asked his apprentices for advice before deciding anything on the road to the city and the market",
             "Malik had never led a caravan before this journey across the sand, so he was afraid to lead them",
             "Malik did not care whether the caravan reached Sabah safely or not, so he rushed on ahead of everyone"
           ],
@@ -557,10 +557,10 @@
         {
           "stem": "In the article, the word skeptical most nearly means —",
           "options": [
-            "completely certain that something is true or right",
+            "certain that something is true or right",
             "excited and happy about a new idea or plan",
             "doubtful or unwilling to easily believe something",
-            "afraid of changing plans at the last moment"
+            "afraid of changing plans at the last moment on a trip"
           ],
           "answer": "C",
           "skill": "vocabulary",

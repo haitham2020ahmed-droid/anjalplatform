@@ -134,7 +134,7 @@
             "It makes your body grow taller.",
             "It turns germs into blood cells.",
             "It stops most germs from getting inside.",
-            "It helps you remember your friends."
+            "It helps you remember your friends and family."
           ],
           "answer": "C",
           "skill": "detail",
@@ -295,8 +295,8 @@
           "options": [
             "The body uses several natural defenses to fight off germs.",
             "All germs are dangerous and must be avoided completely.",
-            "White blood cells are the only part of the body that works.",
-            "A fever is always a sign that someone is seriously ill."
+            "White blood cells are the main part of the body that works.",
+            "A fever is a sign that someone is seriously ill."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -397,7 +397,7 @@
           "options": [
             "Their immune system would likely become weaker.",
             "Their skin would stop covering their body.",
-            "Their white blood cells would multiply forever.",
+            "Their white blood cells would multiply.",
             "Their body would stop needing any defenses."
           ],
           "answer": "A",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Fevers are always dangerous and should be stopped right away.",
+            "Fevers are dangerous and should be stopped right away.",
             "The immune system uses several coordinated natural defenses.",
             "Phagocytes were discovered by accident and never explained.",
-            "Skin is the only defense the human body has against disease."
+            "Skin is the main defense the human body has against disease."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -542,7 +542,7 @@
           "options": [
             "It slows the growth of many pathogens.",
             "It permanently destroys the skin barrier.",
-            "It prevents phagocytes from forming at all.",
+            "It prevents phagocytes from forming.",
             "It stops inflammation from ever occurring."
           ],
           "answer": "A",
@@ -559,7 +559,7 @@
           "options": [
             "It proved that sea creatures could never get sick.",
             "It helped explain exactly how white blood cells defend the body.",
-            "It showed that inflammation was unnecessary for healing.",
+            "It showed that inflammation was unnecessary for healing in most cases.",
             "It revealed that fevers had no real biological purpose."
           ],
           "answer": "B",
@@ -574,7 +574,7 @@
         {
           "stem": "Why does the immune system respond more slowly the first time it meets a new pathogen than it does the second time?",
           "options": [
-            "The first pathogen is always weaker than later ones.",
+            "The first pathogen is weaker than later ones.",
             "White blood cells must first learn to recognize the invader.",
             "The skin barrier is not yet fully formed at that point.",
             "Inflammation blocks the immune system during a first infection."

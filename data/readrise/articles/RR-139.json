@@ -361,7 +361,7 @@
         {
           "stem": "Why did farmed pearls from Japan hurt the pearl divers of the Gulf?",
           "options": [
-            "They were much bigger than the Gulf pearls",
+            "They were much bigger than the Gulf pearls and also much shinier",
             "They were cheaper, so natural pearls lost value",
             "They made the water of the Gulf too cold",
             "They used up all the oysters in the Gulf"
@@ -474,7 +474,7 @@
           "options": [
             "Pearl diving was easy, safe work that paid every diver very well in the end.",
             "Pearling was a hard Gulf livelihood that declined but lives on as heritage.",
-            "Cultured pearls have only ever been found in the Arabian Gulf, and nowhere else.",
+            "Cultured pearls were first found in the Arabian Gulf.",
             "Divers used stones to break open oysters underwater, and then swam up quickly."
           ],
           "answer": "B",
@@ -489,7 +489,7 @@
         {
           "stem": "What starts the formation of a natural pearl?",
           "options": [
-            "A diver placing grains of sand inside the shell",
+            "A diver placing grains of sand inside the shell each morning",
             "An irritant becoming trapped inside the oyster's shell",
             "The oyster swallowing a small fish that swam by",
             "Warm summer water melting part of the shell"
@@ -507,9 +507,9 @@
           "stem": "How is a cultured pearl different from a natural pearl?",
           "options": [
             "People insert the irritant deliberately",
-            "It contains no nacre in its layers",
+            "It contains no nacre in its layers or its shell",
             "It forms in sand, not in an oyster",
-            "It is always much larger and heavier"
+            "It is much larger and heavier"
           ],
           "answer": "A",
           "skill": "compare",
@@ -593,7 +593,7 @@
           "options": [
             "Divers still use it as their main job in the Gulf every year",
             "People remember and celebrate it in museums, songs, and festivals",
-            "It is now taught in every school as a required subject for all children",
+            "It is now taught in schools as a required subject for children",
             "Cultured pearls are made in the Gulf by farms that use new machines"
           ],
           "answer": "B",

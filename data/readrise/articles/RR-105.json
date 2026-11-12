@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The ear is the most important organ in the body, and all of the other organs need it to work.",
-            "Earwax is the main way the ear protects itself from harm, and noise cannot hurt the ear at all.",
+            "Earwax is the main way the ear protects itself, so noise does little harm.",
             "The ear turns vibrations into signals the brain understands, and it needs protection from loud noise.",
-            "People hear better in quiet places than in noisy ones, and that is the only thing the article says."
+            "People hear better in quiet places than in noisy ones, which is the main point."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -362,7 +362,7 @@
           "stem": "Why is it important that hair cells never grow back?",
           "options": [
             "It means people can only hear for a few years of life",
-            "It means earwax must be removed from the ear every day",
+            "It means earwax must be removed from the ear each day",
             "It means the bones in the ear will become weaker with age",
             "It means hearing harmed by loud noise may be lost for good"
           ],
@@ -474,8 +474,8 @@
           "options": [
             "Sound waves travel faster through fluid than through air, which is why people hear so well underwater, and this is all that matters for hearing.",
             "Hearing depends on a chain of structures that turn air vibrations into signals the brain interprets, and this system can be permanently harmed.",
-            "The middle ear is the most important part of hearing, so the other parts of the ear matter very little to the brain at all, and are not needed.",
-            "Audiologists are the only people who understand how the ear works, so students should not try to learn about it."
+            "The middle ear is the most important part of hearing, so the other parts of the ear matter very little to the brain, and are not needed.",
+            "Audiologists understand the ear best, so students should leave the topic to them."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "Based on the article, what can you infer about a person who is unable to hear high-pitched sounds but still hears low ones?",
           "options": [
-            "The person's ear canal is completely blocked",
+            "The person's ear canal is blocked",
             "The hair cells that respond to high frequencies may be damaged",
             "The person has lost the three small bones",
-            "The person's sense of balance must also be lost completely and forever"
+            "The person's sense of balance has also been lost or weakened"
           ],
           "answer": "B",
           "skill": "inference",
@@ -558,7 +558,7 @@
           "stem": "The eardrum is a thin, tightly stretched membrane. Which words could best replace membrane here?",
           "options": [
             "bone",
-            "liquid",
+            "liquid layer",
             "nerve",
             "sheet of tissue"
           ],

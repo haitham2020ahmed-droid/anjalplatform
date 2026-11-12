@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Dolphins are fish that live only in the Red Sea.",
-            "Dolphins sleep more hours each day than any other animal that lives in the ocean.",
+            "Dolphins sleep more hours each day than most of the other animals in the ocean.",
             "Dolphins are smart sea mammals with special ways to breathe, hunt, and talk.",
-            "Fishing nets are the only danger in the ocean."
+            "Fishing nets are the main danger to dolphins."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -381,7 +381,7 @@
             "To show it where the fish are",
             "To keep it warm in the sun",
             "Because the calf needs air to breathe",
-            "Because newborn calves are not able to swim at all"
+            "Because newborn calves are not able to swim"
           ],
           "answer": "C",
           "skill": "inference",
@@ -560,7 +560,7 @@
             "It must stay in the warm sunlight.",
             "It must consciously come up to breathe, so part of its brain must stay awake.",
             "It must keep hunting fish with the other members of its pod all through the night.",
-            "Its calves sleep only during the day."
+            "Its calves need to be fed during the night, so it stays busy."
           ],
           "answer": "B",
           "skill": "inference",
@@ -577,7 +577,7 @@
             "Dolphins in pods have louder whistles than dolphins that hunt alone.",
             "Single dolphins cannot use echolocation, so they cannot find any food.",
             "By cooperating, the dolphins can herd fish into a tight ball.",
-            "Pods only hunt in clear water, where the fish are easy to see."
+            "Pods hunt in clear water, where the fish are easier to see."
           ],
           "answer": "C",
           "skill": "inference",

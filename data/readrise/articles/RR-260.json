@@ -165,8 +165,8 @@
         {
           "stem": "What happened when Franklin flew the kite into the storm?",
           "options": [
-            "The kite flew away and was never found.",
-            "Nothing happened at all.",
+            "The kite flew away and was never found again.",
+            "The kite fell into the sea.",
             "He felt a small spark jump to the metal key.",
             "The kite turned into a lightning rod."
           ],
@@ -218,7 +218,7 @@
           "options": [
             "Because they are both still useful inventions that solve real problems.",
             "Because no one has ever thought of anything better than these two.",
-            "Because laws require every building and every person to have them.",
+            "Because laws require buildings and people to have them.",
             "Because they are very cheap to make and easy to sell in shops."
           ],
           "answer": "A",
@@ -362,7 +362,7 @@
           "stem": "What can be inferred from the fact that Franklin stood under a dry shed instead of out in the open?",
           "options": [
             "He understood that the experiment carried some real danger.",
-            "He did not think lightning was dangerous at all.",
+            "He did not think lightning was dangerous.",
             "He wanted to keep his kite hidden from other people.",
             "He was simply trying to avoid getting his clothes dirty."
           ],
@@ -380,7 +380,7 @@
           "options": [
             "It solved a real, practical problem of buildings catching fire.",
             "It was the only invention Franklin ever created.",
-            "Governments required every citizen to own one personally.",
+            "Governments required citizens to own one personally by law in the town.",
             "It was invented by accident with no real purpose."
           ],
           "answer": "A",
@@ -490,7 +490,7 @@
           "stem": "According to the article, what did most natural philosophers of Franklin's era believe about lightning?",
           "options": [
             "That lightning was a dramatic, naturally occurring electrical phenomenon",
-            "That lightning was caused entirely by ocean currents",
+            "That lightning was caused by ocean currents",
             "That lightning's cause remained genuinely unknown and poorly understood",
             "That lightning only occurred in certain countries, never in others"
           ],
@@ -524,8 +524,8 @@
           "stem": "Why did the spark jumping to the key provide such strong empirical evidence for Franklin's hypothesis?",
           "options": [
             "Because it directly showed, through observation, that the storm clouds carried an electrical charge",
-            "Because it proved that kites could fly higher during storms than on calm days with no wind at all",
-            "Because it demonstrated that metal keys always attract lightning everywhere in the world",
+            "Because it proved that kites could fly higher during storms than on calm days with no wind",
+            "Because it demonstrated that metal keys attract lightning",
             "Because it showed that silk string is a poor material for building strong kites at home"
           ],
           "answer": "A",
@@ -541,9 +541,9 @@
           "stem": "What can be inferred about why Franklin deliberately used simple, ordinary household materials for his experiment?",
           "options": [
             "He wanted to show that meaningful scientific discovery did not require costly, specialized equipment.",
-            "He could not afford any other type of equipment at all, so he used only what he found in his own house.",
-            "He believed expensive equipment would have been more accurate, but he did not own any.",
-            "He was forbidden from using scientific instruments of any kind by the king and by the law."
+            "He could not afford any other type of equipment, so he used only what he found in his own house.",
+            "He believed expensive equipment would have been more accurate, but he could not buy it.",
+            "He was forbidden from using scientific instruments by the king and by the law."
           ],
           "answer": "A",
           "skill": "inference",
@@ -593,8 +593,8 @@
           "options": [
             "Both groups relied solely on ancient religious texts for their explanation, and neither one tested any idea.",
             "Franklin tested a hypothesis through direct observation, while most others simply accepted supernatural explanations.",
-            "Franklin ignored lightning entirely, while others studied it carefully with instruments and notes for many years.",
-            "Most people performed careful experiments, while Franklin only guessed and never tested a single idea in his life."
+            "Franklin ignored lightning, while others studied it carefully with instruments and notes for many years.",
+            "Most people performed careful experiments, while Franklin guessed and rarely tested his ideas."
           ],
           "answer": "B",
           "skill": "compare",

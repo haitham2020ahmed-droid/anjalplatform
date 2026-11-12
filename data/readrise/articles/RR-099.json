@@ -233,7 +233,7 @@
         {
           "stem": "What can you tell about water that goes down the drain?",
           "options": [
-            "It is lost forever.",
+            "It is lost.",
             "It goes straight back into your tap without any cleaning.",
             "It goes back to the sea with salt.",
             "It can be useful again after it is cleaned."
@@ -296,7 +296,7 @@
             "Desalination plants are the only way any country can get water, and rain is never used.",
             "Tap water goes through many steps of collecting, cleaning, and moving before it reaches us.",
             "Chlorine is the most important part of tap water, because it makes the water taste sweet.",
-            "Riyadh gets all its water from wells, and none of it from the sea or from rivers."
+            "Riyadh gets most of its water from wells, and little from the sea."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -475,7 +475,7 @@
             "Reverse osmosis is the newest invention in the world.",
             "Safe tap water depends on a huge, mostly hidden system.",
             "Every country gets its water from aquifers.",
-            "Wastewater cannot be reused."
+            "Wastewater is too dirty to be reused."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,7 +489,7 @@
         {
           "stem": "How do many desalination plants in Saudi Arabia remove salt from seawater?",
           "options": [
-            "It boils the water in huge pots until only the salt remains behind.",
+            "It boils the water in huge pots until only the salt remains behind and the steam is thrown away.",
             "It adds chlorine, which destroys the salt.",
             "It forces seawater under high pressure through a membrane that blocks salt.",
             "It lets the salt settle to the bottom of a basin."

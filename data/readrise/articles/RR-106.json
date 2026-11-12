@@ -295,7 +295,7 @@
           "options": [
             "Copper is the most valuable metal in the whole world, and it is used in every home.",
             "Electricity travels a long way to our homes, flows in circuits, and must be used safely and wisely.",
-            "Air conditioners are the only appliances that use electricity in the home, the school, or the shop.",
+            "Air conditioners use the most electricity in the home, so people should turn them off at night.",
             "Saudi Arabia will stop using power plants soon, because it will not need electricity."
           ],
           "answer": "B",
@@ -378,7 +378,7 @@
         {
           "stem": "Why do newer power plants in Saudi Arabia use sunlight?",
           "options": [
-            "Because oil cannot make electricity",
+            "Because oil cannot make electricity in big cities",
             "Because the plants are underwater",
             "Because the country has lots of sunlight",
             "Because sunlight is a conductor"
@@ -509,7 +509,7 @@
             "The power plant makes more solar energy for the whole town",
             "The circuit can overload and the wires can get dangerously hot",
             "The plastic insulation around the wires turns into a conductor",
-            "The electrons stop moving in the wires and stay still forever"
+            "The electrons stop moving in the wires and stay still"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -575,7 +575,7 @@
           "stem": "A circuit breaker suddenly switches off in a kitchen where a kettle, a microwave, and a toaster are all running. What is the most likely reason?",
           "options": [
             "Too much current flowed, so the breaker cut the power",
-            "The kitchen lights were switched off at the wall",
+            "The kitchen lights were switched off at the wall in the house",
             "The appliances were far too efficient to run",
             "The power plant switched over to solar energy"
           ],

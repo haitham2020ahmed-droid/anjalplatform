@@ -131,7 +131,7 @@
         {
           "stem": "What mistake does Robi make when he waters the plants?",
           "options": [
-            "He forgets to water them at all",
+            "He forgets to water them",
             "He waters the wrong plants",
             "He pours too much water into the pots",
             "He waters the plants outside instead"
@@ -183,7 +183,7 @@
           "stem": "Why are Mom and Dad not upset when Robi makes mistakes?",
           "options": [
             "They plan to return Robi to the store",
-            "They think the mistakes are funny jokes",
+            "They think the mistakes are funny jokes and laugh",
             "They do not notice the mistakes",
             "They want Robi to learn slowly and patiently"
           ],
@@ -235,8 +235,8 @@
           "options": [
             "He waters the plants one more time only, and then he rests",
             "He helps in just the right way with no mistakes",
-            "He makes the same mistakes again and again all morning",
-            "He refuses to help at all that day and sits in a corner"
+            "He makes the same mistakes again and again",
+            "He refuses to help that day and sits in a corner"
           ],
           "answer": "B",
           "skill": "compare",
@@ -296,7 +296,7 @@
             "A robot slowly learns, through patient teaching, how to help a family in exactly the right way",
             "A family decides that robots are too much trouble to keep in their home, so they sell it",
             "A boy loses his toy car and never manages to find it again, however hard he looks",
-            "A family grows new plants in their garden every single season, and the plants win a prize"
+            "A family grows new plants in their garden each season, and the plants win a prize"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -362,9 +362,9 @@
           "stem": "Why do Mom and Dad choose to patiently teach Robi instead of getting upset with him?",
           "options": [
             "They do not actually notice any of his mistakes",
-            "They plan to replace him with a different robot soon",
+            "They plan to replace him with a different robot soon at the start of the year",
             "They believe careful teaching will help him improve over time",
-            "They think his mistakes do not matter at all to the family"
+            "They think his mistakes do not matter to the family"
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,7 +378,7 @@
         {
           "stem": "Compare Robi's helpfulness on his very first attempts with his helpfulness on the busy morning.",
           "options": [
-            "He refuses to help at all until the very end of the story",
+            "He refuses to help until the very end of the story",
             "He helps perfectly from the very first attempt onward",
             "He makes the exact same mistakes both times",
             "He is clumsy at first, then helps perfectly later"
@@ -492,7 +492,7 @@
             "to replace a part that is broken completely",
             "to adjust a machine so it works correctly",
             "to clean a surface thoroughly",
-            "to turn a machine completely off"
+            "to turn a machine off"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -508,7 +508,7 @@
           "options": [
             "She asks Dad to handle the watering instead",
             "She meticulously measures a small cup of water for Robi to see",
-            "She lets Robi guess the right amount of water on his own",
+            "She lets Robi guess the right amount of water on his own in the kitchen",
             "She tells Robi to stop watering plants altogether"
           ],
           "answer": "B",
@@ -525,8 +525,8 @@
           "options": [
             "He refuses every chore offered to him at first, saying that the work is too hard",
             "His enthusiasm leads him to attempt chores before his settings are calibrated",
-            "He waits for explicit instructions before trying anything at all",
-            "He only ever attempts chores he has already mastered many times"
+            "He waits for explicit instructions before trying anything",
+            "He attempts chores he has already mastered many times"
           ],
           "answer": "B",
           "skill": "inference",
@@ -559,7 +559,7 @@
           "options": [
             "It is the only morning when Robi is ever allowed to help",
             "It is the first time that Robi has ever touched the vacuum cleaner",
-            "It happens on a day when no one else is home to help",
+            "It happens on a day when the family is away from home",
             "It requires Robi to apply several lessons at once, under pressure"
           ],
           "answer": "D",

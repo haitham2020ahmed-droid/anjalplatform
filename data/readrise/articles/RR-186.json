@@ -150,7 +150,7 @@
           "options": [
             "He became a judge in Cairo",
             "His mom and dad died from the plague",
-            "He wrote his big book of history",
+            "He wrote his big book of history in Tunis",
             "He moved to the quiet fort"
           ],
           "answer": "B",
@@ -201,7 +201,7 @@
           "options": [
             "To learn the cause of what happened",
             "To make the story longer",
-            "To find out who wrote the story",
+            "To find out who wrote the story in his book",
             "To make the story funny"
           ],
           "answer": "A",
@@ -296,7 +296,7 @@
             "Ibn Khaldun spent most of his life in prison cells",
             "Ibn Khaldun changed how people study history and society",
             "Ibn Khaldun was the ruler of all North Africa",
-            "The plague ended in 1406 and nothing changed after it"
+            "The plague ended in 1406 and little changed after it"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -345,8 +345,8 @@
           "stem": "According to Ibn Khaldun, what happens over time to a group that rises to power?",
           "options": [
             "Its solidarity grows stronger every year as the rulers work harder",
-            "It always rules forever and never loses its power over the land",
-            "It moves to a new country with all of its rulers and soldiers",
+            "It rules the land for a very long time",
+            "It moves to a new country with its rulers and soldiers",
             "Its rulers become comfortable and the group grows weak"
           ],
           "answer": "D",
@@ -380,7 +380,7 @@
           "options": [
             "He worked for many rulers and saw their power change",
             "He never left Tunis",
-            "He only read about rulers in old books and never met one",
+            "He read about rulers in old books but did not meet one",
             "He was a ruler himself for many years"
           ],
           "answer": "A",
@@ -397,8 +397,8 @@
           "options": [
             "He thought old reports should never be read",
             "He asked questions about evidence and causes",
-            "He wanted every report to be shorter",
-            "He only trusted reports written by rulers"
+            "He wanted each report to be shorter",
+            "He trusted reports written by rulers"
           ],
           "answer": "B",
           "skill": "compare",
@@ -542,8 +542,8 @@
           "options": [
             "Its ideas about how to study history and society were new and useful",
             "It was the only book written in Arabic",
-            "It was much shorter than any other book",
-            "Timur ordered every scholar in Damascus and Cairo to read and copy it"
+            "It was much shorter than other books",
+            "Timur ordered scholars in Damascus and Cairo to read and copy it"
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "How does Ibn Khaldun's view of history differ from simply collecting famous reports?",
           "options": [
-            "He believed famous authors were always right and should never be questioned",
-            "He believed history should focus only on Spain",
+            "He believed famous authors were right and should never be questioned",
+            "He believed history should focus on Spain",
             "He believed reports should be tested against evidence and causes",
-            "He believed history could not be written at all"
+            "He believed history could not be written"
           ],
           "answer": "C",
           "skill": "compare",

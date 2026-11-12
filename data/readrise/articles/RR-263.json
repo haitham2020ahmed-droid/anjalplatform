@@ -185,7 +185,7 @@
             "Because trash cans are too small for all of the waste in town",
             "Because recycling plants are closed on most days",
             "Because making new items uses things like trees and metal",
-            "Because reused bags always break after one day"
+            "Because reused bags break after one day"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -217,7 +217,7 @@
           "stem": "Why does recycling come last among the three Rs?",
           "options": [
             "Because it is the only R that is easy to do",
-            "Because no one is allowed to recycle cans",
+            "Because people are not allowed to recycle cans",
             "Because it makes the most new trash",
             "Because it still takes energy and work to do"
           ],
@@ -233,7 +233,7 @@
         {
           "stem": "Why did the author list reduce, reuse, and recycle in that exact order?",
           "options": [
-            "To show the order does not matter at all to anyone who reads",
+            "To show the order does not matter to anyone who reads",
             "To show which steps help the Earth the most, from best to last",
             "To describe how a factory is built in a big city",
             "To explain how sea animals find their food in the deep sea"
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The three Rs work best when they are followed in a specific order.",
-            "Recycling aluminum cans is the only way to help the Earth.",
-            "Cloth bags are always better than paper bags at any store.",
-            "Students should never buy new water bottles again."
+            "Recycling aluminum cans is the only way to help the Earth and the oceans.",
+            "Cloth bags are better than paper bags at most stores.",
+            "Students should stop buying new water bottles."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "According to the article, why does reuse still save resources even though the reused item was already manufactured?",
           "options": [
-            "Because reused items never wear out at all, so they last forever and ever",
+            "Because reused items never wear out, so they last for good",
             "Because using the same item again and again avoids making new ones",
-            "Because reuse always costs more money than recycling, so it saves the most resources",
+            "Because reuse costs more money than recycling, so it saves the most resources",
             "Because reused items are thrown away faster, so factories can make new ones sooner"
           ],
           "answer": "B",
@@ -344,7 +344,7 @@
         {
           "stem": "A careful consumer reuses a strong cloth bag. What does consumer mean here?",
           "options": [
-            "A person who repairs machines",
+            "A person who repairs machines in a shop",
             "A person who buys and uses things",
             "A machine that recycles metal",
             "A worker inside a factory"
@@ -414,7 +414,7 @@
           "options": [
             "To suggest that any order works equally well for the three Rs in every case",
             "To remind readers that the sequence itself is the point of the article",
-            "To argue that recycling should be banned completely in the whole city today",
+            "To argue that recycling should be banned in the whole city today",
             "To explain how aluminum cans are mined from the Earth by workers and trucks"
           ],
           "answer": "B",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Recycling should always be a person's first choice when managing waste, because it is the best of all.",
+            "Recycling should be a person's first choice when managing waste, because it is the best of all.",
             "The waste hierarchy ranks reduce, reuse, and recycle by how effectively each conserves finite resources.",
             "Manufacturing is harmless as long as recycled materials are eventually used by the factory.",
-            "Reuse and recycle are interchangeable strategies with no real difference between them at all."
+            "Reuse and recycle are interchangeable strategies with no real difference between them."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -542,7 +542,7 @@
           "options": [
             "Because reducing eliminates the entire production cycle before it starts",
             "Because recycling plants are typically located far from cities and towns",
-            "Because reduced items are always made from recycled material in factories",
+            "Because reduced items are made from recycled material in factories",
             "Because recycling only works for liquids, not solids, in most places"
           ],
           "answer": "A",
@@ -560,7 +560,7 @@
             "Because each strategy carries a different environmental cost depending on when it is applied",
             "Because only reduce is mentioned as being legal in most countries, and reuse is not allowed",
             "Because recycling was invented more recently than reduce or reuse, so it is the least useful",
-            "Because reuse always requires more money than recycling does, so people should avoid it"
+            "Because reuse requires more money than recycling does, so people should avoid it"
           ],
           "answer": "A",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "It tells a chronological story of one factory's history, from its first day to its last",
             "It defines each R in descending order of effectiveness, then explains the shared underlying reason",
             "It compares the three Rs to unrelated environmental problems around the world, such as rain",
-            "It lists random facts about aluminum without any order or plan at all, like a pile of notes"
+            "It lists random facts about aluminum without any order or plan, like a pile of notes"
           ],
           "answer": "B",
           "skill": "text-structure",

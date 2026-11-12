@@ -117,7 +117,7 @@
             "A girl who buys a new plant for her room",
             "A school that builds a new garden for students",
             "A girl who builds a gadget and fixes it when it fails",
-            "A girl who loses her favorite tool in the garage"
+            "A girl who loses her favorite tool in the garage at home"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -148,7 +148,7 @@
         {
           "stem": "What happens when Maya first turns on her gadget at the fair?",
           "options": [
-            "It does not turn on at all",
+            "It does not turn on",
             "It drips water perfectly, just like at home",
             "It makes a loud beeping sound",
             "It floods the plant with too much water"
@@ -183,9 +183,9 @@
           "stem": "Why does Maya stay calm instead of panicking when her gadget floods the plant?",
           "options": [
             "She wants to think clearly and solve the problem",
-            "She does not care about the invention fair",
+            "She does not care about the invention fair or her project",
             "She plans to leave the fair right away",
-            "She does not notice the water at all"
+            "She does not notice the water"
           ],
           "answer": "A",
           "skill": "inference",
@@ -201,7 +201,7 @@
           "options": [
             "The timer is set for the wrong time",
             "The hole in the tube is too big",
-            "The tube is completely blocked",
+            "The tube is blocked",
             "The plant does not need any water"
           ],
           "answer": "B",
@@ -235,7 +235,7 @@
           "options": [
             "It is exactly the same and still floods the plant",
             "It drips the water just right after she fixes it",
-            "It no longer turns on at all",
+            "It no longer turns on",
             "It waters a different plant instead"
           ],
           "answer": "B",
@@ -294,7 +294,7 @@
           "stem": "Which sentence best tells what this story is mainly about?",
           "options": [
             "A girl's gadget fails at a fair, and she calmly finds and fixes the problem",
-            "A girl decides never to build gadgets again after one small failure",
+            "A girl decides never to build gadgets again after one small failure in front of the judges",
             "A school fair is cancelled because too many gadgets break down",
             "A girl wins a prize for the fastest robot built that year"
           ],
@@ -378,7 +378,7 @@
         {
           "stem": "Compare how the judges likely feel when the gadget first floods the plant with how they feel after Maya fixes it.",
           "options": [
-            "They feel impressed in both moments equally, with no change at all",
+            "They feel impressed in both moments equally, with no change",
             "They may feel doubtful at first, then impressed once she fixes it",
             "They feel bored throughout both moments and want to leave the fair early",
             "They feel annoyed in both moments equally and give her a very low score"
@@ -396,8 +396,8 @@
           "stem": "Why does the tube's wide opening cause the gadget to flood the plant?",
           "options": [
             "It lets far too much water through at once",
-            "It makes the timer run too quickly",
-            "It blocks the water from moving at all",
+            "It makes the timer run too quickly and stop early",
+            "It blocks the water from moving",
             "It changes the color of the water"
           ],
           "answer": "A",
@@ -524,8 +524,8 @@
           "stem": "What in the story suggests that Maya's calm reaction is a deliberate choice rather than a lack of concern?",
           "options": [
             "She forces herself to remain composed despite the pressure",
-            "She walks away from her table without looking back",
-            "She seems completely unaware that anything went wrong",
+            "She walks away from her table without looking back and goes home",
+            "She seems unaware that anything went wrong",
             "She immediately blames the judges for the failure"
           ],
           "answer": "A",
@@ -594,7 +594,7 @@
             "To suggest that Maya's invention was never any good and could not be fixed",
             "To show that the judges are too harsh on young inventors at the science fair",
             "To highlight Maya's composure and problem-solving under real pressure",
-            "To make the story longer without adding any real meaning for the reader"
+            "To make the story longer and more exciting for the reader"
           ],
           "answer": "C",
           "skill": "author-purpose",

@@ -295,8 +295,8 @@
           "options": [
             "Rowing boats are nearly impossible for any crew to steer well, even with practice.",
             "Rowing combines a crew's strength with precise timing and coordination to move a boat.",
-            "Only trained Olympic athletes are legally allowed to row competitively in the world.",
-            "The coxswain is always the physically strongest member of the entire crew in every boat."
+            "Trained Olympic athletes are the people allowed to row competitively in the world.",
+            "The coxswain is the strongest member of the crew in each boat."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -398,7 +398,7 @@
             "The boat rocks from side to side and the crew wastes energy.",
             "The boat automatically speeds up on its own without effort.",
             "The oars suddenly become noticeably lighter during the race.",
-            "The coxswain completely takes over all of the rowing instead."
+            "The coxswain takes over all of the rowing instead."
           ],
           "answer": "A",
           "skill": "inference",
@@ -475,7 +475,7 @@
             "Rowing boats are built mainly for carrying heavy cargo across rivers.",
             "Rowing success depends on strength, the oar's physics, and precise crew coordination.",
             "Coxswains are responsible for most of a crew's physical effort.",
-            "Rowing is only practiced in major Olympic competitions held every four years."
+            "Rowing is only practiced in major Olympic competitions held every four years in big cities."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -508,7 +508,7 @@
           "options": [
             "Twenty rowers or as many as fifty rowers total",
             "Exactly four rowers in absolutely every single race",
-            "Just one single rower in every type of racing boat",
+            "Four rowers or six rowers with no coxswain",
             "Two rowers or eight rowers plus a coxswain"
           ],
           "answer": "D",
@@ -543,7 +543,7 @@
             "It shows that oars are generally much heavier in weight than most other ordinary machines used today.",
             "It shows how a short handle movement creates a powerful blade sweep through the water.",
             "It shows that the coxswain controls the oar directly during a race.",
-            "It shows that rowing requires no real physical effort at all."
+            "It shows that rowing requires no real physical effort."
           ],
           "answer": "B",
           "skill": "inference",
@@ -560,7 +560,7 @@
             "The boat automatically gains much more useful momentum.",
             "The oars become noticeably longer during the race itself.",
             "The boat likely loses speed and the crew wastes energy between strokes.",
-            "The coxswain becomes completely unnecessary for the rest of the race."
+            "The coxswain becomes unnecessary for the rest of the race and the crew can relax."
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,7 +574,7 @@
         {
           "stem": "Why does the author mention that coaches spend countless hours helping crews refine their stroke?",
           "options": [
-            "To argue that coaching is completely unnecessary for already skilled crews, since they never improve",
+            "To argue that coaching is unnecessary for already skilled crews, since they never improve",
             "To explain in detail how coaches are chosen for a national team, and who pays them",
             "To compare the overall cost of several different coaching methods used in the sport",
             "To show that achieving good timing and coordination requires ongoing effort and practice"

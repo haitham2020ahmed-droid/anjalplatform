@@ -295,8 +295,8 @@
           "options": [
             "Online games are dangerous, so children should avoid them.",
             "Strong, secret passwords and smart habits protect accounts.",
-            "Hackers can always break into any account that they want.",
-            "Phones are always safer than computers for going online."
+            "Hackers can break into any account that they want.",
+            "Phones are safer than computers for going online."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -378,7 +378,7 @@
         {
           "stem": "Why might a passphrase be a better choice than a short, tricky password?",
           "options": [
-            "It never needs any letters at all.",
+            "It never needs any letters.",
             "It is long but easy to remember.",
             "Hackers are not allowed to guess it.",
             "It can safely be shared with friends."
@@ -396,7 +396,7 @@
           "stem": "Ali's friend watched him type his password. Ali uses two-step verification. Why is his account still fairly safe?",
           "options": [
             "His friend cannot read very well.",
-            "Passwords change by themselves every hour.",
+            "Passwords change by themselves each hour.",
             "His friend would also need the phone code.",
             "The website will block his friend's name."
           ],
@@ -474,8 +474,8 @@
           "options": [
             "Technology companies alone are responsible for keeping every account secure.",
             "Long, unique, private passwords and careful habits are the key to online safety.",
-            "Phishing messages are easy to recognize, so they rarely fool anyone at all.",
-            "Two-step verification makes passwords completely unnecessary for most people."
+            "Phishing messages are easy to recognize, so they rarely fool anyone.",
+            "Two-step verification makes passwords unnecessary for most people."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -575,9 +575,9 @@
           "stem": "Why is camel, lantern, mango, and cloud a good example of a passphrase?",
           "options": [
             "The words are all connected by a single story.",
-            "The words are all the names of different foods.",
+            "The words are the names of different foods.",
             "They are unrelated, so the phrase is hard to predict.",
-            "The words are short enough to type very quickly."
+            "The words are short enough to type very quickly on a phone."
           ],
           "answer": "C",
           "skill": "inference",

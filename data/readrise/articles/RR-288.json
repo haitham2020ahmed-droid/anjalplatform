@@ -132,7 +132,7 @@
           "stem": "What does the wind do to the sail?",
           "options": [
             "It pushes the sail and pulls the boat along.",
-            "It completely tears the cloth into small pieces.",
+            "It tears the cloth into small pieces in the wind.",
             "It makes the rope break.",
             "It stops the boat from moving."
           ],
@@ -165,7 +165,7 @@
         {
           "stem": "What happens when a sailor tacks the boat?",
           "options": [
-            "The boat stops completely in the water and floats there.",
+            "The boat stops in the water and floats there.",
             "The sail falls down and the sailor rows to the shore.",
             "The rope is tied to the dock and the boat is parked.",
             "The boat turns through the wind to zig-zag forward."
@@ -293,7 +293,7 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Sailboats always need an engine to race, even when the wind is strong.",
+            "Sailboats need an engine to race, even when the wind is strong.",
             "The no-go zone is the best place to sail fast, because the wind pushes straight on the sail.",
             "Sailors use wind, sail trim, and tactics to move boats and win races.",
             "Keels are only used to hold life vests and ropes on the boat."
@@ -414,8 +414,8 @@
           "options": [
             "The buoys sink if touched too early.",
             "Crossing too early forces them to turn back and restart.",
-            "Early boats are disqualified from sailing forever.",
-            "The wind always stops at the start."
+            "Early boats are disqualified from the race for the day.",
+            "The wind stops at the start."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -524,7 +524,7 @@
           "stem": "Which conclusion about the no-go zone is best supported by the article?",
           "options": [
             "It is a fixed location that never changes, wherever the boat goes.",
-            "It only exists during official races, and then it is removed.",
+            "It exists during official races, and then it is removed.",
             "It disappears once a boat has a keel, so boats with keels can sail anywhere.",
             "Its position depends on the direction the wind is blowing."
           ],
@@ -557,7 +557,7 @@
         {
           "stem": "Why might a crew constantly shift their body weight during a race?",
           "options": [
-            "To make the boat look impressive to spectators",
+            "To make the boat look impressive to spectators on the shore",
             "To keep the hull level and sustain forward momentum",
             "To cool down in the heat",
             "To signal to the helmsman where to steer"

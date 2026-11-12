@@ -116,7 +116,7 @@
      "options": [
       "A parrot who learns that listening matters more than talking the most",
       "A flock of birds that moves to a new forest every single year to find warm weather",
-      "A river full of fish that the parrots like to eat for dinner every evening",
+      "A river full of fish that the parrots like to eat for dinner each evening",
       "A young parrot who teaches the whole flock how to fly south before the winter"
      ],
      "answer": "A",
@@ -294,8 +294,8 @@
      "stem": "Which sentence best states the central idea of the story?",
      "options": [
       "A boastful parrot learns that careful listening beats loud talking",
-      "A flock of parrots decides to leave their forest forever",
-      "A quiet parrot becomes the fastest flyer in the whole group",
+      "A flock of parrots decides to leave their forest",
+      "A quiet parrot becomes the fastest flyer in the whole group in the forest",
       "A river suddenly dries up and the whole forest disappears"
      ],
      "answer": "A",
@@ -310,10 +310,10 @@
     {
      "stem": "What was Rami's most noticeable habit within the flock?",
      "options": [
-      "He always searched for food alone, far from the group",
+      "He searched for food alone, far from the group",
       "He constantly interrupted others and bragged about himself",
       "He carefully listened to every single parrot who spoke",
-      "He never spoke at all during the flock's daily search"
+      "He rarely spoke during the flock's daily search"
      ],
      "answer": "B",
      "skill": "detail",
@@ -327,7 +327,7 @@
     {
      "stem": "Why did Rami's chosen path turn out to be a mistake?",
      "options": [
-      "He had carefully studied the entire forest beforehand",
+      "He had carefully studied the entire forest beforehand with his flock",
       "Kanz had secretly told him to lead the flock there",
       "He interrupted Tala before she could share full information",
       "He was searching for a river instead of fruit trees"
@@ -344,9 +344,9 @@
     {
      "stem": "What does the flock's choice to follow Rami suggest about the group?",
      "options": [
-      "They always searched for food in complete silence",
+      "They searched for food in complete silence",
       "They valued a loud, confident voice over careful information",
-      "They never trusted any parrot's directions at all",
+      "They never trusted any parrot's directions",
       "They had already visited the fig trees many times before"
      ],
      "answer": "B",
@@ -379,8 +379,8 @@
      "stem": "Why did Kanz specifically ask Tala to finish her earlier thought?",
      "options": [
       "Kanz wanted to find out why the search had gone wrong",
-      "Kanz had completely forgotten about the missing fruit tree",
-      "Kanz wanted Tala to admit she had made a mistake",
+      "Kanz had forgotten about the missing fruit tree",
+      "Kanz wanted Tala to admit she had made a mistake to the flock",
       "Kanz needed help searching for a place to rest"
      ],
      "answer": "A",
@@ -414,7 +414,7 @@
      "options": [
       "It lists the exact steps for building a parrot's nest",
       "It compares two different forests from long ago",
-      "It describes one calm day with absolutely no searching",
+      "It describes one calm day with absolutely no searching in the forest",
       "It shows a boastful mistake, then a careful, listening success"
      ],
      "answer": "D",
@@ -473,9 +473,9 @@
      "stem": "Which statement best captures the central idea of the story?",
      "options": [
       "Overconfidence and constant interrupting lead to mistakes that attentive listening prevents",
-      "Forests always recover quickly whenever a tree runs out of fruit, so parrots never worry",
-      "Older parrots always make far better decisions than younger ones, so the young must obey",
-      "Rivers are the only genuinely reliable food source in any forest, so parrots stay by the water"
+      "Forests recover quickly whenever a tree runs out of fruit, so parrots never worry",
+      "Older parrots make far better decisions than younger ones, so the young must obey",
+      "Rivers are the most reliable food source in a forest, so parrots stay by the water through the day"
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -509,7 +509,7 @@
       "Attentive observation is slower and therefore less useful",
       "Attentive observation only matters near rivers and forests",
       "Attentive observation often reveals what loud confidence misses",
-      "Attentive observation always requires help from older parrots"
+      "Attentive observation requires help from older parrots"
      ],
      "answer": "C",
      "skill": "inference",
@@ -524,7 +524,7 @@
      "stem": "In the story, what does it mean that Rami's confidence was 'misguided'?",
      "options": [
       "His confidence was based on careful, attentive research",
-      "His confidence convinced the whole flock to trust him forever",
+      "His confidence convinced the whole flock to trust him",
       "His confidence helped the flock find fruit more quickly",
       "His confidence was based on a mistaken, incomplete idea"
      ],
@@ -541,7 +541,7 @@
      "stem": "What consequence did the flock face as a direct result of Rami's interruption?",
      "options": [
       "They wasted a hungry morning searching a fruitless area",
-      "They discovered an entirely new river to drink from",
+      "They discovered a new river to drink from",
       "They decided to permanently exclude Rami from the flock",
       "They found twice as much fruit as they had expected"
      ],
@@ -574,7 +574,7 @@
     {
      "stem": "What allowed the flock to finally succeed in finding food?",
      "options": [
-      "Rami's continued overconfidence in his own instincts",
+      "Rami's continued overconfidence in his own instincts in the forest",
       "A second, luckier guess about which direction to fly",
       "The whole flock's attentive patience in letting Tala finish",
       "Kanz personally leading the flock to the fig trees"
@@ -592,7 +592,7 @@
      "stem": "Why does the author have Rami, rather than Tala, undergo the clearest change by the story's end?",
      "options": [
       "To prove that older parrots never need to change their habits, no matter what happens to them",
-      "To show that Tala was never truly capable of leading the flock over the mountains",
+      "To show that Tala was not capable of leading the flock over the mountains",
       "To explain in detail how parrots build their nests near the rivers in the hot season",
       "To highlight the wisdom gained when overconfidence gives way to attentive listening"
      ],

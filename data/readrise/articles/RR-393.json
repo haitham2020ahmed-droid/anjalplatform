@@ -185,7 +185,7 @@
       "She feels shy and scared about performing",
       "She does not like Noor anymore",
       "She does not like to draw pictures",
-      "She is too busy at that exact moment"
+      "She is too busy at that exact moment to come and help"
      ],
      "answer": "A",
      "skill": "inference",
@@ -379,7 +379,7 @@
      "stem": "Why does the audience go silent right after Lama lifts her picture?",
      "options": [
       "They are surprised by her picture",
-      "They cannot see the picture at all",
+      "They cannot see the picture",
       "They are upset that she interrupted the show",
       "They are waiting for the next performer to start"
      ],
@@ -526,7 +526,7 @@
       "excited and eager to begin immediately",
       "unsure and reluctant from fear",
       "angry about an unfair decision",
-      "completely confident and self-assured"
+      "confident and self-assured"
      ],
      "answer": "B",
      "skill": "vocabulary",

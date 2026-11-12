@@ -217,7 +217,7 @@
           "stem": "What can you infer about the mountains in Saudi Arabia by the Red Sea?",
           "options": [
             "They were all built by people with big machines very long ago",
-            "They are made only of ice",
+            "They are made of ice",
             "They formed because moving land pushed and split the ground",
             "They are taller than Mount Everest"
           ],
@@ -295,7 +295,7 @@
           "options": [
             "Everest is the hardest mountain to climb, and many people try it every single year.",
             "Moving plates and volcanoes build mountains, while erosion slowly wears them down.",
-            "Fossils can be found anywhere on Earth, in every kind of rock, soil and sand.",
+            "Fossils can be found in most kinds of rock, soil and sand.",
             "Lava is hotter than magma, because it comes out of the ground into the open air."
           ],
           "answer": "B",
@@ -330,7 +330,7 @@
             "Magma is under the ground; lava is the same melted rock once it pours out at the surface",
             "Magma is cold and lava is hot, so lava burns the ground and magma turns to ice",
             "Magma is a kind of ice that melts when it reaches the surface of the Earth",
-            "There is no difference at all between them, because both words mean the same melted rock"
+            "There is no difference between them, because both words mean the same melted rock"
           ],
           "answer": "A",
           "skill": "compare",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Mountains form only from volcanoes, and the wearing away of rock plays no part in their story at all.",
+            "Mountains form mostly from volcanoes, and the wearing away of rock plays a small part in their story.",
             "Mountains are shaped by tectonic forces and volcanoes that build them up and by erosion that wears them down.",
-            "Saudi Arabia has the highest mountains in the world, and so the article describes only its ranges.",
-            "Erosion stops mountains from forming, and so volcanoes and plates are not needed for any range."
+            "Saudi Arabia has the highest mountains in the world, so the article describes its ranges.",
+            "Erosion stops mountains from forming, so volcanoes and plates matter little."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -542,8 +542,8 @@
           "options": [
             "A volcano grows as layers of lava pile up, while Everest grows as colliding plates fold rock upward",
             "A volcano grows by erosion, while Everest grows by rain and snow that fall on its sides every year",
-            "Both grow only when climbers reach the summit and leave stones there to make it taller",
-            "A volcano grows faster because it is made of ice that freezes in thick layers every year"
+            "Both grow when climbers reach the summit and leave stones there to make it taller",
+            "A volcano grows faster because it is made of ice that freezes in thick layers each year"
           ],
           "answer": "A",
           "skill": "compare",

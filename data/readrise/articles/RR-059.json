@@ -115,7 +115,7 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How to find gold and jewels in the ground",
-            "Why volcanoes are the most dangerous places",
+            "Why volcanoes are the most dangerous places on Earth today",
             "How rocks slowly change from one kind to another",
             "How to build a strong house out of stone"
           ],
@@ -202,7 +202,7 @@
             "It was once at the bottom of a lake.",
             "Lava came out of the ground there long ago.",
             "Wind and rain have never touched it.",
-            "It is the only place where rocks change."
+            "It is a place where rocks change fast in a day."
           ],
           "answer": "B",
           "skill": "inference",
@@ -235,7 +235,7 @@
           "options": [
             "To show that no one knows about rocks",
             "To show that rocks keep changing over and over",
-            "To say that rocks never change at all",
+            "To say that rocks stay the same",
             "To explain how to draw a circle with no start or end"
           ],
           "answer": "B",
@@ -381,7 +381,7 @@
             "The land near Riyadh was once covered by water.",
             "The cliffs were made by a volcano last year.",
             "Riyadh is the only city with cliffs.",
-            "The cliffs will never change."
+            "The cliffs were built by people long ago."
           ],
           "answer": "A",
           "skill": "inference",
@@ -397,7 +397,7 @@
           "options": [
             "Animals only lived near volcanoes, not in the sea or on the land.",
             "Shells can be buried in layers, but melted rock would destroy them.",
-            "Igneous rock is always too soft to hold anything inside it.",
+            "Igneous rock is too soft to hold anything inside it.",
             "Fossils turn into lava when they get very old and hot."
           ],
           "answer": "B",
@@ -415,7 +415,7 @@
             "By telling a story about one rock",
             "By listing problems and solutions",
             "By giving each type of rock its own paragraph",
-            "By comparing rocks on Earth and the moon"
+            "By comparing rocks on Earth and the moon and Mars"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -559,7 +559,7 @@
           "options": [
             "Mud is the strongest material in the rock cycle.",
             "Slate forms only in deserts.",
-            "Metamorphic rock cannot melt.",
+            "Metamorphic rock is harder to melt.",
             "A rock can change from one type to another."
           ],
           "answer": "D",
@@ -576,8 +576,8 @@
           "options": [
             "Earth's heat and the sun keep supplying energy that changes rocks.",
             "Geologists keep moving rocks from one place to another all year.",
-            "New rocks fall from space every day and replace the old ones.",
-            "Rocks melt into magma every time it rains on the mountains."
+            "New rocks fall from space each day and replace the old ones.",
+            "Rocks melt into magma each time it rains on the mountains."
           ],
           "answer": "A",
           "skill": "inference",

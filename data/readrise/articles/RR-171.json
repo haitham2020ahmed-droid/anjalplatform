@@ -148,8 +148,8 @@
         {
           "stem": "Why are the two poles so cold?",
           "options": [
-            "There is no air at all near the top or the bottom",
-            "The wind is always hot",
+            "There is no air near the top or the bottom of the Earth",
+            "The wind is hot",
             "The sun is low in the sky, so its light is weak",
             "The sea is too deep"
           ],
@@ -182,7 +182,7 @@
         {
           "stem": "In the article, a desert is a place that —",
           "options": [
-            "is always very hot",
+            "is very hot",
             "has lots of tall trees",
             "gets very little rain or snow",
             "is covered all over by a deep, wide, salty sea"
@@ -219,7 +219,7 @@
             "Many towns, roads, and big farms are found there",
             "It is a very hard place for people to live",
             "It is warmer than the Arctic",
-            "It has no ice at all"
+            "It has no ice"
           ],
           "answer": "B",
           "skill": "inference",
@@ -310,7 +310,7 @@
         {
           "stem": "According to the article, why does sunlight give less heat at the poles?",
           "options": [
-            "Clouds always block it",
+            "Clouds block it",
             "The poles are much closer to the moon than to the sun",
             "It arrives at a low angle and spreads out",
             "The ice makes its own cold light"
@@ -414,7 +414,7 @@
           "options": [
             "The Arctic is mostly a frozen ocean, while the Antarctic is a continent of land",
             "The Arctic is warmer because it has no sun, while the Antarctic is lit all year",
-            "Only the Arctic has a pole, while the Antarctic is only a large field of snow",
+            "The Arctic has a pole, while the Antarctic is a large field of snow",
             "The Antarctic has more people living there, in big cities built on the ice"
           ],
           "answer": "A",
@@ -475,7 +475,7 @@
             "The Arctic and Antarctic share extreme cold for the same reason but differ greatly in geography, wildlife, and human presence.",
             "The Antarctic is dangerous and should never be visited by anyone, not even by scientists, so it is empty of people and life.",
             "Indigenous peoples have lived in both polar regions for thousands of years, and they are the same in each place.",
-            "Sea ice and ice sheets are the same thing, and both are found only at the North Pole, in the same way."
+            "Sea ice and ice sheets are the same thing, and both are found mostly at the North Pole."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -490,7 +490,7 @@
           "stem": "What does the article say about the Antarctic's ice sheet?",
           "options": [
             "It floats on top of the ocean",
-            "It melts completely each summer",
+            "It melts each summer",
             "It holds most of the fresh water on the planet",
             "It is much thinner than the floating sea ice of the Arctic"
           ],
@@ -574,9 +574,9 @@
         {
           "stem": "Which conclusion is best supported by the article?",
           "options": [
-            "The Arctic has no land at all, because it is only a thick sheet of ice floating on the sea",
+            "The Arctic has no land, because it is only a thick sheet of ice floating on the sea",
             "Penguins could easily survive in the Arctic Ocean, since the water there is just as cold",
-            "The Antarctic receives more rain than Saudi Arabia, and the rain there falls every single day",
+            "The Antarctic receives more rain than Saudi Arabia, and the rain there falls each day",
             "People can live in the Arctic partly because it is mostly ocean surrounded by land and coasts"
           ],
           "answer": "D",
@@ -592,7 +592,7 @@
           "stem": "How is the article mainly organized?",
           "options": [
             "In time order, from ancient times to today",
-            "As a problem followed by a list of solutions",
+            "As a problem followed by a list of solutions and examples",
             "By comparing and contrasting the two polar regions",
             "As a set of directions for explorers"
           ],

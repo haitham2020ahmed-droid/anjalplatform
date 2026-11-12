@@ -132,8 +132,8 @@
           "stem": "Where do honey badgers live?",
           "options": [
             "Only in cold, wet forests far to the north",
-            "Only in the sea",
-            "Only in Saudi Arabia",
+            "In the sea",
+            "In South America",
             "In Africa and Asia, and in Saudi Arabia"
           ],
           "answer": "D",
@@ -216,8 +216,8 @@
         {
           "stem": "What can you tell about a honey badger that is bitten by a snake?",
           "options": [
-            "It always dies right away.",
-            "It never gets bitten at all.",
+            "It dies right away.",
+            "It never gets bitten.",
             "It is very tough, because it can often wake up and go on.",
             "It needs a doctor to come and give it some medicine."
           ],
@@ -346,7 +346,7 @@
           "options": [
             "harms the badger less than it would harm most animals",
             "cannot get through the badger's thick skin or fur",
-            "makes the badger run faster than any snake",
+            "makes the badger run faster than a snake",
             "is used by the badger to hunt other animals"
           ],
           "answer": "A",
@@ -475,7 +475,7 @@
             "A combination of physical adaptations and flexible habits lets a small animal survive among larger predators.",
             "Honey badgers survive mainly because they live in protected national parks with guards and fences, far from danger",
             "Honey badgers depend on honey, so they cannot live in any place where bees are rare or missing",
-            "Honey badgers are dangerous only to bees and scorpions, and they leave all other animals alone"
+            "Honey badgers are dangerous to bees and scorpions, and they leave large animals alone"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -509,7 +509,7 @@
             "They eat special plants that block venom.",
             "Their thick skin stops every snake fang from biting them.",
             "They have a small genetic difference in their bodies.",
-            "They avoid every snake they meet."
+            "They avoid the snakes they meet."
           ],
           "answer": "C",
           "skill": "detail",

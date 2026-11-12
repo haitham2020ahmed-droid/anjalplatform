@@ -218,7 +218,7 @@
           "options": [
             "Inside a park, animals are protected; long ago, animals could be hunted freely.",
             "Inside a park, animals live in cages; long ago, they roamed free.",
-            "Inside a park, there are no animals at all; long ago, there were many.",
+            "Inside a park, there are no animals; long ago, there were many.",
             "Inside a park, animals are fed by visitors; long ago, they found no food."
           ],
           "answer": "A",
@@ -397,7 +397,7 @@
           "options": [
             "The wildlife would become much easier to see.",
             "The wildlife would suddenly need far fewer rangers.",
-            "The wildlife would require no habitat at all anymore.",
+            "The wildlife would require no habitat anymore.",
             "The wildlife and habitat could be damaged by overuse."
           ],
           "answer": "D",
@@ -474,8 +474,8 @@
           "options": [
             "National parks protect biodiversity and habitat, but managing visitor numbers sustainably is an ongoing challenge.",
             "National parks exist mainly so governments can collect extra money from visiting tourists in every country.",
-            "Conservation became completely unnecessary once the very first parks were created in the 1800s.",
-            "Rangers were invented specifically to replace the need for any park regulations at all, so rules were removed."
+            "Conservation became unnecessary once the very first parks were created in the 1800s.",
+            "Rangers were hired to replace park regulations, so the rules were removed."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -492,7 +492,7 @@
             "It increased steadily across most regions of the world.",
             "It stayed exactly the same in almost every single place.",
             "It declined sharply across many regions and continents.",
-            "It only ever changed within the United States itself."
+            "It changed mostly within the United States itself."
           ],
           "answer": "C",
           "skill": "detail",
@@ -557,9 +557,9 @@
         {
           "stem": "What can be inferred about why park authorities must balance visitor numbers carefully?",
           "options": [
-            "Because visitors always damage habitat no matter how few there are.",
-            "Because conservation work costs almost nothing at all to fund.",
-            "Because rangers simply prefer parks with no visitors at all.",
+            "Because visitors damage habitat however few there are, so fewer is better.",
+            "Because conservation work costs almost nothing to fund.",
+            "Because rangers simply prefer parks with no visitors.",
             "Because too few visitors limits funding, while too many can degrade the land."
           ],
           "answer": "D",
@@ -576,7 +576,7 @@
           "options": [
             "To create a larger, more effective area for protecting biodiversity",
             "To reduce the overall number of rangers needed nationwide",
-            "To stop every single visitor from ever entering the reserve",
+            "To stop every single visitor from ever entering the reserve of the park",
             "To replace existing farmland with one single large park"
           ],
           "answer": "A",
@@ -594,7 +594,7 @@
             "As a detailed, step-by-step recipe for starting a brand new park",
             "From the history of land use to modern conservation and its challenges",
             "As a carefully ranked list of the world's largest parks",
-            "As a heated debate between two completely opposing governments"
+            "As a heated debate between two opposing governments"
           ],
           "answer": "B",
           "skill": "text-structure",

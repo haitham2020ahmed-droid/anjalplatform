@@ -414,7 +414,7 @@
           "options": [
             "It has no internet cables under the sea or on land",
             "It sends all its data by satellite, never by cable",
-            "It builds all the world's cable ships in its own ports",
+            "It builds most of the world's cable ships in its ports",
             "It is an important link between three continents"
           ],
           "answer": "D",
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Satellites are the fastest way to send information, and cables are almost never used today.",
-            "Cable ships are the most important ships on the ocean, and they carry people all over the world.",
+            "Cable ships are the busiest ships on the ocean, and they carry people across the world.",
             "The internet was invented in 1858 by a team of engineers who laid a line across the Atlantic.",
             "Undersea cables carry most data between continents and must be protected and maintained."
           ],
@@ -542,7 +542,7 @@
           "options": [
             "Because they are too old to be useful",
             "Because everyday activities like fishing can harm a system countries rely on",
-            "Because they are made only of thin glass and have no protection at all from the sea",
+            "Because they are made only of thin glass and have no protection from the sea",
             "Because satellites are replacing them"
           ],
           "answer": "B",
@@ -577,7 +577,7 @@
             "Undersea cables matter more to the internet than satellites do.",
             "Satellites will soon replace all undersea cables in every country.",
             "Cables near the shore need no protection from ships or anchors.",
-            "Only a few countries use undersea cables to send messages."
+            "Satellites will soon replace most undersea cables."
           ],
           "answer": "A",
           "skill": "inference",

@@ -116,7 +116,7 @@
      "options": [
       "How sailors once built strong wooden boats for long trips",
       "The grid of lines that helps us find exact spots on Earth",
-      "Why the equator always feels hot outside in the summer",
+      "Why the equator feels hot outside in the summer",
       "How to draw a round globe at school with a pencil"
      ],
      "answer": "B",
@@ -165,7 +165,7 @@
     {
      "stem": "Why was it hard for old sailors to find longitude?",
      "options": [
-      "They were afraid of looking at the stars",
+      "They were afraid of looking at the stars at night",
       "The open ocean stayed much too calm",
       "They needed a clock good enough to use at sea",
       "Sailing ships had not been invented yet"
@@ -182,7 +182,7 @@
     {
      "stem": "In the article, a grid is best described as —",
      "options": [
-      "a small sailing boat used by sailors",
+      "a small sailing boat used by sailors on long trips",
       "a tall, snowy mountain peak",
       "a pattern of lines that cross each other",
       "a bright star seen high in the sky"
@@ -217,8 +217,8 @@
      "stem": "What can you tell about GPS from the article?",
      "options": [
       "It only works when used on large ships at sea",
-      "It cannot work anywhere near the open ocean or sky",
-      "It never uses latitude or longitude numbers to find a place",
+      "It works poorly near the open ocean",
+      "It uses street names instead of numbers to find a place",
       "It finds your exact spot much faster than old ways"
      ],
      "answer": "D",
@@ -378,9 +378,9 @@
     {
      "stem": "Based on the article, why might a pilot rely on GPS rather than stars?",
      "options": [
-      "Because stars are always more accurate than any GPS",
-      "Because airplanes are physically unable to see satellites",
-      "Because GPS does not work at all over open water",
+      "Because stars are more accurate than any GPS",
+      "Because airplanes are physically unable to see satellites in the clouds",
+      "Because GPS does not work over open water",
       "Because GPS gives exact coordinates quickly, even through clouds"
      ],
      "answer": "D",
@@ -473,9 +473,9 @@
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
       "Only sailors from past centuries ever needed latitude and longitude, and no one uses them today",
-      "The prime meridian is the single most important place on Earth, and every city lies on it",
+      "The prime meridian is the most important place on Earth, so most cities are built near it",
       "Latitude and longitude form a grid that GPS now lets us use with great precision",
-      "Atomic clocks are useful only for telling the time of day, and not for maps or GPS"
+      "Atomic clocks are useful mainly for telling the time of day, not for maps or GPS"
      ],
      "answer": "C",
      "skill": "central-idea",
@@ -490,8 +490,8 @@
      "stem": "What does the article say made longitude historically difficult to calculate at sea?",
      "options": [
       "A complete absence of any maps showing latitude, so that sailors could not find their place on the sea",
-      "Sailors' flat refusal to use any mathematics on the ship, because they thought it was a waste of time",
-      "A lack of stars that sailors could ever see at night, since the sky over the sea was always full of clouds",
+      "Sailors' refusal to use mathematics on the ship, because they thought it wasted time",
+      "A lack of stars that sailors could ever see at night, since the sky over the sea was full of clouds",
       "The need for an extremely precise chronometer that could withstand a rocking ship"
      ],
      "answer": "D",
@@ -526,7 +526,7 @@
       "the quality of being very exact and accurate",
       "the distance measured between two separate oceans",
       "a particular type of signal sent by a satellite",
-      "the feeling of being completely lost at sea"
+      "the feeling of being lost at sea"
      ],
      "answer": "A",
      "skill": "vocabulary",
@@ -576,8 +576,8 @@
      "options": [
       "Navigation has grown far more precise since the days of early sailors",
       "GPS cannot ever work without a coastline nearby to guide the ships",
-      "Chronometers are no longer useful for any purpose at all",
-      "Stars were always more reliable than any modern satellite"
+      "Chronometers are now more useful than satellites",
+      "Stars were more reliable than modern satellites"
      ],
      "answer": "A",
      "skill": "inference",

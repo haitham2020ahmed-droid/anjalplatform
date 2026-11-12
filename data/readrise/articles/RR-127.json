@@ -116,7 +116,7 @@
           "options": [
             "How to win more video games before bedtime",
             "Why sleep matters and how screens can make it harder to sleep",
-            "Why kids should never use tablets or phones at all, even at school",
+            "Why kids should never use tablets or phones, even at school",
             "How clocks in the bedroom tell the time at night"
           ],
           "answer": "B",
@@ -218,7 +218,7 @@
           "options": [
             "A game you play only once on a holiday with your friends",
             "Something you do again and again until it is normal for you",
-            "A kind of tablet or phone that you use every day to read",
+            "A kind of tablet or phone that you use each day to read",
             "A dream you have at night that keeps coming back to you"
           ],
           "answer": "B",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Children should play games only on weekends, and they should never use a tablet at all.",
+            "Children should play games only on weekends, and they should never use a tablet.",
             "Sleep helps the body and brain, and screens at night can disturb it, so a healthy routine helps.",
-            "Melatonin is the most important chemical in the human body, and all sleep depends on it.",
+            "Melatonin is the most important chemical in the body, and sleep depends on it.",
             "Paper books are more interesting than tablets, which is why children should avoid screens."
           ],
           "answer": "B",
@@ -379,7 +379,7 @@
           "stem": "Why does the author suggest reading a paper book instead of using a device before bed?",
           "options": [
             "A paper book does not give off bright light that keeps the brain alert",
-            "Paper books are always cheaper than devices, so families save money",
+            "Paper books are cheaper than devices, so families save money each month",
             "Reading a paper book makes you grow taller",
             "Devices cannot show any stories"
           ],
@@ -474,7 +474,7 @@
           "options": [
             "Night mode solves every problem that screens cause for sleep.",
             "Sleep performs vital work for the body and brain, and nighttime screen use can disrupt it, so a consistent routine is important.",
-            "Children need less sleep than adults because they are smaller, so they can safely stay up late with their screens.",
+            "Children need less sleep than adults because they are smaller, so they can safely stay up late with their screens on school nights.",
             "The circadian rhythm controls hunger more than sleep."
           ],
           "answer": "B",

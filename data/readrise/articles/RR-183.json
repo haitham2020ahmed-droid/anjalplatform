@@ -131,7 +131,7 @@
         {
           "stem": "Before coins, what did some people use as money?",
           "options": [
-            "Cards and phones",
+            "Cards, phones, and paper",
             "Paper notes",
             "Gold rings",
             "Shells, salt, or grain"
@@ -347,7 +347,7 @@
             "Coins could be eaten whenever a family's food ran out.",
             "They were small, strong, and marked with their value.",
             "Everyone suddenly had to grow exactly the same crops.",
-            "Coins completely replaced the need for any merchants."
+            "Coins replaced the need for any merchants."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -414,8 +414,8 @@
           "options": [
             "By comparing two countries and their coins",
             "In time order, from bartering to cards and phones",
-            "As a list of problems with no solutions at all",
-            "As a story told by one merchant in a market"
+            "As a list of problems with no solutions",
+            "As a story told by one merchant in a market with his friends"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best summarizes the central idea of the article?",
           "options": [
-            "Coins have always been the only true form of money.",
+            "Coins have been the only true form of money.",
             "Bartering is better than money because it is much simpler.",
             "Paper money was first invented in Saudi Arabia.",
             "Money has taken many forms and depends on trust."
@@ -558,8 +558,8 @@
           "stem": "What do shells, coins, paper notes, and digital numbers have in common?",
           "options": [
             "They are all made of metal that lasts a long time.",
-            "They were all invented in the very same century.",
-            "They each have great value all by themselves.",
+            "They were invented in the same century.",
+            "They each have great value by themselves.",
             "People agreed to accept them as payment."
           ],
           "answer": "D",
@@ -574,7 +574,7 @@
         {
           "stem": "In the article, what does the word \"durable\" mean?",
           "options": [
-            "Shiny and bright",
+            "Shiny, bright, and new",
             "Light and thin",
             "Strong and long-lasting",
             "Rare and costly"

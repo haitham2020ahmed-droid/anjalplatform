@@ -131,9 +131,9 @@
     {
      "stem": "Where does food waste happen, according to the article?",
      "options": [
-      "Only on farms, nowhere else at all",
-      "Only in stores, nowhere else at all",
-      "Only in kitchens, nowhere else at all",
+      "In hospitals, clinics, and schools",
+      "In schools and offices",
+      "On ships at sea",
       "On farms, in stores, and in kitchens"
      ],
      "answer": "D",
@@ -200,8 +200,8 @@
      "stem": "A store sells odd-looking fruit at a lower price. Why would a store do this?",
      "options": [
       "To make the fruit grow much faster than usual",
-      "To stop people from buying any fruit at all",
-      "To make the fruit taste completely different",
+      "To stop people from buying any fruit",
+      "To make the fruit taste different",
       "To get rid of fruit instead of wasting it"
      ],
      "answer": "D",
@@ -219,7 +219,7 @@
       "Because water and fuel are found inside food",
       "Because they were used to grow and move it",
       "Because delivery trucks only ever carry water",
-      "Because farms do not actually need any water"
+      "Because farms use water to wash the food"
      ],
      "answer": "B",
      "skill": "cause-effect",
@@ -234,7 +234,7 @@
      "stem": "Why does the author end the article by talking about the whole planet?",
      "options": [
       "To explain in detail how planets actually form",
-      "To describe a completely different country's farms",
+      "To describe a different country's farms",
       "To show that wasting less food helps everyone",
       "To list many more foods that can spoil"
      ],
@@ -296,7 +296,7 @@
       "Only stores are responsible for food waste, and families and farms never waste any.",
       "Food waste happens from farm to table and wastes valuable resources.",
       "Farmers should stop growing more food than needed, and then waste would end at once.",
-      "Leftover food should always be thrown away, because it is never safe to eat."
+      "Leftover food should be thrown away, because it is rarely safe to eat."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -363,7 +363,7 @@
      "options": [
       "To help people who need food instead of wasting it",
       "To make the food spoil faster in the store, so it is gone",
-      "To avoid selling any food at all this week in the shop",
+      "To avoid selling any food this week in the shop",
       "To make room for more customers to walk in the store"
      ],
      "answer": "A",
@@ -475,7 +475,7 @@
       "Farms produce too much food and should grow less of it, so farmers must plant fewer crops.",
       "Food waste squanders resources used to produce food and harms the environment.",
       "Only wealthy countries waste food in their homes and stores, and poorer ones waste nothing.",
-      "Stores should never sell discounted food, because it makes people throw away more."
+      "Stores should stop selling discounted food, because it makes people throw away more."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -542,7 +542,7 @@
      "options": [
       "To argue that farms should be built only in rich countries",
       "To explain why some farms are much bigger than others in the same country",
-      "To suggest that food never spoils in dry regions, so nobody there needs to save it",
+      "To suggest that food spoils slowly in dry regions, so people there waste little",
       "To show that wasting food can hurt regions where resources are already scarce"
      ],
      "answer": "D",
@@ -577,7 +577,7 @@
       "Because it means farmers grow too little food for people",
       "Because it causes food prices to drop sharply every year",
       "Because it means resources used to grow food go to waste",
-      "Because it stops trucks from carrying any food to stores"
+      "Because it stops trucks from carrying food to stores"
      ],
      "answer": "C",
      "skill": "cause-effect",

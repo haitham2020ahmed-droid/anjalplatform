@@ -217,7 +217,7 @@
           "stem": "Why might dates be a good snack before playing sports?",
           "options": [
             "They are cold and full of ice.",
-            "They have no sugar at all.",
+            "They have no sugar.",
             "They help you fall asleep fast.",
             "They give the body energy."
           ],
@@ -363,8 +363,8 @@
           "options": [
             "The wind alone does not carry enough pollen.",
             "Male palms make pollen only in the winter.",
-            "Desert bees eat all of the male pollen.",
-            "Female flowers cannot hold pollen in the sun."
+            "Male palms make their pollen in the winter.",
+            "Female flowers close up during hot afternoons."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -593,7 +593,7 @@
           "options": [
             "To argue that people should stop cutting palms",
             "To show that nearly every part of the tree is useful",
-            "To explain how dates change color as they ripen",
+            "To explain how dates change color as they ripen in summer",
             "To compare date palms with other kinds of trees"
           ],
           "answer": "B",

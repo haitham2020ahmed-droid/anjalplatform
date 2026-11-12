@@ -235,7 +235,7 @@
           "options": [
             "To keep readers safe if a fever is bad",
             "To show that every single fever is dangerous",
-            "To tell readers that they never need a doctor",
+            "To tell readers that they rarely need a doctor",
             "To explain how germs grow inside the body"
           ],
           "answer": "A",
@@ -361,7 +361,7 @@
         {
           "stem": "Why might a person shiver at the start of a fever even though the body is getting hotter?",
           "options": [
-            "Because the room around them is always very cold",
+            "Because the room around them is very cold",
             "Because the body is making heat to warm up",
             "Because sweat is drying on the skin and cooling it",
             "Because germs make people's blood turn cold"
@@ -397,7 +397,7 @@
           "options": [
             "A fever is a sign of infection; sun heat is not.",
             "Both a fever and sun heat come from germs.",
-            "Heat from the sun always lasts for three days.",
+            "Heat from the sun lasts for three days.",
             "A fever can only happen in the summer months."
           ],
           "answer": "A",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "A fever is a dangerous illness that always needs a hospital.",
+            "A fever is a dangerous illness that needs a hospital.",
             "A fever is the brain-guided way the body fights infection.",
             "Fevers happen because people play in the sun for too long.",
             "The hypothalamus causes infections by raising the temperature."
@@ -525,7 +525,7 @@
           "options": [
             "It rises even higher than before.",
             "It returns to normal, so you sweat.",
-            "It stops working completely for a day.",
+            "It stops working for a day.",
             "It moves to a different part of the body."
           ],
           "answer": "B",
@@ -559,7 +559,7 @@
           "options": [
             "Many germs cannot multiply as rapidly in a warmer body.",
             "Some thermometers are held near the forehead.",
-            "A healthy body usually stays close to 37 degrees.",
+            "A healthy body usually stays close to 37 degrees and sleeping.",
             "Only an adult should give you medicine."
           ],
           "answer": "A",

@@ -295,7 +295,7 @@
           "options": [
             "Plants need more water than any other living thing, so they must be watered each day.",
             "Through photosynthesis, plants use light to make food and release oxygen.",
-            "Date palms are the only plants that store sugar in their fruit.",
+            "Date palms store more sugar in their leaves than in their fruit.",
             "Leaves are green so that animals can find them and eat them."
           ],
           "answer": "B",
@@ -328,7 +328,7 @@
           "stem": "According to the article, what does a plant use glucose for?",
           "options": [
             "For energy and to build new parts",
-            "Only to make the leaves green",
+            "Only to make the leaves green in spring",
             "To pull water out of the soil",
             "To keep insects away"
           ],
@@ -381,7 +381,7 @@
             "The roots stop taking in water.",
             "Oxygen is released into the air.",
             "The leaves lose their chlorophyll.",
-            "The stomata close forever."
+            "The stomata close."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -398,7 +398,7 @@
             "So it has energy later when it needs it",
             "So the roots can grow above the ground",
             "So animals cannot eat its leaves",
-            "So it never needs sunlight again"
+            "So it can grow taller during the night"
           ],
           "answer": "A",
           "skill": "inference",
@@ -560,7 +560,7 @@
             "It would speed up because the leaf stays cooler in the shade.",
             "It would slow down because less carbon dioxide can enter the leaf.",
             "It would stop producing glucose and start producing water.",
-            "It would not change at all, because stomata only release oxygen."
+            "It would not change, because stomata only release oxygen."
           ],
           "answer": "B",
           "skill": "inference",
@@ -577,7 +577,7 @@
             "Stored glucose turns into sunlight in the leaves.",
             "The roots can photosynthesize in the dark soil underground.",
             "It can use the stored energy while it makes less food.",
-            "Cloudy weather makes the plant need no energy at all."
+            "Cloudy weather makes the plant need no energy."
           ],
           "answer": "C",
           "skill": "inference",

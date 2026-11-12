@@ -202,7 +202,7 @@
             "The stars are asleep.",
             "The galaxy only comes out in summer.",
             "Bright lights hide it.",
-            "Tall buildings block every star."
+            "Tall buildings block the stars."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -381,7 +381,7 @@
             "The galaxy is really shaped like a long, thin band.",
             "We can see it only when we use a strong telescope.",
             "We are inside the flat disk, looking through it.",
-            "Thick clouds always cover the rest of the pinwheel."
+            "Thick clouds cover the rest of the pinwheel."
           ],
           "answer": "C",
           "skill": "inference",
@@ -558,7 +558,7 @@
           "stem": "How is Galileo's discovery different from what people saw before telescopes?",
           "options": [
             "Earlier people believed that the band was a distant planet.",
-            "He saw a black hole, while everyone else saw nothing at all.",
+            "He saw a black hole, while everyone else saw nothing.",
             "He saw that the band was really countless separate stars.",
             "He viewed the galaxy from outside, shaped like a pinwheel."
           ],

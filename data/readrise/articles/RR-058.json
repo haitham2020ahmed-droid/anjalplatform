@@ -185,7 +185,7 @@
             "The land is too cold for any wind to blow there.",
             "People on land push it back to sea with fans.",
             "It has no warm sea water to give it power.",
-            "Trees on land eat up all the rain in the clouds."
+            "Trees on land take the rain from the clouds."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -219,7 +219,7 @@
             "The ocean near the equator is warm.",
             "There is no wind near the North Pole.",
             "People near the equator want storms.",
-            "The North Pole has no sea at all."
+            "The North Pole has no sea."
           ],
           "answer": "A",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Warm oceans power cyclones, and forecasts help keep people safe.",
             "Tropical cyclones only happen near America.",
             "Cyclone Gonu was the strongest storm in the history of the world.",
-            "Clouds form only when the ocean is cold."
+            "Clouds form when the ocean is cold."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -378,7 +378,7 @@
         {
           "stem": "What can you infer about why the storm surge is often the most dangerous part of a cyclone?",
           "options": [
-            "It happens far out at sea where no people live at all.",
+            "It happens far out at sea, where few people or ships go.",
             "It only lasts for a few seconds before it ends.",
             "Seawater pushed onto the coast can flood whole towns quickly.",
             "It brings very cold air from the North Pole."
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Cyclones are rare storms that seldom affect the lives of people near coasts.",
+            "Cyclones are rare storms that seldom affect the lives of people near coasts in Asia or Arabia.",
             "Warm oceans drive a heat cycle that feeds cyclones, and forecasting reduces the danger.",
             "Storm names are the most important tool for staying safe.",
             "The Southern Hemisphere has stronger storms than the Northern Hemisphere."
@@ -524,7 +524,7 @@
           "stem": "A cyclone forms south of the equator. In which direction will it most likely rotate?",
           "options": [
             "Counterclockwise",
-            "It will not rotate at all",
+            "It will not rotate",
             "Clockwise",
             "It will change direction every hour"
           ],
@@ -576,7 +576,7 @@
           "options": [
             "Evacuating many people safely takes time.",
             "Meteorologists want people to stay at the beach.",
-            "Storms always arrive exactly when forecast.",
+            "Storms arrive exactly when forecast.",
             "Cyclones are harmless until they reach land."
           ],
           "answer": "A",

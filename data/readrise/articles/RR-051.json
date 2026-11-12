@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a house in the city",
+            "How to build a house in the city by the sea",
             "A huge sand desert and what is in it",
             "Why it rains a lot in the south",
             "How to ride a camel safely"
@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell from the fact that there were lakes here long ago?",
           "options": [
-            "The desert has always looked the same",
+            "The desert has looked the same",
             "Lakes are under the sand today",
             "The land used to be wetter than it is now",
-            "The oryx dug the lakes long ago"
+            "The oryx dug the lakes there long ago with their horns"
           ],
           "answer": "C",
           "skill": "inference",
@@ -295,8 +295,8 @@
           "options": [
             "The Empty Quarter is a huge, harsh sand desert, yet animals and people have found ways to live and work there.",
             "The Empty Quarter is the rainiest place in Saudi Arabia, with lakes and green fields all over the land.",
-            "Camels are the only animals that live in the Empty Quarter, and people never go there to live or work.",
-            "Oil is the only interesting thing about the desert, so scientists and tourists have no reason to visit it."
+            "Camels are the main animals in the Empty Quarter, and people rarely go there to live or work.",
+            "Oil is the most interesting thing about the desert, so scientists visit it more than tourists do."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,7 +344,7 @@
         {
           "stem": "What does the fossil of a hippo tell scientists about the Empty Quarter?",
           "options": [
-            "Hippos still live in the desert today",
+            "Hippos still live in the desert today in the lakes",
             "Lakes existed there thousands of years ago",
             "The dunes used to be taller long ago",
             "Bedouin travelers kept hippos"
@@ -474,7 +474,7 @@
           "options": [
             "The Empty Quarter is too dangerous for anyone to study, so scientists have never gone inside it.",
             "The Empty Quarter is a vast, arid desert whose harsh conditions have shaped its land, its wildlife, and the people connected to it.",
-            "The Empty Quarter was once completely covered by an ocean, and today the water has returned to it.",
+            "The Empty Quarter was once covered by an ocean, and today the water has returned to it.",
             "Explorers from Europe discovered the Empty Quarter before anyone lived near it, and they gave the desert its name and its first maps."
           ],
           "answer": "B",
@@ -543,7 +543,7 @@
             "The guides had maps drawn by scientists",
             "The guides knew where the hidden wells were and how to navigate",
             "The guides owned the oil field at Shaybah",
-            "The guides had the power to make rain fall on the desert"
+            "The guides had the power to make rain fall on the desert whenever they wished"
           ],
           "answer": "B",
           "skill": "inference",

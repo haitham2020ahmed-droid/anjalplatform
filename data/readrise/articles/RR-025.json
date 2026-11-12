@@ -184,7 +184,7 @@
           "options": [
             "Lightning heats the air, and the air pushes out fast.",
             "Two clouds crash into each other.",
-            "Rain hits the roof of the house very, very hard.",
+            "Rain hits the roof of the house very, very hard during a storm.",
             "The wind blows through the trees."
           ],
           "answer": "A",
@@ -311,7 +311,7 @@
           "stem": "According to the article, what charge does the bottom of a storm cloud usually gather?",
           "options": [
             "A positive charge",
-            "No charge at all",
+            "No charge",
             "A negative charge",
             "The same charge as the top"
           ],
@@ -381,7 +381,7 @@
             "To explain lightning using something readers may have felt",
             "To warn readers never to touch door handles in winter",
             "To prove that metal door handles cause storms in the sky",
-            "To show that lightning is very small and not at all strong"
+            "To show that lightning is very small and not strong"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -415,7 +415,7 @@
             "They happen in different seasons.",
             "Thunder is caused by the heat of the lightning.",
             "They are both made of water.",
-            "They always come from two different clouds at the same time."
+            "They come from two different clouds at the same time."
           ],
           "answer": "B",
           "skill": "inference",
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Benjamin Franklin's inventions changed the world.",
-            "Lightning is hotter than the sun, so scientists find it impossible to study at all.",
+            "Lightning is hotter than the sun, so scientists find it impossible to study.",
             "Lightning is an electrical discharge that causes thunder and requires precautions.",
             "Thunder can be used to predict the weather days in advance."
           ],
@@ -559,7 +559,7 @@
           "options": [
             "Air usually blocks electricity until the charge becomes very strong.",
             "Air is a perfect conductor of electricity, so sparks jump through it easily.",
-            "Air has no effect on lightning at all, and lightning forms in empty space.",
+            "Air has no effect on lightning, and lightning forms in empty space.",
             "Air makes the charge inside clouds, so the clouds are charged by wind alone."
           ],
           "answer": "A",

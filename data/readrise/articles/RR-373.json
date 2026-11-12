@@ -217,7 +217,7 @@
           "stem": "What happens because the crow stays calm and remembers the hidden water?",
           "options": [
             "The flock survives the drought safely",
-            "The flock leaves the hill forever",
+            "The flock leaves the hill",
             "The rain stops completely",
             "The crow forgets where the spring is"
           ],
@@ -293,7 +293,7 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "A flock of birds moves away from a dry hillside forever, to find a green valley, and never comes back.",
+            "A flock of birds moves away from a dry hillside, to find a green valley, and never comes back.",
             "A calm, experienced crow relies on her memory and a reliable method to guide her flock through a drought.",
             "A young crow learns to fly for the very first time, with help from the flock and an old fox.",
             "A flock of birds argues about which hill to live on, and in the end, they split into two groups."
@@ -361,7 +361,7 @@
         {
           "stem": "Why does panic make the other birds' situation worse, based on the story?",
           "options": [
-            "Panic makes the birds too tired to fly at all, so they sit on the ground",
+            "Panic makes the birds too tired to fly, so they sit on the ground",
             "Panic makes the birds search without a plan, wasting their strength",
             "Panic causes the drought to last even longer than it would have",
             "Panic makes the younger birds forget how to drink from the small pool"
@@ -396,8 +396,8 @@
           "stem": "Why does the crow check the nearest hidden source first?",
           "options": [
             "Because it is a reliable method that saves time and energy",
-            "Because the nearest source always has the most water",
-            "Because the other sources are too dangerous to reach",
+            "Because the nearest source has the most water",
+            "Because the other sources are too dangerous to reach in summer",
             "Because the flock told her to go there first"
           ],
           "answer": "A",
@@ -506,7 +506,7 @@
         {
           "stem": "Based on the story, what allows the crow to locate water that the younger birds cannot find?",
           "options": [
-            "A natural ability to sense water through her feet",
+            "A natural ability to sense water through her feet and her hands",
             "A systematic memory of the land built over many seasons",
             "Help from a farmer who shows her the way",
             "A lucky guess that happens to be correct"
@@ -523,8 +523,8 @@
         {
           "stem": "In the story, the word resourceful most nearly describes birds who —",
           "options": [
-            "refuse to drink any water at all",
-            "fly faster than any other bird in the flock",
+            "refuse to drink any water",
+            "fly faster than the other birds in the flock",
             "find clever ways to handle a hard situation",
             "forget the drought as soon as rain returns"
           ],
@@ -575,7 +575,7 @@
           "stem": "What is the most likely reason the crow checks the nearest hidden source before moving to the next one?",
           "options": [
             "A systematic order saves the flock's limited strength",
-            "The nearest source always contains the most water",
+            "The nearest source contains the most water",
             "She forgets the locations of the farther sources",
             "The flock insists on visiting the closest place first"
           ],
@@ -592,7 +592,7 @@
           "stem": "What does the crow's success ultimately suggest about surviving a crisis?",
           "options": [
             "Only the fastest fliers can survive a serious crisis",
-            "A crisis always ends the same way no matter how it is handled",
+            "A crisis always ends the same way no matter how it is handled by people",
             "Panic is the only natural response worth trusting in danger",
             "Calm instinct and systematic memory can resolve a crisis panic cannot"
           ],

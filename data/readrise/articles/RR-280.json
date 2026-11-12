@@ -200,8 +200,8 @@
           "stem": "What would likely happen if a shuttlecock had no feathers at all?",
           "options": [
             "It would bounce much higher than it does now",
-            "It would become far too heavy for players to hit",
-            "Nothing about its flight would ever change at all",
+            "It would become far too heavy for players to hit in the game",
+            "Nothing about its flight would ever change",
             "It would probably not slow down in the same quick way"
           ],
           "answer": "D",
@@ -234,7 +234,7 @@
           "stem": "How does the author begin the article?",
           "options": [
             "With a long list of official badminton rules",
-            "With a short telling of the history of badminton",
+            "With a short telling of the history of badminton in old England",
             "With a short scene of a shuttlecock flying over the net",
             "With a simple question about the sport of tennis"
           ],
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Tennis balls always travel much faster than shuttlecocks everywhere on court",
+            "Tennis balls travel much faster than shuttlecocks on most courts, so tennis is harder",
             "A shuttlecock's feathers create drag, so it slows fast as footwork decides the rally",
-            "Badminton courts are built noticeably smaller than every tennis court",
-            "Players must always serve from one same fixed spot on the court every time"
+            "Badminton courts are built noticeably smaller than tennis courts",
+            "Players must serve from one fixed spot on the court each time"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -363,7 +363,7 @@
           "options": [
             "Because players are never allowed to move quickly on the court",
             "Because the badminton court is extremely small for the players",
-            "Because only a single hit is allowed in each rally by the rules",
+            "Because a single hit is allowed in each rally by the rules",
             "Because the shuttlecock slows and falls fast, ending points"
           ],
           "answer": "D",
@@ -398,7 +398,7 @@
             "To show that every type of ball behaves the same way when it is hit through the air",
             "To carefully explain the full official rules of tennis, as they are played in a match",
             "To help readers see how unusual the shuttlecock's slowing motion is",
-            "To argue that football is always the faster sport, since it is bigger than a shuttlecock"
+            "To argue that football is the faster sport, since it is bigger than a shuttlecock"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -415,7 +415,7 @@
             "A tennis ball slows down just as suddenly as a shuttlecock does",
             "A shuttlecock slows fast, while a ball or football keeps more speed",
             "A shuttlecock keeps its speed much longer than any tennis ball",
-            "Neither a shuttlecock nor a tennis ball is affected by air at all"
+            "Neither a shuttlecock nor a tennis ball is affected by air"
           ],
           "answer": "B",
           "skill": "compare",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Badminton courts are built exactly the same size as tennis courts everywhere in the world, and their nets are alike",
+            "Badminton courts are built exactly the same size as tennis courts, and their nets are alike",
             "A shuttlecock's asymmetrical shape creates drag, forcing fast deceleration and sharp reflexes",
             "Shuttlecocks are generally far heavier in weight than most tennis balls and rackets",
             "Scoring in badminton never truly depends on an even or an odd score in a game"
@@ -526,7 +526,7 @@
             "Because it is launched with much less initial force at the start",
             "Because it is secretly filled with much heavier material on the inside",
             "Its feathered skirt generates far more aerodynamic drag than a smooth ball",
-            "Because tennis balls are not meaningfully affected by air resistance at all"
+            "Because tennis balls are not meaningfully affected by air resistance"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -542,7 +542,7 @@
           "options": [
             "Because the shuttlecock can arrive too fast to react to afterward",
             "Because the rules require players to guess at random",
-            "Because shuttlecocks are nearly impossible to see in flight",
+            "Because shuttlecocks are nearly impossible to see in flight on the court",
             "Because anticipating a shot is against the written rules"
           ],
           "answer": "A",
@@ -574,10 +574,10 @@
         {
           "stem": "How does the author organize the explanation of why a shuttlecock behaves as it does?",
           "options": [
-            "By comparing a shuttlecock only to a football, and to nothing else at all",
-            "By simply listing every single badminton rule in strict numbered order",
+            "By comparing a shuttlecock only to a football, and to nothing else on the field",
+            "By listing badminton rules in strict numbered order",
             "By describing its shape, then the drag it creates, then its effect on play",
-            "By arguing at length that shuttlecocks should be completely redesigned"
+            "By arguing at length that shuttlecocks should be redesigned"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -591,10 +591,10 @@
         {
           "stem": "Based on the article, how does serving in badminton differ depending on the score?",
           "options": [
-            "Players always serve from one same side, no matter the score of the game",
+            "Players serve from one same side, no matter the score of the game",
             "Players serve from alternating sides depending on an even or odd score",
             "Only the side with an even score is ever allowed to serve the shuttlecock",
-            "Serving position has nothing at all to do with scoring in the match"
+            "Serving position depends on who won the last match"
           ],
           "answer": "B",
           "skill": "compare",

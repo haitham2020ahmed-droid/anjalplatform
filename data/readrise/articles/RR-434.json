@@ -200,7 +200,7 @@
           "stem": "What can you tell about Grandfather Saleh from how he helped Lama?",
           "options": [
             "He did not care about the camel race",
-            "He wanted Lama to stop training Najma forever",
+            "He wanted Lama to stop training Najma",
             "He is wise and cares about Najma's well-being",
             "He wanted to take over training Najma himself"
           ],
@@ -296,7 +296,7 @@
             "Lama learns that patience and care build a real champion.",
             "Camel racing is dangerous and should be stopped.",
             "Najma wins the race because she is the only camel in the contest.",
-            "Grandfather Saleh takes over all of Najma's training."
+            "Grandfather Saleh takes over Najma's training."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -346,7 +346,7 @@
           "options": [
             "a type of traditional camel clothing",
             "a kind of prize given to winners",
-            "a short rest between training sessions",
+            "a short rest between training sessions at the gym",
             "the strength to keep going for a long time"
           ],
           "answer": "D",
@@ -361,7 +361,7 @@
         {
           "stem": "Why does Najma begin to trust Lama more after her training changes?",
           "options": [
-            "Lama stops spending any time with Najma at all, even in the morning",
+            "Lama stops spending any time with Najma, even in the morning",
             "Lama forces Najma to train even harder than before",
             "Lama treats Najma more gently and takes better care of her",
             "Najma is given away to a different trainer in another city"
@@ -381,7 +381,7 @@
             "It values patience and proper care as much as speed",
             "It focuses only on speed and nothing else",
             "It is no longer useful or respected in modern times",
-            "It requires camels to race every single day"
+            "It requires camels to race each day"
           ],
           "answer": "A",
           "skill": "inference",
@@ -396,7 +396,7 @@
           "stem": "What is the result of Lama's more patient, gentle training approach?",
           "options": [
             "Najma becomes tired and stops eating any food",
-            "Najma refuses to race at all on the big day",
+            "Najma refuses to race on the big day",
             "Lama decides to get a different camel",
             "Najma regains strength and performs well"
           ],
@@ -475,7 +475,7 @@
             "A champion camel is simply the one born with the most natural speed.",
             "Lama learns that discipline and care make a true champion.",
             "Grandfather Saleh enters the race in place of Lama.",
-            "Camel racing needs no training of any kind."
+            "Camel racing needs no training."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -506,7 +506,7 @@
         {
           "stem": "In the article, the word meticulous means —",
           "options": [
-            "completely careless and done in a rush",
+            "careless and done in a rush",
             "related to a type of traditional clothing",
             "extremely careful and attentive to small details",
             "referring to a long and difficult desert journey"
@@ -541,7 +541,7 @@
           "stem": "What does the growing rapport between Lama and Najma suggest about their relationship?",
           "options": [
             "Their bond and trust deepened through gentler care",
-            "Najma still does not trust Lama at all",
+            "Najma still does not trust Lama",
             "Najma only responds well to Grandfather Saleh",
             "Their relationship had no effect on Najma's performance"
           ],
@@ -574,7 +574,7 @@
         {
           "stem": "Why does the author suggest that endurance mattered more than raw speed in this story?",
           "options": [
-            "Because Najma did not compete in the final race at all",
+            "Because Najma did not compete in the final race",
             "Because the race officially had no real winner declared",
             "Because Grandfather Saleh alone decided the final outcome",
             "Because sustained health mattered more than short speed bursts"

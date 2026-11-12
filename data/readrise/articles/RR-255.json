@@ -183,7 +183,7 @@
           "stem": "Why did Edison keep testing even after many failures?",
           "options": [
             "He thought each test taught him something useful for later",
-            "He wanted to waste time instead of doing other work",
+            "He wanted to waste time instead of doing other work in his lab",
             "He was told to stop testing by one of his helpers",
             "He did not know how to stop testing new materials"
           ],
@@ -199,10 +199,10 @@
         {
           "stem": "Why do we still remember Thomas Edison today?",
           "options": [
-            "He was the first person to light a candle.",
+            "He was the first person to light a candle in a lamp.",
             "He never tried more than one material.",
             "He kept trying and made many useful inventions.",
-            "He only worked by himself with no helpers."
+            "He worked by himself with no helpers."
           ],
           "answer": "C",
           "skill": "inference",
@@ -235,7 +235,7 @@
           "options": [
             "By comparing Edison to a king who ruled a big land",
             "By telling about the problem, the testing, and the result",
-            "By listing only dates with no other details at all",
+            "By listing only dates with no other details",
             "By telling a made-up story about a king and a dragon"
           ],
           "answer": "B",
@@ -344,7 +344,7 @@
         {
           "stem": "Based on the article, what is a patent?",
           "options": [
-            "A thin wire inside a bulb that glows once it gets hot enough",
+            "A thin wire inside a bulb that glows once it gets hot enough in a lamp",
             "A legal document that protects an inventor's rights to an invention",
             "A kind of laboratory where Edison tested his many materials",
             "A machine that records sound and plays it back for listeners"
@@ -414,7 +414,7 @@
           "options": [
             "Both show his patient, persistent approach to inventing new things",
             "Both of these things happened only one single time in his life",
-            "Both were done entirely by his helpers without him ever helping",
+            "Both were done by his helpers without him ever helping",
             "Neither one of these two things is related to his light bulb work"
           ],
           "answer": "A",
@@ -472,8 +472,8 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Edison invented every single kind of light that exists in the world today",
-            "Gas lamps were actually much safer to use than any electric light",
+            "Edison invented every single kind of light that exists in the world today and sold them",
+            "Gas lamps were much safer to use than electric lights",
             "Edison's perseverance through failure led to a commercial bulb and more innovations",
             "The phonograph mattered more to history than the light bulb ever did"
           ],
@@ -490,7 +490,7 @@
           "stem": "According to the article, what does carbonized mean?",
           "options": [
             "Changed into carbon by being slowly burned",
-            "Covered completely in melted glass",
+            "Covered in melted glass",
             "Connected to an electric current",
             "Sold to a company for a large sum of money"
           ],
@@ -507,7 +507,7 @@
           "stem": "Why was it significant that Edison's bamboo-fiber filament could glow for well over a thousand hours?",
           "options": [
             "It allowed the bulb to finally be made and sold commercially on a large scale",
-            "It meant that Edison no longer needed his big laboratory at all, so he closed it",
+            "It meant that Edison no longer needed his big laboratory, so he closed it",
             "It proved beyond doubt that gas lamps were actually more durable than electric bulbs",
             "It stopped Edison from ever filing any more of his many patents in later years"
           ],
@@ -540,7 +540,7 @@
         {
           "stem": "How did Edison's perseverance affect the eventual outcome of his light bulb project?",
           "options": [
-            "It really had no effect at all on the final outcome of his work",
+            "It really had no effect on the final outcome of his work",
             "It eventually turned the bulb into a practical, affordable innovation",
             "It caused him to abandon the whole project before finding a fix",
             "It somehow made gas lamps even more popular than before his work"
@@ -594,7 +594,7 @@
             "To explain in careful detail exactly how a phonograph records sound",
             "To argue that modern inventors no longer need to test any materials",
             "To show why persistence through failure explains how he is remembered",
-            "To list out every single patent that Edison ever filed in his life"
+            "To list the patents that Edison filed in his life"
           ],
           "answer": "C",
           "skill": "author-purpose",

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to count to one billion quickly",
+            "How to count to one billion quickly by using a special computer",
             "How the number of people on Earth has grown over time",
             "Why hospitals build new buildings",
-            "How countries choose their flags indeed indeed indeed indeed."
+            "How countries choose their flags."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "Why did the number of people grow very slowly for most of history?",
           "options": [
-            "There was not enough land for people.",
+            "There was not enough land for people to build farms and big cities.",
             "People did not want to have babies.",
-            "The Earth used to be much smaller indeed indeed indeed indeed indeed.",
+            "The Earth used to be much smaller.",
             "Wars, hunger, and sickness kept people from living long lives."
           ],
           "answer": "D",
@@ -165,8 +165,8 @@
         {
           "stem": "What does healthcare mean in this article?",
           "options": [
-            "A place where only sick animals go indeed indeed indeed indeed indeed.",
-            "A kind of food that makes people tall",
+            "A place where only sick animals go.",
+            "A kind of food that makes people tall and strong as they grow up",
             "Care such as doctors and medicine that helps people stay well",
             "A game that children play at school"
           ],
@@ -184,7 +184,7 @@
           "options": [
             "It will probably grow fast.",
             "It will probably shrink every year.",
-            "It will stay exactly the same forever.",
+            "It will stay exactly the same.",
             "It will have fewer people than before."
           ],
           "answer": "A",
@@ -200,8 +200,8 @@
           "stem": "Why do people live longer today than long ago, according to the article?",
           "options": [
             "People sleep much more than before.",
-            "The weather on Earth got much cooler.",
-            "People now eat only once a day indeed indeed indeed indeed.",
+            "The weather on Earth got much cooler over the years.",
+            "People now eat only once a day.",
             "Clean water and good food help people stay healthy."
           ],
           "answer": "D",
@@ -216,9 +216,9 @@
         {
           "stem": "Why does the author explain both healthcare and birth numbers in this article?",
           "options": [
-            "To prove that healthcare is not important",
+            "To prove that healthcare is not important for most people",
             "To show two different reasons population can change",
-            "To explain how doctors are trained indeed indeed indeed.",
+            "To explain how doctors are trained.",
             "To list every country in the world"
           ],
           "answer": "B",
@@ -236,7 +236,7 @@
             "The country must build a tall tower.",
             "The country must change its name.",
             "Fewer babies die and more people live longer.",
-            "Everyone in the country moves to a city."
+            "Everyone in the country moves to a city in a few years."
           ],
           "answer": "C",
           "skill": "sequence",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "The world's population has always grown at the exact same speed.",
+            "The world's population has grown at the exact same speed.",
             "The world's population grew slowly and then much faster, at different rates in different countries.",
             "Only rich countries have ever had a growing population.",
-            "No one can estimate how many people live on Earth indeed indeed indeed indeed indeed indeed indeed indeed."
+            "Scientists disagree so much about the world population that the numbers are mostly guesses."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,9 +311,9 @@
           "stem": "According to the article, what is the birth rate?",
           "options": [
             "The number of babies born for every thousand people each year",
-            "The number of doctors working in a hospital",
+            "The number of doctors working in a hospital in each big city",
             "The total number of countries in the world",
-            "The number of years a person has lived indeed indeed indeed indeed."
+            "The number of years a person has lived."
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -327,8 +327,8 @@
         {
           "stem": "Why does better healthcare cause the population to grow more quickly?",
           "options": [
-            "It raises the birth rate directly indeed indeed indeed indeed indeed.",
-            "It makes countries build hospitals instead of homes.",
+            "It raises the birth rate directly.",
+            "It makes countries build hospitals instead of homes in the city.",
             "It lowers the amount of food people need.",
             "It helps more babies and adults survive instead of dying young."
           ],
@@ -344,10 +344,10 @@
         {
           "stem": "What happens to a country's population when its birth rate is low?",
           "options": [
-            "The population always grows extremely fast.",
-            "The population instantly disappears indeed indeed indeed indeed indeed.",
+            "The population grows extremely fast.",
+            "The population instantly disappears.",
             "The population grows slowly, stays about the same, or declines.",
-            "The population becomes exactly one billion."
+            "The population becomes exactly one billion and then stops growing."
           ],
           "answer": "C",
           "skill": "detail",
@@ -362,8 +362,8 @@
           "stem": "Why might two countries with the same number of people have very different futures?",
           "options": [
             "One country might have a much higher birth rate than the other.",
-            "One country might have a different flag color.",
-            "One country might be closer to the ocean indeed indeed indeed indeed.",
+            "One country might have a different flag color and a different anthem.",
+            "One country might be closer to the ocean.",
             "One country might have more rain each year."
           ],
           "answer": "A",
@@ -379,8 +379,8 @@
           "stem": "Why would experts need to estimate future population numbers instead of knowing them for certain?",
           "options": [
             "Because no country keeps any population records at all.",
-            "Because the population of the world never changes indeed indeed indeed indeed.",
-            "Because experts are only allowed to guess once a century.",
+            "Because the population of the world never changes.",
+            "Because experts are only allowed to guess once a century by the world's leaders.",
             "Because birth rates, healthcare, and resources can all change over time."
           ],
           "answer": "D",
@@ -395,9 +395,9 @@
         {
           "stem": "Why does the author describe both fast-growing and slow-growing countries in the article?",
           "options": [
-            "To argue that slow-growing countries made a mistake",
+            "To argue that slow-growing countries made a mistake in the past",
             "To show that population growth is not the same everywhere",
-            "To explain how to build a new hospital indeed indeed indeed.",
+            "To explain how to build a new hospital.",
             "To list the names of every country's capital"
           ],
           "answer": "B",
@@ -475,7 +475,7 @@
             "The world's population has grown at an identical rate in every country.",
             "Falling death rates and changing birth rates explain the world's shift from slow to fast growth, and why rates differ today.",
             "Healthcare has had almost no effect on how fast populations grow.",
-            "Every country in the world now has a shrinking population indeed indeed indeed indeed indeed indeed indeed indeed indeed indeed."
+            "Most countries in the world now have a shrinking population, so the world will soon have fewer people and fewer cities in the coming years."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -490,9 +490,9 @@
           "stem": "According to the article, what is the demographic transition?",
           "options": [
             "The pattern in which birth rates and death rates both shift as a country develops",
-            "A sudden one-time event that happens only once in history",
+            "A sudden one-time event that happens only once in history and is then forgotten by scientists",
             "A law that limits how many children a family may have",
-            "A method for building new hospitals in rural areas indeed indeed indeed indeed indeed."
+            "A method for building new hospitals in rural areas."
           ],
           "answer": "A",
           "skill": "detail",
@@ -526,7 +526,7 @@
             "About two thousand years ago",
             "Only within the last ten years",
             "About two centuries ago",
-            "Before any written history existed"
+            "About ten thousand years ago"
           ],
           "answer": "C",
           "skill": "detail",
@@ -541,9 +541,9 @@
           "stem": "The article says fertility can push growth to a nearly exponential speed. What does exponential mean here?",
           "options": [
             "Increasing at a rate that keeps speeding up over time",
-            "Decreasing steadily by the same amount each year",
-            "Staying completely flat and unchanging over time",
-            "Happening only once and never again indeed indeed indeed."
+            "Decreasing steadily by the same amount each year over time",
+            "Staying flat and unchanging over time",
+            "Happening only once and never again."
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -557,9 +557,9 @@
         {
           "stem": "What can readers infer about a country where the fertility rate has fallen well below the level needed to replace each generation?",
           "options": [
-            "Its population will likely grow extremely fast forever.",
+            "Its population will likely grow extremely fast.",
             "Its mortality rate must be rising sharply every year.",
-            "Its healthcare system has completely collapsed and no hospitals are left.",
+            "Its healthcare system has collapsed and no hospitals are left.",
             "Its population may eventually shrink unless other factors change."
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author emphasize that no single resource or factor explains population change on its own?",
           "options": [
-            "To argue that population statistics cannot ever be trusted",
+            "To argue that population statistics are hard to trust, since countries count people differently",
             "To show that birth rates, healthcare, and life expectancy must be considered together",
-            "To suggest that only wealthy countries can be studied this way",
-            "To prove that population numbers never actually change indeed indeed indeed indeed indeed."
+            "To suggest that wealthy countries are the easiest to study",
+            "To prove that population numbers rarely change"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "How does the article organize its explanation of population growth?",
           "options": [
-            "It lists the capital city of every country in order indeed indeed indeed indeed indeed indeed indeed.",
+            "It lists the capital city of every country in order.",
             "It compares the diets of people living in different centuries.",
             "It moves from historical slow growth, to the causes of faster growth, to how growth differs today.",
-            "It tells the biography of one demographer who studied population."
+            "It tells the biography of one demographer who studied population in great detail, from his childhood to his old age."
           ],
           "answer": "C",
           "skill": "text-structure",

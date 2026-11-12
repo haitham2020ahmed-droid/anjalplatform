@@ -116,7 +116,7 @@
           "options": [
             "A new kind of boat with sails",
             "A machine that uses wind to make power",
-            "A machine that grinds grain only",
+            "A machine that grinds grain only in the mill",
             "A tower built for birds"
           ],
           "answer": "B",
@@ -132,7 +132,7 @@
           "stem": "What did people use wind for long ago?",
           "options": [
             "Cooking food",
-            "Lighting candles",
+            "Lighting candles and lamps in houses",
             "Grinding grain and pushing sails",
             "Washing clothes"
           ],
@@ -148,7 +148,7 @@
         {
           "stem": "Where do the blades of a turbine sit?",
           "options": [
-            "Under the ground",
+            "Under the ground in a pit",
             "On top of a tall tower",
             "Inside a boat",
             "Next to a river"
@@ -200,8 +200,8 @@
           "stem": "What does the word 'spin' mean in this passage?",
           "options": [
             "To turn around and around",
-            "To stop suddenly",
-            "To fall over in this situation",
+            "To stop suddenly in the wind",
+            "To fall over",
             "To grow bigger"
           ],
           "answer": "A",
@@ -295,7 +295,7 @@
           "options": [
             "Charles Brush invented the sailboat",
             "Wind power grew from a simple experiment into a major energy source",
-            "Coal is better than wind for making power",
+            "Coal is better than wind for making power, so wind is used less today",
             "Mills were replaced by turbines overnight"
           ],
           "answer": "B",
@@ -311,7 +311,7 @@
           "stem": "What did Charles Brush build in the late 1800s?",
           "options": [
             "A tall tower with blades connected to a generator",
-            "A sailboat for crossing the sea",
+            "A sailboat for crossing the sea to England and back",
             "A new kind of flour mill",
             "A machine for grinding coal"
           ],
@@ -330,7 +330,7 @@
             "Turned it into heat only",
             "Turned it into sound",
             "Turned it into usable power",
-            "Turned it into light only"
+            "Turned it into heat for homes"
           ],
           "answer": "C",
           "skill": "detail",
@@ -363,7 +363,7 @@
           "options": [
             "Because it can be grown again like a crop",
             "Because it is found only in one place",
-            "Because it costs nothing to build turbines",
+            "Because it costs nothing to build turbines or to run them",
             "Because it will never run out, unlike coal or wood"
           ],
           "answer": "D",
@@ -378,7 +378,7 @@
         {
           "stem": "What does the word 'efficient' mean as used in the key words?",
           "options": [
-            "Being extremely large in size",
+            "Being extremely large in size and very heavy",
             "Working well without wasting energy or effort",
             "Being very old and outdated",
             "Being made of metal"
@@ -413,7 +413,7 @@
           "stem": "What was the effect of engineers redesigning the blades to be more efficient?",
           "options": [
             "Each turbine produced more power than before",
-            "Turbines stopped working completely",
+            "Turbines stopped working in strong winds",
             "Wind became less common",
             "Towers became shorter"
           ],
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of this passage?",
           "options": [
-            "Coal power is now obsolete everywhere",
+            "Coal power is now obsolete",
             "An engineer's early experiment grew into a major worldwide source of renewable electricity",
-            "Sailing ships were replaced entirely by turbines",
-            "Wind farms were invented before electricity existed"
+            "Sailing ships were replaced by turbines",
+            "Wind farms were invented before electricity existed, to grind grain and pump water"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -524,7 +524,7 @@
           "stem": "Why would engineers choose to pair wind turbines with other power sources?",
           "options": [
             "To keep electricity flowing reliably despite wind's intermittent nature",
-            "To make turbines spin faster than wind alone could",
+            "To make turbines spin faster than the wind alone could turn them in storms",
             "To reduce the number of turbines needed in a farm",
             "To avoid using generators altogether"
           ],
@@ -543,7 +543,7 @@
             "His design never actually worked",
             "Aerodynamic blade redesigns and taller towers greatly increased output since his time",
             "Modern turbines no longer use rotors",
-            "His tower was taller than any modern tower"
+            "His tower was taller than modern towers, so it caught stronger winds high in the sky"
           ],
           "answer": "B",
           "skill": "inference",
@@ -557,7 +557,7 @@
         {
           "stem": "What does 'intermittent' mean as used in this passage?",
           "options": [
-            "Running constantly without ever stopping",
+            "Running constantly without stopping, day and night",
             "Extremely powerful and strong",
             "Completely silent and unnoticeable",
             "Stopping and starting rather than running all the time"
@@ -575,8 +575,8 @@
           "stem": "How does the author structure the explanation of wind turbine history?",
           "options": [
             "Chronologically, from early limited uses of wind to Brush's invention to modern wind farms",
-            "By comparing different religious views on energy in this situation in this situation in this situation",
-            "By presenting a debate between two named engineers",
+            "By comparing different religious views on energy",
+            "By presenting a debate between two named engineers about the best place to build a farm",
             "By listing safety warnings in order of importance"
           ],
           "answer": "A",
@@ -591,9 +591,9 @@
         {
           "stem": "What was the effect of engineers redesigning blades to be more aerodynamic?",
           "options": [
-            "Turbines stopped converting kinetic energy into electricity",
+            "Turbines stopped converting kinetic energy into electricity and pumped water",
             "Turbines captured wind energy more effectively and produced more electrical output",
-            "Towers became shorter to save materials in this situation in this situation in this situation",
+            "Towers became shorter to save materials",
             "Rotors were removed from the design entirely"
           ],
           "answer": "B",

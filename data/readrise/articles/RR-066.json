@@ -202,7 +202,7 @@
             "Kids who play outside are less likely to need glasses.",
             "The sun makes your eyes grow bigger.",
             "You never have to blink outside.",
-            "There are no screens anywhere outside, so eyes never get tired."
+            "The sun outside makes the eyes stronger and bigger."
           ],
           "answer": "A",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Screens should never be used by students.",
             "Long screen use can tire and dry the eyes, but simple habits help protect them.",
             "The retina is the most important part of the whole human body, even more than the heart.",
-            "Glasses are the only way to fix tired eyes."
+            "Glasses are the best way to fix tired eyes."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -363,7 +363,7 @@
           "options": [
             "The screen pulls on the eyes.",
             "The pupil closes all the way.",
-            "The retina stops sending any signals to the brain.",
+            "The retina stops sending signals to the brain.",
             "Tiny muscles keep squeezing to focus up close."
           ],
           "answer": "D",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Screens damage the eyes permanently, so everyone should avoid them completely at all times.",
+            "Screens damage the eyes permanently, so everyone should avoid them whenever they can.",
             "Knowing how eyes work explains screen strain, and good habits protect vision.",
             "Myopia is caused only by watching television.",
             "Melatonin is the most important hormone in the body."
@@ -577,7 +577,7 @@
             "Eye strain is permanent, but myopia goes away with sleep.",
             "Eye strain affects only adults, but myopia affects only animals and never people.",
             "Eye strain is usually temporary; myopia is a lasting change in eye shape.",
-            "Both are caused only by a lack of melatonin."
+            "Both are caused by a lack of melatonin."
           ],
           "answer": "C",
           "skill": "compare",

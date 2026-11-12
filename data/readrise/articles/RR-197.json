@@ -217,8 +217,8 @@
           "stem": "Why might someone ride a bike to a nearby shop instead of going by car?",
           "options": [
             "A bike needs no gas and keeps the air clean.",
-            "A bike is always faster than a car on every road.",
-            "Cars are not allowed near shops in any town.",
+            "A bike is faster than a car on every road.",
+            "Cars are not allowed near shops in most towns.",
             "A bike can carry more bags than a car can hold."
           ],
           "answer": "A",
@@ -293,7 +293,7 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Bicycles were invented in 1903 in France, and they have not changed since then at all.",
+            "Bicycles were invented in 1903 in France, and they have not changed since then.",
             "Only professional racers ride bicycles today, and ordinary people use cars for every trip.",
             "Bikes improved over time into efficient, healthy machines for travel and sport.",
             "Bicycles are too dangerous for most people, so cities have banned them from the roads."
@@ -313,7 +313,7 @@
             "A bigger wheel went farther with each turn of the pedals.",
             "Big wheels were easier to balance on the road.",
             "Riders wanted to sit close to the ground and feel safe.",
-            "Small wheels had not been invented yet at that time."
+            "Small wheels had not been invented yet."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -344,9 +344,9 @@
         {
           "stem": "What was special about the safety bicycle?",
           "options": [
-            "It had only one wheel, like a unicycle, and no chain at all.",
+            "It had only one wheel, like a unicycle, and no chain.",
             "Its wheels were the same size, and it had a chain.",
-            "It had no pedals at all, so riders pushed with their feet.",
+            "It had no pedals, so riders pushed with their feet.",
             "It had a giant front wheel and a tiny wheel behind it."
           ],
           "answer": "B",
@@ -557,8 +557,8 @@
         {
           "stem": "Why might a commuter who cares about clean air choose to cycle?",
           "options": [
-            "It is always faster than any other transport.",
-            "It carries no risk of any kind.",
+            "It is faster than any other transport.",
+            "It carries no risk.",
             "It needs no fuel and does not pollute.",
             "It requires no balance or skill."
           ],

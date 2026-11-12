@@ -165,7 +165,7 @@
     {
      "stem": "In this article, what does the word signal mean?",
      "options": [
-      "A kind of coin used to press an old screen",
+      "A kind of coin used to press an old screen in the past",
       "A picture that appears on the touchscreen",
       "A thin, curved piece of old glass",
       "A message sent to tell a chip something happened"
@@ -183,7 +183,7 @@
      "stem": "What happens right after your finger changes the charge on the screen?",
      "options": [
       "A signal goes to a chip that finds the spot",
-      "The screen turns itself off for the day",
+      "The screen turns itself off for the day right away",
       "The glass grows a tiny gap of air",
       "The grid of wires disappears completely"
      ],
@@ -217,9 +217,9 @@
      "stem": "How is an older touchscreen different from a newer one?",
      "options": [
       "An older screen never needs a chip inside it to work",
-      "An older screen only works with a bare finger or a hand",
+      "An older screen works with a bare finger or a hand",
       "An older screen uses two layers that touch when pressed",
-      "An older screen cannot be used on any kind of phone"
+      "An older screen is too thick to use on a phone"
      ],
      "answer": "C",
      "skill": "compare",
@@ -295,8 +295,8 @@
      "options": [
       "Capacitive screens sense charge, but older screens sense pressure",
       "Touchscreens were invented only for air traffic control towers and airports",
-      "A plain winter glove always works on every kind of touchscreen",
-      "Glass alone is the single most important part of any smartphone"
+      "A plain winter glove works on most kinds of touchscreen",
+      "Glass is the most important part of a smartphone"
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -310,7 +310,7 @@
     {
      "stem": "What is an electrode, according to the article?",
      "options": [
-      "A kind of winter glove used in cold places",
+      "A kind of winter glove used in cold places in winter",
       "A thin wire that carries charge under the glass",
       "A type of bank machine found in malls",
       "A picture that moves across the screen"
@@ -327,7 +327,7 @@
     {
      "stem": "What does the controller chip calculate when your finger touches the screen?",
      "options": [
-      "The weight of the finger pressing down",
+      "The weight of the finger pressing down on the screen",
       "The color of the glass on the screen",
       "The coordinates of the exact touch position",
       "The age of the device being used"
@@ -344,8 +344,8 @@
     {
      "stem": "According to the article, why does skin work on a capacitive screen but dry plastic usually does not?",
      "options": [
-      "Because plastic is always far too thick to use on a phone",
-      "Because skin is always much warmer than plastic, so it heats the glass",
+      "Because plastic is far too thick to use on a phone",
+      "Because skin is much warmer than plastic, so it heats the glass",
       "Because plastic can never touch a sheet of glass on a screen",
       "Because skin is a conductor, but dry plastic usually is not"
      ],
@@ -396,7 +396,7 @@
      "stem": "Suppose someone presses a capacitive screen with a plain wooden pencil. What would likely happen?",
      "options": [
       "The screen would respond perfectly every single time",
-      "The controller chip would stop working forever",
+      "The controller chip would stop working",
       "The screen likely would not respond to the wood",
       "The electrodes under the glass would be destroyed"
      ],
@@ -412,7 +412,7 @@
     {
      "stem": "Why can a capacitive screen support pinch-to-zoom, but a basic older screen usually cannot?",
      "options": [
-      "Because older screens are always much bigger in size",
+      "Because older screens are much bigger in size",
       "Because capacitive screens do not need a controller chip",
       "Because older screens are made of a different kind of glass",
       "Because capacitive screens can sense many points at once"
@@ -473,9 +473,9 @@
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
       "A capacitive screen senses a change in its electric field",
-      "Electrodes must always stay thick and hard to see clearly",
+      "Electrodes must stay thick and hard to see clearly",
       "Touchscreens were invented only after smartphones became popular",
-      "All touchscreens sense touch using pressure on flexible layers"
+      "Most touchscreens sense touch using pressure on flexible layers"
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -507,7 +507,7 @@
      "stem": "What must a controller chip do continuously to keep multitouch accurate?",
      "options": [
       "Switch the whole screen into resistive mode every few seconds",
-      "Turn off the electrostatic field completely to save some battery",
+      "Turn off the electrostatic field to save some battery",
       "Calibrate its sensitivity so scratches do not confuse it",
       "Reduce the number of electrodes in the grid to save space"
      ],
@@ -524,7 +524,7 @@
      "stem": "The article says a finger disturbs the electrostatic field. What does electrostatic mean here?",
      "options": [
       "A loud, buzzing electrical noise",
-      "A kind of magnetic pull between two coins",
+      "A kind of magnetic pull between two coins on a table",
       "A signal sent through the internet",
       "A field made by charges that mostly stay still"
      ],
@@ -574,8 +574,8 @@
     {
      "stem": "A factory requires workers to wear thick gloves at all times. Which screen type would likely work best there?",
      "options": [
-      "A capacitive screen with no changes at all",
-      "A screen built with no sensing layer at all",
+      "A capacitive screen with no changes",
+      "A screen built with no sensing layer",
       "A resistive screen, since it senses pressure",
       "A screen that only works in total darkness"
      ],

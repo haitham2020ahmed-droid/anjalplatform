@@ -116,7 +116,7 @@
           "options": [
             "How museums collect, protect, and show objects so people can learn about the past",
             "How old buildings are built from bricks, stone, and other heavy materials over many months",
-            "Why old objects always break apart quickly no matter how carefully people store them",
+            "Why old objects break apart quickly no matter how carefully people store them",
             "How visitors paint pictures of wild animals they see on their trip to the museum"
           ],
           "answer": "A",
@@ -134,7 +134,7 @@
             "They sell every object right away to the first visitor who asks",
             "They keep rooms cool and dry and handle objects with care",
             "They throw the object outside into the rain and the wind",
-            "They let every visitor touch and hold the object freely"
+            "They let visitors touch and hold the object freely"
           ],
           "answer": "B",
           "skill": "detail",
@@ -233,9 +233,9 @@
         {
           "stem": "How does the author mostly organize the ideas in this article?",
           "options": [
-            "By listing strict rules that every visitor must follow at all times",
+            "By listing strict rules that every visitor must follow inside the museum",
             "By telling what museums do, step by step, and then giving an example",
-            "By comparing two completely different museums found in two countries",
+            "By comparing two different museums found in two countries",
             "By telling a made-up story about a toy that comes to life"
           ],
           "answer": "B",
@@ -295,7 +295,7 @@
           "options": [
             "Museums preserve, research, and display artifacts so people can learn from the past.",
             "Curators only clean the museum floors and never do anything else.",
-            "Artifacts are always worth much more money than any paintings on display.",
+            "Artifacts are worth much more money than the paintings on display.",
             "The National Museum in Riyadh is the oldest museum found anywhere in the world."
           ],
           "answer": "A",
@@ -347,7 +347,7 @@
             "To make the whole exhibit look much brighter for every visitor",
             "To save a great deal of money on the electricity bill",
             "To preserve artifacts so they do not break, fade, or crumble",
-            "To keep every visitor feeling comfortable throughout their entire visit"
+            "To keep visitors feeling comfortable throughout their visit"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -396,7 +396,7 @@
           "stem": "What can you infer about a curator's job from the article?",
           "options": [
             "A curator only cleans artifacts and does nothing else all day",
-            "A curator never talks to any visitors at all",
+            "A curator rarely talks to visitors",
             "A curator decides what to display and explains it to visitors",
             "A curator builds the entire museum building from the ground up"
           ],
@@ -474,7 +474,7 @@
           "options": [
             "Museums connect people to their heritage by collecting, conserving, researching, and interpreting artifacts.",
             "Conservation is less important than acquisition for most museums today, and museums mainly buy things.",
-            "Only ancient civilizations ever built museums anywhere in the world, and no new ones were built.",
+            "Only ancient civilizations ever built museums, and no new ones were built.",
             "Curators rarely interpret artifacts for visitors who come to the museum, and visitors read alone."
           ],
           "answer": "A",
@@ -490,8 +490,8 @@
           "stem": "According to the article, what does acquisition involve?",
           "options": [
             "Only donations given directly from national governments and ministries",
-            "Only purchase made directly from private collectors around the world",
-            "Only careful excavation conducted at distant archaeological sites",
+            "Borrowing objects from other museums for a short time",
+            "Making copies of artifacts to show as models",
             "Purchase, donation, or careful excavation"
           ],
           "answer": "D",
@@ -509,7 +509,7 @@
             "The exact price that a museum pays to acquire an artifact",
             "The documented history of where an object came from and who owned it",
             "The label that a curator writes to explain an exhibit",
-            "The temperature kept carefully inside a museum gallery at all times"
+            "The temperature kept carefully inside a museum gallery in the summer"
           ],
           "answer": "B",
           "skill": "detail",
@@ -560,7 +560,7 @@
             "To determine the artifact's exact price at auction and sell it to the best buyer",
             "To decide which color to paint the gallery walls in the new museum hall",
             "To build a more complete picture of who made the object and how it was used",
-            "To decide whether the artifact should be destroyed or locked away forever"
+            "To decide whether the artifact should be destroyed or locked away"
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,7 +574,7 @@
         {
           "stem": "What can you infer about why museums invest heavily in conservation?",
           "options": [
-            "Because conservation costs far less money than acquisition",
+            "Because conservation costs far less money than acquisition for museums",
             "Because artifacts cannot be replaced once they are damaged or lost",
             "Because most visitors simply prefer brightly lit rooms",
             "Because curators personally enjoy cleaning old objects"
@@ -594,7 +594,7 @@
             "A curator decides what to display and interpret, while a conservator protects artifacts from damage",
             "A curator protects artifacts from damage, while a conservator decides what to display",
             "Both roles involve only acquiring new artifacts for the museum's collection and its visitors",
-            "Neither role involves working directly with artifacts, since both work only in offices with computers"
+            "A conservator decides what to display, while a curator repairs artifacts in the lab"
           ],
           "answer": "A",
           "skill": "compare",

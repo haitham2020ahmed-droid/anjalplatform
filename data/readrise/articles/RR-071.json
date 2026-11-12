@@ -296,7 +296,7 @@
             "Electric cars are too slow to be useful, and few people want to buy them because they are weak.",
             "Electric cars use batteries instead of fuel, which brings benefits and some challenges.",
             "Gasoline cars were invented after electric cars disappeared from the roads, say the experts.",
-            "Charging stations are found only in Saudi Arabia, and nowhere else in the world, says the article."
+            "Charging stations are found only in Saudi Arabia, says the article."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -361,7 +361,7 @@
         {
           "stem": "What does the motor do when the driver slows down?",
           "options": [
-            "It shuts off the battery completely for a short time",
+            "It shuts off the battery for a short time",
             "It works in reverse and makes a little electricity",
             "It burns a little extra gasoline to keep going",
             "It makes a loud roar like an engine in a car"
@@ -475,7 +475,7 @@
             "Electric cars should replace all buses and trains in every city, because they are cheaper and quicker than every other kind of travel.",
             "Gasoline engines are more efficient than electric motors, so people should stop making electric cars and keep their old ones for good.",
             "Electric cars offer cleaner, more efficient travel, but batteries, power sources, and infrastructure remain challenges.",
-            "Lithium is the most valuable metal on Earth, and it is found everywhere, so every country can make as many batteries as it likes."
+            "Lithium is the most valuable metal on Earth, so the countries that have it make the most cars."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "Why do electric cars need comparatively little energy to travel each kilometer?",
           "options": [
-            "They are always lighter than gasoline cars are",
+            "They are lighter than gasoline cars are",
             "They are only driven on flat, smooth roads in cities",
-            "They never need to use their brakes at all while driving",
+            "They do not need to use their brakes often",
             "Their motors turn most of the stored energy into motion"
           ],
           "answer": "D",
@@ -558,7 +558,7 @@
           "stem": "What can readers infer from the statement that people need charging networks before they will feel confident to switch?",
           "options": [
             "People already have enough charging stations everywhere in the whole country",
-            "Electric cars cannot be charged at home at all, only at stations",
+            "Electric cars are charged at stations, not at home",
             "Charging stations make electric cars travel faster on the highway",
             "Many drivers worry about running out of power far from a charger"
           ],

@@ -219,7 +219,7 @@
             "They let air and water into the soil",
             "They keep all the rain far away from plant roots",
             "They make the ground very hard",
-            "They scare away all birds"
+            "They keep birds away from seeds"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -294,7 +294,7 @@
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
             "Ants are dangerous insects that people should avoid.",
-            "The queen controls everything that happens in a colony.",
+            "The queen controls everything that happens in a colony and its nest.",
             "Ants survive by sharing jobs and working together as a colony.",
             "Leafcutter ants are the only ants that grow food."
           ],
@@ -381,7 +381,7 @@
             "The colony needs a leader to survive and give the orders",
             "Ants work alone most of the time and rarely help one another",
             "Each ant does its part for the group without being told",
-            "Ants never finish their jobs, and the nest is always a mess"
+            "Ants never finish their jobs, and the nest is a mess"
           ],
           "answer": "C",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Ant colonies depend completely on the queen's commands, so the workers never act on their own.",
+            "Ant colonies depend on the queen's commands, so the workers never act on their own.",
             "Through cooperation and simple rules, tiny ants form a colony that acts like one organism.",
             "Ants are mainly harmful because they eat dead insects, and people should keep them far away.",
-            "Desert ants are stronger than every other kind of ant, so they win every fight and rule the sand."
+            "Desert ants are stronger than most other kinds of ants, so they win their fights over food."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -509,7 +509,7 @@
             "Fewer predators are active then",
             "The sand is easiest to dig at noon",
             "Their pheromones work only in heat",
-            "The queen sends them out at that time"
+            "The queen sends them out"
           ],
           "answer": "A",
           "skill": "detail",
@@ -560,7 +560,7 @@
             "They cannot find any other food in the forest",
             "They dislike the taste of fungus",
             "They raise their own food, much like farmers",
-            "They store leaves only to build nests"
+            "They store leaves to build their nests"
           ],
           "answer": "C",
           "skill": "inference",
@@ -576,7 +576,7 @@
           "options": [
             "Each ant is actually a small part of one giant animal that lives underground",
             "The ants' separate actions fit together so the colony works like one body",
-            "Ants are too weak to survive at all",
+            "Ants are too weak to survive",
             "Every ant in a colony looks exactly the same"
           ],
           "answer": "B",

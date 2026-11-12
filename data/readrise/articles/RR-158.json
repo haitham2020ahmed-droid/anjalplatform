@@ -202,7 +202,7 @@
             "The lamp would get brighter, because the battery would push out more power",
             "The battery would recharge itself, because the lamp sends power back to it",
             "The lamp would not light, because there is no full loop",
-            "The battery would last forever, because nothing would use up its energy"
+            "The battery would last, because nothing would use up its energy"
           ],
           "answer": "C",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "Batteries were invented in Italy, and they were first used to light the streets of big cities.",
             "A battery stores energy in chemicals and releases it as an electric current through a circuit.",
             "Flashlights need more power than phones, so they use the biggest batteries of all.",
-            "Every battery can be recharged many times, so no one ever needs to buy a new one."
+            "Most batteries can be recharged many times, so people rarely need to buy a new one."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -381,7 +381,7 @@
             "It has no terminals",
             "A charger can push power back in and reset its chemicals",
             "It never needs a circuit",
-            "It stores plain water inside it instead of using any chemicals"
+            "It stores plain water inside it instead of using chemicals"
           ],
           "answer": "B",
           "skill": "compare",
@@ -475,7 +475,7 @@
             "A battery converts stored chemical energy into an electric current, and some batteries can reverse the process to be recharged.",
             "Lithium is the only material that can store energy, so every other kind of battery has been given up.",
             "Saudi Arabia invented the modern battery, and it was first used in the desert to power lamps, radios and the first cars.",
-            "Ions travel through wires to light a lamp, while electrons stay inside the battery and never move at all."
+            "Ions travel through wires to light a lamp, while electrons stay inside the battery and do not move."
           ],
           "answer": "A",
           "skill": "central-idea",

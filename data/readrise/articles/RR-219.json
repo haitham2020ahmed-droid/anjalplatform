@@ -185,7 +185,7 @@
             "It was heavy, rough, and hard to carry around",
             "It was light, cheap, and easy to write on",
             "It could only ever be used just one single time",
-            "It always cost far more than animal skin did"
+            "It cost far more than animal skin did"
           ],
           "answer": "B",
           "skill": "inference",
@@ -202,7 +202,7 @@
             "No one else in the world ever wanted to learn it",
             "It kept a valuable skill special to China",
             "Other faraway lands already knew how to make fine paper",
-            "Paper was not useful to anybody at all back then"
+            "Paper was not useful to anybody back then"
           ],
           "answer": "B",
           "skill": "inference",
@@ -218,8 +218,8 @@
           "options": [
             "It traveled only by sea in giant wooden ships",
             "Traders carried it along old trade roads west",
-            "It was never shared with anyone outside of China",
-            "It was lost completely and reinvented in every new place"
+            "It was kept secret inside China for a long time",
+            "It was lost and reinvented in each new place"
           ],
           "answer": "B",
           "skill": "detail",
@@ -295,8 +295,8 @@
           "options": [
             "Paper was only ever made in one single city in the world.",
             "A craft invented in China slowly spread west and kept improving.",
-            "Animal skin was always better for writing than paper.",
-            "Paper mills were built only in modern times, not long ago."
+            "Animal skin was better for writing than paper.",
+            "Paper mills were first built in modern times, not long ago."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "Why do you think traders were important to the spread of papermaking?",
           "options": [
-            "They invented paper entirely on their own, without any help from China",
-            "They kept the craft a complete secret everywhere they traveled",
+            "They invented paper on their own, without any help from China",
+            "They kept the craft a secret wherever they traveled",
             "They carried the skill along trade roads to distant cities",
-            "They only ever traded animal skins, never any paper at all"
+            "They traded animal skins, not paper"
           ],
           "answer": "C",
           "skill": "inference",
@@ -380,8 +380,8 @@
           "options": [
             "Because paper was banned everywhere else in the entire world",
             "Skilled workers and flowing water helped mills grow",
-            "Those cities had no other craft or trade at all",
-            "Animal skin had stopped existing completely by then"
+            "Those cities had no other craft or trade",
+            "Animal skin had stopped existing by then"
           ],
           "answer": "B",
           "skill": "inference",
@@ -398,7 +398,7 @@
             "Both happened through trade and travel over long distances",
             "Both happened on the exact same day in history",
             "Both involved building the very first paper mill ever made",
-            "Both were invented completely separately from China"
+            "Both were invented separately from China"
           ],
           "answer": "A",
           "skill": "compare",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Paper was invented only once and then never changed at all afterward, in any land",
+            "Paper was invented only once and then never changed afterward, in any land",
             "Papermaking was invented in China, then slowly carried and refined across the world",
-            "Europe invented papermaking entirely on its own, without outside help from any other land",
-            "Trade roads were used only for selling cloth, never for sharing ideas or new skills"
+            "Europe invented papermaking on its own, without help from other lands",
+            "Trade roads were used for selling cloth, not for sharing ideas or new skills"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about why China kept papermaking secret for so long?",
           "options": [
-            "Chinese law made it completely impossible to travel anywhere",
-            "No one else in the world ever wanted paper at all",
+            "Chinese law made it impossible to travel",
+            "No one else in the world ever wanted paper",
             "The skill gave China an advantage that few other regions could copy",
-            "Paper was considered worthless and unimportant at the time"
+            "Paper was considered worthless and unimportant by rulers at the time"
           ],
           "answer": "C",
           "skill": "inference",
@@ -559,7 +559,7 @@
           "options": [
             "Local materials, tools, and climate were likely somewhat different from China's",
             "They refused to learn any part of the original Chinese process of making paper",
-            "Paper could no longer be made from plant fiber at all in Samarkand",
+            "Paper could no longer be made from plant fiber in Samarkand",
             "They were required to invent a brand new, unrelated craft instead of copying"
           ],
           "answer": "A",
@@ -574,9 +574,9 @@
         {
           "stem": "How was the spread of papermaking to the Islamic world similar to its later spread to Europe?",
           "options": [
-            "Both occurred without any contact between different regions",
+            "Both occurred without any contact between different regions or the world",
             "Both happened within the exact same single decade",
-            "Both required inventing an entirely new raw material from scratch",
+            "Both required inventing a new raw material from scratch",
             "Both relied on gradual exchange along long trade and travel routes"
           ],
           "answer": "D",

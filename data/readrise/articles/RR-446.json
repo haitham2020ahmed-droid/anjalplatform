@@ -381,7 +381,7 @@
             "It stays exactly the same the whole time, with no plants and no birds",
             "It starts with water, and ends covered in sand with no life left on it",
             "It starts barren with no plants, and ends full of healthy trees and birds",
-            "It starts full of trees, and ends completely empty of plants and birds"
+            "It starts full of trees, and ends empty of plants and birds"
           ],
           "answer": "C",
           "skill": "compare",
@@ -397,7 +397,7 @@
           "options": [
             "Because it was the cheapest tree at the market and he had very little money",
             "Because his teacher told him it was the only legal choice for planting on that hill",
-            "Because it grew the fastest of all the trees available in the nursery that year",
+            "Because it grew the fastest of the trees in the nursery that year",
             "Because it had belonged there naturally for generations and would suit the land"
           ],
           "answer": "D",
@@ -507,7 +507,7 @@
           "stem": "What detail from the story shows the lasting impact of Saeed's project on other communities?",
           "options": [
             "It caused other communities to argue over who owned the hill they could all see",
-            "It led the other communities to stop planting any trees altogether",
+            "It led the other communities to stop planting trees",
             "It made the other communities ask Saeed to move far away from the hill",
             "It inspired other communities to consider similar restoration projects of their own"
           ],
@@ -525,8 +525,8 @@
           "options": [
             "The teacher simply told students to go outside and play, and she did not mention any plants",
             "The lesson specifically linked trees to preventing soil erosion and supporting biodiversity",
-            "The teacher only mentioned trees once in passing, while she was handing back the papers",
-            "The lesson was about a completely unrelated science topic, such as the stars and the Moon"
+            "The teacher mentioned trees once in passing, while she was handing back the papers",
+            "The lesson was about a unrelated science topic, such as the stars and the Moon"
           ],
           "answer": "B",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "Compare Saeed's approach in the early years of the project with the approach taken once the community became involved.",
           "options": [
             "Early on he worked mostly alone, while later many neighbors shared the effort together",
-            "Early on many people helped him, while later Saeed worked entirely alone on the hill",
+            "Early on many people helped him, while later Saeed worked alone on the hill",
             "His approach never changed at any point in the story, from the first year to the last",
-            "Early on he avoided trees, while later he avoided the hill entirely and stayed home"
+            "Early on he avoided trees, while later he avoided the hill and stayed home"
           ],
           "answer": "A",
           "skill": "compare",
@@ -557,10 +557,10 @@
         {
           "stem": "Why does planting a native species matter for restoring the hillside, based on the story?",
           "options": [
-            "Because native trees require no water at all to survive, even in the hottest summer months",
+            "Because native trees require no water to survive, even in the hottest summer months",
             "Because native trees grow instantly within a single day, so the hillside turns green fast",
             "Because it had belonged there naturally for generations, making it well suited to the land",
-            "Because native trees are always the cheapest option available, and the town has very little money"
+            "Because native trees are the cheapest option available, and the town has very little money"
           ],
           "answer": "C",
           "skill": "cause-effect",

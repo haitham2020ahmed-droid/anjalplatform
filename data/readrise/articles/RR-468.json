@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people learned to build the first boats",
+            "How people learned to build the first boats to cross the sea",
             "How coffee was found and became a drink people enjoy everywhere",
-            "How farmers first grew rice in a new land, as the article explains",
-            "How towns built their first roads in the article"
+            "How farmers first grew rice in a new land",
+            "How towns built their first roads"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,8 +131,8 @@
         {
           "stem": "What did a goat herder notice about his goats?",
           "options": [
-            "They stopped eating completely, as the article explains",
-            "They fell asleep right away in the article",
+            "They stopped eating and slept in the shade for days",
+            "They fell asleep right away",
             "They seemed full of extra pep after eating red berries",
             "They ran far away and got lost"
           ],
@@ -148,9 +148,9 @@
         {
           "stem": "What did workers do to the beans before making the drink?",
           "options": [
-            "They froze the beans in ice in the article",
-            "They buried the beans in soil, as the article explains",
-            "They painted the beans bright colors overall",
+            "They froze the beans in ice",
+            "They buried the beans in soil",
+            "They painted the beans bright colors and dried them in the sun",
             "They roasted the beans over fire and then ground them up"
           ],
           "answer": "D",
@@ -166,9 +166,9 @@
           "stem": "Why did the herder decide to try the berries himself?",
           "options": [
             "Because he was curious after seeing how the berries affected his goats",
-            "Because he was very hungry that day in the article",
-            "Because someone told him it was safe, as the article explains",
-            "Because his goats refused to eat anything else overall"
+            "Because he was very hungry that day",
+            "Because someone told him it was safe",
+            "Because his goats refused to eat the grass and he wanted to know why"
           ],
           "answer": "A",
           "skill": "inference",
@@ -182,10 +182,10 @@
         {
           "stem": "Why did coffee shops become popular places?",
           "options": [
-            "Because coffee shops gave away free food in the article",
-            "Because coffee shops were the only buildings in town",
+            "Because coffee shops gave away free food",
+            "Because coffee shops were the biggest buildings in town and stayed open late",
             "Because people could gather there to talk, play games, and share news",
-            "Because coffee shops sold many other drinks too, as the article explains"
+            "Because coffee shops sold many other drinks too"
           ],
           "answer": "C",
           "skill": "inference",
@@ -199,9 +199,9 @@
         {
           "stem": "In the article, a berry is best described as —",
           "options": [
-            "a kind of hot drink in the article",
-            "a tool used to grind beans, as the article explains",
-            "a type of building in a town",
+            "a kind of hot drink",
+            "a tool used to grind beans",
+            "a type of building in a town where people meet",
             "a small, soft fruit that grows on a plant"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the article mostly tell the story of coffee?",
           "options": [
-            "By comparing many kinds of tea from different countries, according to the text",
+            "By comparing many kinds of tea from different countries and explaining how each one is made",
             "By telling the story in time order, from wild berries to coffee shops around the world",
-            "By listing steps for building a goat pen, as the article explains",
-            "By naming famous painters from long ago in the article overall"
+            "By listing steps for building a goat pen",
+            "By naming famous painters from long ago"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -235,8 +235,8 @@
           "options": [
             "Coffee reached many new lands over time",
             "Coffee plants stopped growing completely",
-            "Goats stopped eating berries forever",
-            "Coffee shops closed down everywhere"
+            "Goats stopped eating berries",
+            "Coffee shops closed down"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Coffee was first grown in Europe before spreading anywhere else overall in this case for this reason",
+            "Coffee was first grown in Europe before spreading anywhere else",
             "Coffee began as a wild plant in Africa and gradually spread, through stories, roasting, and trade, into a drink enjoyed worldwide",
-            "Goats refused to eat coffee berries when they found them, as the article explains at that time",
-            "Coffee houses failed to attract any visitors at first in the article, according to the text as a result"
+            "Goats refused to eat coffee berries when they found them",
+            "Coffee houses failed to attract visitors at first, so coffee stayed a drink for a few traders in one town by the sea for many years"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What specific change does the article say roasting caused in the beans?",
           "options": [
-            "The beans turned bright red in color in the article",
-            "The beans became much larger in size, as the article explains",
+            "The beans turned bright red in color and became soft and sweet",
+            "The beans became much larger in size",
             "The beans gradually turned brown and developed a stronger smell",
-            "The beans lost their seeds completely overall, according to the text"
+            "The beans lost their seeds"
           ],
           "answer": "C",
           "skill": "detail",
@@ -327,9 +327,9 @@
         {
           "stem": "What specific detail does the article give about what happened at coffee houses?",
           "options": [
-            "People went there only to buy fresh bread, as the article explains",
-            "People went there to trade farm animals in the article",
-            "People went there to watch traveling performers overall",
+            "People went there only to buy fresh bread",
+            "People went there to trade farm animals",
+            "People went there to watch traveling performers and buy fresh bread",
             "People gathered to talk, play games, and share the latest local news"
           ],
           "answer": "D",
@@ -345,9 +345,9 @@
           "stem": "What can you infer about why the legend of the goat herder became well known?",
           "options": [
             "It likely offered a memorable, simple explanation for how people first discovered coffee's effects",
-            "It was the only story ever told about coffee's discovery, as the article explains",
-            "It proved coffee could never affect human energy levels in the article",
-            "It discouraged people from ever trying the fruit themselves overall, according to the text"
+            "It was the only story ever told about coffee's discovery",
+            "It proved coffee has little effect on human energy levels",
+            "It discouraged people from trying the fruit themselves, so they waited for the herder to test it first"
           ],
           "answer": "A",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "What can you infer about daily life in regions where coffee first spread?",
           "options": [
-            "People stopped gathering together once coffee appeared in the article",
-            "Coffee immediately became too expensive for most people, as the article explains",
+            "People stopped gathering together once coffee appeared",
+            "Coffee became too expensive for most people, so they drank it at weddings and big yearly festivals",
             "Drinking coffee likely became a regular, shared part of people's daily social routines",
-            "People only drank coffee during special yearly festivals overall"
+            "People only drank coffee during special yearly festivals"
           ],
           "answer": "C",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "How is the information in the article mostly organized?",
           "options": [
-            "By comparing modern coffee shops with modern tea shops, as the article explains",
+            "By comparing modern coffee shops with modern tea shops",
             "By following coffee's history in the order it happened, from a wild plant to a worldwide drink",
-            "By explaining exactly how to grow a coffee plant at home overall in this case",
-            "By arguing that goats should never eat berries in the article, according to the text"
+            "By explaining exactly how to grow a coffee plant at home, from planting the seed to picking the berries",
+            "By arguing that goats should never eat berries"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "Why did coffee spread so widely once people began trading it?",
           "options": [
             "Because traders carried beans across long distances by both land and sea",
-            "Because governments required every ship to carry coffee",
+            "Because governments required each ship to carry coffee on long trips",
             "Because coffee plants could no longer grow in Africa",
-            "Because people stopped drinking any other beverages in the article"
+            "Because people stopped drinking other beverages"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Coffee was first cultivated in Europe before reaching any other continent, as the article explains",
+            "Coffee was first cultivated in Europe before reaching any other continent",
             "A wild plant from Africa, spread through legend, roasting, and expanding trade, gradually became a drink embraced across the globe",
-            "The goat herder's legend proves conclusively how coffee was first discovered overall in this case",
-            "Coffee houses failed to spread beyond a single town for centuries in the article, according to the text"
+            "The goat herder's legend proves conclusively how coffee was first discovered",
+            "Coffee houses failed to spread beyond a single town for centuries, so the drink stayed rare outside Africa and Arabia, where it began"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "What specific evidence does the article give for coffee's gradual, widespread cultural significance?",
           "options": [
-            "It states that coffee was reserved exclusively for wealthy merchants overall in this case",
-            "It states that coffee houses were banned in most regions in the article, according to the text",
+            "It states that coffee was reserved for wealthy merchants, who drank it in private rooms away from ordinary people",
+            "It states that coffee houses were banned in most regions",
             "It describes coffee houses as popular, lively gathering spots central to community life across many towns and cities",
-            "It states that coffee remained unknown outside Africa for centuries, as the article explains"
+            "It states that coffee remained unknown outside Africa for centuries"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "What evidence does the article give that roasting fundamentally changed the coffee beans?",
           "options": [
-            "It states that roasting caused the beans to shrink to half their size, as the article explains",
-            "It states that roasting removed the seeds from inside the beans in the article",
-            "It states that roasting made the beans edible for the very first time overall, according to the text",
+            "It states that roasting caused the beans to shrink to half their size and lose most of the smell they had before",
+            "It states that roasting removed the seeds from inside the beans",
+            "It states that roasting made the beans edible for the very first time",
             "It states that roasting caused the beans to darken into a rich brown and develop a noticeably stronger aroma"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "How does the article's description of coffee's origins compare with its description of coffee's eventual global reach?",
           "options": [
             "Coffee's origins are presented as isolated and local, while its eventual reach is presented as vast and genuinely global",
-            "Both the origins and the global spread are described as happening in the same single region",
-            "Coffee's global reach is described as occurring before its local origins in the article",
-            "Neither the origins nor the global spread are described in terms of geography, as the article explains"
+            "Both the origins and the global spread are described as happening in the same single region of Africa, near the coast",
+            "Coffee's global reach is described as occurring before its local origins",
+            "Neither the origins nor the global spread are described in terms of geography"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about the broader historical significance of merchants carrying coffee via maritime trade routes?",
           "options": [
-            "Maritime trade routes had no real effect on coffee's eventual spread overall in this case",
-            "Coffee spread only through overland routes, never by sea in the article, according to the text",
+            "Maritime trade routes had no real effect on coffee's eventual spread",
+            "Coffee spread mainly through overland routes, and ships carried it rarely, so it stayed in Arabia and Africa for many centuries",
             "Maritime trade likely played an essential role in transforming a locally known plant into a globally consumed beverage",
-            "Merchants avoided carrying coffee because it was too fragile, as the article explains"
+            "Merchants avoided carrying coffee because it was too fragile"
           ],
           "answer": "C",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "In the article, the word cultivating is used to describe what people did once they learned about the fruit. What does cultivating mean here?",
           "options": [
-            "harvesting a crop that grows entirely on its own",
-            "trading goods across long distances by ship",
-            "roasting beans over an open flame in the article",
+            "harvesting a crop that grows on its own",
+            "trading goods across long distances by ship and by camel",
+            "roasting beans over an open flame",
             "deliberately growing and caring for a plant over time"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the article present the goat herder's story as a legend rather than as an established historical fact?",
           "options": [
-            "To argue that the story is completely false and should be ignored, as the article explains",
+            "To argue that the story is false and should be ignored",
             "To honestly signal that this popular origin story may not be fully verified, even though it remains a widely told account",
-            "To prove that goats were never actually involved in coffee's discovery overall in this case",
-            "To suggest that coffee was never actually discovered in Africa in the article, according to the text"
+            "To prove that goats were not involved in coffee's discovery, so the story should be forgotten by readers who enjoy true history",
+            "To suggest that coffee was not discovered in Africa"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -592,9 +592,9 @@
           "stem": "Based on the article, what most likely allowed coffee to become such an enduring part of daily life across so many cultures?",
           "options": [
             "A combination of appealing effects, growing trade networks, and inviting social spaces like coffee houses likely sustained its lasting popularity",
-            "A single royal decree required every household to drink coffee, as the article explains at that time",
-            "Coffee plants began growing naturally on every continent at once overall, according to the text as a result",
-            "People drank coffee only because no other beverages existed in the article in this case for this reason"
+            "A royal decree required households to drink coffee each morning, so people kept drinking it long after the decree ended, even in cities where coffee had once been rare",
+            "Coffee plants began growing naturally on most continents at once",
+            "People drank coffee because few other beverages existed"
           ],
           "answer": "A",
           "skill": "inference",

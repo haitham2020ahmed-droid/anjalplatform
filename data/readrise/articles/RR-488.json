@@ -117,7 +117,7 @@
             "How to make a wet cloth",
             "How Volta built the first battery using metal and cloth",
             "Why sparks are dangerous",
-            "How copper is dug from the ground"
+            "How copper is dug from the ground in deep mines in Italy"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -184,7 +184,7 @@
           "options": [
             "Because the pile was much cheaper to make",
             "Because sparks were illegal to make",
-            "Because the pile was smaller than a spark machine",
+            "Because the pile was smaller and lighter than a spark machine in the lab",
             "Because the pile's power could flow for a long time, not just a moment"
           ],
           "answer": "D",
@@ -201,7 +201,7 @@
           "options": [
             "Staying the same without stopping or changing",
             "Moving very fast",
-            "Breaking apart easily",
+            "Breaking apart easily into small pieces when it is dropped",
             "Changing color often"
           ],
           "answer": "A",
@@ -219,7 +219,7 @@
             "It compares different colors of metal",
             "It tells the story of the battery's invention in the order it happened",
             "It explains how to fix a broken pile",
-            "It lists rules for using batteries safely"
+            "It lists rules for using batteries safely at home and keeping them dry"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -233,8 +233,8 @@
         {
           "stem": "What happened right after Volta noticed the two metals acted strangely together?",
           "options": [
-            "He gave up on the idea completely",
-            "He stopped using metal forever in this situation in this situation",
+            "He gave up on the idea and went home for the night",
+            "He stopped using metal",
             "He began stacking the metals with wet cloth between them",
             "The metal broke apart immediately"
           ],
@@ -295,7 +295,7 @@
           "options": [
             "Salty water is dangerous to drink",
             "Volta, a scientist, built the first true battery by stacking metal discs with wet cloth between them",
-            "Zinc and copper should never be placed together",
+            "Zinc and copper react badly together, so Volta used silver and gold discs to make his first battery",
             "Sparks are the best source of power"
           ],
           "answer": "B",
@@ -312,7 +312,7 @@
           "options": [
             "A careful test done to learn something new",
             "A type of metal disc",
-            "A kind of spark machine",
+            "A kind of spark machine used in old labs",
             "A piece of wet cloth"
           ],
           "answer": "A",
@@ -328,7 +328,7 @@
           "stem": "According to the article, what was Volta's job?",
           "options": [
             "He was a metal worker",
-            "He sold cloth in a shop",
+            "He sold cloth in a shop in the market",
             "He was an Italian scientist",
             "He was a soldier"
           ],
@@ -345,8 +345,8 @@
           "stem": "Why does the article explain that Volta published his findings?",
           "options": [
             "So other scientists could learn how his pile worked and build their own",
-            "To keep his invention a secret forever",
-            "To sell his pile directly to every home",
+            "To keep his invention a secret",
+            "To sell his pile directly to homes and shops across Europe for a lot of money",
             "To explain how newspapers are printed"
           ],
           "answer": "A",
@@ -361,8 +361,8 @@
         {
           "stem": "What can you infer about why Volta tested his idea carefully before sharing it?",
           "options": [
-            "He needed something to do on a rainy day",
-            "He was told to do so by a teacher in this situation in this situation in this situation",
+            "He needed something to do on a rainy day when he could not go outside in his garden",
+            "He was told to do so by a teacher",
             "Metal discs are required for all science work",
             "He wanted solid proof that his pile truly worked before telling other scientists"
           ],
@@ -380,8 +380,8 @@
           "options": [
             "By listing unrelated facts about Italy with no clear order",
             "By showing, step by step, how a strange observation led to a tested, reliable invention",
-            "By focusing only on the price of batteries today in this situation in this situation in this situation",
-            "By comparing batteries to candles throughout the article"
+            "By focusing only on the price of batteries today",
+            "By comparing batteries to candles throughout the article, from start to end in the lab"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -395,10 +395,10 @@
         {
           "stem": "According to the article, what effect did Volta's invention eventually have on science?",
           "options": [
-            "It completely replaced the need for any further experiments",
+            "It replaced the need for any further experiments",
             "It gave scientists a steady, dependable source of power for their experiments",
-            "It was limited only to Volta's own workshop forever",
-            "It made experiments illegal in most countries in this situation in this situation"
+            "It was used mostly in Volta's own workshop for his small tests in his city",
+            "It made experiments illegal in most countries"
           ],
           "answer": "B",
           "skill": "detail",
@@ -413,9 +413,9 @@
           "stem": "Which best compares early sparks to Volta's pile?",
           "options": [
             "Sparks vanished almost instantly, while the pile gave off a steady current",
-            "Sparks lasted for hours, unlike the pile in this situation in this situation",
-            "Both sparks and the pile worked exactly the same way",
-            "The pile used no liquid at all, unlike sparks"
+            "Sparks lasted for hours, unlike the pile",
+            "Both sparks and the pile worked the same way and lasted for hours in the lab",
+            "The pile used no liquid, unlike sparks"
           ],
           "answer": "A",
           "skill": "compare",
@@ -474,8 +474,8 @@
           "options": [
             "Salty liquid was invented specifically to power machines",
             "A scientist's careful experiment with metal electrodes and a chemical reaction produced the world's first true battery",
-            "The voltaic pile was invented purely by luck with no real testing involved",
-            "Electrons have always flowed perfectly through metal with no chemical cause"
+            "The voltaic pile was invented purely by luck, when Volta dropped two coins into a cup of salt water by accident",
+            "Electrons have flowed perfectly through metal with no chemical cause"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -492,7 +492,7 @@
             "A piece of metal through which electricity enters or leaves a device",
             "A type of salty liquid",
             "A unit used to measure voltage",
-            "A kind of cloth used in experiments"
+            "A kind of cloth soaked in salt water and used in experiments in a laboratory"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -509,7 +509,7 @@
             "The current stopped flowing completely",
             "The current became a brief spark instead",
             "The pile's total voltage increased, letting it power stronger devices",
-            "The discs stopped reacting with the liquid"
+            "The discs stopped reacting with the liquid, so the pile grew weaker"
           ],
           "answer": "C",
           "skill": "detail",
@@ -524,8 +524,8 @@
           "stem": "Why was it significant that Volta's pile produced a continuous current rather than a brief spark?",
           "options": [
             "It gave scientists, for the first time, a dependable source of power for sustained experiments",
-            "It made the zinc electrodes stop corroding entirely",
-            "It eliminated the need for any liquid at all",
+            "It made the zinc electrodes stop corroding, so the pile could be used for many years without repair",
+            "It removed the need for liquid",
             "It made the pile illegal to use in experiments"
           ],
           "answer": "A",
@@ -540,10 +540,10 @@
         {
           "stem": "How does the structure of the article support its larger point about how scientific discoveries can happen?",
           "options": [
-            "By listing unrelated facts about Italy with no clear order",
+            "By listing facts about Italy with no clear order, so readers can choose the ones they like best to read",
             "By showing a clear sequence in which a curious observation led step by step to a tested, reliable invention",
             "By focusing only on the biography of spark-making machines",
-            "By comparing batteries only to ancient lamps in this situation in this situation in this situation in this situation"
+            "By comparing batteries to ancient lamps"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -557,9 +557,9 @@
         {
           "stem": "What was most likely the author's purpose in explaining exactly how the chemical reaction released a stream of electrons?",
           "options": [
-            "To entertain readers with unrelated trivia about chemistry",
+            "To entertain readers with unrelated trivia about chemistry, such as how salt is made from seawater in big pans",
             "To suggest that only scientists can ever discover anything useful",
-            "To prove that batteries are dangerous to use in this situation in this situation in this situation in this situation",
+            "To prove that batteries are dangerous to use",
             "To help readers understand the real scientific cause behind the invention, not just the idea that inspired it"
           ],
           "answer": "D",
@@ -575,8 +575,8 @@
           "stem": "Which comparison between brief sparks and Volta's pile is best supported by the article?",
           "options": [
             "Sparks vanished almost instantly, while the pile's chemical reaction produced a steady, lasting current",
-            "Sparks and the pile worked by the exact same chemical process in this situation in this situation in this situation",
-            "The pile could only be used once before it stopped working forever",
+            "Sparks and the pile worked by the same chemical process, so both produced a current that lasted for days",
+            "The pile could only be used once before it stopped working",
             "Brief sparks required a chemical reaction, just like the pile"
           ],
           "answer": "A",
@@ -591,10 +591,10 @@
         {
           "stem": "What long-term effect did Volta's invention have on scientific research, according to the article?",
           "options": [
-            "Research returned entirely to using only brief sparks after a short trial",
+            "Research returned to using brief sparks after a short trial, because the pile was too heavy to carry around",
             "Scientists across Europe adopted the design, powering experiments that had previously been impossible",
-            "Research stopped using any electrical devices entirely",
-            "Salty liquid was banned from laboratories afterward in this situation in this situation in this situation"
+            "Research stopped using electrical devices",
+            "Salty liquid was banned from laboratories afterward"
           ],
           "answer": "B",
           "skill": "cause-effect",

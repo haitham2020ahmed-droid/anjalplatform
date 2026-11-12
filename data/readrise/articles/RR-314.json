@@ -216,10 +216,10 @@
         {
           "stem": "Why might a digital camera be more convenient than a film camera?",
           "options": [
-            "It never needs to be charged at all",
+            "It never needs to be charged",
             "It saves the picture right away to view",
-            "It only takes black and white old photos",
-            "It cannot take any pictures outdoors ever"
+            "It takes black and white old photos in a shop",
+            "It takes better pictures at night"
           ],
           "answer": "B",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "What is the main idea of the article?",
           "options": [
             "Only very old film cameras can take truly good pictures.",
-            "Photography can never actually be considered a form of art.",
+            "Photography is rarely considered a form of art.",
             "A camera uses framing, exposure, and light to make a photo.",
-            "Digital cameras never actually need to use any lens at all."
+            "Digital cameras do not need a lens."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "Why might a photographer use a longer exposure on purpose?",
           "options": [
-            "To make the whole camera much lighter overall",
+            "To make the whole camera much lighter",
             "To blur a moving subject or brighten a dim scene",
-            "To remove the camera's lens completely",
-            "To make every photo only black and white"
+            "To remove the camera's lens completely before taking a photo",
+            "To make each photo black and white"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -362,7 +362,7 @@
           "stem": "In the article, the word digital describes a camera that…",
           "options": [
             "uses film and an old dark room to make pictures",
-            "has no camera lens or screen built in at all",
+            "has no camera lens or screen built in",
             "only takes photos when it is dark outside",
             "uses an electronic sensor instead of film"
           ],
@@ -395,10 +395,10 @@
         {
           "stem": "What can you infer about why digital photography changed photography so much?",
           "options": [
-            "It removed the need for any light at all to work",
+            "It removed the need for light to take a photo",
             "It let photographers see pictures within seconds",
-            "It made every single photo black and white only",
-            "It eliminated the need for a camera entirely"
+            "It made most photos black and white",
+            "It removed the need for a camera"
           ],
           "answer": "B",
           "skill": "inference",
@@ -413,7 +413,7 @@
           "stem": "How does the author organize the explanation of photography?",
           "options": [
             "By arguing that cameras cost way too much money for most people",
-            "By comparing two completely unrelated hobbies, such as art and sport",
+            "By comparing two unrelated hobbies, such as art and sport",
             "By describing how a camera works, then its two purposes",
             "By listing many famous photographers by name, with their dates"
           ],
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "A camera cannot ever take a sharp picture without using film, so every photographer must buy rolls.",
-            "Digital sensors completely eliminate the need for any lens, so a photographer does not need light.",
+            "Digital sensors remove the need for a lens, so a photographer needs less light.",
             "A photographer uses aperture, exposure, and light to document and create art.",
             "Composition matters far less than the brand of camera used, so a photographer must buy the best."
           ],
@@ -509,7 +509,7 @@
             "Instantly converts light into a picture",
             "Develops old film chemically in a dark room",
             "Simply prints the finished photo on paper",
-            "Only stores black-and-white images forever"
+            "Only stores black-and-white images"
           ],
           "answer": "A",
           "skill": "detail",
@@ -560,7 +560,7 @@
             "Film and darkroom work came first, then digital sensors came later.",
             "Digital sensors came first, and old film replaced them much later.",
             "Aperture control was only invented after digital cameras appeared.",
-            "Composition only became important after digital cameras were made."
+            "Composition became important after digital cameras were made."
           ],
           "answer": "A",
           "skill": "sequence",
@@ -577,7 +577,7 @@
             "To make the whole camera much lighter to carry around",
             "To adjust a picture after it is taken",
             "To remove the need for an aperture entirely",
-            "To prevent the sensor from capturing any light"
+            "To prevent the sensor from capturing light"
           ],
           "answer": "B",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "Documentation and art are exactly the same thing in photography",
             "Only digital cameras can ever create real art, film cannot",
             "Documentation records reality, while art expresses something more",
-            "Art never actually uses any of the camera's technical settings"
+            "Art rarely uses the camera's technical settings"
           ],
           "answer": "C",
           "skill": "compare",

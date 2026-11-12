@@ -184,8 +184,8 @@
           "options": [
             "People enjoy the cool air there.",
             "Asir is closed to visitors all winter.",
-            "People only visit to see the Red Sea.",
-            "Summer is the rainiest time in every city."
+            "People visit to see the Red Sea.",
+            "Summer is the rainiest time in Riyadh."
           ],
           "answer": "A",
           "skill": "inference",
@@ -295,8 +295,8 @@
           "options": [
             "Abha is the largest and busiest city in all of Saudi Arabia.",
             "Asir's height makes it cool, rainy, and green, which shapes its life and culture.",
-            "Baboons are the most important animals living in the mountains of Asir.",
-            "Terraces are the only way to farm in Saudi Arabia."
+            "Baboons are the most important animals living in the mountains of Asir and valleys in the south.",
+            "Terraces are the main way to farm in Saudi Arabia."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -346,8 +346,8 @@
           "options": [
             "The slopes are covered with ice all year.",
             "Steep slopes would let rain wash the soil away.",
-            "The juniper trees block all the sunlight.",
-            "Baboons cannot climb onto flat steps."
+            "The juniper trees block the sunlight.",
+            "Baboons would eat the crops on flat steps in the valleys."
           ],
           "answer": "B",
           "skill": "inference",
@@ -362,7 +362,7 @@
           "stem": "Al-Qatt Al-Asiri is passed from mothers to daughters. What does this suggest?",
           "options": [
             "The art is new and only a few years old.",
-            "Only tourists are allowed to paint it.",
+            "Tourists are the main people who paint it.",
             "Families work to keep the art alive over time.",
             "The patterns are printed by machines."
           ],
@@ -541,9 +541,9 @@
           "stem": "What can you infer about the farmers who first built the terraces?",
           "options": [
             "They understood how water moves on steep land.",
-            "They did not need to grow any food at all.",
+            "They did not need to grow any food.",
             "They lived near flat desert plains with no hills.",
-            "They built them only for decoration, not for use."
+            "They built them mainly for decoration."
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,7 +557,7 @@
         {
           "stem": "In the article, what does the word \"condense\" mean?",
           "options": [
-            "To disappear completely into the sky",
+            "To disappear into the sky",
             "To heat up quickly",
             "To change from a gas into liquid drops",
             "To freeze into hard, solid ice crystals"

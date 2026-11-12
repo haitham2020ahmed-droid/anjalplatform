@@ -200,9 +200,9 @@
           "stem": "Why would coral not grow well in deep, dark water?",
           "options": [
             "The algae in it need sun to make food.",
-            "Fish cannot swim in deep water.",
+            "Fish swim away from deep water in the dark.",
             "Deep water is full of sand.",
-            "Turtles would eat all of it there."
+            "Turtles would eat it there."
           ],
           "answer": "A",
           "skill": "inference",
@@ -363,7 +363,7 @@
           "options": [
             "Coral losing its algae and turning white",
             "Parrotfish turning coral into sand",
-            "New polyps growing on old skeletons",
+            "New polyps growing on old skeletons each year",
             "Waves breaking pieces off a reef"
           ],
           "answer": "A",
@@ -381,7 +381,7 @@
             "Deep water is far too salty for polyps.",
             "The algae need sunlight to make food.",
             "Polyps cannot swim down very far.",
-            "Parrotfish live only near the surface."
+            "Parrotfish live near the surface."
           ],
           "answer": "B",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Coral reefs everywhere are dying and cannot be saved by anyone, even with help.",
-            "The Farasan Islands are the largest islands in the whole world, and they are made of sand only.",
+            "The Farasan Islands are the largest islands in the Red Sea, and they are made of sand.",
             "Living polyps slowly build reefs that can form islands, but heat can disrupt them.",
-            "Parrotfish produce all of the sand found in the Red Sea, and no other animal does."
+            "Parrotfish produce most of the sand in the Red Sea, so beaches grow each year."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -490,7 +490,7 @@
           "stem": "As used in the article, symbiosis most nearly means",
           "options": [
             "a partnership in which two living things help each other",
-            "a disease that slowly kills coral on reefs everywhere",
+            "a disease that slowly kills coral on warm reefs and in cold water",
             "a layer of limestone under the sea",
             "a group of small islands"
           ],
@@ -526,7 +526,7 @@
             "They are the oldest corals found anywhere on Earth.",
             "They handle heat better than many corals.",
             "They can be seen easily from space.",
-            "They contain no algae at all."
+            "They contain no algae."
           ],
           "answer": "B",
           "skill": "inference",

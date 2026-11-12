@@ -150,8 +150,8 @@
           "options": [
             "On schools, shops, and tall buildings",
             "Only inside art museums",
-            "Only on taxis",
-            "Only inside people's homes and private garages nearby"
+            "On taxis and buses",
+            "Inside people's homes and private garages"
           ],
           "answer": "A",
           "skill": "detail",
@@ -219,7 +219,7 @@
             "A blank gray wall is cheaper to paint than any mural, and so cities leave it plain and bare for years and years",
             "Blank walls are more popular with tourists than murals, and so cities keep them plain to bring in more visitors",
             "A colorful mural likely makes the area feel more lively and gives the community something to enjoy",
-            "Murals are required by law in every city, and so the city must paint one on each wall, whether it wants to or not"
+            "Murals are required by law in most cities, so the city must paint one on each wall"
           ],
           "answer": "C",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Cities invite artists to carefully plan and paint murals that transform blank walls into community art.",
-            "Murals are easy to paint quickly without any planning, design, or help from anyone else at all",
-            "Mural artists always work completely alone and never collaborate with any other artists or helpers",
-            "The Latin language is responsible for creating every piece of modern street art everywhere"
+            "Murals are easy to paint quickly with little planning, design, or help from other artists or the city",
+            "Mural artists work alone and rarely work with other artists or helpers",
+            "The Latin language gave us the word mural and most modern street art"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -398,7 +398,7 @@
             "A mural is smaller and easier to move",
             "Blank gray walls are actually far more popular with tourists and visitors than any colorful finished mural",
             "A mural becomes a permanent part of the building, while a gallery painting hangs in a frame",
-            "A mural never shows a theme or story"
+            "A mural rarely shows a theme or story"
           ],
           "answer": "C",
           "skill": "compare",
@@ -415,7 +415,7 @@
             "By comparing two different cities' weather and their walls, as shown on a map of both cities",
             "By explaining what a mural is, then how one is planned, painted, and why it matters to a community",
             "By arguing that murals should be banned from every street, wall, and building in the city",
-            "By listing every mural ever painted in the world, one after another, from the oldest one"
+            "By listing famous murals one after another, from the oldest one"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Murals require no planning, only enthusiasm, and so they are always painted in a day by anyone.",
-            "Street art is illegal in every country, so murals are never allowed on any wall in the city or town.",
+            "Murals require no planning, only enthusiasm, and so they are painted in a day by anyone.",
+            "Street art is illegal in most countries, so murals are rarely allowed on city walls.",
             "Carefully commissioned, collaboratively painted murals transform blank city walls into vibrant public landmarks.",
-            "Only professional muralists are allowed to view murals, and the public cannot see them at all or enjoy them."
+            "Professional muralists are the main people who view murals, and the public rarely sees them up close in their city."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -540,7 +540,7 @@
         {
           "stem": "Why must an artist obtain official permission before painting a wall that belongs to someone else?",
           "options": [
-            "Because paint is too expensive without approval",
+            "Because paint is too expensive without approval from the city",
             "Because otherwise it is legally considered vandalism",
             "Because permission makes the wall taller",
             "Because only permission can supply the design"
@@ -559,8 +559,8 @@
           "options": [
             "To encourage collaboration and the exchange of artistic techniques between cultures",
             "To make it harder for local artists to collaborate, so only visitors can paint the walls",
-            "To replace all other forms of public art in the city with painted walls only",
-            "To avoid giving artists any official permission, so they paint without asking"
+            "To replace other forms of public art in the city with painted walls",
+            "To avoid giving artists official permission, so they paint without asking"
           ],
           "answer": "A",
           "skill": "inference",

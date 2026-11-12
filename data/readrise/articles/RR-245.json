@@ -133,7 +133,7 @@
      "options": [
       "It lifts sweat, oil, and dirt off your skin",
       "It makes your hands feel very cold",
-      "It turns all the germs into plain water",
+      "It turns all the germs into plain water or air",
       "It changes the color of your skin"
      ],
      "answer": "A",
@@ -167,7 +167,7 @@
      "options": [
       "A loud sound that you can hear",
       "Something you notice with your nose",
-      "A bright color that you can see",
+      "A bright color that you can see in the sky",
       "A tasty food that you can eat"
      ],
      "answer": "B",
@@ -295,8 +295,8 @@
      "options": [
       "A daily hygiene routine of bathing, clean clothes, and trimmed nails helps keep you healthy",
       "Ancient Babylonians invented soap, so people today do not need to wash or clean themselves much",
-      "Bacteria are always harmful, so every person should try to kill all of them every day",
-      "Only doctors need good hygiene, because nurses and other people do not touch any patients"
+      "Bacteria are harmful, so every person should try to kill all of them every day",
+      "Doctors need good hygiene most, because other people touch fewer patients"
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -330,7 +330,7 @@
       "The fabric becomes stronger and softer over time",
       "The clothes become waterproof and very clean",
       "Bacteria can multiply and cause odor or itchy skin",
-      "Nothing changes at all in the clothes or in you"
+      "Nothing changes in the clothes or in you"
      ],
      "answer": "C",
      "skill": "detail",
@@ -379,9 +379,9 @@
      "stem": "What can you infer about ancient people from the fact that they made soap from ash and animal fat?",
      "options": [
       "They had no interest in staying clean, and they bathed only on feast days",
-      "They only used soap for cooking, never for washing hands or clothes",
+      "They used soap mostly for cooking, not for washing hands or clothes",
       "They cared about cleanliness long before modern science explained germs",
-      "They never bathed at all, because soap had not been made yet in their land"
+      "They bathed rarely, because soap had not been made yet in their land"
      ],
      "answer": "C",
      "skill": "inference",
@@ -473,9 +473,9 @@
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
       "Meticulous hygiene habits such as bathing, clean clothing, and trimmed nails help prevent chronic skin problems and illness",
-      "The epidermis is the only organ that produces sebum, and clean habits play almost no part in skin health at all, even for children.",
+      "The epidermis is the only organ that produces sebum, and clean habits play almost no part in skin health, even for children.",
       "Ancient Babylonian soap is still used in hospitals today, because modern soaps do not clean the skin as well.",
-      "Pathogens cannot survive on clean skin at all, so a person who washes once will never get ill."
+      "Pathogens die on clean skin, so a person who washes once a week will stay healthy."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -526,7 +526,7 @@
       "Happening only one single time",
       "Lasting or recurring over a long time",
       "Spreading very quickly from person to person",
-      "Not harmful in any way at all"
+      "Not harmful"
      ],
      "answer": "B",
      "skill": "vocabulary",
@@ -540,7 +540,7 @@
     {
      "stem": "Why can wearing the same unwashed clothing repeatedly lead to a persistent odor?",
      "options": [
-      "Fabric naturally produces its own smell over time",
+      "Fabric naturally produces its own smell over time in the closet",
       "Sunlight reacts with the dye in the clothing",
       "Bacteria and other pathogens multiply within the fibers",
       "Washing machines leave a residue behind"
@@ -576,7 +576,7 @@
      "options": [
       "To suggest that oil production is a rare medical condition that only a few people have",
       "To show that the body's natural functions require ongoing care, not a one-time fix",
-      "To argue that bathing is unnecessary, since the skin cleans itself without any help",
+      "To argue that bathing is unnecessary, since the skin cleans itself",
       "To prove that sebum is harmful to the skin and must be washed away at once"
      ],
      "answer": "B",

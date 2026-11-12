@@ -219,7 +219,7 @@
             "She did not really like to learn.",
             "She was ready to work hard for what she wanted.",
             "She wanted to save for a big house in Paris.",
-            "She did not like Poland at all."
+            "She did not like Poland."
           ],
           "answer": "B",
           "skill": "inference",
@@ -295,7 +295,7 @@
           "options": [
             "Marie Curie's determination led to discoveries that changed science and medicine.",
             "Pierre Curie did most of the important work in their laboratory, and Marie only helped him.",
-            "Uranium is the most useful metal that scientists have ever discovered, and it is used in every home.",
+            "Uranium is the most useful metal scientists have discovered, and it is used in many homes.",
             "Women could not become scientists in the early 1900s, so Marie Curie worked in secret at home."
           ],
           "answer": "A",
@@ -310,7 +310,7 @@
         {
           "stem": "What name did Marie give to the energy given off by uranium?",
           "options": [
-            "Polonium",
+            "Polonium rays",
             "Radium",
             "Physics",
             "Radioactivity"
@@ -475,7 +475,7 @@
             "Marie Curie's persistence made her a scientific pioneer whose legacy continues today.",
             "Marie Curie succeeded mainly because she was lucky enough to work beside her husband.",
             "The Nobel Prize is the only true measure of a scientist's worth.",
-            "Radiation is so dangerous that it should never be studied."
+            "Radiation is so dangerous that scientists stopped studying it."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,7 +489,7 @@
         {
           "stem": "What makes Marie Curie's two Nobel Prizes unique, according to the article?",
           "options": [
-            "She received both of her prizes in the very same year, 1903.",
+            "She received both of her prizes in the very same year, 1903 in Paris.",
             "She is the only person to win Nobel Prizes in two different sciences.",
             "She shared both of her prizes with her husband, Pierre.",
             "Both were awarded for medicine."
@@ -559,7 +559,7 @@
           "options": [
             "To show that Marie's influence continued into the next generation",
             "To suggest that Nobel Prizes are easy to win",
-            "To explain once again how the element radium was discovered",
+            "To explain once again how the element radium was discovered in her lab",
             "To prove that Pierre was the more famous scientist"
           ],
           "answer": "A",
@@ -592,9 +592,9 @@
           "stem": "Which conclusion about Marie Curie is best supported by the article?",
           "options": [
             "She was mainly interested in fame and awards.",
-            "She believed science could only be done in large, modern laboratories.",
+            "She believed science could only be done in large, modern laboratories with costly equipment.",
             "She cared about using science to help others as well as to discover new things.",
-            "She regretted leaving Poland and never studied again."
+            "She regretted leaving Poland and stopped her research."
           ],
           "answer": "C",
           "skill": "inference",

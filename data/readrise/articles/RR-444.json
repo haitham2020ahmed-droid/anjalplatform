@@ -234,9 +234,9 @@
           "stem": "What lesson does the story mainly teach?",
           "options": [
             "Paying quiet attention can help you notice things that save others",
-            "Only loud, outgoing people can notice important things",
-            "Floods always happen at the exact same time every year",
-            "Elderly neighbors should always live with younger families"
+            "Only loud, outgoing people can notice important things in a village",
+            "Floods happen at the same time each year",
+            "Elderly neighbors should live with younger families"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -344,7 +344,7 @@
         {
           "stem": "Why did Rami's father move with cautious speed while helping Hamad?",
           "options": [
-            "He was unsure whether the flood was actually dangerous at all",
+            "He was unsure whether the flood was actually dangerous to them",
             "He wanted to protect the family's own belongings first",
             "He was waiting for official village permission to act",
             "He wanted to help Hamad gather things quickly without causing panic"
@@ -361,10 +361,10 @@
         {
           "stem": "In the article, the word observant means —",
           "options": [
-            "unable to notice small details at all in a picture",
+            "unable to notice small details in a picture",
             "quick to notice things that other people often miss",
             "loud and eager to speak in a crowd of people",
-            "afraid of dangerous weather and storms at sea"
+            "afraid of dangerous weather and storms at sea near the coast"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -378,8 +378,8 @@
         {
           "stem": "What can be inferred about why Hamad lived alone and rarely left his house?",
           "options": [
-            "He was planning to move far away from the village soon",
-            "He did not get along with any of his neighbors at all",
+            "He was planning to move far away from the village soon with his family",
+            "He did not get along with any of his neighbors",
             "He may have been elderly and preferred a quiet, simple routine",
             "He was deeply afraid of the entire village council"
           ],
@@ -473,7 +473,7 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "A perceptive boy's quiet vigilance helps him save a neighbor",
-            "A village builds a modern warning system after a flood",
+            "A village builds a modern warning system after a flood in the town",
             "An elderly man ends up losing his home and moving away",
             "A boy becomes the subject of a famous village legend"
           ],
@@ -507,7 +507,7 @@
           "stem": "What specific comparison does the article make between Rami and his sister?",
           "options": [
             "Rami is older, while his sister is much younger",
-            "Rami dislikes their neighbor, while his sister admires him",
+            "Rami dislikes their neighbor, while his sister admires him in their village",
             "Rami is unassuming, while his sister is louder and more outgoing",
             "Rami is careless, while his sister is extremely cautious"
           ],
@@ -594,7 +594,7 @@
             "To imply that Hamad was secretly embarrassed by what happened in the village",
             "To criticize the village for not holding a public celebration for the boy",
             "To suggest that quiet recognition can be just as meaningful as public praise",
-            "To shift the whole story's focus away from Rami entirely and onto the elder"
+            "To shift the whole story's focus away from Rami and onto the elder"
           ],
           "answer": "C",
           "skill": "author-purpose",

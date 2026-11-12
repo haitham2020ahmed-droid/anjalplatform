@@ -217,7 +217,7 @@
           "stem": "Why did poems often tell about brave deeds and family?",
           "options": [
             "Because poets were only allowed to write about weather and the sky",
-            "Because these were the only words that rhymed in the language",
+            "Because these were the words that rhymed in the language",
             "Because these were things communities valued and wanted remembered",
             "Because poems could not be about daily desert life or its people"
           ],
@@ -296,7 +296,7 @@
             "The qasida was only recited at weddings and funerals in the cities",
             "Souq Okaz was mainly a market for buying cloth and spices",
             "Meter, rhyme, and memory let poets preserve stories without writing",
-            "Reciters never memorized more than a few lines at once, so poems stayed short"
+            "Reciters memorized a few lines at a time, so poems stayed short"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,9 +361,9 @@
         {
           "stem": "Why could a reciter deliver a long qasida without mistakes?",
           "options": [
-            "Because the poem was always very short",
+            "Because the poem was very short",
             "Because every reciter read from a written page",
-            "Because audiences never noticed small mistakes",
+            "Because audiences rarely noticed small mistakes",
             "Because meter and rhyme helped guide memory"
           ],
           "answer": "D",
@@ -380,7 +380,7 @@
           "options": [
             "They judged the poets' skill and artistry",
             "They cared only about how loudly a poet spoke",
-            "They never remembered any poem afterward",
+            "They rarely remembered the poems afterward",
             "They preferred written poems to spoken ones"
           ],
           "answer": "A",
@@ -475,7 +475,7 @@
             "Written poetry replaced oral poetry many centuries ago",
             "Only professional scribes were allowed to compose poems",
             "Arabic oral poetry preserved history and still thrives today",
-            "Souq Okaz was the only place poetry was ever performed"
+            "Souq Okaz was the main place where poetry was performed"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -491,7 +491,7 @@
           "options": [
             "Rhyme alone, without any other pattern",
             "The volume of the reciter's voice",
-            "The length of the poem overall",
+            "The length of the poem",
             "Meter, a regular pattern of beats"
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "How are a qasida and an ordinary short poem different, based on the article?",
           "options": [
-            "A qasida has no rhyme at all, only a steady beat of drums",
-            "A qasida cannot be memorized by a reciter, even with practice",
+            "A qasida has no rhyme, only a steady beat of drums",
+            "A qasida is too long for a reciter to memorize, even with practice",
             "A qasida sustains one meter and rhyme across many more lines",
-            "A qasida is always written down, never spoken aloud to a crowd"
+            "A qasida is written down, not spoken aloud to a crowd"
           ],
           "answer": "C",
           "skill": "compare",
@@ -559,7 +559,7 @@
           "options": [
             "Reciters' trained memories and rhyme worked like a spoken record",
             "Every poem was eventually written down carefully before being told to anyone",
-            "Only one reciter per generation ever existed",
+            "One reciter per generation kept the poems",
             "Poems were kept secret from most of the community"
           ],
           "answer": "A",

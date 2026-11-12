@@ -296,7 +296,7 @@
             "Galileo was the most important astronomer who ever lived, and he built the first telescope.",
             "Telescopes gather light so astronomers can study distant objects in space.",
             "The atmosphere is the main reason stars twinkle at night, and telescopes cannot fix this.",
-            "Gold is the best material for making any telescope mirror, because it never gets dirty."
+            "Gold is the best material for a telescope mirror, because it does not get dirty."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -395,7 +395,7 @@
         {
           "stem": "Based on the article, why would an astronomer choose a dark mountaintop far from a city?",
           "options": [
-            "Because city air has no atmosphere in it at all",
+            "Because city air has no atmosphere in it",
             "Because Jupiter can only be seen from mountains at night",
             "Because cities do not allow telescopes at night",
             "Because there is less light and less air to block the view"
@@ -474,8 +474,8 @@
           "options": [
             "Galileo's telescope remains more powerful than modern instruments, and no one has built a better one.",
             "Telescopes, from Galileo's to Webb, collect light that lets astronomers study faint and distant objects, even seeing into the past.",
-            "Refracting telescopes have completely replaced reflecting telescopes, so mirrors are no longer used in space.",
-            "The atmosphere makes it impossible to observe anything from Earth, so all astronomers must work only in space stations high above the clouds."
+            "Refracting telescopes have replaced reflecting telescopes, so mirrors are no longer used in space.",
+            "The atmosphere makes it hard to observe from Earth, so astronomers now work mostly in space stations above the clouds and their bright lights."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -508,7 +508,7 @@
           "options": [
             "A refracting telescope bends light with a lens; a reflecting telescope gathers it with a curved mirror.",
             "A refracting telescope works only in space; a reflecting one works only on mountains.",
-            "A refracting telescope detects infrared light; a reflecting one detects only visible light.",
+            "A refracting telescope detects infrared light from stars; a reflecting one detects visible light.",
             "A refracting telescope has 18 segments; a reflecting one has one lens."
           ],
           "answer": "A",

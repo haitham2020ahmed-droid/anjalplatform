@@ -185,7 +185,7 @@
             "He wants to see the storm up close",
             "His father told him to play upstairs",
             "His father is hurt and cannot climb the stairs",
-            "He is bored and wants something fun to do"
+            "He is bored and wants something fun to do at night"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -294,8 +294,8 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Yusuf learns that storms at sea are never truly dangerous",
-            "Yusuf decides he never wants to become a lighthouse keeper like his father",
-            "The lighthouse stops working forever right after the storm ends",
+            "Yusuf decides he does not want to become a lighthouse keeper like his father",
+            "The lighthouse stops working right after the storm ends",
             "Yusuf uses what his father taught him to keep the light going and save ships"
           ],
           "answer": "D",
@@ -362,7 +362,7 @@
           "stem": "Why does Yusuf keep repeating his father's instructions in his mind as he climbs?",
           "options": [
             "He is bored and wants to pass the time on the way up",
-            "He forgot his father's name completely and tries to remember",
+            "He forgot his father's name and tries to remember",
             "It helps him stay calm and remember what to do",
             "He is practicing hard for a school test on Monday"
           ],
@@ -380,7 +380,7 @@
           "options": [
             "Yusuf is the only person awake during the whole storm",
             "Yusuf has been carefully taught for many months",
-            "Yusuf's father simply has no other choice at all",
+            "Yusuf's father simply has no other choice",
             "Yusuf asked for this job many times before tonight"
           ],
           "answer": "B",
@@ -395,7 +395,7 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing two completely different lighthouses in detail",
+            "By comparing two different lighthouses in detail",
             "By listing many facts about lighthouses around the world",
             "By jumping back and forth between the past and the future",
             "By telling events in the order they really happened"
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
-            "A frightening storm proves that lighthouses are no longer useful at all",
-            "Sailors alone are entirely responsible for their own safety at sea",
-            "Yusuf's father regrets training his son to help at the lighthouse now",
+            "A frightening storm proves that lighthouses are no longer useful",
+            "Sailors alone are responsible for their own safety at sea",
+            "Yusuf's father regrets training his son to help at the lighthouse now with him",
             "Patient teaching lets Yusuf meet the emergency with calm skill instead of panic"
           ],
           "answer": "D",
@@ -540,7 +540,7 @@
         {
           "stem": "What can be inferred about why Yusuf repeats his father's instructions rather than inventing his own approach?",
           "options": [
-            "He cannot think clearly at all during the difficult climb",
+            "He cannot think clearly during the difficult climb",
             "He hopes his father will somehow hear him repeating the words",
             "He is simply trying to stay awake during the climb",
             "He trusts the method his father already taught him"
@@ -574,8 +574,8 @@
         {
           "stem": "Why does the author include the detail that the tower sways in the wind as Yusuf climbs?",
           "options": [
-            "To suggest the lighthouse might soon collapse entirely into the sea",
-            "To explain clearly why ships cannot see the beam at all at night",
+            "To suggest the lighthouse might soon collapse into the sea",
+            "To explain clearly why ships cannot see the beam at night",
             "To heighten danger and show the courage Yusuf's training requires",
             "To show that the storm is actually weakening quickly as he climbs"
           ],

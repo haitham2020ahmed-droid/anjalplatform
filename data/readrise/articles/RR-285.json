@@ -184,7 +184,7 @@
           "options": [
             "To match the club to the distance and the shot needed",
             "Because every club looks the same to the player on the course",
-            "Because the rules require only one club for the whole round",
+            "Because the rules allow one club for the whole round",
             "To make the game take longer and give the crowd more time"
           ],
           "answer": "A",
@@ -218,7 +218,7 @@
           "options": [
             "Because a long shot looks more impressive than a short, accurate one",
             "Because the official rules of golf clearly say so in the main rule book",
-            "Because short clubs are never allowed in a real match at all",
+            "Because short clubs are never allowed in a real match",
             "Because the hole moves farther away on each new turn they take"
           ],
           "answer": "A",
@@ -235,7 +235,7 @@
           "options": [
             "A long club hits far; a short club hits with more care near the hole",
             "A long club is only used in Scotland, while a short club is used in Spain",
-            "A short club cannot hit the ball at all, while a long club can hit it far",
+            "A short club hits the ball higher, while a long club rolls it on the grass",
             "Both clubs do exactly the same job, and golfers choose them by their color"
           ],
           "answer": "A",
@@ -346,7 +346,7 @@
           "options": [
             "So other players must wait longer on the green for their turn",
             "So she can avoid using a scorecard at the golf club",
-            "So the ball will never touch the ground at all, even once",
+            "So the ball will never touch the ground, even once",
             "So she can choose the best club and plan for that shot"
           ],
           "answer": "D",
@@ -398,7 +398,7 @@
             "Golf courses cannot be built outside Scotland",
             "Golf is no longer played in Scotland",
             "The sport has spread well beyond where it began",
-            "Golf is only popular with beginners"
+            "Golf is popular mostly with beginners"
           ],
           "answer": "C",
           "skill": "inference",
@@ -414,7 +414,7 @@
           "options": [
             "To list famous golf champions",
             "To explain the history of Scotland",
-            "To describe how grass is grown on a fairway",
+            "To describe how grass is grown on a fairway in the spring",
             "To correct a common but mistaken idea about golf"
           ],
           "answer": "D",
@@ -509,7 +509,7 @@
             "Owning more golf clubs than other players",
             "Consistency, rather than brute strength",
             "Playing only on courses in Scotland",
-            "Hitting every shot with the driver"
+            "Hitting most shots with the driver"
           ],
           "answer": "B",
           "skill": "detail",
@@ -525,7 +525,7 @@
           "options": [
             "To match the shot's needs with the right tool for precision",
             "To make the round finish more quickly for the other players",
-            "To avoid thinking about the wind at all during the shot",
+            "To avoid thinking about the wind during the shot",
             "Because only one club is permitted per hole on the course"
           ],
           "answer": "A",
@@ -559,8 +559,8 @@
           "options": [
             "A driver favors distance; an iron favors precision and control",
             "A driver is used only indoors, while an iron is used only outside on the grass",
-            "An iron cannot be used near the hole, because it is much too heavy for that",
-            "Both clubs are used for exactly the same purpose in every part of the game"
+            "An iron is too heavy to be used near the hole",
+            "Both clubs are used for the same purpose in most parts of the game"
           ],
           "answer": "A",
           "skill": "compare",
@@ -593,8 +593,8 @@
           "options": [
             "As a set of strict rules for building a golf course",
             "Clubs and scoring, then a correction, then strategy and history",
-            "As a story narrated entirely by a famous champion",
-            "As an argument that golf should not be considered a sport"
+            "As a story narrated by a famous champion",
+            "As an argument that golf should not be considered a sport or a game"
           ],
           "answer": "B",
           "skill": "text-structure",

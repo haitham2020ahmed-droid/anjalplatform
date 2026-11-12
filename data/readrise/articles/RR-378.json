@@ -166,8 +166,8 @@
      "stem": "What does Faisal do every day to earn Barq's trust?",
      "options": [
       "He chases her around the yard with a ball all day",
-      "He gives her to Grandfather to train instead of him",
-      "He hides from her all day long in his room at home and does not speak",
+      "He gives her to Grandfather to train instead of him at home",
+      "He leaves her alone in a dark room for a whole day",
       "He sits quietly with his glove and speaks in a calm voice"
      ],
      "answer": "D",
@@ -184,7 +184,7 @@
      "options": [
       "He thinks the glove is broken",
       "He is not sure she will come back to him",
-      "He thinks Grandfather will be angry",
+      "He thinks Grandfather will be angry with him",
       "He is afraid of the open sky"
      ],
      "answer": "B",
@@ -236,7 +236,7 @@
       "He wants Faisal to give up on training Barq at once",
       "He wants Faisal to understand that trust takes time",
       "He wants Faisal to find a new falcon in the market",
-      "He is upset with Faisal for trying at all to fly her"
+      "He is upset with Faisal for trying to fly her"
      ],
      "answer": "B",
      "skill": "author-purpose",
@@ -295,8 +295,8 @@
      "options": [
       "Faisal patiently builds a trusting bond with Barq, following family tradition",
       "Faisal's grandfather decides falconry is too dangerous to teach",
-      "Barq refuses to ever trust any human and flies away forever",
-      "Faisal trains a falcon in a single afternoon with no real trouble at all"
+      "Barq refuses to ever trust any human and flies away",
+      "Faisal trains a falcon in a single afternoon with no real trouble with his cousin"
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -330,7 +330,7 @@
       "He brings a different falcon each day",
       "He returns to the same spot and speaks calmly",
       "He keeps her locked in a cage all day",
-      "He asks Grandfather to train her instead"
+      "He asks Grandfather to train her instead in the desert"
      ],
      "answer": "B",
      "skill": "detail",
@@ -473,7 +473,7 @@
      "stem": "Which statement best captures the central idea of the story?",
      "options": [
       "Falconry is a sport that requires no special skill or heritage",
-      "Barq instinctively dislikes humans and her distrust of them never changes at all",
+      "Barq instinctively dislikes humans and her distrust of them never changes",
       "Faisal's patience overcomes Barq's instinctive fear and earns real loyalty",
       "Grandfather decides the heritage of falconry should end with him"
      ],
@@ -525,7 +525,7 @@
      "options": [
       "Grandfather trains her separately in secret",
       "She has nowhere else to perch in the yard",
-      "She forgets her instinct to fly away entirely after just a few short days",
+      "She forgets her instinct to fly away after just a few short days",
       "Faisal's steady, patient, daily routine slowly builds her trust in him"
      ],
      "answer": "D",
@@ -558,7 +558,7 @@
      "stem": "Why does Faisal feel worried while Barq soars far into the open sky?",
      "options": [
       "He fears Grandfather will take the glove away when the training is over",
-      "He dislikes watching falcons fly at all, because they always scare him",
+      "He dislikes watching falcons fly, because they scare him",
       "He is uncertain whether her instinct to fly free will outweigh their bond",
       "He thinks she will land on the wrong perch and be unable to find him"
      ],

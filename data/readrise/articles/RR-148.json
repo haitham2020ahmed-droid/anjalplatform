@@ -361,9 +361,9 @@
         {
           "stem": "What happened after countries banned child jockeys?",
           "options": [
-            "Camel racing ended forever.",
+            "Camel racing ended.",
             "Owners began riding the camels themselves in every race.",
-            "Camels raced with no riders at all.",
+            "Camels raced with no riders.",
             "Robot jockeys were made to ride the camels."
           ],
           "answer": "D",
@@ -380,7 +380,7 @@
           "options": [
             "A light rider helps a camel run faster.",
             "Light riders cost more money.",
-            "Camels cannot carry anything heavy.",
+            "Camels cannot carry anything heavy on their backs.",
             "Light riders can talk louder."
           ],
           "answer": "A",
@@ -412,7 +412,7 @@
         {
           "stem": "How is the article mostly organized?",
           "options": [
-            "As a list of camel facts with no order or plan at all, one after another and with no end",
+            "As a list of camel facts with no order or plan, one after another and with no end",
             "As a set of instructions for riding a camel, with each step shown in its own paragraph",
             "From the past to the present, ending with a problem and its solution",
             "As a debate between two people about camels, in which each one tries to win the argument"
@@ -474,8 +474,8 @@
           "options": [
             "Robots have replaced camels in modern races, so people no longer train camels for any kind of sport.",
             "Camel racing preserves an old heritage while adapting with modern technology such as robot jockeys.",
-            "Child jockeys were faster than robots, so they still ride in every big camel race today.",
-            "Camel racing is only popular in Qatar, and no other country in the region holds any races."
+            "Child jockeys were faster than robots, so they still ride in most big camel races today.",
+            "Camel racing is popular mainly in Qatar, and few other countries in the region hold races."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -559,7 +559,7 @@
           "options": [
             "To explain why camels suit racing on desert sand",
             "To compare camels with robots",
-            "To argue that camels should not be made to race at all",
+            "To argue that camels should not be made to race",
             "To describe how trainers feed them"
           ],
           "answer": "A",

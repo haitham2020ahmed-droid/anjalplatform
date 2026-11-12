@@ -132,7 +132,7 @@
           "stem": "What happened the very first time Robo tried the maze?",
           "options": [
             "It solved the maze perfectly on its very first try",
-            "It simply refused to move at all that first time",
+            "It simply refused to move that first time",
             "It bumped into the walls and moved slowly",
             "It found a surprising shortcut nobody had expected"
           ],
@@ -294,8 +294,8 @@
           "stem": "Which sentence best states the central idea of this story?",
           "options": [
             "A young programmer's robot practices a maze overnight and solves it far faster the next day, teaching everyone about machine learning.",
-            "A programmer in the story builds an advanced robot that can apparently talk and think almost exactly like a real person.",
-            "A stubborn robot in the story completely refuses to even attempt trying the maze at all, no matter what anyone says.",
+            "A programmer in the story builds an advanced robot that can apparently talk and think almost exactly like a real person at home or at school.",
+            "A stubborn robot in the story refuses to even attempt trying the maze, no matter what anyone says.",
             "An entire team of several different robots competes together in an exciting race all across the school grounds."
           ],
           "answer": "A",
@@ -378,10 +378,10 @@
         {
           "stem": "How is Robo's overnight repetition different from how it moved during the day?",
           "options": [
-            "Overnight, it physically drove through the maze; during the day, it only imagined moving in its memory, and did not drive at all",
+            "Overnight, it physically drove through the maze; during the day, it only imagined moving in its memory, and did not drive",
             "Overnight, the program repeated the maze inside its memory without moving; during the day, Robo actually drove through the real maze",
             "Overnight and during the day, Robo did exactly the same thing, with the same movements in the maze",
-            "Overnight, Robo rested completely; during the day, it practiced in the real maze and in its memory"
+            "Overnight, Robo rested; during the day, it practiced in the real maze and in its memory"
           ],
           "answer": "B",
           "skill": "compare",
@@ -395,9 +395,9 @@
         {
           "stem": "Why do sensors and data matter to how a programmer builds a robot like Robo?",
           "options": [
-            "Sensors replace the need for any programming at all, so a robot can run alone from the start",
+            "Sensors replace the need for any programming, so a robot can run alone from the start",
             "Data makes the robot heavier so it moves more slowly, which is why programmers avoid it",
-            "Programmers only need data after the robot is finished, and not while they are building it",
+            "Programmers need data after the robot is finished, not while they are building it",
             "Sensors collect data that tells the program what is happening, which it uses to improve"
           ],
           "answer": "D",
@@ -490,7 +490,7 @@
           "stem": "Why does the algorithm's fastest route gradually improve with each iteration?",
           "options": [
             "Because Lina decides to manually correct and adjust the entire route herself after every single attempt",
-            "Because the maze's walls apparently move to completely new locations with every new iteration",
+            "Because the maze's walls move to new locations with each new iteration",
             "Because the algorithm discards paths that have repeatedly failed during earlier trials",
             "Because each new iteration somehow adds even more additional physical sensors onto the robot"
           ],
@@ -507,8 +507,8 @@
           "stem": "Based on the story, why does Lina insist that Robo was not actually dreaming?",
           "options": [
             "Because Robo's small indicator lights apparently never blinked even once during the entire overnight process",
-            "Because the diagnostic routine actually only ran for a few brief seconds before stopping completely",
-            "Because Robo was apparently switched completely and totally off for the entire night",
+            "Because the diagnostic routine ran for a few seconds before stopping",
+            "Because Robo was apparently switched off for the entire night",
             "Because the overnight process was pure calculation within silicon chips, not genuine subjective experience"
           ],
           "answer": "D",
@@ -523,7 +523,7 @@
         {
           "stem": "In the story, the word optimize means —",
           "options": [
-            "to switch a machine off completely and leave it alone for a long time",
+            "to switch a machine off and leave it alone for a long time",
             "to make something work as well or efficiently as possible through gradual change",
             "to collide with a wall by accident when the machine moves in the dark",
             "to copy a program onto another robot as quickly and cleanly as possible every day"
@@ -540,10 +540,10 @@
         {
           "stem": "How does Robo's overnight simulation compare with a person practicing a physical skill?",
           "options": [
-            "Only Robo's method involves any kind of repetition at all, and people never repeat an action many times to learn a skill, like a game",
-            "Robo's simulation and human practice are identical in every scientific sense, including the way they work inside the body and the machine",
+            "Only Robo's method involves any kind of repetition, and people never repeat an action many times to learn a skill, like a game",
+            "Robo's simulation and human practice work the same way inside the body and the machine",
             "Both involve repeating an action many times to gradually improve performance, though the underlying mechanism differs greatly",
-            "A person's practice happens entirely inside silicon chips, just like Robo's, and there is no use for muscles, hands, or the brain in practice"
+            "A person's practice happens inside silicon chips, just like Robo's, and there is no use for muscles, hands, or the brain in practice"
           ],
           "answer": "C",
           "skill": "compare",
@@ -575,7 +575,7 @@
           "stem": "Why does the author include Lina's explanation that no genuine understanding or awareness is involved in the algorithm?",
           "options": [
             "To suggest that machine learning is a kind of trick played on the audience at the fair",
-            "To argue that algorithms are completely useless for robots that work in a busy factory or hospital",
+            "To argue that algorithms are useless for robots that work in a busy factory or hospital",
             "To prove that Robo secretly understands human language and can talk to the engineers",
             "To clarify that Robo's overnight improvement is a scientific process, not real consciousness"
           ],
@@ -593,8 +593,8 @@
           "options": [
             "Machine learning can improve performance through repeated simulation and data, without requiring real understanding",
             "Machine learning requires a robot to be physically awake and moving around the room all through the whole night",
-            "Machine learning only works if a human manually types in the correct answer for every single step",
-            "Machine learning cannot work unless a robot has a camera and a screen so that it can see its own work"
+            "Machine learning works when a human types in the correct answer for each step",
+            "Machine learning needs a camera and a screen so that a robot can see its own work"
           ],
           "answer": "A",
           "skill": "inference",

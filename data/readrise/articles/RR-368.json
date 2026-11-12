@@ -296,7 +296,7 @@
       "After their village spring dries up, children and their Grandpa follow an old trail to find a hidden source their family once relied on.",
       "A Grandpa teaches his grandchildren how to build a brand-new well in the village yard, with bricks and ropes, and they find water there, too.",
       "A village argues loudly about who should fetch the water each morning from the spring, and the elders choose a plan that is fair for all of the families.",
-      "A family decides that finding water is not worth worrying about, so they move to the city, and the children never visit the old trail or the spring again."
+      "A family decides that finding water is not worth worrying about, so they move to the city and stop visiting the old trail."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -363,7 +363,7 @@
      "options": [
       "to use something carefully so that it lasts longer",
       "to use something wastefully without any real care",
-      "to search for something that has been completely lost",
+      "to search for something that has been lost",
       "to carry something heavy a very long distance"
      ],
      "answer": "A",
@@ -395,10 +395,10 @@
     {
      "stem": "What did the village do right after the old spring was found?",
      "options": [
-      "They stopped using the newer spring completely forever",
-      "They built an entire new village near the old spring",
+      "They stopped using the newer spring",
+      "They built an entire new village near the old spring for the family",
       "They used the old spring while workers repaired the newer one",
-      "They forgot about the newer spring completely afterward"
+      "They forgot about the newer spring afterward"
      ],
      "answer": "C",
      "skill": "sequence",
@@ -473,9 +473,9 @@
      "stem": "Which statement best expresses the central idea of the story?",
      "options": [
       "After a trusted spring runs dry, a Grandpa's legacy of knowledge leads his grandchildren across difficult terrain to a forgotten, sustainable source.",
-      "The story argues that villages should never depend on a single spring for their water, because springs dry up every summer.",
+      "The story argues that villages should never depend on a single spring for their water, because springs dry up every summer and it is not safe to drink from them.",
       "The story mainly explains how to measure the depth of an underground aquifer with a long rope and a stone.",
-      "A village abandons the mountains entirely after a single dry season and moves to the city by the sea, and never returns, because its people are tired."
+      "A village leaves the mountains after a single dry season and moves to the city by the sea, because its people are tired."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -523,7 +523,7 @@
     {
      "stem": "In the story, the word sustain most nearly means —",
      "options": [
-      "to use something up completely without any care",
+      "to use something up without any care",
       "to discover something for the very first time",
       "to keep something going steadily over a long time",
       "to measure something's exact size or depth"
@@ -541,9 +541,9 @@
      "stem": "What can readers infer about why the village never considered where its water came from before the spring dried up?",
      "options": [
       "The spring's steady flow across many generations had made its source seem permanent and unremarkable",
-      "No one in the village had ever been curious about nature at all, so they never asked questions",
+      "No one in the village had ever been curious about nature, so they never asked questions",
       "The village had no elders who remembered anything useful about the land, the rain or the spring",
-      "The spring had only existed for a single year before this story, so nobody had time to wonder"
+      "The spring had existed for a single year before this story, so people had no time to wonder"
      ],
      "answer": "A",
      "skill": "inference",
@@ -592,8 +592,8 @@
      "stem": "How are Grandpa's and the children's roles in the story different?",
      "options": [
       "Grandpa refuses to walk, while the children do all the hiking alone, far ahead of him and without any map",
-      "Grandpa forgets the trail entirely, while the children lead the way instead of him, because they know the hills",
-      "Grandpa cares only about the new spring, while the children care only about the old one that dried up long ago",
+      "Grandpa forgets the trail, while the children lead the way instead of him, because they know the hills",
+      "Grandpa cares about the new spring, while the children care about the old one that dried up long ago",
       "Grandpa provides the legacy of knowledge and memory, while the children provide energy and willingness to learn"
      ],
      "answer": "D",

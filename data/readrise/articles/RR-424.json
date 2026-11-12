@@ -132,7 +132,7 @@
           "stem": "Where were the rare books kept?",
           "options": [
             "In a storage room below the library's main floor",
-            "In a locked room on the library's high roof",
+            "In a locked room on the library's high roof above the city",
             "In an old scholar's own private house",
             "In a small cave located outside the city"
           ],
@@ -233,7 +233,7 @@
         {
           "stem": "What happened because Salma and the other helpers moved the books quickly?",
           "options": [
-            "The library quickly ran out of space for books",
+            "The library quickly ran out of space for books on the shelves",
             "Ibrahim suddenly decided to close the library",
             "The heavy rain outside stopped right away",
             "The rare books stayed safe and dry as the water rose"
@@ -361,8 +361,8 @@
         {
           "stem": "What does Ibrahim's decision to store manuscripts on a higher floor afterward suggest about him?",
           "options": [
-            "He no longer trusted any of his young assistants",
-            "He planned to close the storage room completely",
+            "He no longer trusted any of his young assistants in the library",
+            "He planned to close the storage room",
             "He learned from the flooding and wanted to prevent harm",
             "He wanted to make the manuscripts harder to find"
           ],
@@ -378,7 +378,7 @@
         {
           "stem": "In the article, the word urgent means —",
           "options": [
-            "no longer important to anyone at all",
+            "no longer important to anyone",
             "fairly easy to simply ignore for now",
             "somehow related to very old objects",
             "needing attention or action right away"
@@ -542,7 +542,7 @@
           "options": [
             "They rarely spoke to one another before this event",
             "They trusted and worked well together as a team",
-            "They needed direct orders before doing anything at all",
+            "They needed direct orders before doing anything",
             "They each worked alone on separate parts of it"
           ],
           "answer": "B",

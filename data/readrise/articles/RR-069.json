@@ -234,8 +234,8 @@
           "stem": "Why does the author say people must check the work of AI?",
           "options": [
             "Because AI can make mistakes",
-            "Because AI is always right",
-            "Because AI is too slow",
+            "Because AI is right",
+            "Because AI is too slow to use",
             "Because AI cannot read"
           ],
           "answer": "A",
@@ -295,8 +295,8 @@
           "options": [
             "Computers will soon replace all doctors, so hospitals will not need any people to treat patients.",
             "Computers can learn from many labeled examples, which lets AI help people, though it still needs checking.",
-            "Cats are the hardest animals for computers to see, which is why AI cannot ever be used in homes.",
-            "Map apps were the first kind of AI, and every other kind of AI was copied from them in later years by the engineers."
+            "Cats are the hardest animals for computers to see, which is why AI is rarely used in homes.",
+            "Map apps were the first kind of AI, and other kinds of AI were copied from them later."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -364,7 +364,7 @@
             "It adjusts its math and tries again.",
             "It gives up and shuts down.",
             "It asks people to write every rule.",
-            "It throws away all the labels."
+            "It throws away the labels."
           ],
           "answer": "A",
           "skill": "sequence",
@@ -414,7 +414,7 @@
           "options": [
             "AI refuses to finish tasks that people give it, because it gets tired",
             "AI cannot store pictures or any other files in its memory",
-            "AI only works in Saudi Arabia and nowhere else in the world",
+            "AI works in some countries",
             "AI can learn wrong things if its data is wrong or unfair."
           ],
           "answer": "D",
@@ -475,7 +475,7 @@
             "Machine learning lets computers learn patterns from data, which makes AI useful but also raises limits and ethical concerns.",
             "Neural networks are copies of the human brain, and they think exactly as people do, say the writers of the article.",
             "Programmers no longer write algorithms, since machines do all of that work by themselves, without any help from people.",
-            "AI understands the world better than people do, and so it has no limits and no ethical concerns at all, the article says."
+            "AI understands the world better than people do, and so it has no limits and no ethical concerns, the article says."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "A hospital wants to use AI to help read medical scans. Based on the article, what would be the wisest plan?",
           "options": [
-            "Let the AI decide alone, since it is always accurate and never makes a mistake in a scan.",
-            "Avoid giving the AI any examples of scans, so it learns on its own from nothing.",
+            "Let the AI decide alone, since it is accurate and never makes a mistake in a scan of the body.",
+            "Avoid giving the AI examples of scans, so it learns on its own.",
             "Use the AI, but have doctors check its results and make sure its training data is complete.",
-            "Use only one scan to train it, since one picture is enough for the AI to learn."
+            "Use one scan to train it, since one picture is enough for AI to learn."
           ],
           "answer": "C",
           "skill": "inference",

@@ -134,7 +134,7 @@
             "Catching fish faster than they can replace themselves",
             "Catching only the largest fish in the sea, and leaving the rest",
             "Using one small net to catch a single fish at a time",
-            "Fishing only very early in the morning hours, before the sun"
+            "Fishing very early in the morning hours, before the sun"
           ],
           "answer": "A",
           "skill": "detail",
@@ -234,9 +234,9 @@
           "stem": "What does the author want readers to understand?",
           "options": [
             "Rules like size limits and quotas help fish stay strong",
-            "All fish in the sea taste exactly the same",
-            "Fishing should stop completely everywhere on Earth",
-            "Boats should carry much bigger fishing nets"
+            "Fish in the sea taste about the same in each place",
+            "Fishing should stop for a few years",
+            "Boats should carry bigger fishing nets"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,8 +294,8 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Coral reefs grow much faster when all fish are removed",
-            "All fishing everywhere should be banned completely",
-            "Fish populations in the sea never change in size",
+            "Fishing in the sea should be banned",
+            "Fish populations in the sea rarely change in size",
             "Overfishing threatens fish species, but good rules help"
           ],
           "answer": "D",
@@ -380,7 +380,7 @@
           "options": [
             "To make fishing boats much more expensive",
             "To give fish time to lay eggs without being caught",
-            "To stop people from eating any fish at all",
+            "To stop people from eating any fish",
             "To help boats travel to brand-new fishing areas"
           ],
           "answer": "B",
@@ -397,7 +397,7 @@
           "options": [
             "So that boats can be built much bigger and heavier than before",
             "So that fish can be taught to avoid nets and hooks at sea",
-            "So that fishing can be stopped completely in every place",
+            "So that fishing can be stopped in every place",
             "So regulations can be adjusted when things change"
           ],
           "answer": "D",
@@ -474,7 +474,7 @@
           "options": [
             "Overfishing can deplete species, but regulations support recovery",
             "Bycatch is said to affect only turtles and nothing else",
-            "Hamour populations have never once been affected by fishing",
+            "Hamour populations have been little affected by fishing",
             "Moratoriums are described as permanent bans with no clear purpose"
           ],
           "answer": "A",
@@ -491,7 +491,7 @@
           "options": [
             "The main type of fish a boat plans to catch",
             "A very large and heavy type of fishing net",
-            "A special reward given to the most successful fishers",
+            "A special reward given to the most successful fishers in the village",
             "The unintended catching of creatures not meant to be caught"
           ],
           "answer": "D",
@@ -559,8 +559,8 @@
           "options": [
             "To make fishing boats more profitable right away",
             "To let a depleted population recover fully",
-            "To permanently end all fishing everywhere on Earth",
-            "To encourage more bycatch of completely unrelated species"
+            "To permanently end all fishing",
+            "To encourage more bycatch of unrelated species"
           ],
           "answer": "B",
           "skill": "inference",
@@ -575,9 +575,9 @@
           "stem": "Which conclusion is best supported by the article?",
           "options": [
             "Overfishing has no real long-term effect on communities",
-            "Scientists no longer need to study fish populations at all",
+            "Scientists no longer need to study fish populations",
             "Sustainable regulations help fish and livelihoods survive",
-            "Bycatch always helps the very species that are caught"
+            "Bycatch helps the very species that are caught"
           ],
           "answer": "C",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "Both work in exactly the same way, with no real difference",
             "Size limits let fish grow; a moratorium is a temporary ban",
             "Moratoriums apply only to bycatch, not to quotas",
-            "Size limits are harsher and always come before a ban"
+            "Size limits are harsher and come before a ban"
           ],
           "answer": "B",
           "skill": "compare",

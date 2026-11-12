@@ -149,7 +149,7 @@
           "stem": "According to the article, what is a rechargeable battery?",
           "options": [
             "A battery that only works one single time",
-            "A battery that never ever loses power at all",
+            "A battery that does not lose power",
             "A battery that can be charged again and reused",
             "A battery that somehow makes its own sunlight"
           ],
@@ -184,7 +184,7 @@
           "options": [
             "It will hold less power than it used to.",
             "It will become much stronger than it was when new.",
-            "It will stop needing any chemicals to work at all.",
+            "It will stop needing any chemicals to work.",
             "It will slowly turn into a different kind of battery."
           ],
           "answer": "A",
@@ -235,7 +235,7 @@
           "options": [
             "Because batteries make these things feel cooler to touch",
             "Because batteries make a loud noise when they work",
-            "Because batteries always cost less than any other part",
+            "Because batteries cost less than any other part",
             "Because batteries store the power these things need"
           ],
           "answer": "D",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Batteries are far too complicated for any scientist to ever improve.",
-            "Only small toys and simple remote controls ever use batteries.",
+            "Small toys and simple remote controls use batteries more than phones.",
             "Batteries store power and run many devices, but wear out over time.",
-            "Solar farms never need to use any kind of battery at all."
+            "Solar farms rarely need to use batteries."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -362,7 +362,7 @@
           "stem": "Why does a battery's chemicals gradually wear out, based on the article?",
           "options": [
             "Because charging and using it wears the chemicals a little",
-            "Because batteries always get too cold in the winter",
+            "Because batteries get too cold in the winter",
             "Because batteries are only ever used at night time",
             "Because rechargeable batteries are painted a special color"
           ],
@@ -380,8 +380,8 @@
           "options": [
             "Because it is the cheapest material available",
             "Because it packs lots of capacity into a small package",
-            "Because it never, ever needs to be recharged at all",
-            "Because it works only when it is sunny outside"
+            "Because it never, ever needs to be recharged",
+            "Because it works best when it is sunny outside in the day"
           ],
           "answer": "B",
           "skill": "inference",
@@ -398,7 +398,7 @@
             "To prove that batteries are too heavy to be useful",
             "To show how widely batteries are depended on in daily life",
             "To explain how lithium is mined from the ground",
-            "To compare battery prices across different countries"
+            "To compare battery prices across different countries around the world"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -413,9 +413,9 @@
           "stem": "How is a rechargeable battery different from one that is used only once, according to the article?",
           "options": [
             "A rechargeable battery can discharge, then be charged again.",
-            "A rechargeable battery never wears out at all, ever.",
-            "A rechargeable battery can never be used in any phone.",
-            "A rechargeable battery is always much bigger in size."
+            "A rechargeable battery never wears out, ever.",
+            "A rechargeable battery is too big to fit inside a phone.",
+            "A rechargeable battery is much bigger in size."
           ],
           "answer": "A",
           "skill": "compare",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Batteries are completely sustainable and never degrade at all, ever.",
-            "Only electric vehicles ever rely on any rechargeable batteries.",
-            "Lithium is far too rare to ever be used in any everyday devices.",
+            "Batteries are sustainable and never degrade, ever.",
+            "Electric vehicles are the main users of rechargeable batteries.",
+            "Lithium is too rare to be used in most everyday devices.",
             "Batteries store power through chemistry and slowly degrade over time."
           ],
           "answer": "D",
@@ -523,10 +523,10 @@
         {
           "stem": "What effect does repeated charging and discharging have on a battery, based on the article?",
           "options": [
-            "It has no lasting effect on the battery at all.",
+            "It has no lasting effect on the battery.",
             "It gradually reduces the battery's capacity and efficiency.",
-            "It causes the battery to generate more pollution.",
-            "It makes the electrolyte disappear completely after one use."
+            "It causes the battery to give off more pollution over many years.",
+            "It makes the electrolyte disappear after one use."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -542,8 +542,8 @@
           "options": [
             "Because they never need any infrastructure to manufacture",
             "Because they offer high capacity for their modest weight",
-            "Because they contain absolutely no chemicals at all",
-            "Because they only ever work when connected to solar panels"
+            "Because they contain absolutely no chemicals",
+            "Because they work best when connected to solar panels"
           ],
           "answer": "B",
           "skill": "inference",
@@ -559,8 +559,8 @@
           "options": [
             "Because demand for batteries and their infrastructure keeps growing",
             "Because batteries are being used less and less with each passing year",
-            "Because all electrolytes have completely stopped working everywhere",
-            "Because solar farms no longer need any storage at all"
+            "Because all electrolytes have stopped working",
+            "Because solar farms no longer need storage"
           ],
           "answer": "A",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "To slow the decline in capacity and extend its lifespan",
             "To make batteries much louder whenever they are used",
             "To make every single battery exactly the same color",
-            "To completely remove the need for any electrolyte"
+            "To remove the need for an electrolyte"
           ],
           "answer": "A",
           "skill": "inference",

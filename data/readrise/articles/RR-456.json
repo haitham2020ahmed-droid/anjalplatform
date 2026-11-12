@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people learned to draw better pictures",
+            "How people learned to draw better pictures by hand in art schools",
             "How Louis Daguerre found a way to catch pictures with light",
             "How shops were built long ago",
             "How metal plates are made today"
@@ -165,7 +165,7 @@
         {
           "stem": "Why do you think Louis kept trying new ways to catch an image?",
           "options": [
-            "Because he did not like taking pictures at all",
+            "Because he did not like taking pictures by hand",
             "Because other people forced him to try",
             "Because he wanted his plate to break",
             "Because he wanted to find a way that finally worked"
@@ -184,7 +184,7 @@
           "options": [
             "Because they had not yet found a way that worked",
             "Because they thought drawing was more fun",
-            "Because they were not allowed to use light",
+            "Because they were not allowed to use light in the lab",
             "Because cameras were against the law"
           ],
           "answer": "A",
@@ -199,7 +199,7 @@
         {
           "stem": "In the article, what does the word \"light\" mean?",
           "options": [
-            "A kind of heavy metal plate",
+            "A kind of heavy metal plate for photos",
             "The brightness that lets us see things",
             "A type of drawing tool",
             "A small, quiet shop"
@@ -217,7 +217,7 @@
           "stem": "What happened after Louis's new way finally worked?",
           "options": [
             "A clear photo showed up on the plate",
-            "The plate completely disappeared",
+            "The plate disappeared",
             "Louis stopped trying to make pictures",
             "The shop burned down completely"
           ],
@@ -234,9 +234,9 @@
           "stem": "How was Louis's new way different from drawing by hand?",
           "options": [
             "Light caught the picture on a plate, instead of a person drawing it",
-            "The new way used no light at all",
+            "The new way used no light",
             "The new way took much longer than drawing",
-            "The new way and drawing worked exactly the same"
+            "The new way and drawing by hand worked in the same way, using the same pens"
           ],
           "answer": "A",
           "skill": "compare",
@@ -293,9 +293,9 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "Drawing by hand was always much faster than using a camera",
+            "Drawing by hand was much faster than using a camera",
             "Cameras were quite common for hundreds of years before Louis",
-            "Shops in every single busy city always succeed quickly",
+            "Shops in every single busy city succeed quickly",
             "Louis's new method let people capture lasting photos using light"
           ],
           "answer": "D",
@@ -328,7 +328,7 @@
           "stem": "What did other inventors do, according to the article?",
           "options": [
             "They also tried to catch an image this way",
-            "They refused to try at all",
+            "They refused to try",
             "They copied Louis's exact method immediately",
             "They only drew pictures instead"
           ],
@@ -344,7 +344,7 @@
         {
           "stem": "Why do you think Louis's new method using chemicals and a plate succeeded where others failed?",
           "options": [
-            "It used no light or any chemicals at all",
+            "It used no light or any chemicals",
             "It let light leave a lasting mark on the plate",
             "It required people to draw the image themselves",
             "It made pictures disappear almost instantly"
@@ -361,7 +361,7 @@
         {
           "stem": "Why do you think this breakthrough mattered so much to people around the world?",
           "options": [
-            "Because it made drawing pictures completely illegal",
+            "Because it made drawing pictures illegal",
             "Because it made owning cameras far too expensive",
             "Because it let ordinary people capture images easily",
             "Because it stopped everyone from seeing photos"
@@ -381,7 +381,7 @@
             "That it happens right away, without delay",
             "That it takes many hours to complete",
             "That it requires special chemicals every time",
-            "That it only works in a small box"
+            "That it works in a small box"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -395,8 +395,8 @@
         {
           "stem": "How does the article mostly organize its information?",
           "options": [
-            "It lists lots of random facts about world geography",
-            "It compares two completely unrelated topics with no connection",
+            "It lists lots of random facts about world geography and famous places around the world",
+            "It compares two unrelated topics with no connection",
             "It follows events in order, from the difficult problem to the lasting result",
             "It argues that drawing is better than photography"
           ],
@@ -413,8 +413,8 @@
           "stem": "What effect did Louis's breakthrough have on how people could get pictures?",
           "options": [
             "It caused drawing to become the only method used",
-            "It stopped all picture-making completely forever",
-            "It made all pictures disappear from the entire world",
+            "It stopped picture-making",
+            "It made pictures disappear from the world",
             "It allowed people to capture images much more easily"
           ],
           "answer": "D",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Drawing by hand was always considered superior to photography",
+            "Drawing by hand was considered superior to photography",
             "Louis Daguerre's ambitious experimentation led to a breakthrough in capturing lasting images",
-            "No inventor besides Louis ever attempted to capture an image with light",
+            "Few inventors besides Louis tried to capture an image with light, so he had little competition",
             "Photography had no real impact on daily life after it was invented"
           ],
           "answer": "B",
@@ -489,7 +489,7 @@
         {
           "stem": "Based on the article, why did earlier attempts to capture images largely fail?",
           "options": [
-            "They were considered too colorful for serious inventors to use",
+            "They were considered too colorful for the serious inventors of the time to use",
             "They were banned by governments across every country",
             "They lacked a reliable way for light to leave a lasting, permanent mark",
             "They required no chemicals or experimentation whatsoever"
@@ -507,9 +507,9 @@
           "stem": "What specific combination enabled Louis's method to finally succeed?",
           "options": [
             "A metal plate, special chemicals, and carefully controlled light exposure",
-            "Painted canvas alone, with no chemicals of any kind",
-            "Borrowed drawing tools with no light involved",
-            "A sealed box filled entirely with water"
+            "Painted canvas alone, with no chemicals",
+            "Borrowed drawing tools with no light involved, used by trained artists",
+            "A sealed box filled with water"
           ],
           "answer": "A",
           "skill": "detail",
@@ -523,9 +523,9 @@
         {
           "stem": "What can be inferred about innovation from the fact that multiple inventors in different countries pursued this same frustrating goal?",
           "options": [
-            "Only inventors in one particular country are capable of true innovation",
-            "Every important invention in history has always had just one true creator",
-            "Independent experimentation never actually leads to useful breakthroughs",
+            "Only inventors in one particular country are capable of true innovation in the world",
+            "Most important inventions in history have had one true creator",
+            "Independent experimentation rarely leads to useful breakthroughs",
             "A shared, difficult problem can inspire independent efforts toward similar solutions"
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "Why does the article emphasize the many frustrating years Louis spent testing before succeeding?",
           "options": [
             "To suggest that persistence through repeated difficulty can lead to breakthroughs",
-            "To show that experimentation always results in total failure",
-            "To argue that testing an idea repeatedly is generally pointless",
-            "To prove that Louis worked entirely without any plan"
+            "To show that experimentation results in total failure",
+            "To argue that testing an idea repeatedly is generally a waste of time for inventors",
+            "To prove that Louis worked without any plan"
           ],
           "answer": "A",
           "skill": "inference",
@@ -559,7 +559,7 @@
           "options": [
             "That it was extremely easy to accomplish quickly",
             "That it aimed at something difficult and far-reaching",
-            "That it required no chemicals or experimentation at all",
+            "That it required no chemicals or experimentation",
             "That it was abandoned almost immediately after starting"
           ],
           "answer": "B",
@@ -575,9 +575,9 @@
           "stem": "How does the article's structure support its central idea about this remarkable achievement?",
           "options": [
             "It randomly jumps between unrelated inventions with no clear order",
-            "It focuses entirely on describing Louis's personal childhood memories",
+            "It focuses on describing Louis's personal childhood memories",
             "It presents the frustrating early failures, the experimentation, and the lasting breakthrough in sequence",
-            "It only compares the prices of modern cameras across different brands"
+            "It compares the prices of modern cameras across different brands, from the cheapest to the most costly"
           ],
           "answer": "C",
           "skill": "text-structure",

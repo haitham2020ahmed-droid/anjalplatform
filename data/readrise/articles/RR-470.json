@@ -117,7 +117,7 @@
             "How people built the first roads",
             "How solar panels turn sunlight into power",
             "How farmers plant seeds in spring",
-            "How ships learned to cross the sea"
+            "How ships learned to cross the sea on long trips"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What did a man once notice, according to the article?",
           "options": [
-            "A bit of metal turned into gold",
-            "A light bulb would not turn on, as the article explains",
+            "A bit of metal turned into gold in the lab",
+            "A light bulb would not turn on",
             "Light hit a bit of metal and made some power",
-            "A machine made a loud noise in the article"
+            "A machine made a loud noise"
           ],
           "answer": "C",
           "skill": "detail",
@@ -166,7 +166,7 @@
           "stem": "Why did fewer people use solar cells at first?",
           "options": [
             "Because they cost too much money to make",
-            "Because the sun did not shine enough",
+            "Because the sun did not shine enough on most days",
             "Because no roofs were built yet",
             "Because metal was too hard to find"
           ],
@@ -183,7 +183,7 @@
           "stem": "Why can solar panels work almost anywhere there is sun?",
           "options": [
             "Because they need a lot of wind too",
-            "Because they need to be near the sea",
+            "Because they need to be near the sea or the coast",
             "Because they just need sunlight to make power",
             "Because they need very cold weather"
           ],
@@ -199,9 +199,9 @@
         {
           "stem": "In the article, a clue is best described as —",
           "options": [
-            "a kind of solar panel in the article",
-            "a tool used to fix roofs, as the article explains",
-            "a place where power is stored",
+            "a kind of solar panel",
+            "a tool used to fix roofs",
+            "a place where extra power is stored for later",
             "a small fact or sign that helps explain something"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the article mostly tell its information about solar panels?",
           "options": [
-            "By comparing many kinds of metal in the article in this case for this reason",
+            "By comparing many kinds of metal",
             "By explaining what solar panels do, an early clue, the first solar cell, and how they are used today",
-            "By listing steps to build a roof, as the article explains at that time",
-            "By naming famous sailors from long ago overall, according to the text as a result"
+            "By listing steps to build a roof",
+            "By naming famous sailors from long ago and telling the stories of the long trips they took across the sea"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -234,9 +234,9 @@
           "stem": "What happened because workers got better at making solar cells?",
           "options": [
             "New solar cells cost less, so more people could buy one",
-            "Solar cells stopped making power, as the article explains",
-            "Homes stopped using solar panels completely",
-            "The sun stopped shining as much in the article"
+            "Solar cells stopped making power",
+            "Homes stopped using solar panels completely after that",
+            "The sun stopped shining as much"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Solar panels were invented only for use in outer space in the article, according to the text as a result",
+            "Solar panels were invented for use in outer space, and they are too expensive to be used in homes or on farms today, so few people have them",
             "Solar panels turn sunlight into power, a technology that started with a small discovery and grew into something used in homes, farms, and even space",
-            "Scientists discovered solar power by accident while fixing a roof overall in this case at that time",
-            "Solar panels stopped being useful once they became affordable, as the article explains for this reason"
+            "Scientists discovered solar power by accident while fixing a roof",
+            "Solar panels stopped being useful once they became affordable"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What specific effect did the scientist notice when light hit the metal?",
           "options": [
-            "The metal began to glow brightly in the article",
-            "The metal grew noticeably warmer, as the article explains",
+            "The metal began to glow brightly",
+            "The metal grew noticeably warmer",
             "The metal produced a tiny, measurable amount of power",
-            "The metal changed color completely"
+            "The metal changed color and became soft enough to bend"
           ],
           "answer": "C",
           "skill": "detail",
@@ -327,9 +327,9 @@
         {
           "stem": "What specific reason does the article give for why the first solar cell was not widely used?",
           "options": [
-            "It only worked during the summer months in the article",
-            "It was too heavy to install on most roofs, as the article explains",
-            "It produced power far too slowly to be useful",
+            "It only worked during the summer months",
+            "It was too heavy to install on most roofs",
+            "It produced power far too slowly to be useful in homes or on farms",
             "Building it cost far too much money for everyday, widespread use"
           ],
           "answer": "D",
@@ -345,9 +345,9 @@
           "stem": "What can you infer about why engineers kept working to improve solar cells over time?",
           "options": [
             "They likely wanted to lower costs so more ordinary people could afford and use solar power",
-            "They wanted to make solar cells disappear entirely in the article",
-            "They wanted to keep solar power too expensive for most people overall",
-            "They wanted solar cells to stop working in sunny places, as the article explains"
+            "They wanted to make solar cells disappear",
+            "They wanted to keep solar power too expensive for most people, so that it would stay in labs",
+            "They wanted solar cells to stop working in sunny places"
           ],
           "answer": "A",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "What can you infer about daily life once solar panels became affordable for ordinary families?",
           "options": [
-            "Homes stopped using any electrical power at all, as the article explains",
-            "Farms stopped needing power of any kind in the article, according to the text",
+            "Homes stopped using any electrical power",
+            "Farms stopped needing power",
             "Homes and farms likely found it easier to rely on a cleaner, steady source of power",
-            "People stopped building new homes near sunny places overall in this case"
+            "People stopped building new homes near sunny places and moved to cooler, cloudier towns"
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,9 +378,9 @@
         {
           "stem": "In the article, the word probes most nearly means —",
           "options": [
-            "a kind of solar cell found only on Earth in the article",
-            "a type of metal used in early experiments, as the article explains",
-            "a technical name for a research laboratory",
+            "a kind of solar cell found only on Earth",
+            "a type of metal used in early experiments",
+            "a technical name for a research laboratory where scientists work",
             "small machines sent out to explore faraway places, like space"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "How is the information in the article mostly organized?",
           "options": [
-            "By comparing solar power in different countries today in the article, according to the text as a result",
+            "By comparing solar power in different countries today, from the sunniest to the cloudiest, and ranking them by how much power each one makes",
             "By explaining what solar panels do, an early scientific clue, the first practical solar cell, and its many uses today, in that order",
-            "By explaining exactly how to build a solar panel from scratch overall in this case for this reason",
-            "By arguing that coal power is better than solar power, as the article explains at that time"
+            "By explaining exactly how to build a solar panel from scratch",
+            "By arguing that coal power is better than solar power"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "Why did solar power become more widely useful once engineers lowered its cost?",
           "options": [
             "Because more ordinary families and farms could then afford to rely on it for daily power",
-            "Because the sun began shining more often, as the article explains",
-            "Because researchers stopped studying solar power overall in this case",
-            "Because metal became impossible to find in the article, according to the text"
+            "Because the sun began shining more often",
+            "Because researchers stopped studying solar power and sold their old equipment to farms",
+            "Because metal became impossible to find"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Solar panels were efficient and affordable from the very moment they were invented in the article, as the article explains in this case as a result",
+            "Solar panels were efficient and affordable from the moment they were invented, so homes, farms, and space missions used them right away with few later improvements over the years since",
             "A small scientific discovery about light and metal eventually led to a technology that, once made efficient and affordable, transformed how homes, farms, and even space missions get their power",
-            "The scientific discovery behind solar power happened inside a modern research laboratory built specifically for that purpose at that time",
-            "Solar power has remained a niche technology used only in scientific laboratories since its discovery overall, according to the text for this reason"
+            "The scientific discovery behind solar power happened inside a modern research laboratory built specifically for that purpose",
+            "Solar power has remained a niche technology used only in scientific laboratories since its discovery"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "What specific evidence does the article give for the technical difficulty engineers faced in making solar cells affordable?",
           "options": [
-            "It states that the technical challenge was solved within a single afternoon, as the article explains",
-            "It states that the difficulty was mainly due to a shortage of sunlight in the article in this case",
+            "It states that the technical challenge was solved within a single afternoon",
+            "It states that the difficulty was mainly due to a shortage of sunlight",
             "It states that engineers had to grow considerably more skilled at this demanding, highly technical kind of manufacturing work over time",
-            "It states that households resolved the technical problem themselves at home overall, according to the text"
+            "It states that households solved the technical problem themselves at home, so engineers had little left to improve over time"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "What evidence does the article give that solar technology is used in a wide range of settings today?",
           "options": [
-            "It states that solar panels are found exclusively on laboratory rooftops in the article, according to the text",
-            "It states that solar panels can only function inside large manufacturing facilities overall in this case at that time",
-            "It states that solar panels are limited entirely to use within the United States, as the article explains for this reason",
+            "It states that solar panels are found exclusively on laboratory rooftops",
+            "It states that solar panels can function just inside large manufacturing buildings, so homes and farms rarely use them today, even in the sunniest countries",
+            "It states that solar panels are limited to use within the United States",
             "It states that solar panels cover rooftops, stand together in large solar farms, and even travel aboard space probes exploring distant regions of space"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "How does the article's description of the first practical solar cell compare with its description of solar technology today?",
           "options": [
             "The first solar cell is presented as costly and limited to a laboratory setting, while today's solar technology is presented as efficient, affordable, and used in households worldwide",
-            "Both the early solar cell and today's technology are described as equally costly and limited, as the article explains at that time",
-            "Today's solar technology is described as existing before the first practical solar cell was built overall in this case for this reason",
-            "Neither the early solar cell nor today's technology is described with any specific detail in the article, according to the text as a result"
+            "Both the early solar cell and today's technology are described as equally costly and limited",
+            "Today's solar technology is described as existing before the first practical solar cell was built",
+            "The early solar cell is presented as cheap and widely used, while today's technology is presented as costly and limited to laboratories in a few countries across the world"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,10 +540,10 @@
         {
           "stem": "Based on the article, what can you infer about the overall significance of engineers eventually making solar cells inexpensive enough for typical households?",
           "options": [
-            "Lower costs had no meaningful effect on how widely solar panels were eventually used in the article overall in this case",
-            "Households were already using affordable solar panels before engineers improved manufacturing methods, according to the text",
+            "Lower costs had no meaningful effect on how widely solar panels were eventually used",
+            "Households were already using affordable solar panels before engineers improved manufacturing methods",
             "Lowering the cost likely allowed a once-specialized laboratory technology to become a practical, everyday source of power for millions of ordinary families and farms",
-            "Solar technology remained exclusively a laboratory tool even after manufacturing costs fell, as the article explains at that time"
+            "Solar technology remained mainly a laboratory tool even after manufacturing costs fell, because engineers were not interested in homes or farms, so the panels stayed costly"
           ],
           "answer": "C",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "What can you infer from the article about why engineers continued refining solar cell manufacturing even after the first successful laboratory version was built?",
           "options": [
-            "They believed the original laboratory version already satisfied every household's needs overall in this case at that time",
-            "They wanted to make solar cells more expensive and less efficient over time in the article, according to the text",
-            "They had no further technical interest in solar cells once the first version worked, as the article explains for this reason",
+            "They believed the original laboratory version already satisfied every household's needs",
+            "They wanted to make solar cells more expensive and less efficient over time",
+            "They had little further technical interest in solar cells once the first version worked, so they moved on to other inventions in other fields of science",
             "They likely recognized that a technically sound invention still needed to become efficient and affordable before it could benefit typical households broadly"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the article emphasize the specific technical and manufacturing challenges engineers overcame before solar panels became affordable for ordinary households?",
           "options": [
-            "To argue that ordinary households should never have been allowed to use solar panels overall in this case",
+            "To argue that ordinary households should never have been allowed to use solar panels",
             "To highlight how much deliberate, sustained effort was required to turn a promising scientific discovery into a practical, everyday technology",
-            "To prove that engineers played no meaningful role in developing solar technology, as the article explains",
-            "To suggest that solar panels stopped functioning once they became affordable in the article, according to the text"
+            "To prove that engineers played no meaningful role in developing solar technology",
+            "To suggest that solar panels stopped working once they became affordable, so engineers had to start their work over again with new materials"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -592,9 +592,9 @@
           "stem": "What can you infer about the relationship between the original laboratory discovery and solar power's current role in generating cleaner electricity worldwide?",
           "options": [
             "A single modest observation in a laboratory likely set in motion a long chain of technical improvements that eventually produced a genuinely global source of cleaner power",
-            "The original laboratory discovery had no lasting connection to how electricity is generated today, as the article explains for this reason",
-            "Cleaner electricity generation began only after solar power was abandoned entirely in the article overall in this case at that time",
-            "The laboratory discovery and today's global solar technology are described as entirely unrelated events, according to the text"
+            "The original laboratory discovery had little connection to how electricity is generated today, since solar panels came from a different idea in the laboratory long ago",
+            "Cleaner electricity generation began only after solar power was abandoned",
+            "The laboratory discovery and today's global solar technology are described as unrelated events"
           ],
           "answer": "A",
           "skill": "inference",

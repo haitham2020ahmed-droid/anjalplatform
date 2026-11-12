@@ -116,7 +116,7 @@
           "options": [
             "How to plant a garden at home",
             "The world's biggest rainforest and its many living things",
-            "Why deserts in far away places almost never get any rain at all",
+            "Why deserts in far away places almost never get any rain",
             "How birds build their nests"
           ],
           "answer": "B",
@@ -219,7 +219,7 @@
             "It has thick plants and food in many different spots, like trees, ground, and air",
             "It never rains there, so animals stay dry and warm all year long, said the article",
             "It is covered in sand and rock, so many animals can hide in the dunes",
-            "It is too cold for most animals to live there, so only a few kinds stay"
+            "It is too cold for most animals to live there, so a few kinds stay"
           ],
           "answer": "A",
           "skill": "inference",
@@ -296,7 +296,7 @@
             "The Amazon Rainforest is the world's largest rainforest, home to extraordinary biodiversity, and it matters to the whole planet's climate.",
             "The Amazon Rainforest gets less rain than most deserts.",
             "Monkeys are the only animals that live in the Amazon.",
-            "The Amazon River is more important to the overall health and life of the entire planet than the forest growing around it"
+            "The Amazon River is more important to the overall health and life of the entire planet than the forest growing around it, as the article explains at the start"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "Why do scientists sometimes question calling the Amazon the \"lungs of the Earth\"?",
           "options": [
             "Because much of the oxygen the trees release is reused by the forest's own decomposing organisms",
-            "Because the Amazon produces no oxygen at all, so the nickname is wrong from the start, say the experts",
+            "Because the Amazon produces no oxygen, so the nickname is wrong from the start, say the experts",
             "Because the Amazon has no trees left, since people have cut them all down and sold them for money",
-            "Because lungs cannot be found in nature, only in living animals, and so the name makes no sense"
+            "Because lungs are found in animals, not in plants, so the name sounds strange"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -381,7 +381,7 @@
             "The tall canopy trees block most of the light from reaching lower levels",
             "There is no rain in the Amazon",
             "The river blocks all sunlight",
-            "Animals somehow eat all of the available sunlight before it can reach the forest floor below"
+            "Animals eat most of the leaves, so the plants get less light and water"
           ],
           "answer": "A",
           "skill": "inference",
@@ -397,8 +397,8 @@
           "options": [
             "Its enormous rainfall and plant growth influence rainfall and temperature patterns across much of the globe",
             "It sends animals to other continents every year",
-            "Its river flows directly into every ocean on Earth",
-            "It has absolutely no measurable effect of any kind on any country outside of Brazil's own immediate borders at all"
+            "Its river flows directly into each ocean on Earth",
+            "It has little effect on countries outside of Brazil's borders, since its rain stays in the forest and its clouds"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By telling a story about one explorer's journey down a river in a canoe and all the animals he met on the way",
-            "By listing the steps to plant a tree, from digging a hole in the soil to watering the small plant every single day",
-            "By comparing the Amazon to a desert in every paragraph, showing how the two places are different",
+            "By telling a story about one explorer's journey down a river in a canoe and all the animals he met on the way and each day",
+            "By listing the steps to plant a tree, from digging a hole to watering the plant each day",
+            "By comparing the Amazon to a desert in each paragraph, showing how the two places differ",
             "By describing the forest's size and layers, then its biodiversity, its role in the air, and its importance to the planet"
           ],
           "answer": "D",
@@ -474,8 +474,8 @@
           "options": [
             "The Amazon Rainforest is an unmatched reservoir of global biodiversity whose scale and processes influence climate conditions well beyond South America.",
             "The Amazon Rainforest has already had every one of its species fully identified and documented by scientists from around the world.",
-            "The Amazon River is more significant to the planet than the forest ecosystem surrounding it, since rivers hold more life than trees do.",
-            "The Amazon Rainforest's climate has remained completely unaffected by human activity, and it will stay the same in every future century, according to all of the scientists."
+            "The Amazon River is more significant to the planet than the forest ecosystem surrounding it, since rivers hold more life than trees do and their waters.",
+            "The Amazon Rainforest's climate has changed little because of human activity, and scientists expect it to stay the same."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -490,9 +490,9 @@
           "stem": "Why do scientists describe the Amazon's biodiversity as especially vulnerable?",
           "options": [
             "Every species in the Amazon can easily survive outside the forest",
-            "Every species in the Amazon can easily survive outside the forest without any special help or protection of any kind whatsoever",
+            "Most species in the Amazon can easily survive outside the forest without special help or protection",
             "A considerable number of its species exist nowhere else and remain vulnerable to even modest habitat loss",
-            "The forest has already lost all of its original biodiversity"
+            "The forest has already lost most of its original biodiversity"
           ],
           "answer": "C",
           "skill": "detail",
@@ -542,7 +542,7 @@
           "options": [
             "The forest is one of the most complex ecosystems humans have ever attempted to study, with vast, remote areas still unexplored",
             "No scientific expeditions have ever entered the Amazon, since the river is too dangerous for boats and for planes, and so the forest has never been studied by anyone, ever",
-            "All Amazon species were identified by indigenous communities centuries ago, and written down in books, so scientists believe that nothing is left to find in the forest",
+            "Most Amazon species were identified by indigenous communities centuries ago, so scientists believe little is left to find",
             "The forest is too small for many species to exist, so most animals have already left for other places, and researchers think few kinds of life remain in the Amazon today"
           ],
           "answer": "A",

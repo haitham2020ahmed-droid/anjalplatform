@@ -165,7 +165,7 @@
         {
           "stem": "What does the wax on some leaves do?",
           "options": [
-            "It makes the leaves fall off.",
+            "It makes the leaves fall off in the summer.",
             "It helps the leaves grow big.",
             "It turns the leaves red.",
             "It keeps water inside the leaves."
@@ -296,7 +296,7 @@
             "Desert plants need much more water than other plants do.",
             "Desert plants have adaptations that help them save water.",
             "Only cactuses are able to grow in the hot, dry desert.",
-            "Rain falls in the desert almost every single day."
+            "Rain falls in the desert almost each day."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -362,7 +362,7 @@
           "stem": "Why do large leaves lose more water than spines?",
           "options": [
             "Because large leaves are covered in sand and dust",
-            "Because spines are made completely of thick wax",
+            "Because spines are made of thick wax",
             "Because water evaporates from leaves' surfaces",
             "Because spines grow deep under the ground"
           ],
@@ -475,7 +475,7 @@
             "Desert plants survive mainly by drinking from desert rivers.",
             "Desert plants use many adaptations to save and find water.",
             "Only plants with large leaves can live in arid regions.",
-            "Desert plants grow fastest of all during long droughts."
+            "Desert plants grow fastest during long droughts."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,7 +523,7 @@
         {
           "stem": "In the article, the word \"dormant\" most nearly means —",
           "options": [
-            "dead and gone forever",
+            "dead and gone",
             "resting but still alive",
             "growing very fast",
             "covered with a waxy coat"

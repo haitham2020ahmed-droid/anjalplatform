@@ -116,7 +116,7 @@
           "options": [
             "How to make ink at home",
             "How Laszlo Biro invented a pen that did not smear",
-            "Why old pens were the best pens ever made",
+            "Why old pens were the best pens ever made by hand",
             "How newspapers are printed"
           ],
           "answer": "B",
@@ -166,7 +166,7 @@
           "stem": "Why do you think Laszlo wanted to build a better pen?",
           "options": [
             "Because he saw the smearing problem happen often and wanted to fix it",
-            "Because he wanted to sell pens for a lot of money",
+            "Because he wanted to sell pens for a lot of money to rich people",
             "Because his brother told him to stop writing",
             "Because he did not like the color of ink"
           ],
@@ -200,7 +200,7 @@
           "stem": "In the article, what does the word smear mean?",
           "options": [
             "To spread something messily across a surface",
-            "To write very neatly",
+            "To write very neatly on a clean page of white paper",
             "To dry very quickly",
             "To shine brightly"
           ],
@@ -216,7 +216,7 @@
         {
           "stem": "How is this article mostly organized?",
           "options": [
-            "It compares different colors of ink",
+            "It compares different colors of ink and how long each one lasts",
             "It tells the story of the pen's invention in the order it happened",
             "It explains how to fix a broken pen",
             "It lists rules for neat handwriting"
@@ -233,10 +233,10 @@
         {
           "stem": "What happened right after Laszlo put the ball at the tip of the pen?",
           "options": [
-            "He gave up on the idea completely",
-            "He stopped writing with pens forever",
+            "He gave up on the idea and went back to work at the paper",
+            "He stopped writing with pens",
             "He worked with his brother to test different inks",
-            "The pen broke apart immediately in this situation"
+            "The pen broke apart immediately"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of this article?",
           "options": [
-            "Newspapers are the best place to learn about chemistry",
+            "Newspapers are the best place to learn about chemistry, so Laszlo studied it while working as a journalist",
             "Laszlo Biro and his chemist brother solved the problem of smearing ink by designing a reliable rolling-ball pen",
             "Old ink pens should never be used again",
-            "Chemists only work with pens"
+            "Chemists mostly work with pens"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,7 +311,7 @@
           "stem": "What does the word reliable mean, as used in the article?",
           "options": [
             "Able to be trusted to work correctly every time",
-            "Expensive to buy",
+            "Expensive to buy and hard to find in most shops",
             "Difficult to use",
             "Brightly colored"
           ],
@@ -327,7 +327,7 @@
         {
           "stem": "According to the article, what was Laszlo Biro's job?",
           "options": [
-            "He was a chemist who studied liquids",
+            "He was a chemist who studied liquids in his lab",
             "He sold pens in a shop",
             "He was a journalist who wrote for a newspaper",
             "He was a teacher at a school"
@@ -345,7 +345,7 @@
           "stem": "Why does the article explain that many early test pens failed?",
           "options": [
             "To show how much careful work went into perfecting the design",
-            "To suggest the invention was a complete waste of time",
+            "To suggest the invention was a complete waste of time and money",
             "To explain how newspapers are printed",
             "To compare the price of different pens"
           ],
@@ -361,8 +361,8 @@
         {
           "stem": "What can you infer about why Laszlo asked his brother, a chemist, for help?",
           "options": [
-            "He needed someone to write newspaper articles for him",
-            "He needed someone to sell the finished pens in this situation",
+            "He needed someone to write newspaper articles for him in the newspaper",
+            "He needed someone to sell the finished pens",
             "He needed someone to design the pen's shape",
             "He needed someone who understood how liquids like ink behaved"
           ],
@@ -380,8 +380,8 @@
           "options": [
             "By listing unrelated facts about Hungary with no clear order",
             "By showing, step by step, how a reporter's frustration led to a tested, reliable invention",
-            "By focusing only on the price of pens today in this situation in this situation in this situation",
-            "By comparing pens to pencils throughout the article"
+            "By focusing only on the price of pens today",
+            "By comparing pens to pencils throughout the article, from the oldest to the newest kinds"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -395,10 +395,10 @@
         {
           "stem": "According to the article, what effect did the new pen eventually have on people everywhere?",
           "options": [
-            "It completely replaced the need to write at all",
+            "It replaced the need to write",
             "It became a common tool used daily in homes, schools, and offices",
-            "It was limited only to newspaper offices forever",
-            "It made writing illegal in most countries in this situation"
+            "It was used mostly in newspaper offices and printing shops in the city",
+            "It made writing illegal in most countries"
           ],
           "answer": "B",
           "skill": "detail",
@@ -413,9 +413,9 @@
           "stem": "Which best compares old nib pens to the new ballpoint pen?",
           "options": [
             "Old pens smeared easily, while the new pen spread ink evenly without smearing",
-            "Old pens never ran out of ink, unlike the new pen",
-            "Both pens worked exactly the same way in this situation in this situation in this situation",
-            "The new pen used no ink at all, unlike old pens"
+            "Old pens did not run out of ink, unlike the new pen, which had to be refilled each day",
+            "Both pens worked exactly the same way",
+            "The new pen used no ink, unlike old pens"
           ],
           "answer": "A",
           "skill": "compare",
@@ -474,8 +474,8 @@
           "options": [
             "Newspapers were designed specifically to test new kinds of ink",
             "A journalist's frustration with smearing ink led to a carefully engineered, patented pen mechanism built with his chemist brother",
-            "The ballpoint pen was invented purely by luck with no real testing involved",
-            "Ink has always flowed perfectly around rolling balls with no adjustment needed"
+            "The ballpoint pen was invented purely by luck, when Laszlo dropped a marble into a bottle of ink by accident one night at home",
+            "Ink has flowed perfectly around rolling balls with no adjustment needed"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -491,7 +491,7 @@
           "options": [
             "How thick or sticky a liquid is",
             "The color of a liquid",
-            "The temperature of a liquid",
+            "The temperature of a liquid in a pot",
             "The smell of a liquid"
           ],
           "answer": "A",
@@ -506,7 +506,7 @@
         {
           "stem": "According to the article, what force allowed the rolling ball to pick up ink from the hidden tube?",
           "options": [
-            "Gravity pulling the ink downward",
+            "Gravity pulling the ink downward into the paper",
             "Heat from the writer's hand",
             "Friction between the ball and the paper",
             "Air pressure inside the pen"
@@ -525,7 +525,7 @@
           "options": [
             "It formally recognized and protected their invention, allowing it to be developed commercially",
             "It made the ink dry instantly",
-            "It eliminated the need for any further testing",
+            "It removed the need for further testing, so the pen could be sold in shops right away in the city",
             "It made the invention illegal to sell"
           ],
           "answer": "A",
@@ -542,8 +542,8 @@
           "options": [
             "By listing unrelated facts about Hungary with no clear order",
             "By showing a clear sequence in which a daily frustration led step by step to a tested, patented mechanism",
-            "By focusing only on the biography of newspaper printing in this situation in this situation in this situation",
-            "By comparing ballpoint pens only to ancient writing tools"
+            "By focusing only on the biography of newspaper printing",
+            "By comparing ballpoint pens to ancient writing tools, such as reed pens, quills, and brushes and brushes"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -557,9 +557,9 @@
         {
           "stem": "What was most likely the author's purpose in explaining exactly how ink viscosity affected the mechanism?",
           "options": [
-            "To entertain readers with unrelated trivia about chemistry",
+            "To entertain readers with unrelated trivia about chemistry, such as how colors are mixed in a factory or in a lab",
             "To suggest that only chemists can ever invent anything useful",
-            "To prove that ballpoint pens are dangerous to use in this situation in this situation in this situation in this situation",
+            "To prove that ballpoint pens are dangerous to use",
             "To help readers understand the real engineering challenge behind the invention, not just the idea that inspired it"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Which comparison between the original idea and the finished invention is best supported by the article?",
           "options": [
             "The original idea of a rolling ball was refined through months of careful testing into a reliable, patented mechanism",
-            "The original idea and the finished invention are completely unrelated",
-            "The finished invention happened before Laszlo ever had his idea",
-            "The testing phase made further patenting unnecessary in this situation in this situation in this situation in this situation"
+            "The original idea and the finished invention are unrelated",
+            "The finished invention happened before Laszlo had his idea, because his brother had already built and sold the pen",
+            "The testing phase made further patenting unnecessary"
           ],
           "answer": "A",
           "skill": "compare",
@@ -591,9 +591,9 @@
         {
           "stem": "What long-term effect did the Biro brothers' invention have on how people wrote, according to the article?",
           "options": [
-            "Handwriting returned entirely to quill pens after a brief trial",
+            "Handwriting returned to quill pens after a brief trial, because the new pens were too expensive for schools",
             "The ballpoint pen became one of the most common writing tools worldwide, changing how people wrote daily",
-            "Newspapers stopped using any writing tools entirely in this situation in this situation in this situation",
+            "Newspapers stopped using any writing tools",
             "Ink was banned from use in most countries afterward"
           ],
           "answer": "B",

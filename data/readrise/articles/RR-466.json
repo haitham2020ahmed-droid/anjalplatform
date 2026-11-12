@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people built the first tall towers in ancient Egypt",
+            "How people built the first tall towers in ancient Egypt to watch the sky",
             "How clocks changed over a long time, from water clocks to clocks with gears",
-            "How ships learned to sail across the open sea in the article",
-            "How farmers planted crops at different times of year, as the article explains"
+            "How ships learned to sail across the open sea",
+            "How farmers planted crops at different times of year"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "What made the water clock work?",
           "options": [
-            "A bell ringing every hour in the article",
+            "A bell ringing every hour",
             "A wheel spinning in the wind",
-            "Sunlight shining through a hole",
+            "Sunlight shining through a hole in the roof",
             "Water dripping from one jar into another"
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "Why did clocks with gears keep better time than water clocks?",
           "options": [
-            "Because gears made the clock much louder, as the article explains",
-            "Because gears made the clock much heavier",
+            "Because gears made the clock much louder",
+            "Because gears made the clock much heavier, so it did not move or fall",
             "Because the gears worked together in a steady, reliable way",
-            "Because gears could only be used once in the article"
+            "Because gears could only be used once"
           ],
           "answer": "C",
           "skill": "inference",
@@ -199,9 +199,9 @@
         {
           "stem": "In the article, a gear is best described as —",
           "options": [
-            "a large bell used to mark the hour, as the article explains",
-            "a jar used to hold dripping water in the article",
-            "a tall tower built in a town square",
+            "a large bell used to mark the hour",
+            "a jar used to hold dripping water",
+            "a tall tower built in the middle of a town square",
             "a small wheel with teeth that helps a machine work"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the article mostly tell the story of clocks?",
           "options": [
-            "By comparing many kinds of bells used in church overall in this case",
+            "By comparing many kinds of bells used in towns and churches, from the smallest to the loudest",
             "By telling the story in time order, from the sun to water clocks to gear clocks and towers",
-            "By listing steps for building a tall tower, as the article explains",
-            "By naming famous painters from long ago in the article, according to the text"
+            "By listing steps for building a tall tower",
+            "By naming famous painters from long ago"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -234,9 +234,9 @@
           "stem": "What happened because clocks got smaller over time?",
           "options": [
             "They were placed inside towers so people could see the time from far away",
-            "People stopped using clocks completely overall, according to the text",
-            "Towers stopped being built in towns, as the article explains",
-            "The sun disappeared from the sky in the article in this case"
+            "People stopped using clocks",
+            "Towers stopped being built in towns, and people kept clocks in their homes instead",
+            "The sun disappeared from the sky"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Clocks were invented in Europe before anywhere else in the world, as the article explains",
+            "Clocks were invented in Europe before anywhere else in the world",
             "People invented increasingly reliable ways to measure time, from water clocks to mechanical clocks with gears and weights",
-            "Water clocks were more reliable than mechanical clocks with gears overall, according to the text",
-            "People stopped needing to measure time once towers were built in the article in this case"
+            "Water clocks were more reliable than mechanical clocks with gears, so people kept using them for centuries in towns and cities",
+            "People stopped needing to measure time once towers were built"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What specific device does the article say solved the problem of telling time at night?",
           "options": [
-            "A simple sundial placed in a garden",
-            "A bell rung by hand every hour in the article",
+            "A simple sundial placed in a garden with a candle beside it",
+            "A bell rung by hand every hour",
             "A mechanical clock powered by gears and hanging weights",
-            "A written calendar hung on a wall, as the article explains"
+            "A written calendar hung on a wall"
           ],
           "answer": "C",
           "skill": "detail",
@@ -327,9 +327,9 @@
         {
           "stem": "What specific detail does the article give about how the water clock worked?",
           "options": [
-            "Sunlight passed through a small hole in a wall overall in this case at that time",
-            "A bell rang automatically every single hour, as the article explains for this reason",
-            "A weight slowly pulled on a long chain in the article, according to the text",
+            "Sunlight passed through a small hole in a wall",
+            "A bell rang automatically each hour, and people counted the rings to tell the time in the town square",
+            "A weight slowly pulled on a long chain",
             "Water dripped from one container into a second container below it, and people watched the water level rise"
           ],
           "answer": "D",
@@ -345,9 +345,9 @@
           "stem": "What can you infer about why the monk's mechanical clock was considered such an improvement?",
           "options": [
             "It likely worked more consistently and needed less constant attention than a water clock did",
-            "It was the very first clock ever invented in human history, as the article explains",
-            "It required constant refilling with fresh water every hour overall",
-            "It could only be used inside a single building forever in the article"
+            "It was the very first clock ever invented in human history, so people came from far away to see it",
+            "It required constant refilling with fresh water every hour",
+            "It could be used inside a single building"
           ],
           "answer": "A",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "What can you infer about daily life in towns once clock towers became common?",
           "options": [
-            "People stopped caring what time it was altogether in the article",
-            "Towns removed every bell that had been used before, as the article explains",
+            "People stopped caring what time it was altogether",
+            "Towns removed the bells that had been used before, so people had to guess the time of day",
             "More people could coordinate their daily activities by checking a shared, visible time",
-            "Water clocks became the only accepted way to tell time overall"
+            "Water clocks became the accepted way to tell time"
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,9 +378,9 @@
         {
           "stem": "In the article, the word reliable most nearly means —",
           "options": [
-            "extremely colorful and decorative, as the article explains",
-            "very loud and easy to hear in the article",
-            "completely new and never seen before",
+            "extremely colorful, decorative, and pleasant to look at",
+            "very loud and easy to hear",
+            "new and never seen before",
             "able to be trusted to work correctly, again and again"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "How is the information in the article mostly organized?",
           "options": [
-            "By comparing clock designs from different countries today, as the article explains",
+            "By comparing clock designs from different countries today",
             "By following the history of timekeeping in the order it happened, from the sun to modern devices",
-            "By explaining exactly how to build a clock tower in the article, according to the text",
-            "By arguing that sundials are better than any mechanical clock overall"
+            "By explaining exactly how to build a clock tower",
+            "By arguing that sundials are better than mechanical clocks because they do not need repairs"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "Why did the mechanical clock's bell matter to people living nearby?",
           "options": [
             "Because it let people know the time had passed even without looking at the clock itself",
-            "Because it was the only part of the clock that moved overall in this case",
-            "Because it replaced the need for gears entirely, as the article explains",
-            "Because it was required by law in every town in the article, according to the text"
+            "Because it was the part of the clock that moved, so people could see that it was still working",
+            "Because it replaced the need for gears",
+            "Because it was required by law in each town"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Mechanical clocks were invented before water clocks anywhere in the world in the article, according to the text as a result",
+            "Mechanical clocks were invented before water clocks, so people measured time with gears long before they used dripping water or the shadows of the sun in the morning",
             "Across centuries, increasingly sophisticated inventions, from water clocks to interlocking gears, steadily transformed how civilizations measured and relied upon time",
-            "Sundials remained the most accurate timekeeping method throughout history, as the article explains at that time",
-            "Clock towers made all earlier timekeeping devices completely obsolete immediately overall in this case for this reason"
+            "Sundials remained the most accurate timekeeping method throughout history",
+            "Clock towers made all earlier timekeeping devices obsolete immediately"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "What specific evidence does the article give for the water clock's historical significance?",
           "options": [
-            "It states that the water clock was invented during the medieval period",
-            "It states that the water clock used interlocking metal gears in the article",
+            "It states that the water clock was invented during the medieval period by monks who needed to know when to pray",
+            "It states that the water clock used interlocking metal gears",
             "It states that the device was already in widespread use thousands of years ago in ancient Egypt",
-            "It states that the water clock was installed inside public towers, as the article explains"
+            "It states that the water clock was installed inside public towers"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "What evidence does the article give that the mechanical clock represented a major advance over the water clock?",
           "options": [
-            "It describes the mechanical clock as requiring constant refilling with water overall in this case at that time",
-            "It describes the mechanical clock as being far less accurate than the sun, as the article explains for this reason",
-            "It describes the mechanical clock as being invented in ancient Egypt in the article, according to the text",
+            "It describes the mechanical clock as requiring constant refilling with water",
+            "It describes the mechanical clock as being far less accurate than the sun, so people kept using sundials for hundreds of years in cities and villages",
+            "It describes the mechanical clock as being invented in ancient Egypt",
             "It describes the mechanical clock's interlocking gears as allowing far steadier and more reliable timekeeping than any earlier device had achieved"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "How does the article's description of early sun-based timekeeping compare with its description of mechanical clocks?",
           "options": [
             "Sun-based timekeeping is presented as limited and unreliable at night, while mechanical clocks are presented as steady and dependable at all hours",
-            "Both methods are described as equally reliable at every hour of the day, as the article explains at that time",
-            "Mechanical clocks are described as useful only during daylight hours in the article in this case for this reason",
-            "Sun-based timekeeping is described as more precise than mechanical clocks overall, according to the text as a result"
+            "Both methods are described as equally reliable at every hour of the day",
+            "Mechanical clocks are described as useful only during daylight hours",
+            "Sun-based timekeeping is described as more precise than mechanical clocks, so people trusted sundials more than gears at night in their towns"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about the broader historical significance of clock towers appearing in European town squares?",
           "options": [
-            "Clock towers were built purely for decoration, with no practical function overall, according to the text",
-            "Clock towers eliminated the need for any further advances in timekeeping, as the article explains",
+            "Clock towers were built mostly for decoration, to show how rich a town was, and had little practical use for people",
+            "Clock towers eliminated the need for any further advances in timekeeping",
             "Shared, publicly visible timekeeping likely helped coordinate daily life across entire communities, not just individuals",
-            "Clock towers were used exclusively by religious officials like monks in the article in this case"
+            "Clock towers were used exclusively by religious officials like monks"
           ],
           "answer": "C",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "In the article, the word craftsmanship refers to what quality that improved alongside clocks over the centuries?",
           "options": [
-            "the loudness of a clock's bell in the article, according to the text",
-            "the exact hour a clock was built, as the article explains",
-            "the religious beliefs of medieval monks overall",
+            "the loudness of a clock's bell",
+            "the exact hour a clock was built",
+            "the religious beliefs of the medieval monks who built the first mechanical clocks",
             "the skill and careful attention involved in making something well"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the article emphasize the specific mechanism of gears, weights, and a chain in describing the mechanical clock?",
           "options": [
-            "To argue that water clocks were secretly more advanced all along, as the article explains at that time",
+            "To argue that water clocks were secretly more advanced all along",
             "To help readers understand concretely how such an invention could keep reliable time without relying on the sun or dripping water",
-            "To prove that medieval monks had no real mathematical skill in the article, according to the text",
-            "To suggest that gears were purely decorative and had no real function overall in this case for this reason"
+            "To prove that medieval monks had no real mathematical skill",
+            "To suggest that gears were mostly decorative, added by craftsmen to make the clock look impressive to visitors in the square"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -592,9 +592,9 @@
           "stem": "Based on the article, what most likely allowed timekeeping devices to keep improving across so many centuries?",
           "options": [
             "A combination of advancing craftsmanship and a persistent, practical need for more reliable ways to track time likely drove this long progression",
-            "Every improvement happened within a single decade by one single inventor, as the article explains for this reason",
-            "Governments required identical clocks to be built in every town in the article, according to the text as a result",
-            "People completely lost interest in measuring time after towers were built overall in this case at that time"
+            "Each improvement happened within a single decade by one inventor, so clocks changed quickly and then stayed the same for many centuries",
+            "Governments required identical clocks to be built in each town, so clockmakers copied one design",
+            "People lost interest in measuring time after towers were built"
           ],
           "answer": "A",
           "skill": "inference",

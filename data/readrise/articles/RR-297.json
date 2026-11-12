@@ -200,7 +200,7 @@
           "stem": "What can you tell about the people who wear these clothes?",
           "options": [
             "They never wear any other kind of clothing",
-            "They avoid wearing any clothing with color",
+            "They avoid wearing clothing with color",
             "They dress in ways shaped by their climate and customs",
             "They dislike bright sunlight more than other people"
           ],
@@ -216,9 +216,9 @@
         {
           "stem": "Why might an abaya still feel comfortable in hot weather even though it is black?",
           "options": [
-            "Because black cloth is always thinner than white cloth",
-            "Because it is only worn during the cooler months",
-            "Because it is never worn outside in the sun",
+            "Because black cloth is thinner than white cloth",
+            "Because it is only worn during the cooler months in the year",
+            "Because it is rarely worn outside in the sun",
             "Because its loose cut still lets air move underneath it"
           ],
           "answer": "D",
@@ -235,7 +235,7 @@
           "options": [
             "To show that only women dress for the climate",
             "To compare how both show care for climate and custom",
-            "To prove that men's clothing is more practical",
+            "To prove that men's clothing is more practical for daily life",
             "To explain how to dye cloth light colors"
           ],
           "answer": "B",
@@ -296,7 +296,7 @@
             "Arab tailors invented the sewing machine long ago in the desert",
             "Saudi clothing balances desert comfort with regional custom",
             "Saudi clothing styles never change between the different regions",
-            "The abaya is always more expensive than the thobe in every shop"
+            "The abaya is more expensive than the thobe in most shops"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,8 +311,8 @@
           "stem": "What is one difference between a plain white ghutra and a shemagh?",
           "options": [
             "The ghutra is only worn by women in the cities",
-            "The shemagh is never worn with an agal on the head",
-            "The ghutra is made only of wool from camels",
+            "The shemagh is worn without an agal on the head",
+            "The ghutra is made of wool from camels",
             "The shemagh has a red-and-white checked pattern"
           ],
           "answer": "D",
@@ -328,7 +328,7 @@
           "stem": "What does the agal do?",
           "options": [
             "It holds the ghutra in place on the head",
-            "It decorates the sleeves of an abaya",
+            "It decorates the sleeves of an abaya at weddings",
             "It measures a person's height",
             "It cools the body like a fan"
           ],
@@ -345,9 +345,9 @@
           "stem": "In the article, the word breathable describes fabric that —",
           "options": [
             "never needs to be washed again",
-            "is always black in its color",
+            "is black in its color",
             "lets air pass through easily",
-            "is worn only indoors, at home"
+            "is worn indoors, at home"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -362,7 +362,7 @@
           "stem": "Why might a man choose a shemagh instead of a plain white ghutra?",
           "options": [
             "Because a shemagh is never worn with an agal",
-            "Because a shemagh is required at every wedding",
+            "Because a shemagh is required at weddings",
             "Because a plain white ghutra is illegal to wear",
             "Because the season or region calls for its pattern"
           ],
@@ -397,7 +397,7 @@
           "options": [
             "Because each region has its own local traditions and conditions",
             "Because tailors in some regions cannot sew embroidery",
-            "Because only certain regions allow a bisht to be worn",
+            "Because some regions do not allow a bisht to be worn",
             "Because thobes are banned in many parts of the country by law"
           ],
           "answer": "A",
@@ -474,7 +474,7 @@
           "options": [
             "Saudi clothing reflects climate, custom, and lasting heritage",
             "Saudi clothing exists only to look attractive at events",
-            "Saudi clothing has remained completely unchanged for centuries",
+            "Saudi clothing has remained unchanged for centuries",
             "Saudi tailors invented embroidery techniques used nowhere else"
           ],
           "answer": "A",
@@ -541,8 +541,8 @@
           "stem": "How are the thobe and the abaya alike, according to the article?",
           "options": [
             "Both are loose, which allows ventilation",
-            "Both are always made from wool",
-            "Both are tightly fitted to the body",
+            "Both are made from wool",
+            "Both are tightly fitted to the body with belts",
             "Both are worn only at weddings"
           ],
           "answer": "A",
@@ -574,7 +574,7 @@
         {
           "stem": "Why does the article suggest this clothing is more than just practical?",
           "options": [
-            "Because it is always more expensive than other clothing in the shops",
+            "Because it is more expensive than other clothing in the shops",
             "Because it is only worn during religious holidays in the year",
             "Because it also carries heritage and identity across generations",
             "Because it is no longer worn by anyone today in the country"
@@ -593,7 +593,7 @@
           "options": [
             "To argue that modern clothing should replace traditional dress",
             "To show how skill and care connect clothing to heritage and identity",
-            "To prove that handmade clothing is always more comfortable",
+            "To prove that handmade clothing is more comfortable",
             "To explain the exact stitching pattern step by step"
           ],
           "answer": "B",

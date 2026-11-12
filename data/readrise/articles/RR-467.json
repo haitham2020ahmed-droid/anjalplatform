@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people in Italy learned to cook new foods, as the article explains",
+            "How people in Italy learned to cook new foods from other lands",
             "How eyeglasses were invented to help people who could not see well",
             "How sailors learned to cross the ocean safely",
-            "How farmers grew better crops long ago in the article"
+            "How farmers grew better crops long ago"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -166,9 +166,9 @@
           "stem": "Why did a lens help blurry things look clear?",
           "options": [
             "Because the curved glass changed how light reached the eyes",
-            "Because it was painted a bright color overall",
-            "Because it was very heavy in the article, according to the text",
-            "Because it made loud sounds, as the article explains"
+            "Because it was painted a bright color that was easy to see",
+            "Because it was very heavy",
+            "Because it made loud sounds"
           ],
           "answer": "A",
           "skill": "inference",
@@ -199,9 +199,9 @@
         {
           "stem": "In the article, something that is blurry is —",
           "options": [
-            "very bright and shiny",
+            "very bright and shiny like a mirror",
             "very loud and noisy",
-            "very small in size in the article",
+            "very small in size",
             "not clear and hard to see well"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the article mostly tell its information about eyeglasses?",
           "options": [
-            "By comparing many kinds of hats people wore overall, according to the text",
+            "By comparing many kinds of hats people wore in different countries long ago and today",
             "By explaining the problem first, then how lenses and frames were invented to fix it",
-            "By listing steps for building a house in the article in this case",
-            "By naming famous singers from long ago, as the article explains"
+            "By listing steps for building a house",
+            "By naming famous singers from long ago"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Eyeglasses were invented in Italy before anyone studied light or eyes overall in this case for this reason",
+            "Eyeglasses were invented in Italy before anyone studied light or eyes, so their makers worked by trial and error for many years",
             "Early studies of light and eyes eventually led to glass lenses and eyeglasses, which gradually became affordable to many more people",
-            "Wealthy people found glasses less useful than poor people did in the article, according to the text",
-            "Glasses have always been affordable for every ordinary person, as the article explains at that time"
+            "Wealthy people found glasses less useful than poor people did",
+            "Glasses have been affordable for every ordinary person"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What specific achievement does the article credit to the scholar who studied light?",
           "options": [
-            "He personally invented the first pair of eyeglasses overall",
-            "He built the first glass lens factory in Europe in the article",
+            "He personally invented the first pair of eyeglasses and sold them in Italy",
+            "He built the first glass lens factory in Europe",
             "He wrote influential books that helped later thinkers understand human sight",
-            "He traveled to Italy to teach lens-making directly, as the article explains"
+            "He traveled to Italy to teach lens-making directly"
           ],
           "answer": "C",
           "skill": "detail",
@@ -328,7 +328,7 @@
           "stem": "What specific detail does the article give about how early eyeglasses were worn?",
           "options": [
             "A strap tied tightly around the back of the head",
-            "A single lens held up by hand at all times",
+            "A single lens held up by hand",
             "A chain attached to a person's clothing",
             "A frame with two arms hooked over a person's ears"
           ],
@@ -345,9 +345,9 @@
           "stem": "What can you infer about why only wealthy people owned glasses at first?",
           "options": [
             "Making curved glass lenses by hand was likely difficult and expensive to do",
-            "Wealthy people were the only ones who needed to see clearly",
+            "Wealthy people were the ones who most needed to see clearly in their daily lives",
             "Glasses were considered too fashionable for ordinary people",
-            "Poor eyesight only affected wealthy people at that time"
+            "Poor eyesight mostly affected wealthy people"
           ],
           "answer": "A",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "What can you infer about daily life once glasses became more affordable?",
           "options": [
-            "People stopped needing to see clearly at all in the article",
-            "Books became harder to find once glasses spread, as the article explains",
+            "People stopped needing to see clearly",
+            "Books became harder to find once glasses spread, because fewer people needed them",
             "More ordinary people could likely read, work, and go about daily tasks more easily",
-            "Wealthy people stopped wearing glasses entirely overall, according to the text"
+            "Wealthy people stopped wearing glasses"
           ],
           "answer": "C",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "How is the information in the article mostly organized?",
           "options": [
-            "By comparing modern sunglasses styles from today in the article in this case",
+            "By comparing modern sunglasses styles from today",
             "By following the history of eyeglasses in the order it happened, from the problem to the solution",
-            "By explaining exactly how to grind a lens by hand, as the article explains",
-            "By arguing that poor eyesight is not a real problem overall, according to the text"
+            "By explaining exactly how to grind a lens by hand",
+            "By arguing that poor eyesight is not a real problem and that people should stop worrying about it"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "Why did it matter that glasses became more affordable over time?",
           "options": [
             "Because it allowed many more ordinary people, not just the wealthy, to see clearly",
-            "Because it made lenses stop being made of glass in the article",
-            "Because it ended the need to study light and eyes, as the article explains",
-            "Because it made eyeglasses illegal for wealthy people overall"
+            "Because it made lenses stop being made of glass",
+            "Because it ended the need to study light and eyes",
+            "Because it made eyeglasses illegal for wealthy people, who had to give theirs to the poor"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Eyeglasses were affordable for ordinary people from the moment they were invented in the article in this case for this reason",
+            "Eyeglasses were affordable for ordinary people from the moment they were invented, so scholars, farmers, and workers wore them from the very start, and lens-makers had few customers",
             "Early scientific study of vision eventually enabled a transformative invention, eyeglasses, which gradually moved from a luxury for the wealthy to an everyday tool for billions",
-            "Scientific study of light played no meaningful role in the invention of eyeglasses, as the article explains at that time",
-            "Eyeglasses have remained a luxury item reserved for wealthy individuals even today overall, according to the text as a result"
+            "Scientific study of light played no meaningful role in the invention of eyeglasses",
+            "Eyeglasses have remained a luxury item reserved for wealthy individuals even today"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "What specific evidence does the article give for the scholar's lasting intellectual influence?",
           "options": [
-            "He is credited with personally training the Italian lens-makers in the article in this case",
-            "He is described as having invented the first wearable eyeglass frame overall, according to the text",
+            "He is credited with personally training the Italian lens-makers",
+            "He is described as having invented the first wearable eyeglass frame, which he made from wood and leather",
             "His books and treatises later helped numerous other thinkers develop a far better understanding of human vision",
-            "He is described as discouraging further study of light and vision, as the article explains"
+            "He is described as discouraging further study of light and vision"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "What evidence does the article give that eyeglasses eventually became widely accessible?",
           "options": [
-            "It states that only scholars are currently permitted to own eyeglasses, as the article explains",
-            "It states that eyeglasses remain prohibitively expensive for most people today overall",
-            "It states that eyeglasses are now banned in most wealthy countries in the article",
+            "It states that only scholars are currently permitted to own eyeglasses",
+            "It states that eyeglasses remain too expensive for most people today, so they are often shared by whole families",
+            "It states that eyeglasses are now banned in most wealthy countries",
             "It states that countless people across the entire world now depend on glasses as an essential part of daily life"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "How does the article's description of early eyeglass ownership compare with its description of eyeglass use today?",
           "options": [
             "Early ownership was limited to wealthy individuals, while today countless people from all backgrounds depend on glasses",
-            "Both eras are described as equally limited to wealthy individuals, as the article explains",
-            "Eyeglasses were more widely available long ago than they are today overall, according to the text",
-            "Neither era is described in terms of who could afford eyeglasses in the article in this case"
+            "Both eras are described as equally limited to wealthy individuals",
+            "Eyeglasses were more widely available long ago than today, when wealthy individuals in big cities buy most of them",
+            "Neither era is described in terms of who could afford eyeglasses"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about the broader historical significance of lens-making spreading across Europe?",
           "options": [
-            "Lens-making remained a secret known only to a single Italian workshop forever overall in this case",
-            "Spreading lens-making had no effect on who could afford eyeglasses, as the article explains",
+            "Lens-making remained a secret known to a single Italian workshop, which kept prices high for hundreds of years after that",
+            "Spreading lens-making had no effect on who could afford eyeglasses",
             "Improving craftsmanship and spreading knowledge likely allowed prices to fall and availability to expand steadily over time",
-            "European craftsmen abandoned lens-making shortly after it began in the article, according to the text"
+            "European craftsmen abandoned lens-making shortly after it began"
           ],
           "answer": "C",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "In the article, the word prohibitively is used to describe the early cost of glasses. What does prohibitively mean here?",
           "options": [
-            "only slightly more expensive than usual overall, according to the text",
-            "completely free of any cost at all in the article in this case at that time",
-            "available only during certain seasons, as the article explains for this reason",
+            "slightly more expensive than usual, but still affordable for most families in most towns",
+            "low enough for most families to afford",
+            "available during certain seasons",
             "to such an extreme degree that something becomes impossible or unreasonable for most people"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the article emphasize the scholar's careful, documented study of light and eyes before describing the invention of lenses?",
           "options": [
-            "To argue that lens-makers in Italy had no scientific knowledge of their own, as the article explains for this reason",
+            "To argue that lens-makers in Italy had little scientific knowledge, so they copied the scholar's lenses without understanding how they worked",
             "To show that the practical invention of eyeglasses grew out of patient, earlier scientific understanding rather than appearing suddenly on its own",
-            "To prove that eyeglasses could have been invented without any scientific study overall in this case at that time",
-            "To suggest that studying light was less important than making lenses in the article, according to the text"
+            "To prove that eyeglasses could have been invented without any scientific study",
+            "To suggest that studying light was less important than making lenses"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -592,9 +592,9 @@
           "stem": "Based on the article, what most likely allowed eyeglasses to become a transformative invention for billions of people?",
           "options": [
             "A combination of foundational scientific understanding, improving craftsmanship, and gradually falling costs together made eyeglasses broadly accessible",
-            "A single government decree made eyeglasses free for every citizen in the article, according to the text as a result",
-            "Eyeglasses were transformed overnight by one unnamed modern inventor, as the article explains at that time",
-            "Wealthy individuals eventually gave away their personal glasses for free overall in this case for this reason"
+            "A single government decree made eyeglasses free for each citizen, so people wore them whether they needed them or not, which made lens-makers rich",
+            "Eyeglasses were transformed overnight by one unnamed modern inventor",
+            "Wealthy individuals eventually gave away their personal glasses for free"
           ],
           "answer": "A",
           "skill": "inference",

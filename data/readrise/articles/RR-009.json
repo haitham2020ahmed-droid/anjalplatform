@@ -201,7 +201,7 @@
           "options": [
             "He wanted to know if it was really true.",
             "He did not know how to read books.",
-            "He wanted to make the books longer.",
+            "He wanted to make the books longer and harder.",
             "He wanted to sell lamps in Cairo."
           ],
           "answer": "A",
@@ -296,7 +296,7 @@
             "Ibn al-Haytham invented the first modern camera in Cairo.",
             "Ibn al-Haytham used experiments to learn how light and vision work.",
             "Ancient Greek writers proved that our eyes send out rays.",
-            "The Book of Optics was first written in Latin for Europeans."
+            "The Book of Optics was first written in Latin for Europeans in Spain."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -312,7 +312,7 @@
           "options": [
             "Light travels only in curved paths.",
             "Images in dark rooms appear upright.",
-            "Light comes from the sun into the eye.",
+            "Light comes from the sun into the eye through the nose.",
             "The eyes send out rays that reach objects."
           ],
           "answer": "D",
@@ -523,7 +523,7 @@
         {
           "stem": "In the article, what does the word \"authority\" mean?",
           "options": [
-            "a small opening in a chamber wall",
+            "a small opening in a chamber wall in a dark room",
             "an expert or source that people trust",
             "a lamp used during an experiment",
             "a translation of an older book"
@@ -559,8 +559,8 @@
           "options": [
             "Scientists must check claims with evidence.",
             "Scientists should never read old books.",
-            "Scientists must always agree with experts.",
-            "Scientists should work only in dark rooms."
+            "Scientists must agree with experts.",
+            "Scientists should agree with famous teachers."
           ],
           "answer": "A",
           "skill": "inference",

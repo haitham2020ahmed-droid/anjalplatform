@@ -132,8 +132,8 @@
      "stem": "Why couldn't the crow drink the water at first?",
      "options": [
       "The water sat too far down inside the narrow jar",
-      "The jar did not have any water inside it at all",
-      "The fox had already drunk all the water first",
+      "The jar did not have any water inside it",
+      "The fox had already drunk the water first",
       "The crow was simply too tired to fly that day"
      ],
      "answer": "A",
@@ -167,7 +167,7 @@
      "options": [
       "a kind gift given to a friend",
       "a clever but unfair plan to fool someone",
-      "a small type of smooth round pebble",
+      "a small type of smooth round pebble from a river",
       "a very loud sound in the desert"
      ],
      "answer": "B",
@@ -185,7 +185,7 @@
       "She wanted to keep every single pebble for herself and not share any with the fox",
       "She did not like the dull color of the clay jar, so she wanted a new one",
       "She knew spilled water would soak into the sand and be lost",
-      "She knew the fox could never lift the heavy jar, so the plan would fail"
+      "She knew the fox was too weak to lift the heavy jar"
      ],
      "answer": "C",
      "skill": "inference",
@@ -234,7 +234,7 @@
      "stem": "Why does the story end by saying the crow's patience and clever plan won the day?",
      "options": [
       "To teach that being clever and patient is better than tricking others",
-      "To tell readers that tricks always work better than being patient",
+      "To tell readers that tricks work better than being patient in a hard game",
       "To carefully explain how clay jars are made in a village",
       "To describe exactly how wild foxes usually find water"
      ],
@@ -415,7 +415,7 @@
       "By comparing three very different deserts around the world and their weather",
       "In the order the crow faces a problem, rejects a trick, and solves it herself",
       "By simply listing facts about foxes and crows in general, one after another",
-      "By jumping back and forth between two completely unrelated stories about birds"
+      "By jumping back and forth between two unrelated stories about birds"
      ],
      "answer": "B",
      "skill": "text-structure",
@@ -594,7 +594,7 @@
       "To make the ending more exciting with a loud, dramatic chase",
       "To suggest that foxes in general cannot be trusted near jars",
       "To emphasize decisively that deception offers no advantage over patient ingenuity",
-      "To carefully explain the traditional process of manufacturing clay jars"
+      "To carefully explain the traditional process of manufacturing clay jars in old villages"
      ],
      "answer": "C",
      "skill": "author-purpose",

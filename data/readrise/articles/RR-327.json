@@ -183,9 +183,9 @@
      "stem": "Why do people on an island often need a boat or a plane?",
      "options": [
       "Because no road connects the island to other land",
-      "Because islands are always too hot for walking",
+      "Because islands are too hot for walking",
       "Because animals block every road on the island",
-      "Because islands never have their own coast"
+      "Because islands rarely have their own coast"
      ],
      "answer": "A",
      "skill": "inference",
@@ -199,7 +199,7 @@
     {
      "stem": "Why might an animal live on just one island and nowhere else?",
      "options": [
-      "It cannot swim across salt water at all",
+      "It cannot swim across salt water",
       "It dislikes living anywhere near people",
       "The island is cut off from other land by water",
       "The island does not have a coast of its own"
@@ -295,8 +295,8 @@
      "options": [
       "Islands form in different ways and island life often differs from life on the mainland.",
       "Volcanoes are the only natural danger to island residents, and storms never harm them.",
-      "Coral reefs are more important than volcanic islands, since islands cannot hold life.",
-      "Archipelagos always have better weather than single islands, since the sea keeps them warm."
+      "Coral reefs are more important than volcanic islands, since islands hold little life.",
+      "Archipelagos have better weather than single islands, since the sea keeps them warm."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -327,7 +327,7 @@
     {
      "stem": "What happened to the land that became Greenland, according to the article?",
      "options": [
-      "It sank completely under the ocean after a flood.",
+      "It sank under the ocean after a flood.",
       "Rising sea levels cut it off from the mainland.",
       "A volcano pushed it up from below the sea.",
       "Coral reefs slowly built it from sand and shells."
@@ -344,8 +344,8 @@
     {
      "stem": "As used in the article, what does isolated mean?",
      "options": [
-      "Connected closely to nearby towns",
-      "Covered completely by volcanic ash",
+      "Connected closely to nearby towns by roads",
+      "Covered by volcanic ash",
       "Very dry with almost no rainfall",
       "Cut off and separated from other land"
      ],
@@ -364,7 +364,7 @@
       "Because islands never grow their own food",
       "Because getting goods there requires a boat or plane",
       "Because island habitats have no fresh water",
-      "Because storms destroy all supplies every year"
+      "Because storms destroy the supplies each year on the island"
      ],
      "answer": "B",
      "skill": "inference",
@@ -378,7 +378,7 @@
     {
      "stem": "Why do archipelagos like Japan or Indonesia contain so many separate habitats?",
      "options": [
-      "Each island is completely identical to the next, with the same plants and the same animals.",
+      "Each island is identical to the next, with the same plants and the same animals.",
       "The islands are joined together by roads, so animals can walk from one island to another.",
       "Volcanoes destroy habitats faster than they can form, so most islands have no animals left.",
       "Being spread across the sea, each island can support its own distinct plants and animals."
@@ -396,9 +396,9 @@
      "stem": "How is a continental island different from a volcanic island, based on the article?",
      "options": [
       "A continental island forms from a piece of existing land, while a volcanic island forms from new rock.",
-      "A continental island forms from coral, while a volcanic island forms from sand and shells.",
-      "A continental island always sits in an archipelago, while a volcanic island never sits in one.",
-      "A continental island has no coast, while a volcanic island has many coasts all around it."
+      "A continental island forms from coral, while a volcanic island forms from sand and shells on the beach.",
+      "A continental island sits in an archipelago, while a volcanic island never sits in one.",
+      "A continental island has no coast, while a volcanic island has many coasts around it."
      ],
      "answer": "A",
      "skill": "compare",
@@ -415,7 +415,7 @@
       "By telling a single story about one island's history",
       "By comparing island weather to mainland weather",
       "By describing each of several ways islands can form, one at a time",
-      "By listing problems island animals face and their solutions"
+      "By listing problems island animals face and their solutions on the island"
      ],
      "answer": "C",
      "skill": "text-structure",
@@ -474,8 +474,8 @@
      "options": [
       "Islands form in different ways, and isolation shapes their ecosystems and ways of life.",
       "All islands are formed in essentially the same way by volcanic eruptions.",
-      "Continental islands are scientifically more significant than volcanic islands.",
-      "Every archipelago is entirely incapable of supporting endemic species."
+      "Continental islands are scientifically more significant than volcanic islands in science.",
+      "Most archipelagos are unable to support endemic species."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -508,7 +508,7 @@
      "options": [
       "It raises temperatures at every altitude equally.",
       "It has almost no measurable effect on mountain temperature.",
-      "It always creates tropical rainforest on mountain slopes.",
+      "It creates tropical rainforest on mountain slopes.",
       "It can make mountains cold since thin air holds less heat."
      ],
      "answer": "D",
@@ -541,9 +541,9 @@
      "stem": "Why does the article suggest island habitats are especially vulnerable?",
      "options": [
       "Because islands receive far too much rainfall each year in the sea",
-      "Because islands are always much larger than continents",
+      "Because islands are much larger than continents",
       "Because species that evolved in isolation may exist nowhere else",
-      "Because island soil never contains any nutrients at all"
+      "Because island soil never contains any nutrients"
      ],
      "answer": "C",
      "skill": "inference",
@@ -575,8 +575,8 @@
      "stem": "How does the formation of a continental island differ from that of a coral island, according to the article?",
      "options": [
       "A continental island separates from existing land, while a coral island is built up by living organisms.",
-      "A continental island forms from volcanic ash, while a coral island forms from tectonic plates.",
-      "A continental island always appears within an archipelago, while a coral island never does.",
+      "A continental island forms from volcanic ash, while a coral island forms from tectonic plates under the sea.",
+      "A continental island appears within an archipelago, while a coral island never does.",
       "A continental island forms in a single eruption, while a coral island forms from melted rock."
      ],
      "answer": "A",
@@ -594,7 +594,7 @@
       "To argue that one method of island formation is better than the others",
       "To show that these processes really do produce real, existing islands",
       "To prove that all islands eventually become part of a continent",
-      "To show that endemic species cannot survive on real islands"
+      "To show that endemic species rarely survive on real islands"
      ],
      "answer": "B",
      "skill": "author-purpose",

@@ -344,7 +344,7 @@
         {
           "stem": "The article mentions 'stage directions' in a script. Based on the article, what are stage directions?",
           "options": [
-            "Directions for driving safely from home to the theater building",
+            "Directions for driving safely from home to the theater building in the evening",
             "A map of the city",
             "Directions that tell actors where to stand, how to move, and how to feel",
             "A list of ticket prices"
@@ -363,7 +363,7 @@
           "options": [
             "Scripts are never finished",
             "Actors refuse to read unfinished scripts",
-            "Revisions make the script shorter every time in this particular situation described",
+            "Revisions make the script shorter each time, so the play ends sooner for the audience",
             "Writers want the story and lines to be as clear and effective as possible for the audience"
           ],
           "answer": "D",
@@ -395,7 +395,7 @@
         {
           "stem": "How does the article mostly organize information about theater?",
           "options": [
-            "By arguing that live theater performances should be replaced entirely by film and television shows, which are better",
+            "By arguing that live theater performances should be replaced by film and television shows, which are better",
             "By explaining what theater is, how a script and rehearsal process work, and what makes a performance come together",
             "By comparing ticket prices in different cities and countries around the world and over the years, one by one",
             "By listing every play ever performed on any stage in the world, in the order of their dates"
@@ -474,8 +474,8 @@
           "options": [
             "Live theater combines a script, direction, rehearsal, design elements, and a collaborating cast and crew to create a performance that connects directly with an audience.",
             "Only ancient Greek audiences enjoyed theater, because modern people prefer films and music to plays, so the plays ended long ago and nobody writes them now.",
-            "A performance is identical every single night, because actors repeat each word and move in the same way, and the audience has no effect.",
-            "Lighting design is the single most important part of any live show, because without lights, the play and the actors would not matter."
+            "A performance is the same each night, because actors repeat each word and move in the same way, so the audience has little effect.",
+            "Lighting design is the most important part of a live show, because without lights the play and the actors matter little."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "What can you infer about why lighting, sound, and costumes are described as working together with the actors?",
           "options": [
-            "Each design element alone could tell the whole story just as effectively",
+            "Each design element alone could tell the whole story just as effectively on the stage",
             "These elements combine with acting to create the full experience for the audience",
             "They are only used in film, not theater",
-            "They replace the need for a script entirely"
+            "They replace the need for a script"
           ],
           "answer": "B",
           "skill": "inference",
@@ -577,7 +577,7 @@
             "Creating an effective story for a live audience is a careful, ongoing process",
             "Playwrights dislike their own work",
             "Rehearsals are held only to test lighting",
-            "A finished, polished script is never actually needed before a live show"
+            "A finished, polished script is rarely needed before a live show in a small theater"
           ],
           "answer": "A",
           "skill": "inference",
@@ -594,7 +594,7 @@
             "To argue that modern theater has no real connection to its ancient past, and that the two are unrelated in every way that matters",
             "To show that theater is an ancient art form that still relies today on the same kind of live collaboration between many people",
             "To compare theater ticket prices across history, from the first plays long ago until the shows of today in the biggest cities of the world",
-            "To prove that film is better than theater and that plays will soon end in every country on Earth"
+            "To prove that film is better than theater and that plays will soon end in most countries"
           ],
           "answer": "B",
           "skill": "author-purpose",

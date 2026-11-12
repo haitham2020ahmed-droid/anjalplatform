@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Sundials are still the best and most exact way for people to tell time today.",
+            "Sundials are still the best and most exact way for people to tell time today in most countries.",
             "Over thousands of years, people invented more and more accurate ways to measure time.",
             "Al-Jazari invented every clock used today.",
-            "Clocks were first invented only about 100 years ago, in modern times."
+            "Clocks were first invented about 100 years ago, in modern times."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -492,7 +492,7 @@
             "They gain or lose a few minutes every single day, even in the best labs.",
             "They are as precise as a good sundial in the garden, and no better.",
             "They would not gain or lose a second over millions of years.",
-            "They must be reset by hand at least once every week to stay right."
+            "They must be reset by hand once a week to stay right."
           ],
           "answer": "C",
           "skill": "detail",

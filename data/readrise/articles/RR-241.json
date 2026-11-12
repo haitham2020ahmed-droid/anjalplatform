@@ -202,7 +202,7 @@
       "Blood turns into bone",
       "Blood gives oxygen and food to cells and picks up waste",
       "The heart beats much faster than usual",
-      "Blood stops moving completely and never starts again for the rest of the day"
+      "Blood stops moving and never starts again for the rest of the day"
      ],
      "answer": "B",
      "skill": "inference",
@@ -234,7 +234,7 @@
      "stem": "Why does the author suggest drinking water on hot days in Saudi Arabia?",
      "options": [
       "To make blood taste sweet",
-      "To make the heart stop beating completely and never start again",
+      "To make the heart stop beating and never start again",
       "To help the body and blood stay healthy",
       "To make you fall asleep faster"
      ],
@@ -330,7 +330,7 @@
       "Oxygen and nutrients pass to cells, and waste is picked up",
       "Blood stops moving completely",
       "Blood turns into air",
-      "The heart beats inside each and every one of these tiny tubes constantly"
+      "The heart beats inside each of these tiny tubes to push blood"
      ],
      "answer": "A",
      "skill": "detail",
@@ -364,7 +364,7 @@
       "Because veins are much, much longer than arteries are in every single person",
       "Because blood moves through them more gently, at lower pressure",
       "Because veins are closer to the lungs",
-      "Because veins carry less blood overall"
+      "Because veins carry less blood"
      ],
      "answer": "B",
      "skill": "inference",
@@ -396,7 +396,7 @@
      "stem": "What happens right after blood picks up oxygen in the lungs?",
      "options": [
       "It flows back to the heart to be pumped around the body",
-      "It turns into a completely different kind of waste gas right away",
+      "It turns into a different kind of waste gas right away",
       "It stops circulating",
       "It is stored in the capillaries"
      ],
@@ -473,8 +473,8 @@
      "stem": "Which statement best expresses the central idea of the article?",
      "options": [
       "The cardiovascular system functions only during vigorous exercise, and it rests when a person sits or sleeps, so the heart stops for hours at a time",
-      "Veins and arteries are identical in structure and function, and blood travels in only one kind of vessel, which has no valves, from the heart back to the heart",
-      "Capillaries are the body's largest blood vessels, and they carry most of the blood away from the heart and the lungs to the arms and legs of a person",
+      "Veins and arteries are the same in structure and function, and blood travels in one kind of vessel, which has no valves",
+      "Capillaries are the body's largest blood vessels, and they carry most of the blood away from the heart and the lungs to the arms and legs of a person through the day and night",
       "The cardiovascular system continuously circulates blood through vessels, delivering oxygen and nutrients and removing waste, including a pulmonary circuit to the lungs"
      ],
      "answer": "D",
@@ -576,7 +576,7 @@
      "options": [
       "Veins carry only carbon dioxide, never oxygen, from the body to the heart",
       "Veins have thinner walls and carry blood at a lower pressure than arteries",
-      "Veins are located only inside the lungs, where they meet the air",
+      "Veins are located mostly inside the lungs, where they meet the air",
       "Veins pump blood by contracting like the heart, with thick walls"
      ],
      "answer": "B",

@@ -116,7 +116,7 @@
           "options": [
             "How to build a running track",
             "The history of the Olympic Games",
-            "Why running is always much better than swimming for daily exercise",
+            "Why running is much better than swimming for daily exercise or for children",
             "The many running, jumping, and throwing events in track and field"
           ],
           "answer": "D",
@@ -151,7 +151,7 @@
             "Because the race is long and sprinting the whole way would tire her out",
             "Because distance races are shorter than sprints",
             "Because judges take away points for running fast",
-            "Because distance runners do not need to finish the entire assigned race at all"
+            "Because distance runners do not need to finish the entire assigned race"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -165,7 +165,7 @@
         {
           "stem": "What happens in a relay race?",
           "options": [
-            "One single runner races entirely alone for the whole race",
+            "One runner races alone and carries the baton the whole way",
             "Four runners take turns, each passing a baton to the next",
             "Runners jump over bars instead of running",
             "Runners throw a ball back and forth"
@@ -217,7 +217,7 @@
           "stem": "Why does good form matter more than speed in the high jump?",
           "options": [
             "Because the athlete must pass over the bar without knocking it down",
-            "Because the high jump has no bar at all, only a soft mat on the ground",
+            "Because the high jump has no bar, only a soft mat on the ground",
             "Because running fast makes the bar fall automatically, so slow jumps win",
             "Because the high jump is really a throwing event with a heavy ball"
           ],
@@ -295,8 +295,8 @@
           "options": [
             "Every track and field athlete competes in all the same events.",
             "Track and field combines events that each demand different skills.",
-            "Distance races are the only events that matter in track and field.",
-            "Throwing events are much easier than all the running events."
+            "Distance races are the most important events in track and field.",
+            "Throwing events are much easier than the running events."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -347,7 +347,7 @@
             "Each runner must run the entire race alone, without any baton, to win",
             "The baton must be passed with precise timing between moving runners.",
             "The baton must be thrown across the track to the next runner far away",
-            "Only the fastest runner touches the baton in the whole race, every time"
+            "The fastest runner carries the baton for most of the race"
           ],
           "answer": "B",
           "skill": "detail",
@@ -380,7 +380,7 @@
           "options": [
             "Both involve throwing a heavy object.",
             "Both require an athlete to run and then jump.",
-            "Both are won by the athlete who runs the fastest overall.",
+            "Both are won by the athlete who runs the fastest.",
             "Both use a baton passed between teammates."
           ],
           "answer": "B",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "All track and field athletes train in exactly the same way, no matter the event.",
-            "Distance running is the single most important discipline in all of track and field.",
+            "Distance running is the most important discipline in track and field.",
             "Track and field unites many disciplines, each demanding a different skill.",
-            "Throwing events require no particular skill at all."
+            "Throwing events require no particular skill."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -509,7 +509,7 @@
             "Sprinting the entire distance would exhaust even elite athletes.",
             "Distance races are shorter than sprints, so runners can use all their power.",
             "Judges subtract points for running too fast early in the race, even in short races.",
-            "Pacing is only useful in relay races, and not in long runs on the track."
+            "Pacing is useful mostly in relay races, not in long runs on the track."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -523,10 +523,10 @@
         {
           "stem": "Which conclusion about the long jump is best supported by the article?",
           "options": [
-            "An athlete's running speed has no connection to jump distance.",
+            "An athlete's running speed has little connection to jump distance or height.",
             "An athlete's horizontal velocity is converted into the distance of the jump.",
-            "The long jump is judged entirely on technique, not speed.",
-            "The long jump always produces a shorter distance than the high jump."
+            "The long jump is judged on technique, not speed.",
+            "The long jump produces a shorter distance than the high jump."
           ],
           "answer": "B",
           "skill": "inference",
@@ -560,7 +560,7 @@
             "Stopping between hurdles would waste time and disrupt the runner's rhythm.",
             "Hurdles rules require a full stop after each barrier.",
             "Momentum only matters in the javelin throw.",
-            "Maintaining momentum has nothing to do with hurdling performance."
+            "Maintaining momentum matters little for hurdling performance or the time of the race."
           ],
           "answer": "A",
           "skill": "inference",
@@ -576,7 +576,7 @@
           "options": [
             "To emphasize how differently each event trains the body",
             "To argue that only one event in track and field truly matters",
-            "To suggest that all track and field athletes are identical",
+            "To suggest that track and field athletes train the same way",
             "To explain the history of the Olympic Games"
           ],
           "answer": "A",
@@ -593,7 +593,7 @@
           "options": [
             "Because meet organizers only allow one event per athlete",
             "Because each discipline trains entirely different muscles, joints, and skills",
-            "Because specializing is required by international competition rules",
+            "Because specializing is required by international competition rules in the world",
             "Because most disciplines are identical to one another"
           ],
           "answer": "B",

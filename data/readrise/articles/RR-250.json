@@ -201,7 +201,7 @@
           "options": [
             "Because her tools were known to be especially well made",
             "Because she gave her tools away for free to the poor",
-            "Because he did not trust other craftsmen at all in the city",
+            "Because he did not trust other craftsmen in the city",
             "Because astrolabes were brand new inventions that nobody else had"
           ],
           "answer": "A",
@@ -295,8 +295,8 @@
           "options": [
             "Mariam al-Asturlabi's precision as an instrument-maker made her astrolabes valuable for astronomy and navigation.",
             "Aleppo is more important than any other city in Syria, and it was the home of all of the rulers of the land.",
-            "Astrolabes are too complicated for anyone to use correctly, so only a few famous scholars have ever used one.",
-            "Only rulers were allowed to own astrolabes, and no sailor or traveler ever used one on a journey or in the desert."
+            "Astrolabes are too complicated to use correctly, so a few famous scholars used them.",
+            "Rulers were the main owners of astrolabes, and sailors rarely used one on a journey."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -378,7 +378,7 @@
         {
           "stem": "What happened because Mariam's astrolabes were so precise?",
           "options": [
-            "She stopped making astrolabes completely and became a teacher",
+            "She stopped making astrolabes and became a teacher in the city.",
             "She moved away from Aleppo to live by the sea",
             "Her father took over all her work in the shop",
             "A powerful ruler asked her to make instruments for his court."
@@ -412,9 +412,9 @@
         {
           "stem": "What does it suggest about Mariam that an astronomer, a sailor, and a worshipper could all use the same tool she made?",
           "options": [
-            "She only cared about helping astronomers and no one else at all.",
+            "She cared mostly about helping astronomers, not sailors or others.",
             "Her tools were too complicated for ordinary people.",
-            "She made a different tool for every single customer.",
+            "She made a different tool for each customer.",
             "Her instruments were useful for many different kinds of important work."
           ],
           "answer": "D",
@@ -543,7 +543,7 @@
             "She trained as a careful apprentice and later became a renowned, trusted craftsman.",
             "She trained for only one day and immediately became famous across the land.",
             "She trained as a sailor before becoming an astrolabe maker for the ruler.",
-            "She never trained at all before making instruments for the ruler of the city."
+            "She trained for a short time before making instruments for the ruler of the city."
           ],
           "answer": "A",
           "skill": "compare",
@@ -558,7 +558,7 @@
           "stem": "Why does the article mention that few scholarly records exist about Mariam's personal life?",
           "options": [
             "To explain honestly what is and is not known about her, within a true account",
-            "To suggest that she never truly existed at all in history books or old records",
+            "To suggest that she never truly existed in history books or old records",
             "To argue that her work was not actually important to anyone in her own time",
             "To prove that historians dislike studying craftsmen and their work in old cities"
           ],
@@ -574,10 +574,10 @@
         {
           "stem": "What can you infer about women's roles in skilled crafts of Mariam's time, based on the article?",
           "options": [
-            "No historical records about women craftsmen survived from this period, so we know nothing at all.",
+            "No historical records about women craftsmen survived from this period, so we know nothing.",
             "While rare, at least some women could become renowned, skilled craftsmen whose work was recorded.",
-            "Women were forbidden by law from working in any workshop, even when their families owned it.",
-            "Only men were ever allowed to build astrolabes, and women could only sell them in the market."
+            "Women were forbidden by law from working in workshops, even when their families owned them.",
+            "Men were the main builders of astrolabes, and women mostly sold them in the market."
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does Mariam's legacy matter to historians studying the Islamic Golden Age, according to the article?",
           "options": [
-            "It proves that astrolabes were invented only after her lifetime and nowhere else.",
-            "It shows that only rulers truly cared about scientific instruments at all.",
+            "It proves that astrolabes were invented only after her lifetime.",
+            "It shows that rulers cared most about scientific instruments.",
             "It offers evidence of women's genuine contributions to science and craftsmanship in that era.",
-            "It shows that scholarly dictionaries contain no useful information."
+            "It shows that scholarly dictionaries contain little useful information about women and their work."
           ],
           "answer": "C",
           "skill": "inference",

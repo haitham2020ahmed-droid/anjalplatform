@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How horses were trained to pull heavy loads",
+            "How horses were trained to pull heavy loads out of the mines in England",
             "How steam engines were invented and slowly made better over many years",
             "How miners learned to dig for gold",
             "How sailors learned to build ships"
@@ -167,7 +167,7 @@
           "options": [
             "So the extra water could be sold in town",
             "So fish could not live inside the mines",
-            "So visitors would think the mines looked cleaner",
+            "So visitors would think the mines looked cleaner and brighter",
             "So the flooded mines would not be too dangerous to work in"
           ],
           "answer": "D",
@@ -200,7 +200,7 @@
           "stem": "In the article, a piston is best described as —",
           "options": [
             "a kind of coal that is burned for fuel",
-            "a strong horse used to pull heavy loads",
+            "a strong horse used to pull heavy loads on the farm",
             "a part that moves back and forth inside a tube",
             "a worker who repairs broken old engines"
           ],
@@ -218,7 +218,7 @@
           "options": [
             "By comparing trains and ships side by side",
             "By describing one single machine piece by piece",
-            "By listing facts about several different countries",
+            "By listing facts about several different countries and the machines they used in history",
             "By telling about each inventor in the order they lived, from Savery to Newcomen to Watt"
           ],
           "answer": "D",
@@ -234,8 +234,8 @@
           "stem": "Why did James Watt's engine use less coal than Newcomen's engine?",
           "options": [
             "Watt added a new part that kept the engine hot, so it needed less reheating",
-            "Watt made his new engine much smaller overall",
-            "Watt used a special coal that burned for much longer",
+            "Watt made his new engine much smaller",
+            "Watt used a special coal that burned for much longer than normal coal",
             "Watt hired extra workers to carry more coal"
           ],
           "answer": "A",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Steam engines were invented all at once by one person in a single year",
-            "Horses stayed more useful than steam engines all through the Industrial Revolution",
+            "Horses stayed more useful than steam engines through the Industrial Revolution in mines and on farms",
             "Steam engines developed step by step, from Savery's weak pump to Watt's far more efficient design",
-            "Coal mines completely shut down once steam engines were first invented"
+            "Coal mines shut down once steam engines were first invented"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "It pumped floodwater out of mines that otherwise became unworkable",
             "It carried miners safely to and from work",
             "It lit the mine tunnels with bright light",
-            "It cut brand new tunnels through solid rock"
+            "It cut brand new tunnels through solid rock, so miners could reach deeper coal"
           ],
           "answer": "A",
           "skill": "detail",
@@ -330,7 +330,7 @@
             "A brand new kind of wheel built for trains",
             "A separate condenser that kept the main cylinder hot",
             "A much larger boiler that held more water",
-            "A stronger iron frame to support the engine"
+            "A stronger iron frame to support the engine in the mines"
           ],
           "answer": "B",
           "skill": "detail",
@@ -344,9 +344,9 @@
         {
           "stem": "How does Newcomen's engine compare with Savery's earlier steam pump?",
           "options": [
-            "Both of the two early engines failed completely and were never used",
-            "Savery's pump turned out to be more efficient than Newcomen's engine",
-            "Newcomen's engine copied Savery's pump with no real changes at all",
+            "Both of the two early engines failed and were never used",
+            "Savery's pump turned out to be more efficient than Newcomen's engine in deep mines and wells",
+            "Newcomen's engine copied Savery's pump with no real changes",
             "Newcomen's engine was genuinely useful, while Savery's pump proved too weak for lasting use"
           ],
           "answer": "D",
@@ -362,9 +362,9 @@
           "stem": "What can you infer about why Watt's improvement spread so quickly beyond the mines?",
           "options": [
             "It used much less coal while producing reliable power, making it cheaper to run elsewhere",
-            "The government forced every factory to adopt it at once",
-            "Mines themselves no longer needed to use any steam engines at all",
-            "It was the only machine invented during that whole century"
+            "The government forced factories to adopt it at once, so owners had little choice in the matter",
+            "Mines no longer needed to use steam engines",
+            "It was the main machine invented during that century"
           ],
           "answer": "A",
           "skill": "inference",
@@ -380,7 +380,7 @@
           "options": [
             "the sealed tube where the piston moves back and forth",
             "a kind of coal that engines burn for fuel",
-            "a trained worker who studies and repairs engines",
+            "a trained worker who studies and repairs engines in a mine",
             "a type of track that trains travel along"
           ],
           "answer": "A",
@@ -398,7 +398,7 @@
             "By following the engine's improvement in time order across three different inventors",
             "By comparing steam engines used in different countries today",
             "By explaining how to repair a broken steam engine step by step",
-            "By arguing strongly that steam engines were actually a bad idea overall"
+            "By arguing strongly that steam engines were actually a bad idea for the miners of the time"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -415,7 +415,7 @@
             "Watt's whole engine was built out of a much lighter metal",
             "The separate condenser let the cylinder stay hot instead of constantly cooling and reheating",
             "Watt's engine only ran for a few hours out of each day",
-            "Watt's engine used wind power to turn wheels instead of steam power"
+            "Watt's engine used wind power to turn its wheels instead of using steam power and coal"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "Savery, Newcomen, and Watt each improved the steam engine, until it finally powered the Industrial Revolution",
-            "A single inventor built the first and only working steam engine in one single afternoon",
-            "Steam engines were abandoned soon after Watt died and were never used again",
-            "Coal mining ended completely once engineers learned to use wind power instead"
+            "A single inventor built the first working steam engine in one afternoon, and later inventors changed little",
+            "Steam engines were abandoned soon after Watt died and were rarely used again",
+            "Coal mining ended once engineers learned to use wind power instead"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,7 +489,7 @@
         {
           "stem": "What specific detail explains why Newcomen's original engine wasted so much fuel?",
           "options": [
-            "It was built using extremely low-quality iron that melted fast",
+            "It was built using extremely low-quality iron that melted fast in the heat",
             "It ran constantly for twenty-four hours without ever stopping",
             "It required two separate boilers running at the same time",
             "It had to repeatedly cool and reheat the same cylinder with every single stroke"
@@ -506,9 +506,9 @@
         {
           "stem": "What evidence does the article give that Watt's engine had effects beyond the mines?",
           "options": [
-            "It describes the engine being used only inside a single royal palace room",
+            "It describes the engine being used inside a single royal palace room to pump water for the gardens",
             "It describes the engine eventually powering textile factories, trains, and oceangoing steamships",
-            "It describes the engine being banned everywhere outside of England itself",
+            "It describes the engine being banned outside of England",
             "It describes miners refusing to let the new engine be installed anywhere"
           ],
           "answer": "B",
@@ -524,9 +524,9 @@
           "stem": "How does the article's description of Savery's pump compare with its description of Watt's finished design?",
           "options": [
             "Savery's pump was an unreliable early attempt, while Watt's design became an efficient, widely adopted machine",
-            "Savery's pump turned out to be more efficient than anything Watt later built",
+            "Savery's pump turned out to be more efficient than anything Watt later built, though it was used less widely",
             "Both pumps were equally unreliable, and neither was ever actually used",
-            "Watt's design copied Savery's pump exactly, without any real changes at all"
+            "Watt's design copied Savery's pump exactly, without any real changes"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,9 +540,9 @@
         {
           "stem": "What can you infer about why historians consider the steam engine's improvement a 'principal driving force' behind the Industrial Revolution?",
           "options": [
-            "The steam engine was the only machine invented during that entire century",
-            "Historians cannot find any other possible explanation for industrial growth",
-            "The engine removed the need for any human workers in factories whatsoever",
+            "The steam engine was the main machine invented during that century, so historians have few others to study",
+            "Historians have found few other explanations for industrial growth",
+            "The engine removed the need for human workers in factories",
             "Steady, affordable mechanical power made large-scale factories, railways, and shipping possible on a new scale"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Why does the article present the three inventors in the order Savery, then Newcomen, then Watt?",
           "options": [
             "To show how each inventor's design built directly upon the limits of the one before it",
-            "To prove that Savery was actually the most important of the three",
+            "To prove that Savery was the most important of the three inventors in history of the time",
             "To argue that Newcomen's engine was a complete and total failure",
-            "To compare three machines that had nothing at all to do with each other"
+            "To compare three machines that had nothing to do with each other"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -592,7 +592,7 @@
           "stem": "Based on the article, what likely allowed railway carriages to be hauled 'at previously unimaginable speeds'?",
           "options": [
             "Watt's rotary motion breakthrough, which let steam engines turn wheels directly and efficiently",
-            "A sudden, unexplained improvement in the quality of iron train tracks",
+            "A sudden, unexplained improvement in the quality of the iron train tracks and wheels in England",
             "A brand new law that required every train to travel faster",
             "The complete disappearance of horses from the British countryside"
           ],

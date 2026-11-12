@@ -166,7 +166,7 @@
      "stem": "Why does one side of a mountain range often stay dry?",
      "options": [
       "The sun never shines on that side of the range.",
-      "Farmers there use up all the water for crops.",
+      "Farmers there use up the water for crops.",
       "Wet wind drops its rain on the other slope first.",
       "People built a wall to block the rain."
      ],
@@ -184,8 +184,8 @@
      "options": [
       "Every slope on a range has the exact same weather all year.",
       "Different slopes and valleys have different small climates.",
-      "Animals only live at the very top of a range, near the snow.",
-      "Plants cannot grow above a certain height at all, even in summer."
+      "Animals live mostly at the very top of a range, near the snow.",
+      "Plants grow better at the top than at the bottom."
      ],
      "answer": "B",
      "skill": "inference",
@@ -236,7 +236,7 @@
       "The land folds upward into tall peaks over time.",
       "The land turns into flat, dry desert instantly.",
       "The ocean dries up completely.",
-      "All the rivers stop flowing at once."
+      "The rivers stop flowing at once."
      ],
      "answer": "A",
      "skill": "cause-effect",
@@ -346,8 +346,8 @@
      "options": [
       "The wet wind drops most of its rain on the near slope first.",
       "People built dams that stop all the rainwater from reaching the far side.",
-      "The far side of the range gets no sunlight at all during the year.",
-      "Mountains always stop wind from moving at all across the land."
+      "The far side of the range gets no sunlight during the year.",
+      "Mountains stop wind from moving across the land."
      ],
      "answer": "A",
      "skill": "inference",
@@ -362,9 +362,9 @@
      "stem": "The Andes form a border between Chile and Argentina, and the Alps form borders between several European countries. What does this suggest about mountain ranges?",
      "options": [
       "They often naturally separate neighboring countries.",
-      "They always belong to only one country and cannot be shared.",
-      "They are too small to matter to any border or map.",
-      "They are found only in South America and Europe."
+      "They belong to only one country and cannot be shared.",
+      "They are too small to matter to most borders or maps.",
+      "They are found mostly in South America and Europe."
      ],
      "answer": "A",
      "skill": "inference",
@@ -398,7 +398,7 @@
       "By describing one mountain range after another, one at a time",
       "By listing every country in the world in alphabetical order",
       "By telling a single story about one family's mountain trip",
-      "By comparing only the prices of ski tickets in each country"
+      "By comparing the prices of ski tickets in each country"
      ],
      "answer": "A",
      "skill": "text-structure",
@@ -413,9 +413,9 @@
      "stem": "What happens along the western edge of South America, according to the article?",
      "options": [
       "One plate slides beneath another, lifting the Andes higher.",
-      "The Andes shrink a little shorter every single year.",
+      "The Andes shrink a little shorter every single year in the winter.",
       "Rivers stop flowing because of the dry climate.",
-      "Volcanoes there have all become extinct forever."
+      "Volcanoes there have become extinct."
      ],
      "answer": "A",
      "skill": "cause-effect",
@@ -474,8 +474,8 @@
      "options": [
       "Every mountain range on Earth formed in exactly the same way, from the same kind of pushing plates.",
       "Mountain ranges differ in origin and location but consistently shape regional climate, borders, and biodiversity.",
-      "The Himalayas are more important than any other range on Earth, and the others do not matter at all to people or to science.",
-      "Subduction only happens along the coast of South America, and nowhere else on the planet at all."
+      "The Himalayas are more important than the other ranges on Earth, so they get the most attention from science.",
+      "Subduction happens mostly along the coast of South America."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -492,7 +492,7 @@
       "A process called subduction, which can lift mountains higher.",
       "A new ocean that quickly fills with water and then dries up again.",
       "A desert that forms only in Europe, near the old cities.",
-      "A permanent border between two oceans, which can never move."
+      "A fixed border between two oceans, which does not move."
      ],
      "answer": "A",
      "skill": "detail",
@@ -524,8 +524,8 @@
      "stem": "Why might scientists expect many unique species to evolve across a single mountain range?",
      "options": [
       "Every elevation on a range has identical weather and soil, so every place has the same species.",
-      "Mountains prevent any living thing from surviving above the level of the sea, so no species lives there.",
-      "All mountain animals migrate to the same single valley each year, so they all mix together and stay alike.",
+      "Mountains make it hard for living things to survive above the sea, so few species live there.",
+      "Mountain animals migrate to the same valley each year, so they mix together and stay alike.",
       "Different elevations create separate small climates that can isolate species from one another."
      ],
      "answer": "D",
@@ -559,7 +559,7 @@
      "options": [
       "The height of a mountain above sea level",
       "The wide variety of different living things in an area",
-      "The process of one plate sliding beneath another",
+      "The process of one plate sliding beneath another in the ocean",
       "The dry conditions found on one side of a range"
      ],
      "answer": "B",
@@ -576,7 +576,7 @@
      "options": [
       "To prove that the Andes are the only range worth studying closely at school.",
       "To argue that mountain tourism should be banned worldwide for many years.",
-      "To contradict the earlier descriptions of each named range in the article.",
+      "To contradict the earlier descriptions of each named range.",
       "To shift from specific examples toward the shared forces and effects behind them."
      ],
      "answer": "D",
@@ -593,8 +593,8 @@
      "options": [
       "Only the Andes form a border; the Alps do not touch any country lines or neighbors.",
       "Both ranges separate neighboring countries, despite sitting on different continents.",
-      "Only the Alps involve any volcanic activity at all, while the Andes have none.",
-      "Neither range is ever associated with any national border between two lands."
+      "The Alps have more volcanic activity than the Andes.",
+      "Neither range is linked to a national border between two lands."
      ],
      "answer": "B",
      "skill": "compare",

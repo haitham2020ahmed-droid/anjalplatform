@@ -183,7 +183,7 @@
           "stem": "What happened because the team started calling out the ball?",
           "options": [
             "They stopped running into each other",
-            "They lost every game that season",
+            "They lost every game that season in their league",
             "They had to find a new coach",
             "They stopped playing volleyball"
           ],
@@ -295,7 +295,7 @@
           "options": [
             "A volleyball team improves by learning to communicate and support each other, and plays its best match at the tournament.",
             "Dana decides volleyball is too hard and quits the team, so the others lose every game at the tournament.",
-            "Rima wins the tournament alone while her teammates watch from the bench and cheer for her all day.",
+            "Rima wins the tournament alone while her teammates watch from the bench and cheer for her.",
             "Coach Amal cancels the tournament because the gym is too small, and the players go home feeling sad and tired after the long trip."
           ],
           "answer": "A",
@@ -312,7 +312,7 @@
           "options": [
             "The gym floor was too slippery to play on safely",
             "Players did not communicate about who would hit the ball",
-            "The team had too many players on the court at once",
+            "The team had too many players on the court at once in the game",
             "The coach told them to run toward each other"
           ],
           "answer": "B",
@@ -491,7 +491,7 @@
           "options": [
             "To establish a clear problem that makes the team's later improvement meaningful",
             "To suggest that volleyball is too dangerous for young players",
-            "It convinced Hind to switch permanently to an entirely different position on the court.",
+            "It convinced Hind to switch permanently to an different position on the court.",
             "To compare the team unfavorably with a rival school"
           ],
           "answer": "A",
@@ -507,7 +507,7 @@
           "stem": "According to Coach Amal's advice, what specific strategy prevents players from colliding on the court?",
           "options": [
             "Assigning every player a fixed spot they can never leave",
-            "Having only one player touch the ball during an entire match",
+            "Having one player touch the ball during the whole match",
             "Calling out a word like 'Mine!' so teammates know who will hit the ball",
             "Playing the entire match noticeably more slowly than the team's usual, faster pace."
           ],
@@ -523,9 +523,9 @@
         {
           "stem": "In the story, the term coordinated team most precisely describes a team that —",
           "options": [
-            "wins every single match it plays without exception",
-            "has only one especially talented star player",
-            "Having every single player stand completely still and never move at all.",
+            "wins every single match it plays without exception in the season",
+            "has one especially talented star player",
+            "has players who stand still and wait",
             "moves and communicates smoothly together without confusion"
           ],
           "answer": "D",
@@ -540,7 +540,7 @@
         {
           "stem": "Based on the story, what can be inferred about why Dana's encouragement mattered so much to Hind?",
           "options": [
-            "It completely replaced the need for Hind to ever practice again.",
+            "It replaced the need for Hind to ever practice again.",
             "It helped Hind recover her confidence instead of dwelling on a mistake",
             "It convinced Hind to change her position on the court",
             "It proved beyond doubt that Hind was simply the weakest player on the whole team."
@@ -577,7 +577,7 @@
             "They expected the habit to work immediately with no practice",
             "They were committed enough to build a new habit through steady, repeated effort",
             "It proved that the players secretly disliked Coach Amal's new communication strategy all along.",
-            "They stopped practicing volleyball skills entirely"
+            "They stopped practicing volleyball skills"
           ],
           "answer": "B",
           "skill": "inference",

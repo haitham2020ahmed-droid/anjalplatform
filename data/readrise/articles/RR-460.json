@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people bake bread in ovens",
+            "How people bake bread in ovens at home and in shops each morning",
             "How Vint Cerf found a way to let computers talk to each other",
             "How people built big cities",
             "How farmers grow cotton"
@@ -132,9 +132,9 @@
           "stem": "What problem did computers have before Vint's plan, according to the article?",
           "options": [
             "They could not talk to each other",
-            "They could not turn on at all",
+            "They could not turn on",
             "They were too heavy to move",
-            "They could not print pictures"
+            "They could not print pictures on paper"
           ],
           "answer": "A",
           "skill": "detail",
@@ -166,8 +166,8 @@
           "stem": "Why do you think Vint kept trying new ways to link computers?",
           "options": [
             "Because he wanted to find a way that finally worked",
-            "Because he did not like computers at all",
-            "Because other people forced him to try",
+            "Because he did not like computers",
+            "Because other people forced him to try again each day",
             "Because he wanted his plan to fail"
           ],
           "answer": "A",
@@ -201,7 +201,7 @@
           "options": [
             "Instructions that tell how something should be done",
             "A kind of big tub",
-            "A type of small shop",
+            "A type of small shop that sells computer parts and video games",
             "A soft, warm blanket"
           ],
           "answer": "A",
@@ -217,7 +217,7 @@
           "stem": "What happened after Vint's new plan finally worked?",
           "options": [
             "Two groups talked well",
-            "The groups completely disappeared",
+            "The groups disappeared",
             "Vint stopped trying to link computers",
             "The lab burned down completely"
           ],
@@ -234,9 +234,9 @@
           "stem": "How was Vint's new plan different from computers working alone?",
           "options": [
             "Computers could share files, instead of staying separate and alone",
-            "The new plan used no rules at all",
+            "The new plan used no rules",
             "The new plan took much longer than staying alone",
-            "The new plan and staying alone worked exactly the same"
+            "The new plan and staying alone worked exactly the same for each user"
           ],
           "answer": "A",
           "skill": "compare",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "Computer networks always worked perfectly together",
+            "Computer networks worked perfectly together",
             "Vint Cerf's new method let separate computer networks finally share data",
-            "The internet was common for hundreds of years before Vint",
-            "Labs in busy cities always succeed quickly"
+            "The internet was common for hundreds of years before Vint was born",
+            "Labs in busy cities succeed quickly"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -328,7 +328,7 @@
           "stem": "What did other people do, according to the article?",
           "options": [
             "They copied Vint's exact method immediately",
-            "They refused to try at all",
+            "They refused to try",
             "They also tried to link networks this way",
             "They only used one single network instead"
           ],
@@ -345,7 +345,7 @@
           "stem": "Why do you think Vint's method using rules for data succeeded where others failed?",
           "options": [
             "It found a reliable way for data to travel between networks",
-            "Computer networks were always much too expensive for most people to buy",
+            "Computer networks were much too expensive for most people to buy",
             "It required people to carry data by hand",
             "It made networks stop sharing information"
           ],
@@ -362,9 +362,9 @@
           "stem": "Why do you think this breakthrough mattered so much to people around the world?",
           "options": [
             "Because it let ordinary people share information across the world easily",
-            "Because it made using one network completely illegal",
+            "Because it made using one network illegal",
             "Because it made the internet too expensive to use",
-            "Because it stopped people from sharing any information"
+            "Because it stopped people from sharing information in other countries"
           ],
           "answer": "A",
           "skill": "inference",
@@ -379,8 +379,8 @@
           "stem": "In the article, what does the word \"breakthrough\" describe about Vint's success?",
           "options": [
             "An important success after a lot of difficult effort",
-            "A network that always fails",
-            "A type of computer file",
+            "A network that fails",
+            "A type of computer file that stores messages and old letters",
             "A small, quiet lab"
           ],
           "answer": "A",
@@ -396,9 +396,9 @@
           "stem": "How does the article mostly organize its information?",
           "options": [
             "It follows events in order, from the difficult problem to the lasting result",
-            "It compares two completely unrelated topics with no connection",
+            "It compares two unrelated topics with no connection",
             "It lists random facts about world geography",
-            "It argues that separate networks are better than the internet"
+            "It argues that separate networks are better than the internet we use each day today"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -414,7 +414,7 @@
           "options": [
             "It caused separate networks to become the only method used",
             "It allowed people to share information much more easily",
-            "It stopped all information sharing completely",
+            "It stopped information sharing",
             "It made the internet disappear from the world"
           ],
           "answer": "B",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Separate computer networks were always considered superior to a connected internet",
+            "Separate computer networks were considered superior to a connected internet by the scientists at that time",
             "Vint Cerf's ambitious experimentation led to a breakthrough in connecting computer networks",
             "No researcher besides Vint ever attempted to link computer networks",
             "The internet had no real impact on daily life after it was invented"
@@ -490,7 +490,7 @@
           "stem": "Based on the article, why did earlier attempts to link networks largely fail?",
           "options": [
             "They were banned by governments across every country",
-            "They were considered too colorful for serious researchers to use",
+            "They were considered too colorful for serious researchers to use in their labs",
             "They lacked a reliable way for data to travel between separate networks",
             "They required no rules or experimentation whatsoever"
           ],
@@ -507,9 +507,9 @@
           "stem": "What specific combination enabled Vint's method to finally succeed?",
           "options": [
             "A set of rules, small organized data pieces, and connected networks",
-            "Painted canvas alone, with no rules of any kind",
-            "Borrowed printing tools with no network involved",
-            "A sealed box filled entirely with sand"
+            "Painted canvas alone, with no rules",
+            "Borrowed printing tools, paper tape, and telephone wires from old offices",
+            "A sealed box filled with sand"
           ],
           "answer": "A",
           "skill": "detail",
@@ -524,9 +524,9 @@
           "stem": "What can be inferred about innovation from the fact that multiple researchers in different countries pursued this same frustrating goal?",
           "options": [
             "A shared, difficult problem can inspire independent efforts toward similar solutions",
-            "Only researchers in one particular country are capable of true innovation",
-            "Every important invention in history has always had just one true creator",
-            "Independent experimentation never actually leads to useful breakthroughs"
+            "Only researchers in one particular country are capable of true innovation in the world",
+            "Most important inventions in history have had one true creator",
+            "Independent experimentation rarely leads to useful breakthroughs"
           ],
           "answer": "A",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "Why does the article emphasize the many frustrating years Vint spent testing before succeeding?",
           "options": [
             "To suggest that persistence through repeated difficulty can lead to breakthroughs",
-            "To show that experimentation always results in total failure",
-            "To argue that testing an idea repeatedly is generally pointless",
-            "To prove that Vint worked entirely without any plan"
+            "To show that experimentation results in total failure",
+            "To argue that testing an idea repeatedly is generally a waste of time for inventors",
+            "To prove that Vint worked without any plan"
           ],
           "answer": "A",
           "skill": "inference",
@@ -559,8 +559,8 @@
           "options": [
             "That they caused difficulty and annoyance because success was so elusive",
             "That they were extremely easy to accomplish quickly",
-            "That they required no rules or experimentation at all",
-            "That they were abandoned almost immediately after starting"
+            "That they required no rules or experimentation",
+            "That they were abandoned soon after starting, before much progress was made"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -576,8 +576,8 @@
           "options": [
             "It presents the frustrating early failures, the experimentation, and the lasting breakthrough in sequence",
             "It randomly jumps between unrelated inventions with no clear order",
-            "It focuses entirely on describing Vint's personal childhood memories",
-            "It only compares the prices of modern internet plans across different companies"
+            "It focuses on describing Vint's personal childhood memories",
+            "It compares the prices of modern internet plans across different companies and countries in the world"
           ],
           "answer": "A",
           "skill": "text-structure",

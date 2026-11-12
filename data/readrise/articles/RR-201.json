@@ -167,7 +167,7 @@
           "options": [
             "It means something very old and ancient",
             "It means dug up from inside the ground",
-            "It means made completely of hard rock",
+            "It means made of hard rock",
             "It means a hidden, buried treasure chest"
           ],
           "answer": "B",
@@ -202,7 +202,7 @@
             "Most dead plants and animals rot away first",
             "Solid rock cannot ever form in a desert",
             "Scientists throw away most fossils they find",
-            "Only sea creatures are able to leave fossils"
+            "Sea creatures are the main animals that leave fossils"
           ],
           "answer": "A",
           "skill": "inference",
@@ -294,8 +294,8 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Fossils are rare, preserved clues to ancient life, and studying them teaches us about Earth's past.",
-            "Every fossil ever discovered anywhere in the world is the bone of an ancient elephant.",
-            "Fossils can only ever form deep inside layers of hardened volcanic ash and nothing else.",
+            "Every fossil ever discovered is the bone of an ancient elephant.",
+            "Fossils form mostly deep inside layers of hardened volcanic ash, so they are rare.",
             "Paleontologists study fossils mainly to search for valuable hidden treasure buried underground."
           ],
           "answer": "A",
@@ -381,7 +381,7 @@
             "Elephants were brought there recently by traders",
             "Elephants once lived only in the ocean",
             "The desert's climate was once much wetter than today",
-            "The Nafud desert has never changed at all"
+            "The Nafud desert was once home to many people"
           ],
           "answer": "C",
           "skill": "inference",
@@ -413,8 +413,8 @@
           "stem": "Why does the author describe the order of rock layers, with older fossils lying deeper?",
           "options": [
             "To prove that every single desert on Earth was once a vast ocean",
-            "To explain exactly why paleontologists search only for hidden treasure",
-            "To show that rock layers always stay exactly the same forever",
+            "To explain why paleontologists search mainly for hidden treasure",
+            "To show that rock layers stay exactly the same",
             "To help readers see how scientists work out the order life appeared"
           ],
           "answer": "D",
@@ -473,7 +473,7 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "Fossils form only when rare, lucky conditions let minerals slowly replace an organism's buried remains, and studying them reveals Earth's distant past.",
-            "Every single rock found anywhere on Earth will eventually turn into a fossil if it stays buried underground for a sufficiently long time.",
+            "Every single rock found anywhere on Earth will eventually turn into a fossil if it stays buried underground for a sufficiently long time in the ground.",
             "Paleontologists carefully excavate ancient fossils mainly so that museums can display impressive looking rocks to visiting tourists.",
             "The Arabian desert has supposedly always been completely dry, with absolutely no evidence of any other climate in its deep ancient past."
           ],
@@ -489,7 +489,7 @@
         {
           "stem": "According to the article, what specific sequence of events allows a fossil to form?",
           "options": [
-            "An organism is frozen instantly solid, then thaws out thousands of years later",
+            "An organism is frozen instantly solid, then thaws out thousands of years later in the same place",
             "An organism dies and is buried quickly, after which minerals slowly replace its remains",
             "An organism is eaten by scavengers, then its bones float downstream to a delta",
             "An organism is caught in a sudden flood and carried far out to sea"
@@ -543,7 +543,7 @@
             "Because very little oxygen can reach it underground",
             "Because minerals instantly harden it the moment it is buried",
             "Because paleontologists remove the air artificially",
-            "Because buried bodies are always frozen"
+            "Because buried bodies are frozen"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -560,7 +560,7 @@
             "Because fossils only ever form in deserts, and not in other lands where scientists look for them in rocks",
             "Because fossil formation depends on a rare, precise sequence of lucky events that is impossible to foresee",
             "Because paleontologists refuse to search in new places, and so they keep on digging in the same few spots",
-            "Because rock layers are always exactly the same everywhere, so there is no way to choose one place over another"
+            "Because rock layers are exactly the same, so there is no way to choose one place over another"
           ],
           "answer": "B",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "What can be reasonably inferred from the discovery of ancient elephant fossils in the dry sands of the Nafud?",
           "options": [
-            "Elephants can survive without any water at all for years",
-            "Elephants were imported into Arabia by ancient traders on ships",
+            "Elephants can survive without any water for years",
+            "Elephants were imported into Arabia by ancient traders on ships long ago, for work",
             "The Nafud desert's climate was once considerably wetter than it is today",
-            "The Nafud desert has always been a desert, without any change at all"
+            "The Nafud desert has been a desert for millions of years"
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,7 +591,7 @@
         {
           "stem": "Why does the author explain that older fossils generally lie in deeper rock layers?",
           "options": [
-            "To show that rock layers have no real order at all, so fossils can be found anywhere in them",
+            "To show that rock layers have no real order, so fossils can be found anywhere in them",
             "To prove that elephants are older than sea creatures, since they are larger and stronger animals",
             "To argue that digging is the only way to discover new deserts, and that scientists never use any maps",
             "To help readers understand how paleontologists work out the general sequence in which ancient life appeared"

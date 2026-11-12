@@ -131,7 +131,7 @@
         {
           "stem": "Why does the family leave the house late?",
           "options": [
-            "Because they forgot to pack any bags at all",
+            "Because they forgot to pack any bags",
             "Because the train station was closed for the day",
             "Because Dad could not find his phone anywhere",
             "Because they wanted to eat breakfast first"
@@ -236,7 +236,7 @@
             "To show that the train ride was boring",
             "To show that the children helped solve the problem",
             "To show that they missed the trip completely",
-            "To show that their parents were angry at them"
+            "To show that their parents were angry at them for leaving"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -295,7 +295,7 @@
           "options": [
             "The family decides train travel is too stressful to continue, so they go home by car in the night",
             "The grandparents decide to come to the city instead, so the children no longer need any train",
-            "The train breaks down completely before it ever leaves, and the children go back home that night",
+            "The train breaks down before it ever leaves, and the children go back home that night",
             "The children use the schedule and ask for help to catch the last train"
           ],
           "answer": "D",
@@ -313,7 +313,7 @@
             "Read the board and understand the platforms",
             "Drive the family car all the way to the station",
             "Fix a broken phone quickly during the trip",
-            "Talk to every single worker at the station by name"
+            "Talk to each worker at the station by name"
           ],
           "answer": "A",
           "skill": "detail",
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
             "A single small mistake ruins the family's entire holiday plans completely",
-            "Children are never able to help out during a real emergency at all",
+            "Children are rarely able to help during a real emergency",
             "Years of quiet preparation let the children solve the problem calmly",
             "The station worker solves the entire problem by himself alone"
           ],
@@ -490,7 +490,7 @@
           "stem": "What is the underlying cause of the family's narrow escape, beyond simply being late?",
           "options": [
             "Years of learning to read schedules gave the children the skill to act fast",
-            "The train conveniently waited for the family at the correct platform",
+            "The train conveniently waited for the family at the correct platform that evening",
             "The worker happened to be a close relative of the children",
             "The weather had delayed every single train in the station"
           ],
@@ -525,7 +525,7 @@
           "options": [
             "To suggest the parents never cared about the trip, and left everything to the children",
             "To emphasize that the children's independent skill becomes essential later",
-            "To show that the parents cannot read at all, so the children had to teach them",
+            "To show that the parents are poor readers, so the children taught them",
             "To explain why the train was delayed, since the parents were late to the station"
           ],
           "answer": "B",
@@ -542,8 +542,8 @@
           "options": [
             "It gives the children knowledge for when adults are distracted",
             "It guarantees that absolutely nothing can ever go wrong again",
-            "It completely replaces the need for any station workers at all",
-            "It means the family no longer needs any tickets at all"
+            "It replaces the need for station workers",
+            "It means the family needs fewer tickets"
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,7 +574,7 @@
         {
           "stem": "Why does the author include the detail that the doors are already closing as the family boards?",
           "options": [
-            "To suggest the family boarded the wrong train by mistake",
+            "To suggest the family boarded the wrong train by mistake at the station",
             "To explain why the train was delayed overnight",
             "To show that the worker closed the doors himself",
             "To heighten the tension and emphasize how narrowly they succeed"
@@ -593,7 +593,7 @@
           "options": [
             "It challenges the idea, since only the parents solve the problem for the family, and the children do nothing",
             "It supports the idea, since the children's question to the worker is what saves the trip",
-            "It is unrelated, since no one actually solves the problem, and the trip is cancelled",
+            "It is unrelated, since the worker solves the problem alone and the children watch",
             "It challenges the idea, since the family misses the train anyway, and the children cry"
           ],
           "answer": "B",

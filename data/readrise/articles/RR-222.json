@@ -167,7 +167,7 @@
           "options": [
             "Because it had a zero and made math easier",
             "Because it used fewer colors",
-            "Because Roman numerals had more signs",
+            "Because Roman numerals had more signs and letters",
             "Because it was invented in Europe"
           ],
           "answer": "A",
@@ -295,7 +295,7 @@
           "options": [
             "Egypt and Babylon were the two richest ancient civilizations, and every number came from them alone.",
             "Different peoples each played a part in creating and spreading the numbers we use today.",
-            "Rome was the first civilization to use any numbers at all, and the others copied the Roman ones.",
+            "Rome was the first civilization to use numbers, and the others copied the Roman ones.",
             "Computers could not exist without Arabic numerals, so the article is mostly about machines today."
           ],
           "answer": "B",
@@ -313,7 +313,7 @@
             "About one hundred years old",
             "About one thousand years old",
             "More than twenty thousand years old",
-            "More than one million years old"
+            "More than one million years old in a cave"
           ],
           "answer": "C",
           "skill": "detail",
@@ -362,7 +362,7 @@
           "stem": "What was one result of the Indian system having a symbol for zero?",
           "options": [
             "Rome stopped using letters for numbers right away in all its markets.",
-            "Merchants stopped needing to count at all after the zero came.",
+            "Merchants stopped needing to count after the zero came.",
             "The system became more useful and efficient for figuring things out.",
             "Tally marks were used again by traders for large sums of money."
           ],
@@ -378,7 +378,7 @@
         {
           "stem": "Why do you think wise men in Baghdad wrote detailed books explaining the Indian plan?",
           "options": [
-            "So tally marks would be forgotten forever by everyone",
+            "So tally marks would be forgotten by everyone",
             "So Rome could keep using its old letters for numbers",
             "So merchants would stop traveling to faraway markets",
             "So the new plan could be understood and used by others"
@@ -475,7 +475,7 @@
             "A sequence of innovations, spanning several civilizations, produced the numeral system used worldwide today.",
             "Rome invented the most efficient numeral system in history, and it is still used today in schools and banks around the world.",
             "Zero was discovered by European merchants in the thirteenth century, long before any other number was ever written down.",
-            "Brahmi numerals are identical to Roman numerals, so they have never changed over time, and no one ever improved them at all."
+            "Brahmi numerals are the same as Roman numerals, so they changed little over time."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,7 +540,7 @@
         {
           "stem": "What effect did the lack of a zero symbol have on Roman numerals?",
           "options": [
-            "It had no effect at all on how Romans counted.",
+            "It had no effect on how Romans counted.",
             "It made Roman numerals spread faster.",
             "It allowed Romans to invent algebra very early.",
             "It made Roman arithmetic remarkably difficult."
@@ -575,8 +575,8 @@
           "stem": "What can you infer about why some merchants at first resisted the new numerals?",
           "options": [
             "They disliked the color of the new symbols.",
-            "They were forbidden by every local government from ever using any new symbols at all.",
-            "They had never heard of numbers before.",
+            "They were forbidden by every local government from ever using any new symbols.",
+            "They had not heard of numbers before.",
             "They had already invested time and trust in older counting methods."
           ],
           "answer": "D",

@@ -117,7 +117,7 @@
             "A boy who learns to climb cliffs alone and without any rope",
             "A boy who finds a fallen eagle chick and gets help to save it",
             "A boy who builds a nest for a bird in his garden at home",
-            "A dog that chases birds near a cliff by the sea every day"
+            "A dog that chases birds near a cliff by the sea each day"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -295,8 +295,8 @@
           "options": [
             "Ranger Noura studies only lizards and snakes",
             "Rakan helped return a fallen chick and learned about eagles",
-            "Rakan built a brand new nest for an eagle chick",
-            "Eagles cannot survive anywhere without constant human help"
+            "Rakan built a brand new nest for an eagle chick in a tree",
+            "Eagles need constant human help to survive"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -474,7 +474,7 @@
           "options": [
             "Eagle chicks never fall from their nests, and so rangers have no reason to climb the high cliffs",
             "Noura's main job is counting the region's cliffs, and she does not care about the birds living there",
-            "Eagles only live safely inside zoos, where people give them food and keep them away from danger",
+            "Eagles live safely inside zoos, where people give them food and keep them away from danger",
             "Rakan's rescue of a fallen chick reveals the vital role eagles play as predators in their ecosystem"
           ],
           "answer": "D",
@@ -508,7 +508,7 @@
           "options": [
             "They keep records of nests and check on them",
             "They move nests to zoos every year for safety",
-            "They feed eagles every single day in the winter",
+            "They feed the eagles each day in the winter",
             "They build new cliffs for nesting out of stone"
           ],
           "answer": "A",

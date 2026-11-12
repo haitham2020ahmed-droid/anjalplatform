@@ -167,7 +167,7 @@
           "options": [
             "She ate half a serving of the chips",
             "She ate twice the amount for one serving",
-            "She ate no salt at all from the bag",
+            "She ate no salt from the bag",
             "She ate the same as one single serving"
           ],
           "answer": "B",
@@ -344,8 +344,8 @@
         {
           "stem": "Why does it matter if sugar is near the top of the ingredients list?",
           "options": [
-            "It means the food was made very recently and is fresh.",
-            "It means the food has no other ingredients in it at all.",
+            "It means the food was made very recently and is fresh in a factory.",
+            "It means the food has no other ingredients in it.",
             "The list goes from most to least, so there is a lot of sugar.",
             "It means the label must also be printed in Arabic."
           ],
@@ -474,8 +474,8 @@
           "options": [
             "Understanding each part of a label helps people eat more healthily.",
             "Food companies are not allowed to put any pictures on their packages.",
-            "Sugar should be removed completely from all foods.",
-            "Expiry dates are the only important part of a label."
+            "Sugar should be removed from most foods.",
+            "Expiry dates are the most important part of a label."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -523,7 +523,7 @@
         {
           "stem": "Why might a product contain more sugar than a shopper expects?",
           "options": [
-            "The serving size is always the whole package.",
+            "The serving size is the whole package or the box.",
             "Sugar is never listed on the label.",
             "Labels in Arabic do not show sugar.",
             "Sugar may appear under several different names."
@@ -576,8 +576,8 @@
           "options": [
             "Eating only one kind of food each day",
             "Eating reasonable amounts, not too much",
-            "Never eating sugar or salt in any meal",
-            "Eating as much as you want at every meal"
+            "Eating sugar or salt once a week",
+            "Eating as much as you want at each meal"
           ],
           "answer": "B",
           "skill": "vocabulary",

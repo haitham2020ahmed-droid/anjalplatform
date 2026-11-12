@@ -236,7 +236,7 @@
             "Nura immediately starts a brand-new weaving pattern",
             "Her brother comes home and wears the cloth",
             "The whole family moves to a new house nearby",
-            "Layla stops weaving cloth completely forever"
+            "Layla stops weaving cloth"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -295,7 +295,7 @@
           "options": [
             "Patient practice helped Layla master a hard pattern.",
             "Layla firmly decided she never wanted to weave ever again.",
-            "Nura happily retired and completely stopped weaving cloth.",
+            "Nura happily retired and stopped weaving cloth.",
             "Layla's older brother personally taught her how to weave."
           ],
           "answer": "A",
@@ -347,7 +347,7 @@
             "Nura used the wrong kind of thread for the pattern",
             "The loom was broken the whole time they worked",
             "The threads kept crossing in the wrong places",
-            "Layla refused to practice at all for many weeks"
+            "Layla refused to practice for many weeks"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -378,7 +378,7 @@
         {
           "stem": "Why did Nura choose not to scold Layla for her mistakes?",
           "options": [
-            "She did not notice the mistakes at all",
+            "She did not notice the mistakes",
             "She believed patient teaching would help more",
             "She planned to finish the pattern herself instead",
             "She no longer cared whether the pattern was finished"
@@ -398,7 +398,7 @@
             "It had been passed down and valued in the family for a long time",
             "It was invented by Layla the night before she gave the gift",
             "It was something only Nura was ever able to weave in the village",
-            "It was no longer important to anyone in the family any more"
+            "It was no longer important to the family"
           ],
           "answer": "A",
           "skill": "inference",
@@ -474,7 +474,7 @@
           "options": [
             "Meticulous practice helped Layla master an intricate pattern.",
             "Layla decided weaving was not worth the effort and quit entirely.",
-            "Nura wove the entire pattern herself without any help.",
+            "Nura wove the pattern herself without help.",
             "The family rejected the finished cloth as unacceptable."
           ],
           "answer": "A",
@@ -507,7 +507,7 @@
           "stem": "What was actually causing the diamonds to come out crooked?",
           "options": [
             "A damaged section of the loom itself",
-            "The wrong type of thread being used throughout",
+            "The wrong type of thread being used throughout in the pattern",
             "The threads repeatedly crossing in the wrong places",
             "A design flaw built into the pattern itself"
           ],
@@ -541,7 +541,7 @@
           "stem": "Why does the story emphasize that Layla wove the pattern 'without a single mistake'?",
           "options": [
             "To show that her earlier frustration had led to real, hard-won mastery",
-            "To suggest that mistakes no longer mattered to her at all in the end",
+            "To suggest that mistakes no longer mattered to her in the end or to her teacher",
             "To prove that the pattern had actually been quite simple",
             "To imply that Nura had secretly fixed the mistakes herself"
           ],
@@ -559,7 +559,7 @@
           "options": [
             "They happened to take place later in the day, when she felt rested",
             "They broke the complex technique into clear, understandable steps",
-            "They used a completely different and simpler pattern to start",
+            "They used a different and simpler pattern to start",
             "They required Layla to stop practicing altogether for a week"
           ],
           "answer": "B",
@@ -576,7 +576,7 @@
           "options": [
             "It rests mainly on natural talent that cannot be taught",
             "It depends on patience and practice more than talent",
-            "It matters only for people living outside the family",
+            "It matters mostly to people living outside the family",
             "It was fully abandoned once Layla learned the pattern"
           ],
           "answer": "B",

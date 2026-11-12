@@ -132,7 +132,7 @@
           "stem": "According to the article, what kind of rock often lies underground where sinkholes form?",
           "options": [
             "Soft rock, such as limestone",
-            "Rock that is always frozen solid",
+            "Rock that is frozen solid",
             "Rock that is covered in sand",
             "Rock that floats on water"
           ],
@@ -202,7 +202,7 @@
             "Rain eats away at the soft rock underground over time",
             "Rain makes the ground above it instantly hard",
             "Rain fills the hole back up right away every time",
-            "Rain only affects roads, and never the ground itself"
+            "Rain makes the ground heavy, so it sinks right away"
           ],
           "answer": "A",
           "skill": "inference",
@@ -294,8 +294,8 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Sinkholes form when underground rock slowly dissolves, leaving a cavity whose roof can later collapse.",
-            "Every hole in the ground anywhere in the world is caused by a sinkhole, even a well, a pit or a cave.",
-            "Sinkholes can only ever form directly underneath busy roads and highways, never in empty land.",
+            "Every hole in the ground is caused by a sinkhole, even a well, a pit or a cave.",
+            "Sinkholes form mostly underneath busy roads and highways, because trucks press the ground.",
             "Geologists study sinkholes mainly to find valuable buried treasure, such as gold and old coins."
           ],
           "answer": "A",
@@ -311,7 +311,7 @@
           "stem": "According to the article, what kind of water helps dissolve limestone underground?",
           "options": [
             "Water that is slightly acidic",
-            "Water that is completely frozen",
+            "Water that is frozen",
             "Water that is boiling hot",
             "Water that is heavily salted"
           ],
@@ -327,7 +327,7 @@
         {
           "stem": "According to the article, where are sinkholes extra likely to form?",
           "options": [
-            "Where the ground is always frozen",
+            "Where the ground is frozen",
             "Near the rocky tops of very tall mountains",
             "Where lots of limestone is underground",
             "Under the deepest parts of oceans"
@@ -344,7 +344,7 @@
         {
           "stem": "The article says rainwater slowly dissolves soft rock underground. What does dissolve mean here?",
           "options": [
-            "Explode suddenly into pieces",
+            "Explode suddenly into pieces in the sky",
             "Freeze into a hard block",
             "Slowly break apart and wear away",
             "Instantly turn into sand"
@@ -397,8 +397,8 @@
           "options": [
             "A solution sinkhole forms underwater, while a collapse sinkhole forms only in fire",
             "A solution sinkhole forms gradually, while a collapse sinkhole forms suddenly",
-            "A solution sinkhole is always tiny, while a collapse sinkhole is always enormous",
-            "A solution sinkhole happens only in Saudi Arabia, while a collapse sinkhole happens everywhere else"
+            "A solution sinkhole is tiny, while a collapse sinkhole is enormous",
+            "A solution sinkhole happens in Saudi Arabia, while a collapse sinkhole happens in other countries"
           ],
           "answer": "B",
           "skill": "inference",
@@ -415,7 +415,7 @@
             "To help readers understand why sinkholes can form in parts of the country",
             "To prove that every region in Saudi Arabia has sinkholes, even in the sandy deserts",
             "To explain exactly how geologists search for buried treasure under the ground",
-            "To show that limestone never dissolves in water, even after many years of rain"
+            "To show that limestone rarely dissolves in water, even after many years of rain"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "Sinkholes form through a gradual process of underground erosion that weakens a cavity's roof until it collapses, sometimes suddenly.",
-            "Every depression anywhere on Earth's surface will eventually turn into a dangerous sinkhole given enough time and rain, in every land.",
-            "Geologists map karst landscapes mainly so that engineers can build taller buildings on top of them and make more money.",
-            "Groundwater pumping is supposedly the only possible cause of sinkholes anywhere in the world, and nature plays no part at all."
+            "Every depression's surface will eventually turn into a dangerous sinkhole given enough time and rain, in every land.",
+            "Geologists map karst landscapes mainly so that engineers can build taller buildings on top of them and make more money from those buildings.",
+            "Groundwater pumping is the main cause of sinkholes, so they are a modern problem caused by people."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -491,7 +491,7 @@
           "options": [
             "Rock freezes solid, then cracks apart instantly without any water involved",
             "Acidic rainwater erodes soft rock into a cavity, whose weakened roof eventually collapses",
-            "A building is constructed, then its foundation sinks evenly into solid bedrock",
+            "A building is constructed, then its foundation sinks evenly into solid bedrock over a few years",
             "Groundwater floods the surface, then instantly hardens into new limestone"
           ],
           "answer": "B",
@@ -509,7 +509,7 @@
             "They build new limestone to replace the dissolved rock",
             "They fill in every depression they find with concrete immediately",
             "They carefully study and map ground that may contain hidden cavities",
-            "They pump extra groundwater into every known cavity"
+            "They pump extra groundwater into known cavities"
           ],
           "answer": "C",
           "skill": "detail",
@@ -560,7 +560,7 @@
             "Sinkholes only ever form during violent storms, when the heavy rain washes the soil away",
             "Geologists intentionally hide sinkholes from the public so that people will not be afraid",
             "The underground erosion happens slowly and out of sight, so the final collapse can seem sudden",
-            "The ground above a cavity always looks visibly different years in advance, so people can see it"
+            "The ground above a cavity looks visibly different years in advance, so people can see it"
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,9 +574,9 @@
         {
           "stem": "What can be reasonably inferred about why karst landscapes are especially prone to sinkholes?",
           "options": [
-            "Karst landscapes never receive any rainfall at all, so the rock stays dry and hard",
-            "Karst landscapes are always located deep underwater, where the rock is cold and wet",
-            "Karst landscapes contain no groundwater whatsoever, so there is nothing under the ground",
+            "Karst landscapes never receive any rainfall, so the rock stays dry and hard",
+            "Karst landscapes are located deep underwater, where the rock is cold and wet",
+            "Karst landscapes contain little groundwater, so the rock stays dry",
             "Karst landscapes contain unusually large amounts of easily dissolved limestone"
           ],
           "answer": "D",
@@ -593,8 +593,8 @@
           "options": [
             "To help readers understand that sinkholes can form either gradually or suddenly",
             "To prove that collapse sinkholes never occur in karst landscapes, only in places with sand",
-            "To argue that solution sinkholes are not real sinkholes at all, but only small puddles",
-            "To show that only collapse sinkholes can swallow buildings, cars and whole streets"
+            "To argue that solution sinkholes are not real sinkholes, but small puddles",
+            "To show that collapse sinkholes can swallow buildings, while solution sinkholes are safe"
           ],
           "answer": "A",
           "skill": "text-structure",

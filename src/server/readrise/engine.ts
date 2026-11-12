@@ -46,6 +46,9 @@ export const ENGINE = {
   /** the big step down (two very low scores in a row) */ downStep: 100,
   /** the usual step down */ downSmall: 50,
   /** after an automatic drop: this many strong reads in a row move the level back up */ returnReads: 2,
+  /** 🎯 round 11 (Achieve3000: "routinely ABOVE 75%"): the strong scores that move the level up must average above this */ upAverage: 75,
+  /** 🌱 round 11 (Achieve3000: emerging readers can rise below 75%): an emerging reader's "strong" score */ upEmerging: 63,
+  /** 🌱 below this level a reader is an emerging reader (Achieve3000's ER) */ emergingBelow: 50,
 } as const;
 /**
  * 🛡️ Round 10 (owner, 11 Nov 2026: a Grade 5 reader placed at 1600 scored 38% and the level stayed): the first
@@ -219,10 +222,11 @@ export interface LevelDecision { delta: number; reason: string | null }
  * The level rule on the window of first-try scores since the last change (oldest → newest). Pure. Round 9 (see
  * ENGINE): down first — two in a row ≤ 25% → −100; two in a row under 50% → −50; 3 of the last 4 under 50% (latest
  * under 50%) → −50; one bad score alone never moves the level. Then up — after an automatic drop (`afterDrop`), two
- * in a row at 75%+ → +50; else 3 of the last 4 at 75%+ with the latest 75%+ → +50. The reason is in plain words for
+ * in a row at 75%+ → +50; else 3 of the last 4 at 75%+ with the latest 75%+ → +50. Round 11 (Achieve3000): those strong
+ * scores must average ABOVE 75%; an emerging reader (level < 50) moves up from 63%. The reason is in plain words for
  * the teacher.
  */
-export function levelDecision(scores: number[], opts: { afterDrop?: boolean; probation?: boolean } = {}): LevelDecision {
+export function levelDecision(scores: number[], opts: { afterDrop?: boolean; probation?: boolean; level?: number | null } = {}): LevelDecision {
   if (!scores.length) return { delta: 0, reason: null };
   const latest = scores[scores.length - 1];
   // 🛡️ round 10: right after a placement one low score is enough (the placement may have been too high)
@@ -235,10 +239,19 @@ export function levelDecision(scores: number[], opts: { afterDrop?: boolean; pro
   const last4 = scores.slice(-4);
   const low = last4.filter((x) => x < ENGINE.down).length;
   if (latest < ENGINE.down && low >= 3) return { delta: -ENGINE.downSmall, reason: `${low} of the last ${last4.length} first-try scores were under ${ENGINE.down}% (latest ${latest}%), so the articles were too hard` };
+  // 🎯 round 11: up like Achieve3000 — strong scores must average ABOVE 75% (75, 75, 75 is not enough); an emerging
+  // reader (level under 50) moves up from 63% (Achieve3000: emerging readers can rise below 75%)
+  const emerging = opts.level !== undefined && opts.level !== null && Number(opts.level) < ENGINE.emergingBelow;
+  const bar = emerging ? ENGINE.upEmerging : ENGINE.up;
+  const avg = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
+  // the STRONG scores (75%+) must average above 75%: 75, 75, 75 is not enough; 80, 40, 80, 80 is
+  const strong = (xs: number[]) => xs.filter((x) => x >= bar);
+  const avgOk = (xs: number[]) => emerging || (strong(xs).length > 0 && avg(strong(xs)) > ENGINE.upAverage);
+  const tail = emerging ? " (an emerging reader)" : "";
   const lastN = scores.slice(-ENGINE.returnReads);
-  if (opts.afterDrop && lastN.length === ENGINE.returnReads && lastN.every((x) => x >= ENGINE.up)) return { delta: ENGINE.step, reason: `back up after the drop: the last ${ENGINE.returnReads} first-try scores were ${ENGINE.up}% or higher (${lastN.map((x) => `${x}%`).join(" and ")})` };
-  const high = last4.filter((x) => x >= ENGINE.up).length;
-  if (latest >= ENGINE.up && high >= 3) return { delta: ENGINE.step, reason: `${high} of the last ${last4.length} first-try scores were ${ENGINE.up}% or higher (latest ${latest}%)` };
+  if (opts.afterDrop && lastN.length === ENGINE.returnReads && lastN.every((x) => x >= bar) && avgOk(lastN)) return { delta: ENGINE.step, reason: `back up after the drop: the last ${ENGINE.returnReads} first-try scores were ${bar}% or higher (${lastN.map((x) => `${x}%`).join(" and ")})${tail}` };
+  const high = last4.filter((x) => x >= bar).length;
+  if (latest >= bar && high >= 3 && avgOk(last4)) return { delta: ENGINE.step, reason: emerging ? `${high} of the last ${last4.length} first-try scores were ${bar}% or higher (latest ${latest}%)${tail}` : `${high} of the last ${last4.length} first-try scores were ${bar}% or higher (average ${Math.round(avg(strong(last4)))}%, above ${ENGINE.upAverage}%), latest ${latest}%` };
   return { delta: 0, reason: null };
 }
 
@@ -276,7 +289,7 @@ export function readsToMoveUp(windowScores: readonly number[], level: number, af
 export function readsToMoveUp(windowScores: readonly number[], level?: number, afterDrop = false): number | null {
   // at / above the top version (RR_MAX) there is no higher article to move up to: no "+50" promise
   if (level !== undefined && Number(level) >= RR_MAX) return null;
-  for (let k = 1; k <= 4; k++) if (levelDecision([...windowScores, ...Array<number>(k).fill(100)], { afterDrop }).delta > 0) return k;
+  for (let k = 1; k <= 4; k++) if (levelDecision([...windowScores, ...Array<number>(k).fill(100)], { afterDrop, level: level ?? null }).delta > 0) return k;
   return 4;
 }
 
@@ -322,13 +335,14 @@ export async function applyFirstTryScore(repo: Repo, run: Row, now: Date): Promi
     const runs = countedTries(await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }))
       .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
       .sort((a, b) => toDate(a.completedAt).getTime() - toDate(b.completedAt).getTime());
-    const dec = levelDecision(runs.map((r) => Number(r.score)), { afterDrop: afterAutoDrop(changes), probation: await onProbation(repo, studentId, changes) }); // round 9 · round 10
+    const dec = levelDecision(runs.map((r) => Number(r.score)), { afterDrop: afterAutoDrop(changes), probation: await onProbation(repo, studentId, changes), level: before }); // round 9 · 10 · 11
     // a stretch can only move the level up. r85 audit (#4 — checked, not a bug): this guard looks like it could
     // mask a legitimate down-adjustment, but `countsForLevel` above only lets a stretch run into `runs` when its
     // OWN score is ≥ ENGINE.up (75), and this function is only ever called for a stretch run when its score is
     // already ≥ 75 (student.ts) — so whenever `run.stretch === true` reaches this line, `dec.delta` can never be
     // negative in practice; the `< 0` branch is unreachable. Left in place as a documented safety net, not removed.
-    const delta = run.stretch === true && dec.delta < 0 ? 0 : dec.delta;
+    // ↩️ round 11: after the teacher undid a drop, no automatic drop for the next NO_DROP_READS counted first tries
+    const delta = (run.stretch === true || dropsPaused(changes, runs.length)) && dec.delta < 0 ? 0 : dec.delta;
     const after = delta ? clampEngine(before + delta) : before;
     const patch: Row = run.stretch === true ? {} : { articlesDone: articlesDoneBefore + 1 };
     if (after !== before) patch.level = after;
@@ -359,6 +373,42 @@ export async function onProbation(repo: Repo, studentId: string, changes: readon
   const runs = countedTries(await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "stretch", "score", "completedAt", "unreliable", "readSeconds"] }))
     .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r));
   return runs.length >= 1 && runs.length <= PROBATION_READS;
+}
+
+/**
+ * ↩️ Round 11 (Achieve3000: the teacher reviews a drop within a week and can keep the level): the teacher can undo the
+ * last AUTOMATIC drop for UNDO_DROP_DAYS. After an undo no automatic drop happens until NO_DROP_READS more counted
+ * first tries (Achieve3000: "ineligible … until eight multiple-choice sets are completed"); moving up still works.
+ */
+export const UNDO_DROP_TAG = "Teacher kept the level";
+export const UNDO_DROP_DAYS = 7;
+export const NO_DROP_READS = 8;
+export interface UndoableDrop { from: number; to: number; at: string; reason: string }
+/** The last automatic drop the teacher can still undo (pure): the newest level change, an automatic drop, at most
+ * UNDO_DROP_DAYS old, and the level is still where the drop put it. */
+export function undoableDrop(changes: readonly Row[], level: number | null, now: Date): UndoableDrop | null {
+  const list = changes.filter((c) => !s(c.reason).startsWith(RETAKE_REASON)).slice().sort((a, b) => toDate(a.createdAt).getTime() - toDate(b.createdAt).getTime());
+  const last = list[list.length - 1];
+  if (!last || !s(last.reason).startsWith(AUTO_DOWN_PREFIX)) return null;
+  const at = toDate(last.createdAt);
+  if (now.getTime() - at.getTime() > UNDO_DROP_DAYS * 86_400_000) return null;
+  if (level === null || Number(level) !== Number(last.toLevel)) return null;
+  return { from: Number(last.fromLevel), to: Number(last.toLevel), at: at.toISOString(), reason: s(last.reason) };
+}
+/** After an undo: no automatic drop until NO_DROP_READS counted first tries (pure). */
+export const dropsPaused = (changes: readonly Row[], countedSince: number): boolean =>
+  changes.length > 0 && s(changes[changes.length - 1].reason).startsWith(UNDO_DROP_TAG) && countedSince < NO_DROP_READS;
+
+/** ↩️ The teacher undoes the last automatic drop (see undoableDrop). */
+export async function undoLevelDrop(repo: Repo, actor: Actor, studentId: string, now = new Date()): Promise<{ from: number; to: number }> {
+  await assertStaffForStudent(repo, actor, studentId);
+  const rr = await ensureRRStudent(repo, studentId, now);
+  const drop = undoableDrop(await repo.findMany("RRLevelChange", { studentId }), Number(rr.level), now);
+  if (!drop) throw new ValidationError(`There is no automatic drop from the last ${UNDO_DROP_DAYS} days to undo.`);
+  const ok = await repo.updateMany("RRStudent", { studentId, level: rr.level }, { level: clampEngine(drop.from) });
+  if (!ok) throw new ValidationError("The level changed in the meantime. Reload the page.");
+  await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: drop.to, to: drop.from, reason: `${UNDO_DROP_TAG}: the teacher undid the automatic drop (${drop.to} → ${drop.from}); no automatic drop for the next ${NO_DROP_READS} articles`, now });
+  return { from: drop.to, to: drop.from };
 }
 
 /** 👩‍🏫 A teacher (or school admin) sets a student's ReadRise Level (for the teacher pages). */

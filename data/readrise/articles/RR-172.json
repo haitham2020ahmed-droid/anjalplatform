@@ -219,7 +219,7 @@
             "Go for a long run outside",
             "Open all the windows",
             "Stay inside or wear a mask",
-            "Breathe only through your mouth"
+            "Breathe through your mouth"
           ],
           "answer": "C",
           "skill": "inference",
@@ -295,7 +295,7 @@
           "options": [
             "Your lungs bring in oxygen and remove waste gas, and you can help protect them.",
             "The diaphragm is the only muscle in the body, so it does all of the work.",
-            "Dust storms happen only in Saudi Arabia, so other countries never have to worry.",
+            "Dust storms happen mostly in Saudi Arabia, so other countries rarely worry.",
             "The windpipe pumps blood to the body, while the lungs make the heart beat."
           ],
           "answer": "A",
@@ -327,7 +327,7 @@
         {
           "stem": "What is carbon dioxide?",
           "options": [
-            "A gas the body needs to live",
+            "A gas the body needs to live each day",
             "A waste gas the body gets rid of",
             "A sticky liquid in the nose",
             "A muscle under the lungs"
@@ -395,7 +395,7 @@
         {
           "stem": "Why does the author compare the ribs to a cage?",
           "options": [
-            "To show the lungs are trapped forever",
+            "To show the lungs are trapped inside",
             "To show the ribs protect the lungs",
             "To explain how air gets in",
             "To compare people with birds"

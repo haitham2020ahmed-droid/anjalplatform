@@ -344,9 +344,9 @@
         {
           "stem": "How did old cameras record a picture differently from phones?",
           "options": [
-            "Old cameras had no lens at all, only a tiny hole in a dark box",
+            "Old cameras had no lens, only a tiny hole in a dark box",
             "Old cameras used film with chemicals, while phones use a sensor with pixels",
-            "Old cameras needed no light at all to take a picture of anything",
+            "Old cameras needed no light to take a picture of anything",
             "Phones use film and old cameras used pixels to record the picture in them"
           ],
           "answer": "B",
@@ -475,7 +475,7 @@
             "A camera controls and focuses reflected light, then records it on film or as digital numbers.",
             "Ibn al-Haytham built the first smartphone, and it took pictures with a large lens and a battery.",
             "Every photo forms right side up, because the lens in a camera turns the picture around once.",
-            "Cameras work only in bright sunlight, and they cannot take any pictures indoors or at night."
+            "Cameras work best in bright sunlight, so they take poor pictures indoors or at night."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -524,7 +524,7 @@
           "stem": "Why do you not see an upside-down picture on your phone screen?",
           "options": [
             "Because the lens never inverts the image",
-            "Because pixels can only record light that is already right side up",
+            "Because pixels record light that is already right side up on the screen",
             "Because the shutter turns the light over",
             "Because the camera corrects the inverted image before showing it"
           ],

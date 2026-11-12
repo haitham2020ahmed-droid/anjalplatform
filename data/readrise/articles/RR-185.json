@@ -185,7 +185,7 @@
             "It stays near the floor.",
             "It turns into water.",
             "It rises and goes out the top.",
-            "It makes the rooms hotter forever."
+            "It makes the rooms hotter in summer."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -415,7 +415,7 @@
             "Both used electric fans to push the air.",
             "Both used underground rivers and nothing else.",
             "Both used natural breezes.",
-            "Both were built only in the city of Yazd in Iran."
+            "Both were built in the city of Yazd in Iran."
           ],
           "answer": "C",
           "skill": "compare",
@@ -506,8 +506,8 @@
         {
           "stem": "According to the article, why does your skin feel cool when water dries on it?",
           "options": [
-            "Water is always much colder than the air around it.",
-            "Wind always blows strongly on wet skin.",
+            "Water is much colder than the air around it.",
+            "Wind blows strongly on wet skin.",
             "Evaporation absorbs heat.",
             "Skin releases cold air when it gets wet in the sun."
           ],
@@ -524,8 +524,8 @@
           "stem": "The article says windcatchers create natural ventilation. What does ventilation mean?",
           "options": [
             "Heating a room with fire",
-            "Lighting a room with lamps",
-            "Keeping a room completely closed",
+            "Lighting a room with lamps at night",
+            "Keeping a room closed",
             "Moving fresh air through a space"
           ],
           "answer": "D",
@@ -559,8 +559,8 @@
           "options": [
             "A sealed glass tower cooled only by large air conditioners on every floor",
             "A school with tall vents that bring in breezes and let hot air escape",
-            "A house with no windows at all, so the air stays still inside",
-            "A building that burns fuel to make cold air for all the rooms"
+            "A house with no windows, so the air stays still inside",
+            "A building that burns fuel to make cold air for its rooms"
           ],
           "answer": "B",
           "skill": "inference",

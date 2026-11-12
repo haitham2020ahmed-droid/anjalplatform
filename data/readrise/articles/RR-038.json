@@ -200,7 +200,7 @@
           "stem": "Why can the fennec fox live in a place with very little water to drink?",
           "options": [
             "It drinks from the sea each day, near the shore.",
-            "It does not need any water at all, even in summer.",
+            "It does not need any water, even in summer.",
             "It gets most of its water from its food.",
             "It stores water in its big ears for the dry days."
           ],
@@ -293,7 +293,7 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "The fennec fox is the most dangerous predator in North Africa.",
+            "The fennec fox is the most dangerous predator in North Africa and the Sahara.",
             "Many adaptations help the fennec fox survive heat, cold, and dry land.",
             "Fennec foxes must drink water every day to stay alive.",
             "Eagles and owls are the main animals of the desert."
@@ -379,7 +379,7 @@
           "stem": "What can you infer about desert nights from the article?",
           "options": [
             "They are hotter than desert days.",
-            "They are always rainy and stormy, with strong winds.",
+            "They are rainy and stormy, with strong cold winds.",
             "They are when eagles hunt the most.",
             "They can be cold enough that the fox needs a warm coat."
           ],
@@ -559,7 +559,7 @@
           "options": [
             "Its prey can only be found in burrows during the day.",
             "Night hunting lets it avoid the punishing daytime heat.",
-            "Eagles and owls only hunt during the day.",
+            "Eagles and owls hunt mostly during the day.",
             "Its fur coat turns dark at night."
           ],
           "answer": "B",

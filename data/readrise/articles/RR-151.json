@@ -295,7 +295,7 @@
           "options": [
             "Balloons are the best way to study science in a classroom, since they show every law of physics.",
             "Static electricity happens when electrons move between objects, causing pulls, pushes, and sparks.",
-            "Lightning is more dangerous than a door handle shock, so the article warns about storms only.",
+            "Lightning is more dangerous than a door handle shock, so the article mainly warns about storms.",
             "Carpets should not be used in dry cities and homes, because they make static electricity."
           ],
           "answer": "B",
@@ -310,7 +310,7 @@
         {
           "stem": "What kind of charge do electrons carry?",
           "options": [
-            "No charge at all",
+            "No charge",
             "A positive charge",
             "A negative charge",
             "A charge that changes every second"
@@ -328,7 +328,7 @@
           "stem": "Why is it called static electricity?",
           "options": [
             "The charge stays still until it can escape",
-            "It only happens on television screens",
+            "It only happens on television screens in a house",
             "It moves through wires very fast",
             "It was named after a city"
           ],
@@ -381,7 +381,7 @@
             "fewer static shocks",
             "many more static shocks",
             "a shock from every object",
-            "no change at all"
+            "no change"
           ],
           "answer": "A",
           "skill": "inference",
@@ -473,7 +473,7 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "Ancient Greeks invented electricity using amber, which they rubbed with cloth to make light for their homes and temples every night.",
-            "Static shocks happen only in Riyadh, where the air is dry, and they never happen in other cities.",
+            "Static shocks happen mostly in Riyadh, where the air is dry, and rarely in coastal cities.",
             "Static electricity results when electrons transfer between materials, creating charges that attract, repel, and discharge as sparks.",
             "Protons move easily from one object to another, which is why a balloon can stick to a wall or a sleeve."
           ],
@@ -591,8 +591,8 @@
         {
           "stem": "How is the balloon on the wall different from the hair standing on end?",
           "options": [
-            "Only the balloon has a charge, and the hair has none at all, so they are not alike in any way, except that both move",
-            "The hair is neutral but the balloon is not charged, so only one of them is pulled by the opposite thing, while the other stays still",
+            "Only the balloon has a charge, and the hair has none, so they are not alike, except that both move",
+            "The hair is neutral but the balloon is charged, so the balloon pulls the hair while the wall stays still",
             "The balloon is pushed away, but the hairs pull together, so the balloon shows repulsion and the hair shows attraction between unlike things",
             "The balloon shows attraction between opposite charges, while the hair shows repulsion between like charges"
           ],

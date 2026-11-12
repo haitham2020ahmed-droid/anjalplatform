@@ -378,7 +378,7 @@
         {
           "stem": "Ahmed's pulse is 120 right after a race. What is the most likely reason?",
           "options": [
-            "His heart is weak and cannot keep up with races.",
+            "His heart is weak and cannot keep up with races with the others.",
             "His muscles needed more oxygen, so his heart sped up.",
             "He forgot to multiply his count by four.",
             "His heart stopped during the race."
@@ -474,8 +474,8 @@
           "options": [
             "Children's hearts beat faster than adults' hearts in every situation, so children should exercise less than adults do.",
             "The cardiovascular system supplies the body constantly, and regular aerobic exercise strengthens it while inactivity weakens it.",
-            "Measuring your heart rate is the only way to check your health, and doctors never need to look at anything else.",
-            "Exercise is dangerous in hot climates and should be avoided, because the heart cannot work well when the weather is warm."
+            "Measuring your heart rate is the best way to check your health, so doctors rarely look at anything else.",
+            "Exercise is risky in hot climates and should be avoided, because the heart works harder when the weather is warm."
           ],
           "answer": "B",
           "skill": "central-idea",

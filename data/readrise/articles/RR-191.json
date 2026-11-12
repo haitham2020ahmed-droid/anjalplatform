@@ -295,8 +295,8 @@
           "options": [
             "Plastic trash is harming the ocean, and people can help by cleaning it and keeping trash out.",
             "Coral reefs live only in the Red Sea, so plastic can never hurt them in other places.",
-            "Fishing nets are the only cause of ocean trash, and plastic bags come from nowhere else.",
-            "Ocean currents are too strong to study, so no one can say where the trash goes."
+            "Fishing nets are the main cause of ocean trash, and plastic bags come from ships.",
+            "Ocean currents are too strong to study, so scientists rarely track where the trash goes."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -396,7 +396,7 @@
           "stem": "Why does the author say the best solution is to keep trash out of the ocean in the first place?",
           "options": [
             "Because cleaning beaches is against the rules in most places, so nobody is allowed to do it",
-            "Because currents carry all trash back to land within a week",
+            "Because currents carry most trash back to land within a week",
             "Because volunteers do not want to help clean the water or sand",
             "Because once trash spreads and breaks apart, it is very hard to remove"
           ],
@@ -507,8 +507,8 @@
           "stem": "Where have researchers found microplastics, according to the article?",
           "options": [
             "Only near beaches",
-            "Only inside sea turtles",
-            "Only in the warm, clear water of the Red Sea",
+            "Mostly inside sea turtles",
+            "In the warm, clear water of the Red Sea",
             "In seafood, salt, and deep ocean trenches"
           ],
           "answer": "D",
@@ -560,7 +560,7 @@
             "To show that the patches are harmless to fish, to birds, and to people",
             "To suggest that people could someday walk across them",
             "To correct a common misunderstanding and show why cleanup is hard",
-            "To prove that ocean currents do not move any trash at all in the sea"
+            "To prove that ocean currents do not move any trash in the sea"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -592,7 +592,7 @@
           "stem": "How does cleaning up debris compare with prevention, according to the article?",
           "options": [
             "Cleaning up is easier because currents gather trash in one place, so a single boat can collect it all",
-            "They are equally difficult, because plastic spreads in all seas",
+            "They are equally difficult, because plastic spreads in the seas",
             "Prevention is more effective because removing plastic from the vast ocean is much harder",
             "Prevention is impossible because plastic is needed in daily life"
           ],

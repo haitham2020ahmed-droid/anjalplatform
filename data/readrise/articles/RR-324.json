@@ -166,7 +166,7 @@
      "stem": "Why do you think Australia's animals are so different from animals on other continents?",
      "options": [
       "Australia is the coldest continent on Earth, covered in ice all year.",
-      "Australia has no oceans anywhere nearby, only dry land on every side.",
+      "Australia has few oceans nearby, mostly dry land on each side.",
       "Australia is connected to Africa by a bridge of land across the sea.",
       "Australia sits alone in the ocean, far from other continents."
      ],
@@ -184,7 +184,7 @@
      "options": [
       "Saudi Arabia must be the biggest country in Asia and in the world.",
       "Saudi Arabia is one of many countries that make up a large continent.",
-      "Saudi Arabia has no neighboring countries at all around it.",
+      "Saudi Arabia has no neighboring countries around it.",
       "Saudi Arabia sits on its own separate continent in the sea."
      ],
      "answer": "B",
@@ -234,9 +234,9 @@
      "stem": "What happened to the land long ago that explains why the continents sit where they do today?",
      "options": [
       "Big plates of rock under the ground shifted very slowly.",
-      "A giant storm pushed all the land into new places.",
+      "A giant storm pushed all the land into new places in one day.",
       "People built new land using ships and stone.",
-      "The oceans completely dried up for many years."
+      "The oceans dried up for many years."
      ],
      "answer": "A",
      "skill": "cause-effect",
@@ -310,7 +310,7 @@
     {
      "stem": "According to the article, what connects North America and South America?",
      "options": [
-      "A wide ocean with no land at all",
+      "A wide ocean with no land",
       "A line of ancient mountains called the Urals",
       "A thin strip of land called Central America",
       "A narrow strip of land called the Sinai Peninsula"
@@ -345,8 +345,8 @@
      "stem": "Why might the boundary between Europe and Asia be considered more of a convention than a true physical divide?",
      "options": [
       "No ocean truly separates them, since they share one landmass marked mainly by mountains.",
-      "A deep ocean clearly and completely separates the two continents from each other on the map",
-      "Europe and Asia are actually on completely different landmasses, far apart",
+      "A deep ocean clearly and separates the two continents from each other on the map",
+      "Europe and Asia are actually on different landmasses, far apart",
       "Scientists have never agreed where Europe begins or ends on the map"
      ],
      "answer": "A",
@@ -362,9 +362,9 @@
      "stem": "Australia's isolation allowed its plants and animals to evolve in unusual ways. What does this suggest about isolated landmasses in general?",
      "options": [
       "Isolation tends to produce the exact same species found everywhere else.",
-      "Isolated landmasses can never support any life at all.",
+      "Isolated landmasses support little life.",
       "Being cut off from other landmasses can lead to unique forms of life.",
-      "Only continents near the equator can become isolated."
+      "Continents near the equator are the ones that become isolated."
      ],
      "answer": "C",
      "skill": "inference",
@@ -381,7 +381,7 @@
       "To move slowly over time",
       "To shake violently and suddenly",
       "To sink quickly underwater",
-      "To stay perfectly still forever"
+      "To stay perfectly still"
      ],
      "answer": "A",
      "skill": "vocabulary",
@@ -397,7 +397,7 @@
      "options": [
       "By telling a single story about one scientist's journey from her home to the poles and back",
       "By ranking every country in the world from richest to poorest, one place after the other",
-      "By comparing only the sports played on each continent, such as football and cricket",
+      "By comparing the sports played on each continent, such as football and cricket",
       "By describing each continent one at a time, then explaining their shared origin"
      ],
      "answer": "D",
@@ -414,8 +414,8 @@
      "options": [
       "They made all the continents merge back into one single landmass.",
       "They caused the continents to settle into the positions seen today.",
-      "They caused every ocean on Earth to completely disappear.",
-      "They stopped the continents from moving at all, forever."
+      "They caused most oceans on Earth to disappear.",
+      "They stopped the continents from moving."
      ],
      "answer": "B",
      "skill": "cause-effect",
@@ -492,7 +492,7 @@
       "A modern country located in Eurasia",
       "A mountain range dividing Europe and Asia",
       "The single ancient supercontinent that most continents once formed",
-      "An ocean that completely disappeared many millions of years ago without a trace"
+      "An ocean that disappeared many millions of years ago without a trace"
      ],
      "answer": "C",
      "skill": "detail",
@@ -507,7 +507,7 @@
      "stem": "What does the article say connects North America and South America?",
      "options": [
       "The narrow strip of land known as Central America",
-      "A canal that completely separates the two continents",
+      "A canal that separates the two continents",
       "A line of mountains called the Urals",
       "The Sinai Peninsula, shared with Africa and Asia"
      ],
@@ -523,8 +523,8 @@
     {
      "stem": "Why can scientists measure the slow drift of continents, even though the movement is so small each year?",
      "options": [
-      "Because tectonic plates occasionally stop moving entirely for centuries",
-      "Because continents only move during major earthquakes deep beneath the ocean floor and nowhere else",
+      "Because tectonic plates occasionally stop moving for centuries",
+      "Because continents only move during major earthquakes deep beneath the ocean floor",
       "Because oceans shrink at the same rate continents drift",
       "Because precise tools can detect even extremely tiny amounts of change over time"
      ],
@@ -542,7 +542,7 @@
      "options": [
       "Its climate is identical to every other continent on Earth, so the animals are the same.",
       "Its long-term isolation by ocean limited contact with species from other landmasses.",
-      "Its location directly on the equator causes all the difference, since the sun is hotter there.",
+      "Its location directly on the equator causes the difference, since the sun is hotter there.",
       "Its connection to Asia allowed constant mixing of species, which made its animals very common."
      ],
      "answer": "B",
@@ -591,7 +591,7 @@
     {
      "stem": "How does the relationship between Europe and Asia compare with the relationship between North and South America, according to the article?",
      "options": [
-      "Both pairs of continents are completely separated from one another by wide, deep oceans on every side.",
+      "Both pairs of continents are completely separated from one another by wide, deep oceans on every side and through the year.",
       "Neither pair of continents has any land connection at all.",
       "Europe and Asia share one unbroken landmass, while North and South America are joined by only a narrow strip of land.",
       "Only North and South America sit on the exact same landmass."

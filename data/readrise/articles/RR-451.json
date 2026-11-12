@@ -185,7 +185,7 @@
             "He wanted to make the bulb look much prettier than before",
             "He was very bored and had absolutely nothing else to do",
             "He wanted a wire that would glow long without burning out",
-            "He needed to use up all the wire kept in his lab"
+            "He needed to use up the wire kept in his lab"
           ],
           "answer": "C",
           "skill": "inference",
@@ -295,7 +295,7 @@
           "options": [
             "Candles are more useful than light bulbs",
             "Thomas Edison and other inventors worked to create a safe, lasting electric light",
-            "Joseph Swan lived a difficult life in England",
+            "Joseph Swan lived a difficult life in England and gave up science to become a teacher",
             "Factories only make light bulbs"
           ],
           "answer": "B",
@@ -344,7 +344,7 @@
         {
           "stem": "Why did Edison and his team carefully record every single result?",
           "options": [
-            "To sell their notes to other scientists",
+            "To sell their notes to other scientists who wanted to copy the work",
             "Because they were required to by law",
             "To keep track of what worked and what did not, so they could improve",
             "To prove that Joseph Swan was wrong"
@@ -362,7 +362,7 @@
           "stem": "Why do you think factories began producing bulbs on a large scale?",
           "options": [
             "So that candles would become more popular again",
-            "Because the government ordered every home to buy one",
+            "Because the government ordered every home to buy one at that time",
             "Because Edison wanted to stop making bulbs himself",
             "So that ordinary families everywhere could afford and use them"
           ],
@@ -398,7 +398,7 @@
             "It lists facts in no particular order",
             "It tells the story in the order the events happened",
             "It compares two unrelated inventions",
-            "It argues that candles are better than bulbs"
+            "It argues that candles are better than bulbs for reading"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -415,7 +415,7 @@
             "Candles became too expensive to produce",
             "The government banned open flames",
             "Edison's bulb proved cheap to make and lasted a long time",
-            "Joseph Swan closed his workshop in England"
+            "Joseph Swan closed his workshop in England and sold his tools"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -475,7 +475,7 @@
             "Candles stayed the safest way to light a home",
             "Joseph Swan's laboratory stood in the same city as Edison's",
             "Edison and other inventors solved the problem of short-lived light through steady experimentation",
-            "Factories only grew important after electricity was invented"
+            "Factories became important after electricity was invented, so inventors worked to light them at night"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -491,7 +491,7 @@
           "options": [
             "They produced far too little light to be of any real use",
             "They required an expensive fuel that few families could afford to buy",
-            "They could not safely be lit anywhere indoors at all",
+            "They could not safely be lit anywhere indoors",
             "A single stray spark could ignite a destructive, fast-spreading fire"
           ],
           "answer": "D",
@@ -526,7 +526,7 @@
             "Edison managed to succeed on his very first careful attempt",
             "Testing many materials is usually a waste of valuable time",
             "Scientific progress often requires extensive trial and error before success",
-            "Only a single material has ever been tested for any invention"
+            "Only a single material has ever been tested for any invention in the history of science"
           ],
           "answer": "C",
           "skill": "inference",
@@ -540,9 +540,9 @@
         {
           "stem": "Why does the article mention that inventors in multiple countries were racing toward the same prize?",
           "options": [
-            "To show that only a single country cared about electric light",
+            "To show that only a single country cared about electric light in the race to invent it",
             "To prove that Edison secretly stole ideas from other nations",
-            "To argue that this kind of competition always slows down progress",
+            "To argue that this kind of competition slows down progress",
             "To suggest that competition and shared goals can drive innovation forward"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "How does the article's structure support its central idea?",
           "options": [
             "It presents the problem, the struggle to solve it, and the eventual impact in sequence",
-            "It randomly jumps between many unrelated topics with no clear order",
+            "It jumps between many unrelated topics with no clear order, so readers must find the links",
             "It only ever describes Edison's own personal life story",
-            "It focuses entirely on comparing the prices of different bulbs"
+            "It focuses on comparing the prices of different bulbs"
           ],
           "answer": "A",
           "skill": "text-structure",

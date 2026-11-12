@@ -219,7 +219,7 @@
             "They were big and heavy.",
             "They could send photos.",
             "They were tiny and light.",
-            "They had no buttons at all."
+            "They had no buttons."
           ],
           "answer": "A",
           "skill": "compare",
@@ -313,7 +313,7 @@
             "Send messages along wires for miles",
             "Carry the sound of a human voice",
             "Send clicks for each letter of a word",
-            "Work without any electricity at all"
+            "Work without any electricity"
           ],
           "answer": "B",
           "skill": "compare",

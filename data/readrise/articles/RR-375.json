@@ -310,7 +310,7 @@
     {
      "stem": "What did the villagers do the first time Samir shouted that a wolf was attacking his sheep?",
      "options": [
-      "They ignored him completely and continued their daily work",
+      "They ignored him and continued their daily work",
       "They quickly sent the sheepdog alone to check on the flock",
       "They dropped their work and rushed up the hill in a panic",
       "They calmly warned Samir never to shout like that again"
@@ -415,7 +415,7 @@
       "It lists farming steps for raising a healthy flock of sheep",
       "It shows three false alarms, then a real danger that tests trust",
       "It compares Samir's village with a village from long ago",
-      "It describes a calm, peaceful day with no problems at all"
+      "It describes a calm, peaceful day with no problems"
      ],
      "answer": "B",
      "skill": "text-structure",
@@ -509,7 +509,7 @@
       "Samir offered them a generous reward for climbing the hill",
       "They had already spotted the wolf from a safe distance",
       "The unusually urgent, unending barking of the sheepdog",
-      "The consequence of staying home felt completely unbearable"
+      "The consequence of staying home felt unbearable"
      ],
      "answer": "C",
      "skill": "detail",
@@ -557,7 +557,7 @@
     {
      "stem": "Put these events in the correct order.",
      "options": [
-      "A real wolf appears, villagers lose trust, Samir lies twice more",
+      "A real wolf finally appears, villagers lose trust, Samir lies twice more",
       "Samir lies twice more, villagers lose trust, a real wolf finally appears",
       "Villagers lose trust, Samir lies twice more, a real wolf appears",
       "A real wolf appears, Samir lies twice more, villagers lose trust"

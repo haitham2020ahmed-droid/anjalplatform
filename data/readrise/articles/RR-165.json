@@ -201,7 +201,7 @@
           "options": [
             "Forest rocks are all made of iron, so they look alike.",
             "Dark rocks stand out on sand, and few plants hide them.",
-            "Meteorites only fall on deserts and never on forests.",
+            "Meteorites fall on deserts more often than on forests.",
             "Forests have no ground for space rocks to land on."
           ],
           "answer": "B",
@@ -330,7 +330,7 @@
             "It rubs against the air so fast that it gets very hot.",
             "The sun shines on it brightly even in the middle of the night.",
             "It is covered in light-colored sand that shines.",
-            "It is made of a special metal that always glows."
+            "It is made of a special metal that glows."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -380,7 +380,7 @@
           "options": [
             "It is the warmest and wettest place on Earth.",
             "It is a cold desert where dark rocks stand out.",
-            "Meteorites only fall near the South Pole and nowhere else.",
+            "Meteorites only fall near the South Pole.",
             "The ice there is made of iron, which attracts space rocks."
           ],
           "answer": "B",
@@ -557,9 +557,9 @@
         {
           "stem": "Why would a meteorite be harder to find in a wet, green forest than in the Empty Quarter?",
           "options": [
-            "Forests have no rocks at all, so nothing can be found.",
+            "Forests have no rocks, so nothing can be found.",
             "Plants could hide it, and moisture would rust it.",
-            "Meteorites cannot fall through the branches of tall trees.",
+            "Meteorites burn up over forests because the air is wet.",
             "Forest soil is magnetic and pulls meteorites underground."
           ],
           "answer": "B",

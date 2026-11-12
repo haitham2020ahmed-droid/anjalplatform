@@ -361,9 +361,9 @@
         {
           "stem": "What is one result of a fort being built on a hill?",
           "options": [
-            "The fort becomes completely impossible for anyone to ever find",
+            "The fort becomes impossible for anyone to ever find",
             "A guard can spot an approaching enemy from a good distance away.",
-            "The fort needs no gate at all.",
+            "The fort needs no gate.",
             "The fort cannot ever have any towers built at any of its four corners"
           ],
           "answer": "B",
@@ -398,7 +398,7 @@
             "It gives guards somewhere to grow vegetables.",
             "It keeps the whole fort noticeably cooler during the hot summer",
             "It adds another layer an enemy must get past to reach the walls.",
-            "It completely replaces the need for any walls, moats, or towers at all"
+            "It replaces the need for any walls, moats, or towers"
           ],
           "answer": "C",
           "skill": "inference",
@@ -475,7 +475,7 @@
             "Fortifications combine several deliberate design choices to give defenders a lasting advantage.",
             "Only European armies ever built fortifications.",
             "Moats were built mainly to provide fresh drinking water.",
-            "Masmak Fort in Riyadh was built entirely without any walls, towers, gates, or other defensive features of any kind"
+            "Masmak Fort in Riyadh was built with few walls or towers, so it relied on its gates and its high walls"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -543,7 +543,7 @@
             "Defenders gained extra time to prepare before an invader arrived.",
             "The fortification became invisible to enemies.",
             "The fortification no longer needed any walls.",
-            "Guards inside could no longer see any of the surrounding land at all clearly"
+            "Guards inside could see less of the surrounding land and roads"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,8 +574,8 @@
         {
           "stem": "Based on the article, why would an invader likely avoid attacking a fortification built on high ground?",
           "options": [
-            "High ground somehow made the entire fortification completely impossible to see",
-            "High ground made moats unnecessary everywhere.",
+            "High ground somehow made the entire fortification impossible to see",
+            "High ground made moats unnecessary.",
             "High ground gave defenders both early warning and a height advantage.",
             "High ground meant there were no walls to climb."
           ],
@@ -591,7 +591,7 @@
         {
           "stem": "How does the article mostly develop its explanation of defensive architecture?",
           "options": [
-            "By comparing two completely unrelated modern buildings from different, far-off countries",
+            "By comparing two unrelated modern buildings from different, far-off countries",
             "By telling a fictional story about a guard",
             "By listing rules for a board game",
             "By describing one defensive feature after another and then giving a real example"

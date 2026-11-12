@@ -219,7 +219,7 @@
             "The ripe dates became sour",
             "The shoots and dates were saved",
             "The trees grew much taller",
-            "The family lost the harvest"
+            "The family lost the harvest in the cold"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -236,7 +236,7 @@
             "To show Grandma liked to talk",
             "To explain how to grow trees",
             "To show where Noor's idea came from",
-            "To describe Grandma's old house"
+            "To describe Grandma's old house in the village"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -380,8 +380,8 @@
           "options": [
             "She never once visited the orchard when she was young",
             "She had learned useful ways to protect crops from cold",
-            "She did not really like dates, so she never grew them",
-            "She was always afraid of cold weather and stayed inside"
+            "She did not like dates, so she did not grow them",
+            "She was afraid of cold weather and stayed inside"
           ],
           "answer": "B",
           "skill": "inference",
@@ -475,7 +475,7 @@
             "An early cold front threatens the harvest, but a girl's memory of old advice persuades her parents to protect it",
             "Dates are simply impossible to grow in Saudi Arabia, since the weather is too cold, and the farm will fail",
             "Noor's parents never trust her again after she wakes them up at night, so the harvest is lost to the frost",
-            "The story is only about the history of date farming in the oasis, and the cold front is not important to it"
+            "The story is mainly about the history of date farming in the oasis, and the cold front matters little"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -492,7 +492,7 @@
             "They had been planted too close together in the rows",
             "They lacked the thicker bark that shields older branches",
             "They had already been harvested that day by the workers",
-            "They were planted entirely in the shade of the big trees"
+            "They were planted in the shade of the big trees"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -509,7 +509,7 @@
             "It was described as far milder than usual",
             "It arrived weeks earlier than usual",
             "It was expected months in advance",
-            "It actually never arrived at all"
+            "It actually never arrived"
           ],
           "answer": "B",
           "skill": "detail",
@@ -540,7 +540,7 @@
         {
           "stem": "What can you infer about why Noor's parents eventually agreed to try the old method?",
           "options": [
-            "They had always planned to follow Grandma's way",
+            "They had planned to follow Grandma's way",
             "Noor's calm, steady reasoning wore down their doubts",
             "A neighbor convinced them to try it instead",
             "The radio forecast suddenly changed its prediction"
@@ -558,7 +558,7 @@
           "stem": "Put these events in the correct order.",
           "options": [
             "The forecast is heard, parents agree, shoots are covered, cold front arrives",
-            "The cold front arrives, forecast heard, shoots covered, parents agree",
+            "The cold front arrives, the forecast is heard, shoots are covered, parents agree",
             "Parents agree, forecast heard, cold front arrives, shoots covered",
             "Shoots are covered, cold front arrives, parents agree, forecast heard"
           ],
@@ -574,7 +574,7 @@
         {
           "stem": "What does the family's experience suggest about traditional farming knowledge?",
           "options": [
-            "It is always less useful than forecasts",
+            "It is less useful than forecasts",
             "It should fully replace weather forecasts",
             "It can still offer practical solutions today",
             "It only really matters for flowers"
@@ -591,7 +591,7 @@
         {
           "stem": "Why does the author include Noor's insistence that the credit belonged to her grandma?",
           "options": [
-            "To suggest Noor felt no pride at all",
+            "To suggest Noor felt no pride",
             "To show Grandma still worked on the farm",
             "To argue children should not help with farming",
             "To show how valuable old knowledge can be"

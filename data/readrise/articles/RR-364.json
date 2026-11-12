@@ -117,7 +117,7 @@
       "A boy who builds a brand-new park in his quiet neighborhood",
       "A family that packs up and moves to a new house far away",
       "A girl who joins a map club and learns to measure distance carefully",
-      "A teacher who gives the whole class a hard test about mosques"
+      "A teacher who gives the whole class a hard test about mosques and their history"
      ],
      "answer": "C",
      "skill": "central-idea",
@@ -132,7 +132,7 @@
      "stem": "Why did Lina's first map look wrong?",
      "options": [
       "She drew the park much too close to the mosque on her map",
-      "She simply forgot to draw the small shop at all",
+      "She simply forgot to draw the small shop",
       "She drew the entire street in the wrong color completely",
       "She just copied her older brother's map without looking"
      ],
@@ -200,7 +200,7 @@
      "stem": "Why did Lina's first map have a mistake in it?",
      "options": [
       "Fahd secretly drew the completely wrong map for her",
-      "Lina had genuinely never once visited the street before",
+      "Lina had genuinely never once visited the street before in her life",
       "The old mosque mysteriously moved to a brand-new spot",
       "She only looked at the street quickly instead of measuring it"
      ],
@@ -218,7 +218,7 @@
      "options": [
       "It only works for measuring very short lines",
       "It gives a more exact distance than just guessing by eye",
-      "It cannot possibly be used to make any map",
+      "It is too slow to use for making a map",
       "It is actually less accurate than simply guessing by eye"
      ],
      "answer": "B",
@@ -293,8 +293,8 @@
     {
      "stem": "Which sentence best states the central idea of the story?",
      "options": [
-      "Lina joins a geography club and simply gives up after her first map has a mistake",
-      "The club leader flatly refuses to let Lina join the geography club at all",
+      "Lina joins a geography club and simply gives up after her first map has a mistake and goes home",
+      "The club leader flatly refuses to let Lina join the geography club",
       "Lina joins a club and, through trial and error, learns to measure distance and use a scale",
       "Fahd quietly draws Lina's entire map for her from start to finish"
      ],
@@ -363,7 +363,7 @@
      "options": [
       "So Lina could learn to measure distance accurately on her own",
       "Because he did not know how to fix the map himself",
-      "Because the club leader forbade him from helping at all",
+      "Because the club leader forbade him from helping",
       "Because counting steps is required before anyone can join the club"
      ],
      "answer": "A",
@@ -381,7 +381,7 @@
       "So members would see for themselves why careful measuring matters",
       "Because measuring tools were too expensive for the club to buy",
       "Because the club leader forgot to bring any tools that day",
-      "Because maps drawn without tools are always more accurate"
+      "Because maps drawn without tools are more accurate"
      ],
      "answer": "A",
      "skill": "inference",
@@ -398,7 +398,7 @@
       "Because she quietly asks a complete stranger to redraw it for her",
       "Because she measures real distances and applies a scale",
       "Because the street itself somehow becomes noticeably shorter over time",
-      "Because she suddenly stops including any landmarks on it at all"
+      "Because she suddenly stops including any landmarks on it"
      ],
      "answer": "B",
      "skill": "cause-effect",
@@ -472,7 +472,7 @@
     {
      "stem": "Which statement best expresses the central idea of the story?",
      "options": [
-      "A club leader claims memory-drawn maps are always just as accurate as surveyed ones",
+      "A club leader claims memory-drawn maps are just as accurate as surveyed ones",
       "Fahd insists that only trained adults, never young beginners, can make a usable map",
       "A beginner learns through trial and error that measurement and scale make a map accurate",
       "Lina decides a map's orientation matters more than its scale or measured distances"
@@ -490,8 +490,8 @@
      "stem": "Why did the club leader assign the first map without any measuring tools?",
      "options": [
       "So members would discover firsthand how estimating by eye causes distance errors",
-      "Because the whole club could not afford to buy any basic measuring tools at all",
-      "Because the leader secretly intended for every first map to be thrown away unused",
+      "Because the whole club could not afford to buy any basic measuring tools",
+      "Because the leader planned for the first maps to be thrown away unused",
       "Because measuring tools are strictly forbidden under the club's own official rules"
      ],
      "answer": "A",
@@ -524,8 +524,8 @@
      "stem": "In the story, the word proportional describes a map in which —",
      "options": [
       "every landmark on the map is exactly the same physical size as the real one",
-      "only landmarks that face north are included on the map, and the rest are left out",
-      "the map always uses the same colors as the real landmarks do in the desert",
+      "landmarks that face north are included on the map, and the rest are left out",
+      "the map uses the same colors as the real landmarks do in the desert",
       "distances on the map correctly reflect the real distances between places"
      ],
      "answer": "D",
@@ -543,7 +543,7 @@
       "Because Fahd lacks enough confidence in his own measuring ability",
       "Because club rules require every correction to be done only by an older sibling",
       "So Lina genuinely develops the skill of measuring and using a scale herself",
-      "Because Lina firmly refuses any form of help from her own brother"
+      "Because Lina refuses help from her own brother"
      ],
      "answer": "C",
      "skill": "inference",
@@ -574,8 +574,8 @@
     {
      "stem": "What can readers infer from the fact that Lina's revised map, using a measured scale, ends up far more accurate than her first attempt?",
      "options": [
-      "A map's accuracy depends entirely on the mapmaker's confidence",
-      "Memory-based sketches are always more detailed than measured ones",
+      "A map's accuracy depends on the mapmaker's confidence",
+      "Memory-based sketches are more detailed than measured ones",
       "The club leader's original assignment had no real educational value",
       "Systematic measurement and a consistent scale give more reliable results"
      ],
@@ -594,7 +594,7 @@
       "To suggest that Lina's careful measuring work was ultimately unnecessary for the final map",
       "To show that a complete map needs more than distance, including orientation and symbols",
       "To prove the club leader required these additions before accepting any map from the members",
-      "To imply that the mosque and shop were removed from the map entirely by the club"
+      "To imply that the mosque and shop were removed from the map by the club"
      ],
      "answer": "B",
      "skill": "author-purpose",

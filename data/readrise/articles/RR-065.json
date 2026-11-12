@@ -474,7 +474,7 @@
           "options": [
             "Handwashing with soap is a simple, proven way to limit germs.",
             "Ignaz Semmelweis was the most important doctor in history.",
-            "Hand sanitizer has completely replaced the need for soap and water everywhere.",
+            "Hand sanitizer has replaced the need for soap and water.",
             "Most bacteria are dangerous and should be destroyed."
           ],
           "answer": "A",
@@ -541,7 +541,7 @@
           "stem": "Why is soap able to remove germs from skin?",
           "options": [
             "It makes the skin far too slippery for any germs to land on it.",
-            "It heats the water so germs cannot survive.",
+            "It heats the water so germs die.",
             "It hides germs under bubbles.",
             "Its molecules attach to water and to oily dirt."
           ],
@@ -575,8 +575,8 @@
           "stem": "Why is touching your face after touching a contaminated surface especially risky?",
           "options": [
             "Your face has openings where germs can enter.",
-            "Your face always has many more bacteria living on it than your hands do.",
-            "Germs on a surface are always harmless.",
+            "Your face has many more bacteria living on it than your hands do.",
+            "Germs on a surface are harmless.",
             "Touching your face makes soap stop working."
           ],
           "answer": "A",

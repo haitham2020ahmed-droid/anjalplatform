@@ -295,8 +295,8 @@
           "options": [
             "Careful testing and feedback fixed Rex's mistimed laugh.",
             "Rex is a hospital robot that only tells jokes to busy nurses each morning.",
-            "The sensor inside Rex was taken out and never used again at the hospital.",
-            "Dr. Lina built Rex only to greet visitors waiting at the front door daily."
+            "The sensor inside Rex was taken out and replaced with a speaker at the hospital.",
+            "Dr. Lina built Rex to greet visitors waiting at the front door each day."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,7 +344,7 @@
         {
           "stem": "In the article, the word adjust means —",
           "options": [
-            "to remove something completely and forever",
+            "to remove something and",
             "to change something so it works better",
             "to make a loud sound with your voice",
             "to copy something exactly like the first"
@@ -395,7 +395,7 @@
         {
           "stem": "What happened after the engineers added the two-second delay?",
           "options": [
-            "Rex stopped telling jokes completely after the change",
+            "Rex stopped telling jokes after the change",
             "Rex's laugh became comforting instead of startling",
             "The sensor was removed from Rex and put in a box",
             "Nurses had to retrain every day for the next month"
@@ -473,8 +473,8 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Rex malfunctioned so badly that the hospital removed him from the ward permanently, and the kids missed him.",
-            "A sensitive microphone is always more reliable than any human sense in a hospital, so doctors need no ears.",
-            "The kids on the ward were given full responsibility for Rex's laugh algorithm and wrote all of its code.",
+            "A sensitive microphone is more reliable than any human sense in a hospital, so doctors need no ears.",
+            "The kids on the ward were given responsibility for Rex's laugh algorithm and wrote its code.",
             "Careful calibration and patient feedback turned a flawed prototype into a comforting, simulated companion."
           ],
           "answer": "D",
@@ -506,9 +506,9 @@
         {
           "stem": "In the article, the word calibrate means —",
           "options": [
-            "to completely remove a part from inside a machine",
+            "to remove a part from inside a machine",
             "to carefully adjust something so that it works correctly",
-            "to copy a recorded sound exactly, word for word",
+            "to copy a recorded sound exactly, word for word on a computer",
             "to permanently turn a machine off and unplug it"
           ],
           "answer": "B",
@@ -523,8 +523,8 @@
         {
           "stem": "How did the team fix the algorithm that controlled Rex's laugh?",
           "options": [
-            "They disconnected the microphone from the system entirely",
-            "They let Rex choose his own laugh timing completely at random",
+            "They disconnected the microphone from the system entirely during the test",
+            "They let Rex choose his own laugh timing at random",
             "They recalibrated the microphone and added a short, measured delay",
             "They replaced the whole algorithm with one simple button"
           ],
@@ -540,9 +540,9 @@
         {
           "stem": "Why is it important that Dr. Lina explicitly reminds everyone Rex does not feel real joy?",
           "options": [
-            "Because robots are not normally allowed inside hospitals at all",
+            "Because robots are not normally allowed inside hospitals",
             "Because Rex's laugh sound became far too quiet to notice",
-            "Because the algorithm could never be recalibrated ever again",
+            "Because the algorithm could never be recalibrated ever again after the test",
             "Because people might mistake a simulated response for a real emotion"
           ],
           "answer": "D",
@@ -575,7 +575,7 @@
           "stem": "Why did kids' feedback end up mattering as much as the engineers' lab tests?",
           "options": [
             "Real reactions on the ward revealed problems that lab tests alone might miss",
-            "Kids were simply better than engineers at writing computer algorithms",
+            "Kids were simply better than engineers at writing computer algorithms in the lab",
             "Hospital rules required kids to approve every single robot before use",
             "Earlier lab tests had already shown no problems with the sensor"
           ],

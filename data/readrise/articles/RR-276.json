@@ -131,7 +131,7 @@
         {
           "stem": "What does a gymnast do on the balance beam?",
           "options": [
-            "Swimming laps across a deep pool",
+            "Swimming laps across a deep pool at a club",
             "Walking and jumping on a narrow beam",
             "Lifting heavy weights outdoors",
             "Riding a bicycle around a track"
@@ -148,7 +148,7 @@
         {
           "stem": "Why do gymnasts stretch before they practice?",
           "options": [
-            "Making the mat beneath them softer",
+            "Making the mat beneath them softer and dry",
             "Growing a few centimeters taller",
             "Warming up their muscles to bend easily",
             "Cooling the body down after a run"
@@ -217,7 +217,7 @@
           "stem": "Why is strength especially important for a gymnast?",
           "options": [
             "It helps them read books faster",
-            "It makes the practice mat bouncier",
+            "It makes the practice mat bouncier and softer",
             "It helps them jump high and hold steady",
             "It helps them grow taller quickly"
           ],
@@ -235,7 +235,7 @@
           "options": [
             "To tell readers to buy new gym equipment",
             "To compare gymnastics with swimming",
-            "To argue that gymnastics is too dangerous",
+            "To argue that gymnastics is too dangerous for children",
             "To explain what a gymnast needs to perform well"
           ],
           "answer": "D",
@@ -296,7 +296,7 @@
             "Gymnastics blends strength, flexibility, and balance.",
             "Gymnastics began only in Saudi Arabia long ago.",
             "The balance beam is considered the easiest apparatus to learn.",
-            "Only coaches, not gymnasts, need to stay flexible."
+            "Coaches, not gymnasts, need to stay flexible."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -378,10 +378,10 @@
         {
           "stem": "Why does a coach break a hard trick into small steps?",
           "options": [
-            "To make the trick more dangerous somehow",
+            "To make the trick more dangerous somehow for the judges",
             "To help the gymnast build precision gradually",
             "To slow down the Olympic Games schedule",
-            "To avoid teaching balance at all costs"
+            "To avoid teaching balance costs"
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,8 +395,8 @@
         {
           "stem": "What can you infer about why a flexible body matters for gymnasts?",
           "options": [
-            "It helps gymnasts swim faster somehow",
-            "It makes the balance beam wider overall",
+            "It helps gymnasts swim faster somehow in a pool",
+            "It makes the balance beam wider",
             "It helps prevent injuries during stretching",
             "It replaces the need for any strength"
           ],
@@ -475,7 +475,7 @@
             "Gymnastics builds artistry through years of discipline.",
             "Gymnastics is mainly quick entertainment with little training.",
             "Only the vault event requires any real skill.",
-            "Momentum is the only quality a gymnast needs."
+            "Momentum is the main quality a gymnast needs."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -542,7 +542,7 @@
           "options": [
             "A gymnast gains the precision needed to compete",
             "A gymnast becomes less flexible over time",
-            "A gymnast no longer needs a coach at all",
+            "A gymnast no longer needs a coach",
             "A gymnast grows noticeably taller each year"
           ],
           "answer": "A",
@@ -574,10 +574,10 @@
         {
           "stem": "How are discipline and artistry related in gymnastics, based on the article?",
           "options": [
-            "They are completely unrelated athletic qualities overall",
+            "They are unrelated athletic qualities",
             "Artistry removes the need for any real discipline",
             "Discipline and dedication build the control for artistry",
-            "Discipline only matters for coaches, not gymnasts"
+            "Discipline matters more for coaches than for gymnasts"
           ],
           "answer": "C",
           "skill": "compare",

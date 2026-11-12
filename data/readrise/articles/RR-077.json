@@ -114,7 +114,7 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to grow tall palm trees in the hot desert sand",
+            "How to grow tall palm trees in the hot desert sand near the sea",
             "Why camels need so little water",
             "How people carried frankincense across Arabia to trade it",
             "How ships are built for the sea"
@@ -296,7 +296,7 @@
             "Frankincense was used mostly to cook food in ancient Rome, so traders sold it to bakers.",
             "The Incense Road made towns rich until cheaper sea trade replaced it.",
             "Camels can walk for weeks without drinking any water, which is why they were used.",
-            "Hegra was the largest city in the ancient world, so the road led to it only."
+            "Hegra was the largest city in the ancient world, so the road was built to reach it."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -397,7 +397,7 @@
           "options": [
             "It was hard to get in those lands.",
             "It grew easily in every country.",
-            "It was used only by children.",
+            "It was used mostly by children.",
             "It spoiled after one day."
           ],
           "answer": "A",

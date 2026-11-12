@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How sailors learned to build large wooden ships",
+            "How sailors learned to build large wooden ships for long trips",
             "How people invented the compass and used it to sail the seas",
-            "How ancient China built tall city walls in the article",
-            "How traders grew food to sell in markets, as the article explains"
+            "How ancient China built tall city walls",
+            "How traders grew food to sell in markets"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -166,9 +166,9 @@
           "stem": "Why did sailors need a compass before long sea voyages?",
           "options": [
             "Because clouds could hide the stars, leaving them with no way to know direction",
-            "Because ships could not move at all without one, as the article explains",
-            "Because the ocean was too deep for sailors to cross overall",
-            "Because sailors were afraid of lodestones in the article, according to the text"
+            "Because ships could not move without one",
+            "Because the ocean was too deep for sailors to cross in small wooden boats",
+            "Because sailors were afraid of lodestones"
           ],
           "answer": "A",
           "skill": "inference",
@@ -182,10 +182,10 @@
         {
           "stem": "Why was the floating-needle compass an improvement over the spoon-shaped tool?",
           "options": [
-            "It was made of gold instead of stone in the article, according to the text",
-            "It did not need to point in any direction at all overall in this case",
+            "It was made of gold instead of stone",
+            "It did not need to point in any direction",
             "It worked steadily even on a moving ship, which a spinning spoon could not do as well",
-            "It was invented by sailors instead of scholars, as the article explains"
+            "It was invented by sailors instead of scholars who wanted a simple tool for their long trips"
           ],
           "answer": "C",
           "skill": "inference",
@@ -199,9 +199,9 @@
         {
           "stem": "In the article, a lodestone is best described as —",
           "options": [
-            "a kind of boat used by traders, as the article explains",
-            "a tool used only for cutting wood",
-            "a map showing trade routes in the article",
+            "a kind of boat used by traders",
+            "a tool used only for cutting wood in a forest",
+            "a map showing trade routes",
             "a stone that naturally pulls iron toward it"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the article mostly organize its information about the compass?",
           "options": [
-            "By comparing compasses from many different countries today, according to the text",
+            "By comparing compasses from many different countries today, from the biggest to the smallest",
             "By telling the story in time order, from the lodestone spoon to the floating needle to its spread",
-            "By listing the parts of a ship one by one in the article overall in this case",
-            "By arguing that stars are better than compasses, as the article explains"
+            "By listing the parts of a ship one by one",
+            "By arguing that stars are better than compasses"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -234,9 +234,9 @@
           "stem": "Why did sailors no longer need to see the stars once they had a compass?",
           "options": [
             "Because the compass needle itself always pointed a steady direction",
-            "Because ships stopped sailing at night completely",
-            "Because the stars disappeared from the sky in the article",
-            "Because sailors learned to read maps instead, as the article explains"
+            "Because ships stopped sailing at night and stayed in the harbor until the sun came up",
+            "Because the stars disappeared from the sky",
+            "Because sailors learned to read maps instead"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Chinese sailors invented the compass only to measure time, not direction overall in this case",
+            "Chinese sailors invented the compass to measure time on their long trips, not to find their direction at sea",
             "The compass, invented in ancient China, gradually changed from a lodestone spoon into a vital tool for ocean sailors",
-            "European sailors invented the compass long before Chinese scholars did, as the article explains",
-            "The compass was never actually useful to real sailors at sea in the article, according to the text"
+            "European sailors invented the compass long before Chinese scholars did",
+            "The compass was rarely useful to real sailors at sea"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What specific problem did sailors face before the compass was invented?",
           "options": [
-            "They could not build ships strong enough for the ocean overall",
-            "They had no food supplies for long voyages in the article, according to the text",
+            "They could not build ships strong enough to cross the ocean or to carry heavy cargo",
+            "They had no food supplies for long voyages",
             "They could lose their direction completely on cloudy nights or far from the coastline",
-            "They were not allowed to sail without permission, as the article explains"
+            "They were not allowed to sail without permission"
           ],
           "answer": "C",
           "skill": "detail",
@@ -327,8 +327,8 @@
         {
           "stem": "What change did the floating-needle compass bring, compared to the spinning spoon?",
           "options": [
-            "It pointed in a completely different direction, toward the east",
-            "It could not be used by sailors at sea at all",
+            "It pointed in a different direction, toward the east of the ship",
+            "It could not be used by sailors at sea",
             "It required burning fuel to keep it spinning",
             "It worked reliably even aboard a moving, rocking ship at sea"
           ],
@@ -345,7 +345,7 @@
           "stem": "What can you infer about why Arab sailors learned about the compass before most Europeans did?",
           "options": [
             "Trade routes connecting Asia to Arab lands likely carried the tool there first",
-            "European sailors refused to use any tools invented elsewhere",
+            "European sailors refused to use tools invented elsewhere, so Arab sailors kept the compass",
             "Arab sailors invented their own separate compass instead",
             "China refused to share the compass with anyone outside Asia"
           ],
@@ -378,9 +378,9 @@
         {
           "stem": "How is the information in the article mostly organized?",
           "options": [
-            "By comparing compasses used in several countries today overall",
-            "By explaining how to build a compass step by step in the article",
-            "By arguing that compasses caused more harm than good, as the article explains",
+            "By comparing compasses used in several countries today and explaining which one works best",
+            "By explaining how to build a compass step by step",
+            "By arguing that compasses caused more harm than good",
             "By following the compass's development and spread in the order it happened over time"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "Why did sailors feel confident traveling farther from land once they had a compass?",
           "options": [
-            "Ships had become completely unsinkable by this time, as the article explains",
+            "Ships had become unsinkable by this time",
             "They could depend on the needle for direction instead of needing to see stars or coastline",
-            "The ocean itself had become much calmer than before overall, according to the text",
-            "Storms had stopped happening on the open sea in the article in this case"
+            "The ocean itself had become much calmer than before, so storms and big waves were rare",
+            "Storms had stopped happening on the open sea"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -413,9 +413,9 @@
           "stem": "What can you infer about why the floating needle worked better at sea than the lodestone spoon did?",
           "options": [
             "A floating needle likely stayed steadier on moving water than a spinning spoon would on a tilting ship deck",
-            "The needle was painted a bright color that sailors liked, as the article explains",
-            "The spoon design was outlawed once ships began sailing in the article in this case",
-            "The needle was far heavier than the lodestone spoon had been overall, according to the text"
+            "The needle was painted a bright color that sailors liked",
+            "The spoon design was outlawed once ships began sailing",
+            "The needle was far heavier than the lodestone spoon had been, so the wind could not move it on deck"
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "A single European sailor invented the compass in the span of one single year overall in this case",
+            "A single European sailor invented the compass in one year, and other countries copied his design soon after that",
             "An ancient Chinese discovery about magnetic stones slowly evolved into a tool that transformed ocean navigation worldwide",
-            "The compass was quickly abandoned after Arab sailors first discovered it, as the article explains",
-            "Lodestones were only ever used for decorating temples and palaces in the article, according to the text"
+            "The compass was quickly abandoned after Arab sailors first discovered it",
+            "Lodestones were only ever used for decorating temples and palaces"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "What specific detail suggests the lodestone's magnetic pull was considered remarkable by early observers?",
           "options": [
-            "People noted that it changed color depending on the weather overall",
-            "People noted that it grew heavier the longer it was used in the article",
+            "People noted that it changed color depending on the weather and grew warm on sunny days",
+            "People noted that it grew heavier the longer it was used",
             "People noted that it always pointed in one steady direction, no matter how often it was spun",
-            "People noted that it glowed faintly in complete darkness, as the article explains"
+            "People noted that it glowed faintly in complete darkness"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "What evidence does the article give for the compass's impact on long-distance trade?",
           "options": [
-            "It describes a formal treaty signed between China and Europe overall",
-            "It describes a tax placed specifically on lodestones in the article",
-            "It describes a festival created to celebrate the invention, as the article explains",
+            "It describes a formal treaty signed between China and Europe to share the tool with their navies",
+            "It describes a tax placed specifically on lodestones",
+            "It describes a festival created to celebrate the invention",
             "It describes traders carrying the tool along busy routes stretching across Asia and beyond"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "How does the article's description of pre-compass navigation compare with post-compass navigation?",
           "options": [
             "Earlier sailors depended on vulnerable clues like stars, while later sailors had a dependable, constant tool",
-            "Both methods were described as equally unreliable in any condition, as the article explains",
-            "Earlier navigation was actually described as more advanced overall overall, according to the text",
-            "Neither method is ever described as being used by real sailors in the article in this case"
+            "Both methods were described as equally unreliable in any condition",
+            "Earlier navigation was described as more advanced, while later sailors lost the skill of reading the stars",
+            "Neither method is ever described as being used by real sailors"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about why this invention is linked to greater exploration of the world's oceans?",
           "options": [
-            "Ships themselves became completely immune to sinking during this period overall in this case",
-            "All other methods of navigation were officially banned by this time, as the article explains",
+            "Ships themselves became immune to sinking during this period",
+            "Other methods of navigation were officially banned by this time, so sailors were forced to use the compass on trips",
             "Sailors who could trust their direction were likely more willing to risk traveling far from familiar coastlines",
-            "The world's oceans became measurably smaller during this era in the article, according to the text"
+            "The world's oceans became measurably smaller during this era"
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,7 +574,7 @@
         {
           "stem": "Why does the article emphasize that pre-compass ocean travel was 'simply too risky' for most sailors?",
           "options": [
-            "To argue that no sailor ever successfully crossed the open ocean",
+            "To argue that sailors rarely crossed the open ocean before the compass reached Europe",
             "To highlight just how significant a change the compass represented for ordinary sailors",
             "To suggest that lodestones were actually too dangerous to touch",
             "To prove that Chinese sailors never personally used the compass"
@@ -592,9 +592,9 @@
           "stem": "Based on the article, what most likely allowed merchants, explorers, and navies to benefit 'enormously' from the compass?",
           "options": [
             "A dependable sense of direction let them travel farther and more confidently than earlier methods allowed",
-            "Governments began paying every single sailor a large bonus, as the article explains",
-            "Ships were redesigned to be powered entirely by steam in the article in this case",
-            "The compass eliminated the need for any trade routes at all overall, according to the text"
+            "Governments began paying sailors large bonuses for each long trip, so they sailed farther than before",
+            "Ships were redesigned to be powered by steam",
+            "The compass removed the need for trade routes"
           ],
           "answer": "A",
           "skill": "cause-effect",

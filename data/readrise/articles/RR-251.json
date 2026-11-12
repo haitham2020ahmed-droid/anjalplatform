@@ -236,7 +236,7 @@
             "In time order, from his birth to his death",
             "By comparing him to a modern doctor",
             "As a set of riddles to solve for fun",
-            "By listing facts about Spain's cities"
+            "By listing facts about Spain's cities and villages"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -396,7 +396,7 @@
           "stem": "What can you infer about why Al-Zahrawi's encyclopedia remained useful in Europe for hundreds of years?",
           "options": [
             "It contained practical, clearly explained techniques that still worked.",
-            "European doctors had no other medical books at all, so they used his",
+            "European doctors had few other medical books, so they used his in hospitals",
             "It was required reading by law for all doctors in Europe",
             "It was the shortest book available to the students"
           ],
@@ -542,7 +542,7 @@
           "options": [
             "He viewed careful preparation as essential to safe surgery.",
             "He believed surgery could be learned without study.",
-            "He thought instruments mattered more than knowledge.",
+            "He thought instruments mattered more than knowledge and skill.",
             "He believed only kings should perform surgery."
           ],
           "answer": "A",

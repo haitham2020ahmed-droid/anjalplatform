@@ -234,7 +234,7 @@
           "stem": "Why does the author tell about the storms in Saudi Arabia in 2018?",
           "options": [
             "To show a real time when rain led to many swarms",
-            "To explain how to build a house for storms",
+            "To explain how to build a house for storms in a desert town",
             "To list all the deserts in the world",
             "To tell readers that storms are fun"
           ],
@@ -296,7 +296,7 @@
             "Desert locusts live alone and never cause problems.",
             "Locusts can change after rain and form swarms that ruin crops.",
             "Cyclones are the most dangerous storms on Earth.",
-            "Locusts can fly farther than any other kind of insect on Earth."
+            "Locusts can fly farther than most other insects on Earth."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -380,8 +380,8 @@
           "options": [
             "Farmers were feeding them grain every day.",
             "The area was far away and hard to check.",
-            "The cyclones killed all the plants.",
-            "There was no rain at all that year."
+            "The cyclones killed the plants there.",
+            "There was no rain that year."
           ],
           "answer": "B",
           "skill": "inference",
@@ -560,7 +560,7 @@
             "To show why even a single swarm can quickly destroy a harvest",
             "To prove that locusts are heavier than other insects",
             "To explain why locusts change color in the rainy season each year",
-            "To show that young hoppers do not eat any plants at all"
+            "To show that young hoppers do not eat any plants"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -593,7 +593,7 @@
           "options": [
             "Locusts only live in one country.",
             "Swarms cross borders, so countries need to warn one another.",
-            "The United Nations owns and controls all of the deserts.",
+            "The United Nations owns and controls the deserts where swarms form.",
             "Sharing reports makes it rain less."
           ],
           "answer": "B",

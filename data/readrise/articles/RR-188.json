@@ -296,7 +296,7 @@
             "Ada Lovelace was often sick as a child, so she stayed at home all the time and learned little.",
             "Ada Lovelace's notes on Babbage's engine included the first program and showed great imagination.",
             "Charles Babbage built the first working computer, and it was finished in his own lifetime.",
-            "An Italian engineer wrote about machines in French, and Ada only read his old book and lost it."
+            "An Italian engineer wrote about machines in French, and Ada read his old book but lost it."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -329,7 +329,7 @@
           "options": [
             "They were much longer than the article and included step-by-step instructions",
             "They were written in French, and they were shorter than the main article",
-            "They were only a few short lines long and had no numbers or steps at all",
+            "They were only a few short lines long and had no numbers or steps",
             "They described how to fly a machine over the sea, and they were mostly drawings"
           ],
           "answer": "A",
@@ -475,7 +475,7 @@
             "Ada Lovelace translated a French article and nothing more, and she wrote no ideas of her own.",
             "Babbage built the Analytical Engine with Ada's help, and the two of them finished it in one year.",
             "Through her published notes, Ada wrote the first algorithm for a machine and imagined uses beyond math.",
-            "Ada invented the punched card and used it to weave cloth in a factory, and the machine was never built."
+            "Ada invented the punched card and used it to weave cloth in a factory, and the machine was not built."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -557,7 +557,7 @@
         {
           "stem": "Why does the author call Ada a \"visionary\"?",
           "options": [
-            "Because she had excellent eyesight and could see very far away without any glasses at all",
+            "Because she had excellent eyesight and could see very far away without any glasses",
             "Because she imagined machines that could do far more than arithmetic, such as composing music",
             "Because she translated many articles into French for her teacher, her friends, and her family",
             "Because she lived a long life and saw many things change in the world around her country"
@@ -576,8 +576,8 @@
           "options": [
             "Her early training in mathematics prepared her to understand and write instructions for Babbage's engine",
             "Her education made her dislike machines, so she refused to work with any engine or tool of Babbage",
-            "She learned everything from the Italian engineer, who taught her all her math at home",
-            "She never studied science or mathematics, and she wrote only poems and stories"
+            "She learned her math from the Italian engineer, who taught her at home",
+            "She studied little science or math, and she wrote mostly poems and stories"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Compare Babbage's contribution with Ada's. Which statement is most accurate?",
           "options": [
-            "Ada designed the whole engine completely by herself, while Babbage wrote all of the music it would play",
+            "Ada designed the whole engine by herself, while Babbage wrote all of the music it would play",
             "Neither of them worked with numbers",
             "Babbage designed the engine, while Ada explained how it could be programmed and what it might do",
-            "They both only wrote articles in French"
+            "They both wrote articles in French"
           ],
           "answer": "C",
           "skill": "compare",

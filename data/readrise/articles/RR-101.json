@@ -185,7 +185,7 @@
             "They are hidden deep under the sea.",
             "They only erupt at night.",
             "They are too small to see.",
-            "They stopped erupting long ago."
+            "They stopped erupting long ago many years ago."
           ],
           "answer": "A",
           "skill": "inference",
@@ -200,7 +200,7 @@
           "stem": "Worms and crabs live near the vents, where it is dark. What can you tell about these animals?",
           "options": [
             "They swim up to the sun every day.",
-            "They only live in the Red Sea.",
+            "They live in the Red Sea.",
             "They can live without sunlight.",
             "They eat lava for food."
           ],
@@ -398,7 +398,7 @@
             "It will dry up completely.",
             "It will be wider than it is today.",
             "It will turn into a mountain range.",
-            "It will stop having any cracks."
+            "It will have fewer cracks."
           ],
           "answer": "B",
           "skill": "inference",
@@ -525,7 +525,7 @@
           "options": [
             "Deep eruptions are usually gentle, while shallow ones can be extremely violent.",
             "Deep eruptions are more explosive because the water is colder and thicker.",
-            "Both kinds are always silent and harmless to everything around them.",
+            "Both kinds are silent and harmless to everything around them.",
             "Shallow eruptions only produce pillow lava and never make any ash."
           ],
           "answer": "A",
@@ -540,9 +540,9 @@
         {
           "stem": "What does the Hunga Tonga eruption suggest about shallow underwater volcanoes?",
           "options": [
-            "They are always too small to notice from far away.",
+            "They are too small to notice from far away.",
             "They only affect the deep seafloor and its fish.",
-            "They build islands without any danger to the coast.",
+            "They build islands with little danger to the coast.",
             "They can endanger coasts far across the ocean."
           ],
           "answer": "D",

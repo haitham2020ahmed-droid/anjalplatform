@@ -56,8 +56,12 @@ describe("📉📈 ReadRise level rules", () => {
     assert.equal(levelDecision([80, 85], { afterDrop: true }).delta, 50);
     assert.equal(levelDecision([80, 85]).delta, 0, "without a drop: 3 of 4 are needed");
     assert.equal(levelDecision([80, 70], { afterDrop: true }).delta, 0);
-    // up (unchanged)
-    assert.equal(levelDecision([75, 75, 75]).delta, 50);
+    // up — round 11 (Achieve3000: "routinely ABOVE 75%"): the strong scores must average above 75%
+    assert.equal(levelDecision([75, 75, 75]).delta, 0, "75, 75, 75 is not above 75%");
+    assert.equal(levelDecision([75, 75, 88]).delta, 50);
+    assert.equal(levelDecision([75, 75, 75], { level: 20 }).delta, 50, "an emerging reader (under 50L) moves up from 63%");
+    assert.equal(levelDecision([63, 63, 75], { level: 20 }).delta, 50);
+    assert.equal(levelDecision([63, 63, 75], { level: 300 }).delta, 0);
     assert.equal(levelDecision([30, 75, 80, 90]).delta, 50, "3 of the last 4");
     assert.equal(levelDecision([75, 75, 74]).delta, 0, "the latest must be 75%+");
     assert.equal(levelDecision([]).delta, 0);
@@ -65,7 +69,7 @@ describe("📉📈 ReadRise level rules", () => {
     assert.match(levelDecision([20, 10]).reason!, /the last two first-try scores were both 25% or lower \(20% and 10%\), so the articles were far too hard/);
     assert.match(levelDecision([45, 30]).reason!, /the last two first-try scores were both under 50% \(45% and 30%\)/);
     assert.match(levelDecision([80, 90], { afterDrop: true }).reason!, /back up after the drop: the last 2 first-try scores were 75% or higher \(80% and 90%\)/);
-    assert.match(levelDecision([80, 90, 100]).reason!, /3 of the last 3 first-try scores were 75% or higher \(latest 100%\)/);
+    assert.match(levelDecision([80, 90, 100]).reason!, /3 of the last 3 first-try scores were 75% or higher \(average 90%, above 75%\), latest 100%/);
     // limits
     assert.deepEqual([clampEngine(150), clampEngine(-500), clampEngine(1800), clampEngine(844)], [150, -400, 1700, 840]); // round 6: below 300 is real
     // an Unreliable run never takes part

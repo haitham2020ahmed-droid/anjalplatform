@@ -116,7 +116,7 @@
           "options": [
             "How countries build roads between cities",
             "What an archipelago is and how islands form",
-            "Why the sea is always blue",
+            "Why the sea is blue",
             "How fishermen catch fish near the coast"
           ],
           "answer": "B",
@@ -165,7 +165,7 @@
         {
           "stem": "How can a volcano form a new island?",
           "options": [
-            "Wind piles up sand until it rises above the water",
+            "Wind piles up sand until it rises above the water in the sea",
             "Fishermen build the island by hand",
             "Rain fills a hole until it turns into land",
             "Hot rock rises and builds up until it breaks the surface"
@@ -182,10 +182,10 @@
         {
           "stem": "What can you tell about island nations from the article?",
           "options": [
-            "People never ever leave their home island at all",
+            "People never ever leave their home island",
             "People often travel by boat or plane instead of by road",
-            "Every single island nation has only one island",
-            "Roads and bridges connect every island to the next"
+            "Each island nation has one island",
+            "Roads and bridges connect each island to the next in the sea"
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "How is living on an archipelago different from living on a mainland, according to the article?",
           "options": [
-            "It is exactly the same in every way",
+            "It is exactly the same in every way as on the mainland",
             "People travel by boat or plane, not by road",
-            "No one can ever leave their island",
-            "Archipelagos never have more than one island"
+            "People rarely leave their island",
+            "Archipelagos have one island"
           ],
           "answer": "B",
           "skill": "compare",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Archipelagos are always smaller than a single island in the same sea",
+            "Archipelagos are smaller than a single island in the same sea",
             "Archipelagos form in different ways and create unique nations",
-            "Coral never grows near volcanic islands, so reefs are always far from them",
-            "Mainlands always have more islands than archipelagos do in the world"
+            "Coral never grows near volcanic islands, so reefs are far from them",
+            "Mainlands have more islands than archipelagos do in the world"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -362,9 +362,9 @@
           "stem": "What can you infer about nations made of archipelagos from the article?",
           "options": [
             "They rely on boats and planes more than mainland nations",
-            "They never have any coastline anywhere at all",
-            "They always have far fewer people than mainland nations",
-            "They cannot ever have more than one hundred islands"
+            "They never have any coastline",
+            "They have far fewer people than mainland nations around the world",
+            "They have fewer than one hundred islands"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How is an island formed by coral different from an island formed by a volcano?",
           "options": [
-            "A coral island is always much larger than any island",
+            "A coral island is much larger than any island",
             "Coral islands form from tiny sea animals, not rising magma",
             "A coral island and a volcanic island form in the exact same way",
-            "Only islands can ever truly become isolated at all"
+            "Coral islands form from rising magma, not sea animals"
           ],
           "answer": "B",
           "skill": "compare",
@@ -475,7 +475,7 @@
             "Endemic species can be found on every continent in equal numbers, and islands matter little",
             "Archipelagos form through subduction and hotspots, and isolation raises biodiversity",
             "Peninsulas and islands are exactly the same landform, and both form in the same way",
-            "Subduction always destroys every island it creates, so no archipelago can ever form"
+            "Subduction destroys most islands it creates, so archipelagos rarely form"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -524,8 +524,8 @@
           "stem": "Why do species on isolated islands often become endemic, found nowhere else?",
           "options": [
             "Because every island has identical plants and animals as the mainland",
-            "Because ships bring new species every year from all over the world",
-            "Because mainlands always share every species with islands through the sea",
+            "Because ships bring new species each year from around the world",
+            "Because mainlands share most species with islands through the sea",
             "Because limited contact with outside populations lets unique traits develop"
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "What can you infer about biodiversity on a cluster of isolated islands?",
           "options": [
             "It can be remarkably high as species evolve separately",
-            "It is always lower than on a large mainland",
+            "It is lower than on a large mainland",
             "It never changes once islands form",
-            "It only includes species also found on the mainland"
+            "It includes species also found on the mainland by ships"
           ],
           "answer": "A",
           "skill": "inference",
@@ -559,8 +559,8 @@
           "options": [
             "To prove that volcanoes can never form any islands",
             "To show islands form through more than one process",
-            "To explain why coral never survives near any volcano",
-            "To argue that only one process truly creates islands"
+            "To explain why coral rarely survives near a volcano",
+            "To argue that one process creates most islands"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "How is a peninsula different from an island, according to the article?",
           "options": [
-            "A peninsula is always much larger than any island",
+            "A peninsula is much larger than any island",
             "A peninsula stays joined to a mainland, unlike an island",
-            "A peninsula and an island are the exact same thing",
-            "Only islands can ever truly become isolated at all"
+            "A peninsula and an island are the exact same thing on a map",
+            "A peninsula is surrounded by water on each side"
           ],
           "answer": "B",
           "skill": "compare",

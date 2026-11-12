@@ -185,7 +185,7 @@
             "It sleeps through most of the hottest days instead",
             "Its body can turn fat into energy and some water",
             "It secretly drinks seawater when no one is looking",
-            "It simply never needs to drink water at all"
+            "It drinks from desert plants each day"
           ],
           "answer": "B",
           "skill": "inference",
@@ -199,7 +199,7 @@
         {
           "stem": "Why did people call the camel the \"ship of the desert\"?",
           "options": [
-            "Because a camel is built completely out of wood",
+            "Because a camel is built out of wood",
             "Because it carries goods and sways like a ship on sand",
             "Because a camel is exactly the same size as a ship",
             "Because a camel can float easily on top of water"
@@ -219,7 +219,7 @@
             "No animal could carry heavy loads through the harsh desert",
             "There was far too much rain falling to travel safely",
             "Too many tall trees blocked every possible desert path",
-            "The desert sand was always much too cold to walk on"
+            "The desert sand was much too cold to walk on"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -313,7 +313,7 @@
             "About ten liters of water at the very most",
             "About fifty liters of water in a single sitting",
             "Well over one hundred liters of water at once",
-            "Almost no water at all during a single sitting"
+            "Almost no water during a single sitting"
           ],
           "answer": "C",
           "skill": "detail",
@@ -346,8 +346,8 @@
           "options": [
             "To enjoy something very much, over and over again",
             "To endure or put up with something difficult",
-            "To completely avoid something at every chance it gets",
-            "To slowly change into something else entirely"
+            "To avoid something at every chance it gets",
+            "To slowly change into something else"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -395,7 +395,7 @@
         {
           "stem": "Why would wide, flat feet have mattered so much for a trade animal crossing the desert?",
           "options": [
-            "Flat feet let a camel swim easily across wide desert rivers",
+            "Flat feet let a camel swim easily across wide desert rivers and lakes",
             "Flat feet made each heavy load feel much lighter to carry",
             "Sinking into sand with every step would make long trips impossible",
             "Flat feet helped a camel climb steep, rocky mountain trails"
@@ -414,7 +414,7 @@
           "options": [
             "It lists every single animal that can be found living in a desert, one by one",
             "It compares several different deserts found around the whole world, and their sizes",
-            "It argues strongly that camels should never be used for trade by any merchant",
+            "It argues strongly that camels should not be used for trade by merchants",
             "It explains several adaptations, then links them to the camel's role in trade"
           ],
           "answer": "D",
@@ -474,8 +474,8 @@
           "options": [
             "No animal besides the camel can survive in any hot climate, even for a few days at a time",
             "The camel's unique physiology gave it the endurance to make long-distance desert trade possible",
-            "Deserts around the world are slowly becoming far less arid every year because of rain",
-            "Camels were domesticated earlier than every other known farm animal, long before the sheep"
+            "Deserts around the world are slowly becoming less arid each year because of rain",
+            "Camels were domesticated earlier than other farm animals, long before the sheep"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -560,7 +560,7 @@
             "Endurance let camels work for days without ever needing rest",
             "Strength was never actually useful for carrying any kind of cargo",
             "A strong camel that ran out of water could not finish a long crossing",
-            "Endurance alone made camels much faster than any other animal"
+            "Endurance made camels much faster than other animals"
           ],
           "answer": "C",
           "skill": "inference",

@@ -218,7 +218,7 @@
           "options": [
             "Making his growth plates close faster",
             "Giving his body good support to grow well",
-            "Stopping his genes from working at all",
+            "Stopping his genes from working",
             "Making his bones become softer than normal"
           ],
           "answer": "B",
@@ -235,7 +235,7 @@
           "options": [
             "Sami says sleep can help his body grow",
             "Noor says genes have nothing to do with height",
-            "Rania says food never helps bones grow",
+            "Rania says food does not help bones grow",
             "Adel says growth plates get softer with age"
           ],
           "answer": "A",
@@ -328,7 +328,7 @@
           "stem": "What does the small gland deep in the brain release, according to the article?",
           "options": [
             "A hormone that signals the body to grow",
-            "New bone cells that it stores forever",
+            "New bone cells that it stores",
             "Extra calcium for building strong teeth",
             "A kind of healthy food for the brain"
           ],
@@ -395,7 +395,7 @@
         {
           "stem": "Hassan sleeps only five hours a night and rarely eats vegetables or protein. Based on the article, what might happen?",
           "options": [
-            "His genes will completely stop working",
+            "His genes will stop working",
             "His growth plates will close much sooner",
             "He may not grow as well as his genes allow",
             "His bones will become permanently unbreakable"
@@ -414,7 +414,7 @@
           "options": [
             "Because only the older sibling has a growth plate",
             "Because genes set a range, and sleep and food matter too",
-            "Because hormones are not inherited within a family",
+            "Because hormones are not inherited within a family or a home",
             "Because nutrition has no real effect on height"
           ],
           "answer": "B",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Height is decided entirely by how much a child eats",
+            "Height is decided by how much a child eats",
             "Growth hormone deficiency affects every child equally",
             "Hormone, nutrition, and heredity jointly regulate growth",
-            "Ossification happens only in children who sleep poorly"
+            "Ossification happens mostly in children who sleep poorly"
           ],
           "answer": "C",
           "skill": "central-idea",

@@ -296,7 +296,7 @@
             "Sandstorms only happen deep in the Empty Quarter, far away from any cities.",
             "Winds lift sand and dust into storms that affect people and nature.",
             "The Shamal is the most dangerous wind on Earth.",
-            "Camels are the only animals that are able to live through sandstorms in Arabia."
+            "Camels are the main animals that are able to live through sandstorms in Arabia."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -346,7 +346,7 @@
           "options": [
             "Asthma makes people unable to hear warnings.",
             "People with asthma cannot drive.",
-            "Sandstorms only happen where people with asthma live.",
+            "Sandstorms happen most where people with asthma live.",
             "Dust in the air makes breathing more difficult."
           ],
           "answer": "D",
@@ -361,7 +361,7 @@
         {
           "stem": "What can the reader infer about why the article says dust \"even\" helps sea life?",
           "options": [
-            "The author believes that dust is always helpful to living things everywhere.",
+            "The author believes that dust is helpful to living things.",
             "Most effects are harmful, so a helpful one is surprising.",
             "Plankton cause sandstorms.",
             "Dust is the only food that every sea animal in the world eats."

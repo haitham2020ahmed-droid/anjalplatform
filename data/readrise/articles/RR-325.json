@@ -202,7 +202,7 @@
             "Because oceans shape weather and carry the goods people buy",
             "Because everyone must learn to swim in the ocean to stay healthy",
             "Because oceans are only useful to people who fish for a living",
-            "Because land animals all live in the ocean for part of the year"
+            "Because land animals live in the ocean for part of the year"
           ],
           "answer": "A",
           "skill": "inference",
@@ -295,7 +295,7 @@
           "options": [
             "The Arctic Ocean is colder than every other ocean on Earth, and no ships cross it.",
             "Oceans cover most of Earth's surface and strongly shape climate and trade.",
-            "Coral reefs contain more fish than any other ocean habitat on Earth, so they are most vital.",
+            "Coral reefs contain more fish than other ocean habitats on Earth, so they are most vital.",
             "Cargo ships are the fastest way to move goods between countries, faster than planes."
           ],
           "answer": "B",
@@ -361,7 +361,7 @@
         {
           "stem": "What causes clouds to form over the ocean, according to the article?",
           "options": [
-            "Cold currents freeze the surface of the water.",
+            "Cold currents freeze the surface of the water near the coast.",
             "Warmed sea water evaporates and rises into the air.",
             "Cargo ships stir up water as they pass.",
             "Coral reefs release gas bubbles into the air."
@@ -378,10 +378,10 @@
         {
           "stem": "A country has no coastline and is far from any ocean. Based on the article, how would it most likely be affected by changes in the ocean?",
           "options": [
-            "It would not be affected at all, since it has no coast, and the sea is far from its land.",
+            "It would not be affected, since it has no coast, and the sea is far from its land.",
             "It could still be affected through changes in rainfall and the cost of imported goods.",
             "It would only be affected if it bordered the Arctic Ocean, and no other ocean could change it.",
-            "It would be affected only during the winter season, when the cold ocean winds blow."
+            "It would be affected during the winter season, when the cold ocean winds blow."
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,7 +395,7 @@
         {
           "stem": "Why are most goods in stores likely to have traveled by cargo ship rather than by airplane?",
           "options": [
-            "Airplanes cannot carry heavy cargo of any kind over the ocean.",
+            "Airplanes cannot carry heavy cargo over the ocean.",
             "Moving goods by sea usually costs far less than moving them by air.",
             "Ships can travel faster than airplanes across oceans and seas.",
             "Most countries do not allow airplanes to carry cargo into ports."
@@ -472,8 +472,8 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Oceans are almost completely empty of life compared with land ecosystems everywhere.",
-            "The Arctic Ocean is more important to world trade than any other ocean.",
+            "Oceans are almost empty of life compared with land ecosystems.",
+            "The Arctic Ocean is more important to world trade than the other oceans put together.",
             "Oceans cover most of Earth's surface and powerfully shape global climate, trade, and life.",
             "Cargo ships are gradually being replaced by air transport worldwide."
           ],
@@ -509,7 +509,7 @@
             "Because warm water near the equator is carried by currents toward colder regions.",
             "Because the poles produce their own heat independently, using hot rocks below the ice.",
             "Because cargo ships push warm water toward the poles as they sail across the oceans.",
-            "Because the equator has no sunlight at all, so the water there is always very cold."
+            "Because the equator has no sunlight, so the water there is very cold."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -523,7 +523,7 @@
         {
           "stem": "How does the Sun's warming near the equator compare with its effect at the poles, based on the article?",
           "options": [
-            "Warming is roughly equal everywhere on Earth.",
+            "Warming is roughly equal.",
             "The Sun warms surface waters most intensely near the equator.",
             "The Sun warms the poles more intensely than the equator.",
             "The Sun's warming effect on oceans is not mentioned."
@@ -559,8 +559,8 @@
           "options": [
             "Coastal climates would probably become more extreme, with hotter tropics and colder poles.",
             "World trade would immediately stop completely, because ships could not sail anywhere on the sea.",
-            "The five oceans would merge into a single ocean, and all the islands would sink beneath it.",
-            "Rainfall patterns would stay exactly the same everywhere, and nothing would change on Earth at all."
+            "The five oceans would merge into a single ocean, and many islands would sink beneath it.",
+            "Rainfall patterns would stay the same, and little would change on Earth."
           ],
           "answer": "A",
           "skill": "inference",
@@ -577,7 +577,7 @@
             "Because most imported goods still travel a large share of their journey by sea before reaching that country.",
             "Because landlocked countries are required to build their own ports on the sea, and this costs money.",
             "Because maritime shipping routes only exist near the equator, and ships never sail anywhere else.",
-            "Because cargo ships cannot carry goods meant for landlocked countries, so they use trucks only."
+            "Because cargo ships rarely carry goods meant for landlocked countries, so they use trucks."
           ],
           "answer": "A",
           "skill": "inference",
@@ -593,7 +593,7 @@
           "options": [
             "To argue that oceans should replace all other forms of trade",
             "To suggest that oceans play a crucial, often unseen role in Earth's climate system",
-            "To prove that whales produce most of the carbon dioxide in the atmosphere",
+            "To prove that whales produce most of the carbon dioxide in the atmosphere and the oceans each year",
             "To explain why the Arctic Ocean is warmer than the equator"
           ],
           "answer": "B",

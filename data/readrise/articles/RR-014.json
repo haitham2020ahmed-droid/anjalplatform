@@ -295,7 +295,7 @@
           "options": [
             "Plastic bottles last a long time, so we should reduce, reuse, and recycle.",
             "Recycling centers are the only place where plastic bottles are made.",
-            "Fossil fuels are found only under the ocean floor, far from any city.",
+            "Plastic bottles are made from sand, so they break down quickly in the sea.",
             "Sea turtles are the animals most harmed by litter left on the beach each year."
           ],
           "answer": "A",
@@ -398,7 +398,7 @@
             "It makes bottles cheap but too heavy to carry.",
             "It keeps water cold but makes bottles melt.",
             "It makes plastic useful but helps it last for centuries.",
-            "It helps bottles float but makes them hard to see."
+            "It helps bottles float but makes them hard to see in the water."
           ],
           "answer": "C",
           "skill": "inference",
@@ -474,7 +474,7 @@
           "options": [
             "Plastic is useless and should be banned from every country.",
             "A plastic bottle's durability makes reducing and reusing important.",
-            "PET is the only polymer that factories are able to produce.",
+            "PET bottles are safer to burn than to bury in the ground.",
             "Recycling has already solved the problem of plastic pollution."
           ],
           "answer": "B",
@@ -576,7 +576,7 @@
           "options": [
             "To show that bottles are free to make",
             "To argue that oil is a type of water",
-            "To prove that bottles last only a year",
+            "To prove that bottles last only a year in the sea",
             "To show that bottles use natural resources"
           ],
           "answer": "D",

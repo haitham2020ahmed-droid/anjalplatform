@@ -168,7 +168,7 @@
             "Milkmaids with cowpox almost never got smallpox",
             "A book told him to try it",
             "James Phipps asked him to",
-            "Cows never got sick at all"
+            "Cows were the main animals that got smallpox"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -217,7 +217,7 @@
           "stem": "What happened after smallpox germs came near James?",
           "options": [
             "He ran away",
-            "He became a doctor",
+            "He became a doctor himself",
             "He got very sick",
             "He did not get sick at all"
           ],
@@ -234,7 +234,7 @@
           "stem": "Why did Jenner call his idea a vaccine?",
           "options": [
             "He named it after himself",
-            "A king told him to use that word",
+            "A king told him to use that word for it",
             "It means shot in every language",
             "The word comes from an old word for cow"
           ],
@@ -310,8 +310,8 @@
         {
           "stem": "According to the article, what made milkmaids different from most other people?",
           "options": [
-            "They rarely got sick from any illness at all",
-            "They traveled often between distant countries",
+            "They rarely got sick from any illness",
+            "They traveled often between distant countries to buy cows",
             "They often caught cowpox from the cows they milked",
             "They worked for many years as trained doctors"
           ],
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
-            "Smallpox mainly affected farm workers in England",
+            "Smallpox mainly affected farm workers in England, so doctors studied cows to find a cure",
             "A cowpox observation led Jenner to invent vaccination and helped eradicate smallpox",
-            "Inoculation was always safer than Jenner's method",
+            "Inoculation was safer than Jenner's method",
             "Milkmaids in the 1700s generally had good health"
           ],
           "answer": "B",
@@ -489,7 +489,7 @@
         {
           "stem": "According to the article, what was a major risk of inoculation, the technique used before Jenner's vaccine?",
           "options": [
-            "It required long, difficult travel to another land",
+            "It required long, difficult travel to another land for treatment",
             "It only ever seemed to work on young children",
             "It could spread full smallpox and sometimes killed patients",
             "It was far too expensive for most ordinary people"
@@ -507,7 +507,7 @@
           "stem": "What evidence did Jenner rely on before designing his 1796 experiment?",
           "options": [
             "His own observation that milkmaids with cowpox rarely caught smallpox",
-            "A detailed report sent by another country's doctors",
+            "A detailed report sent to him by another country's doctors in a letter",
             "A random guess made with no real evidence",
             "A government order requiring him to test vaccines"
           ],
@@ -524,7 +524,7 @@
           "stem": "Why does the article mention the World Health Organization's 1980 declaration?",
           "options": [
             "To criticize the way Jenner ran his experiment",
-            "To explain in detail exactly how inoculation works",
+            "To explain in detail exactly how inoculation works to doctors",
             "To show that vaccines sometimes fail to work",
             "To show the long-term global impact of Jenner's discovery"
           ],
@@ -540,7 +540,7 @@
         {
           "stem": "What can be inferred about why Jenner's method eventually replaced inoculation?",
           "options": [
-            "It was first discovered by a far more famous scientist",
+            "It was first discovered by a far more famous scientist in another land",
             "It achieved similar protection against smallpox with far less risk",
             "It was required by a specific law passed in England",
             "It was simply more entertaining for doctors to perform"

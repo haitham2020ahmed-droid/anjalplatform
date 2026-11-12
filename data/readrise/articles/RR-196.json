@@ -202,7 +202,7 @@
             "So the ball has a bigger way into the hoop",
             "So the ball goes faster than the other team",
             "So the ball can bounce on the floor first",
-            "So the ball does not spin at all"
+            "So the ball does not spin"
           ],
           "answer": "A",
           "skill": "inference",
@@ -474,8 +474,8 @@
           "options": [
             "Basketball skills rely on physics such as trajectory, spin, elasticity, and friction",
             "Basketball was invented to keep students busy in winter, and has nothing to do with physics.",
-            "Officials should check every ball before a game begins, so that the players never get hurt.",
-            "Practice matters more than talent in all sports, and so physics is not needed at all."
+            "Officials should check each ball before a game begins, so that players do not get hurt.",
+            "Practice matters more than talent in most sports, so physics plays a small part."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,7 +540,7 @@
         {
           "stem": "Why is stopping difficult for a sprinting player?",
           "options": [
-            "The court is always wet from players' sweat and spilled water",
+            "The court is wet from players' sweat and spilled water",
             "Their shoes have no soles",
             "Their momentum keeps them moving forward",
             "The hoop is too high"

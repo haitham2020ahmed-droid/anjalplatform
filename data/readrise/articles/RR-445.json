@@ -296,7 +296,7 @@
             "A shopkeeper loses his job after giving a customer the wrong bag at the shop",
             "A boy decides never to go shopping at the market again after the mix-up",
             "A boy accidentally swaps bags with another shopper and calmly helps fix the mix-up",
-            "A boy buys a brand new kind of cheese he has never tried before and likes it"
+            "A boy buys a new kind of cheese he has not tried before and likes it"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does Yousef's mother feel confused when she looks at the food?",
           "options": [
-            "She cannot remember writing the list at all, and nothing looks familiar",
-            "The bag is completely empty when she opens it on the kitchen table",
+            "She cannot remember writing the list, and nothing looks familiar",
+            "The bag is empty when she opens it on the kitchen table",
             "The food looks almost the same as the list, but one item is different",
-            "The food is spoiled and smells bad, so she cannot use any of it"
+            "The food is spoiled and smells bad, so she throws it away"
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,7 +378,7 @@
         {
           "stem": "Compare how Yousef feels when he first realizes he has the wrong bag with how he feels after talking to Abu Salem.",
           "options": [
-            "He feels angry at Hind at first, and then jealous of her later",
+            "He feels angry at Hind at first, and then jealous of her later at the shop",
             "He feels proud at first, and then embarrassed later",
             "He feels excited at first, and then bored later on",
             "He feels calm and a bit worried at first, then relieved and happy later"
@@ -507,7 +507,7 @@
           "stem": "What detail from the story shows that Abu Salem is a diligent, attentive shopkeeper?",
           "options": [
             "He refuses to serve customers during busy hours of the day",
-            "He always closes his stall early on Thursdays, to rest",
+            "He closes his stall early on Thursdays, to rest",
             "He quietly checks off each item on Yousef's list as they go",
             "He sells the cheapest cheese in the entire market, say the people"
           ],
@@ -526,7 +526,7 @@
             "The text says Hind intentionally swapped the bags as a joke on the new shopper and his mother",
             "The text specifically notes that many bags looked almost exactly alike and Yousef was briefly distracted by the shifting crowd",
             "The text says Abu Salem deliberately gave Yousef the wrong bag to get rid of an old fruit box",
-            "The text says Yousef never once looked at the list his mother gave him, so he took any bag at all that was left on the counter near the door"
+            "The text says Yousef never once looked at the list his mother gave him, so he took any bag that was left on the counter near the door"
           ],
           "answer": "B",
           "skill": "inference",
@@ -542,7 +542,7 @@
           "options": [
             "Yousef throws the bag away, whereas a less thoughtful character would keep it",
             "Yousef immediately blames Abu Salem, whereas a less thoughtful character would stay silent",
-            "Yousef ignores the receipt completely, whereas a less thoughtful character would read it carefully",
+            "Yousef ignores the receipt completely, whereas a less thoughtful character would read it carefully at the counter",
             "Yousef breathes and stays composed, whereas a less thoughtful character might panic or blame someone unfairly"
           ],
           "answer": "D",
@@ -594,7 +594,7 @@
             "To prove that Abu Salem secretly planned the entire mix-up to sell more fruit that day to the customers",
             "To suggest that Yousef and Hind decide never to shop at that market again after the day",
             "To emphasize that a calm, amicable approach can turn a frustrating mistake into a pleasant memory",
-            "To show that mix-ups are always someone's fault and must be punished by the stall owner"
+            "To show that mix-ups are someone's fault and must be punished by the stall owner"
           ],
           "answer": "C",
           "skill": "author-purpose",

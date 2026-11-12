@@ -134,7 +134,7 @@
             "Sold the finished book in a shop",
             "Folded large sheets into small sections",
             "Painted gold onto the open pages",
-            "Sewed the leather cover shut tight"
+            "Sewed the leather cover shut tight with thread"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -200,7 +200,7 @@
           "stem": "Why do you think bookbinders took years to learn their craft?",
           "options": [
             "Because very few people wanted old books",
-            "Because the old craft used no tools at all",
+            "Because the old craft used no tools",
             "Because people thought books were not important",
             "Because folding and sewing well takes much skill"
           ],
@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell about illuminated books?",
           "options": [
-            "They had no pages inside of them at all",
+            "They had no pages inside of them",
             "They were extra special and decorated with care",
             "They were plain books without any cover",
-            "They were the cheapest kind of books made"
+            "They were the cheapest kind of books made at the time"
           ],
           "answer": "B",
           "skill": "inference",
@@ -362,7 +362,7 @@
           "stem": "What did the bookbinder do right after sewing the signatures together?",
           "options": [
             "Pressed real gold into the leather cover",
-            "Folded the large paper into small sections",
+            "Folded the large paper into small sections by hand",
             "Attached a sturdy cover over the stitched pages",
             "Sold the loose pages in an open market"
           ],
@@ -378,9 +378,9 @@
         {
           "stem": "Why might cities such as Baghdad and Cairo have become centers for bookbinding?",
           "options": [
-            "Because books were simply not valued there at all",
+            "Because books were simply not valued there",
             "Because paper could not be made anywhere else",
-            "Because leather was banned in those other cities",
+            "Because leather was banned in those other cities by the rulers",
             "Because skilled craftsmen there shared fine techniques"
           ],
           "answer": "D",
@@ -412,7 +412,7 @@
         {
           "stem": "Why does the author describe illuminated manuscripts near the end of the article?",
           "options": [
-            "To compare two completely unrelated crafts, such as glass and iron",
+            "To compare two unrelated crafts, such as glass and iron",
             "To explain in detail how paper mills worked in the old days",
             "To argue that illuminated books were useless to most readers",
             "To show how binding and decoration together made art"
@@ -474,7 +474,7 @@
           "options": [
             "Only rulers were ever allowed to own a book in the old kingdoms",
             "Hand bookbinding was a demanding craft that could become illuminated art",
-            "Gilding was invented only to replace sewing in the making of books",
+            "Gilding was invented to replace sewing in the making of books",
             "The printing press made bookbinding needless from the start, so it ended"
           ],
           "answer": "B",
@@ -526,7 +526,7 @@
             "too heavy for anyone to carry easily",
             "covered with a lot of fine detail",
             "made only out of pure gold",
-            "left completely plain and undecorated"
+            "left plain and undecorated"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -540,7 +540,7 @@
         {
           "stem": "What was a likely result of wealthy patrons commissioning fine illuminated manuscripts?",
           "options": [
-            "Sewing signatures together became completely unnecessary",
+            "Sewing signatures together became unnecessary",
             "Bookbinding guilds stopped training new apprentices",
             "Bookbinders could afford costly materials like gold leaf",
             "Leather covers were fully replaced with paper ones"

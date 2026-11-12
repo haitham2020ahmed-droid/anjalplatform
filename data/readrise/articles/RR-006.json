@@ -185,7 +185,7 @@
             "The body forgets it and gets very sick.",
             "The body knows it and fights it fast.",
             "The germ turns into a vaccine.",
-            "The body makes no antibodies at all."
+            "The body makes no antibodies."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -219,7 +219,7 @@
             "By getting vaccines so germs spread less",
             "By giving them lots of sweet food and fruit",
             "By keeping all the windows open at night",
-            "By staying away from all doctors and clinics"
+            "By taking the same medicine as the sick"
           ],
           "answer": "A",
           "skill": "inference",
@@ -294,8 +294,8 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Vaccines safely teach the immune system to fight germs.",
-            "All germs are dangerous and must be avoided at all times.",
-            "White blood cells are the only cells found in the body.",
+            "All germs are dangerous and must be avoided.",
+            "White blood cells are made by vaccines in the arm.",
             "Vaccines work by giving people the full illness first."
           ],
           "answer": "A",
@@ -310,7 +310,7 @@
         {
           "stem": "According to the article, what do antibodies do?",
           "options": [
-            "They carry oxygen from the lungs to the heart.",
+            "They carry oxygen from the lungs to the heart and the brain.",
             "They give the body energy when it is tired.",
             "They lock on to a germ and mark it to be destroyed.",
             "They turn harmful germs into helpful germs."
@@ -361,7 +361,7 @@
         {
           "stem": "Why can the body often stop a germ it has met before?",
           "options": [
-            "The germ is always weaker the second time.",
+            "The germ is weaker the second time.",
             "White blood cells stop working after an illness.",
             "Memory cells help the body recognize it quickly.",
             "The body makes new germs to fight the old ones."
@@ -381,7 +381,7 @@
             "The immune system is busy building protection.",
             "The vaccine has given them the full disease.",
             "The vaccine has removed all their antibodies.",
-            "Their memory cells have forgotten every germ."
+            "The vaccine makes the body lose its memory cells."
           ],
           "answer": "A",
           "skill": "inference",
@@ -474,8 +474,8 @@
           "options": [
             "Smallpox was the only disease ever controlled by vaccines.",
             "Vaccines train the immune system safely and protect communities.",
-            "The immune system cannot defend the body without medicine.",
-            "Pathogens are mostly harmful and are found only in hospitals."
+            "The immune system works best when it is kept away from germs.",
+            "Pathogens are mostly harmless and rarely make people sick."
           ],
           "answer": "B",
           "skill": "central-idea",

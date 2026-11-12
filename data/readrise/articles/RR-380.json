@@ -117,7 +117,7 @@
             "A lion cub that quickly runs away from a busy rescue center into the bush at night",
             "A visiting student who helps care for an orphaned lion cub until it grows strong",
             "A large group of wild lions hunting together out in nature all night long",
-            "A small petting zoo that only ever keeps and cares for birds and rabbits"
+            "A small petting zoo that keeps and cares for birds and rabbits"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -236,7 +236,7 @@
             "To tell readers the main lesson of the story",
             "To explain how to build a fence",
             "To describe what lions eat",
-            "To show that Lina wants a different job"
+            "To show that Lina wants a different job at the zoo"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Lion cubs in this story never need any help or care at all from humans, even when they are sick.",
-            "Veterinary students in this story only ever study paperwork, never real animals, in a small office.",
-            "The rescue center in this story only cares for birds and reptiles, nothing else, and has no lions.",
+            "Lion cubs in this story never need any help or care from humans, even when they are sick or are very hungry.",
+            "Veterinary students in this story mostly study paperwork in a small office.",
+            "The rescue center in this story cares mainly for birds and reptiles.",
             "A veterinary student learns patience and responsibility while helping an orphaned lion cub recover."
           ],
           "answer": "D",
@@ -381,7 +381,7 @@
             "To let the cub safely get used to the other lions without danger to anyone",
             "Because the fence needed to be fixed first, before the cub could meet them, and the workers were busy",
             "Because the other lions were asleep all day, so the cub had to wait until they woke up",
-            "To hide the cub from visitors who came to the center, so that nobody could take photos of it"
+            "To hide the cub from visitors who came to the center, so they could not take photos of it"
           ],
           "answer": "A",
           "skill": "inference",
@@ -414,7 +414,7 @@
           "options": [
             "Dr. Amal guided and taught Lina, while Lina carried out the daily feeding and care",
             "Dr. Amal only visited once, while Lina ran the whole center alone and gave all the orders every day",
-            "They had identical jobs with no difference at all, and both of them fed the cub each morning and night",
+            "They had identical jobs with no difference, and both of them fed the cub each morning and night",
             "Dr. Amal fed the cub while Lina studied in a classroom far away from the center and the lions"
           ],
           "answer": "A",
@@ -473,8 +473,8 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Wildlife rescue centers like this one exist only to display rescued animals to curious paying tourists every day of the year, and not to care for them.",
-            "Lion cubs instinctively know exactly how to feed and fully care for themselves without any human help at all.",
-            "Veterinarians who work at centers exactly like this one only ever treat domestic pets, never any wild animals.",
+            "Lion cubs know by instinct how to feed and care for themselves without human help.",
+            "Veterinarians who work at centers like this one mostly treat pets, not wild animals.",
             "A veterinary student develops patience and responsibility while nursing an orphaned lion cub back to health and helping it rejoin other rescued lions."
           ],
           "answer": "D",
@@ -491,8 +491,8 @@
           "options": [
             "Weighing the cub daily, recording its progress, and feeding it on a strict schedule",
             "Teaching the cub exactly how to hunt and kill live prey all on its own in the wild",
-            "Building an entirely new enclosure for the cub from scratch",
-            "Training all of the rescue centers other rescued lions as well, not just this one cub"
+            "Building a new enclosure for the cub from scratch",
+            "Training the center's other rescued lions as well as this one cub"
           ],
           "answer": "A",
           "skill": "detail",
@@ -542,8 +542,8 @@
           "options": [
             "To show that natural lion behaviors can resurface even in an animal raised partly by humans",
             "To prove that the cub was still afraid of people and would never trust them again",
-            "To show that toys are dangerous for cubs, so rescue centers should never give them any",
-            "To suggest the cub would never behave like a wild lion, even when it grew up"
+            "To show that toys are dangerous for cubs, so rescue centers should not give them toys",
+            "To suggest the cub would behave like a pet cat when it grew up"
           ],
           "answer": "A",
           "skill": "inference",
@@ -558,7 +558,7 @@
           "stem": "Which correctly orders these events in the cub's recovery?",
           "options": [
             "Cub is orphaned → refuses to eat → gradually regains strength → is socialized with other lions",
-            "Cub is socialized with other lions → is orphaned → refuses to eat → regains strength",
+            "Cub is socialized with other lions → is orphaned → refuses to eat → gradually regains strength",
             "Cub regains strength → is orphaned → is socialized → refuses to eat",
             "Cub refuses to eat → is socialized → is orphaned → regains strength"
           ],
@@ -575,9 +575,9 @@
           "stem": "How does Lina's veterinary-school learning compare with what she gained from caring for the cub, according to the article?",
           "options": [
             "The hands-on experience taught her things no classroom lecture could fully prepare her for",
-            "Veterinary school taught her everything; the cub taught her nothing new at all, and she was bored with the work",
-            "The two experiences were identical in every way, so she learned the same things in a lecture and in the center",
-            "Caring for the cub replaced her need for veterinary school entirely, so she left her classes and never went back"
+            "Veterinary school taught her everything; the cub taught her nothing new, and she was bored with the work",
+            "The two experiences were the same, so she learned the same things in a lecture and in the center",
+            "Caring for the cub replaced her need for veterinary school, so she left her classes"
           ],
           "answer": "A",
           "skill": "compare",

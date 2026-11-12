@@ -167,7 +167,7 @@
           "options": [
             "It moves just as fast as Earth spins.",
             "It is tied to a tall tower on the ground.",
-            "It does not move at all in the sky.",
+            "It does not move in the sky.",
             "It flies from pole to pole around Earth."
           ],
           "answer": "A",
@@ -296,7 +296,7 @@
             "Satellites in different orbits use sensors to help forecasters predict weather.",
             "TIROS-1 is still the best and most powerful weather satellite ever made.",
             "Satellites slowly fall back down to Earth after only a few days in space.",
-            "Satellites are only useful in the daytime when the sun is shining."
+            "Satellites are useful mostly in the daytime when the sun is shining."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -475,7 +475,7 @@
             "Different satellites and sensors work together so forecasters can watch and predict weather.",
             "TIROS-1 produced clearer pictures than modern satellites.",
             "Polar-orbiting satellites are more important than geostationary ones.",
-            "Satellites have completely replaced the need for human forecasters and weather stations."
+            "Satellites have replaced the need for human forecasters and ground weather stations."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -491,8 +491,8 @@
           "options": [
             "About once every week",
             "Roughly fourteen times a day",
-            "Every few minutes, all day long",
-            "Only once each year"
+            "Roughly once each hour, day and night",
+            "Twice each day"
           ],
           "answer": "B",
           "skill": "detail",
@@ -540,7 +540,7 @@
         {
           "stem": "What can be inferred about why forecasters use both kinds of satellites?",
           "options": [
-            "One kind of satellite is always broken and needs to be replaced.",
+            "One kind of satellite is broken and needs to be replaced.",
             "Each kind has its own advantage, such as constant or closer views.",
             "Only one kind of satellite is able to work at night.",
             "Each satellite is far too expensive for a country to use alone."

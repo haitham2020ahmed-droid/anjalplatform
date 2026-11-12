@@ -117,7 +117,7 @@
             "A boy who struggles with spelling, practices daily, and does his best at the bee",
             "A boy who wins a big soccer trophy for his entire school team last spring",
             "A girl who teaches her whole class how to spell new words correctly in school",
-            "A boy who completely forgets about the spelling bee this year and goes home"
+            "A boy who forgets about the spelling bee this year and goes home"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -313,7 +313,7 @@
             "Breaking each word into smaller parts called syllables",
             "Memorizing words backward, from last letter to first",
             "Only practicing the easiest words on the list",
-            "Skipping any word with more than one syllable"
+            "Skipping words with more than one syllable"
           ],
           "answer": "A",
           "skill": "detail",
@@ -328,7 +328,7 @@
           "stem": "What did Yousef's daily practice routine include?",
           "options": [
             "Watching videos about spelling bees every night after dinner",
-            "Asking his classmates to quiz him at recess every single day",
+            "Asking his classmates to quiz him at recess each day",
             "Reading the dictionary from start to finish in just one week",
             "Writing words down, saying them aloud, and using flashcards"
           ],
@@ -361,9 +361,9 @@
         {
           "stem": "Why do you think Ms. Huda told Yousef that doing his best mattered more than winning?",
           "options": [
-            "She did not think Yousef could ever improve at spelling at all",
+            "She did not think Yousef could ever improve at spelling",
             "She wanted to encourage him to try without being afraid of failing",
-            "She did not care about the spelling bee at all, and she was bored",
+            "She did not care about the spelling bee, and she was bored",
             "She wanted him to quit before the competition began, so he could rest"
           ],
           "answer": "B",
@@ -412,8 +412,8 @@
         {
           "stem": "What can you tell about Yousef's family from how they reacted to his hard work?",
           "options": [
-            "They were disappointed that he did not win first place",
-            "They thought spelling was not very important at all",
+            "They were disappointed that he did not win first place at the contest",
+            "They thought spelling was not very important",
             "They were proud of his effort and encouraged him along the way",
             "They flatly refused to help him study at home"
           ],
@@ -473,7 +473,7 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "Winning a competition is the only true way to prove real effort",
-            "Spelling bees are unfair to students who are not naturally good at spelling",
+            "Spelling bees are unfair to students who are not naturally good at spelling from a young age",
             "Yousef's sister deserves more credit than Yousef for his success",
             "Consistent practice and encouragement helped Yousef grow more capable and confident"
           ],
@@ -491,8 +491,8 @@
           "options": [
             "Dividing each word into smaller syllables to make it easier to pronounce",
             "Memorizing the dictionary definition of every word on the list",
-            "Asking the judges for extra clues during every round of the competition",
-            "Avoiding any word with more than two syllables in the contest"
+            "Asking the judges for extra clues during each round of the competition",
+            "Avoiding words with more than two syllables in the contest"
           ],
           "answer": "A",
           "skill": "detail",
@@ -508,7 +508,7 @@
           "options": [
             "Ms. Huda guaranteed that he would win the competition in the end",
             "His consistent daily practice led to real, noticeable improvement",
-            "The other students decided not to compete in the bee that year at all",
+            "The other students decided not to compete in the bee that year",
             "His sister took the test for him a few days beforehand"
           ],
           "answer": "B",
@@ -540,7 +540,7 @@
         {
           "stem": "Based on the sister's comment at the end, what does she seem to believe about the bee's past winners?",
           "options": [
-            "They never struggled with spelling at all in their lives, because spelling was easy for them",
+            "They never struggled with spelling in their lives, because spelling was easy for them",
             "They were allowed extra practice time that Yousef did not get from the teacher",
             "They did not actually deserve to win, and the judges made a mistake",
             "They once struggled with spelling too, before persistent practice helped them improve"

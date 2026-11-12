@@ -201,7 +201,7 @@
           "options": [
             "This could add to the hole in the ozone layer",
             "This will help heal the ozone layer",
-            "This has no effect on the sky at all",
+            "This has no effect on the sky",
             "This will make UV light much weaker than before"
           ],
           "answer": "A",
@@ -216,7 +216,7 @@
         {
           "stem": "The article says the ozone layer is slowly healing. What can you infer?",
           "options": [
-            "Scientists have stopped studying it",
+            "Scientists have stopped studying it for good",
             "The hole is getting much bigger",
             "No countries kept their promise",
             "The plan countries agreed on is working"
@@ -330,7 +330,7 @@
             "Only in cars that are driven on long road trips",
             "In refrigerators, air conditioners, and spray cans",
             "In farming equipment that is used on large farms",
-            "Only in factories that make window glass for homes"
+            "In factories that make window glass for homes"
           ],
           "answer": "B",
           "skill": "detail",
@@ -363,7 +363,7 @@
           "options": [
             "A sudden drop in temperature",
             "Airplanes flying through the stratosphere",
-            "Too much ultraviolet light reaching the ground",
+            "Too much ultraviolet light reaching the ground in the summer",
             "Chemicals called CFCs breaking apart ozone molecules"
           ],
           "answer": "D",
@@ -381,7 +381,7 @@
             "Leaders saw it as a problem serious enough for the whole world to address together",
             "Only a few countries believed the problem was real, and the rest signed to be polite",
             "Scientists disagreed about whether CFCs were harmful, so the leaders signed in confusion",
-            "The problem only affected poor countries, so the rich ones signed to help them"
+            "The problem mostly affected poor countries, so the rich ones signed to help them"
           ],
           "answer": "A",
           "skill": "inference",
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "The Montreal Protocol was signed only by a few nations in Europe, so it had no effect on the sky",
-            "The stratosphere contains no ozone at all, so there is nothing for people to repair",
+            "The stratosphere holds little ozone, so there is not much for people to repair",
             "International cooperation based on evidence can repair severe damage to the ozone layer",
             "CFCs are no longer dangerous once they reach the stratosphere, and they help the ozone layer"
           ],
@@ -559,7 +559,7 @@
           "options": [
             "It would happen within a single year of banning CFCs, because the gas disappears quickly",
             "It has nothing to do with how long CFCs remain active in the air above us",
-            "It depends only on how much ozone existed before 1980, not on any chemicals",
+            "It depends mainly on how much ozone existed before 1980, not on chemicals",
             "It naturally takes a long time, even after the harmful chemical is banned"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Why might scientists worry about new, unregulated chemicals in the future?",
           "options": [
             "Because any new chemical automatically becomes a treaty",
-            "Because the Montreal Protocol already prevents all possible future chemicals",
+            "Because the Montreal Protocol already controls most new chemicals, so the risk is small",
             "Because such chemicals could potentially damage the ozone layer the way CFCs once did",
-            "Because new chemicals always strengthen the stratosphere"
+            "Because new chemicals strengthen the stratosphere"
           ],
           "answer": "C",
           "skill": "inference",

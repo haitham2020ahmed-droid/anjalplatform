@@ -151,7 +151,7 @@
             "Fusion happens before the cloud of gas ever forms in space and begins.",
             "The star dies first and then a big cloud of gas appears around it.",
             "A nebula forms first, then fusion begins, and the star shines before it dies.",
-            "The star shines forever and never runs out of fuel at all, so it does not die."
+            "The star shines and never runs out of fuel, so it does not die."
           ],
           "answer": "C",
           "skill": "sequence",
@@ -166,7 +166,7 @@
           "stem": "The article talks about fusion. What does fusion mean?",
           "options": [
             "When small bits join together and make heat and light",
-            "When a star cools down completely and turns dark",
+            "When a star cools down and turns dark",
             "When a cloud of dust blows apart in space",
             "When a star moves closer to Earth and gets brighter"
           ],
@@ -199,9 +199,9 @@
         {
           "stem": "What can you tell about a huge star compared to a small star at the end of its life?",
           "options": [
-            "A small star always blasts apart in a supernova.",
-            "A huge star and a small star always end their lives in exactly the same way.",
-            "A huge star never runs out of fuel at all.",
+            "A small star blasts apart in a supernova.",
+            "A huge star and a small star end their lives in exactly the same way, with a small flash.",
+            "A huge star never runs out of fuel.",
             "A huge star ends its life in a much bigger, more violent way than a small star."
           ],
           "answer": "D",
@@ -218,7 +218,7 @@
           "options": [
             "The Sun is too small to end its life in that huge, violent way.",
             "The Sun has already used up all of its fuel and is about to go dark",
-            "The Sun is actually a planet, not a star, so it cannot explode at all",
+            "The Sun is a planet, not a star, so it will not explode",
             "The Sun does not use fusion to make light, so it burns more gently"
           ],
           "answer": "A",
@@ -234,7 +234,7 @@
           "stem": "Why does the author explain both how stars are born and how they die in one article?",
           "options": [
             "To show the full life story of a star, from start to finish",
-            "To prove that stars never actually change over time at all",
+            "To prove that stars never actually change over time",
             "To explain how rockets travel between stars and planets",
             "To compare stars to planets in our solar system and moons"
           ],
@@ -295,8 +295,8 @@
           "options": [
             "Stars form from clouds of gas, shine through fusion for a long time, and die differently depending on their mass.",
             "Every star in the universe eventually becomes a black hole, no matter how large or small it is.",
-            "Stars never change at all once they begin to shine, and they stay the same for ever and ever.",
-            "Nebulae are the brightest objects in the entire universe, and they make all of the light that we see at night from our planet."
+            "Stars stay the same once they begin to shine, so they look the same for billions of years.",
+            "Nebulae are the brightest objects in the universe, and they make most of the light we see at night from the desert."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -312,7 +312,7 @@
           "options": [
             "A cloud of gas and dust spreading apart in space",
             "Hydrogen atoms joining together and releasing heat and light",
-            "A star moving into a closer orbit around another star",
+            "A star moving into a closer orbit around another star in the sky",
             "The final explosion that ends a massive star's life"
           ],
           "answer": "B",
@@ -364,7 +364,7 @@
             "It instantly turns into a brand-new nebula and then starts to shine again.",
             "It explodes immediately in a massive supernova and leaves a black hole.",
             "It swells into a red giant before shrinking into a white dwarf.",
-            "It stays exactly the same size and brightness forever, with no change."
+            "It stays exactly the same size and brightness, with no change."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -380,8 +380,8 @@
           "options": [
             "A massive star burns through its fuel much faster than a smaller star.",
             "A massive star has far less fuel stored inside it than a small star.",
-            "A massive star never actually begins nuclear fusion at all.",
-            "A massive star is always much colder than a smaller star."
+            "A massive star never actually begins nuclear fusion.",
+            "A massive star is much colder than a smaller star."
           ],
           "answer": "A",
           "skill": "inference",
@@ -398,7 +398,7 @@
             "Both are the leftover core of a star after its fuel has run out.",
             "Both are brand-new stars just beginning nuclear fusion.",
             "Both are enormous clouds of gas and dust drifting in space.",
-            "Both always explode again within a few short years."
+            "Both explode again within a few short years."
           ],
           "answer": "A",
           "skill": "compare",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Nebulae are permanent objects that never change, never collapse, and never form any new stars out of dust and gas.",
-            "All stars eventually become black holes after many billions of years of burning gas, no matter how big they are, and then they disappear forever.",
+            "Nebulae are permanent objects that never change, never collapse, and never form any new stars out of dust and gas in the sky for billions of years.",
+            "Stars become black holes after billions of years of burning gas, whatever their size, and then they disappear.",
             "A star's entire life cycle, from formation out of gas to its final fate, is governed by fusion and ultimately decided by its mass.",
-            "A star's color is the single factor that determines how long it will live, and its mass has nothing to do with it."
+            "A star's color is the main factor that decides how long it will live, and its mass matters little."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -491,7 +491,7 @@
           "options": [
             "The surrounding nebula cooling down to a very low temperature",
             "The collapsing core reaching a sufficiently high temperature and pressure",
-            "A nearby star exploding in a supernova and triggering the reaction",
+            "A nearby star exploding in a supernova and triggering the reaction in a cloud",
             "The cloud of gas spreading out across a much wider area"
           ],
           "answer": "B",
@@ -542,7 +542,7 @@
           "options": [
             "Because gravity pulls much more weakly on a massive star's outer layers than on a small star's.",
             "Because they never actually reach the temperature needed to ignite fusion.",
-            "Because they contain almost no hydrogen at all compared to smaller stars.",
+            "Because they contain almost no hydrogen compared to smaller stars.",
             "Because they burn through their much larger fuel supply at a dramatically faster rate."
           ],
           "answer": "D",
@@ -558,7 +558,7 @@
           "stem": "What can be inferred about why the article mentions that heavier elements from a dying star eventually form new nebulae?",
           "options": [
             "It suggests that the material from dead stars can eventually help form future stars and planets.",
-            "It suggests that dead stars immediately reassemble themselves into their original form.",
+            "It suggests that dead stars immediately reassemble themselves into their original form after billions of years.",
             "It suggests that heavier elements have no further role in the universe once scattered.",
             "It suggests that only hydrogen ever exists anywhere in the universe."
           ],
@@ -574,9 +574,9 @@
         {
           "stem": "What can the reader infer about why the article treats black holes only briefly, in passing?",
           "options": [
-            "Because black holes are considered too dangerous to be mentioned at all, and the writer did not want to scare readers",
+            "Because black holes are considered too dangerous to be mentioned, and the writer did not want to scare readers",
             "Because black holes are a complex topic covered in more depth elsewhere, separate from this article's focus",
-            "Because black holes are not actually related to how stars die, and so they do not belong in the article at all",
+            "Because black holes are not actually related to how stars die, and so they do not belong",
             "Because scientists are not yet certain that black holes exist, and so the author chose to skip over them quickly"
           ],
           "answer": "B",

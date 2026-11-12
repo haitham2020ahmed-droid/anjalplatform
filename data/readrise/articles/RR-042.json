@@ -185,7 +185,7 @@
             "They were fed lots of sweet dates",
             "They lived very close to Bedouin families",
             "They grew up in big, busy cities far away",
-            "They never had to work at all"
+            "They never had to work"
           ],
           "answer": "B",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Arabian horses are the fastest animals on Earth, faster than any car.",
-            "The Bedouin traveled only with camels and goats across the sand.",
+            "The Bedouin traveled with camels and goats more than with horses.",
             "Hard desert life shaped a tough, gentle breed that people still value.",
-            "Thoroughbreds have replaced Arabian horses in every race in the world."
+            "Thoroughbreds have replaced Arabian horses in most races today."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,7 +361,7 @@
         {
           "stem": "Why would endurance matter to people who traveled across the desert?",
           "options": [
-            "Desert trips were always short and easy to finish in a day",
+            "Desert trips were short and easy to finish in a day",
             "Horses had to race through busy city streets and markets",
             "Long trips between water spots needed horses that kept going",
             "Horses had to swim across wide rivers to the other side"
@@ -474,7 +474,7 @@
           "options": [
             "Horse racing is the oldest sport in the Arabian Peninsula, and kings watched it every week.",
             "Shaped by desert life and careful families, the Arabian horse is still valued today.",
-            "The Bedouin preferred camels to horses for long trips, so they seldom kept any horses.",
+            "The Bedouin preferred camels to horses for long trips, so they kept few horses.",
             "Modern breeds are stronger than Arabian horses, which is why farmers choose them today."
           ],
           "answer": "B",
@@ -491,7 +491,7 @@
           "options": [
             "Each mare's lineage",
             "The location of every oasis",
-            "The rules of every race",
+            "The rules of each race",
             "Each stallion's age"
           ],
           "answer": "A",
@@ -559,7 +559,7 @@
           "options": [
             "It is suited to a sunny, harsh environment",
             "It is happiest in cold, snowy regions",
-            "It needs to hide from enemies at night",
+            "It needs to hide from enemies at night in the desert",
             "It changes color with the seasons"
           ],
           "answer": "A",
@@ -593,7 +593,7 @@
           "options": [
             "To give directions to the center",
             "To argue that horse racing should end",
-            "To compare Riyadh with European cities",
+            "To compare Riyadh with European cities and towns",
             "To show the breed is still being protected"
           ],
           "answer": "D",
