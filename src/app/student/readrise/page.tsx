@@ -131,7 +131,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
         <ul className="mt-2 list-disc space-y-1 ps-5">
           <li>{t("Only your first try on an article counts. Reading it again is practice.")}</li>
           <li>{t("Score 75% or more on 3 of your last 4 articles and your level goes up 50.")}</li>
-          <li>{t("One hard article never moves your level down. Under 50% on 2 articles in a row (or on 3 of your last 4) and your level goes down 50, so the next articles fit you better. 25% or less two times in a row: down 100.")}</li>
+          <li>{t("One hard article never moves your level down. Under 50% on 2 articles in a row (or on 3 of your last 4, or an average under 60% on your last 4) and your level goes down 50, so the next articles fit you better. 25% or less two times in a row: down 100.")}</li>
           <li>{t("After your level goes down, 75% or more on 2 articles in a row brings it back up 50.")}</li>
           <li>{t("Take your time: answers that come too fast do not count, and an article read in under 45 seconds does not count.")}</li>
           <li>{t("Your weekly goal counts each article once: 75% or more on the first try.")}</li>

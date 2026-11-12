@@ -61,10 +61,25 @@ const STRONG: RegExp[] = [
   /\b(?:in|from|of) (?:the|this) article\b/i,   // (not the grammar word: "Choose the article: a / an")
 ];
 const OWN_TEXT = /["“][^"”]{40,}["”]/;
+/**
+ * 🩹 Nov 2026 (owner audit): stems that carry their OWN text were hidden from every student —
+ *   "An author writes an article that begins by … How do the parts of the article work together?"
+ *   "A passage explains that … What is the passage's main purpose?"
+ *   "… What does this passage of time within the setting foreshadow?" ("passage of time" is not a text)
+ * A stem that opens by describing its text ("A/An author|passage|article|story … ") is self-contained, and so is a
+ * stem whose long opening statement (80+ characters, a full sentence) is what "this passage/article" points back to.
+ */
+const INTRODUCES_TEXT = /^(?:an?|one) (?:author|writer|poet|passage|article|story|text|poem|essay|speech|excerpt|selection|short story|news article)\b/i;
+const LONG_LEAD = /^[^.?!]{80,}[.!]\s+\S/;
+const THIS_REF = /\b(?:this|the following) (?:passage|article|selection|excerpt|poem|story|text|essay|speech)\b/i;
 export function definitelyNeedsPassage(stem: string): boolean {
-  const t = stripMarks(String(stem ?? "")).trim();
+  const t = stripMarks(String(stem ?? "")).trim().replace(/\bpassages? of time\b/gi, "time going by");
   if (!t || t.length >= 260 || OWN_TEXT.test(t)) return false;
-  return STRONG.some((p) => p.test(t));
+  if (INTRODUCES_TEXT.test(t) && LONG_LEAD.test(t)) return false; // it describes its text in a full opening sentence
+  if (!STRONG.some((p) => p.test(t))) return false;
+  // "Because … over time. According to this passage, …": the stem's own opening is the passage
+  if (LONG_LEAD.test(t) && THIS_REF.test(t) && !/\b(?:the) (?:passage|article|selection|excerpt)\b/i.test(t.replace(THIS_REF, ""))) return false;
+  return true;
 }
 
 /**

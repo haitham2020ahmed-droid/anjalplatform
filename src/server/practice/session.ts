@@ -30,7 +30,7 @@ import type { MasteryResult, ResponseEvidence } from "../../types/domain";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
-import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
+import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems, loadSkillItems, servableIds, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
 import { refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
 import { allowedQuestions, answerState, keyed, withAnswer, type Allowed, type AnswerState, type KeyedQuestion } from "./no-repeat";
 import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess, coreCountsOf, countCoreAnswer, isFinishReason, skillStarNow, reviewKeyOf, REVIEW_WORK_QUESTIONS, lastPickedWorkFor, markDone, openWorkFor, workProgressOf, type DoneBy, type WorkProgress } from "./completion";
@@ -902,7 +902,10 @@ async function quizContext(repo: Repo, actor: Actor, assignmentId: string, now =
   const order = await cached(`order:${String(a.assessmentId)}`, ["AssessmentQuestion", "Question"], async () => {
     const ids = (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).sort((x, y) => Number(x.order) - Number(y.order)).map((x) => String(x.questionId));
     if (!ids.length) return ids;
-    const live = new Set((await repo.findMany("Question", { id: { in: ids }, status: "PUBLISHED", deletedAt: null }, { select: ["id"] })).map((q) => String(q.id)));
+    // 🩹 Nov 2026: "can be shown" is the loader's own rule (servableIds), not just "published" — a published question
+    // the loader hides (needs a passage it lacks, teacher-scored) used to stay in the order: the student saw
+    // "You finished!" on it and the set could never be finished
+    const live = await servableIds(repo, ids);
     const ok = ids.filter((id) => live.has(id));
     // 🛡️ one sitting never shows two copies of the same content (a set built before the builder removed copies, or
     // copies stored under different skills / map places): the first copy stays, the others are never served. The

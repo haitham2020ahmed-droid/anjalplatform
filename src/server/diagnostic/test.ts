@@ -20,6 +20,7 @@ import { ensureNationalNorms, nationalNorm } from "../map/rit";
 import { bankVersion, modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { DEFAULT_ADAPTIVE, LEVEL_TO_B } from "../../config/engine";
+import { servableIds } from "../practice/items";
 
 const STRAND_NAME: Record<string, string> = { LIT: "Literature", INFO: "Informational Text", VOCAB: "Vocabulary", LANG: "Grammar & Conventions", FOUND: "Foundational Skills" };
 const s = (v: unknown) => String(v ?? "");
@@ -238,7 +239,9 @@ async function servableDesign(repo: Repo, assessmentId: string, design: Design, 
   // re-read at most once a minute (a question unpublished by another server process)
   if (!hit || hit.v !== v || Date.now() - hit.at > 60_000) {
     const live = new Set<string>();
-    for (let i = 0; i < ids.length; i += 500) for (const q of await repo.findMany("Question", { id: { in: ids.slice(i, i + 500) }, status: "PUBLISHED", deletedAt: null }, { select: ["id"] })) live.add(s(q.id));
+    // 🩹 Nov 2026: the loader's own "can be shown" rule (practice/items.ts servableIds), not just "published": a strong
+    // reader froze on a hard question the quiz could not show (no result was ever saved)
+    for (const id of await servableIds(repo, ids)) live.add(id);
     hit = { v, at: Date.now(), ids: live };
     remember(liveCache, assessmentId, hit, 64);
   }

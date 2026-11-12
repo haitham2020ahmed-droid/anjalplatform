@@ -110,9 +110,11 @@ async function openWeeklyCheckUnlocked(repo: Repo, actor: Actor, now: Date): Pro
   }
   const lead = (await repo.findMany("ClassTeacher", { classId: c.klass.id }, { select: ["teacherId", "isLead"] })).sort((a, b) => Number(Boolean(b.isLead)) - Number(Boolean(a.isLead)))[0];
   if (!lead) return null;
-  const set = await repo.create("Assessment", { title: `Weekly Check · ${week}`, type: "BENCHMARK", isAdaptive: false, maxQuestions: pick.length, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
+  // 🩹 Nov 2026: the title shows the week's first day in Riyadh (Sunday); `week` (the key) stays the UTC date it always was
+  const label = new Date(weekStart(now).getTime() + 3 * 3_600_000).toISOString().slice(0, 10);
+  const set = await repo.create("Assessment", { title: `Weekly Check · ${label}`, type: "BENCHMARK", isAdaptive: false, maxQuestions: pick.length, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
   await repo.createMany("AssessmentQuestion", pick.map((q, order) => ({ assessmentId: set.id, questionId: q.id, order, points: 1 })));
-  const a = await repo.create("Assignment", { classId: c.klass.id, createdById: lead.teacherId, title: `Weekly Check · ${week}`, target: "ASSESSMENT", track: "MAP", assessmentId: set.id, curriculumPlanId: WEEKLY_CHECK_MARK, note: "Weekly Check", createdAt: now, source: "MAP" });
+  const a = await repo.create("Assignment", { classId: c.klass.id, createdById: lead.teacherId, title: `Weekly Check · ${label}`, target: "ASSESSMENT", track: "MAP", assessmentId: set.id, curriculumPlanId: WEEKLY_CHECK_MARK, note: "Weekly Check", createdAt: now, source: "MAP" });
   await repo.create("AssignmentStudent", { assignmentId: a.id, studentId: c.studentId, status: "NOT_STARTED", progress: 0 });
   await repo.create("WeeklyCheck", { studentId: c.studentId, week, assignmentId: a.id, correct: 0, total: pick.length, ritBefore: est?.rit ?? (maps[0] ? Number(maps[0].rit) : null), ritAfter: null, completedAt: null, createdAt: now });
   return `/quiz/${s(a.id)}`;

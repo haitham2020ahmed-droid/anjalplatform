@@ -133,7 +133,7 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     repo.findMany("FluencyCheck", { studentId: { in: ids }, checkedAt: { gte: since } }, { select: ["studentId", "wcpm", "checkedAt"] }),
     safeIfBehind("early-warning.nafs", () => repo.findMany("NafsResult", { studentId: { in: ids }, submittedAt: { gte: since } }, { select: ["studentId", "points", "maxPoints", "submittedAt"] }), [] as Row[]),
     safeIfBehind("early-warning.writing", () => repo.findMany("WritingSubmission", { studentId: { in: ids }, scorePct: { not: null } }, { select: ["studentId", "scorePct", "returnedAt", "scoredAt", "submittedAt"] }), [] as Row[]),
-    safeIfBehind("early-warning.readrise", () => repo.findMany("RRLevelChange", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "fromLevel", "toLevel", "createdAt"] }), [] as Row[]),
+    safeIfBehind("early-warning.readrise", () => repo.findMany("RRLevelChange", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "fromLevel", "toLevel", "createdAt", "reason"] }), [] as Row[]),
     safeIfBehind("early-warning.readrise", () => repo.findMany("RRStudent", { studentId: { in: ids } }, { select: ["studentId", "level", "placedAt", "source"] }), [] as Row[]),
     safeIfBehind("early-warning.readrise", () => countGroups(repo, "RRRun", "studentId", { studentId: { in: ids }, completedAt: { gte: new Date(t - 28 * DAY) }, firstTry: true }), new Map<string, number>()),
     safeIfBehind("early-warning.checks", () => repo.findMany("ProgressCheck", { classId: { in: classIds }, createdAt: { gte: since } }, { select: ["assignmentId"] }), [] as Row[]),
@@ -176,7 +176,9 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
   // only real levels (after the placement or set by a teacher): a first visit's working start is not a level
   for (const st of rrStudents.filter((r) => readRisePlaced(r))) {
     const id = s(st.studentId), list = (rrBy.get(id) ?? []).sort((a, b) => time(a.createdAt) - time(b.createdAt));
-    if (list.length) add(id, "READRISE", time(list[0].createdAt) - 1, Number(list[0].fromLevel));
+    // 🩹 Nov 2026 (owner audit): a placement's "from" is the working start before the test (950 for a Grade 6 without
+    // MAP), not a level the student had — counting it made a first placement at 640L an URGENT "down 3 levels"
+    if (list.length && !/^Placement/.test(s(list[0].reason))) add(id, "READRISE", time(list[0].createdAt) - 1, Number(list[0].fromLevel));
     else add(id, "READRISE", Math.max(time(st.placedAt), since.getTime()), Number(st.level));
     for (const c of list) add(id, "READRISE", time(c.createdAt), Number(c.toLevel));
     rrFlatSince.set(id, list.length ? time(list[list.length - 1].createdAt) : time(st.placedAt));

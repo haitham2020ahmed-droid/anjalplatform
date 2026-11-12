@@ -38,12 +38,16 @@ export async function recordSoloResult(repo: Repo, actor: Actor, input: { roundI
  * (effort counts — right or wrong), refId = the play id, inside the shared 25-coins-a-day game cap. A coin problem
  * never loses the result row. Coins never change levels, scores or reports.
  */
+/** 🩹 Nov 2026: solo points come from the browser — at most this many per question served (the real maximum is ~400,
+ * a correct, fast, streak answer with Double Points; chest prizes stay well under it) */
+export const SOLO_POINTS_PER_QUESTION = 1000;
+
 export async function recordSoloPlay(repo: Repo, actor: Actor, input: { roundId: string; correct: number; incorrect: number; points: number; missed?: unknown }, now = new Date()): Promise<{ id: string; coins: number }> {
   if (actor.role !== "STUDENT" || !actor.studentId || !actor.schoolId) throw new ForbiddenError("Students play games.");
   const round = takeRound(s(input.roundId), actor.studentId);
   if (!round) throw new ValidationError("This round has ended. Press Play again.");
   const correct = int(input.correct, round.n), incorrect = int(input.incorrect, round.n - correct);
-  const id = await savePlay(repo, { schoolId: actor.schoolId, studentId: actor.studentId, skillId: round.skillId, gameId: round.gameId, mode: "SOLO", correct, incorrect, points: int(input.points, 100_000) }, now);
+  const id = await savePlay(repo, { schoolId: actor.schoolId, studentId: actor.studentId, skillId: round.skillId, gameId: round.gameId, mode: "SOLO", correct, incorrect, points: int(input.points, Math.max(1, round.n) * SOLO_POINTS_PER_QUESTION) }, now);
   // ⭐ every question missed in the round waits in Second Chance (only questions this round really served; never
   // levels, mastery or attempts — games never feed the engine)
   const served = new Set(round.ids);

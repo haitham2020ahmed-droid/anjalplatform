@@ -57,7 +57,9 @@ export async function studentLearningPath(repo: Repo, actor: Actor, studentId: s
     level: lv ? { level: s(lv.level), source: s(lv.source), at: iso(lv.updatedAt) } : null,
     categories: cats.map((c) => ({ category: s(c.category), name: CATEGORY_NAME[s(c.category) as Category] ?? s(c.category), level: s(c.level), at: iso(c.updatedAt) })).sort((a, b) => a.name.localeCompare(b.name)),
     history, journeys, answers30: recent.questions,
-    rapidPct30: recent.questions ? Math.round((100 * (recent.questions - recent.careful)) / recent.questions) : null,
+    // 🩹 Nov 2026 (owner audit): "careful" now drops only instant misclicks (guessing.ts), so questions − careful was
+    // ~0% even for a student guessing 80% of the time; the guessing share is the fast-AND-wrong share (100 − effort)
+    rapidPct30: recent.questions && recent.effort !== null ? 100 - recent.effort : null,
     // 📏 accuracy = right careful answers / careful answers (a rapid guess counts for nothing — the Practice and time rule)
     accuracy30: recent.accuracy,
   };

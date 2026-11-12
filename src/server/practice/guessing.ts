@@ -148,12 +148,18 @@ export function effortFromCounts(answers: number, guesses: number): SessionEffor
  * ⏸ The guessing pause: one alert to the student's teachers (their classes' teachers), calm and actionable. Never
  * shown to the student as a failure.
  */
+/** one guessing-pause alert per student and work within this time */
+export const PAUSE_ALERT_GAP_MS = 30 * 60_000;
 export async function notifyGuessPause(repo: Repo, studentId: string, where: string, now = new Date(), key = `pause|${now.toISOString()}`): Promise<number> {
   const [student, member] = await Promise.all([
     repo.findUnique("Student", { id: studentId }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
   ]);
   if (!student || !member.length) return 0;
+  // 🩹 Nov 2026 (owner audit): two pauses seconds apart on the same work sent the teachers two identical notifications
+  // — one alert per student and work within PAUSE_ALERT_GAP_MS
+  const recent = await repo.findMany("StudentAlert", { studentId, kind: "RAPID_GUESS", createdAt: { gte: new Date(now.getTime() - PAUSE_ALERT_GAP_MS) } }, { select: ["detail"] });
+  if (recent.some((r) => s(r.detail).includes(`“${where}”`))) return 0;
   // the alert in the teacher's Alerts list (with follow-up: what was done, handled) — once per pause
   try {
     await repo.create("StudentAlert", { schoolId: s(student.schoolId), classId: s(member[0].classId) || null, studentId, kind: "RAPID_GUESS", key: key.slice(0, 120), detail: `Practice paused in “${where}”: 5 of the last 10 answers were too fast to be read. Those answers did not count. Talk with the student.`.slice(0, 500), status: "OPEN", createdAt: now });

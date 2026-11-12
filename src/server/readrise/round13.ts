@@ -92,7 +92,7 @@ export const READRISE_ROUND13_JOB: JobDef<string> = {
   version: "r13",
   async step(repo, schoolId, _cursor, _state, now) {
     // not before the new questions are in the library: paused, tried again later (startup.ts retries every 15 min)
-    if (!(await librarySynced(repo))) throw new JobPaused();
+    if (!(await librarySynced(repo))) throw new JobPaused("waiting for the ReadRise library sync");
     const r = await round13School(repo, schoolId, now);
     return { cursor: null, done: true, progress: { ...r } };
   },

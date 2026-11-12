@@ -37,6 +37,7 @@ export const toDate = (v: unknown) => (v instanceof Date ? v : new Date(s(v)));
  *  - ONE bad article (even ≤ 25%) never moves the level (a bad day, a strange topic, a wrong click);
  *  - two in a row under 50% → −50 (was −100); two in a row at or under 25% → −100 (the texts are far too hard);
  *  - 3 of the last 4 under 50% with the latest under 50% → −50;
+ *  - round 14: the last 4 averaging under 60% (latest under 75%) → −50;
  *  - after an automatic drop, two in a row at 75%+ → +50 back at once (a wrong drop mends itself fast);
  *  - every automatic drop sends the class teachers a notification (information only: nothing to approve).
  */
@@ -49,6 +50,8 @@ export const ENGINE = {
   /** 🎯 round 11 (Achieve3000: "routinely ABOVE 75%"): the strong scores that move the level up must average above this */ upAverage: 75,
   /** 🌱 round 11 (Achieve3000: emerging readers can rise below 75%): an emerging reader's "strong" score */ upEmerging: 63,
   /** 🌱 below this level a reader is an emerging reader (Achieve3000's ER) */ emergingBelow: 50,
+  /** 📉 round 14 (owner audit: a reader averaging ~55% never moved down — 50% is not "under 50%"): the last 4 counted
+   * first tries averaging under this (latest under ENGINE.up) → down ENGINE.downSmall */ downAverage: 60,
 } as const;
 /**
  * 🛡️ Round 10 (owner, 11 Nov 2026: a Grade 5 reader placed at 1600 scored 38% and the level stayed): the first
@@ -241,6 +244,9 @@ export function levelDecision(scores: number[], opts: { afterDrop?: boolean; pro
   const last4 = scores.slice(-4);
   const low = last4.filter((x) => x < ENGINE.down).length;
   if (latest < ENGINE.down && low >= 3) return { delta: -ENGINE.downSmall, reason: `${low} of the last ${last4.length} first-try scores were under ${ENGINE.down}% (latest ${latest}%), so the articles were too hard` };
+  // 📉 round 14: texts that stay too hard without single scores under 50% (63, 50, 50, 63 …): the last 4 average under 60%
+  const mean = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
+  if (last4.length >= 4 && latest < ENGINE.up && mean(last4) < ENGINE.downAverage) return { delta: -ENGINE.downSmall, reason: `the last 4 first-try scores averaged ${Math.round(mean(last4))}% (under ${ENGINE.downAverage}%), so the articles were too hard` };
   // 🎯 round 11: up like Achieve3000 — strong scores must average ABOVE 75% (75, 75, 75 is not enough); an emerging
   // reader (level under 50) moves up from 63% (Achieve3000: emerging readers can rise below 75%)
   const emerging = opts.level !== undefined && opts.level !== null && Number(opts.level) < ENGINE.emergingBelow;

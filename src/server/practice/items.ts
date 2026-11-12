@@ -164,6 +164,39 @@ export async function loadQuestionItems(repo: Repo, questionIds: string[]): Prom
   return order(out);
 }
 
+/**
+ * 🩹 Nov 2026 (owner audit: the Diagnostic and teacher tests froze on a question the student could never see) — the
+ * ONE rule for "can this question be shown to a student", shared by every place that picks questions for a set
+ * (quiz order, the adaptive Diagnostic's design): published, auto-scored, and not a question that needs a reading
+ * passage it does not have. buildItems (below) applies exactly the same three checks when it loads a question, so a
+ * question this says is servable always loads, and one it rejects is never chosen and then dropped.
+ */
+export function servableRow(q: Row, autoScoredTypeIds: ReadonlySet<string>, passageBody: string | null): boolean {
+  const pid = q.passageId ? str(q.passageId) : null;
+  if (!autoScoredTypeIds.has(str(q.typeId))) return false;
+  if (!(pid && str(passageBody).trim()) && definitelyNeedsPassage(str(q.stem))) return false;
+  return !isDanglingPassageRef(pid, pid ? str(passageBody) : null);
+}
+const autoScoredTypes = (types: Row[]) => new Set(types.filter((t) => t.isAutoScored !== false && t.code !== "SHORT_ANSWER").map((t) => str(t.id)));
+
+/** The ids (of `ids`) that can be shown to a student — light: only the columns the rule needs, 500 at a time. */
+export async function servableIds(repo: Repo, ids: readonly string[]): Promise<Set<string>> {
+  const out = new Set<string>();
+  const uniq = [...new Set(ids)];
+  for (let i = 0; i < uniq.length; i += 500) {
+    const qs = await repo.findMany("Question", { id: { in: uniq.slice(i, i + 500) }, status: "PUBLISHED", deletedAt: null }, { select: ["id", "typeId", "stem", "passageId"] });
+    if (!qs.length) continue;
+    const pids = [...new Set(qs.map((q) => q.passageId).filter(Boolean).map(str))];
+    const [types, passages] = await Promise.all([
+      repo.findMany("QuestionType", { id: { in: [...new Set(qs.map((q) => str(q.typeId)))] } }),
+      pids.length ? repo.findMany("ReadingPassage", { id: { in: pids } }, { select: ["id", "body"] }) : Promise.resolve([] as Row[]),
+    ]);
+    const auto = autoScoredTypes(types), body = new Map(passages.map((p) => [str(p.id), str(p.body)]));
+    for (const q of qs) if (servableRow(q, auto, q.passageId ? body.get(str(q.passageId)) ?? "" : null)) out.add(str(q.id));
+  }
+  return out;
+}
+
 async function buildItems(repo: Repo, qs: Row[], holdBack = false): Promise<PracticeItem[]> {
   // holdBack (adaptive pools only, never a teacher's own set): misleading questions are held back, see below
   if (!qs.length) return [];
@@ -189,7 +222,7 @@ async function buildItems(repo: Repo, qs: Row[], holdBack = false): Promise<Prac
   const passage = new Map(passages.map((p) => [str(p.id), p]));
   const imageAlt = new Map(images.map((x) => [str(x.id), str(x.altText ?? "")]));
   // adaptive practice needs automatic scoring: teacher-scored types (SHORT_ANSWER) are never served
-  const autoScored = new Set(types.filter((t) => t.isAutoScored !== false && t.code !== "SHORT_ANSWER").map((t) => str(t.id)));
+  const autoScored = autoScoredTypes(types);
   const bad = new Set(stats.filter((x) => { const f = typeof x.flags === "string" ? JSON.parse(x.flags) : x.flags; return Array.isArray(f) && f.some((k) => k === "NEGATIVE_DISCRIMINATION" || k === "POSSIBLE_KEY_ERROR"); }).map((x) => str(x.questionId)));
   for (const id of held) bad.add(id); // open data alerts (src/server/questions/reclassify.ts)
   const perSkill = new Map<string, number>();
@@ -206,7 +239,8 @@ async function buildItems(repo: Repo, qs: Row[], holdBack = false): Promise<Prac
   // ⚡ each question's options / answers / explanations grouped once (was a scan of every row per question)
   const by = (rows: Row[]) => { const m = new Map<string, Row[]>(); for (const r of rows) { const k = str(r.questionId); const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
   const optsOf = by(opts), answersOf = by(answers), explOf = by(expl);
-  return qs.filter((q) => autoScored.has(str(q.typeId)) && !noText(q) && !orphaned(q)).map((q) => ({ ...toPracticeItem(q, optsOf.get(str(q.id)) ?? [], answersOf.get(str(q.id)) ?? [], explOf.get(str(q.id)) ?? [], typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
+  void noText; void orphaned; // the same checks as servableRow (kept named for the comments above)
+  return qs.filter((q) => servableRow(q, autoScored, q.passageId ? str(passage.get(str(q.passageId))?.body ?? "") : null)).map((q) => ({ ...toPracticeItem(q, optsOf.get(str(q.id)) ?? [], answersOf.get(str(q.id)) ?? [], explOf.get(str(q.id)) ?? [], typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
 }
 
 function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCode: Map<string, QuestionTypeCode>, passage: Map<string, Row>): PracticeItem {

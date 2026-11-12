@@ -186,7 +186,8 @@ async function saveState<C>(repo: Repo, id: string, state: JobState<C>, release 
 
 const sleep = (ms: number) => new Promise<void>((r) => (ms > 0 ? setTimeout(r, ms) : setImmediate(r)));
 
-export class JobPaused extends Error { constructor() { super("waiting for memory"); } }
+/** a job that cannot go on now: waiting for memory (the default) or for another job (`reason`) — tried again later */
+export class JobPaused extends Error { constructor(readonly reason = "waiting for memory") { super(reason); } }
 
 /** Waits while the server is above the memory thresholds (logged once per wait). Throws JobPaused after maxWaitMs. */
 export async function memoryGate(label: string): Promise<number> {
@@ -261,7 +262,7 @@ async function runJobUnlocked<C>(repo: Repo, def: JobDef<C>, schoolId: string, o
     if (e instanceof JobPaused) {
       state.inFlight = null;
       await saveState(repo, lease.id, state, true).catch(() => undefined);
-      log("warn", "jobs.paused_memory", { job: def.name, schoolId, batches: state.batches });
+      log("warn", e.reason === "waiting for memory" ? "jobs.paused_memory" : "jobs.paused", { job: def.name, schoolId, batches: state.batches, reason: e.reason });
       return { schoolId, ran: false, state, reason: "paused" };
     }
     state.inFlight = null;

@@ -440,7 +440,9 @@ export async function submitLocked(repo: Repo, actor: Actor, taskId: string, tex
   // the un-locked writing flow) — a student could press Submit with a near-empty essay. Only the manual path: a
   // timed-out auto-submit (above) must always go through, however short, since timing out should never block it.
   const floor = t.minWords ? Number(t.minWords) : 15;
-  if (countWords(body) < floor) throw new ValidationError(t.minWords ? `Write at least ${t.minWords} words (you have ${countWords(body)}).` : "Write your answer first.");
+  // 🩹 Nov 2026: with no teacher minimum the hidden floor (15) said "Write your answer first." to a student who had
+  // written 9 words — the number is shown now, like the teacher's own minimum
+  if (countWords(body) < floor) throw new ValidationError(countWords(body) === 0 ? "Write your answer first." : `Write at least ${floor} words (you have ${countWords(body)}).`);
   const n = await repo.updateMany("WritingSubmission", { taskId, studentId: sid, status: "DRAFT" }, { text: body, status: "SUBMITTED", submitMode: "MANUAL", submittedAt: now, autosavedAt: now });
   if (n) await event(repo, taskId, sid, "SUBMIT", `${countWords(body)} words.`, now);
   return stateOf(t, await getSub(repo, taskId, sid), now);
