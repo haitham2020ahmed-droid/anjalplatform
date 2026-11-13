@@ -94,7 +94,7 @@ export async function teacherDigests(repo: Repo, schoolId: string, now = new Dat
   return sent;
 }
 
-export interface DailyResult { rewards?: number; nafsPlans?: number; nafsReminders?: number; mapPlanReminders?: number; tiers: number; levelChanges?: number; declining?: number; highRisk: number; decayed: number; tagged: number; analysed: number; reclassified?: number; alerts?: number; skillFlags?: number; prerequisites: number; recommendations: number; interventions: number; profiles: number; digests: number; monthly?: number }
+export interface DailyResult { rewards?: number; nafsPlans?: number; nafsReminders?: number; mapPlanReminders?: number; tiers: number; skipped?: string[]; levelChanges?: number; declining?: number; highRisk: number; decayed: number; tagged: number; analysed: number; reclassified?: number; alerts?: number; skillFlags?: number; prerequisites: number; recommendations: number; interventions: number; profiles: number; digests: number; monthly?: number }
 
 /** Daily alert generation for one school: skill-support flags for enrolled students, then student alerts (forced scan). */
 export async function scanDailyAlerts(repo: Repo, schoolId: string, now = new Date()): Promise<{ interventions: number; alerts: number }> {
@@ -110,65 +110,103 @@ export async function scanDailyAlerts(repo: Repo, schoolId: string, now = new Da
 }
 
 /** The daily job for one school. */
-export async function runDaily(repo: Repo, schoolId: string, now = new Date()): Promise<DailyResult> {
-  // r68: before each heavy step the job waits while the server is near its memory limit (src/server/jobs/runner.ts)
-  const { memoryGate } = await import("../jobs/runner");
-  const gate = () => memoryGate("daily");
-  const students = (await repo.findMany("Student", { schoolId }, { select: ["id"] })).map((x) => s(x.id));
-  const settings = await repo.findMany("SchoolSetting", { schoolId, key: { in: ["adaptive.engine", "mastery.thresholds"] } });
-  const get = (k: string) => (settings.find((r: Row) => r.key === k)?.value ?? {}) as Record<string, unknown>;
-  const cfg = resolveEngineConfig(get("adaptive.engine"), get("mastery.thresholds"));
-  await gate();
-  const decayed = await decaySweep(repo, students, now, cfg.mastery);
+/** One step of the daily job: it returns its part of the result (steps are idempotent — a step may run again). */
+interface DailyStep { name: string; run: (repo: Repo, schoolId: string, now: Date) => Promise<Partial<DailyResult>> }
+
+/**
+ * 🩹 Nov 2026 (owner, Render log "daily.run.crash_loop_stopped"): the job was ONE long run — a deploy, a restart or a
+ * memory pause in the middle threw the whole run away, every attempt counted as "it stopped the server", and after 2
+ * the day's alerts, rewards, profiles and digests were simply not done. Now the job is a list of steps: after each one
+ * the place is saved (DailyCheckpoint), the next attempt CONTINUES from there, and only a step that was started
+ * MAX_STEP_TRIES times without finishing is skipped for the day (the rest still runs).
+ */
+const DAILY_STEPS: DailyStep[] = [
+  { name: "decay", async run(repo, schoolId, now) {
+    const students = (await repo.findMany("Student", { schoolId }, { select: ["id"] })).map((x) => s(x.id));
+    const settings = await repo.findMany("SchoolSetting", { schoolId, key: { in: ["adaptive.engine", "mastery.thresholds"] } });
+    const get = (k: string) => (settings.find((r: Row) => r.key === k)?.value ?? {}) as Record<string, unknown>;
+    const cfg = resolveEngineConfig(get("adaptive.engine"), get("mastery.thresholds"));
+    return { decayed: await decaySweep(repo, students, now, cfg.mastery) };
+  } },
   // platform-wide steps (not per school): once a day for all schools
-  await gate();
-  const { tagged, prerequisites, recommendations } = await platformDaily(repo, now);
+  { name: "platform", run: (repo, _s, now) => platformDaily(repo, now) },
   // 🧠 question intelligence for questions added or changed since the last run (bounded)
-  const { analyzeQuestions } = await import("../questions/intelligence");
-  await gate();
-  const analysed = (await analyzeQuestions(repo, schoolId, { limit: 3000 }, now)).analysed;
+  { name: "analyse", async run(repo, schoolId, now) { return { analysed: (await (await import("../questions/intelligence")).analyzeQuestions(repo, schoolId, { limit: 3000 }, now)).analysed }; } },
   // 🔁 re-classify questions from students' first answers (+ alerts; weekly: IRT calibration, admin notice)
-  const reclassified = (await (await import("../questions/reclassify")).questionDataDaily(repo, schoolId, now).catch((e) => { log("error", "reclassify.failed", { schoolId, error: e }); return null; }))?.changed ?? 0;
-  await gate();
-  const interventions = await evaluateInterventions(repo, now, schoolId);
+  { name: "reclassify", async run(repo, schoolId, now) { return { reclassified: (await (await import("../questions/reclassify")).questionDataDaily(repo, schoolId, now).catch((e) => { log("error", "reclassify.failed", { schoolId, error: e }); return null; }))?.changed ?? 0 }; } },
+  { name: "interventions", async run(repo, schoolId, now) { return { interventions: await evaluateInterventions(repo, now, schoolId) }; } },
   // ⚖️ overall levels: evaluated every day, changed only when confirmed (hysteresis + decline check, Update 39B)
-  const levels = await (await import("../curriculum-map/level-evidence")).refreshLevelStates(repo, schoolId, now).catch((e) => { log("error", "levels.refresh.failed", { schoolId, error: e }); return null; });
-  await gate();
-  const profiles = await buildProfiles(repo, schoolId, now);
+  { name: "levels", async run(repo, schoolId, now) {
+    const levels = await (await import("../curriculum-map/level-evidence")).refreshLevelStates(repo, schoolId, now).catch((e) => { log("error", "levels.refresh.failed", { schoolId, error: e }); return null; });
+    return { levelChanges: levels?.changed ?? 0, declining: levels?.declining ?? 0 };
+  } },
+  { name: "profiles", async run(repo, schoolId, now) { return { profiles: await buildProfiles(repo, schoolId, now) }; } },
   // 🚨 early warning, then 🔁 the models learn from the outcomes so far
-  const { computeRisks, trainRiskModel } = await import("../predict/risk");
-  const { learnActionWeights } = await import("./learning-weights");
-  await gate();
-  const risk = await computeRisks(repo, schoolId, now);
-  await learnActionWeights(repo, schoolId, now).catch(() => null);
-  // re-fit the risk model at most once a week (it reads a year of history)
-  const last = (await repo.findMany("PredictionModel", { schoolId, kind: "RISK" }, { select: ["trainedAt"] }))[0];
-  if (!last || now.getTime() - time(last.trainedAt) >= 7 * DAY) await trainRiskModel(repo, schoolId, now).catch((e) => log("error", "risk.train.failed", { schoolId, error: e }));
+  { name: "risk", async run(repo, schoolId, now) {
+    const { computeRisks, trainRiskModel } = await import("../predict/risk");
+    const risk = await computeRisks(repo, schoolId, now);
+    await (await import("./learning-weights")).learnActionWeights(repo, schoolId, now).catch(() => null);
+    // re-fit the risk model at most once a week (it reads a year of history)
+    const last = (await repo.findMany("PredictionModel", { schoolId, kind: "RISK" }, { select: ["trainedAt"] }))[0];
+    if (!last || now.getTime() - time(last.trainedAt) >= 7 * DAY) await trainRiskModel(repo, schoolId, now).catch((e) => log("error", "risk.train.failed", { schoolId, error: e }));
+    return { highRisk: risk.high };
+  } },
   // 🚨 alerts are generated here every day (readiness I-4), not only when someone opens an alert list:
   // skill-support flags (InterventionAlert) for enrolled students, then the student alerts (one open per kind)
-  await gate();
-  const alerts = await scanDailyAlerts(repo, schoolId, now).catch((e) => { log("error", "alerts.scan.failed", { schoolId, error: e }); return { interventions: 0, alerts: 0 }; });
+  { name: "alerts", async run(repo, schoolId, now) {
+    const a = await scanDailyAlerts(repo, schoolId, now).catch((e) => { log("error", "alerts.scan.failed", { schoolId, error: e }); return { interventions: 0, alerts: 0 }; });
+    return { alerts: a.alerts, skillFlags: a.interventions };
+  } },
   // 🧭 support tiers (RTI/MTSS): after the risks, which they read; a failure never stops the rest of the job
-  const { computeTiers } = await import("../tiers/tiers");
-  await gate();
-  const tiers = (await computeTiers(repo, schoolId, now).catch((e) => { log("error", "tiers.compute.failed", { schoolId, error: e }); return null; }))?.changed ?? 0;
+  { name: "tiers", async run(repo, schoolId, now) { return { tiers: (await (await import("../tiers/tiers")).computeTiers(repo, schoolId, now).catch((e) => { log("error", "tiers.compute.failed", { schoolId, error: e }); return null; }))?.changed ?? 0 }; } },
   // 🔤 decoding screener invitations for Tier 2/3 students with low fluency and comprehension (never stops the job)
-  await (await import("../word-study/screener")).queueDecodingScreens(repo, schoolId, now).catch((e) => log("error", "decoding.queue.failed", { schoolId, error: e }));
+  { name: "decoding", async run(repo, schoolId, now) { await (await import("../word-study/screener")).queueDecodingScreens(repo, schoolId, now).catch((e) => log("error", "decoding.queue.failed", { schoolId, error: e })); return {}; } },
   // 🇸🇦 NAFS tests past their due date (or submitted by everyone): personal NAFS plans from the results (bounded)
-  const nafsPlans = (await (await import("../tests/assessments")).autoPersonalizeNafsTests(repo, schoolId, now).catch((e) => { log("error", "nafs.personalize.failed", { schoolId, error: e }); return null; }))?.personalized ?? 0;
-  // 🇸🇦 🆕 feature (Oct 2026): a practice reminder for Grade 6 students below NAFS readiness who have gone quiet
-  // a few days (readiness.ts shares the same threshold as the student's own "ready for the real test" badge)
-  const nafsReminders = await (await import("../nafs/reminders")).nafsPracticeReminders(repo, schoolId, now).catch((e) => { log("error", "nafs.reminders.failed", { schoolId, error: e }); return 0; });
-  // 🗺️ 🆕 feature (Nov 2026): a teacher alert for a SENT MAP plan still fully untouched days after it was sent
-  const mapPlanReminders = await (await import("../map/plan-idle-reminders")).mapPlanIdleReminders(repo, schoolId, now).catch((e) => { log("error", "map.plan.reminders.failed", { schoolId, error: e }); return 0; });
-  // 🎖️ rewards (Games Part 3): coins, badges and automatic certificates for students active since yesterday — read
-  // only on learning data; a failure never stops the rest of the job
-  await gate();
-  const rewards = (await (await import("../motivation/sync")).syncSchoolRewards(repo, schoolId, now).catch((e) => { log("error", "rewards.sync.failed", { schoolId, error: e }); return null; }))?.students ?? 0;
+  { name: "nafsPlans", async run(repo, schoolId, now) { return { nafsPlans: (await (await import("../tests/assessments")).autoPersonalizeNafsTests(repo, schoolId, now).catch((e) => { log("error", "nafs.personalize.failed", { schoolId, error: e }); return null; }))?.personalized ?? 0 }; } },
+  // 🇸🇦 a practice reminder for Grade 6 students below NAFS readiness who have gone quiet a few days
+  { name: "nafsReminders", async run(repo, schoolId, now) { return { nafsReminders: await (await import("../nafs/reminders")).nafsPracticeReminders(repo, schoolId, now).catch((e) => { log("error", "nafs.reminders.failed", { schoolId, error: e }); return 0; }) }; } },
+  // 🗺️ a teacher alert for a SENT MAP plan still fully untouched days after it was sent
+  { name: "mapPlanReminders", async run(repo, schoolId, now) { return { mapPlanReminders: await (await import("../map/plan-idle-reminders")).mapPlanIdleReminders(repo, schoolId, now).catch((e) => { log("error", "map.plan.reminders.failed", { schoolId, error: e }); return 0; }) }; } },
+  // 🎖️ rewards (Games Part 3): coins, badges and automatic certificates for students active since yesterday
+  { name: "rewards", async run(repo, schoolId, now) { return { rewards: (await (await import("../motivation/sync")).syncSchoolRewards(repo, schoolId, now).catch((e) => { log("error", "rewards.sync.failed", { schoolId, error: e }); return null; }))?.students ?? 0 }; } },
   // 📅 month end: the monthly family reports as drafts for the teachers to review (first 7 days of a month, once)
-  const monthly = await (await import("../reports/monthly-report")).generateMonthlyReports(repo, schoolId, now).catch((e) => { log("error", "monthly.reports.failed", { schoolId, error: e }); return 0; });
-  const digests = await teacherDigests(repo, schoolId, now);
-  return { rewards, nafsPlans, nafsReminders, mapPlanReminders, tiers, levelChanges: levels?.changed ?? 0, declining: levels?.declining ?? 0, decayed, tagged, analysed, reclassified, prerequisites, recommendations, interventions, profiles, highRisk: risk.high, digests, alerts: alerts.alerts, skillFlags: alerts.interventions, monthly };
+  { name: "monthly", async run(repo, schoolId, now) { return { monthly: await (await import("../reports/monthly-report")).generateMonthlyReports(repo, schoolId, now).catch((e) => { log("error", "monthly.reports.failed", { schoolId, error: e }); return 0; }) }; } },
+  { name: "digests", async run(repo, schoolId, now) { return { digests: await teacherDigests(repo, schoolId, now) }; } },
+];
+export const DAILY_STEP_NAMES: readonly string[] = DAILY_STEPS.map((x) => x.name);
+
+/** Where a day's run is (saved in its daily.run.<day> setting after every step). */
+export interface DailyCheckpoint { step: number; result: Partial<DailyResult>; tries: Record<string, number>; skipped: string[] }
+/** A step started this many times without finishing (the server stopped in it each time) is skipped for the day. */
+export const MAX_STEP_TRIES = 2;
+
+/**
+ * Runs the day's steps from `cp.step` on. `save` (optional) is called before each step (its try is counted) and
+ * after it (the place moves on), so an interrupted run continues where it stopped. The memory gate between steps may
+ * throw JobPaused: the step is then not counted as a try (nothing crashed) and the run continues later.
+ */
+export async function runDailySteps(repo: Repo, schoolId: string, now = new Date(), cp: DailyCheckpoint = { step: 0, result: {}, tries: {}, skipped: [] }, save?: (cp: DailyCheckpoint) => Promise<void>): Promise<DailyResult> {
+  // r68: before each heavy step the job waits while the server is near its memory limit (src/server/jobs/runner.ts)
+  const { memoryGate } = await import("../jobs/runner");
+  for (let i = cp.step; i < DAILY_STEPS.length; i++) {
+    const st = DAILY_STEPS[i];
+    if ((cp.tries[st.name] ?? 0) >= MAX_STEP_TRIES) {
+      if (!cp.skipped.includes(st.name)) { cp.skipped.push(st.name); log("error", "daily.step.skipped", { schoolId, step: st.name, tries: cp.tries[st.name] }); }
+      cp.step = i + 1; await save?.(cp); continue;
+    }
+    await memoryGate(`daily.${st.name}`); // may throw JobPaused (not a try: nothing has started)
+    cp.tries[st.name] = (cp.tries[st.name] ?? 0) + 1;
+    await save?.(cp);
+    Object.assign(cp.result, await st.run(repo, schoolId, now));
+    cp.step = i + 1;
+    await save?.(cp);
+  }
+  const r = cp.result;
+  return { decayed: 0, tagged: 0, prerequisites: 0, recommendations: 0, analysed: 0, interventions: 0, profiles: 0, highRisk: 0, tiers: 0, digests: 0, ...r, ...(cp.skipped.length ? { skipped: [...cp.skipped] } : {}) } as DailyResult;
+}
+
+export async function runDaily(repo: Repo, schoolId: string, now = new Date()): Promise<DailyResult> {
+  return runDailySteps(repo, schoolId, now);
 }
 
 /** The school day in Riyadh (the job runs once per school per day). */
@@ -195,48 +233,67 @@ export async function platformDaily(repo: Repo, now = new Date()): Promise<{ tag
   }
 }
 
-/** A claim with no done mark older than this is treated as a crashed run and may be claimed again. */
-export const STALE_CLAIM_MS = 2 * 3_600_000;
-/** A day's run that never finished is retried at most this many times (then it waits for the next day). */
-export const MAX_DAILY_RETRIES = 2;
+/**
+ * 🩹 Nov 2026: a day's run that has not saved a step for this long is dead (its process stopped: a deploy, a restart,
+ * a crash) and the next teacher/admin visit continues it from its last step. (Was: 2 hours, and the whole run again.)
+ */
+export const STALE_CLAIM_MS = 15 * 60_000;
+/** A run paused by the memory gate may be continued after this (memory usually settles within minutes). */
+export const PAUSED_RETRY_MS = 5 * 60_000;
+/** kept for old imports — the per-step limit is MAX_STEP_TRIES */
+export const MAX_DAILY_RETRIES = MAX_STEP_TRIES;
 
-/** Claims today's run for the school: a new claim, or a stale one (started 2+ h ago, never finished). */
-async function claimDay(repo: Repo, schoolId: string, key: string, now: Date): Promise<boolean> {
+interface DailyClaim { startedAt?: string; beatAt?: string; pausedAt?: string | null; doneAt?: string; profiles?: unknown; cp?: DailyCheckpoint; retries?: number }
+const parse = (v: unknown): DailyClaim => (typeof v === "string" ? JSON.parse(v) : v ?? {}) as DailyClaim;
+
+/** Claims today's run for the school: a new claim, or one whose run stopped (no step saved for 15 min, or paused). */
+async function claimDay(repo: Repo, schoolId: string, key: string, now: Date): Promise<DailyCheckpoint | null> {
   // r68: read first — the usual "already claimed today" is no failed insert ("Unique constraint failed" in the log)
   const { claimSetting } = await import("../jobs/runner");
-  if (await claimSetting(repo, schoolId, key, { startedAt: now.toISOString() })) return true;
-  {
-    // already claimed today (unique schoolId + key): take it over only if that run crashed
-    const row = (await repo.findMany("SchoolSetting", { schoolId, key }))[0];
-    if (!row) return false;
-    const v = (typeof row.value === "string" ? JSON.parse(row.value) : row.value ?? {}) as Record<string, unknown>;
-    const done = Boolean(v.doneAt) || v.profiles !== undefined; // the nightly script saves the result without doneAt
-    const started = time(v.startedAt);
-    if (done || !(now.getTime() - started >= STALE_CLAIM_MS)) return false;
-    // 🛟 a run that stopped the server MAX_DAILY_RETRIES times today is not started again today (Update 42A: no crash loop)
-    const retries = Number(v.retries ?? 0);
-    if (retries >= MAX_DAILY_RETRIES) { log("error", "daily.run.crash_loop_stopped", { schoolId, key, retries }); return false; }
-    // compare-and-set on updatedAt: of two visitors, only one takes the stale claim
-    const n = await repo.updateMany("SchoolSetting", { schoolId, key, updatedAt: row.updatedAt }, { value: { startedAt: now.toISOString(), retryOf: v.startedAt ?? null, retries: retries + 1 } });
-    return n === 1;
-  }
+  const fresh: DailyCheckpoint = { step: 0, result: {}, tries: {}, skipped: [] };
+  if (await claimSetting(repo, schoolId, key, { startedAt: now.toISOString(), beatAt: now.toISOString(), cp: fresh })) return fresh;
+  // already claimed today (unique schoolId + key): continue it only if that run stopped
+  const row = (await repo.findMany("SchoolSetting", { schoolId, key }))[0];
+  if (!row) return null;
+  const v = parse(row.value);
+  if (v.doneAt || v.profiles !== undefined) return null; // the nightly script saves the result without doneAt
+  const beat = time(v.beatAt ?? v.startedAt);
+  const stopped = v.pausedAt ? now.getTime() - time(v.pausedAt) >= PAUSED_RETRY_MS : now.getTime() - beat >= STALE_CLAIM_MS;
+  if (!stopped) return null;
+  // a claim from before Nov 2026 (no checkpoint): its whole run counts as one try of the first step
+  const cp: DailyCheckpoint = v.cp ?? { ...fresh, tries: { [DAILY_STEP_NAMES[0]]: Math.min(Number(v.retries ?? 0), MAX_STEP_TRIES) } };
+  // compare-and-set on updatedAt: of two visitors, only one takes the stopped claim
+  const n = await repo.updateMany("SchoolSetting", { schoolId, key, updatedAt: row.updatedAt }, { value: { ...v, beatAt: now.toISOString(), pausedAt: null, cp } });
+  return n === 1 ? cp : null;
 }
 
 /**
- * Starts today's job for the school if it has not run yet (claims the day first, so two visits never run it
- * twice). Does not wait for it. Returns true when it started.
+ * Starts (or continues) today's job for the school if it has not finished yet (claims the day first, so two visits
+ * never run it side by side). Does not wait for it. Returns true when it started.
  */
 export async function maybeRunDaily(repo: Repo, schoolId: string | null, now = new Date()): Promise<boolean> {
   if (!schoolId) return false;
   // 🧠 the server is near its memory limit: do not claim the day now — the next teacher/admin visit starts it
   if (memoryHigh()) { log("warn", "daily.run.deferred_memory", { schoolId, rssMB: rssMb() }); return false; }
   const key = `daily.run.${riyadhDay(now)}`;
-  if (!(await claimDay(repo, schoolId, key, now))) return false;
+  const cp = await claimDay(repo, schoolId, key, now);
+  if (!cp) return false;
+  const write = async (value: Record<string, unknown>) => {
+    const row = (await repo.findMany("SchoolSetting", { schoolId, key }))[0];
+    const merged = { ...parse(row?.value), ...value };
+    await repo.upsert("SchoolSetting", { schoolId, key }, { value: merged }, { value: merged });
+  };
+  const save = (c: DailyCheckpoint) => write({ cp: c, beatAt: new Date().toISOString() }).catch((e) => log("error", "daily.checkpoint.failed", { schoolId, key, error: e }));
+  const { inJobSlot, JobPaused } = await import("../jobs/runner");
   // one heavy job at a time in this process (never side by side with an alert scan or the library load)
   // r68: in the job runner's slot (never beside a startup job), with its memory gate between the steps
-  void (await import("../jobs/runner")).inJobSlot(`daily|${schoolId}`, () => runDaily(repo, schoolId, now))
-    .then((r) => repo.upsert("SchoolSetting", { schoolId, key }, { value: { ...r, doneAt: new Date().toISOString() } }, { value: { ...r, doneAt: new Date().toISOString() } }).catch((e) => log("error", "daily.done_mark.failed", { schoolId, key, error: e })))
-    .catch((e) => log("error", "daily.run.failed", { schoolId, key, error: e }));
+  void inJobSlot(`daily|${schoolId}`, () => runDailySteps(repo, schoolId, now, cp, save))
+    .then((r) => write({ ...r, doneAt: new Date().toISOString(), pausedAt: null }).catch((e) => log("error", "daily.done_mark.failed", { schoolId, key, error: e })))
+    .catch((e) => {
+      // ⏸ paused for memory: not a failure — the place is kept and a visit in a few minutes continues it
+      if (e instanceof JobPaused) { log("warn", "daily.run.paused", { schoolId, key, step: DAILY_STEP_NAMES[cp.step] ?? null, reason: e.reason }); void write({ pausedAt: new Date().toISOString() }).catch(() => undefined); return; }
+      log("error", "daily.run.failed", { schoolId, key, step: DAILY_STEP_NAMES[cp.step] ?? null, error: e });
+    });
   return true;
 }
 

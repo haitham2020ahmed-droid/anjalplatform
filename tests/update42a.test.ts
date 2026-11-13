@@ -222,13 +222,16 @@ describe("update 42A: memory-safe question import (database)", () => {
     assert.equal((await repo.findUnique("AiJob", { id: job.id }))!.status, "FAILED");
   });
 
-  test("the daily job is not retried a third time after it stopped the server twice the same day", async () => {
+  test("a day's run that stopped the server twice in the same step skips THAT step, not the whole day (Nov 2026)", async () => {
     const now = new Date();
     const key = `daily.run.${riyadhDay(now)}`;
     const startedAt = new Date(now.getTime() - 3 * 3_600_000).toISOString();
     await repo.deleteMany("SchoolSetting", { schoolId: admin.schoolId, key });
+    // an old-style claim (before checkpoints): retries 2 = its first step was started twice and never finished
     await repo.create("SchoolSetting", { schoolId: admin.schoolId, key, value: { startedAt, retries: 2 }, updatedBy: null });
-    assert.equal(await maybeRunDaily(repo, admin.schoolId!, now), false);
+    assert.equal(await maybeRunDaily(repo, admin.schoolId!, now), true, "the day continues");
+    const v = (await repo.findMany("SchoolSetting", { schoolId: admin.schoolId, key }))[0]!.value as unknown as { cp: { tries: Record<string, number> } };
+    assert.equal((typeof v === "string" ? JSON.parse(v) : v).cp.tries.decay, 2, "the crashing step is marked, so it is skipped");
   });
 
   test("the streamed roster backup has the same content as the one-piece backup", async () => {
