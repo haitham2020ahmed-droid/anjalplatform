@@ -207,7 +207,7 @@ describe("Update 39A · readiness fixes", () => {
     const r = await scanDailyAlerts(repo, admin.schoolId!, new Date(now.getTime() + 9 * DAY));
     assert.ok(r.alerts > 0, JSON.stringify(r));
     const src = readFileSync(join(ROOT, "src/server/insights/daily.ts"), "utf8");
-    assert.match(src, /const alerts = await scanDailyAlerts\(repo, schoolId, now\)/, "runDaily calls it");
+    assert.match(src, /await scanDailyAlerts\(repo, schoolId, now\)/, "runDaily calls it (its \"alerts\" step, Nov 2026)");
     assert.doesNotMatch(readFileSync(join(ROOT, "src/app/teacher/classes/[classId]/page.tsx"), "utf8"), /scanInterventions/, "the class page is read-only");
   });
 

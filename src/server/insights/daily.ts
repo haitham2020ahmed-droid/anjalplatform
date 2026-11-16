@@ -187,7 +187,7 @@ export const MAX_STEP_TRIES = 2;
  */
 export async function runDailySteps(repo: Repo, schoolId: string, now = new Date(), cp: DailyCheckpoint = { step: 0, result: {}, tries: {}, skipped: [] }, save?: (cp: DailyCheckpoint) => Promise<void>): Promise<DailyResult> {
   // r68: before each heavy step the job waits while the server is near its memory limit (src/server/jobs/runner.ts)
-  const { memoryGate } = await import("../jobs/runner");
+  const { memoryGate, JobPaused } = await import("../jobs/runner");
   for (let i = cp.step; i < DAILY_STEPS.length; i++) {
     const st = DAILY_STEPS[i];
     if ((cp.tries[st.name] ?? 0) >= MAX_STEP_TRIES) {
@@ -197,7 +197,12 @@ export async function runDailySteps(repo: Repo, schoolId: string, now = new Date
     await memoryGate(`daily.${st.name}`); // may throw JobPaused (not a try: nothing has started)
     cp.tries[st.name] = (cp.tries[st.name] ?? 0) + 1;
     await save?.(cp);
-    Object.assign(cp.result, await st.run(repo, schoolId, now));
+    try { Object.assign(cp.result, await st.run(repo, schoolId, now)); }
+    catch (e) {
+      // ⏸ a memory pause inside a step (between its chunks) is not a try either: what it saved stays, it continues later
+      if (e instanceof JobPaused) { cp.tries[st.name] = Math.max(0, (cp.tries[st.name] ?? 1) - 1); await save?.(cp); }
+      throw e;
+    }
     cp.step = i + 1;
     await save?.(cp);
   }

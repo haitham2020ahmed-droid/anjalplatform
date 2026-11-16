@@ -51,6 +51,9 @@ async function passageText(repo: Repo, qs: Row[]): Promise<Map<string, string>> 
  * Analyses questions not analysed yet (or the given ones). Returns what was filled and how many suggestions were made.
  * Bounded: `limit` questions per run (the daily job and the admin button repeat it).
  */
+/** 🩹 Nov 2026: questions analysed per chunk by the whole-school run (each chunk read, analysed and saved on its own) */
+export const ANALYSE_CHUNK = 250;
+
 export async function analyzeQuestions(repo: Repo, schoolId: string, opts: { questionIds?: string[]; limit?: number; force?: boolean; actor?: Actor } = {}, now = new Date()): Promise<{ analysed: number; dokFilled: number; suggestions: number; misconceptions: number; literacyTagged?: number }> {
   // r86: an optional actor-level gate, same rule as confirmMetadata/confirmSkillMetadata below — callers with no
   // user in the loop (the nightly job in insights/daily.ts, the post-import analysis) keep working unchanged by
@@ -67,6 +70,24 @@ export async function analyzeQuestions(repo: Repo, schoolId: string, opts: { que
     skills = master.filter((k) => cat.has(k.id)).map((k) => ({ ...k, category: cat.get(k.id) ?? "" }));
     const mine = new Set(skills.map((k) => k.id));
     questions = questions.filter((q) => mine.has(s(q.skillId)));
+  } else if (!opts.force) {
+    // 🩹 Nov 2026 (owner, Render log "daily.step.skipped analyse"): the nightly run read EVERY question of the school
+    // (full rows) to find the few not analysed yet, then analysed up to 3000 at once — on the 512 MB server the step
+    // never finished, so the same 3000 came back every day. Now: the ids still to analyse (one light query), then
+    // ANALYSE_CHUNK at a time — each chunk is saved (intelligenceAt) before the next, with the memory gate between,
+    // so an interrupted run keeps what it did and the next one continues
+    const master = await masterSkills(repo, schoolId);
+    if (!master.length) return { analysed: 0, dokFilled: 0, suggestions: 0, misconceptions: 0 };
+    const ids = (await repo.findMany("Question", { skillId: { in: master.map((k) => k.id) }, deletedAt: null, intelligenceAt: null }, { select: ["id", "status"] }))
+      .filter((q) => q.status !== "ARCHIVED").map((q) => s(q.id)).slice(0, opts.limit ?? 3000);
+    const total = { analysed: 0, dokFilled: 0, suggestions: 0, misconceptions: 0, literacyTagged: 0 };
+    const { memoryGate } = await import("../jobs/runner");
+    for (let i = 0; i < ids.length; i += ANALYSE_CHUNK) {
+      if (i) await memoryGate("intelligence.analyse");
+      const r = await analyzeQuestions(repo, schoolId, { questionIds: ids.slice(i, i + ANALYSE_CHUNK) }, now);
+      total.analysed += r.analysed; total.dokFilled += r.dokFilled; total.suggestions += r.suggestions; total.misconceptions += r.misconceptions; total.literacyTagged += r.literacyTagged ?? 0;
+    }
+    return total;
   } else ({ skills, questions } = await schoolQuestionRows(repo, schoolId));
   const pick = questions.filter((q) => (opts.questionIds ? true : opts.force || !q.intelligenceAt)).slice(0, opts.limit ?? 3000);
   if (!pick.length) return { analysed: 0, dokFilled: 0, suggestions: 0, misconceptions: 0 };
